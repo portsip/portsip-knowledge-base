@@ -1,4 +1,4 @@
-# PortSIP PBX
+# Overview
 
 ## Our product is not built on Asterisk and FreeSwitch.
 
@@ -79,11 +79,8 @@ The solution includes the following features:
 
 ## Deployment Architecture
 
-<figure><img src=".gitbook/assets/pbx_diagram_v16.drawio.png" alt=""><figcaption></figcaption></figure>
-
-##
+<figure><img src="../.gitbook/assets/pbx_diagram_v16.drawio.png" alt=""><figcaption></figcaption></figure>
 
 ## Design Architecture
 
-<figure><img src=".gitbook/assets/design_arch.png" alt=""><figcaption></figcaption></figure>
-
+<figure><img src="../.gitbook/assets/design_arch.png" alt=""><figcaption></figcaption></figure>
