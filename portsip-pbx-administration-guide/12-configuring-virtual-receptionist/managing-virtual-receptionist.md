@@ -18,17 +18,47 @@ You can create multiple digital receptionists and link them to a particular line
 
 To create a virtual receptionist:
 
-1. In the Web Portal menu, click **Advanced Services > Virtual Receptionist**, and double-click the **Add** button.
-2. Specify the name and extension number of the virtual receptionist.
-3. By default, PBX uses the system-predefined audio file for the prompt. Click on the **Browse** button to select a file that you previously recorded for the prompt menu. Besides, the user may also choose the prompt language for virtual receptionist in **Virtual Receptionist Language**
-4. The prompt when the call is transferring - The prompt file will be played when the call is transferring after the caller presses DTMF.
-5. Virtual Receptionist Language - The language for the prompt files
-6. Menu options. Click the **Add** button to specify actions and the extension number or system extension number for each of the numeric keys. If the action is directed to a specific extension, ring group, call queue, or another virtual receptionist, please also select the target extension number you desired
-7. User Input: this option allows you to determine when the virtual attendant will begin the search for an extension that matches the user’s input. The available options are detailed below:
-   * When Extension Matches: The virtual attendant will wait until the caller’s digit sequence matches an existing account. Once the virtual attendant finds a match, it will call that extension. This mechanism is useful when accounts of varying name lengths are used; however, it might be annoying to callers who enter a non-existing number since the virtual attendant will never begin the search
-   * Gap time between DTMF digits (seconds): The virtual attendant will wait until the time in seconds has passed before searching for an account that matches. If the account does not exist, the system will play an announcement indicating that the extension does not exist.
-8. Timeout allows you to specify how long the system should wait for an input. If it receives no input, it will automatically perform this action. This is for callers who do not understand the menu or who do not have a DTMF-capable phone. When ready, click **OK** to save the virtual receptionist.
-9. If the extension user enters a DTMF value or key that is not defined in Step 4, the action fails. User may define how the call should be handled in such case in the **Calling failed** section, and the extension number (if necessary)
+1. Navigate to the **Advanced Services > Virtual Receptionist** option in the Web Portal menu, then click the **Add** button.
+2. On the **General** tab, enter the name and extension number for the virtual receptionist.
+3. By default, the PBX uses a system-predefined audio file for the prompt. To use a custom file, click the **Browse** button and select a previously recorded file for the prompt menu. Additionally, you can select the prompt language for the virtual receptionist under **Virtual Receptionist Language**.
+4. **Prompt When Call is Transferring**: This is the prompt file that will be played when the call is being transferred after the caller presses a DTMF key.
+5. **Virtual Receptionist Language**: This is the language used for the prompt files.
+6. **Gap Time Between DTMF Digits (Seconds)**: This is the time the virtual attendant will wait before searching for an account that matches the entered digits. If the account does not exist, the system will play an announcement indicating that the extension does not exist.
+7. **DISA PIN**: If you want to set the DISA feature within the virtual receptionist, you can set the PIN for accessing the DISA feature. For more details, please refer to [Direct Inward System Access](direct-inward-system-access-disa.md).
+8. **Verify the PIN for DISA**: This indicates whether the virtual receptionist should verify the PIN for DISA.
+9. **Timeout (Seconds)**: This allows you to specify how long the virtual receptionist should wait for a DTMF input. If no input is received, it will automatically perform the default action. This is for callers who do not understand the menu or who do not have a DTMF-capable phone.
+10. **Call Failure**: If the caller enters a DTMF value or key that is not defined in **Menu Options**, the action fails. You can define how the call should be handled in such cases in this **Call Failure** section.
+
+## Menu Options
+
+In the **Menu Options** tab, you specify actions and the extension number or system extension number for each of the numeric keys input by the caller via DTMF. If the action is directed to a specific extension, ring group, call queue, or another virtual receptionist, please also select the target extension number you desire.
+
+### **User Input**
+
+This option allows you to control when the virtual attendant will start searching for an extension that matches the user’s input. The following behavior is expected when the caller presses the DTMF key 2:
+
+* If the current time is within office hours, the call will be forwarded to extension 2001.
+* If it’s outside of office hours, the call will be hung up.
+* If it’s during holidays, the call will be forwarded to the voicemail of extension 102.
+
+<figure><img src="../../.gitbook/assets/vr_menu_options.png" alt=""><figcaption></figcaption></figure>
+
+The virtual attendant will wait until the caller’s digit sequence matches an existing account. Once a match is found, the virtual attendant will initiate a call to that extension. This mechanism is beneficial when accounts of varying lengths are used. However, it might be frustrating for callers who enter a non-existing number, as the virtual attendant will never start the search.
+
+### **Office Hours**
+
+Define the office hours for this DTMF input by clicking the **Office Hours** button, you have two options:
+
+* **Use the default Global Office Hours** from the tenant scope.
+* Specify custom office hours by selecting the **Use specific Office Hours** option.
+
+By default, a DTMF input will follow the office hours set at the tenant level.
+
+<figure><img src="../../.gitbook/assets/vr_menu_options_1.png" alt=""><figcaption></figcaption></figure>
+
+### **Holidays**
+
+Set the holidays for this DTMF input by clicking the **Holidays** button. You can select a holiday list from the tenant scope by clicking the **Select Holidays** button.
 
 ## **Direct Destinations**
 
@@ -36,20 +66,19 @@ The Direct Destinations feature is somewhat like a built-in version of the IVR s
 
 To direct inbound calls to specified extensions, you can use the pre-configured destination fields and link them to pre-recorded announcements and user input options.
 
-Using the sample shown below, the virtual receptionist’s welcome message will be as follows: “**For Sales, press 1. For Support, press 2. For Accounting, press 3. For all other inquiries, press 0**.” (The user input options are linked to extensions 8000, 8001, 8002, and 8003.)
+Using the sample shown below, the virtual receptionist’s welcome message will be as follows: "**For Sales, press 1. For Support, press 2. For all other inquiries, press 0**." (The user input options are linked to extensions 8003, 8000, and 8001.)
 
-<figure><img src="../../.gitbook/assets/portsip-ivr-options.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/vr_menu_options_3.png" alt=""><figcaption></figcaption></figure>
 
-When configuring straight forward, uncomplicated virtual receptionists, a direct destination is a great solution. However, when configuring virtual receptionists that require advanced IVR development and functionality, the IVR node is recommended.
+For simple virtual receptionist configurations, a direct destination is an excellent choice. However, for virtual receptionists that require advanced IVR development and functionality, the use of an IVR node is advised.
 
-Once the direct destination links have been established, the system will call the destination number whenever a caller enters the number that is associated with it. In the sample shown above, when the caller presses 2, the call will be connected to extension **8001**.
+Once the direct destination links are set up, the system will dial the destination number whenever a caller inputs the number associated with it. For instance as in the above screenshot, if a caller presses **2**, the call will be routed to extension **8001**.
 
-By placing a pound sign after the direct destination (e.g., “**2#**”), the system will wait 3 seconds before dialing the direct destination. This is useful if you have extension numbers in the 100 range (101, 102, etc.). The 3-second delay ensures that the caller’s complete input (e.g., 101) will be processed rather than just the first digit.
+By appending a pound sign to the direct destination (e.g., "2#"), the system will pause for 3 seconds before dialing the direct destination. This feature is particularly useful for extension numbers in the 100 range (101, 102, etc.). The 3-second delay ensures that the system processes the caller’s complete input (e.g., 101) rather than just the first digit.
 
-* **User Input:** This number can be one or multiple digits; however, the system dials direct destinations immediately after a user has provided keypad input, so overlapping between a direct destination and an extension number can be a problem. For example, extensions starting with “**1**” would conflict with a direct destination of “**1**” because the system would be unable to dial the extension number. The best way to avoid this situation is to choose extension numbers that do not overlap with either direct destinations or mailbox and outbound call prefixes. The extension range 4xx through 7xx meets these criteria. Wild cards can also be used in this field.
-  * If circumstances render it difficult to change the extension assignments (e.g., business cards with extension numbers already in circulation), a timeout mechanism can be used. By placing a pound sign after the direct destination (e.g., “1#”), the system will wait for 3 seconds before dialing the destination.
-  * To redirect fax messages to a specific destination, you can use the direct destination “**F**”. The CNG tone that announces a fax tone is recognized by the system and is translated into the “**F**” key.
-* **Destination**: This number can be either an internal number (e.g., an extension or conference room).
+* **User Input:** This number can be a single digit or multiple digits. However, the system dials direct destinations immediately after a user has entered their keypad input. This can cause overlap issues between a direct destination and an extension number. For instance, extensions beginning with '1' would conflict with a direct destination of '1', as the system would be unable to dial the extension number. To avoid this, choose extension numbers that do not overlap with direct destinations or mailbox and outbound call prefixes. The extension range 4xx through 7xx is a good choice.&#x20;
+  * If it’s challenging to change the extension assignments (e.g., business cards with extension numbers have already been distributed), a timeout mechanism can be employed. By appending a pound sign to the direct destination (e.g., '1#'), the system will pause for 3 seconds before dialing the destination.
+* **Destination Extension**: This number can be either an internal number (e.g., an extension or conference room).
 
 ## Allowing Callers to Dial a Known Extension Directly
 
@@ -126,4 +155,4 @@ PortSIP PBX has defined the following response to HTTP requests sent by Virtual 
 }
 ```
 
-Once the Virtual Receptionist has received the response as above, it will forward the call to extension **222**.
+Once the Virtual Receptionist has received the response as above, it will forward the call to extension **222** which is indicated in the JSON response.
