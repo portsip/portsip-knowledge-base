@@ -3,10 +3,10 @@
 This guide is for upgrading your current PortSIP SBC **v10.x** installation to the latest version. Please follow the steps below to upgrade.
 
 {% hint style="info" %}
-Please ensure that your current PortSIP SBC installation is version **10.x.**
+Please ensure that your current PortSIP SBC installation is version **10.x** versions**.**
 {% endhint %}
 
-## Open firewall Rule for Port 10443
+## Open Firewall Rule for Port 10443
 
 From version 10.0.1, the PortSIP SBC changed the WebRTC client port to **10443**; therefore, you must create a new firewall rule for port 10443 on TCP if you upgrading from v10.0.0.
 
