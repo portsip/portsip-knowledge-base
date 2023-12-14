@@ -28,7 +28,7 @@ We recommend backing up your PBX data. The data file path is usually `/var/lib/p
 All commands must be executed in the **`/opt/portsip`** directory.
 {% endhint %}
 
-### Stop PBX Docker Instance
+### Step 1 Stop PBX Docker Instance
 
 Perform the following commands as root to stop the current PBX Docker instance:
 
@@ -36,7 +36,7 @@ Perform the following commands as root to stop the current PBX Docker instance:
 cd /opt/portsip && /bin/sh pbx_ctl.sh stop
 ```
 
-### Delete the PBX Docker Instance
+### Step 2 Delete the PBX Docker Instance
 
 Perform the following command to delete the PBX Docker instance:
 
@@ -44,7 +44,7 @@ Perform the following command to delete the PBX Docker instance:
 /bin/sh pbx_ctl.sh rm
 ```
 
-### List the PBX Docker Images
+### Step 3 List the PBX Docker Images
 
 Perform the following command to list the PBX Docker images:
 
@@ -64,7 +64,7 @@ You can use the following command to delete Docker images using the first 4 digi
 docker image rm 03b8 d569 
 ```
 
-### Delete the PBX Scripts
+### Step 4 Delete the PBX Scripts
 
 ```
 rm install_pbx_docker.sh
@@ -72,7 +72,7 @@ rm install_docker.sh
 rm pbx_ctl.sh
 ```
 
-### **Download the  Latest Installation Scripts**
+### Step 5 **Download the  Latest Installation Scripts**
 
 ```
 curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v16.x/new/install_docker.sh \
@@ -84,7 +84,7 @@ curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v16.x/new/p
 -o pbx_ctl.sh
 ```
 
-### **Setup the Docker Environment**
+### Step 6 **Setup the Docker Environment**
 
 Execute the below command to install the `Docker-Compose` environment. If you get the prompt likes`*** cloud.cfg (Y/I/N/O/D/Z) [default=N] ?`, enter the **Y** and then press the **Enter** button.
 
@@ -92,7 +92,7 @@ Execute the below command to install the `Docker-Compose` environment. If you ge
 /bin/sh install_docker.sh
 ```
 
-### Create and Run the PortSIP PBX Docker Container Instance
+### Step 7 Create and Run the PortSIP PBX Docker Container Instance
 
 The below command is used to create and run the PBX on a server whose IP is`66.175.221.120`. If running the PBX in a LAN without the public IP, just replace the IP `66.175.221.120` with the PBX server's LAN private IP.
 
