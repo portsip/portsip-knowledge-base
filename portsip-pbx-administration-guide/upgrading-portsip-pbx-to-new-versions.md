@@ -96,6 +96,10 @@ Execute the below command to install the `Docker-Compose` environment. If you ge
 
 The below command is used to create and run the PBX on a server whose IP is`66.175.221.120`. If running the PBX in a LAN without the public IP, just replace the IP `66.175.221.120` with the PBX server's LAN private IP.
 
+{% hint style="danger" %}
+Please replace the IP address 66.175.221.120 in the command below with your own PBX server’s IP address.
+{% endhint %}
+
 ```
 /bin/sh pbx_ctl.sh \
 run -p /var/lib/portsip \
