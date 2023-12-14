@@ -1,6 +1,6 @@
 # PortSIP PBX
 
-## Our product is not built on Asterisk and FreeSwitch.
+## Our product is not built on Asterisk or FreeSwitch.
 
 [PortSIP PBX](https://www.portsip.com/portsip-pbx/) is a software-based multi-tenant PBX that offers business collaboration solutions, including SBC, audio, video calling, Instant Messaging, presence, rich text chat, Microsoft Teams Direct Routing, WebRTC, sharing screen, sending file, picture, voice, and video messages, and mobile push notifications.&#x20;
 
