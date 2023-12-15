@@ -51,11 +51,20 @@ Please follow the below steps to add the DECT phone to the PortSIP PBX.
 6. Choose the transport protocol that the phone will use to send and receive SIP messages with the PBX.
 7. If your PBX has internet access, please enable the **Save to RPS** option.
 
-## Assign Users to the handsets <a href="#h.ipuczchjqkl4" id="h.ipuczchjqkl4"></a>
+## Assign Users to the Handsets <a href="#h.ipuczchjqkl4" id="h.ipuczchjqkl4"></a>
 
+1. Now you need to assign the users to handsets.
+2. Click on the **Users** tab, and select the users for each handset.
 
+<figure><img src="../../.gitbook/assets/yealink-dect-4.png" alt=""><figcaption></figcaption></figure>
 
+## Auto Provision Handsets by RPS
 
+If your PBX installation is in the cloud and you have turned on the **Save to RPS** to configure the DECT phone in the above steps**,** the DECT Phone will download the configuration file and provision handsets, the handsets of this DECT Phone station will register to the PortSIP PBX automatically.
+
+## Provision Handsets Manually
+
+If your PBX installation is on-premise without internet access or you turned off the **Save to RPS** option, you will need to follow the below steps to provision handsets:
 
 
 
