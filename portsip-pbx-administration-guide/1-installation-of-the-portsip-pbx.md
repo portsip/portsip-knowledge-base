@@ -27,11 +27,11 @@ Tasks that MUST be completed before installing PortSIP PBX
 * Install all available updates and service packs before installing PortSIP PBX.
 * Do not install PostgreSQL on your PortSIP PBX Server.
 * Ensure that all power-saving options for your system and network adapters are disabled (by setting the system to High-Performance mode).
-* Do not install TeamViewer, VPN, and other similar software on the host machine.
+* Do not install TeamViewer, VPN, or other similar software on the host machine.
 * The PortSIP PBX must not be installed on a host that is a DNS or DHCP server.
 * The below ports must be permitted by your firewall.
   * UDP: 5060, 5066, 25000-35000, 45000–65000
-  * TCP: 5061, 5063, 5065, 5067, 8882, 8883, 8885, 8887, 8888, 10443. please also ensure the above ports have not been used by other applications.
+  * TCP: 5061, 5063, 5065, 5067, 8882, 8883, 8885, 8887, 8888, 8889, 10443. please also ensure the above ports have not been used by other applications.
 * Must execute all Linux commands as the root user. please `su root` first.
 
 {% hint style="danger" %}
@@ -144,7 +144,7 @@ Tasks that MUST be completed before installing PortSIP PBX
 * PortSIP PBX must not be installed on a host which is a DNS or DHCP server, or that has MS SharePoint or Exchange services installed.
 * The below ports must be permitted by your firewall.
   * UDP: 5060, 5066, 25000-35000, 45000–65000
-  * TCP: 5061, 5063, 5065, 5067, 8882, 8883, 8885, 8887, 8888, 10443. Please also ensure the above ports have not been used by other applications.
+  * TCP: 5061, 5063, 5065, 5067, 8882, 8883, 8885, 8887, 8888, 8889, 10443. Please also ensure the above ports have not been used by other applications.
 * Ensure your Windows firewall is enabled.
 
 {% hint style="danger" %}
