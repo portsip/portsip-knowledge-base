@@ -19,7 +19,7 @@ The solution includes the following features:
 * Audio Calling and Video Calling
 * Video Meeting
 * Instant Messaging and Presence (IM\&P)
-* SIP Header Mainpulation
+* SIP Header Manipulation
 * Voice and Video Messages
 * Screen Sharing for Video Call
 * Screen Sharing for Meeting
