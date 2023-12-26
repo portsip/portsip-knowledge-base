@@ -64,7 +64,6 @@ The solution includes the following features:
 * Password Policy
 * Feature Access Code
 * Outbound Caller ID
-* SIP Header Manipulation
 * Centralized Service Configuration (Call Forwarding, Do Not Disturb, and so on)
 * Anti-Hacking
 * IP Blacklist and Whitelist
