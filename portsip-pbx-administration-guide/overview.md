@@ -57,7 +57,7 @@ The solution includes the following features:
 * Holidays
 * Call Routing Based on Holidays and Office Hours
 * Advanced Routing for Any Date and Time
-* Custom Phonre Template
+* Custom Phone Template
 * Custom Notifications Template
 * Role and Permissions
 * Trunk Management
