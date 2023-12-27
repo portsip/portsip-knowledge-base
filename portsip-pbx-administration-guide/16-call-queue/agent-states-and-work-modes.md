@@ -40,10 +40,10 @@ If you create the call queue with "**Set agent to Ready automatically**" turned 
 
 Agents can dial a feature access code to change their status for that call queue or to change their status for all call queues to which they are a member.
 
-1. Log the agent into the queue. Dial `*38` to log into all queues that the agent belongs; Dial `*388000` to log into the queue that number is `8000`. After logging in, if the queue is checked **Set agent to Ready automatically**, the agent state will be changed to **Ready**, otherwise will be **Not Ready**.
-2. Log the agent out of the queue. Dial `*39` to log out of all queues; Dial `*398000` to log out of the queue that number is 8000.
-3. Set Agent to Ready. Change the agent state to **Ready** of the queue. Dial `*36` to change the agent state to **Ready** of all queues that the agent belongs; Dial `*368000` to change the agent state to **Ready** of the queue that number is 8000.
-4. Set Agent to Not Ready. Change the agent state to **Not Ready** of the queue. Dial `*37` to change the agent state to **Not Ready** of all queues that the agent belongs; Dial `*378000` to change the agent state to **Not Ready** of the queue that number is 8000.
+1. **Log the agent into the queue** - Dial `*38` to log into all queues that the agent belongs; Dial `*388000` to log into the queue that number is `8000`. After logging in, if the queue is checked **Set agent to Ready automatically**, the agent state will be changed to **Ready**, otherwise will be **Not Ready**.
+2. **Log the agent out of the queue** - Dial `*39` to log out of all queues; Dial `*398000` to log out of the queue that number is 8000.
+3. **Set Agent to Ready** - Change the agent state to **Ready** of the queue. Dial `*36` to change the agent state to **Ready** of all queues that the agent belongs; Dial `*368000` to change the agent state to **Ready** of the queue that number is 8000.
+4. **Set Agent to Not Ready** - Change the agent state to **Not Ready** of the queue. Dial `*37` to change the agent state to **Not Ready** of all queues that the agent belongs; Dial `*378000` to change the agent state to **Not Ready** of the queue that number is 8000.
 
 ### REST API
 
