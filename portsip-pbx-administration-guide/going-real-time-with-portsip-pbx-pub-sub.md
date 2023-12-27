@@ -4,227 +4,105 @@ PortSIP PBX provides the Pub/Sub mechanism which is based on the WebSocket (Port
 
 Support version: v16.0 or higher
 
-## Service
+## Service Port
 
 The PortSIP PBX/UCaaS provides WSI on port **8885** over **WSS**, the server must be allowed this port on the firewall for TCP, which requires WSS(TLS).
 
-## **Topics and Keys**
+## **Topics and Message Type**
 
 PortSIP PBX provides the below topics and keys for the Pub/Sub.
 
 ### extension\_events
 
-All extension-related event messages will be published by **`extension_events`** . Below, are the various message keys.
+All extension-related event messages will be published under `extension_events`. The following are the various message keys:
 
-* `extension_register`: extension registered to the PBX or unregister from the PBX.
+#### extension\_status
 
-For example, the extension 102 registered to PBX, the subscriber will receive the below message:
+This message will be returned under the following scenarios:
 
-```json
-{
-    "event_type":"extension_register",
-    "extension":"sip:102@portsip.io",
-    "extension_id":"494521070842286080",
-    "registration_contacts":[
-        {
-            "contact_uri":"<sip:102@113.246.194.98:10061>;+sip.instance=\"<urn:uuid:F36DDB5A-5CC3-A59A-0FB2-E53F7A56F245>\"",
-            "expires":1632668422,
-            "instance":"<urn:uuid:F36DDB5A-5CC3-A59A-0FB2-E53F7A56F245>",
-            "last_update":1632668122,
-            "public_address":"113.246.194.98:10061",
-            "received_from":"113.246.194.98:10061",
-            "reg_id":0,
-            "user_agent":"Test SIPMaster for IOS"
-        },
-        {
-            "contact_uri":"<sip:102@113.246.194.98:10243>;+sip.instance=\"<urn:uuid:8D5941A6-EB96-4E7A-9EB7-DA940E56513C>\"",
-            "expires":1632668476,
-            "instance":"<urn:uuid:8D5941A6-EB96-4E7A-9EB7-DA940E56513C>",
-            "last_update":1632668176,
-            "public_address":"113.246.194.98:10243",
-            "received_from":"113.246.194.98:10243",
-            "reg_id":0,
-            "user_agent":"PortSIP UC Client iOS - v16.0.001"
-        }
-    ],
-    "tenant_id":"236047118140313600",
-    "time":"1632668176"
-}
-```
-
-The `extension` is indicates which extension occurs the register event, the `extension_id` is the id of that extension.  The array`registration_contacts`  includes the current registrations information.&#x20;
-
-In this example, there have two SIP client devices/apps registered to PBX, their agents are: `Test SIPMaster for IOS` and `PortSIP UC Client iOS - v16.0.001`, if both of these clients are unregistered from PBX, the array "`registration_contacts`"  will not present, see below example:
+* Upon successful subscription to an extension.
+* When a subscribed extension comes online.
+* When a subscribed extension goes offline.
 
 ```json
 {
-    "event_type":"extension_register",
-    "extension":"sip:102@portsip.io",
-    "extension_id":"494521070842286080",
-    "removed_contacts":[
-        {
-            "contact_uri":"<sip:102@113.246.194.98:10243>;expires=0;+sip.instance=\"<urn:uuid:8D5941A6-EB96-4E7A-9EB7-DA940E56513C>\"",
-            "expires":1632668724,
-            "instance":"<urn:uuid:8D5941A6-EB96-4E7A-9EB7-DA940E56513C>",
-            "last_update":1632668724,
-            "public_address":"113.246.194.98:10243",
-            "received_from":"113.246.194.98:10243",
-            "reg_id":0,
-            "user_agent":"PortSIP UC Client iOS - v16.0.001"
-        }
-    ],
-    "tenant_id":"236047118140313600",
-    "time":"1632668724"
+  "event_type": "extension_status",
+  "extension": "sip:101@test.io",
+  "presence_note": "",
+  "on_call": false,
+  "online": false,
+  "push_online": false,
+  "tenant_id": "792406615960584192",
+  "extension_id": "792406615960584220",
+  "time": "1703689749"
 }
 ```
 
-In the above message, the array`registration_contacts` is no longer present, but has an array that is`removed_contacts`  indicates which client app/device is unregistered from PBX, in case, the client App`PortSIP UC Client iOS - v16.0.001`  is unregistered from PBX, now there are no registrations on the PBX so extension 102 is offline.
+The message is in JSON format and includes the following fields:
 
-* `extension_presence`: extension changed his presence status.
+* `event_type`: Indicates the type of the message.
+* `extension`: Represents the SIP URI of the extension.
+* `presence_note`: Contains the text of the presence status.
+* `on_call`: Indicates whether the extension is currently on a call.
+* `online`: Indicates whether the extension is currently registered to the PBX.
+* `push_online`: This field indicates whether mobile push notifications are currently enabled for the extension. This is only valid if `online` is false.
+* `tenant_id`: Represents the ID of the tenant to which the extension belongs.
+* `extension_id`: Represents the ID of the extension.
+* `time`: Represents the timestamp of this message in UNIX time.
 
-Once an extension changed his presence status, the `extesnion_presence` event will occur, see the below example:&#x20;
+#### extension\_call
 
-```json
-{"event_type":"extension_presence",
-"extension":"sip:102@portsip.io",
-"note":"Away",
-"tenant_id":"672371581028143104",
-"time":"1675136792"}
-```
+This message will be returned under the following scenarios:
 
-In the above example, extension 102 changed his presence status to `Away`.
-
-* `call_hold`: call was held.
-
-Once an established call is held by the caller or callee, the `call_hold` event will occur, see the below example:&#x20;
+* When an extension starts dialing a call.
+* When an extension receives a call.
+* When an extension disconnects a call.
 
 ```json
 {
-    "aor":"sip:102@portsip.io",
-    "call_id":"09jV-7QM2B-3E0Q-m20exw..",
-    "event_type":"call_hold",
-    "peer_aor":"sip:103@portsip.io",
-    "session_id":"494527456623988736",
-    "tenant_id":"236047118140313600",
-    "time":"1632669389"
+  "event_type": "extension_call",
+  "extension": "sip:101@test.io",
+  "on_call": true,
+  "tenant_id": "792406615960584192",
+  "extension_id": "792406615960584220",
+  "time": "1703690276"
 }
 ```
 
-In the above example, the call is held by extension 102, and another party of the call is extension 103.
+The message is in JSON format and includes the following fields:
 
-* `call_unhold`: call has been resumed from hold.
+* `event_type`: Indicates the type of the message.
+* `extension`: Represents the SIP URI of the extension.
+* `on_call`: Indicates whether the extension is currently on a call.
+* `tenant_id`: Represents the ID of the tenant to which the extension belongs.
+* `extension_id`: Represents the ID of the extension.
+* `time`: Represents the timestamp of this message in UNIX time.
 
-Once a call is resumed from the held state, the `call_unhold` event occurs.&#x20;
+#### extension\_presence
+
+This message will be returned under the following scenario:
+
+* When an extension changes its presence status.
 
 ```json
 {
-    "aor":"sip:102@portsip.io",
-    "call_id":"09jV-7QM2B-3E0Q-m20exw..",
-    "event_type":"call_unhold",
-    "peer_aor":"sip:103@portsip.io",
-    "session_id":"494527456623988736",
-    "tenant_id":"236047118140313600",
-    "time":"1632669492"
+  "event_type": "extension_presence",
+  "extension": "sip:101@test.io",
+  "presence_note": "Away",
+  "tenant_id": "792406615960584192",
+  "extension_id": "792406615960584220",
+  "time": "1703690547"
 }
 ```
 
-In the above example, the call is un-hold by extension 102, and another party of the call is extension 103.
+The message is in JSON format and includes the following fields:
 
-* `call_start`: call starting.
-
-When the caller starts to make a call to the callee, this event will occur.
-
-```json
-{
-    "call_id":"rjFyDxQSbXPxXAd1IR8W-g..",
-    "callee":"sip:103@portsip.io",
-    "caller":"sip:102@portsip.io",
-    "caller_display_name":"",
-    "cdr_id":"494533487185891328",
-    "direction":"ext",
-    "event_type":"call_start",
-    "request_id":"0",
-    "session_id":"494533487177502720",
-    "tenant_id":"236047118140313600",
-    "time":"1632670771"
-}
-```
-
-In the above example, extension 102 makes the call to callee 103,  the  `direciton` is `ext` means the call is between extensions. the `session_id` is a unique ID of this call, after the call is completed, we can use this session\_id to query the recording file by REST API.
-
-* `call_established`: the call was answered and successfully connected.
-
-```json
-{
-    "call_id":"K3jV2vbPzplkrC3cIBTGPg..",
-    "call_target":"sip:103@portsip.io",
-    "callee":"sip:103@portsip.io",
-    "caller":"sip:102@portsip.io",
-    "event_type":"call_established",
-    "session_id":"494535522404798464",
-    "tenant_id":"236047118140313600",
-    "time":"1632671262"
-}
-```
-
-In the above example, the call is answered by the callee extension 103.
-
-* `call_ended`: call has ended.
-
-```json
-{
-    "call_id":"K3jV2vbPzplkrC3cIBTGPg..",
-    "call_target":"",
-    "callee":"sip:103@portsip.io",
-    "caller":"sip:102@portsip.io",
-    "event_type":"call_ended",
-    "session_id":"494535522404798464",
-    "tenant_id":"236047118140313600",
-    "time":"1632671272"
-}
-```
-
-In the above example, the call is ended.
-
-* `call_noanswer`: call is a no answer in the specified time(seconds) then hang up due to timeout.
-
-```json
-{
-    "call_id":"mbZA5vcQHZOkrPZfHjtsdQ..",
-    "call_target":"",
-    "callee":"sip:103@portsip.io",
-    "caller":"sip:102@portsip.io",
-    "event_type":"call_noanswer",
-    "session_id":"494536565997965312",
-    "tenant_id":"236047118140313600",
-    "time":"1632671510"
-}
-```
-
-* `call_reroute`: the call was rerouted to another target.
-* `call_fail`: call has failed.
-
-```json
-{
-    "call_id":"9SyfcKeZvuIVipZmefINbw..",
-    "call_target":"",
-    "callee":"sip:103@portsip.io",
-    "caller":"sip:102@portsip.io",
-    "event_type":"call_fail",
-    "fail_code":480,
-    "session_id":"494537752386211840",
-    "tenant_id":"236047118140313600",
-    "time":"1632671788"
-}
-```
-
-In the above example, the 102 makes a call to 103, but the 103 is offline, so the call fails, and the `fail_code`is 480 which is the same as the status code of the SIP standards.
-
-* `target_add`: start a call to a target. For example, extension 101 is registered to PBX from an IP Phone and an App, when someone makes calls to 101, the IP Phone and app will be added as the target. (The target\_add event will be triggered twice.)
-* `target_ringing`: the called target is ringing.
-* `target_noanswer`: there is no answer from the called target.
-* `target_fail`: call failed from the called target. For example, the App / IP Phone rejected the call.
-* `target_ended`: call has ended from the called target. For example, the App / IP Phone hangs up the call.
+* `event_type`: Indicates the type of the message.
+* `extension`: Represents the SIP URI of the extension.
+* `presence_note`: Contains the text of the presence status.
+* `tenant_id`: Represents the ID of the tenant to which the extension belongs.
+* `extension_id`: Represents the ID of the extension.
+* `time`: Represents the timestamp of this message in UNIX time.
 
 ### cdr\_events
 
@@ -359,9 +237,9 @@ You can use the below JSON message to do the authorization:
 ```json
 {
 "command":"auth",
-"username":"testuser",
-"domain":"portsip.io",
-"password":"111111"
+"username":"testuser1",
+"password":"A1s2d3f4",
+"domain" : "test.io"
 }
 ```
 
@@ -370,13 +248,22 @@ The **`domain`** is the SIP domain of the extension, the **`password`** is the *
 If there is no error, the response is as below:
 
 ```json
-{"status":0}
+{
+  "command": "auth",
+  "id": "1",
+  "status": 0
+}
 ```
 
 Otherwise, the response includes errors as below:
 
 ```json
-{"error":"name or password error","status":-1}
+{
+  "command": "auth",
+  "error": "access_token , username , domain or password error",
+  "id": "2",
+  "status": -1
+}
 ```
 
 After successfully being authenticated, the user can now subscribe to the events.
