@@ -38,7 +38,7 @@ If you create the call queue with "**Set agent to Ready automatically**" turned 
 
 ### FAC - Feature Access Code
 
-Agents can dial a feature access code to change their status for that call queue or to change their status for all call queues to which they are a member.
+Agents can dial a feature access code to change their status for that call queue or to change their status for all call queues to which they belong.
 
 1. **Log the agent into the queue** - Dial `*38` to log into all queues that the agent belongs; Dial `*388000` to log into the queue that number is `8000`. After logging in, if the queue is checked **Set agent to Ready automatically**, the agent state will be changed to **Ready**, otherwise will be **Not Ready**.
 2. **Log the agent out of the queue** - Dial `*39` to log out of all queues; Dial `*398000` to log out of the queue that number is 8000.
