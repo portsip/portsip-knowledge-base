@@ -76,9 +76,33 @@ If your PBX installation is on-premise without internet access or you turned off
 4. In menu Settings > Auto Provision > Server URL enter the provisioning link copied.
 5. Press the **Confirm** button to save the link and then press the button **Auto Provision Now**.
 
+### Only for Yealink W80 and W90 DECT Manager Base Stations
 
+{% hint style="info" %}
+Please ignore this step if the device is not W80 and W90.
+{% endhint %}
 
+1. Enter the Base Station's IP address in the web browser to open it and select the menu Base Mode.&#x20;
+2. Enter the DECT Manager's IP address on the Base Mode page and press the button Confirm.
 
+<figure><img src="../../.gitbook/assets/yealink-dect-7.png" alt=""><figcaption></figcaption></figure>
 
+3. Enter the DECT Manager's IP address in the web browser and open it.&#x20;
+4. Under the Base Station Registration page, click the Register button next to the base you wish to connect to your DECT Manager, then press OK.
+5. Open the menu Base Station Settings and you should now see the base as Active and synced
 
+<figure><img src="../../.gitbook/assets/yealink-dect-8.png" alt=""><figcaption></figcaption></figure>
+
+### Register the Yealink Handsets and Assign Users <a href="#h.3wxv1c6vyqe1" id="h.3wxv1c6vyqe1"></a>
+
+1. Enter the device's IP address in the web browser and open it.
+2. Select the menu Handset & Account > Handset Registration page.
+3. All the user extensions you assigned in the above step Assign Users to the Handsets, will be listed here. Click the edit icon next to each extension.
+
+<figure><img src="../../.gitbook/assets/yealink-dect-9.png" alt=""><figcaption></figcaption></figure>
+
+4. Click Start Register Handset.
+5. On your handset, press the Reg. softkey for Easy Pairing or go to the Settings menu and select Registration > Base 1.
+6. Select your base from the scanning results list, and enter PIN 0000 when asked.
+7. Repeat the steps for all extensions you wish to assign a Handset.
 
