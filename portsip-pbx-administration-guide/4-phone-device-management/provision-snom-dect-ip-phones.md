@@ -44,13 +44,11 @@ Here also have the SNOM official guides:
 * [How to update M300,M700,M900 DECT Base Station manually](https://service.snom.com/display/wiki/How+to+update+M300%2CM400%2CM700%2CM900+DECT+Base+Station+manually)
 * [How to update M-Series - DECT handsets](https://service.snom.com/display/wiki/How+to+update+M-Series+-+DECT+handsets)
 
-
-
 ## Add a DECT Phone in PortSIP PBX
 
-Please follow the below steps to add the DECT phone to the PortSIP PBX.
+Please follow the below steps to add an SNOM DECT phone to the PortSIP PBX.
 
-<figure><img src="../../.gitbook/assets/yealink-dect-3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/snom-dect-1.png" alt=""><figcaption></figcaption></figure>
 
 1. Sign in to the PortSIP PBX web portal and navigate to **Call Manager > DECT Phones** from the menu.
 2. Click on the **Add** button. A popup window will appear.
@@ -58,15 +56,18 @@ Please follow the below steps to add the DECT phone to the PortSIP PBX.
 4. Provide a user-friendly name for this DECT Phone.
 5. In the **Network** field, select the network interface that the DECT Phone will use.
 6. Choose the transport protocol that the phone will use to send and receive SIP messages with the PBX.
-7. If your PBX has internet access, please enable the **Save to RPS** option.
 
 ## Assign Users to the Handsets <a href="#h.ipuczchjqkl4" id="h.ipuczchjqkl4"></a>
 
-1. Now you need to assign the users to handsets.
-2. Click on the **Users** tab, and select the users for each handset.
-3. If you want to limit the extension user use of the specified handset, please enter the IPUI/IPEI of the handset. Otherwise, leave it as empty.
+Next, you'll need to assign users to the handsets. Here's how you can do it:
 
-<figure><img src="../../.gitbook/assets/yealink-dect-4.png" alt=""><figcaption></figcaption></figure>
+1. Click on the Users tab.
+2. For each handset, select the users you want to assign.
+3. If you want to restrict a user to a specific handset, enter the handset’s IPUI/IPEI in the provided field. If you don’t want to impose any restrictions, leave this field empty.
+
+Remember, assigning users to specific handsets can help manage calls more effectively. However, be sure to double-check the IPUI/IPEI to avoid any mix-ups.&#x20;
+
+<figure><img src="../../.gitbook/assets/snom-dect-2.png" alt=""><figcaption></figcaption></figure>
 
 ## Auto Provision Handsets by RPS
 
