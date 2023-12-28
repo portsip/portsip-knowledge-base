@@ -37,6 +37,7 @@
     * [Provision Phone Using TFTP](portsip-pbx-administration-guide/4-phone-device-management/provision-phone-using-tftp.md)
     * [Provisioning Cisco 79xx IP Phones](portsip-pbx-administration-guide/4-phone-device-management/provisioning-cisco-79xx-ip-phones.md)
     * [Provision Yealink DECT IP Phones](portsip-pbx-administration-guide/4-phone-device-management/provision-yealink-dect-ip-phones.md)
+    * [Provision SNOM DECT IP Phones](portsip-pbx-administration-guide/4-phone-device-management/provision-snom-dect-ip-phones.md)
   * [5 User Management](portsip-pbx-administration-guide/5-user-management/README.md)
     * [Users](portsip-pbx-administration-guide/5-user-management/users.md)
     * [How to Configure the Endpoints?](portsip-pbx-administration-guide/5-user-management/how-to-configure-the-endpoints.md)
