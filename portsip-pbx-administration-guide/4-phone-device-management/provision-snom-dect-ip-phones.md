@@ -87,7 +87,7 @@ You will need to follow the below steps to provision handsets:
 
 <figure><img src="../../.gitbook/assets/snom-dect-4.png" alt=""><figcaption></figcaption></figure>
 
-### Register the SNOM Handsets and Assign Users <a href="#h.3wxv1c6vyqe1" id="h.3wxv1c6vyqe1"></a>
+## Register the SNOM Handsets and Assign Users <a href="#h.3wxv1c6vyqe1" id="h.3wxv1c6vyqe1"></a>
 
 To register the handsets and assign them to users, follow the numerical order you established during the configuration process. Here are the steps:
 
@@ -97,4 +97,25 @@ To register the handsets and assign them to users, follow the numerical order yo
 4. When prompted for the **Access Code**, enter **0000** (four zeros) and press the **OK** button.
 5. Once successfully paired, the handsets will automatically be assigned to the users.
 6. Repeat these steps for each handset you wish to register to the base station.
+
+## Upgrading SNOM Handsets Firmware <a href="#h.7owi2rene301" id="h.7owi2rene301"></a>
+
+To upgrade the device's firmware, the handset must be connected to the DECT base station as an extension. This step can only be performed after the base has been upgraded and provisioned, and the handsets have been paired. Here are the steps to check the firmware of your SNOM handset and perform the upgrade:
+
+1. Press the **Menu** key on your handset.
+2. Navigate to **Settings > Status > Handset status**.
+3. The **SW version** indicates your device’s current firmware.
+4. Open your web browser and navigate to your phone’s IP address.
+5. Log in to your account (the default username is admin, and the password is that you set in the step [**Add a DECT Phone in PortSIP PBX**](provision-snom-dect-ip-phones.md#add-a-dect-phone-in-portsip-pbx)).
+6. Navigate to the **Firmware Update** tab.
+7. In the **Firmware update server address** field, enter [http://dect.snom.com](http://dect.snom.com). The model of the connected handset will be displayed in the **Type** field (for example, M70).
+
+<figure><img src="../../.gitbook/assets/snom-dect-6.png" alt=""><figcaption></figcaption></figure>
+
+8. In the **Required Versio**n field, enter **670**, and in the **Required branch** field, enter the number of the latest firmware, which is 201.
+9. After entering a valid firmware number, press **Start Updat**e.
+
+{% hint style="danger" %}
+Before performing the upgrade, ensure that the handset is placed in the charging cradle and is charged to over 50%.
+{% endhint %}
 
