@@ -80,7 +80,7 @@ If your PBX installation is on-premise without internet access or you turned off
 4. In the menu **Settings > Auto Provision > Server URL**, enter the provisioning link copied.
 5. Press the **Confirm** button to save the link and then press the button **Auto Provision Now**.
 
-### Only for Yealink W80 and W90 DECT Manager Base Stations
+## Only for Yealink W80 and W90 DECT Manager Base Stations
 
 {% hint style="info" %}
 Please ignore this step if the device is not W80 and W90.
@@ -97,11 +97,11 @@ Please ignore this step if the device is not W80 and W90.
 
 <figure><img src="../../.gitbook/assets/yealink-dect-8.png" alt=""><figcaption></figcaption></figure>
 
-### Register the Yealink Handsets and Assign Users <a href="#h.3wxv1c6vyqe1" id="h.3wxv1c6vyqe1"></a>
+## Register the Yealink Handsets and Assign Users <a href="#h.3wxv1c6vyqe1" id="h.3wxv1c6vyqe1"></a>
 
 1. Open your web browser and input the device's IP address to access its interface.&#x20;
 2. Navigate to the **Handset & Account** menu and select the **Handset Registration** page.&#x20;
-3. You will see a list of all the user extensions that you assigned in the previous step **Assign Users to the Handsets**. Click the **edit** icon next to each extension to make changes.
+3. You will see a list of all the user extensions that you assigned in the previous step [**Assign Users to the Handsets**](provision-yealink-dect-ip-phones.md#h.ipuczchjqkl4). Click the **edit** icon next to each extension to make changes.
 
 <figure><img src="../../.gitbook/assets/yealink-dect-9.png" alt=""><figcaption></figcaption></figure>
 
