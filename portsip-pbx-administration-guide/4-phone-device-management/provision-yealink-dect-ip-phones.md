@@ -55,6 +55,7 @@ Please follow the below steps to add the DECT phone to the PortSIP PBX.
 
 1. Now you need to assign the users to handsets.
 2. Click on the **Users** tab, and select the users for each handset.
+3. If you want to limit the extension user use of the specified handset, please enter the IPUI/IPEI of the handset. Otherwise, leave it as empty.
 
 <figure><img src="../../.gitbook/assets/yealink-dect-4.png" alt=""><figcaption></figcaption></figure>
 
