@@ -71,13 +71,13 @@ If your PBX installation is in the cloud and you have turned on the **Save to RP
 
 If your PBX installation is on-premise without internet access or you turned off the **Save to RPS** option, you will need to follow the below steps to provision handsets:
 
-1. Click the menu Call Manager > DECT Phones, and double the DECT phone.
+1. Click the menu **Call Manager > DECT Phones**, and double the DECT phone.
 2. Copy the provisioning link.
 
 <figure><img src="../../.gitbook/assets/yealink-dect-5.png" alt=""><figcaption></figcaption></figure>
 
-3. Enter the DECT Phone handset's IP address in the web browser and open it.
-4. In menu Settings > Auto Provision > Server URL enter the provisioning link copied.
+3. Enter the DECT Base station's IP address in the web browser and open it.
+4. In the menu **Settings > Auto Provision > Server URL**, enter the provisioning link copied.
 5. Press the **Confirm** button to save the link and then press the button **Auto Provision Now**.
 
 ### Only for Yealink W80 and W90 DECT Manager Base Stations
@@ -87,7 +87,7 @@ Please ignore this step if the device is not W80 and W90.
 {% endhint %}
 
 1. Open your web browser and enter the IP address of the Base Station. This will open the Base Station’s interface. Navigate to the **Base Mode** menu.
-2. On the **Base Mode** page, input the IP address of the DECT Manager. After entering the IP address, click on the ‘Confirm’ button.
+2. On the **Base Mode** page, input the IP address of the DECT Manager. After entering the IP address, click on the **Confirm** button.
 
 <figure><img src="../../.gitbook/assets/yealink-dect-7.png" alt=""><figcaption></figcaption></figure>
 
