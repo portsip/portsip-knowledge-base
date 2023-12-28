@@ -37,6 +37,8 @@ Before you start provisioning your SNOM DECT phone with PortSIP PBX, make sure y
 4. After entering a valid firmware number, click on **Save/Start Update**.
 5. The firmware upgrade will begin after a few minutes. The LED on the base station will start flashing red to indicate the upgrade process.
 
+<figure><img src="../../.gitbook/assets/snom-dect-3.png" alt=""><figcaption></figcaption></figure>
+
 Please note that the firmware upgrade process may take some time. Do not interrupt the process until the firmware upgrade is complete. If you encounter any issues, please refer to the troubleshooting section of the user guide or contact technical support.
 
 Here also have the SNOM official guides:
@@ -61,58 +63,38 @@ Please follow the below steps to add an SNOM DECT phone to the PortSIP PBX.
 
 Next, you'll need to assign users to the handsets. Here's how you can do it:
 
-1. Click on the Users tab.
+1. Click on the **Users** tab.
 2. For each handset, select the users you want to assign.
 3. If you want to restrict a user to a specific handset, enter the handset’s IPUI/IPEI in the provided field. If you don’t want to impose any restrictions, leave this field empty.
+4. Click the OK button to save the settings.
 
 Remember, assigning users to specific handsets can help manage calls more effectively. However, be sure to double-check the IPUI/IPEI to avoid any mix-ups.&#x20;
 
 <figure><img src="../../.gitbook/assets/snom-dect-2.png" alt=""><figcaption></figcaption></figure>
 
-## Auto Provision Handsets by RPS
+## Enter the Provisioning URL in the DECT Web UI
 
-If your PBX installation is in the cloud and you have turned on the **Save to RPS** to configure the DECT phone in the above steps**,** the DECT Phone will download the configuration file and provision handsets, the handsets of this DECT Phone station will register to the PortSIP PBX automatically.
+You will need to follow the below steps to provision handsets:
 
-## Provision Handsets Manually
-
-If your PBX installation is on-premise without internet access or you turned off the **Save to RPS** option, you will need to follow the below steps to provision handsets:
-
-1. Click the menu Call Manager > DECT Phones, and double the DECT phone.
+1. Click the menu **Call Manager > DECT Phones**, and double the DECT phone.
 2. Copy the provisioning link.
 
-<figure><img src="../../.gitbook/assets/yealink-dect-5.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/snom-dect-5.png" alt=""><figcaption></figcaption></figure>
 
-3. Enter the DECT Phone handset's IP address in the web browser and open it.
-4. In menu Settings > Auto Provision > Server URL enter the provisioning link copied.
-5. Press the **Confirm** button to save the link and then press the button **Auto Provision Now**.
+3. Enter the DECT Base station's IP address in the web browser and open it.
+4. In the menu **Management > Configuration > Configuration Server Address Settings**, enter the provisioning link copied.
+5. Click the **Save and Reboot** button.
 
-### Only for Yealink W80 and W90 DECT Manager Base Stations
+<figure><img src="../../.gitbook/assets/snom-dect-4.png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="info" %}
-Please ignore this step if the device is not W80 and W90.
-{% endhint %}
+### Register the SNOM Handsets and Assign Users <a href="#h.3wxv1c6vyqe1" id="h.3wxv1c6vyqe1"></a>
 
-1. Open your web browser and enter the IP address of the Base Station. This will open the Base Station’s interface. Navigate to the **Base Mode** menu.
-2. On the **Base Mode** page, input the IP address of the DECT Manager. After entering the IP address, click on the ‘Confirm’ button.
+To register the handsets and assign them to users, follow the numerical order you established during the configuration process. Here are the steps:
 
-<figure><img src="../../.gitbook/assets/yealink-dect-7.png" alt=""><figcaption></figcaption></figure>
-
-3. Open your web browser and input the IP address of the DECT Manager to access its interface.
-4. On the **Base Station Registration** page, click the **Register** button next to the base you want to connect to your DECT Manager, then press **OK**.
-5. Proceed to the **Base Station Settings** menu. You should now see the status of the base as **Active and synced**.
-
-<figure><img src="../../.gitbook/assets/yealink-dect-8.png" alt=""><figcaption></figcaption></figure>
-
-### Register the Yealink Handsets and Assign Users <a href="#h.3wxv1c6vyqe1" id="h.3wxv1c6vyqe1"></a>
-
-1. Open your web browser and input the device's IP address to access its interface.&#x20;
-2. Navigate to the **Handset & Account** menu and select the **Handset Registration** page.&#x20;
-3. You will see a list of all the user extensions that you assigned in the previous step **Assign Users to the Handsets**. Click the **edit** icon next to each extension to make changes.
-
-<figure><img src="../../.gitbook/assets/yealink-dect-9.png" alt=""><figcaption></figcaption></figure>
-
-4. Click on **Start Register Handset**.&#x20;
-5. On your handset, either press the R**eg.** softkey for E**asy Pairing** or navigate to the **Settings** menu and select **Registration > Base 1**.&#x20;
-6. From the scanning results list, select your base and enter the PIN **0000** when prompted.
-7. &#x20;Repeat these steps for all extensions to which you wish to assign a handset.
+1. Press the menu button on the handset. (For an M25 handset, press the center button of the navigation circle.)
+2. Navigate to **Connectivity** from the menu and press the center button of the navigation circle.
+3. Select **Register**.
+4. When prompted for the **Access Code**, enter **0000** (four zeros) and press the **OK** button.
+5. Once successfully paired, the handsets will automatically be assigned to the users.
+6. Repeat these steps for each handset you wish to register to the base station.
 
