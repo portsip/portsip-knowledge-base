@@ -55,7 +55,7 @@ Please follow the below steps to add the DECT phone to the PortSIP PBX.
 
 Next, you'll need to assign users to the handsets. Here's how you can do it:
 
-1. Click on the Users tab.
+1. Click on the **Users** tab.
 2. For each handset, select the users you want to assign.
 3. If you want to restrict a user to a specific handset, enter the handset’s IPUI/IPEI in the provided field. If you don’t want to impose any restrictions, leave this field empty.
 
