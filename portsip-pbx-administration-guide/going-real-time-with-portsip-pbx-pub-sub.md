@@ -104,6 +104,70 @@ The message is in JSON format and includes the following fields:
 * `extension_id`: Represents the ID of the extension.
 * `time`: Represents the timestamp of this message in UNIX time.
 
+#### extension\_hold&#x20;
+
+This message will be returned under the following scenario:
+
+* When an extension place a call on hold.
+
+```json
+{
+  "event_type": "extension_hold",
+  "call_id": "CNMeGW_cUfXWObUalbS0XA..",
+  "extension": "sip:101@test.io",
+  "extension_id": "792661232720019456",
+  "peer_extension": "sip:102@test.io",
+  "peer_extension_id": "792661232925540352",
+  "tenant_id": "792661196065996800",
+  "time": "1703750008"
+}
+```
+
+In the given example,  extension 101 places extension 102 on hold.
+
+The message is formatted in JSON and includes the following fields:
+
+* `event_type`: This field indicates that the type of message is **hold**.
+* `call_id`: This field represents the SIP Call ID of the call that has been put on hold.
+* `extension`: This field represents the SIP URI of the extension that initiated the hold.
+* `extension_id`: This field represents the ID of the extension that initiated the hold.
+* `peer_extension`: This field represents the SIP URI of the extension that has been put on hold.
+* `peer_extension_id`: This field represents the ID of the extension that has been put on hold.
+* `tenant_id`: This field represents the ID of the tenant to which the extension belongs.
+* `time`: This field represents the timestamp of this message in UNIX time format.
+
+#### extension\_unhold&#x20;
+
+This message will be returned under the following scenario:
+
+* When an extension resumes a call that was previously on hold.
+
+```json
+{
+  "event_type": "extension_unhold",
+  "call_id": "CNMeGW_cUfXWObUalbS0XA..",
+  "extension": "sip:101@test.io",
+  "extension_id": "792661232720019456",
+  "peer_extension": "sip:102@test.io",
+  "peer_extension_id": "792661232925540352",
+  "tenant_id": "792661196065996800",
+  "time": "1703750010"
+}
+```
+
+In the given example, extension 101 is on hold with extension 102, and now 101 resumes the call.
+
+The message is formatted in JSON and includes the following fields:
+
+* `event_type`: This field indicates that the type of the message is **unhold**.
+* `call_id`: This field represents the SIP Call ID of the call that has been resumed.
+* `extension`: This field represents the SIP URI of the extension that resumed the call.
+* `extension_id`: This field represents the ID of the extension that resumed the call.
+* `peer_extension`: This field represents the SIP URI of the extension that was resumed from hold.
+* `peer_extension_id`: This field represents the ID of the extension that was resumed from hold.
+* `tenant_id`: This field represents the ID of the tenant to which the extension belongs.
+* `time`: This field represents the timestamp of this message in UNIX time format.
+
 ### cdr\_events
 
 Once a call has ended, the CDR of this call will be pushed to the subscribers, the message topic is: **`cdr_events`**, the message key is below.
@@ -244,6 +308,17 @@ You can use the below JSON message to do the authorization:
 ```
 
 The **`domain`** is the SIP domain of the extension, the **`password`** is the **`user password`** of extension.
+
+You can also use the **`SIP extension number`** with the **`SIP password`** to do the authorization:
+
+```
+{
+"command":"auth",
+"extension_number":"101",
+"password":"A1s2d3f4",
+"domain" : "test.io"
+}
+```
 
 If there is no error, the response is as below:
 
