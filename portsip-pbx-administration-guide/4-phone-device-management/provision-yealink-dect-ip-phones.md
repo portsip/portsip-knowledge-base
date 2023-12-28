@@ -11,6 +11,14 @@ This guide applies to the following models:
 * W80B/DM
 * W90B/DM
 
+## Factory Reset the Yealink DECT System <a href="#h.7dibl1nchwtg" id="h.7dibl1nchwtg"></a>
+
+1. Hold the device button for at least 20 seconds.
+2. Release the button.
+3. The device will now proceed to reset and reboot.
+
+You can also click the Reset To Factory Settings button to reset the system by navigating to the menu **Settings > Upgrade > Select and Upgrade Firmware.**
+
 ## Upgrade the DECT Base and Handsets to the Latest Firmware <a href="#h.i1ns9ummsm0r" id="h.i1ns9ummsm0r"></a>
 
 Ensure that the DECT device and handsets are running on the latest firmware. To check which firmware the phones are running:
@@ -28,14 +36,6 @@ You can follow the below steps to upgrade the firmware:
 You can also upgrade the handset firmware in the same steps.
 
 <figure><img src="../../.gitbook/assets/yealink-dectp-2.png" alt=""><figcaption></figcaption></figure>
-
-## Factory Reset the Yealink DECT System <a href="#h.7dibl1nchwtg" id="h.7dibl1nchwtg"></a>
-
-1. Hold the device button for at least 20 seconds.
-2. Release the button.
-3. The device will now proceed to reset and reboot.
-
-You can also click the Reset To Factory Settings button to reset the system by navigating to the menu **Settings > Upgrade > Select and Upgrade Firmware.**
 
 ## Add a DECT Phone in PortSIP PBX
 

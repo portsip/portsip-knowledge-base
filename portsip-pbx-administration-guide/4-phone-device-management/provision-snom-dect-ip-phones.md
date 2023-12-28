@@ -1,41 +1,50 @@
 # Provision SNOM DECT IP Phones
 
-From the v16.2 version, PortSIP supports the Yealink DECT IP Phones.
+From the v16.2 version, PortSIP supports the SNOM DECT IP Phones.
 
-## Supported Yealink DECT IP Phone Models
+## Supported SNOM DECT IP Phone Models
 
 This guide applies to the following models:
 
-* W60B
-* W70B
-* W80B/DM
-* W90B/DM
+* M300
+* M400
+* M700
+* M900
 
-## Upgrade the DECT Base and Handsets to the Latest Firmware <a href="#h.i1ns9ummsm0r" id="h.i1ns9ummsm0r"></a>
+## Factory Reset the SNOM DECT System <a href="#h.7dibl1nchwtg" id="h.7dibl1nchwtg"></a>
 
-Ensure that the DECT device and handsets are running on the latest firmware. To check which firmware the phones are running:
+### Reset SNOM M300, M400, M700 and M900 base station to factory defaults <a href="#h.ok6p73hfu2gh" id="h.ok6p73hfu2gh"></a>
 
-<figure><img src="../../.gitbook/assets/yealink-dectp-1.png" alt=""><figcaption></figcaption></figure>
+1. Press and hold the **reset** key for at least 10 seconds.
+2. After the base station restarts, it will be successfully reset.
 
-You can follow the below steps to upgrade the firmware:
+### Reset SNOM M25, M65, M70, M80, M85, M90 handsets to factory defaults <a href="#h.94z861jbqmrt" id="h.94z861jbqmrt"></a>
 
-1. Access the [official Yealink website](https://www.yealink.com/en/solution-detail/resource-for-3cx) and then click **Software**. Select your phone model and download the latest Firmware image file.
-2. Sign in to your Yealink DECT Manager web portal in the browser.
-3. Navigate to **Settings > Upgrade > Select and Upgrade Firmware**.
-4. Click **Browse** choose the firmware image file saved from the Yealink website, and press **Upgrade**.
-5. If using the Yealink W80 or W90 repeat this step for all the Yealink Base Stations you will connect to the DECT Manager.
+1. Press the **Menu** key.
+2. Navigate to **Settings > Reset** settings, and select **Yes** to reset settings.
+3. Enter the PIN **0000** and press **OK** to confirm.
+4. After the handset restarts, your SNOM handset will be successfully reset.
 
-You can also upgrade the handset firmware in the same steps.
+## Upgrade the Base Station to the Latest Firmware <a href="#h.i1ns9ummsm0r" id="h.i1ns9ummsm0r"></a>
 
-<figure><img src="../../.gitbook/assets/yealink-dectp-2.png" alt=""><figcaption></figcaption></figure>
+Before you start provisioning your SNOM DECT phone with PortSIP PBX, make sure your DECT base is running the necessary firmware. Here’s how you can check and update the firmware of your SNOM DECT system:
 
-## Factory Reset the Yealink DECT System <a href="#h.7dibl1nchwtg" id="h.7dibl1nchwtg"></a>
+1. Open your web browser and navigate to the IP address of your DECT phone. Log in to your account (the default username/password is admin/admin).
+2. Go to **Home/Status > Firmware Version**. Compare the Version and Branch with the latest available firmware version for your DECT device.
+3. Navigate to **Firmware Update**. In the:
+   * &#x20;**Firmware update server address** field, enter http://dect.snom.com.&#x20;
+   * **Required Version** field, enter the latest available firmware as per SNOM's support website. For instance, at the time of creating this guide, the latest firmware is **670** and the **Required branch** is **202** for the M900 base.
+4. After entering a valid firmware number, click on **Save/Start Update**.
+5. The firmware upgrade will begin after a few minutes. The LED on the base station will start flashing red to indicate the upgrade process.
 
-1. Hold the device button for at least 20 seconds.
-2. Release the button.
-3. The device will now proceed to reset and reboot.
+Please note that the firmware upgrade process may take some time. Do not interrupt the process until the firmware upgrade is complete. If you encounter any issues, please refer to the troubleshooting section of the user guide or contact technical support.
 
-You can also click the Reset To Factory Settings button to reset the system by navigating to the menu **Settings > Upgrade > Select and Upgrade Firmware.**
+Here also have the SNOM official guides:
+
+* [How to update M300,M700,M900 DECT Base Station manually](https://service.snom.com/display/wiki/How+to+update+M300%2CM400%2CM700%2CM900+DECT+Base+Station+manually)
+* [How to update M-Series - DECT handsets](https://service.snom.com/display/wiki/How+to+update+M-Series+-+DECT+handsets)
+
+
 
 ## Add a DECT Phone in PortSIP PBX
 
