@@ -82,14 +82,14 @@ If your PBX installation is on-premise without internet access or you turned off
 Please ignore this step if the device is not W80 and W90.
 {% endhint %}
 
-1. Enter the Base Station's IP address in the web browser to open it and select the menu Base Mode.&#x20;
-2. Enter the DECT Manager's IP address on the Base Mode page and press the button Confirm.
+1. Open your web browser and enter the IP address of the Base Station. This will open the Base Station’s interface. Navigate to the **Base Mode** menu.
+2. On the **Base Mode** page, input the IP address of the DECT Manager. After entering the IP address, click on the ‘Confirm’ button.
 
 <figure><img src="../../.gitbook/assets/yealink-dect-7.png" alt=""><figcaption></figcaption></figure>
 
-3. Enter the DECT Manager's IP address in the web browser and open it.&#x20;
-4. Under the Base Station Registration page, click the Register button next to the base you wish to connect to your DECT Manager, then press OK.
-5. Open the menu Base Station Settings and you should now see the base as Active and synced
+3. Open your web browser and input the IP address of the DECT Manager to access its interface.
+4. On the **Base Station Registration** page, click the **Register** button next to the base you want to connect to your DECT Manager, then press **OK**.
+5. Proceed to the **Base Station Settings** menu. You should now see the status of the base as **Active and synced**.
 
 <figure><img src="../../.gitbook/assets/yealink-dect-8.png" alt=""><figcaption></figcaption></figure>
 
