@@ -95,14 +95,14 @@ Please ignore this step if the device is not W80 and W90.
 
 ### Register the Yealink Handsets and Assign Users <a href="#h.3wxv1c6vyqe1" id="h.3wxv1c6vyqe1"></a>
 
-1. Enter the device's IP address in the web browser and open it.
-2. Select the menu Handset & Account > Handset Registration page.
-3. All the user extensions you assigned in the above step Assign Users to the Handsets, will be listed here. Click the edit icon next to each extension.
+1. Open your web browser and input the device's IP address to access its interface.&#x20;
+2. Navigate to the **Handset & Account** menu and select the **Handset Registration** page.&#x20;
+3. You will see a list of all the user extensions that you assigned in the previous step **Assign Users to the Handsets**. Click the **edit** icon next to each extension to make changes.
 
 <figure><img src="../../.gitbook/assets/yealink-dect-9.png" alt=""><figcaption></figcaption></figure>
 
-4. Click Start Register Handset.
-5. On your handset, press the Reg. softkey for Easy Pairing or go to the Settings menu and select Registration > Base 1.
-6. Select your base from the scanning results list, and enter PIN 0000 when asked.
-7. Repeat the steps for all extensions you wish to assign a Handset.
+4. Click on **Start Register Handset**.&#x20;
+5. On your handset, either press the R**eg.** softkey for E**asy Pairing** or navigate to the **Settings** menu and select **Registration > Base 1**.&#x20;
+6. From the scanning results list, select your base and enter the PIN **0000** when prompted.
+7. &#x20;Repeat these steps for all extensions to which you wish to assign a handset.
 
