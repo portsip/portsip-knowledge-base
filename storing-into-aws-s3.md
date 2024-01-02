@@ -57,22 +57,22 @@ You can choose to add this user to an existing group rather than create a new gr
 
 Open the settings file:
 
-* On Linux is  `/var/lib/portsip/pbx/system.ini;`&#x20;
+* On Linux is  `/var/lib/portsip/pbx/system.ini`
 * On Windows is  `c:/programdata/portsip/pbx/system.ini`
 
-Edit the section **filegate**, modify the value of the key **backend** to **s3** as shown below.
+In the section **apigateway**, modify the value of the key **storage** to **s3** as shown below.
 
 ```
-[filegate]
-backend=s3
+[apigateway]
+storage=s3
 host=localhost
 port=8903
 ```
 
-Edit the section **S3** as shown below.
+Edit the section **storage.s3** as shown below.
 
 ```
-[s3]
+[storage.s3]
 endpoint =  http://s3.region-code.amazonaws.com
 cred_id = Access key ID
 cred_secret = Secret access key
@@ -83,7 +83,7 @@ bucket = portsip-pbx-storage
 * **endpoint**: This is an HTTP URL, replace the **region-code** with the actual region name. For example, if the EC2 and S3 region name is **us-west-1**, then it will be http://s3.**us-west-1**.amazonaws.com.
 
 ```
-[s3]
+[storage.s3]
 endpoint =  http://s3.us-west-1.amazonaws.com
 cred_id = Access key ID
 cred_secret = Secret access key

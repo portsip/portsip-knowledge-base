@@ -27,28 +27,42 @@ This message will be returned under the following scenarios:
 ```json
 {
   "event_type": "extension_status",
-  "extension": "sip:101@test.io",
-  "presence_note": "",
-  "on_call": false,
-  "online": false,
-  "push_online": false,
-  "tenant_id": "792406615960584192",
-  "extension_id": "792406615960584220",
-  "time": "1703689749"
+  "status": [
+    {
+      "extension": "sip:101@test.io",
+      "extension_id": "794493219508322304",
+      "on_call": false,
+      "online": false,
+      "presence_note": "",
+      "push_online": false,
+      "time": "1704186780"
+    },
+    {
+      "extension": "sip:102@test.io",
+      "extension_id": "794493219718037504",
+      "on_call": false,
+      "online": false,
+      "presence_note": "",
+      "push_online": false,
+      "time": "1704186780"
+    }
+  ],
+  "tenant_id": "794493068765036544"
 }
 ```
 
 The message is in JSON format and includes the following fields:
 
 * `event_type`: Indicates the type of the message.
-* `extension`: Represents the SIP URI of the extension.
-* `presence_note`: Contains the text of the presence status.
-* `on_call`: Indicates whether the extension is currently on a call.
-* `online`: Indicates whether the extension is currently registered to the PBX.
-* `push_online`: This field indicates whether mobile push notifications are currently enabled for the extension. This is only valid if `online` is false.
 * `tenant_id`: Represents the ID of the tenant to which the extension belongs.
-* `extension_id`: Represents the ID of the extension.
-* `time`: Represents the timestamp of this message in UNIX time.
+* `status`: It's a JSON array that includes the extension status, include the following fields:
+  * `extension`: Represents the SIP URI of the extension.
+  * `presence_note`: Contains the text of the presence status.
+  * `on_call`: Indicates whether the extension is currently on a call.
+  * `online`: Indicates whether the extension is currently registered to the PBX.
+  * `push_online`: This field indicates whether mobile push notifications are currently enabled for the extension. This is only valid if `online` is false.
+  * `extension_id`: Represents the ID of the extension.
+  * `time`: Represents the timestamp of this message in UNIX time.
 
 #### extension\_call
 
