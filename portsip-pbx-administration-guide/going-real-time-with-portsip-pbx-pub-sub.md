@@ -31,7 +31,7 @@ This message will be returned under the following scenarios:
     {
       "extension": "sip:101@test.io",
       "extension_id": "794493219508322304",
-      "call_status": "on_call",
+      "call_status": "On Call",
       "online": false,
       "presence_note": "",
       "push_online": false,
@@ -40,7 +40,7 @@ This message will be returned under the following scenarios:
     {
       "extension": "sip:102@test.io",
       "extension_id": "794493219718037504",
-      "call_status": "on_call",
+      "call_status": "On Call",
       "online": false,
       "presence_note": "",
       "push_online": false,
@@ -58,7 +58,7 @@ The message is in JSON format and includes the following fields:
 * `status`: It's a JSON array that includes the extension status, including the following fields:
   * `extension`: Represents the SIP URI of the extension.
   * `presence_note`: Contains the text of the presence status.
-  * `call_status`: Indicates whether the extension is currently on a call, the value can be `on_call` or `none`.
+  * `call_status`: The **On Call** status indicates whether the extension is currently engaged in a call. If this value is empty, it means the extension is not on a call.
   * `online`: Indicates whether the extension is currently registered to the PBX.
   * `push_online`: This field indicates whether mobile push notifications are currently enabled for the extension. This is only valid if `online` is false.
   * `extension_id`: Represents the ID of the extension.
@@ -76,7 +76,7 @@ This message will be returned under the following scenarios:
 {
   "event_type": "extension_call",
   "extension": "sip:101@test.io",
-  "call_status": "on_call",
+  "call_status": "On Call",
   "tenant_id": "792406615960584192",
   "extension_id": "792406615960584220",
   "time": "1703690276"
@@ -87,7 +87,7 @@ The message is in JSON format and includes the following fields:
 
 * `event_type`: Indicates the type of the message.
 * `extension`: Represents the SIP URI of the extension.
-* `call_status`: Indicates whether the extension is currently on a call, the value can be `on_call` or `none`.
+* `call_status`: The **On Call** status indicates whether the extension is currently engaged in a call. If this value is empty, it means the extension is not on a call.
 * `tenant_id`: Represents the ID of the tenant to which the extension belongs.
 * `extension_id`: Represents the ID of the extension.
 * `time`: Represents the timestamp of this message in UNIX time.
