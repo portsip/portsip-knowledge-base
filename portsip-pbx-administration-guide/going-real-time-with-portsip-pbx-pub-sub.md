@@ -58,7 +58,7 @@ The message is in JSON format and includes the following fields:
 * `status`: It's a JSON array that includes the extension status, including the following fields:
   * `extension`: Represents the SIP URI of the extension.
   * `presence_note`: Contains the text of the presence status.
-  * `call_status`: The **On Call** status indicates whether the extension is currently engaged in a call. If this value is empty, it means the extension is not on a call.
+  * `call_status`: The "**On Call**" status signifies that the extension is currently engaged in a call. The "**Ringing**" status means that the extension is currently receiving a call and is ringing. If this value is empty, it indicates that the extension is not involved in any call.
   * `online`: Indicates whether the extension is currently registered to the PBX.
   * `push_online`: This field indicates whether mobile push notifications are currently enabled for the extension. This is only valid if `online` is false.
   * `extension_id`: Represents the ID of the extension.
@@ -87,7 +87,7 @@ The message is in JSON format and includes the following fields:
 
 * `event_type`: Indicates the type of the message.
 * `extension`: Represents the SIP URI of the extension.
-* `call_status`: The **On Call** status indicates whether the extension is currently engaged in a call. If this value is empty, it means the extension is not on a call.
+* `call_status`: The "**On Call**" status signifies that the extension is currently engaged in a call. The "**Ringing**" status means that the extension is currently receiving a call and is ringing. If this value is empty, it indicates that the extension is not involved in any call.
 * `tenant_id`: Represents the ID of the tenant to which the extension belongs.
 * `extension_id`: Represents the ID of the extension.
 * `time`: Represents the timestamp of this message in UNIX time.
