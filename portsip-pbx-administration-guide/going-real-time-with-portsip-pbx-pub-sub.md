@@ -123,6 +123,7 @@ The message is in JSON format and includes the following fields:
 Once a call has ended, the CDR of this call will be pushed to the subscribers, the message topic is: **`cdr_events`**, the message key is below.
 
 * `call_cdr`: once a call has ended, the CDR will be packed in JSON format and pushed to the subscriber.
+* `call_start`: once an extension receives a call, the call information will be packed in JSON format and pushed to the subscriber.
 
 For more details please refer to this [topic](20-cdr-and-call-recordings/#cdr).
 
