@@ -45,7 +45,7 @@ Please follow the below steps:
 ## Edit the template file
 
 1. Open the CSV file, there is a line of the user you created, change the **name**, **password**, **extension number**, e**xtension password**, and IP Phone **MAC address** to **CC-5E-F8-41-B7-A2** for the second user.
-2. Copy the lines for the other three users, and change the **name**, **password**, **extension number**, e**xtension password**, and IP Phone **MAC address** for every user (please don't include the information for user and phone MAC address **CC-5E-F8-41-B7-A1 since it is already in the PBX)**.  Please see the below screenshot:
+2. Copy the lines for the other three users, and change the **name**, **password**, **extension number**, **extension password**, and IP Phone **MAC address** for every user (please don't include the information for user and phone MAC address **CC-5E-F8-41-B7-A1 since it is already in the PBX)**.  Please see the below screenshot:
 
 <figure><img src="../../.gitbook/assets/zoro-touch-user.png" alt=""><figcaption><p>Copy users and change the name, password, extension number, extension password, and phone MAC address</p></figcaption></figure>
 
