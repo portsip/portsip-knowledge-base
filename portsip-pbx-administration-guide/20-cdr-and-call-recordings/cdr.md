@@ -24,14 +24,33 @@ A webhook is a mechanism that allows you to call out to an external program base
 
 Only the tenant administrator has the ability to enable/disable this feature.
 
-Select "**Company**" from the left menu. On the "**Event URL**" page, turn on CDR Events. Choose an Authentication Method and enter your Webhook URL. The PBX will then push CDR events to your 3rd party Webhook.
+Select **Company** from the left menu. On the **Event URL** page, turn on CDR Events. Choose an Authentication Method and enter your Webhook URL. The PBX will then push CDR events to your 3rd party Webhook.
 
 <figure><img src="../../.gitbook/assets/cdr-webhook.png" alt=""><figcaption></figcaption></figure>
+
+Below is an example of when extension 102 received a call.
+
+```json
+{
+  "event_type": "call_start",
+  "call_id": "Q0sXhDgxnowmQp1P9swHLw..",
+  "callee": "sip:102@test.io",
+  "callee_display_name": "Jason",
+  "caller": "sip:101@test.io",
+  "caller_display_name": "Tom",
+  "cdr_id": "798119942409949185",
+  "direction": "ext",
+  "session_id": "798119942409949184",
+  "tenant_id": "798119491077668864",
+  "time": "1705051422"
+}
+```
 
 Below is an example of a CDR. The call flow is **caller > trunk > PBX IVR > Queue > Agent**.
 
 ```json
 {
+   "event_type":"call_cdr",
    "answered_time":"1679476851",
    "call_id":"b6PEEYEcn5speSovMAybCw..",
    "callee":"5000",
@@ -43,7 +62,6 @@ Below is an example of a CDR. The call flow is **caller > trunk > PBX IVR > Queu
    "direction":"in",
    "ended_reason":"callee_disconnect",
    "ended_time":"1679476870",
-   "event_type":"call_cdr",
    "outbound_caller_id":"",
    "ring_time":"1679476851",
    "session_id":"690852418417594368",
