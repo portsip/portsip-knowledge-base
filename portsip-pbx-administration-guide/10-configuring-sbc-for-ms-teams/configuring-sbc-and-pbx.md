@@ -23,7 +23,8 @@ If it is displayed as **Inactive**, something is wrong, please double-check ever
 
 1. Ensure the TCP transport on port 5063 has been added to the PBX.
 2. Sign in to the PBX web portal as **System Administrator**, navigate to the **Tenants** menu, select a tenant to be managed, and click the **Manage** button; or sign in the user who is the "**admin**" role of the tenant into the PBX web portal.
-3. Select **Call Manager > Trunks** menu, and click the arrow button to choose the trunk type **Microsoft Teams**.
+3. Ensure the **SIP domain** for this tenant is already set as `sbc.portsip.cc`.
+4. Select **Call Manager > Trunks** menu, and click the arrow button to choose the trunk type **Microsoft Teams**.
    * `DID/DDI Pool` : The phone number that will be dialed from the teams to PBX, it's can be a single number or a number range, for example, 331001-331100; the 33 is the country code of the Teams user you specified when you create the tenant user(33 is for France);  1001-1100 is the phone number range for Teams users.
    * The host domain or IP can't be modified, the port is the SBC transport port that communicates with PBX, and by default, it `5069`.
    * Enter the SBC server private IP `192.168.1.73`  into the **Outbound Proxy Server** field. If the SBC is installed on the same server as PBX, then this is the PBX server's private IP.
