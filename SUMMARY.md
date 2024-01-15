@@ -47,6 +47,7 @@
     * [Speed Dial 100](portsip-pbx-administration-guide/5-user-management/speed-dial-100.md)
   * [6 Transport Management](portsip-pbx-administration-guide/6-transport-management.md)
   * [7 Trunk Management](portsip-pbx-administration-guide/7-trunk-management/README.md)
+    * [Configuring SIP Trunk](portsip-pbx-administration-guide/7-trunk-management/configuring-sip-trunk.md)
     * [Handle Outbound Calls Through SIP Trunk](portsip-pbx-administration-guide/7-trunk-management/handle-outbound-calls-through-sip-trunk.md)
   * [8 Call Route Management](portsip-pbx-administration-guide/8-call-route-management/README.md)
     * [Configuring Inbound Rule](portsip-pbx-administration-guide/8-call-route-management/configuring-inbound-rule.md)
