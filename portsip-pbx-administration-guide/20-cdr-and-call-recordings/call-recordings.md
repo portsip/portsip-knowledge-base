@@ -124,3 +124,15 @@ That’s it! Your changes should now be in effect.
 Recording the calls in AMR or MP3 format will reduce the disk space but will cause poor performance.
 {% endhint %}
 
+Here’s a revised version of your text:
+
+**Recording File Size Calculation**
+
+You can calculate the size of the recording file based on the following conditions:
+
+* **Wave**: This format is uncompressed and typically results in a file size of approximately 1MB per minute.
+* **AMR**: This format results in a file size of about 100KB per minute. Please note that AMR files cannot be played in a browser.
+* **MP3**: This format results in a file size of approximately 256KB per minute. MP3 files can be played in a browser.
+
+Please keep these conditions in mind when choosing a format for your recording files.
+
