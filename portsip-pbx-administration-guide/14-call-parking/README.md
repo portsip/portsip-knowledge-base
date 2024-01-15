@@ -22,7 +22,7 @@ PortSIP implements the call parking feature in a unique way in order to avoid tr
 
 Here are the details of the PortSIP Call Parking implementation:
 
-* There is no need to create a parking spot. Just use the extension number as the parking spot. For example, if the user wants to park a call to the extension who has extension number 103, just transfer the call to \*68103. The \*68 is the FAC for call park.
+* There is no need to create a parking spot. Just use the extension number as the parking spot. For example, if the user wants to park a call to the extension who has extension number 103, just transfer the call to `*68103`. The `*68` is the FAC for call park.
 * Once a call has parked at an extension, this extension device (IP Phone or softphone app) will receive an out-of-dialog NOTIFY message with the `park-info` event. The NOTIFY message includes the parker, parked, and retrieve information.
 * The extension device can parse parked call details and retrieve information from the NOTIFY message and alert the extension that there is a call parked.
 * The user can retrieve the call by pressing the button/soft key.
