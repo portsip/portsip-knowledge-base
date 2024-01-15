@@ -98,3 +98,29 @@ The PBX supports the following message commands:
 * resume-audio-recording: resume the audio recording for the call
 * resume-video-recording: resume the video recording for the call
 
+## **Call Recording File Format**
+
+By default, PortSIP PBX records files in the WAV format. This format offers superior performance but consumes more disk space.
+
+PortSIP PBX also supports recording calls in MP3 and AMR formats. To change the settings, please follow these steps:
+
+1. Open the file `var/lib/portsip/pbx/system.ini`. For Windows, this file is located at `C:/ProgramData/PortSIP/pbx/log`.
+2. In the `[mediaserver]` section, find the key `recorder_file_format`. The default value  `1` corresponds to recording in WAV format.
+3. If you wish to record the call in AMR format, change this value to `2`. For recording in MP3 format, change the value to `3`.
+4. Save the changes.
+
+To apply these changes, you'll need to restart the media server:
+
+* **Windows**: Open the Windows Service Manager and restart the **PortSIP Media Server** service.
+* **Linux**: Execute the following commands:
+
+```
+cd /opt/portsip && /bin/sh pbx_ctl.sh restart -s portsip.mediaserver
+```
+
+That’s it! Your changes should now be in effect.
+
+{% hint style="danger" %}
+Recording the calls in AMR or MP3 format will reduce the disk space but will cause poor performance.
+{% endhint %}
+
