@@ -6,13 +6,17 @@ For most networks, RPS is the easiest way to provision your phones. However, if 
 
 1. Phone boots up
 2. Phone requests IP from DHCP server
-3. DHCP server gives an IP PLUS an "option 66"
+3. DHCP server gives an IP PLUS an **option 66**
 4. This option 66 will contain the URL to the provisioning root folder on PortSIP PBX
 5. The phone will download the configuration file from PortSIP PBX using its MAC address
 
 <figure><img src="../../.gitbook/assets/portsip_dhcp66_phone.png" alt=""><figcaption></figcaption></figure>
 
 ## Copy Provisioning Link <a href="#h.53mpievjyi4e" id="h.53mpievjyi4e"></a>
+
+{% hint style="warning" %}
+Due do the security concern, please disable the auto provision security enhance if you wish to provision the phones by OPTION 66. Please see the article [DHCP Option 66 and Auto-Provisioning in PortSIP PBX](auto-provisioning-security.md#dhcp-option-66-and-auto-provisioning-in-portsip-pbx).
+{% endhint %}
 
 The first step is to copy your provisioning link. It's different for each PortSIP PBX installation for security reasons. To determine it:
 
@@ -22,7 +26,7 @@ The first step is to copy your provisioning link. It's different for each PortSI
 4. To obtain the root folder, just remove the last part of the URL after the dash, which specifies the actual file.
 5. For example, [http://pbx.portsip.com:8888/provision/R2Xu8aVV20Jka/](http://pbx.portsip.com:8888/provision/R2Xu8aVV20Jka/)[ ](http://pbx.portsip.com:8888/provision/R2Xu8aVV20Jka/)where **pbx.portsip.com** is your FQDN, the **R2Xu8aVV20Jka** is the randomly generated provisioning folder name
 6. This link will be the one to use in **option 66** unless you have Snom phones
-7. For Snom phone users must append the `cfg{mac}` to the link, e.g. [http://pbx.portsip.com:8888/provision/R2Xu8aVV20Jka/](http://pbx.portsip.com:8888/provision/R2Xu8aVV20Jka/)cfg{mac}
+7. For the SNOM phone users, if your **PortSIP PBX version is less than v16.2** must append the `cfg{mac}` to the link, e.g. [http://pbx.portsip.com:8888/provision/R2Xu8aVV20Jka/](http://pbx.portsip.com:8888/provision/R2Xu8aVV20Jka/)cfg{mac}; This step should be skip if your PortSIP PBX version is v16.2 or higher.
 
 <figure><img src="../../.gitbook/assets/portsip_dhcp66_phone_3.png" alt="" width="563"><figcaption></figcaption></figure>
 
