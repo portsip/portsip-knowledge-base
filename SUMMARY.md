@@ -155,7 +155,6 @@
   * [Trace server - A Better Way to Debug PortSIP UC](pbx\_v12/tutorials/debug-sip-message.md)
   * [Setup SSL Certificates for HTTPS/WebRTC](pbx\_v12/tutorials/setup-ssl-certificates.md)
   * [Going Real-Time with PortSIP PBX Pub/Sub](pbx\_v12/tutorials/going-real-time-with-portsip-pbx-pub-sub.md)
-  * [Use PortSIP VoIP SDK for Free](pbx\_v12/tutorials/use-portsip-voip-sdk-for-free.md)
   * [Upgrade PortSIP PBX for offline](pbx\_v12/tutorials/upgrade-portsip-pbx-for-offline.md)
   * [PortSIP UC Architecture](pbx\_v12/tutorials/portsip-pbx-architecture.md)
   * [PortSIP PBX Features](pbx\_v12/tutorials/portsip-pbx-features.md)
