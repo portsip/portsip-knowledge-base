@@ -10,9 +10,13 @@ Since the PortSIP PBX is a multi-tenant PBX, if more than one tenant sets up the
 
 To avoid the problems above, PortSIP PBX introduced the **DID Pool** concept.
 
-Once a tenant was assigned with the trunk by the "**System Admin**", the "**System Admin**" must set up a DID pool for that tenant, the DID pool number cannot overlap with other tenants' DID pools. When a tenant creates the inbound rule based on an assigned trunk, the tenant can only use the DID number from the DID pool.
+### Trunks Added by System Admin
 
-If a "**Tenant Admin**" adds a trunk for himself, a DID pool must be specified for that trunk. When creating the inbound rule for this tenant based on this trunk after it was added, the DID number used must be in this DID pool range. The DID pool number cannot overlap with the same trunk provider.
+Once a tenant was assigned with the trunk by the **System Admin**, the **System Admin** must set up a DID pool for that tenant, the DID pool number cannot overlap with other tenants' DID pools. When a tenant creates the inbound rule based on an assigned trunk, the tenant can only use the DID number from the DID pool.
+
+### Trunks Added by Tenant Admin
+
+If a **Tenant Admin** adds a trunk for himself, a DID pool must be specified for that trunk. When creating the inbound rule for this tenant based on this trunk after it was added, the DID number used must be in this DID pool range. The DID pool number cannot overlap with the same trunk provider.
 
 Tenant A, for example, adds a trunk of the **trunk provider XYZ** and sets the DID Pool to 1000-2000; Tenant B also adds a trunk of the same **trunk provider XYZ** and sets the DID Pool to 2000-3000; This will fail because the DID Pool number of the same trunk is overlapping; when a call to number 2000 is incoming, the PBX does not know which tenant should route the call to.
 
@@ -30,7 +34,7 @@ The DID number and DID number range cannot begin with "**+"**, "**0"**, or "**00
 
 ## Structuring the INVITE Message
 
-The values that PortSIP PBX sends in outgoing INVITE messages can be configured in the SIP trunk settings on the “**Outbound Parameters**” page. From here, you can set what values will be placed in each SIP field, but this will be explained later in more detail.
+The values that PortSIP PBX sends in outgoing INVITE messages can be configured in the SIP trunk settings on the **Outbound Parameters** page. From here, you can set what values will be placed in each SIP field, but this will be explained later in more detail.
 
 The base INVITE message PortSIP PBX sends when making an outgoing call through a SIP Trunk looks like this:
 
@@ -91,37 +95,37 @@ PortSIP PBX enables the following fields to be configured:
 
 ## Variables <a href="#h.d7pw10ze1a4e" id="h.d7pw10ze1a4e"></a>
 
-The variables briefly described below can be assigned to each of the SIP Fields mentioned in the section “**Configurable SIP Fields**”.
+The variables briefly described below can be assigned to each of the SIP Fields mentioned in the section [Configurable SIP Fields](handle-outbound-calls-through-sip-trunk.md#h.rhrzb9hdve5w).
 
 ### **AuthID**
 
-The value of the AuthID variable is derived from the “**Authentication ID**” field in the menu "**Call Manager**" > "**Trunks"** >  Edit Register Based Trunk > "**Client Verification"** tab >  "**Authentication Name"** (aka SIP user ID).&#x20;
+The value of the AuthID variable is derived from the **Authentication ID** field in the menu **Call Manager** > **Trunks** >  Edit Register Based Trunk > **Client Verification** tab >  **Authentication Name** (aka SIP user ID).&#x20;
 
-This variable is only valid for the "**Register Based Trunk**" and "**Accept Register Based Trunk**".
+This variable is only valid for the **Register Based Trunk** and **Accept Register Based Trunk**.
 
 <figure><img src="../../.gitbook/assets/trunk_auth_id.png" alt=""><figcaption></figcaption></figure>
 
 ### CalledNum&#x20;
 
-The "**CalledNum**" variable contains the dialled/destination number the INVITE message is supposed to initiate the call to.
+The **CalledNum** variable contains the dialed/destination number the INVITE message is supposed to initiate the call.
 
 ### CallerNum
 
-This variable refers to the user part of the SIP "**To**" header.
+This variable refers to the user part of the SIP **To** header.
 
 ### CallerDispName
 
-If an extension user registered with PortSIP PBX makes a call to an external number and sends a value in the "**From : Display Name**", PortSIP tries to maintain this value when constructing the INVITE to be sent to the SIP Trunk. If the endpoint doesn't use the display name, then PortSIP PBX will use the name of the extension for this variable.
+If an extension user registered with PortSIP PBX makes a call to an external number and sends a value in the **From : Display Name**, PortSIP tries to maintain this value when constructing the INVITE to be sent to the SIP Trunk. If the endpoint doesn't use the display name, then PortSIP PBX will use the name of the extension for this variable.
 
 ### OriginatorCallerID
 
-The "**OriginatorCallerID**" variable attempts to use the original number of the Caller, even if that number has not originated from the PortSIP PBX.
+The **OriginatorCallerID** variable attempts to use the original number of the Caller, even if that number has not originated from the PortSIP PBX.
 
-If an extension user registered to PortSIP PBX uses the anonymous dial code to make an outbound call, this variable will be populated with the value "**anonymous**".
+If an extension user registered to PortSIP PBX uses the anonymous dial code to make an outbound call, this variable will be populated with the value **anonymous**.
 
 ### Anonymous
 
-When the PBX sends the call to the trunk, this variable will be populated with the value "**anonymous**".
+When the PBX sends the call to the trunk, this variable will be populated with the value **anonymous**.
 
 ### Custom Field&#x20;
 
@@ -129,21 +133,21 @@ Choosing this as a variable will allow you to enter a value manually.
 
 ### TrunkHostPort
 
-This variable is the combined value of the "**Host Domain or IP or IP**" and "**Port**" fields in the "**Trunks**" > Edit SIP Trunk > "**Server**" tab.
+This variable is the combined value of the **Host Domain or IP or IP** and **Port** fields in the **Trunks** > Edit SIP Trunk > **Server** tab.
 
 ### OutHostPort
 
-This variable is the combined value of the "**Outbound Proxy Server**" and "**Outbound Proxy Server Port**" fields in the "**Trunks**" > Edit SIP Trunk > "**Server**" tab.
+This variable is the combined value of the **Outbound Proxy Server** and **Outbound Proxy Server Port** fields in the **Trunks** > Edit SIP Trunk > **Server** tab.
 
 ### ContactUri
 
-The "**ContactUri**" variable value containing the IP and port on which a SIP Trunk should contact PortSIP PBX, is typically used to populate the "**Contact : Host Part**". The port is always the port of PortSIP transport.
+The "**ContactUri**" variable value containing the IP and port on which a SIP Trunk should contact PortSIP PBX, is typically used to populate the **Contact : Host Part**. The port is always the port of PortSIP transport.
 
 ### OutboundCallerId
 
-During an outbound call, the PBX will check for an Outbound Caller ID in some different locations with descending priority. The highest priority is the "**Outbound Caller ID**" field that can be set in extension settings.
+During an outbound call, the PBX will check for an Outbound Caller ID in some different locations with descending priority. The highest priority is the **Outbound Caller ID** field that can be set in extension settings.
 
-Click the menu "**Call Manager**" > "**Users**" > Edit User > "**Extension**" tab, and in the "**Outbound Caller ID**" section, we can set up the outbound caller ID for the user.
+Click the menu **Call Manager** > **Users** > Edit User > **Extension** tab, and in the **Outbound Caller ID** section, we can set up the outbound caller ID for the user.
 
 The outbound caller ID must be in the trunk's DID pool range, and the DID number can be started with "+", "0", "00", or "+00".
 
@@ -151,7 +155,7 @@ The outbound caller ID must be in the trunk's DID pool range, and the DID number
 
 As described in the [User Groups](../5-user-management/user-groups.md) section, we can create a user group, add users as group members, and assign DID numbers to the group. If an outbound rule was created with the caller user group criteria ("Calls from user groups" option in the outbound rule) and the group member's outbound caller ID is empty, the PBX uses the outbound caller ID from the group to which the caller belongs when the group member makes the outbound call using this outbound rule.
 
-If the user's outbound caller ID and the user group outbound caller ID both are empty or the outbound rule is without the user group criteria, then the outbound caller ID is taken from the company's outbound caller ID settings. Click the menu "**Company**" > "**Outbound caller ID**", you can set the outbound caller ID for the tenant scope (Company).
+If the user's outbound caller ID and the user group outbound caller ID both are empty or the outbound rule is without the user group criteria, then the outbound caller ID is taken from the company's outbound caller ID settings. Click the menu **Company**" > "**Outbound caller ID,** you can set the outbound caller ID for the tenant scope (Company).
 
 In summary, when making an outbound call to a SIP trunk, the outbound caller ID will be applied in the following priority order:
 
@@ -164,13 +168,13 @@ In summary, when making an outbound call to a SIP trunk, the outbound caller ID 
 
 You can configure the outbound caller ID for system services such as Virtual Receptionist, Call Queue, Ring Group, and Meeting in PortSIP PBX.
 
-When a call is not answered by call queue/ring group agents or fails/times out in the virtual receptionist, it may be re-routed to the trunk; similarly, when a meeting invites an external number to join the meeting by calling to the trunk, the outbound caller ID will be taken from their outbound caller ID settings; if no outbound caller ID are set up for these services, the company's outbound caller ID will be taken.
+When a call is not answered by call queue/ring group agents or fails/times out in the virtual receptionist, it may be re-routed to the trunk; similarly, when a meeting invites an external number to join the meeting by calling the trunk, the outbound caller ID will be taken from their outbound caller ID settings; if no outbound caller ID is set up for these services, the company's outbound caller ID will be taken.
 
 ## Bypass the Outbound Caller ID Settings
 
 PortSIP PBX also allows you to bypass the PBX Outbound Caller ID settings and use the caller device to specify the outbound caller ID—just add a SIP header into the INVITE message.
 
-If you add the "**X-Outbound-Cli**" SIP header to the INVITE message when making a call to the PBX, once the PBX receives the call from the client app/device, the PBX will rewrite the INVITE message before sending it to the trunk.
+If you add the **X-Outbound-Cli** SIP header to the INVITE message when making a call to the PBX, once the PBX receives the call from the client app/device, the PBX will rewrite the INVITE message before sending it to the trunk.
 
 ```
 X-Outbound-Cli: rewrite-from=123
@@ -200,7 +204,7 @@ X-Outbound-Cli: rewrite-from=123;trunk-name:abc
 X-Outbound-Cli: rewrite-from=123;rewrite-rpi=789;rewrite-pai=456;trunk-name:abc;
 ```
 
-When the above header is added, the PBX will rewrite the headers when sending the INVITE to the trunk named "**abc**"; if no "**trunk-name**" parameter is specified, the PBX will rewrite the INVITE message on any trunk that the call is routed through.
+When the above header is added, the PBX will rewrite the headers when sending the INVITE to the trunk named **abc**; if no **trunk-name** parameter is specified, the PBX will rewrite the INVITE message on any trunk that the call is routed through.
 
 {% hint style="info" %}
 When using the "X-Outbound-Cli" header to bypass the PBX outbound caller ID settings, the specified outbound caller ID must be in the trunk DID Pool range assigned to the tenant.
