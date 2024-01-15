@@ -15,6 +15,10 @@ We need to prepare the Linux servers for installing the following cluster applic
 
 It only supports 64-bit OS.
 
+{% hint style="danger" %}
+When setting up the PBX cluster, please ensure there is sufficient network speed and bandwidth between the servers. Insufficient network resources may cause the PBX to not work as expected.
+{% endhint %}
+
 ## **Preparing the Linux Host Machine for Installation**
 
 Tasks that MUST be completed before installing cluster servers.
