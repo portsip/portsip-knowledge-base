@@ -130,7 +130,7 @@ Here’s a revised version of your text:
 
 You can calculate the size of the recording file based on the following conditions:
 
-* **Wave**: This format is uncompressed and typically results in a file size of approximately 1MB per minute.
+* **Wav**: This format is uncompressed and typically results in a file size of approximately 1MB per minute.
 * **AMR**: This format results in a file size of about 100KB per minute. Please note that AMR files cannot be played in a browser.
 * **MP3**: This format results in a file size of approximately 256KB per minute. MP3 files can be played in a browser.
 
