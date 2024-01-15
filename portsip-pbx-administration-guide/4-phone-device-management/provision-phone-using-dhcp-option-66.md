@@ -2,7 +2,7 @@
 
 ## What is Option 66
 
-For most networks, RPS is the easiest way to provision your phones. However, if you have blocked access to the internet for your phone system, or you have legacy phones, then another way to provision a big number of phones is to use DHCP option "66". (Nothing to do with the infamous route "66" ). Option 66 is an option set in your DHCP server, that allows you to specify a server to provision a device from. In our case, option 66 can be set to be the provisioning URL for the phone. The sequence will be:
+For most networks, RPS is the easiest way to provision your phones. However, if you have blocked access to the internet for your phone system, or you have legacy phones, then another way to provision a big number of phones is to use DHCP **option 66**. (Nothing to do with the infamous route **66** ). Option 66 is an option set in your DHCP server, that allows you to specify a server to provision a device from. In our case, option 66 can be set to be the provisioning URL for the phone. The sequence will be:
 
 1. Phone boots up
 2. Phone requests IP from DHCP server
@@ -41,9 +41,9 @@ This example shows the process for the Microsoft DHCP server. Three scopes can b
 Generally, you can use a global scope if all phones use the same provisioning folder. So if all your phones are Yealink, Fanvil, GreandStream, Dinstar, ALE, or Htek, you can use a global scope. If you have a few Snom phones, then you will need to create a separate reservation for them as they require a different URL in option 66. To set option 66:
 
 1. Open the DHCP Server applet
-2. Navigate to the IPv4 Scope to "**Scope Options**"
-3. Right-click and select "**Configure Options…**"
-4. Scroll down to find Option 66, **"Boot Server Host Name**."
+2. Navigate to the IPv4 Scope to **Scope Options**
+3. Right-click and select **Configure Options…**
+4. Scroll down to find Option 66, **Boot Server Host Name**.
 5. Paste the PortSIP provisioning link obtained in the above step to the string value field.
 6. Save and restart the DHCP server.
 
