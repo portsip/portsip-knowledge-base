@@ -126,7 +126,7 @@ Recording the calls in AMR or MP3 format will reduce the disk space but will cau
 
 Here’s a revised version of your text:
 
-**Recording File Size Calculation**
+## **Recording File Size Calculation**
 
 You can calculate the size of the recording file based on the following conditions:
 
