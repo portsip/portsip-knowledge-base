@@ -171,7 +171,6 @@
 
 ***
 
-* [VoIP SDK](voip-sdk.md)
 * [Push Notifications](push-notifications/README.md)
   * [How do push notifications work with PortSIP PBX?](push-notifications/how-do-push-notifications-work-with-portsip-pbx.md)
   * [Implement the PUSH notifications in Xamarin iOS APP with PortSIP PBX 12.x](push-notifications/implement-the-push-notifications-in-xamarin-ios-app-with-portsip-pbx-12.x.md)
