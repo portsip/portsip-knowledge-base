@@ -16,17 +16,17 @@ PortSIP PBX allows you to control the call recording in two levels.
 
 ### User Level
 
-To enable/disable call recording for a user, follow these steps: Click the “**Call Manager**” menu, then click “**Users**”. Double-click the user you want to modify, and in the “**Extension**” tab, you can turn on/off the “**Record Audio Calls**”, and “**Record Video Calls**” options.
+To enable/disable call recording for a user, follow these steps: Click the **Call Manager** menu, then click **Users**. Double-click the user you want to modify, and in the **Extension** tab, you can turn on/off the **Record Audio Calls**, and **Record Video Calls** options.
 
-If “**Record Audio Calls**” is enabled, the call of this user will be recorded as a WAV file, even if the call is a video call. If “**Record Video Calls**” is enabled, the call of this user will be recorded as an MP4 file if the call is a video call.
+If **Record Audio Calls** is enabled, the call of this user will be recorded as a WAV file, even if the call is a video call. If **Record Video Calls** is enabled, the call of this user will be recorded as an MP4 file if the call is a video call.
 
 ### Tenant Level
 
 The tenant administrator has the ability to enable/disable the call recording for all users of this tenant.
 
-Click the left menu "**Company**", on the "**General**" page, under the "**Options**" section, you can turn on/off the  "**Enable extension audio recording**" or "**Enable extension video recording**" options.
+Click the left menu **Company**, on the **General** page, under the **Options** section, you can turn on/off the  **Enable extension audio recording** or **Enable extension video recording** options.
 
-If “**Enable extension audio recording**” is enabled, a user's call will be recorded as a WAV file, even if the call is a video call. If “**Enable extension video recording**” is enabled, a user's call will be recorded as an MP4 file if the call is a video call.
+If **Enable extension audio recording** is enabled, a user's call will be recorded as a WAV file, even if the call is a video call. If **Enable extension video recording** is enabled, a user's call will be recorded as an MP4 file if the call is a video call.
 
 ### Automatically stop recording if the call between two external numbers
 
@@ -34,7 +34,7 @@ In some countries, due to privacy and security concerns, the law stipulates that
 
 Consider the following scenario: The client calls the contact center from the trunk, and the agent answers, the call is starting to record, and after a while of conversation, the agent transfers the client’s call to another mobile phone number. At this point, the call recording should stop.
 
-PortSIP PBX provides corresponding features to support this regulation. The system administrator can click the menu **Advanced > Settings**, on the **General** page, and turn off the “**Record the call between external numbers**” option so that when the call is transferred to be made between two external numbers, the call recording will automatically stop.
+PortSIP PBX provides corresponding features to support this regulation. The system administrator can click the menu **Advanced > Settings**, on the **General** page, and turn off the **Record the call between external numbers** option so that when the call is transferred to be made between two external numbers, the call recording will automatically stop.
 
 ### Pause/Resume Recording
 
@@ -65,7 +65,7 @@ Content-Length: 21
 In the above out-of-dialog message:
 
 * The message body should be in JSON format.&#x20;
-* The **Content-Type** should be "**application/x-media-control+json".**
+* The **Content-Type** should be **application/x-media-control+json.**
 * The **operation** indicates whether to pause or resume recording
 * The **session\_id** specifies the call session ID. You can obtain this ID from the **X-Session-Id** header in the INVITE or 200 OK SIP message.&#x20;
 
