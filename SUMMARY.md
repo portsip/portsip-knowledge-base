@@ -141,6 +141,7 @@
   * [What Is DID Pool](faq/what-is-did-pool.md)
   * [Which IP Phones Work with PortSIP PBX](faq/which-ip-phones-work-with-portsip-pbx.md)
   * [What is SIP ALG and Why You Need to Disable It](faq/what-is-sip-alg-and-why-you-need-to-disable-it.md)
+  * [How to Adjust the REST API Rate Limit?](faq/how-to-adjust-the-rest-api-rate-limit.md)
 
 ## PBX v12.x <a href="#pbx_v12" id="pbx_v12"></a>
 
