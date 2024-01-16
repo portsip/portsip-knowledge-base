@@ -117,7 +117,7 @@ To upgrade the device's firmware, the handset must be connected to the DECT base
 <figure><img src="../../.gitbook/assets/snom-dect-6.png" alt=""><figcaption></figcaption></figure>
 
 8. In the **Required Versio**n field, enter **670**, and in the **Required branch** field, enter the number of the latest firmware, which is 201.
-9. After entering a valid firmware number, press **Start Updat**e.
+9. After entering a valid firmware number, press **Start Update**.
 
 {% hint style="danger" %}
 Before performing the upgrade, ensure that the handset is placed in the charging cradle and is charged to over 50%.
