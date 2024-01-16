@@ -72,6 +72,10 @@ Remember, assigning users to specific handsets can help manage calls more effect
 
 <figure><img src="../../.gitbook/assets/snom-dect-2.png" alt=""><figcaption></figcaption></figure>
 
+## Removing the IPUI/IPEI for a User
+
+If you need to remove a specific IPUI/IPEI for a user, please enter `FFFFFFFFFF` in the IPUI/IPEI field.
+
 ## Enter the Provisioning URL in the DECT Web UI
 
 You will need to follow the below steps to provision handsets:
