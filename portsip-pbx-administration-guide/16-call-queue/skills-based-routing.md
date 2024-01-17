@@ -45,6 +45,10 @@ In some scenarios, for the special industry callers in the contact center, we wi
 
 PortSIP PBX provides the **Exclusive Agent** feature, which allows setting up one or more agents from the queue as **Exclusive Agents** for the special callers; once the call comes from these callers, the queue will distribute the call to the **exclusive agent,** giving it the highest priority if the agent is ready (idle); of course, if all exclusive agents are busy / Not Ready / signed out, the call will be distributed to other agents.
 
+{% hint style="danger" %}
+The Exclusive Agent feature cannot be applied to the queue when the Ring Strategy is configured to Ring Simultaneously.
+{% endhint %}
+
 * Click the menu **Contact Center > Exclusive Agent**, and click the **Add** button
 * **Description**: A descriptive name for the exclusive agent being entered. For example, enter **XXX Bank** as the description for the bank caller.
 * **Caller number**: Enter the caller number who will be assigned the exclusive agents. Once the call comes from this caller, the call will be distributed to the exclusive agent with the highest priority. You can add more caller numbers by clicking the **Add** button.
@@ -79,6 +83,10 @@ Here’s a summary of the scenario:
 3. A future call from the same customer can be routed to the same agent.
 4. If **Last Called Agent Routing** is enabled and the customer calls again, the call is routed to that agent.
 5. If that agent is unavailable, the call is routed to another appropriate agent.
+
+{% hint style="info" %}
+The Last Called Agent Routing feature cannot be applied to the queue when the Ring Strategy is configured to Ring Simultaneously.
+{% endhint %}
 
 ## **Harass Numbers**
 
