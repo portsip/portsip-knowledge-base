@@ -23,11 +23,12 @@ The following changes are included in this release:
 * Supports creating the transport on the port which is less than 1024 (limited permissions by some Linux).
 * Displays the Feature Access Code in the WebRTC and Windows Client.
 * Updates the apps (iOS, Android, Windows, WebRTC) to synchronize the status between the apps and IP Phones. The statuses include:
-  * &#x20;   Online
-  * &#x20;   On call
-  * &#x20;   Away
-  * &#x20;   Do Not Disturb
-  * &#x20;   Business Trip
+  * Online
+  * Ringing
+  * On call
+  * Away
+  * Do Not Disturb
+  * Business Trip
 * Supports synchronization of the Do Not Disturb (DND) status by pressing the DND button on the IP phone.
 * Adjust the REST API rate limit to 5,000 per minute.
 * Changed the WSI (Web Socket Interface) events so subscribers more easily watch the extension status.
