@@ -4,6 +4,35 @@
 Please follow the [guide ](upgrading-portsip-pbx-to-new-versions.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
+## Changes for Release v16.2.0
+
+Date: Jan 17, 2023
+
+The following changes are included in this release:
+
+* Supports SNOM M series and Yealink W series DECT phones.
+* Adds support auto provisioning for Fanvil i504(W), i505(W), i506W, and i507W devices.
+* Changes the SNOM phone configuration file to HTM format.
+* Enables playing of call recording voice prompts for inbound calls.
+* Allows setting of office hours and holidays for each IVR DTMF input.
+* If an extension is registered to PBX from multiple devices, once one of the devices rejects the incoming call by 486, the PBX will also hang up the call on other ringing devices.
+* Adds an option for the trunk to allow or disallow the PBX to adjust the SDP direction when holding the call.
+* Supports auto-provisioning of emergency numbers to the IP phones, allowing the IP phone to dial the emergency number even when the phone keys are locked.
+* No longer displays the offline agent in the Contact Center Wallboard.
+* Removes the Offline status in the BLF settings.
+* Supports creating the transport on the port which is less than 1024 (limited permissions by some Linux).
+* Displays the Feature Access Code in the WebRTC and Windows Client.
+* Updates the apps (iOS, Android, Windows, WebRTC) to synchronize the status between the apps and IP Phones. The statuses include:
+  * &#x20;   Online
+  * &#x20;   On call
+  * &#x20;   Away
+  * &#x20;   Do Not Disturb
+  * &#x20;   Business Trip
+* Supports synchronization of the Do Not Disturb (DND) status by pressing the DND button on the IP phone.
+* Adjust the REST API rate limit to 5,000 per minute.
+* Changed the WSI (Web Socket Interface) events so subscribers more easily watch the extension status.
+* &#x20;Fixes the bug that caused the SNOM phone not to alert for new voicemail.
+
 ## Changes for Release v16.1.0
 
 Date: Nov 2, 2023
