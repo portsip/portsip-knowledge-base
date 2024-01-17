@@ -84,7 +84,7 @@ Here’s a summary of the scenario:
 4. If **Last Called Agent Routing** is enabled and the customer calls again, the call is routed to that agent.
 5. If that agent is unavailable, the call is routed to another appropriate agent.
 
-{% hint style="info" %}
+{% hint style="danger" %}
 The Last Called Agent Routing feature cannot be applied to the queue when the Ring Strategy is configured to Ring Simultaneously.
 {% endhint %}
 
