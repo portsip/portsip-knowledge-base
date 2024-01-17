@@ -4,6 +4,16 @@
 Please follow the [guide ](upgrading-portsip-sbc-to-new-versions.md)to upgrading your PortSIP SBC to the latest version.
 {% endhint %}
 
+## Changes for Release v10.0.9
+
+**Date**: Jan 17, 2024
+
+The following changes are included in this release:
+
+* Updated the WebRTC client App to support synchronous the extension status with other Apps and IP Phones
+* Improve performance
+* Fixed minor bugs
+
 ## Changes for Release v10.0.6
 
 **Date**: Nov 2, 2023
