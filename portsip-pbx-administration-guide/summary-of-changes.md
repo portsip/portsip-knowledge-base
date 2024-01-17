@@ -31,7 +31,8 @@ The following changes are included in this release:
 * Supports synchronization of the Do Not Disturb (DND) status by pressing the DND button on the IP phone.
 * Adjust the REST API rate limit to 5,000 per minute.
 * Changed the WSI (Web Socket Interface) events so subscribers more easily watch the extension status.
-* &#x20;Fixes the bug that caused the SNOM phone not to alert for new voicemail.
+* Resolved an issue that was preventing new voicemail alerts on SNOM phones.
+* Fixed a bug that could prevent the Queue prompt voice from playing to the caller when the Queue servers are configured as a cluster.
 
 ## Changes for Release v16.1.0
 
