@@ -56,7 +56,7 @@ You will get the result shown in the below screenshot.
 
 <figure><img src="../.gitbook/assets/docker_image.png" alt=""><figcaption></figcaption></figure>
 
-Delete the PBX Docker Images
+#### Delete the PBX Docker Images
 
 You can use the following command to delete Docker images using the first 4 digits of the IMAGE ID for PBX and Postgresql.
 
