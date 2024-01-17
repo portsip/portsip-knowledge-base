@@ -15,7 +15,7 @@ The following changes are included in this release:
 * Changes the SNOM phone configuration file to HTM format.
 * Enables playing of call recording voice prompts for inbound calls.
 * Allows setting of office hours and holidays for each IVR DTMF input.
-* If an extension is registered to PBX from multiple devices, once one of the devices rejects the incoming call by 486, the PBX will also hang up the call on other ringing devices.
+* If an extension is registered to PBX from multiple devices, once one of the devices rejects the incoming call by **486**, the PBX will also hang up the call on other ringing devices.
 * Adds an option for the trunk to allow or disallow the PBX to adjust the SDP direction when holding the call.
 * Supports auto-provisioning of emergency numbers to the IP phones, allowing the IP phone to dial the emergency number even when the phone keys are locked.
 * No longer displays the offline agent in the Contact Center Wallboard.
@@ -45,7 +45,7 @@ The following changes are included in this release:
 * Introduced skill-based routing for ring groups
 * Introduced skill-based routing for queues
 * Added support for Last Called Agent Routing for the queue
-* Supported setting agent status to Not Ready after agent completes a Non-ACD call
+* Supported setting agent status to Not Ready after the agent completes a Non-ACD call
 * Introduced Queue Manager Role
 * Changed the CTI menu name to Contact Center
 * Implemented custom headers at tenant level, allowing the adding of custom SIP headers for a call and relaying of specified custom headers for a call
@@ -54,7 +54,7 @@ The following changes are included in this release:
 * Implemented Direct Inward System Access (DISA)
 * Added support for meeting invitations and joining meetings via link
 * Added support for Hotdesking
-* Introduced the FAC \*70 and \*71 for Hotdesking
+* Introduced the FAC `*70` and `*71` for Hotdesking
 * Added theme support, allowing customers to adjust the themes of the WebRTC Client, PBX Web Portal, and SBC Web portal to fit their business style
 * Added support for Italian and Spanish languages and voice prompts
 * Added support for Speed Dial 8 and Speed Dial 100
@@ -81,7 +81,7 @@ The following changes are included in this release:
 * Added support for more new models of Fanvil IP Phones and intercom devices
 * Added support for more new models of Yealink IP Phones
 * Added support for more new models of SNOM IP Phones
-* Allowed recharging with a negative amount in order to reduce the balance
+* Allowed recharging with a negative amount to reduce the balance
 * Made some other minor changes and improvements
 * Fixed some minor bugs
 
@@ -113,12 +113,12 @@ The following changes are included in this release:
 
 The following changes are included in this release:
 
-* Updated the certificates for Apple push notifications. Users must upgrade the PBX in order to make the PortSIP app work with push notifications.
+* Updated the certificates for Apple push notifications. Users must upgrade the PBX to make the PortSIP app work with push notifications.
 * Changed the default retain days for recording files, log files, temporary files, and call report files.
 * Changed Max-Forwards from 20 to 70.
 * Added support for visual park feature with Fanvil IP Phones.
 * Improved voice mix in meetings.
-* Fixed bug that did not use new brand name for creating custom phone templates.
+* Fixed a bug that did not use new brand name for creating custom phone templates.
 * Fixed bug that displayed incorrect presence status.
 * Fixed bug that sent NOTIFY for new voicemails.
 * Fixed billing bug that added one more billing round if billing time was multiple of 60 seconds.
