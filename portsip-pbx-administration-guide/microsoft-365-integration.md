@@ -4,7 +4,7 @@ The PortSIP PBX integrates with Microsoft 365 to provide the following features:
 
 * Synchronous user accounts from Microsoft 365 or Azure Active Directory (Local Active Directory synced to the cloud using Azure Connect).
 * Allow users to use their Microsoft Account to log in to the PortSIP WebRTC Client.
-* Microsoft365 Users' personal contacts are synchronized with the PortSIP PBX user's personal contacts.
+* Microsoft 365 Users' personal contacts are synchronized with the PortSIP PBX user's personal contacts.
 * Shared mailbox contacts are synchronized with the PortSIP PBX Company contacts.
 
 ## Pre-Requisites <a href="#prerequisites" id="prerequisites"></a>
