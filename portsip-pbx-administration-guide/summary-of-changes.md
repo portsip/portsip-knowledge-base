@@ -6,7 +6,7 @@ Please follow the [guide ](upgrading-portsip-pbx-to-new-versions.md)to upgrading
 
 ## Changes for Release v16.2.0
 
-Date: Jan 17, 2024
+Date: Jan 18, 2024
 
 The following changes are included in this release:
 
