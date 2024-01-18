@@ -28,6 +28,7 @@ The solution includes the following features:
 * Audio and Video Call Recording
 * Recordings Management
 * Storing Recording Files into AWS S3
+* Play Call Recording Notification Prompt for Calls
 * Address Books/Contact Management.
 * Push Notifications
 * Billing
@@ -52,18 +53,21 @@ The solution includes the following features:
 * Integrated SBC
 * Full Opened REST API
 * Zero-touch Provisioning
+* DECT Phones
 * Visual IVR Editor
+* Set up Office Hours, Holidays, and destinations for Each IVR DTMF input
 * Multiple Office Hours
 * Holidays
 * Call Routing Based on Holidays and Office Hours
 * Advanced Routing for Any Date and Time
-* Custom Phone Template
+* Custom Phonre Template
 * Custom Notifications Template
 * Role and Permissions
 * Trunk Management
 * Password Policy
 * Feature Access Code
 * Outbound Caller ID
+* SIP Header Manipulation
 * Centralized Service Configuration (Call Forwarding, Do Not Disturb, and so on)
 * Anti-Hacking
 * IP Blacklist and Whitelist
@@ -73,6 +77,7 @@ The solution includes the following features:
 * Troubleshooting
 * Webhook for Push CDR and Extension Events
 * WebSocket-Based Subscribe Mechanism for Pushing Real-time Events to Subscribers
+* Synchronous status between Apps and IP Phones
 * Free Client VoIP SDK
 * Free Client Apps
 
