@@ -24,6 +24,8 @@ If you installed the PortSIP SBC, please follow this article to [upgrade the Por
 
 We recommend backing up your PBX data. The data file path is usually `/var/lib/portsip`. You can also back up the entire VM server or take a snapshot of the VM server.
 
+Please follow the article [Backup and Restore: An Essential Guide](../backup-and-restore/).
+
 {% hint style="warning" %}
 All commands must be executed in the **`/opt/portsip`** directory.
 {% endhint %}
