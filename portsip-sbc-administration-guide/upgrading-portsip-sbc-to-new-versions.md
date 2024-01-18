@@ -12,7 +12,7 @@ From version 10.0.1, the PortSIP SBC changed the WebRTC client port to **10443**
 
 ## Upgrading SBC for Windows
 
-1. We suggest backing up your SBC data. The data file path is usually `c:\programdata\portsip`.&#x20;
+1. We suggest backing up your SBC data. The data file path is usually `c:\programdata\portsip`. You can follow the article [Backup and Restore: An Essential Guide](../backup-and-restore/).&#x20;
 2. Download the latest installer from the [PortSIP website](https://www.portsip.com/download-portsip-sbc).&#x20;
 3. Double-click the installer to install it and the upgrade will be performed automatically.
 
