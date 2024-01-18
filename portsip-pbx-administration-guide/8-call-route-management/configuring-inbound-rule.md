@@ -24,13 +24,19 @@ To add the inbound rule:
    * The DID number can be a single number like `442012345678`
    * The DID number can be serial number range, for example: `3325261000-3325262000`，`442012345600-442012345800` .
    * The single DID number or serial number range must be in the trunk DID pool range.
-   * The DID number and DID pool cannot begin with “**+”**, “**0”**, or “**00"**; if your DID number or DID pool begins with "**+"**, "**0"**, or "**00"**, **please remove them before entering.**
-7. Specify how you wish to forward incoming calls according to this inbound rule.
-   * **Forward to number**: permits you to enter a number and then forward the call to that number; the number can be an extension number or system extension number(ring group, virtual receptionist, meeting number, queue number) or a PSTN phone number. The number can also be a range, for example: `2000-3000`. If setting the **Forward to number** field is a range, this range must be serial numbers, and the **DID Number Mask** also must be a number range and both range sizes must be equal. For example, in the **DID Number Mask** field fill in as `442012345600-442012345800` , in the **Forward to number** field set the value as `1100-1300` , if the call from the trunk is to `442012345600` , the PBX will route that call to the extension `1100` ;  if the call from the trunk is to `442012345698` , the PBX will route that call to the extension `1198` , that's 1:1 mapping.
-   * **Forward to voicemail**: The call will be routed to the voicemail service so the caller can leave a voice message. There is an option to select an extension number for the voicemail box. For example, if you choose extension 108, the voicemail will be saved in the 108's mailbox.
-   * **Hangup**: The call will be terminated by the PBX.&#x20;
-8. You can specify that an incoming call should be forwarded differently if it is received outside office hours or on a holiday.
-9. you can set an inbound rule to route bulk DID numbers to bulk extensions. See above point 7.
+   * The DID number and DID pool cannot begin with **+**, **0**, or **00**; if your DID number or DID pool begins with **+**, **0**, or **00**, **please remove them before entering.**
+7. Play recording notifications: When this option is enabled, any inbound calls routed to the PBX through this rule will trigger the PBX to play the voice prompt. This serves to notify the caller that the call may be recorded.
+
+<figure><img src="../../.gitbook/assets/recording_alert.png" alt=""><figcaption></figcaption></figure>
+
+8. Specify how you wish to forward incoming calls according to this inbound rule.
+
+* **Forward to number**: permits you to enter a number and then forward the call to that number; the number can be an extension number or system extension number(ring group, virtual receptionist, meeting number, queue number) or a PSTN phone number. The number can also be a range, for example: `2000-3000`. If setting the **Forward to number** field is a range, this range must be serial numbers, and the **DID Number Mask** also must be a number range and both range sizes must be equal. For example, in the **DID Number Mask** field fill in as `442012345600-442012345800` , in the **Forward to number** field set the value as `1100-1300` , if the call from the trunk is to `442012345600` , the PBX will route that call to the extension `1100` ;  if the call from the trunk is to `442012345698` , the PBX will route that call to the extension `1198` , that's 1:1 mapping.
+* **Forward to voicemail**: The call will be routed to the voicemail service so the caller can leave a voice message. There is an option to select an extension number for the voicemail box. For example, if you choose extension 108, the voicemail will be saved in the 108's mailbox.
+* **Hangup**: The call will be terminated by the PBX.&#x20;
+
+9. You can specify that an incoming call should be forwarded differently if it is received outside office hours or on a holiday.
+10. you can set an inbound rule to route bulk DID numbers to bulk extensions. See above point 7.
 
 ## **Office Hours and Holidays**
 
