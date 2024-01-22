@@ -43,7 +43,7 @@ sudo docker image list
 sudo docker image rm 1a0c
 ```
 
-###
+
 
 ## Prerequisite Knowledge of Windows
 
