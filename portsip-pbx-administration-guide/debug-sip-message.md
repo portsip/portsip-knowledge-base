@@ -133,7 +133,7 @@ Sign in to the PortSIP PBX Web Portal, click **Advanced** > **Settings**, on the
 Important: SIP Trace should be off most of the time and only enabled when troubleshooting is required since it will consume the hardware resource and reduce the PBX performance.
 {% endhint %}
 
-## Troubleshooting
+## Troubleshooting SIP Messages
 
 On the SIP Trace Server Web Portal, you have the option to display either the registration messages or the call SIP messages. As shown in the screenshot below, select **Home** to view call messages and **REGISTRATION** to view REGISTER messages.
 
@@ -158,6 +158,12 @@ From the messages list, we can see the call flow by clicking the Session ID.
 ![](<../.gitbook/assets/image (6).png>)
 
 ![](<../.gitbook/assets/image (28).png>)
+
+## Troubleshooting RTP
+
+The trace server also supports monitoring the call QoS by logging the RTCP packets. Please see the below screenshot:
+
+<figure><img src="../.gitbook/assets/portsip_trace_qos.png" alt=""><figcaption></figcaption></figure>
 
 ## Managing Trace Server
 
