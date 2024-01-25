@@ -104,7 +104,7 @@
     * [Preparing TLS Certificates](portsip-pbx-administration-guide/certificates-for-tls-https-webrtc/preparing-tls-certificates.md)
     * [Update Certificates](portsip-pbx-administration-guide/certificates-for-tls-https-webrtc/update-certificates.md)
   * [Going Real-Time with PortSIP PBX Pub/Sub](portsip-pbx-administration-guide/going-real-time-with-portsip-pbx-pub-sub.md)
-  * [Trace Server - A Better Way to Debug PortSIP PBX](portsip-pbx-administration-guide/debug-sip-message.md)
+  * [Trace Server - A Better Way to Monitoring SIP Messages and QoS for PortSIP PBX](portsip-pbx-administration-guide/debug-sip-message.md)
 * [PortSIP SBC Administration Guide](portsip-sbc-administration-guide/README.md)
   * [Upgrading PortSIP SBC to New Versions](portsip-sbc-administration-guide/upgrading-portsip-sbc-to-new-versions.md)
   * [Summary of Changes](portsip-sbc-administration-guide/summary-of-changes.md)
