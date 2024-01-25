@@ -1,4 +1,4 @@
-# Trace Server - A Better Way to Debug PortSIP PBX
+# Trace Server - A Better Way to Monitoring SIP Messages and QoS for PortSIP PBX
 
 PortSIP has been building its SIP Trace Server based on the open-source project [HOMER](https://github.com/sipcapture/homer),  which provides key information in troubleshooting SIP Trunks, SIP endpoints, and other SIP related issues. It provides a place to:
 
@@ -103,9 +103,15 @@ After the PortSIP Trace Server is successfully installed, you can access the tra
 
 `http://trace-server-ip:12345`
 
-If you didn't use the -l parameter to specify the web portal port, then the URL should be:
+If you didn't use the `-l` parameter to specify the web portal port, then the URL should be:
 
 `http://trace-server-ip:9080`
+
+
+
+{% hint style="danger" %}
+If you set up the trace server in the cloud platform, please create the firewall rule for TCP in the cloud platform for port 9080 or your specified port with the parameter -`l.`
+{% endhint %}
 
 The default username is `admin`, the password is `admin.`
 
