@@ -7,8 +7,6 @@ The SDK is designed for developing audio, video, and IM apps, supporting sharing
 
 
 * Ready-to-use and shortest Time-to-Market
-* Integrated with PortSIP PBX: **FREE**
-* Compatibles with any PBX: **Avaya, Mitel, Asterisk, Cisco, NOT FREE**
 * Sharing screen
 * Voice and Video calls over IP and LTE/4G/5G
 * G.729, PCMA/PCMU, G.722, G.722.1, Opus, AMR, AMR-WB
