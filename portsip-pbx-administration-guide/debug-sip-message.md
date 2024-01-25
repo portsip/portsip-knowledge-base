@@ -161,7 +161,9 @@ From the messages list, we can see the call flow by clicking the Session ID.
 
 ## Troubleshooting RTP
 
-The trace server also supports monitoring the call QoS by logging the RTCP packets. Please see the below screenshot:
+The trace server also supports monitoring the call QoS by logging the RTCP packets.&#x20;
+
+By clicking on the **QoS** tab, you’ll be able to select and analyze the voice parameters of the call, such as **packets**, **octets**, **jitter**, **packets\_lost**, and so on.
 
 <figure><img src="../.gitbook/assets/portsip_trace_qos.png" alt=""><figcaption></figcaption></figure>
 
