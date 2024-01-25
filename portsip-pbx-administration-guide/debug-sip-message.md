@@ -2,11 +2,11 @@
 
 PortSIP has been building its SIP Trace Server based on the open-source project [HOMER](https://github.com/sipcapture/homer),  which provides key information in troubleshooting SIP Trunks, SIP endpoints, and other SIP related issues. It provides a place to:
 
-* Access singularly to retrieve SIP captures via Web UI
+* Access singularly to retrieve SIP and RTCP QoS captures via Web UI
 * Centrally store SIP capture data across many hosts
 * More intuitively filter SIP capture data and correlate the data to the dialog/transactions each request/response is part of (this is immensely useful!)
 * Gracefully age dated capture data you don’t want to persist for very long (though persisting longer term can be configured very easily)
-* Charts! glorious charts!
+* The calls and RTCP data are beautifully displayed as charts.
 
 ## **Supported Linux OS**
 
