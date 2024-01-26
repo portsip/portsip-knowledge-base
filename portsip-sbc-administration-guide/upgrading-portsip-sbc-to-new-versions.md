@@ -41,19 +41,18 @@ All commands must be executed in the **`/opt/portsip`** directory.
 
 Perform the following commands as root to stop the current SBC Docker instance:
 
-```
-cd /opt/portsip
-```
+<pre class="language-sh"><code class="lang-sh"><strong>su -
+</strong><strong>cd /opt/portsip
+</strong></code></pre>
 
-```
-/bin/sh sbc_ctl.sh stop
-```
+<pre class="language-sh"><code class="lang-sh"><strong>/bin/sh sbc_ctl.sh stop
+</strong></code></pre>
 
 ### Step 2 Delete the SBC Docker Instance
 
 Perform the following command to delete the SBC Docker instance.
 
-```
+```sh
 /bin/sh sbc_ctl.sh rm
 ```
 
@@ -61,7 +60,7 @@ Perform the following command to delete the SBC Docker instance.
 
 Perform the following command to list the SBC Docker images:
 
-```
+```sh
 docker image list
 ```
 
@@ -73,13 +72,13 @@ You will get the result shown in the below screenshot.
 
 Use the first 4 digits of the IMAGE ID to delete the Docker image:
 
-```
+```sh
 docker image rm 8173 
 ```
 
 ### Step 5 Delete the SBC Scripts
 
-```
+```sh
 rm install_docker.sh && rm install_sbc_docker.sh && rm sbc_ctl.sh
 ```
 
@@ -99,7 +98,7 @@ curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v16.x/new/s
 
 Execute the below command to install the `Docker-Compose` environment. If you get the prompt likes`*** cloud.cfg (Y/I/N/O/D/Z) [default=N] ?`, enter the **Y** and then press the **Enter** button.
 
-```
+```sh
 /bin/sh install_docker.sh
 ```
 
