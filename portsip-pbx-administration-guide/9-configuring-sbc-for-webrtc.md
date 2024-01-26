@@ -189,17 +189,19 @@ Assume the PBX has been installed as the [1 Installation of the PortSIP PBX](1-i
 
 In the SBC server, to install the SBC, please follow the below steps.
 
+* Execute the below commands to download the SBC installation scripts.
+
 {% hint style="warning" %}
 All commands must be executed in the **`/opt/portsip`** directory.
 {% endhint %}
 
-* Execute the below commands to download the SBC installation scripts.
+{% hint style="danger" %}
+You must use the su - rather than su root
+{% endhint %}
 
 ```shell
+sudo -
 mkdir -p /opt/portsip
-```
-
-```sh
 cd /opt/portsip
 ```
 
@@ -318,7 +320,7 @@ To do this, sign in as the System Administrator and select the menu **IP Blackli
 
 The below commands are used to check currently opened ports for PortSIP SBC.
 
-```
+```sh
 firewall-cmd --info-service=portsip-sbc
 ```
 
