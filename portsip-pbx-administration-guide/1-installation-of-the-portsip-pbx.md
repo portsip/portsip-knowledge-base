@@ -46,11 +46,13 @@ All commands must be executed in the **`/opt/portsip`** directory.
 
 Execute the below commands to download the installation scripts.
 
-```shell
-mkdir -p /opt/portsip
-```
+{% hint style="danger" %}
+You need to use the command `su -` rather than the `su root`
+{% endhint %}
 
-```sh
+```shell
+su - 
+mkdir -p /opt/portsip
 cd /opt/portsip
 ```
 
