@@ -41,14 +41,19 @@ If the SBC runs on a cloud platform such as AWS and the cloud platform has its o
 
 Execute the below commands to download the installation scripts.
 
-{% hint style="warning" %}
-All commands must be executed in the **`/opt/portsip`** directory.
+{% hint style="danger" %}
+You must use the su - rather than su root
 {% endhint %}
 
 ```shell
+su -
 mkdir -p /opt/portsip
 cd /opt/portsip
 ```
+
+{% hint style="warning" %}
+All commands must be executed in the **`/opt/portsip`** directory.
+{% endhint %}
 
 ```shell
 curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v16.x/new/install_docker.sh \
