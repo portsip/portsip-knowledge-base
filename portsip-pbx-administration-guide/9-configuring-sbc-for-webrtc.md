@@ -82,11 +82,13 @@ All commands must be executed in the **`/opt/portsip`** directory.
 
 * Execute the below commands to download the SBC installation scripts.
 
-```shell
-mkdir -p /opt/portsip
-```
+{% hint style="danger" %}
+You must use the command `su -` rather than `su root`
+{% endhint %}
 
-```
+```shell
+su - 
+mkdir -p /opt/portsip
 cd /opt/portsip
 ```
 
