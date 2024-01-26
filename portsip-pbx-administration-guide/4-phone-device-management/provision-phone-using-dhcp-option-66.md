@@ -26,7 +26,7 @@ The first step is to copy your provisioning link. It's different for each PortSI
 4. To obtain the root folder, just remove the last part of the URL after the dash, which specifies the actual file.
 5. For example, [http://pbx.portsip.com:8888/provision/R2Xu8aVV20Jka/](http://pbx.portsip.com:8888/provision/R2Xu8aVV20Jka/)[ ](http://pbx.portsip.com:8888/provision/R2Xu8aVV20Jka/)where **pbx.portsip.com** is your FQDN, the **R2Xu8aVV20Jka** is the randomly generated provisioning folder name
 6. This link will be the one to use in **option 66** unless you have Snom phones
-7. For the SNOM phone users, if your **PortSIP PBX version is less than v16.2** must append the `cfg{mac}` to the link, e.g. [http://pbx.portsip.com:8888/provision/R2Xu8aVV20Jka/](http://pbx.portsip.com:8888/provision/R2Xu8aVV20Jka/)cfg{mac}; This step should be skip if your PortSIP PBX version is v16.2 or higher.
+7. For the SNOM phone users, if your **PortSIP PBX version is less than v16.2** must append the `cfg{mac}` to the link, e.g. [http://pbx.portsip.com:8888/provision/R2Xu8aVV20Jka/](http://pbx.portsip.com:8888/provision/R2Xu8aVV20Jka/)cfg{mac}; This step should be skipped if your PortSIP PBX version is v16.2 or higher.
 
 <figure><img src="../../.gitbook/assets/portsip_dhcp66_phone_3.png" alt="" width="563"><figcaption></figcaption></figure>
 
