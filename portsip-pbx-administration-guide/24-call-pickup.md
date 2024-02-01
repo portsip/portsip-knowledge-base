@@ -26,7 +26,7 @@ A Group Pickup Group allows users to answer a call that is ringing at another ex
 
 Group Call Pickup is a great way to ensure calls are always answered promptly and customer service is at its best.
 
-After you have configured Group Call Pickup, users can dial a [Feature Access Code](23-feature-access-codes.md) to use this service.
+After you have configured Group Call Pickup, users can dial a [Feature Access Code](23-feature-access-codes.md) (default is `*98` )to use this service.
 
 ### **Setting up a Group Call Pickup group**
 
