@@ -335,7 +335,7 @@ If we want to unsubscribe from the events, use the below command.
 "topics":
 [
   "extension_events", 
-  "topic" : "cdr_events"
+  "cdr_events"
 ],
 "extensions":
 [
