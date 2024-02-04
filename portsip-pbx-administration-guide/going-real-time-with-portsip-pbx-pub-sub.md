@@ -151,7 +151,7 @@ The message is in JSON format and includes the following fields:
 
 ### cdr\_events
 
-Once a call has ended, the CDR of this call will be pushed to the subscribers, the message topic is: **`cdr_events`**, the message key is below.
+Once a call has ended, the CDR of this call will be pushed to the subscribers, this event means subscribing to all calls CDR of a tenant. The message topic is: **`cdr_events`**, the message key is below.
 
 * `call_cdr`: once a call has ended, the CDR will be packed in JSON format and pushed to the subscriber.
 * `call_start`: once an extension receives a call, the call information will be packed in JSON format and pushed to the subscriber.
@@ -355,6 +355,18 @@ If we want to subscribe to both extension events and CDR events, use the below c
 "102",
 "103"
 ]  
+}
+```
+
+If we want to subscribe to CDR events only, use the below command.
+
+```json
+{
+"command":"subscribe",
+"topics":
+[
+  "cdr_events"
+]
 }
 ```
 
