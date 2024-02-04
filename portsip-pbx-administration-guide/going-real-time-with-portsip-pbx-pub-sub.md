@@ -118,6 +118,37 @@ The message is in JSON format and includes the following fields:
 * `extension_id`: Represents the ID of the extension.
 * `time`: Represents the timestamp of this message in UNIX time.
 
+#### extension\_agent\_status
+
+When an agent, who belongs to a queue to which a subscription has been made, changes their status within any of the queues they are associated with, a notification will be sent to the subscriber.
+
+```json
+{
+  "agent_status": [
+    {
+      "queue_number": "8002",
+      "status": "READY"
+    }
+  ],
+  "event_type": "extension_agent_status",
+  "extension": "sip:102@test.io",
+  "extension_id": "806406815892897792",
+  "tenant_id": "806406773714976768",
+  "time": "1707028116"
+}
+```
+
+The message is in JSON format and includes the following fields:
+
+* `event_type`: Indicates the type of the message.
+* `extension`: Represents the SIP URI of the extension.
+* `tenant_id`: Represents the ID of the tenant to which the extension belongs.
+* `extension_id`: Represents the ID of the extension.
+* `time`: Represents the timestamp of this message in UNIX time.
+* `agent_status`: A JSON array that contains the status of the queues:
+  * `queue_number`: The extension number of the queue
+  * `status`: the agent status of the queue
+
 ### cdr\_events
 
 Once a call has ended, the CDR of this call will be pushed to the subscribers, the message topic is: **`cdr_events`**, the message key is below.
