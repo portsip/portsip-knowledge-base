@@ -120,7 +120,7 @@ The message is in JSON format and includes the following fields:
 
 #### extension\_agent\_status
 
-When an agent, who belongs to a queue to which a subscription has been made, changes their status within any of the queues they are associated with, a notification will be sent to the subscriber.
+When an extension, is also an agent of the queue, who belongs to a queue to which a subscription has been made, changes their status within any of the queues they are associated with, a notification will be sent to the subscriber.
 
 ```json
 {

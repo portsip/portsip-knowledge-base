@@ -8,5 +8,5 @@ The below topology of the PortSIP PBX Cluster can support up to 1M+ users, \~50,
 
 Below is the architecture for the PBX cluster.
 
-<figure><img src="../.gitbook/assets/pbx_cluster.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/pbx_cluster.drawio.png" alt=""><figcaption></figcaption></figure>
 
