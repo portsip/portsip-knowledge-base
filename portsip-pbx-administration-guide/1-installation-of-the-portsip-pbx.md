@@ -76,7 +76,7 @@ Execute the below command to install the `Docker-Compose` environment. If you ge
 
 ### Step 3 Create and Run the PortSIP PBX Docker Container Instance
 
-The below command is used to create and run the PBX on a server whose IP is`66.175.221.120`. If running the PBX in a LAN without the public IP, just replace the IP `66.175.221.120` with the PBX server's LAN private IP.
+The below command is used to create and run the PBX on a server whose **public IP address** is`66.175.221.120`. If running the PBX in a LAN without the public IP address, just replace the IP `66.175.221.120` with the PBX server's **LAN private IP address**.
 
 ```shell
 /bin/sh pbx_ctl.sh \
