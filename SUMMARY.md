@@ -143,8 +143,9 @@
   * [What is SIP ALG and Why You Need to Disable It](faq/what-is-sip-alg-and-why-you-need-to-disable-it.md)
   * [How to Adjust the REST API Rate Limit?](faq/how-to-adjust-the-rest-api-rate-limit.md)
 
-## PBX v12.x <a href="#pbx_v12" id="pbx_v12"></a>
+## PBX v12.x (EOL) <a href="#pbx_v12" id="pbx_v12"></a>
 
+* [PortSIP PBX v12.x is EOL](pbx\_v12/portsip-pbx-high-availability.md)
 * [High Availability](pbx\_v12/portsip-uc-high-availability/README.md)
   * [PortSIP PBX High Availability](pbx\_v12/portsip-uc-high-availability/portsip-pbx-high-availability.md)
   * [UCaaS High Availability](pbx\_v12/portsip-uc-high-availability/ucaas-high-availability.md)
