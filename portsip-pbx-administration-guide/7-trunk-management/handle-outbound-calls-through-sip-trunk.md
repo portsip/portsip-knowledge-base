@@ -170,6 +170,12 @@ You can configure the outbound caller ID for system services such as Virtual Rec
 
 When a call is not answered by call queue/ring group agents or fails/times out in the virtual receptionist, it may be re-routed to the trunk; similarly, when a meeting invites an external number to join the meeting by calling the trunk, the outbound caller ID will be taken from their outbound caller ID settings; if no outbound caller ID is set up for these services, the company's outbound caller ID will be taken.
 
+## Adjusting Trunk Parameters to Apply Outbound Caller ID
+
+Please follow the below screenshot to adjust the trunk outbound parameter to apply the outbound caller ID for the outbound calls.
+
+<figure><img src="../../.gitbook/assets/outbound_caller_id_settings.png" alt=""><figcaption></figcaption></figure>
+
 ## Bypass the Outbound Caller ID Settings
 
 PortSIP PBX also allows you to bypass the PBX Outbound Caller ID settings and use the caller device to specify the outbound caller ID—just add a SIP header into the INVITE message.
