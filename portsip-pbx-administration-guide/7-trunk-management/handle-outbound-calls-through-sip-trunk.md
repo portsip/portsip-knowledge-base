@@ -192,13 +192,13 @@ When making calls to the PBX, including the above header in the INVITE message c
 X-Outbound-Cli: rewrite-pai=456
 ```
 
-When making calls to the PBX, including the above header in the INVITE message causes the PBX to add the "**P-Asserted-Identity**" SIP header and set the username to **456** when sending the INVITE to the trunk.
+When making calls to the PBX, including the above header in the INVITE message causes the PBX to add the **P-Asserted-Identity** SIP header and set the username to **456** when sending the INVITE to the trunk.
 
 ```
 X-Outbound-Cli: rewrite-rpi=789
 ```
 
-When making calls to the PBX, including the above header in the INVITE message causes the PBX to add the "**Remote-Party-ID**" SIP header and set the username to **789** when sending the INVITE to the trunk.
+When making calls to the PBX, including the above header in the INVITE message causes the PBX to add the **Remote-Party-ID** SIP header and set the username to **789** when sending the INVITE to the trunk.
 
 If you want to rewrite the above headers only on a specific trunk, you can use the parameter below.
 
