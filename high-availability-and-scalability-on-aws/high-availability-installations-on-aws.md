@@ -317,7 +317,7 @@ private_vip_address: 172.31.16.130
 eip_address: 54.151.30.9
 eip_allocation_id: eipalloc-02c7cf64a5cd449cf
 ebs_volume_id: vol-0e06e1e9da3c49b67
-pbx_image: portsip/pbx:16.1.1.1929-release
+pbx_image: portsip/pbx:16.2.0.2377-release
 ssh_private_key_file: /home/ubuntu/.ssh/aws-portsip-pbx-ha.pem
 EOF
 ```
@@ -394,7 +394,7 @@ Daemon Status:
   pcsd: active/enabled
 ```
 
-### Check Current Master Node
+### Check the Current Master Node
 
 Perform the below command only on the EC2 instance **ip-172-31-16-133**.
 
@@ -452,7 +452,7 @@ cd /opt/ && rm -rf portsip-pbx-ha-on-aws-guide-16.tar.gz \
 
 Use the new version image of PortSIP PBX to update the PBX.
 
-{% hint style="info" %}
+{% hint style="danger" %}
 Please contact PortSIP support to obtain the **\<PortSIP PBX new version image>** before upgrading.
 {% endhint %}
 
