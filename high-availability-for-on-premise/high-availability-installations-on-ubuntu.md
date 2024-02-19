@@ -426,7 +426,7 @@ Perform the below command only on the **pbx01.**
 
 Use the new version image of PortSIP PBX to update the PBX.
 
-{% hint style="info" %}
+{% hint style="danger" %}
 Please contact PortSIP support to obtain the **\<PortSIP PBX new version image>** before upgrading.
 {% endhint %}
 
