@@ -218,6 +218,17 @@ You can replace the **media-server-only** with another service name such as ment
   /bin/bash extend.sh stop -s media-server-only -a 172.31.16.139
 ```
 
+### Upgrade Server
+
+First, please ensure you have upgraded the PBX HA as this guide: [Upgrade the PBX HA](../high-availability-for-on-premise/high-availability-installations-on-ubuntu.md#upgrade-the-pbx-ha). After that, perform the below command to upgrade the server:
+
+```
+cd /opt/portsip-pbx-ha-guide/ && \
+/bin/bash extend.sh run -s media-server-only \
+-n media-server-1 \
+-a 172.31.16.139
+```
+
 ### Remove Server
 
 ```
