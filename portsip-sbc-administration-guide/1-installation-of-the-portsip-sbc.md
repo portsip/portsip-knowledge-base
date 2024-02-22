@@ -25,10 +25,10 @@ Tasks that MUST be completed before installing PortSIP SBC.
 * If the Linux on which SBC will be installed is located on a LAN, assign a**`static LAN IP address`**to the SBC server; if it's on a public network, assign a**`static private IP address`** and a **`static public IP address`** to the SBC server.
 * Install all available updates and service packs before installing PortSIP SBC.
 * Ensure that all power-saving options for your system and network adapters are disabled (by setting the system to High Performance).
-* Do not install TeamViewer, VPN, and other similar software on the host machine.
+* Do not install TeamViewer, VPN, or other similar software on the host machine.
 * The PortSIP SBC must not be installed on a host that is a DNS or DHCP server.
 * The below ports must be permitted by your firewall.
-  * UDP: 5066, 25000-35000
+  * UDP: 5066, 25000-34999
   * TCP:  5065, 5067, 8882, 8883, 10443. please also ensure the above ports have not been used by other applications.
 * Ensure the server date-time is synced correctly.
 * Must execute all Linux commands as the root user. please `su root` first.
