@@ -36,7 +36,6 @@ We used **192.168.1.130** as the VIP (Virtual IP).
 The PortSIP PBX HA for Ubuntu supports the following versions:
 
 * &#x20;Ubuntu 20.04
-* Ubuntu 22.04
 
 ## **Architecture**
 
