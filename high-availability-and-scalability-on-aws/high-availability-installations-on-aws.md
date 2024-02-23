@@ -4,7 +4,7 @@ This guide provides instructions on how to deploy PortSIP PBX HA on the AWS EC2 
 
 ## Prerequisites
 
-* **Operating System**: Ubuntu 20.04 LTS 64-bit is required. (Ubuntu 22.04 may also work, but it’s not guaranteed)
+* **Operating System**: Ubuntu 20.04 LTS 64-bit is required.&#x20;
 * **AWS EC2 Instances**: You will need three AWS EC2 instances. In this guide, the terms **EC2 server**, **PBX server**, and **node** are used interchangeably, all referring to an AWS EC2 instance.
 * **Instance Specifications**: Each EC2 instance should have a minimum of 4 vCPUs and 4GB of memory.
 * **Public IP Assignment**: Ensure to select the **Assign a public IP automatically** option when creating each EC2 instance.
