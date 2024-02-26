@@ -102,7 +102,11 @@ To do this, open the AWS VPC menu and use the default VPC(You can also create a 
 To set up the subnets, follow these steps:
 
 1. Click on **Subnets** to view the list of subnets. If there are no existing subnets, click on **Create subnet** to create a new one.
-2. As shown up below the example, the Subnet ID could be **subnet-8cadc4e8**, with an IPv4 CIDR of **172.31.0.0/20**, and located in the Availability Zone **us-west-1c**.
+2. As shown up below the example, the Subnet ID could be **subnet-8cadc4e8**, with an IPv4 CIDR of **172.31.0.0/24**, and located in the Availability Zone **us-west-1c**.
+
+{% hint style="danger" %}
+The CIDR must be **24** otherwise the installation will fail.
+{% endhint %}
 
 In this scenario, we’ll assign the following static private IPs to the nodes:
 
