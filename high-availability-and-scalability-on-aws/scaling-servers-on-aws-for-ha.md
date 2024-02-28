@@ -184,6 +184,23 @@ cd /opt/portsip-pbx-ha-guide/ && \
 
 This server status will be **Online** in the PBX Web Portal after it's successfully installed.
 
+## Configuring the IP Address Whitelist
+
+{% hint style="danger" %}
+This step is mandatory; without it, the service will not work.
+{% endhint %}
+
+To prevent the PBX from limiting the cluster servers' request rate, we need to add the cluster servers' IPs to the whitelist in the PBX.&#x20;
+
+To do this, please follow the below steps:
+
+1. Sign in as the System Administrator
+2. Select the menu **IP Blacklist** > **Add**.&#x20;
+3. Enter the cluster server IP as shown in the screenshot below and choose a long **expiration date.**
+4. Repeat the above steps for each cluster server.
+
+<figure><img src="../.gitbook/assets/aws_cluster_ip_whitelist.png" alt=""><figcaption></figcaption></figure>
+
 ## Managing Servers
 
 Perform the below commands on the PBX HA node **ip-172-31-16-133** only.&#x20;
