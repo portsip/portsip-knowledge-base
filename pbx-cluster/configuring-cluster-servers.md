@@ -65,6 +65,23 @@ firewall-cmd --reload
 
 In the future, if you add more servers to the existing cluster, you will need to create firewall rules to allow those servers’ IP addresses to access the PBX server (**Main Server**), just like the rules mentioned above.
 
+## Configuring the IP Address Whitelist
+
+{% hint style="danger" %}
+his step is mandatory; without it, the service will not work.
+{% endhint %}
+
+To prevent the PBX from limiting the cluster servers' request rate, we need to add the cluster servers' IPs to the whitelist in the PBX.&#x20;
+
+To do this, please follow the below steps:
+
+1. Sign in as the System Administrator
+2. Select the menu **IP Blacklist** > **Add**.&#x20;
+3. Enter the cluster server IP as shown in the screenshot below and choose a long **expiration date.**
+4. Repeat the above steps for each cluster server.
+
+<figure><img src="../.gitbook/assets/cluster_ip_whitelist.png" alt=""><figcaption></figcaption></figure>
+
 ## Add the Cluster Servers
 
 To add the cluster servers in the web portal, sign in to the PBX Web portal as the system administrator.
