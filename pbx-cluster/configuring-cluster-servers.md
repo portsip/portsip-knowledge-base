@@ -68,7 +68,7 @@ In the future, if you add more servers to the existing cluster, you will need to
 ## Configuring the IP Address Whitelist
 
 {% hint style="danger" %}
-his step is mandatory; without it, the service will not work.
+This step is mandatory; without it, the service will not work.
 {% endhint %}
 
 To prevent the PBX from limiting the cluster servers' request rate, we need to add the cluster servers' IPs to the whitelist in the PBX.&#x20;
