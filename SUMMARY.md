@@ -119,7 +119,7 @@
   * [Preparing Cluster Servers](pbx-cluster/preparing-cluster-servers.md)
   * [Configuring Cluster Servers](pbx-cluster/configuring-cluster-servers.md)
   * [Managing Cluster](pbx-cluster/managing-cluster.md)
-  * [Configuring Cluster Servers for High Availability](pbx-cluster/configuring-cluster-servers-for-high-availability.md)
+  * [Configuring Cluster Servers for High Availability](pbx-cluster/configuring-cluster-servers-for-portsip-pbx-ha.md)
 * [High Availability for On-Premise](high-availability-for-on-premise/README.md)
   * [PortSIP PBX High Availability Architecture](high-availability-for-on-premise/portsip-pbx-high-availability.md)
   * [High Availability Installations on Ubuntu](high-availability-for-on-premise/high-availability-installations-on-ubuntu.md)

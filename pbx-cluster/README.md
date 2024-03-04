@@ -12,4 +12,4 @@ This article includes the following topics:
 * [Preparing Cluster Servers](preparing-cluster-servers.md)
 * [Configuring Cluster Servers](configuring-cluster-servers.md)
 * [Managing Cluster](managing-cluster.md)
-* Configuring Cluster Servers for PortSIP PBX High Availability
+* [Configuring Cluster Servers for High Availability](configuring-cluster-servers-for-portsip-pbx-ha.md)
