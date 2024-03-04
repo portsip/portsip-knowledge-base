@@ -118,6 +118,7 @@
   * [Topology](pbx-cluster/topology.md)
   * [Preparing Cluster Servers](pbx-cluster/preparing-cluster-servers.md)
   * [Configuring Cluster Servers](pbx-cluster/configuring-cluster-servers.md)
+  * [Configuring Cluster Servers for PortSIP PBX HA](pbx-cluster/configuring-cluster-servers-for-portsip-pbx-ha.md)
   * [Managing Cluster](pbx-cluster/managing-cluster.md)
 * [High Availability for On-Premise](high-availability-for-on-premise/README.md)
   * [PortSIP PBX High Availability Architecture](high-availability-for-on-premise/portsip-pbx-high-availability.md)
