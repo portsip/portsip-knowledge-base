@@ -10,23 +10,39 @@ The PortSIP PBX integrates with Microsoft 365 to provide the following features:
 ## Pre-Requisites <a href="#prerequisites" id="prerequisites"></a>
 
 * You need PortSIP PBX running on a static public IP address.
-* A web domain (which is FQDN) in PortSIP PBX with a valid SSL certificate. The certificate should be issued by a trusted certificate provider such as Digicert, Thawte, or Godaddy. You can read this [article ](certificates-for-tls-https-webrtc/)to configure the SSL certificate.
-* Requires PortSIP PBX system administrator(PBX owner) to have the AZURE or Microsoft account.
-* Requires the PBX tenants to have Microsoft 365 Accounts with an Exchange subscription plan:
+* A web domain (which is FQDN) in PortSIP PBX with a valid SSL certificate. The certificate should be issued by a trusted certificate provider such as Digicert, Thawte, Godaddy, etc. You can read this [article ](certificates-for-tls-https-webrtc/)to configure the SSL certificate.
+* Requires the PBX tenant who wants to enable the Microsoft 365 integration to have Microsoft 365 Accounts with an Exchange subscription plan:
   * Microsoft 365 Business Basic, Standard, or Premium
   * Microsoft 365 F3, E3 or E5
 
 ## Configuring Microsoft 365 Access <a href="#h.vxxjg34xby16" id="h.vxxjg34xby16"></a>
 
-### Configure App ID
+### Configure the App ID for the Tenant
 
-You need to configure your AZURE or Microsoft 365 account to allow synchronization with PortSIP PBX.&#x20;
+The tenant needs to be configured AZURE or Microsoft 365 account to allow synchronization with PortSIP PBX.&#x20;
 
-1. Sign in to the PortSIP PBX web portal as the System Administrator.
-2. Select the menu **Advanced > Microsoft 365 Integration,** follow up the guide register the PortSIP PBX as an application to Microsoft 365.
-3. Copy the **Redirect URI** and save it to the Microsoft 365
-4. Copy the **Application (client) ID** from Microsoft 365 and paste it to the PBX.
-5. Enable **ID Tokens** as the guide in Microsoft 365.
+1. Sign in to your [Azure or Microsoft 365 account](https://portal.azure.com/).
+2. Click the **Microsoft Entra ID** icon, select the left menu **App registrations,** and click **New application.**
+3. Enter a friend name for the Name for example: **PBX Server-side**.
+4. Supported account types: choose Accounts in this organizational directory only (PortSIP Solutions, Inc. only - Single tenant)
+5. Sign in to the PortSIP PBX web portal as the Tenant Administrator (or switch to the tenant scope from the PBX System Administrator).
+6. Select the menu **Advanced > Microsoft 365 Integration,** and **c**opy the **Redirect URI.**
+
+<figure><img src="../.gitbook/assets/ms365-pbx-uri.png" alt=""><figcaption></figcaption></figure>
+
+7. Paste the redirect URI to MS 365 and save.
+
+<figure><img src="../.gitbook/assets/ms365-pbx-uri-1.png" alt=""><figcaption></figcaption></figure>
+
+8. Copy the **Application (client) ID** from Microsoft 365.
+
+<figure><img src="../.gitbook/assets/ms365-pbx-client-id.png" alt=""><figcaption></figcaption></figure>
+
+9. Paste the **Application (client) ID** to the PBX.
+
+<figure><img src="../.gitbook/assets/ms365-pbx-client-id-1.png" alt=""><figcaption></figcaption></figure>
+
+9. Enable **ID Tokens** as the guide in Microsoft 365.
 
 <figure><img src="../.gitbook/assets/portsip_ms365_appid.png" alt=""><figcaption></figcaption></figure>
 
