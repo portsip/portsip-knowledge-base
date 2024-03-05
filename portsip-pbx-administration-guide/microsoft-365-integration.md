@@ -42,7 +42,7 @@ The tenant needs to be configured AZURE or Microsoft 365 account to allow synchr
 
 <figure><img src="../.gitbook/assets/ms365-pbx-client-id-1.png" alt=""><figcaption></figcaption></figure>
 
-9. If you also installed and configured the PortSIP SBC with the PBX, please take the SBC base domain from the PBX System Administrator, and make an SBC Redirect URI as https://sbc\_domain/8887/ms365/redirect(replace the "**sbc\_domain**" by your SBC real domain). Then go to the **App registrations** menu, click the registration application that you configured in the above **Step 7** > click the menu **Authentication** > click the **Add URI** to paste the SBC Redirect URI and save.
+9. If you have installed and configured the PortSIP SBC with the PBX, please obtain the SBC base domain from the PBX System Administrator. Then, create an SBC Redirect URI in the format `https://sbc_domain/8887/ms365/redirect`, replacing "sbc\_domain" with your actual SBC domain. Next, navigate to the **App registrations** menu and select the application you configured in **Step 7**.  Now click on the **Authentication** menu, then click **Add URI**. Paste the SBC Redirect URI here and save your changes. In the future, if your PBX web domain or SBC web domain is changed, you need to update them in Microsoft 365 as well.
 
 <figure><img src="../.gitbook/assets/sbc_redirect_uri.png" alt=""><figcaption></figcaption></figure>
 
