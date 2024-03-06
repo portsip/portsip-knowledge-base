@@ -75,7 +75,7 @@ To prevent the PBX from limiting the cluster servers' request rate, we need to a
 
 To do this, please follow the below steps:
 
-1. Sign in as the System Administrator
+1. Sign in the PBX web portal as the System Administrator
 2. Select the menu **IP Blacklist** > **Add**.&#x20;
 3. Enter the cluster server IP as shown in the screenshot below and choose a long **expiration date.**
 4. Repeat the above steps for each cluster server.
