@@ -14,11 +14,11 @@ A server can only deploy one type of PortSIP server at a time. For instance, it'
 
 ## Setup the PortSIP PBX
 
-Before configuring the cluster servers, please ensure that you have completed the PBX installation and configuration on Server 1 by following the guide for [Installation of PortSIP PBX](../portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx.md) and [Configuring the PortSIP PBX](../portsip-pbx-administration-guide/2-configuring-the-portsip-pbx.md).
+Before configuring the cluster servers, please ensure that you have completed the PBX installation and configuration on the **Main Server** by following the guide for [Installation of PortSIP PBX](../portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx.md) and [Configuring the PortSIP PBX](../portsip-pbx-administration-guide/2-configuring-the-portsip-pbx.md).
 
 ## Configure the Firewall
 
-It is necessary to create firewall rules on **Main Server** that allow the cluster servers to access the PBX server (**Main Server**).&#x20;
+It is necessary to create firewall rules on the **Main Server** that allow the cluster servers to access the PBX server (**Main Server**).&#x20;
 
 To configure these firewall rules, please perform the following commands on PBX server (**Main Server**).
 
