@@ -4,6 +4,48 @@
 Please follow the [guide ](upgrading-portsip-pbx-to-new-versions.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
+## Changes for Release v16.3.0
+
+Date: Mar 7, 2024
+
+The following changes are included in this release:
+
+* We’ve moved the Microsoft 365 settings from the global scope to the tenant level. Now, each tenant administrator can configure Microsoft 365 integration independently, without requiring assistance from the System Administrator.
+* We’ve redesigned the login page for the PBX Web Portal, Windows app, and WebRTC app.
+* New outbound rules will now use their own office hours by default, instead of using the tenant’s office hours.
+* We’ve made changes to the username format limitations.
+* System Administrators and Dealers are now allowed to change their usernames.
+* We’ve updated the SMTP username format validation to be compatible with AWS SES.
+* We’ve fixed a bug where, if a call was answered on the IP Phone or Desktop app, the mobile app would continue ringing for a while.
+* Tenant administrators can now subscribe to the CDR event for the entire tenant scope.
+* We’ve added an option for the trunk to remove the SRTP line, resolving compatibility issues with some trunks.
+* We’ve introduced a new permission to control access to company contacts.
+* Tenant administrators can now clear device registration and app push information on the Web Portal for an extension.
+* We’ve added a new feature that allows re-provisioning of all phones for a tenant.
+* Support the English UK language.
+
+### REST API changes:
+
+* &#x20; Remove `GET /api/token`.
+* &#x20; Remove `POST /api/token/refresh`.
+* &#x20; Remove `POST /api/token/destroy`.
+* &#x20; Add POST `/api/login/by_microsoft` for Microsoft 365 integrated login.
+* &#x20; Add GET `/api/login` for users to get their current login status.
+* &#x20;Modify `GET /api/info` to accept an optional query parameter `domain`. When the `domain` parameter is specified in the request, the server will additionally return the public properties `name`, `domain`, `website`, `avatar_url`, `enable_ms365_integration`, `ms365_authorization_endpoint` of the corresponding tenant.
+* &#x20; Add GET `/api/users/:id/status/:instance_id/destroy_status` to clear the login information of a specified user.
+* &#x20; Rename `POST /api/phones/{mac}/reprovsion` to `POST /api/phones/{mac}/reprovision`.
+* &#x20; Add `POST /phones/reprovision` to reconfigure all phones.
+* &#x20; Add a configurable property `remove_srtp_info` for the Trunk.
+* &#x20; Modify the username format validation rules to allow a sequence of 1-64 characters that can include uppercase and lowercase letters, numbers, underscores, hyphens, periods, and single quotes. However, periods are not allowed at the beginning or end.
+* &#x20; Add `POST /api/admin/username` for users to change the system administrator's username.
+* &#x20; Add `POST /api/dealer/username` to change the dealer's username.
+* &#x20; Add `GET /api/user/call_queues` to get the list of call queues that the currently logged-in user belongs to.
+* &#x20; Add `GET /api/user/call_queues/:id/agent` to get the agent status of the specified call queue that the currently logged-in user belongs to.
+* &#x20; Add `POST /api/user/call_queues/:id/agent` to set the agent status of the specified call queue that the currently logged-in user belongs to.
+* &#x20; Add `GET /api/users/:id/call_queues` to get the list of call queues that a specified user belongs to.
+* &#x20; Add `GET /api/users/:id/call_queues/:queue_id/agent` to get the agent status of the specified call queue that a specified user belongs to.
+* &#x20; Add `POST /api/users/:id/call_queues/:queue_id/agent` to configure the agent status of the specified call queue that a specified user belongs to.
+
 ## Changes for Release v16.2.0
 
 Date: Jan 18, 2024
