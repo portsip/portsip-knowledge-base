@@ -22,6 +22,7 @@ The following changes are included in this release:
 * We’ve introduced a new permission to control access to company contacts.
 * Tenant administrators can now clear device registration and app push information on the Web Portal for an extension.
 * We’ve added a new feature that allows re-provisioning of all phones for a tenant.
+* Fix a bug count the concurrent calls are incorrect on a trunk for some special scenarios.
 * Support the English UK language.
 
 ### REST API changes:
