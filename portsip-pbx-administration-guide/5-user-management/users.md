@@ -29,9 +29,13 @@ The **Display Name** is the full name of the user, like **James Bond**.
 
 After creating a user, that user can sign in to the Personal Web portal entering the **Username**, **Password**, and tenant's **SIP domain**.
 
-Please refer to the below screenshot, which shows that the user of a tenant signs in to the web portal.
+Please refer to the below screenshot, which shows that the user of a tenant signs in to the web portal, just enter the tenant's SIP Domain and click the **Next** button.
 
-<figure><img src="../../.gitbook/assets/user_login.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/login-3.png" alt="" width="319"><figcaption></figcaption></figure>
+
+If the SIP domain you entered is correct, you will see the below screenshot to allows you enter the username and password otherwise you will get an error.
+
+<figure><img src="../../.gitbook/assets/login-4.png" alt="" width="321"><figcaption></figcaption></figure>
 
 ## Extension
 
