@@ -1,9 +1,12 @@
 # 2 Configuring the PortSIP PBX
 
-After the PortSIP PBX has been installed successfully, use your browser to access the web portal at [https://66.175.221.120:8887](https://66.175.221.120:8887). If the browser displays the SSL certificate warning, simply ignore it and proceed.
+After the PortSIP PBX has been installed successfully, use your browser to access the web portal at [https://66.175.221.120:8887](https://66.175.221.120:8887). If the browser displays the SSL certificate warning, simply ignore it and proceed, you will see the login page likes the below screenshot.
 
-* Enter **admin** for both the username and password
-* Leave the **SIP Domain** field as blank
+<figure><img src="../.gitbook/assets/login-1.png" alt="" width="321"><figcaption></figcaption></figure>
+
+Please click the "**Sign in as the administrator or dealer**" to navigate to the administrator login page likes the below screenshot, enter **admin** for both the username and password to sign in the web portal.
+
+<figure><img src="../.gitbook/assets/login-2.png" alt="" width="320"><figcaption></figcaption></figure>
 
 {% hint style="danger" %}
 Please change the default password of admin after you logged in.
