@@ -4,6 +4,16 @@
 Please follow the [guide ](upgrading-portsip-sbc-to-new-versions.md)to upgrading your PortSIP SBC to the latest version.
 {% endhint %}
 
+## Changes for Release v10.0.10
+
+**Date**: Mar 7, 2024
+
+The following changes are included in this release:
+
+* Updated the WebRTC client App to support the English UK language.
+* Support control of the agent status of the queues
+* Fixed minor bugs
+
 ## Changes for Release v10.0.9
 
 **Date**: Jan 17, 2024
@@ -61,3 +71,4 @@ The following changes are included in this release.
 * Support WebRTC
 * Interoperability with leading UC/PBX and CC vendors and SIP trunk providers
 * Advanced security for protection against malicious attacks and fraud
+
