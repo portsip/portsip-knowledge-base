@@ -135,6 +135,7 @@
 * [Call Control API](call-control-api.md)
 * [FAQ](faq/README.md)
   * [Is the PortSIP PBX built on Asterisk, FreeSwitch?](faq/is-the-portsip-pbx-built-on-asterisk-freeswitch.md)
+  * [Configuring the Endpoints with PortSIP PBX](faq/configuring-the-endpoints-with-portsip-pbx.md)
   * [What Is an SBC?](faq/what-is-an-sbc.md)
   * [What Is Multi-Tenant PBX?](faq/what-is-multi-tenant-pbx.md)
   * [What File Format Is Required for PortSIP PBX Prompt?](faq/what-file-format-is-required-for-portsip-pbx-prompt.md)
