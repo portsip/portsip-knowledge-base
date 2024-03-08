@@ -9,11 +9,15 @@ In this article, we assume the following configurations:
 * The PBX created UDP transport on port **5060**, TLS transport on port **5061** over TLS,  TCP transport on port **5063**, and WSS transport on port **5065** in the SBC.
 * A tenant has been created with the SIP domain set up as **test.io**.
 
+As per the above settings, after you sign in to the PBX as the system administrator, you will see the page like the screenshot below:
+
+<figure><img src="../../.gitbook/assets/portsip-pbx-home-1.png" alt=""><figcaption></figcaption></figure>
+
 ## Essential Information
 
 There are some rules for configuring the client endpoints for the above scenario:
 
-* **Transport.** It's the network transport for the send & receives the SIP message in the PBX. For more details please read the article: [Transport Management](../6-transport-management.md).
+* **Transport.** It's the network transport for sending & receiving the SIP message in the PBX. For more details please read the article: [Transport Management](../6-transport-management.md).
 * **Outbound Proxy server.** The PBX server IP refers to the **Outbound Proxy Server** in the client endpoints. If the client endpoint registers to PBX over the internet, use the public IP as the **Outbound Proxy Server**. You can also use **uc.portsip.cc** as the **Outbound Proxy Server** if registering to PBX over the internet since this domain has been resolved to the public IP; If registering to PBX from the LAN, use the private IP as the **Outbound Proxy Server**.
 * **Outbound Proxy Server Port.** The port of transport is created in the PBX or SBC. For example, if you want the endpoint registered to the PBX over TCP transport, then you will need to set 5063 for **Outbound Proxy Server Port** in the endpoint settings.
 * **Domain.** Also known as **SIP domain** or **SIP server** in the endpoint settings. It’s the **SIP domain** of the tenant that was created in PortSIP PBX - so just set the tenant’s **SIP domain** for Domain/SIP Domain/SIP server in the endpoint settings.&#x20;
