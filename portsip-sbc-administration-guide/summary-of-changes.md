@@ -6,7 +6,7 @@ Please follow the [guide ](upgrading-portsip-sbc-to-new-versions.md)to upgrading
 
 ## Changes for Release v10.0.10
 
-**Date**: Mar 7, 2024
+**Date**: Mar 11, 2024
 
 The following changes are included in this release:
 
