@@ -23,7 +23,7 @@ As shown in the screenshot above, you can set a password for the IP Phone web po
 
 As shown in the screenshot above, you can choose a **transport** that the IP Phone can use to connect to the PBX. The **Save to RPS** option indicates that you can save the provisioning link to the IP Phone RPS, in case it must be turned on here. The **HTTPS** option is used to generate the provisioning link for HTTPS or not.
 
-Restart the IP Phone,  it will query the provisioning link from the RPS server using its MAC address to complete the auto-provisioning. Once the IP Phone is successfully provisioned, it will register to the PortSIP PBX automatically. You can see the phone in the below screenshot in the **Call Manager > Phones** menu.
+**Restart the IP Phone**,  it will query the provisioning link from the RPS server using its MAC address to complete the auto-provisioning. Once the IP Phone is successfully provisioned, it will register to the PortSIP PBX automatically. You can see the phone in the below screenshot in the **Call Manager > Phones** menu.
 
 <figure><img src="../../.gitbook/assets/phone_provision1.png" alt=""><figcaption></figcaption></figure>
 
