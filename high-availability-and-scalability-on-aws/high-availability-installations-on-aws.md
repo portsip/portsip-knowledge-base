@@ -321,7 +321,7 @@ private_vip_address: 172.31.16.130
 eip_address: 54.151.30.9
 eip_allocation_id: eipalloc-02c7cf64a5cd449cf
 ebs_volume_id: vol-0e06e1e9da3c49b67
-pbx_image: portsip/pbx:16.2.0.2377-release
+pbx_image: portsip/pbx:16.3.1.2561-release
 ssh_private_key_file: /home/ubuntu/.ssh/aws-portsip-pbx-ha.pem
 EOF
 ```
