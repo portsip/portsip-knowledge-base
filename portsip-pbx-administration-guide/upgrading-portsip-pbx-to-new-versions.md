@@ -116,4 +116,11 @@ run -p /var/lib/portsip \
 
 Your PBX has now been successfully upgraded to the latest version.
 
-##
+## Upgrading Cluster Servers
+
+{% hint style="danger" %}
+It’s crucial to keep your cluster servers updated in line with the latest PortSIP PBX releases. This ensures that all features function as expected and that your system maintains optimal performance and security.
+{% endhint %}
+
+If you have set up your PBX as a cluster following [this guide](../pbx-cluster/), it’s mandatory to upgrade those servers whenever the PBX is updated. Please refer to the article [Managing Cluster](../pbx-cluster/managing-cluster.md#upgrading-servers) for the upgrade process.
+
