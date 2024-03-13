@@ -64,7 +64,9 @@ Please note that restarting the resource load balancer and servers will affect t
 It’s crucial to keep your cluster servers updated in line with the latest PortSIP PBX releases. This ensures that all features function as expected and that your system maintains optimal performance and security.
 {% endhint %}
 
-Whenever a new version of PortSIP PBX is released, it’s essential to upgrade your installed cluster servers as well. Follow the steps below to ensure a successful upgrade:
+Whenever a new version of PortSIP PBX is released, it’s essential to upgrade your installed cluster servers as well. Follow the steps below to ensure a successful upgrade.
+
+We use the media server as an example, you will need to replace the media server with other servers as your actual environment.
 
 1. Remove the current running server by the commands:
 
