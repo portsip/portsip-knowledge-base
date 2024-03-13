@@ -297,6 +297,24 @@ cd /opt/portsip
 
 Now all cluster servers have been successfully up, you can check their status on the PBX Web Portal by going to the **Servers** menu,  if everything has been set up correctly, the server status will be displayed as "**Online**".
 
+## Upgrading Servers
+
+{% hint style="danger" %}
+It’s crucial to keep your cluster servers updated in line with the latest PortSIP PBX releases. This ensures that all features function as expected and that your system maintains optimal performance and security.
+{% endhint %}
+
+Whenever a new version of PortSIP PBX is released, it’s essential to upgrade your installed cluster servers as well. Follow the steps below to ensure a successful upgrade:
+
+1. Remove the current running server by the commands:
+
+```
+cd /opt/portsip
+/bin/sh cluster_ctl.sh stop -s media-server-only
+/bin/sh cluster_ctl.sh rm -s media-server-only
+```
+
+2. Install the latest version of the server. Follow the instructions provided in the [Add Cluster Servers](configuring-cluster-servers.md#add-the-cluster-servers) guide to complete this step.
+
 ## SBC Cluster
 
 To deploy the SBC cluster, please follow this topic [Deploy the SBC Cluster](../portsip-pbx-administration-guide/11-deploy-the-sbc-cluster.md).
