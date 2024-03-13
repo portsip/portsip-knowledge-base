@@ -58,3 +58,17 @@ To do this, simply follow the topics on [Preparing Cluster Servers](preparing-cl
 
 Please note that restarting the resource load balancer and servers will affect the calling service, so it is recommended to do this during the middle night.
 
+## Upgrading Servers
+
+Every time the PortSIP PBX releases a new version, you must also upgrade these installed cluster servers. The steps are:
+
+1. Remove the current running server by the commands:
+
+```
+cd /opt/portsip
+/bin/sh cluster_ctl.sh stop -s media-server-only
+/bin/sh cluster_ctl.sh rm -s media-server-only
+```
+
+2. Install the latest version server as the guide [Configuring Cluster Servers](configuring-cluster-servers-for-portsip-pbx-ha.md).
+
