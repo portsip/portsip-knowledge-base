@@ -70,7 +70,7 @@ cd /opt/portsip
 /bin/sh cluster_ctl.sh rm -s media-server-only
 ```
 
-2. Install the latest version of the server. Follow the instructions provided in the [Configuring Cluster Servers](configuring-cluster-servers.md) guide to complete this step.
+2. Install the latest version of the server. Follow the instructions provided in the [Add Cluster Servers](configuring-cluster-servers.md#add-the-cluster-servers) guide to complete this step.
 
 {% hint style="danger" %}
 It’s crucial to keep your cluster servers updated in line with the latest PortSIP PBX releases. This ensures that all features function as expected and that your system maintains optimal performance and security.
