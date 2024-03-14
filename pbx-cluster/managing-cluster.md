@@ -66,7 +66,7 @@ It’s crucial to keep your cluster servers updated in line with the latest Port
 
 Whenever a new version of PortSIP PBX is released, it’s essential to upgrade your installed cluster servers as well. Follow the steps below to ensure a successful upgrade.
 
-We use the media server as an example, you will need to replace the media server with other servers as your actual environment.
+We use the **media server** as an example, you will need to replace the media server with other servers as your actual environment.
 
 1. Remove the current running server by the commands:
 
@@ -76,5 +76,5 @@ cd /opt/portsip
 /bin/sh cluster_ctl.sh rm -s media-server-only
 ```
 
-2. Install the latest version of the server. Follow the instructions provided in the [Add Cluster Servers](configuring-cluster-servers.md#add-the-cluster-servers) guide to complete this step.
+2. Install the latest version of the server. Follow the instructions provided in the [Install Media server](configuring-cluster-servers.md#install-media-server) guide to complete this step.
 
