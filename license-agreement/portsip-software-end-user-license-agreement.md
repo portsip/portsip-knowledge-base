@@ -80,4 +80,4 @@ PortSIP and the PortSIP logo are trademarks or registered trademarks of PortSIP 
 
 Any Internet Protocol (IP) addresses used in this document are not intended to be actual addresses. Any examples, command display output, and figures included in the document are shown for illustrative purposes only. Any use of actual IP addresses in illustrative content is unintentional and coincidental.
 
-© 2021 PortSIP Solutions, Inc. All rights reserved.
+© 2024 PortSIP Solutions, Inc. All rights reserved.
