@@ -16,7 +16,11 @@ The **General** page allows you to adjust the following features.
 * **SIP Domain**: The SIP domain for this tenant should be unique and can be a dummy domain that does not require real existence. It is the host part of the extension SIP URI used to distinguish multiple tenants. For example, if you set "**test1.com**" as the SIP domain for tenant A and "**test2.com**" for tenant B, then extension 101 of tenant A has the SIP URI: `sip:101@test1.com`; and extension 101 of tenant B has the SIP URI: `sip:101@test2.com`.
 * **Capability**: Used to set the capabilities for the tenant
 
-{% hint style="warning" %}
+{% hint style="danger" %}
+Don't set the PBX server's IP address as the tenant SIP Domain.
+{% endhint %}
+
+{% hint style="success" %}
 The tenant SIP domain can be any domain, even if it doesn’t actually exist or is unresolvable. It can simply be a dummy domain. It's used to provide a unique SIP address for an extension, thereby distinguishing extensions among different tenants.
 {% endhint %}
 
