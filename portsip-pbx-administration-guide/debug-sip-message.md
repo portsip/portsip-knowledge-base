@@ -207,5 +207,21 @@ cd /opt/portsip-trace && /bin/sh trace_ctl.sh stop
 cd /opt/portsip-trace && /bin/sh trace_ctl.sh rm
 ```
 
+## Upgrade Version
 
+Please follow the below steps to upgrade to the latest version.
+
+### Stop Service
+
+```
+cd /opt/portsip-trace && /bin/sh trace_ctl.sh stop
+```
+
+### Remove Service
+
+```
+cd /opt/portsip-trace && /bin/sh trace_ctl.sh rm
+```
+
+Now follow the [Installating PortSIP Trace Server](debug-sip-message.md#installing-portsip-trace-server).
 
