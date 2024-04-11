@@ -49,6 +49,7 @@ The firewall and cloud platform security group must allow the ports listed below
 
 * Port 9061 on TCP
 * Port 9080 on TCP
+* Port 9060 on UDP
 
 ## Installing PortSIP Trace Server
 
