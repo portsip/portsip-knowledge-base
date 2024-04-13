@@ -203,14 +203,18 @@ When making calls to the PBX, including the above header in the INVITE message c
 If you want to rewrite the above headers only on a specific trunk, you can use the parameter below.
 
 ```
-X-Outbound-Cli: rewrite-from=123;trunk-name:abc
+X-Outbound-Cli: rewrite-from=123;trunk-id:235468356
 ```
 
 ```
-X-Outbound-Cli: rewrite-from=123;rewrite-rpi=789;rewrite-pai=456;trunk-name:abc;
+X-Outbound-Cli: rewrite-from=123;rewrite-rpi=789;rewrite-pai=456;trunk-id:235468356;
 ```
 
-When the above header is added, the PBX will rewrite the headers when sending the INVITE to the trunk named **abc**; if no **trunk-name** parameter is specified, the PBX will rewrite the INVITE message on any trunk that the call is routed through.
+When the above header is added, the PBX will rewrite the headers when sending the INVITE to the trunk the id is **235468356**; if no **trunk-id** parameter is specified, the PBX will rewrite the INVITE message on any trunk that the call is routed through.
+
+{% hint style="info" %}
+For the v16.x, you should use the trunk-name to instead of the trunk-id.
+{% endhint %}
 
 {% hint style="info" %}
 When using the "X-Outbound-Cli" header to bypass the PBX outbound caller ID settings, the specified outbound caller ID must be in the trunk DID Pool range assigned to the tenant.
