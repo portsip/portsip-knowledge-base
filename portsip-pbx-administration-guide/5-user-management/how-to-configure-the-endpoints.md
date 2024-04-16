@@ -62,7 +62,7 @@ Click the settings icon for advanced settings. Then, enter the values for the Ou
 
 ### WebRTC App
 
-After successfully [configuring the PortSIP PBX](../2-configuring-the-portsip-pbx.md) and [SBC](../9-configuring-sbc-for-webrtc.md), and [creating the tenants](../3-tenant-management.md) and [extensions](./) in the PBX, you can launch the WebRTC client app by opening the link [https://uc.portsip.cc:8883/webrtc](https://uc.portsip.cc:10443/webrtc) to launch WebRTC client app, or click the WebRTC menu from the SBC web portal.
+After successfully [configuring the PortSIP PBX](../2-configuring-the-portsip-pbx.md) and [SBC](../9-configuring-sbc-for-webrtc.md), and [creating the tenants](../3-tenant-management.md) and [extensions](./) in the PBX,  assume the SBC web domain is `uc.portsip.com`,  you can launch the WebRTC client app by opening the link [https://uc.portsip.cc:8883/webrtc](https://uc.portsip.cc:10443/webrtc) to launch the WebRTC client app or click the WebRTC menu from the SBC web portal.
 
 <figure><img src="../../.gitbook/assets/portsip_webrtc_client1.png" alt="" width="375"><figcaption></figcaption></figure>
 
@@ -82,7 +82,7 @@ You can also scan the QR code to sign in the WebRTC client automatically.
 Click the **Advanced** icon for advanced settings. Then, enter the values for the Outbound Proxy Server and Port.&#x20;
 
 * **Outbound Proxy Server**. Enter the PBX’s public or private IP. For more information, please refer to the explanation in the section above.&#x20;
-* **Outbound Proxy Server Port**. Enter the transport port here. For example, if using UDP transport, set the port to 5060. If using TCP transport, set the port to 5063. Append it to the outbound proxy server IP and separated it with a colon.
+* **Outbound Proxy Server Port**. Enter the transport port here. For example, if using UDP transport, set the port to 5060. If using TCP transport, set the port to 5063. Append it to the outbound proxy server IP and separate it with a colon.
 * **Transport**. Choose the transport that you prefer to register the client app to PortSIP PBX. For example, TCP. Note that if you change the transport here, you must enter the **corresponding port** for the **Outbound Proxy Server Port**.
 
 <figure><img src="../../.gitbook/assets/portsip_iphone_2.png" alt="" width="351"><figcaption></figcaption></figure>
