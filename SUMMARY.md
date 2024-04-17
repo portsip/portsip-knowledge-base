@@ -138,7 +138,7 @@
   * [Configuring the Endpoints with PortSIP PBX](faq/configuring-the-endpoints-with-portsip-pbx.md)
   * [What Is an SBC?](faq/what-is-an-sbc.md)
   * [What Is Multi-Tenant PBX?](faq/what-is-multi-tenant-pbx.md)
-  * [What's Cloud PBX?](faq/whats-cloud-pbx.md)
+  * [What Is Cloud PBX?](faq/what-is-cloud-pbx.md)
   * [What File Format Is Required for PortSIP PBX Prompt?](faq/what-file-format-is-required-for-portsip-pbx-prompt.md)
   * [What Is Direct Inward Dialing (DID)](faq/what-is-direct-inward-dialing-did.md)
   * [What Is DID Pool](faq/what-is-did-pool.md)
