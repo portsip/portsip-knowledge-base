@@ -4,7 +4,7 @@ The PortSIP PBX introduced PortSIP SBC which can work as a component with the Po
 
 The PortSIP SBC provides flexibility and scalability for the PortSIP PBX, allowing us to support large numbers of WebRTC customers.
 
-Please read "[What's an SBC?](../faq/what-is-an-sbc.md)" before starting. Typically, the SBC concept is shown below.
+Please read "[What's an SBC?](../faq/what-is-the-sbc.md)" before starting. Typically, the SBC concept is shown below.
 
 <figure><img src="../.gitbook/assets/sbc_arch.png" alt=""><figcaption></figcaption></figure>
 

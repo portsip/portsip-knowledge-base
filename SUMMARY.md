@@ -13,13 +13,13 @@
 ***
 
 * [FAQ](faq/README.md)
-  * [What Is Cloud PBX?](faq/what-is-cloud-pbx.md)
-  * [What Is Multi-Tenant PBX?](faq/what-is-multi-tenant-pbx.md)
+  * [What is the Cloud PBX?](faq/what-is-the-cloud-pbx.md)
+  * [What is the Multi-Tenant PBX?](faq/what-is-the-multi-tenant-pbx.md)
   * [Configuring the Endpoints with PortSIP PBX](faq/configuring-the-endpoints-with-portsip-pbx.md)
-  * [What Is an SBC?](faq/what-is-an-sbc.md)
+  * [What is the SBC?](faq/what-is-the-sbc.md)
   * [What File Format Is Required for PortSIP PBX Prompt?](faq/what-file-format-is-required-for-portsip-pbx-prompt.md)
-  * [What Is Direct Inward Dialing (DID)](faq/what-is-direct-inward-dialing-did.md)
-  * [What Is DID Pool](faq/what-is-did-pool.md)
+  * [What is Direct Inward Dialing (DID)](faq/what-is-direct-inward-dialing-did.md)
+  * [What is the DID Pool](faq/what-is-the-did-pool.md)
   * [Which IP Phones Work with PortSIP PBX](faq/which-ip-phones-work-with-portsip-pbx.md)
   * [Hardware Specifications](faq/hardware-specifications-for-portsip.md)
   * [How to Adjust the REST API Rate Limit?](faq/how-to-adjust-the-rest-api-rate-limit.md)
