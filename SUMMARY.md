@@ -14,7 +14,6 @@
 
 * [FAQ](faq/README.md)
   * [What is the Cloud PBX?](faq/what-is-the-cloud-pbx.md)
-  * [Essential Factors for Choosing a Could PBX Solution](faq/essential-factors-for-choosing-a-could-pbx-solution.md)
   * [What is the Multi-Tenant PBX?](faq/what-is-the-multi-tenant-pbx.md)
   * [Configuring the Endpoints with PortSIP PBX](faq/configuring-the-endpoints-with-portsip-pbx.md)
   * [What is the SBC?](faq/what-is-the-sbc.md)
@@ -27,6 +26,7 @@
   * [What is SIP ALG and Why You Need to Disable It](faq/what-is-sip-alg-and-why-you-need-to-disable-it.md)
   * [Is the PortSIP PBX built on Asterisk, FreeSwitch?](faq/is-the-portsip-pbx-built-on-asterisk-freeswitch.md)
 * [The Advantages of PortSIP PBX vs. Other PBXs](the-advantages-of-portsip-pbx-vs.-other-pbxs.md)
+* [Essential Factors for Choosing a Could PBX Solution](essential-factors-for-choosing-a-could-pbx-solution.md)
 * [PortSIP PBX Features](portsip-pbx-features.md)
 * [PortSIP Security Features](portsip-security-feature.md)
 * [PortSIP PBX Administration Guide](portsip-pbx-administration-guide/README.md)
