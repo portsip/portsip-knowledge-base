@@ -4,6 +4,8 @@
 
 Cloud PBX (Cloud-based Private Branch Exchange) is a virtual PBX system rooted in the internet, which uses a cloud-based service to control and manage calls to and from a business and delivers advanced calling features and unified communications using Voice over Internet Protocol (VoIP) technology. Traditionally, PBX systems were located on-premises. These machines are big and need their own storage room. They also require significant capital investment, making them out of reach for smaller businesses.
 
+<figure><img src=".gitbook/assets/portsip-vs-other-pbx.jpg" alt=""><figcaption></figcaption></figure>
+
 The advent of the cloud has revolutionized this. A Cloud PBX is hosted in secure, remote data centers and delivered via the internet. It offers the same call routing and management features as an on-premises PBX, but without the need for costly hardware. Furthermore, Cloud PBX solutions are available as a service with flexible plans. This allows smaller businesses to subscribe to the service, avoiding the heavy investment associated with an expensive on-premise system.
 
 ### Essential Factors for Choosing a Could PBX Solution
@@ -19,8 +21,6 @@ Today, every VoIP Service provider is looking for a good solution to host their 
 ### PortSIP PBX Solution Has Your Back
 
 When weighing the solution for hosting the Cloud PBX, you have to look at your needs today and tomorrow. You have to ask yourself where you want to be in the next year or two and beyond.
-
-<figure><img src="../.gitbook/assets/portsip-vs-other-pbx.jpg" alt=""><figcaption></figcaption></figure>
 
 Here at PortSIP, we’ll walk you through everything, including free porting of your existing solution. We’ll help you select the right VoIP desk phones that meet your client's budget and everyday business needs.
 
