@@ -5,7 +5,7 @@ After successfully [configuring the PortSIP PBX](../portsip-pbx-administration-g
 In this article, we assume the following configurations:
 
 * The PortSIP PBX and SBC are installed on a server with a public IP of **66.175.221.120** and a private IP of **192.168.1.72**.
-* The domain **uc.portsip.cc** has been resolved to the PBX server public IP **66.175.221.120**.
+* The PBX web domain **uc.portsip.cc** has been resolved to the PBX server public IP **66.175.221.120**.
 * The PBX created UDP transport on port **5060**, TLS transport on port **5061** over TLS,  TCP transport on port **5063**, and WSS transport on port **5065** in the SBC.
 * A tenant has been created with the SIP domain set up as **test.io**.
 

@@ -20,7 +20,7 @@
   * [Configuring the Endpoints with PortSIP PBX](faq/configuring-the-endpoints-with-portsip-pbx.md)
   * [What is the SBC?](faq/what-is-the-sbc.md)
   * [What File Format Is Required for PortSIP PBX Prompt?](faq/what-file-format-is-required-for-portsip-pbx-prompt.md)
-  * [What is Direct Inward Dialing (DID)](faq/what-is-direct-inward-dialing-did.md)
+  * [What is Direct Inward Dialing (DID)?](faq/what-is-direct-inward-dialing-did.md)
   * [What is the DID Pool?](faq/what-is-the-did-pool.md)
   * [Which IP Phones Work with PortSIP PBX?](faq/which-ip-phones-work-with-portsip-pbx.md)
   * [Hardware Specifications](faq/hardware-specifications-for-portsip.md)
