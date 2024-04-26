@@ -1,4 +1,4 @@
-# What Is Direct Inward Dialing (DID)
+# What is Direct Inward Dialing (DID)
 
 Direct Inward Dialing (DID) is when a telephone service provider connects a block of telephone numbers to your company’s [Private Branch Exchange](https://www.portsip.com/portsip-pbx) (PBX). It allows businesses to set up virtual numbers that can bypass the main reception lines and go directly to a desk extension or group of extensions. DID can be used with local, premium-rate, or toll-free numbers.
 
@@ -55,6 +55,7 @@ The first step is to obtain one or more business phone numbers. It’s likely yo
 
 Next, you would assign these to each user in your phone system. This can be done from the administrative dashboard effortlessly.&#x20;
 
-Adding the direct-dial features your team needs is simple when you go with an experienced VoIP provider, like [Twillio](https://www.twilio.com), [CalllCentric](https://www.callcentric.com/), [Bandwidth](https://www.bandwidth.com/), [FlowRoute](https://flowroute.com/), and [Vonage](https://www.vonage.com/).&#x20;
+Adding the direct-dial features your team needs is simple when you go with an experienced VoIP provider, like [Twillio](https://www.twilio.com), [Vonage](https://www.vonage.com/), [Wavix](https://www.wavix.com), [Telnyx](https://www.telnyx.com/), [QuestBlue](https://questblue.com/), [VoIP.ms](https://voip.ms/), and [Voxtelesys](https://voxtelesys.com/).
 
 Once your DID service is set up, inbound callers will be able to reach your teams with low friction. In a world where great customer service is a competitive advantage, direct-dial numbers are just another way to provide personalized experiences.
+
