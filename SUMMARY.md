@@ -20,7 +20,7 @@
   * [What File Format Is Required for PortSIP PBX Prompt?](faq/what-file-format-is-required-for-portsip-pbx-prompt.md)
   * [What is Direct Inward Dialing (DID)](faq/what-is-direct-inward-dialing-did.md)
   * [What is the DID Pool?](faq/what-is-the-did-pool.md)
-  * [Which IP Phones Work with PortSIP PBX](faq/which-ip-phones-work-with-portsip-pbx.md)
+  * [Which IP Phones Work with PortSIP PBX?](faq/which-ip-phones-work-with-portsip-pbx.md)
   * [Hardware Specifications](faq/hardware-specifications-for-portsip.md)
   * [How to Adjust the REST API Rate Limit?](faq/how-to-adjust-the-rest-api-rate-limit.md)
   * [What is SIP ALG and Why You Need to Disable It](faq/what-is-sip-alg-and-why-you-need-to-disable-it.md)
