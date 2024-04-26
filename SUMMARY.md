@@ -13,7 +13,6 @@
 ***
 
 * [FAQ](faq/README.md)
-  * [What is the Cloud PBX?](faq/what-is-the-cloud-pbx.md)
   * [What is the PBX Phone System?](faq/what-is-the-pbx-phone-system.md)
   * [What is the Multi-Tenant PBX?](faq/what-is-the-multi-tenant-pbx.md)
   * [Configuring the Endpoints with PortSIP PBX](faq/configuring-the-endpoints-with-portsip-pbx.md)
@@ -26,6 +25,7 @@
   * [How to Adjust the REST API Rate Limit?](faq/how-to-adjust-the-rest-api-rate-limit.md)
   * [What is SIP ALG and Why You Need to Disable It](faq/what-is-sip-alg-and-why-you-need-to-disable-it.md)
   * [Is the PortSIP PBX built on Asterisk, FreeSwitch?](faq/is-the-portsip-pbx-built-on-asterisk-freeswitch.md)
+  * [What is the Cloud PBX?](faq/what-is-the-cloud-pbx.md)
 * [The Advantages of PortSIP PBX vs. Other PBXs](the-advantages-of-portsip-pbx-vs.-other-pbxs.md)
 * [Essential Factors for Choosing a Could PBX Solution](essential-factors-for-choosing-a-could-pbx-solution.md)
 * [PortSIP PBX Features](portsip-pbx-features.md)
