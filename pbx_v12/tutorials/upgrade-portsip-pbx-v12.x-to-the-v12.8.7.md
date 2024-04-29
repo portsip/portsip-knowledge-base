@@ -61,7 +61,26 @@ For CentOS/Ubuntu/Debian, use the below commands to perform the upgrade.
 
 ## Change push settings for Android
 
+## Change push settings for Android
 
+If you are using the PortSIP softphone app, you do not need to do anything, the upgraded PBX v12.8.7 will work with the PortSIP softphone app seamlessly.
+
+### Get a new push profile JSON file
+
+* If you used the Android app that the PortSIP rebranded, please get in touch with us to obtain the new push setting JSON file.
+* If you used the Android app that you developed on your own, please follow the below steps to get the new push setting JSON file.
+  * Read the guide [Android Push Notifications](https://docs.apppresser.com/article/301-android-push-notifications) and follow steps 1 - step 3 to download the push setting JSON file
+
+### Upload push setting JSON file
+
+Now we need to upload the push setting JSON file to the PortSIP PBX server.
+
+* Linux: Upload that file to `/var/lib/portsip` the folder.
+* Windows: Upload that file to `C:\ProgramData\PortSIP` folder.
+
+### Adjust settings
+
+Sign in to the PortSIP PBX v12.8.7 Web portal, select the menu **Advanced > Mobile Push**, and double-click the app to change the settings
 
 
 
