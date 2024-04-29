@@ -80,9 +80,11 @@ Now we need to upload the push setting JSON file to the PortSIP PBX server.
 
 ### Adjust settings
 
-Sign in to the PortSIP PBX v12.8.7 Web portal, select the menu **Advanced > Mobile Push**, and double-click the app to change the settings
+Sign in to the PortSIP PBX v12.8.7 Web portal, select the menu **Advanced > Mobile Push**, and double-click the app to change the settings.
 
+Enter the folder path which you placed the push setting JSON file to the Google Server Key field.
 
+<figure><img src="../../.gitbook/assets/android_push_path.png" alt=""><figcaption></figcaption></figure>
 
 
 
