@@ -1,22 +1,18 @@
 # Upgrade PortSIP PBX v12.x to the v12.8.7
 
-As Google announced, they will [stop to support the legacy push method in Jun 2024](https://firebase.google.com/docs/cloud-messaging/migrate-v1).&#x20;
+Here’s a revised version of your text from a native English speaker’s perspective:
 
-The PortSIP PBX v12.x uses the legacy push method to send push notifications, and the PortSIP PBX v12.x was EOL about 1 year ago (Mar 30, 2023). Until today, we see there still have some customers are still staying with PortSIP PBX v12.x and can't upgrade to the v16.x soon.&#x20;
+As announced by Google, [support for the legacy push method will cease in June 20](https://firebase.google.com/docs/cloud-messaging/migrate-v1)24. PortSIP PBX v12.x, which utilizes this legacy push method for sending notifications, reached its end-of-life (EOL) approximately a year ago on March 30, 2023. Despite this, we’ve noticed that some customers continue to use PortSIP PBX v12.x and are unable to upgrade to v16.x in the near future.
 
-Therefore, we released the PortSIP PBX v12.8.7 to support the new push method for the Android push notifications even though the v12.x is EOL.
+In response to this, we’ve released PortSIP PBX v12.8.7. This version supports the new push method for Android notifications, even though v12.x is technically EOL. Please note that this will be the final update for v12.x, as it has been EOL for quite some time. We strongly urge all v12.x customers to upgrade to v16.x as soon as possible to benefit from enhanced features and support.
 
-This is the last update for the v12.x since it was already EOL long ago. All v12.x customers must need to upgrade to the v16.x ASAP to get better features and support.
-
-## Start Upgrading
-
-### **Windows**
+## **Upgrading for Windows**
 
 1. Ensure your current installation **is v12.6.x/12.7.x/v12.8.x.**
 2. Download the [PortSIP PBX v12.8.7 installer for Windows](https://www.portsip.com/downloads/pbx/v12/portsip-pbx-12.8.7.2683.exe).
 3. After downloading the v12.8.7 installer for Windows, you only need to double-click the installer, which will guide you through the upgrade process.
 
-### **Linux**
+## **Upgrading for Linux**
 
 Please execute the below commands to upgrade.
 
@@ -59,33 +55,29 @@ For CentOS/Ubuntu/Debian, use the below commands to perform the upgrade.
          -e IP_ADDRESS="66.175.222.20" portsip/pbx:12
 ```
 
-## Change push settings for Android
+## **Changing Push Settings for Android**&#x20;
 
-If you are using the PortSIP softphone app, you do not need to do anything, the upgraded PBX v12.8.7 will work with the PortSIP softphone app seamlessly.
+If you’re using the PortSIP softphone app, no action is required on your part. The upgraded PBX v12.8.7 will seamlessly integrate with the PortSIP softphone app.
 
-### Get a new push profile JSON file
+### **Obtaining a New Push Profile JSON File**&#x20;
 
-* If you used the Android app that the PortSIP rebranded, please get in touch with us to obtain the new push setting JSON file.
-* If you used the Android app that you developed on your own, please follow the below steps to get the new push setting JSON file. Read the guide [Android Push Notifications](https://docs.apppresser.com/article/301-android-push-notifications) and follow **steps 1 - step 3** (no need to follow other steps) to download the push setting JSON file
+* If you’re using an Android app that PortSIP has rebranded, please contact us to receive the new push setting JSON file.&#x20;
+* If you’re using an Android app that you’ve developed yourself, follow the steps below to obtain the new push setting JSON file. Refer to the Android Push Notifications guide and follow steps 1 through 3 (no need to follow the other steps) to download the push setting JSON file.
 
-Assume the push setting JSON file is: `prie-ffae0-c58bc735da.json`.
+For the purposes of this guide, let’s assume the push setting JSON file is: `prie-ffae0-c58bc735da.json`.
 
-### Upload push setting JSON file
+### **Uploading the Push Setting JSON File**&#x20;
 
-Now we need to upload the push setting JSON file (in this example `prie-ffae0-c58bc735da.json`) to the PortSIP PBX server.
+Next, we need to upload the push setting JSON file (in this example, `prie-ffae0-c58bc735da.json`) to the PortSIP PBX server.
 
-* Linux: Upload that file to `/var/lib/portsip` the folder.
-* Windows: Upload that file to `C:\ProgramData\PortSIP` folder.
+* For Linux: Upload the file to the `/var/lib/portsip` folder.
+* For Windows: Upload the file to the `C:\ProgramData\PortSIP` folder.
 
-### Adjust settings
+## **Adjusting Settings**&#x20;
 
-Sign in to the PortSIP PBX v12.8.7 Web portal, select the menu **Advanced > Mobile Push**, and double-click the app to change the settings.
-
-Enter the push setting JSON file with the path to the **Google Server Key** field.
-
-* Sign in to the PortSIP PBX v12.8.7 Web portal, select the menu **Advanced > Mobile Push**, and double-click the app to change the settings.
-* Enter the push setting JSON file with the path to the **Google Server Key** field and save changes.
-* Restart the PortSIP PBX.
+* Sign in to the PortSIP PBX v12.8.7 Web portal, select the menu **Advanced > Mobile Push**, and double-click the app to change the settings.&#x20;
+* Enter the path to the push setting JSON file in the Google Server Key field and save your changes.
+* Restart the PortSIP PBX. This completes the process of changing push settings for Android.
 
 <figure><img src="../../.gitbook/assets/android_push_path.png" alt=""><figcaption></figcaption></figure>
 
