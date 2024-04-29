@@ -170,6 +170,7 @@
   * [Hardware Specifications](pbx\_v12/tutorials/hardware-specifications-for-portsip.md)
   * [Setup PortSIP PBX for Linux](pbx\_v12/tutorials/setup-portsip-pbx-linux.md)
   * [Upgrade PortSIP PBX](pbx\_v12/tutorials/upgrade-portsip-pbx.md)
+  * [Upgrade PortSIP PBX v12.x to the v12.8.7](pbx\_v12/tutorials/upgrade-portsip-pbx-v12.x-to-the-v12.8.7.md)
   * [Add Extended Media Server](pbx\_v12/tutorials/add-extended-media-server.md)
   * [Store the recording files to AWS S3](pbx\_v12/tutorials/store-the-recording-files-to-aws-s3.md)
   * [Configure Notifications for Kubernetes](pbx\_v12/tutorials/configure-notifications-for-kubernetes.md)
