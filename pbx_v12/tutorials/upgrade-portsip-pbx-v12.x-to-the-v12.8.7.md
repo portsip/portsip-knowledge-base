@@ -79,6 +79,8 @@ Next, we need to upload the push setting JSON file (in this example, `prie-ffae0
 * Enter the path to the push setting JSON file in the Google Server Key field and save your changes.
 * Restart the PortSIP PBX. This completes the process of changing push settings for Android.
 
+Please reference the below screenshot.
+
 <figure><img src="../../.gitbook/assets/android_push_path.png" alt=""><figcaption></figcaption></figure>
 
 
