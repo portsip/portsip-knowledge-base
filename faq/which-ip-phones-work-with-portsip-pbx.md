@@ -1,4 +1,4 @@
-# Which IP Phones Work with PortSIP PBX
+# Which IP Phones Work with PortSIP PBX?
 
 ## Fanvil
 
@@ -35,6 +35,10 @@ The Dinstar Phones also support the PortSIP enhanced park feature, please refere
 * Snom D8 Series
 * Snom D7 Series
 * Snom D3 Series
+
+## Avaya
+
+* Avaya J Series
 
 ## ALE
 
