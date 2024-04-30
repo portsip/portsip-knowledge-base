@@ -1,7 +1,5 @@
 # Upgrade PortSIP PBX v12.x to the v12.8.7
 
-Here’s a revised version of your text from a native English speaker’s perspective:
-
 As announced by Google, [support for the legacy push method will cease in June 20](https://firebase.google.com/docs/cloud-messaging/migrate-v1)24. PortSIP PBX v12.x, which utilizes this legacy push method for sending notifications, reached its end-of-life (EOL) approximately a year ago on March 30, 2023. Despite this, we’ve noticed that some customers continue to use PortSIP PBX v12.x and are unable to upgrade to v16.x in the near future.
 
 In response to this, we’ve released PortSIP PBX v12.8.7. This version supports the new push method for Android notifications, even though v12.x is technically EOL.&#x20;
