@@ -6,9 +6,11 @@
 
 [PortSIP PBX](https://www.portsip.com/portsip-pbx/) integrates contact center features that help you satisfy the most demanding of customers. Integrated the free SBC to support Microsoft Teams Direct Routing and free video meeting, at no extra cost, share your screen for presentations & online meeting room.&#x20;
 
-A purchased SIP PBX license is packaged with the Giveaway of [PortSIP SBC](https://www.portsip.com/portsip-pbx/),  [PortSIP VoIP SDK](https://www.portsip.com/portsip-voip-sdk), and [Softphone App](https://www.portsip.com/portsip-softphone)! If you are a large service provider looking for a UCaaS solution that supports 1M+ users, please try [PortSIP UCaaS](https://www.portsip.com/portsip-ucaas).
+The PortSIP PBX also includes [PortSIP SBC](https://www.portsip.com/portsip-pbx/),  [PortSIP VoIP SDK](https://www.portsip.com/portsip-voip-sdk), and [Softphone App](https://www.portsip.com/portsip-softphone), allowing the service provider to host the cloud PBX service.
 
-## Business Collaboration Solution
+If you are a large service provider looking for a UCaaS solution that supports 1M+ users, please try [PortSIP UCaaS](https://www.portsip.com/portsip-ucaas).
+
+## Business Cloud PBX Solution
 
 The solution includes the following features:
 
