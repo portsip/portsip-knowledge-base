@@ -59,3 +59,5 @@ Select the menu **Advanced > Notifications.**
 ## Outbound Caller ID
 
 If you set an external number (PSTN) number in the **Destination if no answer**, the call will be forwarded to the trunk by a matched outbound rule, and you can specify the outbound caller ID here for this scenario, the outbound caller ID could be a replacement for certain SIP field. For more details, please refer to [Outbound parameters and Inbound parameters](../7-trunk-management/#7.2-outbound-parameters-and-inbound-parameters) and [Handle Outbound Calls Through SIP Trunk](../7-trunk-management/handle-outbound-calls-through-sip-trunk.md).
+
+<figure><img src="../../.gitbook/assets/queue_cli.png" alt=""><figcaption></figcaption></figure>
