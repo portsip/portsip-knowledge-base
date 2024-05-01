@@ -2,7 +2,7 @@
 
 ## Creating a  Call Queue
 
-From the Web Portal, select menu **Advanced > Call Queues** and click the **Add** button. Now fill in the necessary fields:
+From the Web Portal, select menu **Advanced Services > Call Queues** and click the **Add** button. Now fill in the necessary fields:
 
 * **Queue Number** – Specify the queue number here. It should not be an existing extension number
 * **Queue Name** – Enter a friendly name for the Queue
@@ -58,6 +58,8 @@ Select the menu **Advanced > Notifications.**
 
 ## Outbound Caller ID
 
-If you set an external number (PSTN) number in the **Destination if no answer**, the call will be forwarded to the trunk by a matched outbound rule, and you can specify the outbound caller ID here for this scenario, the outbound caller ID could be a replacement for certain SIP field. For more details, please refer to [Outbound parameters and Inbound parameters](../7-trunk-management/#7.2-outbound-parameters-and-inbound-parameters) and [Handle Outbound Calls Through SIP Trunk](../7-trunk-management/handle-outbound-calls-through-sip-trunk.md).
+If you set an external number (PSTN) number in the **Destination if no answer**, the call will be forwarded to the trunk by a matched outbound rule, and you can specify the outbound caller ID here for this scenario, the outbound caller ID could be a replacement for certain SIP field.&#x20;
+
+For more details, please refer to [Outbound parameters and Inbound parameters](../7-trunk-management/#7.2-outbound-parameters-and-inbound-parameters) and [Handle Outbound Calls Through SIP Trunk](../7-trunk-management/handle-outbound-calls-through-sip-trunk.md).
 
 <figure><img src="../../.gitbook/assets/queue_cli.png" alt=""><figcaption></figcaption></figure>
