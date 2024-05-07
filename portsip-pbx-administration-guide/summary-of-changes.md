@@ -132,7 +132,7 @@ The following changes are included in this release:
 
 ## Changes for Release v16.0.4
 
-**Date**: August 8, 17 2023
+**Date**: August 8, 2023
 
 * Fixed a security issue.
 * Fixed a bug that can't hear early media when launching the call by REST API.
