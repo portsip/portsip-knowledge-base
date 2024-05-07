@@ -68,7 +68,7 @@ If you’re using the PortSIP softphone app, no action is required on your part.
 ### **Obtaining a New Push Profile JSON File**&#x20;
 
 * If you’re using an Android app that PortSIP has rebranded, please contact us to receive the new push setting JSON file.&#x20;
-* If you’re using an Android app that you’ve developed yourself, follow the steps below to obtain the new push setting JSON file. Refer to the Android Push Notifications guide and follow steps 1 through 3 (no need to follow the other steps) to download the push setting JSON file.
+* If you’re using an Android app that you’ve developed yourself, follow the steps below to obtain the new push setting JSON file. Refer to the[ Android Push Notifications guide and follow steps 1 through 3](https://docs.apppresser.com/article/301-android-push-notifications) (no need to follow the other steps) to download the push setting JSON file.
 
 For the purposes of this guide, let’s assume the push setting JSON file is: `prie-ffae0-c58bc735da.json`.
 
