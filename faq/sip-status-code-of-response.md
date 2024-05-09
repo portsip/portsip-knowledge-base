@@ -1,6 +1,6 @@
 # SIP Status Code of Response
 
-When you troubleshoot PortSIP PBX issues, the specific cause of a call/request failure can be identified through the SIP response codes.
+When you troubleshoot [PortSIP PBX](https://www.portsip.com/portsip-pbx) issues, the specific cause of a call/request failure can be identified through the SIP response codes.
 
 ## What are SIP response codes?
 
