@@ -25,6 +25,7 @@
   * [What are IP Phones Work with PortSIP PBX?](faq/what-are-ip-phones-work-with-portsip-pbx.md)
   * [Hardware Specifications](faq/hardware-specifications-for-portsip.md)
   * [How to Adjust the REST API Rate Limit?](faq/how-to-adjust-the-rest-api-rate-limit.md)
+  * [SIP Status Code of Response](faq/sip-status-code-of-response.md)
   * [What is SIP ALG and Why You Need to Disable It?](faq/what-is-sip-alg-and-why-you-need-to-disable-it.md)
 * [The Advantages of PortSIP PBX vs. Other PBXs](the-advantages-of-portsip-pbx-vs.-other-pbxs.md)
 * [Essential Factors for Choosing a Could PBX Solution](essential-factors-for-choosing-a-could-pbx-solution.md)
