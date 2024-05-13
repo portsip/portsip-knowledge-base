@@ -8,19 +8,19 @@ In short, SIP trunking is used for call setup, management, and teardown. It’s 
 
 PortSIP PBX supports a wide range of mainstream SIP trunk providers worldwide. This includes, but is not limited to, the following:
 
-* Vonage
-* QuestBlue
-* VoIP.ms&#x20;
-* Voxtelesys
-* Flowroute
-* Skyetel
-* Wavix
-* Bandwidth
-* Twilio
-* Telnyx
-* Callcentric
-* Telstra
-* Keen systems
+* [Vonage](https://www.vonage.com/)
+* [QuestBlue](https://questblue.com/)
+* [VoIP.ms](https://voip.ms/)&#x20;
+* [Voxtelesys](https://voxtelesys.com/)
+* [Flowroute](https://flowroute.com/)
+* [Skyetel](https://skyetel.com/)
+* [Wavix](https://wavix.com/)
+* [Bandwidth](https://www.google.com/aclk?sa=l\&ai=DChcSEwjP4Z7F04mGAxWv1MIEHcavBZsYABAAGgJwdg\&ase=2\&gclid=CjwKCAjw0YGyBhByEiwAQmBEWt0-86eUzdm8dvIhQPbhC0MFJ\_iY0a-UAgyis1Kao874WgSy0MGNIhoCsocQAvD\_BwE\&ei=ioRBZu2MC6yF0PEP0NKHiAI\&sig=AOD64\_2iLhFzhgCJBcCnSRVqnrIcSWO\_Vg\&q\&sqi=2\&nis=4\&adurl\&ved=2ahUKEwjt-ZXF04mGAxWsAjQIHVDpASEQ0Qx6BAgJEAE)
+* [Twilio](https://www.twilio.com/en-us)
+* [Telnyx](https://telnyx.com/)
+* [Callcentric](https://www.callcentric.com)
+* [Telstra](https://www.telstra.com.au/)
+* [Keen systems](https://keen-systems.com/)
 
 This article includes the following topics:
 
