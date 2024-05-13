@@ -8,6 +8,9 @@ In short, SIP trunking is used for call setup, management, and teardown. It’s 
 
 PortSIP PBX supports a wide range of mainstream SIP trunk providers worldwide. This includes, but is not limited to, the following:
 
+* Vonage
+* QuestBlue
+* VoIP.ms&#x20;
 * Voxtelesys
 * Flowroute
 * Skyetel
