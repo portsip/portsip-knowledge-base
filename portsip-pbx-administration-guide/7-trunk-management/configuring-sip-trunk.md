@@ -94,9 +94,9 @@ If the trunk type is  **Register Based**, click the **Next** button to fill in t
 
 Click the **Next** button to set up more parameters.
 
-1. Rewrite the host IP of **Via** header by the PBX server public IP when sending the request to the trunk: if this option is enabled and the PBX has a public IP, the PBX will change the host IP of the Via header by the PBX public IP when sending SIP message to the trunk. Unless the trunk provider is required, keep this option as the default setting.&#x20;
-2. Verify the port when receiving SIP messages from the trunk: when the PBX receives a SIP message from the trunk and tries to recognize the trunk by matching the IP and port. The port will be ignored if this option is turned off. This value was suggested leaving it as the default.&#x20;
-3. The trunk is located on the same LAN as PBX: if this trunk is not located on the public internet, please turn this option on.
+1. Use the private IP address to communicate with this trunk: Enable this option if the PBX uses the private IP address for the trunk connection, otherwise, disable it then the PBX will use the public IP address to connect this trunk.
+2. Rewrite the host IP of **Via** header by the PBX server public IP when sending the request to the trunk: if this option is enabled and the PBX has a public IP, the PBX will change the host IP of the Via header by the PBX public IP when sending SIP message to the trunk. Unless the trunk provider is required, keep this option as the default setting.&#x20;
+3. Verify the port when receiving SIP messages from the trunk: when the PBX receives a SIP message from the trunk and tries to recognize the trunk by matching the IP and port. The port will be ignored if this option is turned off. This value was suggested leaving it as the default.&#x20;
 4. This trunk only accepts a single Via SIP header: if this option is turned on, the PBX will just keep a single Via header when sending a SIP message to the trunk.
 5. Send OPTIONS message for keep alive: when enabled, the PBX sends keep-alive messages (SIP OPTIONS) to the trunk to determine its connectivity status (offline or online). The PBX marks this trunk offline if not receive the 200 OK of the OPTIONS.&#x20;
 6. Send OPTIONS message interval(seconds): how often messages are sent and when a destination is considered unavailable. The default is 360 seconds
