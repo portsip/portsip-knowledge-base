@@ -31,6 +31,15 @@ run -p /var/lib/portsip \
 
 In the above command used to create the PortSIP PBX Docker instance, the `-p` parameter is used to specify the **parent** folder for storing the PBX data. To back up the data, simply copy the folder `/var/lib/portsip/pbx` and `/var/lib/portsip/postgresql` to another server or an external disk.
 
+Before backing up the data, stop the PBX service.
+
+```bash
+cd /opt/portsip
+/bin/sh pbx_ctl.sh stop
+```
+
+Now back up the data.
+
 <pre class="language-bash"><code class="lang-bash"><strong>mkdir -p /back/pbx-data
 </strong><strong>cp -p -r /var/lib/portsip/pbx /back/pbx-data
 </strong><strong>mkdir -p /back/pbx-db
@@ -46,17 +55,26 @@ mkdir -p /back/pbx-db
 cp -p -r /portsip/data/postgresql /back/pbx-db
 ```
 
+After successfully backing up the data, start the PBX service again.
+
+```bash
+cd /opt/portsip
+/bin/sh pbx_ctl.sh start
+```
+
 ### **Windows**&#x20;
 
 When [installing PortSIP PBX for Windows](../portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx.md#step-1-installing-a-fresh-portsip-pbx-for-windows), in step 1, there is an option that allows you to choose the **parent** folder for storing the PBX data.&#x20;
 
-To back up the data, simply copy this folder to another server or an external disk. By default, if you didn’t specify otherwise, the **parent** folder is `C:\ProgramData\PortSIP`.&#x20;
+To back up the data, first stop the **PortSIP Call Manager Service** in Windows Service Manager, then simply copy this folder to another server or an external disk. By default, if you didn’t specify otherwise, the **parent** folder is `C:\ProgramData\PortSIP`.&#x20;
 
 The following folders need to be copied:
 
 * C:\ProgramData\PortSIP\pbx
 * C:\ProgramData\PortSIP\postgresql
 * C:\ProgramData\PortSIP\html
+
+Please start the the **PortSIP Call Manager Service** in Windows Service Manager after successfully backing up the data.
 
 ## **Restoring from Backup Data on Linux**
 
