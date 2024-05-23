@@ -2,7 +2,7 @@
 
 As announced by Google, [support for the legacy push method will cease in June 2024](https://firebase.google.com/docs/cloud-messaging/migrate-v1).&#x20;
 
-PortSIP released the v16.4. version to supports the new push method for Android notifications. All PortSIP PBX v16.x installation need to upgrade to the v16.4 and change settings to ensure the new push notifications work correctly.
+PortSIP released the v16.4. version to support the new push method for Android notifications. All PortSIP PBX v16.x installations need to upgrade to v16.4 and change settings to ensure the new push notifications work correctly.
 
 {% hint style="warning" %}
 If you installed the PortSIP PBX v12.x, please reference this guide: [Upgrade PortSIP PBX v12.x to v12.8.7](pbx\_v12/tutorials/upgrade-portsip-pbx-v12.x-to-the-v12.8.7.md).
@@ -12,7 +12,7 @@ Please follow the below steps to update the push settings with PortSIP PBX v16.4
 
 ## **Upgrading PortSIP PBX**
 
-Please upgrade your current PBX v16.x to v16.4 per as this guide: [Upgrading PortSIP PBX to New Versions](portsip-pbx-administration-guide/upgrading-portsip-pbx-to-new-versions.md).
+Please upgrade your current PBX v16.x to v16.4 per this guide: [Upgrading PortSIP PBX to New Versions](portsip-pbx-administration-guide/upgrading-portsip-pbx-to-new-versions.md).
 
 ## **Changing Push Settings for Android**&#x20;
 
