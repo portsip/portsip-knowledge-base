@@ -46,9 +46,9 @@ The DID number and DID number range cannot begin with "**+"**, "**0"**, or "**00
 ### **Add the Trunk by System Admin**
 
 1. Select **Call Manager > Trunks** menu, and click the arrow button to choose the trunk type that you will need to add.
-2. Enter a friendly name for this trunk, and fill in the **Host Domain or IP**, **Port**, **Outbound Proxy Server**, and **Outbound Proxy Server port** fields as the details that you received from your trunk service provider.
-3. Transport. The transport used for the PBX communicates with the trunk, you should consult your trunk provider and choose the appropriate transport, that currently supports UDP, TCP, and TLS. The transport must be added in PBX before adding the trunk. For example, if your provider requires the TCP, you should add the TCP transport in PBX, please refer to the section [Transport Management](https://support.portsip.com/portsip-pbx-user-guide/portsip-pbx-administration-guide-v16.x/6-transport-management).
-4. Associated IPs of the trunk. For some trunk providers, it may send the INVITE message to PBX from multiple IPs rather than from the **Host Domain or IP** only. You need to click the **Add** button and enter each IP here to add the associated IP.
+2. **Enter a friendly name for this trunk**, and fill in the **Host Domain or IP**, **Port**, **Outbound Proxy Server**, and **Outbound Proxy Server port** fields as the details that you received from your trunk service provider.
+3. **Transport**. The transport used for the PBX communicates with the trunk, you should consult your trunk provider and choose the appropriate transport, that currently supports UDP, TCP, and TLS. The transport must be added in PBX before adding the trunk. For example, if your provider requires the TCP, you should add the TCP transport in PBX, please refer to the section [Transport Management](https://support.portsip.com/portsip-pbx-user-guide/portsip-pbx-administration-guide-v16.x/6-transport-management).
+4. **Associated IPs of the trunk**. For some trunk providers, it may send the INVITE message to PBX from multiple IPs rather than from the **Host Domain or IP** only. You need to click the **Add** button and enter each IP here to add the associated IP.
 
 If the trunk type is **Register based**, click the **Next** button to fill in the username/Authentication name, password, and register time as the account details that you get from the trunk provider.
 
@@ -84,11 +84,11 @@ When a **Tenant Admin** logs into the Web Portal, he has the ability to create t
 The **IP Based** trunk can only be added by the **System Admin**.
 
 1. Select **Call Manager > Trunks** menu, and click the arrow button to choose the trunk type that you will need to add.
-2. Enter a friendly name for this trunk.
-3. DID Pool: A DID pool must be specified for the tenant. When creating the inbound rule for this tenant based on this trunk, the DID number used in the inbound rule must be in the DID pool range. For more details, please refer to [DID Pool](configuring-sip-trunk.md#did-pool).
+2. **Enter a friendly name for this trunk**.
+3. **DID Pool**: A DID pool must be specified for the tenant. When creating the inbound rule for this tenant based on this trunk, the DID number used in the inbound rule must be in the DID pool range. For more details, please refer to [DID Pool](configuring-sip-trunk.md#did-pool).
 4. Fill in the **Host Domain or IP**, **Port**, **Outbound Proxy Server**, and **Outbound Proxy Server port** fields as the details you received from the trunk service provider.
-5. Transport. The transport used for the PBX communicates with the trunk, you should consult your trunk provider and choose the appropriate transport, that currently supports UDP, TCP, and TLS. The transport must be added in PBX before adding the trunk. For example, if your provider requires the TCP, you should add the TCP transport in PBX, please refer to the section [Transport Management](https://support.portsip.com/portsip-pbx-user-guide/portsip-pbx-administration-guide-v16.x/6-transport-management).
-6. Associated IPs of the trunk. For some trunk providers, it may send the INVITE message to PBX from multiple IPs rather than from the **Host Domain or IP** only. You need to click the **Add** button and enter each IP here to add the associated IP.
+5. **Transport**. The transport used for the PBX communicates with the trunk, you should consult your trunk provider and choose the appropriate transport, that currently supports UDP, TCP, and TLS. The transport must be added in PBX before adding the trunk. For example, if your provider requires the TCP, you should add the TCP transport in PBX, please refer to the section [Transport Management](https://support.portsip.com/portsip-pbx-user-guide/portsip-pbx-administration-guide-v16.x/6-transport-management).
+6. **Associated IPs of the trunk**. For some trunk providers, it may send the INVITE message to PBX from multiple IPs rather than from the **Host Domain or IP** only. You need to click the **Add** button and enter each IP here to add the associated IP.
 
 If the trunk type is  **Register Based**, click the **Next** button to fill in the username/Authentication name, password, and Reregister time as the account details that you get from the trunk provider.
 
