@@ -10,15 +10,15 @@ Date: May 23, 2024
 
 The following changes are included in this release:
 
-* Now the PortSIP SBC support transcoding.
-* Google will stop to support the legacy FCM APIs for push notifications in June 2024, all PortSIP PBX v16.x installation need to be upgraded to v16.4.0 to make the push notifications work correctly, please reference the article: [Migrate from legacy FCM APIs to HTTP v1 for Android Push Notifications](../migrate-from-legacy-fcm-apis-to-http-v1-for-android-push-notifications.md).
-* From the v16.4, when a trunk was added, the outbound call over this trunk will apply the outbound caller ID to the FROM header by default, no longer need to make the changes for the outbound parameters manually.
-* Limited the file name size to maximum of 128 characters when uploading the voice prompt files.
+* Now the PortSIP SBC supports transcoding.
+* Google will stop supporting the legacy FCM APIs for push notifications in June 2024, all PortSIP PBX v16.x installations need to be upgraded to v16.4.0 to make the push notifications work correctly, please reference the article: [Migrate from legacy FCM APIs to HTTP v1 for Android Push Notifications](../migrate-from-legacy-fcm-apis-to-http-v1-for-android-push-notifications.md).
+* From v16.4, when a trunk is added, the outbound call over this trunk will apply the outbound caller ID to the FROM header by default, no longer needing to make the changes for the outbound parameters manually.
+* Limited the file name size to a maximum of 128 characters when uploading the voice prompt files.
 * Support French and Russian languages.
 
 ### REST API changes
 
-
+1. Updated `/api/mobile_push` series API, removed `android_server_key`, `android_sender_id`, added `android_service_account` to specify the the contents of **Firebase Cloud Messaging service account JSON file**.
 
 ## Changes for Release v16.3.0
 
