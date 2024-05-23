@@ -4,6 +4,14 @@
 Please follow the [guide ](upgrading-portsip-sbc-to-new-versions.md)to upgrading your PortSIP SBC to the latest version.
 {% endhint %}
 
+## Changes for Release v10.1.0
+
+**Date**: Ma23, 2024
+
+The following changes are included in this release:
+
+* Support transcoding for audio calls.
+
 ## Changes for Release v10.0.10
 
 **Date**: Mar 11, 2024
