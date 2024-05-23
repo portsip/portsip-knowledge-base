@@ -11,8 +11,8 @@ Date: May 23, 2024
 The following changes are included in this release:
 
 * Now the PortSIP SBC support transcoding.
-* Updated the android push notifications from legacy FCM APIs to HTTP v1. The Google will stop to support the legacy FCM APIs for push notifications in June 2024, all PortSIP PBX v16.x installation need to be upgraded to v16.4.0 to make the push notifications works for the PortSIP Softphone apps. If you developed your own app based on PortSIP VoIP SDK  that works with the PortSIP PBX, please reference this article to get the Push Profile JSON File and setup it to make your app works continue for push notifications.
-* From the v16.4, when a trunk is added, the outbound call over this trunk will apply the outbound caller ID to the FROM header by default there no longer to make the changes for the outbound parameters manually.
+* Google will stop to support the legacy FCM APIs for push notifications in June 2024, all PortSIP PBX v16.x installation need to be upgraded to v16.4.0 to make the push notifications work correctly, please reference the article: [Migrate from legacy FCM APIs to HTTP v1 for Android Push Notifications](../migrate-from-legacy-fcm-apis-to-http-v1-for-android-push-notifications.md).
+* From the v16.4, when a trunk was added, the outbound call over this trunk will apply the outbound caller ID to the FROM header by default, no longer need to make the changes for the outbound parameters manually.
 * Limited the file name size to maximum of 128 characters when uploading the voice prompt files.
 * Support French and Russian languages.
 
