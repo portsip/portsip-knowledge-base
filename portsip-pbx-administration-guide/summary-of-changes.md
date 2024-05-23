@@ -16,7 +16,7 @@ The following changes are included in this release:
 * Limited the file name size to a maximum of 128 characters when uploading the voice prompt files.
 * Support French and Russian languages.
 
-### REST API changes
+### REST API Changes
 
 1. Updated `/api/mobile_push` series API, removed `android_server_key`, `android_sender_id`, added `android_service_account` to specify the the contents of **Firebase Cloud Messaging service account JSON file**.
 
