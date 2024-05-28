@@ -1,6 +1,6 @@
 # 4 Phone Device Management
 
-With PortSIP PBX you can easily configure desk IP phones. Supported IP Phones such as Fanvil, Yealink, ALE, GrandStream, Snon, and Dinstar..., are tested and auto-configured with PortSIP PBX.  PortSIP PBX can provision these phones via:
+With PortSIP PBX you can easily configure desk IP phones. Supported IP Phones such as Fanvil, Yealink, GrandStream, Snom, and Dinstar..., are tested and auto-configured with PortSIP PBX.  PortSIP PBX can provision these phones via:
 
 * [Managing Phones](managing-phones.md)
 * [Auto-provisioning security](auto-provisioning-security.md)
