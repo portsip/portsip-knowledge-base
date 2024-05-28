@@ -12,7 +12,7 @@ You have to configure at least one trunk before adding the inbound rules.
 
 To add the inbound rule:
 
-1. Sign in to the PortSIP PBX Web Portal by **System Admin** credentials, click the menu **Tenants**, select a tenant then click the **Manage** button to manage this tenant to configure the inbound rule. or sign a user who has the `Tenant Admin` permission into the Web Portal to manage that tenant.
+1. Sign in to the PortSIP PBX Web Portal by **System Admin** credentials, click the menu **Tenants**, select a tenant then click the **Manage** button to manage this tenant to configure the inbound rule. or sign a user who has  `Tenant Admin` permission into the Web Portal to manage that tenant.
 2. From the Web Portal, select **Call Manager > Inbound Rules**, and click the **Add** button.
 3. Enter a friendly name for the rule
 4. **CID Number Mask**: you can enter the CID number mask here, which the PBX will use to identify the caller. You can add the number in its entirety, identify a single caller, or use the \* as a wildcard. For example, `0044**********` will identify a UK Caller and `004420********` will identify a caller from London. Note: the `*` digits must match the number actually digits. If the number is 3 digits, then should use `***`.
@@ -25,6 +25,13 @@ To add the inbound rule:
    * The DID number can be serial number range, for example: `3325261000-3325262000`，`442012345600-442012345800` .
    * The single DID number or serial number range must be in the trunk DID pool range.
    * The DID number and DID pool cannot begin with **+**, **0**, or **00**; if your DID number or DID pool begins with **+**, **0**, or **00**, **please remove them before entering.**
+
+{% hint style="danger" %}
+Unless specified otherwise, the CID Number Mask should typically be left empty and not set up. If both the CID Number Mask and DID Number Mask are set, it implies the following: When an incoming call is received, if the caller’s number matches the CID and the called number matches the DID, then this inbound rule is considered a match.
+
+On the other hand, if only the DID is set, it means that when an incoming call is received, if the called number matches the DID, then this inbound rule is considered a match.
+{% endhint %}
+
 7. Play recording notifications: When this option is enabled, any inbound calls routed to the PBX through this rule will trigger the PBX to play the voice prompt. This serves to notify the caller that the call may be recorded.
 
 <figure><img src="../../.gitbook/assets/recording_alert.png" alt=""><figcaption></figcaption></figure>
