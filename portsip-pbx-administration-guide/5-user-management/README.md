@@ -5,6 +5,7 @@ Tenant administrators can add, edit, or deactivate users, assign different accou
 This article includes the following topics:
 
 * [Users](users.md)
+* [How to Configure the Endpoints?](how-to-configure-the-endpoints.md)
 * [User Groups](user-groups.md)
 * [DND and Automatic Callback](dnd-and-automatic-callback.md)
 * [Speed Dial 8](speed-dial-8.md)
