@@ -18,6 +18,10 @@ You will get the installer after the download is completed.
 
 It only supports 64-bit OS.
 
+### Minimal Hardware Requirements
+
+The PortSIP PBX requires at least 2 cores, 4G memory, and 30GB HDD.
+
 ### **Preparing the Linux Host Machine for Installation**
 
 Tasks that MUST be completed before installing PortSIP PBX
