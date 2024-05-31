@@ -65,11 +65,16 @@ In the **Holidays** section, you can choose one or more holidays from the tenant
 
 You can create multiple inbound rules based on the same DID number with a trunk, but all these inbound rules must have a different CID number mask.
 
-**Example**
+### **Example**
 
-You have the DID `00442012345670`, create two inbound rules: the CID for the first rule is `0044**********`, the DID number mask is `442012345670`, and the call is routed to **Queue 8000**; The CID for the second rule is `0033*********`, the DID number mask is `442012345670`, and the call is routed to **Queue 9000**.
+You have the DID `00326012345670`, create two inbound rules:&#x20;
 
-Now let all English-speaking employees be agents of **Queue 8000**, and let all French-speaking employees be agents of **Queue 9000**. When the caller calls  **00442012345670**, callers from the UK will be routed to **call queue 8000** to talk with an English agent, and callers from France will be routed to **call queue 9000** to talk with a French agent.
+1. The Caller Number Mask for the first rule is `0044**********`, the DID number mask is `326012345670`, and the call is routed to **Queue 8000**
+2. The Caller Number Mask for the second rule is `0033*********`, the DID number mask is `326012345670`, and the call is routed to **Queue 9000**.
+
+Assign all English-speaking employees to **Queue 8000** and designate all French-speaking employees as agents for **Queue 9000**.
+
+When callers call **00326012345670**, UK callers(their caller number starts with 0044) will be directed to **Queue 8000** to communicate with an English agent, and French callers(their caller number starts with 0033) will be routed to **Queue 9000** to engage with a French agent
 
 ## **Route Bulk Numbers to Bulk Extensions**
 
@@ -77,16 +82,16 @@ Assuming a huge corporation with 1,000 employees and has purchased 1,000 DID num
 
 PortSIP PBX has a great feature that allows you to implement your objective with just one inbound rule.
 
-Assuming the DID numbers are "**0012012345001-0012012346000**", and the employees' extension numbers are "**1001-2000**".
+Assuming the DID numbers are **0012012345001-0012012346000**, and the employees' extension numbers are **1001-2000**.
 
-1. Create an inbound rule, and set the **DID Number Mask** field to "**12012345001-12012346000**".
-2. Confiture the call route destination to "**1001-2000**"
+1. Create an inbound rule, and set the **DID Number Mask** field to **12012345001-12012346000**.
+2. Confiture the call route destination to **1001-2000**.
 
-If someone dials "**0012012345001**", the call will be routed to extension "**1001**", if dials "**0012012345002**", the call will be routed to extension "**1002**", and if dials "**0012012345005**" the call will be routed to extension "**1005**".
+If someone dials **0012012345001**, the call will be routed to extension **1001**, if dials **0012012345002**, the call will be routed to extension **1002**, and if dials **0012012345005** the call will be routed to extension **1005**.
 
 <figure><img src="../../.gitbook/assets/bulk_inbound.png" alt=""><figcaption></figcaption></figure>
 
-In the scenario above, if you want to route the DID numbers "**0012012345001-0012012346000**" to only one number, for example, 1001, you can set up an inbound rule as shown in the screenshot below. If someone dials a number within the range "**0012012345001-0012012346000**", the call will be routed to number 1001.
+In the scenario above, if you want to route the DID numbers **0012012345001-0012012346000** to only one number, for example, **1001**, you can set up an inbound rule as shown in the screenshot below. If someone dials a number within the range **0012012345001-0012012346000**, the call will be routed to number **1001**.
 
 <figure><img src="../../.gitbook/assets/bulk_inbound_1.png" alt=""><figcaption></figcaption></figure>
 
@@ -96,7 +101,7 @@ In some of the scenarios, if you want to route a **single DID number** or **DID 
 
 <figure><img src="../../.gitbook/assets/bulk_inbound_2.png" alt=""><figcaption></figcaption></figure>
 
-If someone dials a number within the range "**0012012345001-0012012346000**", the call will be routed to the destination number that is the same as the dialed number in that call. The PBX doesn’t change the destination number when routing the call.
+If someone dials a number within the range **0012012345001-0012012346000**, the call will be routed to the destination number that is the same as the dialed number in that call. The PBX doesn’t change the destination number when routing the call.
 
 You can also set the DID number as a single number rather than the range for this routing purpose.
 
