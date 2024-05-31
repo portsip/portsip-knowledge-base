@@ -15,17 +15,17 @@ The **Tenant Admin** has the ability to view all trunks that the **System Admin*
 
 ## Configuring Trunk
 
-First, you need to have an account with a VoIP service provider. PortSIP PBX supports most of the popular SIP-based VoIP service providers.
+First, you need to have an account with a VoIP/SIP trunk service provider. PortSIP PBX supports most of the popular SIP-based VoIP service/SIP trunk providers.
 
-After you get the trunk account from the VoIP service provider, you will need to configure the account in PortSIP PBX.
+After you get the account from the VoIP service/SIP trunk provider, you will need to configure the account in PortSIP PBX.
 
 <figure><img src="../../.gitbook/assets/turnk_1.png" alt=""><figcaption></figcaption></figure>
 
-### **DID Pool**
+### **DID Pool Concept**
 
 Since the PortSIP PBX is a multi-tenant PBX, if more than one tenant set up the trunk from the same trunk provider in the PBX, and sets the same DID number for the inbound rule, when a call is arriving at the PBX, the PBX does not know which tenant should route the call to; and when an extension of a tenant makes the call to the trunk, set the outbound caller ID which belongs to another tenant, will cause problems there.
 
-To avoid the problems above, PortSIP PBX introduced the DID pool concept.
+To avoid the problems above, PortSIP PBX introduced the DID pool concept, the **DID pool** is the **DID numbers**.
 
 Once a tenant was assigned with the trunk by the **System Admin**, the **System Admin** must set up a DID pool for that tenant, the DID pool number cannot overlap with other tenants' DID pools. When a tenant creates the inbound rule based on this assigned trunk, the tenant can only use the DID number from the DID pool.
 
@@ -33,7 +33,7 @@ If a **Tenant Admin** adds a trunk for himself, a DID pool must be specified for
 
 Tenant A, for example, adds a trunk of the **trunk provider XYZ** and sets the DID Pool to 1000-2000; Tenant B also adds a trunk of the same **trunk provider XYZ** and sets the DID Pool to 2000-3000; This will fail because the DID Pool number of the same trunk is overlapping; when a call to number 2000 is incoming, the PBX does not know which tenant should route the call to.
 
-The DID pool allows a single number or a number range as the below.
+The DID pool allows a single number or range, as shown below.
 
 * 1000-2000
 * 282556000-282556900
@@ -54,12 +54,12 @@ If the trunk type is **Register based**, click the **Next** button to fill in th
 
 Click the **Next** button to set up more parameters.
 
-1. Use the private IP address to communicate with this trunk: Enable this option if the PBX uses the private IP address for the trunk connection, otherwise, disable it then the PBX will use the public IP address to connect this trunk.
-2. Rewrite the host IP of **Via** header by the PBX server public IP when sending the request to the trunk: if this option is enabled and the PBX has a public IP, the PBX will change the host IP of the **Via** header by the PBX public IP when sending SIP message to the trunk. Unless the trunk provider is required, keep this option as the default setting.
-3. Verify the port when receiving SIP messages from the trunk: when the PBX receives a SIP message from the trunk and tries to recognize the trunk by matching the IP and port. The port will be ignored if this option is turned off.  This value was suggested leaving it as the default.
-4. This trunk only accepts a single Via SIP header: if this option is turned on, the PBX will just keep a single Via header when sending a SIP message to the trunk.
-5. Send OPTIONS message for keep alive: when enabled, the PBX sends keep-alive messages (SIP OPTIONS) to the trunk to determine its connectivity status (offline or online). The PBX marks this trunk offline if not receive the 200 OK of the OPTIONS.
-6. Send OPTIONS message interval(seconds): how often messages are sent and when a destination is considered unavailable. The default is 360 seconds.
+1. **Use the private IP address to communicate with this trunk**: Enable this option if the PBX uses the private IP address for the trunk connection, otherwise, disable it then the PBX will use the public IP address to connect this trunk.
+2. **Rewrite the host IP of Via header by the PBX server public IP when sending the request to the trunk**: if this option is enabled and the PBX has a public IP, the PBX will change the host IP of the **Via** header by the PBX public IP when sending SIP message to the trunk. Unless the trunk provider is required, keep this option as the default setting.
+3. **Verify the port when receiving SIP messages from the trunk**: when the PBX receives a SIP message from the trunk and tries to recognize the trunk by matching the IP and port. The port will be ignored if this option is turned off.  This value was suggested leaving it as the default.
+4. **This trunk only accepts a single Via SIP header**: if this option is turned on, the PBX will just keep a single Via header when sending a SIP message to the trunk.
+5. **Send OPTIONS message for keep alive**: when enabled, the PBX sends keep-alive messages (SIP OPTIONS) to the trunk to determine its connectivity status (offline or online). The PBX marks this trunk offline if it does not receive the 200 OK of the OPTIONS.
+6. **Send OPTIONS message interval(seconds)**: how often messages are sent and when a destination is considered unavailable. The default is 360 seconds.
 
 Click the **Next** button to set up more parameters.
 
@@ -77,9 +77,9 @@ For more details please refer to [DID Pool](configuring-sip-trunk.md#did-pool).
 
 When a **Tenant Admin** logs into the Web Portal, he has the ability to create trunks for this tenant. The **Tenant Admin** can only add the trunk types listed below.
 
-* Register Based: PBX registers to the trunk
-* Accept Register: The trunk register to PBX
-* Microsoft Teams: The Microsoft Teams Direct Routing
+* **Register Based**: PBX registers to the trunk
+* **Accept Register**: The trunk register to PBX
+* **Microsoft Teams**: The Microsoft Teams Direct Routing
 
 The **IP Based** trunk can only be added by the **System Admin**.
 
@@ -94,12 +94,12 @@ If the trunk type is  **Register Based**, click the **Next** button to fill in t
 
 Click the **Next** button to set up more parameters.
 
-1. Use the private IP address to communicate with this trunk: Enable this option if the PBX uses the private IP address for the trunk connection, otherwise, disable it then the PBX will use the public IP address to connect this trunk.
-2. Rewrite the host IP of **Via** header by the PBX server public IP when sending the request to the trunk: if this option is enabled and the PBX has a public IP, the PBX will change the host IP of the Via header by the PBX public IP when sending SIP message to the trunk. Unless the trunk provider is required, keep this option as the default setting.&#x20;
-3. Verify the port when receiving SIP messages from the trunk: when the PBX receives a SIP message from the trunk and tries to recognize the trunk by matching the IP and port. The port will be ignored if this option is turned off. This value was suggested leaving it as the default.&#x20;
-4. This trunk only accepts a single Via SIP header: if this option is turned on, the PBX will just keep a single Via header when sending a SIP message to the trunk.
-5. Send OPTIONS message for keep alive: when enabled, the PBX sends keep-alive messages (SIP OPTIONS) to the trunk to determine its connectivity status (offline or online). The PBX marks this trunk offline if not receive the 200 OK of the OPTIONS.&#x20;
-6. Send OPTIONS message interval(seconds): how often messages are sent and when a destination is considered unavailable. The default is 360 seconds
+1. **Use the private IP address to communicate with this trunk**: Enable this option if the PBX uses the private IP address for the trunk connection, otherwise, disable it then the PBX will use the public IP address to connect this trunk.
+2. **Rewrite the host IP of Via header by the PBX server public IP when sending the request to the trunk**: if this option is enabled and the PBX has a public IP, the PBX will change the host IP of the Via header by the PBX public IP when sending SIP message to the trunk. Unless the trunk provider is required, keep this option as the default setting.&#x20;
+3. **Verify the port when receiving SIP messages from the trunk**: when the PBX receives a SIP message from the trunk and tries to recognize the trunk by matching the IP and port. The port will be ignored if this option is turned off. This value was suggested leaving it as the default.&#x20;
+4. **This trunk only accepts a single Via SIP heade**r: if this option is turned on, the PBX will just keep a single Via header when sending a SIP message to the trunk.
+5. **Send OPTIONS message for keep alive**: when enabled, the PBX sends keep-alive messages (SIP OPTIONS) to the trunk to determine its connectivity status (offline or online). The PBX marks this trunk offline if not receive the 200 OK of the OPTIONS.&#x20;
+6. **Send OPTIONS message interval(seconds)**: how often messages are sent and when a destination is considered unavailable. The default is 360 seconds
 
 ### **Configure E1/T1 Gateway Register to PortSIP PBX**
 
