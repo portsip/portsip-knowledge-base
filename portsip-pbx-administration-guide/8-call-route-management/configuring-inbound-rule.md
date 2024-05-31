@@ -15,10 +15,10 @@ To add the inbound rule:
 1. Sign in to the PortSIP PBX Web Portal by **System Admin** credentials, click the menu **Tenants**, select a tenant then click the **Manage** button to manage this tenant to configure the inbound rule. or sign a user who has  `Tenant Admin` permission into the Web Portal to manage that tenant.
 2. From the Web Portal, select **Call Manager > Inbound Rules**, and click the **Add** button.
 3. Enter a friendly name for the rule
-4. **CID Number Mask**: you can enter the CID number mask here, which the PBX will use to identify the caller. You can add the number in its entirety, identify a single caller, or use the \* as a wildcard. For example, `0044**********` will identify a UK Caller and `004420********` will identify a caller from London. Note: the `*` digits must match the number actually digits. If the number is 3 digits, then should use `***`.
-   * The CID number mask also allows setting as a number range, for example `00442012345670-00442012345680`.
-   * The CID number mask can be empty
-5. In the trunk box, select which trunk you wish to be associated with this DID and inbound rule, only allow assign one provider with an inbound rule.
+4. **Caller Number Mask**: you can enter the Caller number mask here, which the PBX will use to identify the caller. You can add the number in its entirety, identify a single caller, or use the \* as a wildcard. For example, `0044**********` will identify a UK Caller and `004420********` will identify a caller from London. Note: the `*` digits must match the number actually digits. If the number is 3 digits, then should use `***`.
+   * The Caller number mask also allows setting as a number range, for example `00442012345670-00442012345680`.
+   * The Caller number mask can be empty, usually, we do not need to set it.
+5. In the trunk box, select which SIP trunk you wish to be associated with this DID and inbound rule, it only allows assigning one SIP trunk with an inbound rule.
 6. In the **DID/DDI Number Mask** field, enter the DID number as it will appear in the SIP **To** header (The number your trunk provider has been applied as your main, or first, DID number). PortSIP PBX will match the number inserted into this field with the **To** header of the `SIP INVITE` message which is trunk sent to PBX.
    * The DID number can be **1** means to match all numbers.
    * The DID number can be a single number like `442012345678`
@@ -27,7 +27,7 @@ To add the inbound rule:
    * The DID number and DID pool cannot begin with **+**, **0**, or **00**; if your DID number or DID pool begins with **+**, **0**, or **00**, **please remove them before entering.**
 
 {% hint style="danger" %}
-Unless specified otherwise, the CID Number Mask should typically be left empty and not set up. If both the CID Number Mask and DID Number Mask are set, it implies the following: When an incoming call is received, if the caller’s number matches the CID and the called number matches the DID, then this inbound rule is considered a match.
+Unless specified otherwise, the Caller Number Mask should typically be left empty and not set up. If both the Caller Number Mask and DID Number Mask are set, it implies the following: When an incoming call is received, if the caller’s number matches the CID and the called number matches the DID, then this inbound rule is considered a match.
 
 On the other hand, if only the DID is set, it means that when an incoming call is received, if the called number matches the DID, then this inbound rule is considered a match.
 {% endhint %}
@@ -57,7 +57,7 @@ If **Use specific Office Hours** is selected, customized office hours rules appl
 
 ### Holidays
 
-In the **Holidays** section, you can choose one or more holidays from the tenant's holiday list. During the holidays, the incoming call which is matches this inbound rule will be routed to the **Holidays** destination of that rule. For more details please refer to the [Office Hours and Holiday Schedule](../office-hours-and-holiday-schedule/).
+In the **Holidays** section, you can choose one or more holidays from the tenant's holiday list. During the holidays, the incoming call that matches this inbound rule will be routed to the **Holidays** destination of that rule. For more details please refer to the [Office Hours and Holiday Schedule](../office-hours-and-holiday-schedule/).
 
 <figure><img src="../../.gitbook/assets/inbound_rule_2.png" alt=""><figcaption></figcaption></figure>
 
