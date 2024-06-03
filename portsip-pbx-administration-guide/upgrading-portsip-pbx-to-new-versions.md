@@ -107,6 +107,10 @@ The below command is used to create and run the PBX on a server whose IP is`66.1
 Please replace the IP address 66.175.221.120 in the command below with your own PBX server’s IP address.
 {% endhint %}
 
+{% hint style="info" %}
+Please be patient during this step, especially if your PBX contains a large amount of data. Do not cancel the process.
+{% endhint %}
+
 ```sh
 /bin/sh pbx_ctl.sh \
 run -p /var/lib/portsip \
