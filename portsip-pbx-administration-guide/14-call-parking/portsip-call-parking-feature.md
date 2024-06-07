@@ -30,10 +30,3 @@ As listed above, the PortSIP solution has the following advantages:
 * The NOTIFY message for the parked call includes detailed information that the IP Phone and softphone app can use to alert the user with park call information and retrieve it with one click.
 * For large tenants in the PBX, the call parking feature will not consume massive hardware resources and will not reduce performance.
 
-This article includes the following topics:
-
-* [Using Call Parking Feature](using-call-parking-feature.md)
-* [Using Enhanced Call Park on Fanvil IP Phones](using-enhanced-call-park-on-fanvil-ip-phones.md)
-* [Using Enhanced Call Park on Yealink IP Phones](using-enhanced-call-park-on-yealink-ip-phones.md)
-* [Using Enhanced Call Park on Dinstar IP Phones](using-enhanced-call-park-on-dinstar-ip-phones.md)
-
