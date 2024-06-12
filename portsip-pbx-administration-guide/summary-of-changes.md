@@ -4,6 +4,18 @@
 Please follow the [guide ](upgrading-portsip-pbx-to-new-versions.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
+## Changes for Release v16.4.1
+
+Date: Jun 12, 2024
+
+The following changes are included in this release:
+
+* Support the Microsoft Teams direct routing refer request.
+* Upgraded the DB to PostgreSQL 14.12.
+* Fix an issue when provisioning the ALE H2P phone via RPS.
+* Fix a bug that if an extension registers to PBX from IPv4 and IPv6 devices simultaneously.
+* Allow set the Queue and ring group number for the BLF key.
+
 ## Changes for Release v16.4.0
 
 Date: May 23, 2024
