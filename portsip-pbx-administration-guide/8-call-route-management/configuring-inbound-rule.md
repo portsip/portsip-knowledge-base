@@ -34,7 +34,7 @@ On the other hand, if only the DID is set, it means that when an incoming call i
 
 7. Play recording notifications: When this option is enabled, any inbound calls routed to the PBX through this rule will trigger the PBX to play the voice prompt. This serves to notify the caller that the call may be recorded.
 
-<figure><img src="../../.gitbook/assets/recording_alert.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/portsip-pbx-inbound-rule-recording.png" alt=""><figcaption></figcaption></figure>
 
 8. Specify how you wish to forward incoming calls according to this inbound rule.
 
