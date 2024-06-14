@@ -180,7 +180,7 @@ After having successfully installed PortSIP PBX, the PortSIP PBX ports have been
 The below ports must be permitted on the firewall in order to make the PortSIP PBX work properly.
 
 * UDP: 5060, 5066, 25000-35000, 45000–65000
-* TCP: 5061, 5063, 5065, 5067, 8882, 8883, 8885, 8887, 8888, 10443. Please also ensure the above ports have not been used by other applications.
+* TCP: 5061, 5063, 5065, 5067, 8882, 8883, 8885, 8887, 8888, 8889, 10443. Please also ensure the above ports have not been used by other applications.
 
 You also need to open the port that you are using for adding new transport:
 
