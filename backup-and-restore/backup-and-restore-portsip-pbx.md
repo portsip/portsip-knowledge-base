@@ -152,6 +152,10 @@ For example:
 </strong>cp -p -r /back/pbx-db/postgresql /var/lib/portsip/
 </code></pre>
 
+{% hint style="danger" %}
+After copying the data, make sure that the  folder, all subfolders, and files have the correct permissions set to `888:888`.
+{% endhint %}
+
 The command below is used to create and run the PBX on a server with the IP `66.175.221.120`. If you’re running the PBX in a LAN without a public IP, replace `66.175.221.120` with the PBX server’s private LAN IP. If you copied the backup data to a folder other than `/var/lib/portsip`, make sure to use the actual folder in the commands below.
 
 ```bash
