@@ -1,6 +1,6 @@
 # What is SIP ALG and Why You Need to Disable It?
 
-SIP ALG is the Session Initiation Protocol Application Layer Gateway (SIP ALG) feature that many routers have enabled by default.
+SIP ALG is the Session Initiation Protocol Application Layer Gateway feature that many routers have enabled by default.
 
 You've successfully set up your VoIP phone system, but you're encountering issues such as dropped calls, absence of incoming calls, or persistent ringing even after answering the call and no voice. The solution to these Voice over IP problems could be as simple as disabling SIP ALG.
 
