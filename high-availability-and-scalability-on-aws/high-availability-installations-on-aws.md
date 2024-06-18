@@ -102,10 +102,10 @@ To do this, open the AWS VPC menu and use the default VPC(You can also create a 
 To set up the subnets, follow these steps:
 
 1. Click on **Subnets** to view the list of subnets. If there are no existing subnets, click on **Create subnet** to create a new one.
-2. As shown up below the example, the Subnet ID could be **subnet-8cadc4e8**, with an IPv4 CIDR of **172.31.0.0/24**, and located in the Availability Zone **us-west-1c**.
+2. As shown up below the example, the Subnet ID could be **subnet-8cadc4e8**, with an IPv4 CIDR of **172.31.16.0/20**, and located in the Availability Zone **us-west-1c**.
 
 {% hint style="danger" %}
-The CIDR must be **24** otherwise the installation will fail.
+The CIDR must be **20** otherwise the installation will fail.
 {% endhint %}
 
 In this scenario, we’ll assign the following static private IPs to the nodes:
@@ -277,8 +277,8 @@ aws configure
 Enter the necessary information for the prompts.
 
 ```
-AWS Access Key ID [None]: type your Access Key ID here (see Create Create User Access Key)
-AWS Secret Access Key [None]: type your Secret Access Key Here (see Create Create User Access Key)
+AWS Access Key ID [None]: type your Access Key ID here (see Create User Access Key)
+AWS Secret Access Key [None]: type your Secret Access Key Here (see Create User Access Key)
 Default region name [None]: type region name here
 Default output format [None]: json
 ```
@@ -321,7 +321,7 @@ private_vip_address: 172.31.16.130
 eip_address: 54.151.30.9
 eip_allocation_id: eipalloc-02c7cf64a5cd449cf
 ebs_volume_id: vol-0e06e1e9da3c49b67
-pbx_image: portsip/pbx:16.3.1.2561-release
+pbx_image: portsip/pbx:portsip/pbx:16.4.1.2740-release
 ssh_private_key_file: /home/ubuntu/.ssh/aws-portsip-pbx-ha.pem
 EOF
 ```
