@@ -108,6 +108,8 @@ To set up the subnets, follow these steps:
 The CIDR must be **20** otherwise the installation will fail.
 {% endhint %}
 
+<figure><img src="../.gitbook/assets/aws-create-subnet.png" alt=""><figcaption></figcaption></figure>
+
 In this scenario, we’ll assign the following static private IPs to the nodes:
 
 * Node 1: 172.31.16.133
@@ -321,7 +323,7 @@ private_vip_address: 172.31.16.130
 eip_address: 54.151.30.9
 eip_allocation_id: eipalloc-02c7cf64a5cd449cf
 ebs_volume_id: vol-0e06e1e9da3c49b67
-pbx_image: portsip/pbx:portsip/pbx:16.4.1.2740-release
+pbx_image: portsip/pbx:16.4.1.2740-release
 ssh_private_key_file: /home/ubuntu/.ssh/aws-portsip-pbx-ha.pem
 EOF
 ```
