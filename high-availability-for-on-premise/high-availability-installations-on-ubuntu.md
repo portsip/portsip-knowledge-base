@@ -417,7 +417,6 @@ Perform the below command only on the **pbx01.**
 
 ```
   cd /opt && rm -rf portsip-pbx-ha-guide-16-online.tar.gz && \
-  rm -rf portsip-pbx-ha-guide && \
   sudo wget -N https://www.portsip.com/downloads/ha/v16/portsip-pbx-ha-guide-16-online.tar.gz \
   && sudo tar xf portsip-pbx-ha-guide-16-online.tar.gz
 ```
