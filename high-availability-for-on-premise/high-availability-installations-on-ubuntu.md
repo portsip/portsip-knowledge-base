@@ -431,5 +431,12 @@ Please contact PortSIP support to obtain the **\<PortSIP PBX new version image>*
 
 Perform the below command only on the **pbx01.**
 
+```
+  cd /opt && rm -rf portsip-pbx-ha-guide-16-online.tar.gz && \
+  rm -rf portsip-pbx-ha-guide && \
+  sudo wget -N https://www.portsip.com/downloads/ha/v16/portsip-pbx-ha-guide-16-online.tar.gz \
+  && sudo tar xf portsip-pbx-ha-guide-16-online.tar.gz
+```
+
 <pre><code><strong>cd /opt/portsip-pbx-ha-guide/ &#x26;&#x26; /bin/bash update.sh &#x3C;PortSIP PBX new version image>
 </strong></code></pre>
