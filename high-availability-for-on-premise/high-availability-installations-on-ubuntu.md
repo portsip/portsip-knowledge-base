@@ -281,7 +281,7 @@ pbx01_private_ip: 192.168.1.131
 pbx02_private_ip: 192.168.1.132
 pbx03_private_ip: 192.168.1.133
 vip: 192.168.1.130
-pbx_image: portsip/pbx:16.3.1.2561-release
+pbx_image: portsip/pbx:16.4.1.2740-release
 pbx_datapath_disk: /dev/sdb
 pbx_datapath_size: 36G
 EOF
