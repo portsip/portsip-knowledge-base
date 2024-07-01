@@ -77,11 +77,31 @@ Once a new transport has been added, you have to change the firewall rule to all
 
 To enable email notifications with PortSIP PBX for sending some system alert messages, the SMTP details must be configured.
 
-If you using the Google SMTP server, please make sure that you have “**less secure**” enabled for your Gmail account. Please refer to the below links for more details:&#x20;
+**Google**
+
+If you are using the Google SMTP server, please make sure that you have “**less secure**” enabled for your Gmail account. Please refer to the below links for more details:&#x20;
 
 [Less secure apps & your Google Account ](https://support.google.com/accounts/answer/6010255?hl=en)
 
 You also need to select SSL or TLS security protocol if you’re using Google SMTP Server.
+
+* SMTP Server: smtp.gmail.com
+* Port: 587
+* Username: The username of the SMTP server
+* Password: Your password
+* Sender Email: The sender's email address
+* Use TLS: ON
+
+**Microsoft 365**
+
+If you are using the Microsoft 365 SMTP server, you also need to select SSL or TLS security protocol if you’re using Microsoft 365 SMTP Server.
+
+* SMTP Server: smtp.office365.com
+* Port: 587
+* Username: The username of the SMTP server
+* Password: Your password
+* Sender Email: The sender's email address
+* Use TLS: ON
 
 Once the PBX occurs some critical event, the alert email will be sent to "**Recipients**".
 
