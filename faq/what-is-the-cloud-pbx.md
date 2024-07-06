@@ -1,7 +1,5 @@
 # What is the Cloud PBX?
 
-## What is Cloud PBX (Private Branch Exchange)?
-
 Cloud PBX (Cloud-based Private Branch Exchange) is a virtual PBX system rooted in the internet, which uses a cloud-based service to control and manage calls to and from a business and delivers advanced calling features and unified communications using Voice over Internet Protocol (VoIP) technology.
 
 You might also see this referred to as a VoIP system, UCaaS, UC, cloud-hosted PBX, or hosted PBX, basically, they are the same thing.
@@ -13,4 +11,6 @@ The advent of the cloud has revolutionized this. A Cloud PBX is hosted in secure
 ## PortSIP PBX Solution Has Your Back
 
 PortSIP PBX is specifically engineered for Cloud PBX applications. It empowers Service Providers by simplifying the operation of their Cloud PBX services. For more detailed information, please refer to our article [Empowering Service Providers with Cloud PBX](https://www.portsip.com/2024/04/17/cloud-pbx-phone-system-for-service-provider/).
+
+
 
