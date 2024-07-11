@@ -14,7 +14,6 @@
 
 * [FAQ](faq/README.md)
   * [What is the Multi-Tenant PBX?](faq/what-is-the-multi-tenant-pbx.md)
-  * [What is the Cloud PBX?](faq/what-is-the-cloud-pbx.md)
   * [Is the PortSIP PBX built on Asterisk, FreeSwitch?](faq/is-the-portsip-pbx-built-on-asterisk-freeswitch.md)
   * [Configuring the Endpoints with PortSIP PBX](faq/configuring-the-endpoints-with-portsip-pbx.md)
   * [What is the SBC?](faq/what-is-the-sbc.md)
