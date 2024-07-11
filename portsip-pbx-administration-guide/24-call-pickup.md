@@ -22,13 +22,26 @@ The screenshot below shows that the user is monitoring extension 102’s Busy La
 
 ## Group Call Pickup
 
+You can enhance teamwork and collaboration by creating a call pickup group. Users that are added to a call pickup group can answer calls when another member of the call pickup group is busy.
+
 A Group Pickup Group allows users to answer a call that is ringing at another extension within that group. If more than one phone within the group is ringing, the phone that has been ringing the longest is the one that gets picked up. When the call is picked up from another extension, the extension that was ringing is free to receive other calls.
 
 Group Call Pickup is a great way to ensure calls are always answered promptly and customer service is at its best.
 
 After you have configured Group Call Pickup, users can dial a [Feature Access Code](23-feature-access-codes.md) (default is `*98` ) to use this service.
 
+### Configure call pickup group in Tenant Level
+
+Once you create a call pickup group, you can add, modify, remove, and assign specific users to that group. Also, you can notify incoming calls to the users in the group.
+
 ### **Setting up a Group Call Pickup group**
+
+Call pickups must meet the following conditions:
+
+* A user can only be assigned to one call pickup group.
+* A call pickup group can only have users from the same tenant.
+* A tenant may have multiple call pickup groups.
+* Call pickup group names must be unique.
 
 To add group members to the PortSIP PBX Web portal, follow these steps:
 
