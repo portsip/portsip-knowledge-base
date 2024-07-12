@@ -59,7 +59,7 @@ Now generate the certificate public key for Microsoft 365 (go to PortSIP PBX Web
 <figure><img src="../.gitbook/assets/portsip_ms365_2.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="danger" %}
-By default, the certificate is only valid for one year. To maintain the validity of your MS 365 integration, you must regenerate the certificates and repeat the previously mentioned steps to update them before the end of each year.
+By default, the certificate is only valid for one year. To maintain the validity of your MS 365 integration, you must regenerate the certificates and repeat the previously mentioned steps to update them before the current certificate expires each year.
 {% endhint %}
 
 ## Sync Options
