@@ -4,6 +4,20 @@
 Please follow the [guide ](upgrading-portsip-pbx-to-new-versions.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
+## Changes for Release v16.4.2
+
+Date: Jul 24, 2024
+
+* Fixed a crash bug in the IVR Server.
+* Fixed a bug where video might lag behind audio in a video call recording file.&#x20;
+* Fixed a crash bug that occurred when the RTP port was already in use by another application.&#x20;
+* Fixed a bug that could cause calls to hang up automatically.&#x20;
+* Fixed a bug where system notification emails were incorrectly using the tenant’s template.&#x20;
+* Fixed an issue where the MOH music file might be incorrectly used by another tenant.&#x20;
+* Fixed a bug where making a large number of calls could result in a new call having only one voice channel.&#x20;
+* Fixed a bug where deploying the queue server as a cluster might cause the REST API `/api/call_queues/{id}/waiting` to return empty callers.
+* &#x20;Fixed a bug where incorrect codec usage in SNOM M400 and M900 could result in no voice.
+
 ## Changes for Release v16.4.1
 
 Date: Jun 12, 2024
