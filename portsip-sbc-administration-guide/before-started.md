@@ -12,9 +12,8 @@ Deploying PortSIP SBC in a Linux environment requires planning and knowledge of 
 
 You should also have knowledge of the following Linux infrastructures, a popular Linux distribution:
 
-* CentOS 7.9 (64-bit)
-* Debian 10.x, 11.x (64-bit)
-* Ubuntu 18.04, 20.04, or 22.04 (64-bit)
+* Debian 11.x, 12.x (64-bit)
+* Ubuntu 20.04, 22.04, or 24.04 (64-bit)
 * Docker 20.10 or higher.
 * IPv4/IPv6
 * Systemd
