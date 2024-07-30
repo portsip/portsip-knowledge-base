@@ -9,9 +9,8 @@ We need to prepare the Linux servers for installing the following cluster applic
 
 ## **Supported Linux OS**
 
-* CentOS 7.9
-* Ubuntu 18.04, 20.04, 22.04
-* Debian 10.x, 11.x, 12.x
+* Ubuntu 20.04, 22.04, 24.04
+* Debian 11.x, 12.x
 
 It only supports 64-bit OS.
 
