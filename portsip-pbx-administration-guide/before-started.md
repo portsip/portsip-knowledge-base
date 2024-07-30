@@ -6,9 +6,8 @@ Deploying PortSIP PBX in a Linux environment requires planning and knowledge of 
 
 You should also have knowledge of the following Linux infrastructures and popular Linux distributions:
 
-* CentOS 7.9 (64-bit)
-* Debian 10.x, 11.x (64-bit)
-* Ubuntu 18.04, 20.04, or 22.04 (64-bit)
+* Debian 11.x, 12.x (64-bit)
+* Ubuntu 20.04, 22.04, or 24.04 (64-bit)
 * Docker 20.10 or higher.
 * IPv4/IPv6
 * Systemd
@@ -56,7 +55,7 @@ A Windows desktop or Windows server OS:
 * IPv4/IPv6
 * Windows firewall
 
-This document assumes that the Windows OS is already deployed and administrators of PortSIP PBX have been granted administrator permission to Windows.
+This document assumes that the Windows OS has already been deployed and administrators of PortSIP PBX have been granted administrator permission to access Windows.
 
 ## Remove the PBX v12.x Installation
 
@@ -111,14 +110,14 @@ Although PortSIP PBX is designed to be able to run on servers without FQDN speci
 
 * Easier access to Web Portal for PortSIP PBX
 * Easier management of IP phones and clients after IP address change for PBX
-* Convenient access to HTTPS when accessing Web Portal
+* Convenient access to HTTPS when accessing the Web Portal
 * Avoid browser warnings when accessing the WebRTC Client
 
-The FQDN you are using must be able to be resolved correctly into the server with PortSIP PBX installed in LAN. If PortSIP PBX is installed on the public network, FQDN must be resolved correctly into the public network address for the server with PBX installed.
+The FQDN you are using must be resolved correctly on the server with PortSIP PBX installed in the LAN. If PortSIP PBX is installed on the public network, FQDN must be resolved correctly into the public network address for the server with PBX installed.
 
 ## Prepare the TLS certificate
 
-When there is a need for additional security of the SIP traffic, the Transport Layer Security (TLS) is used to secure the device's SIP signaling connections. In TLS protocol, the data is encrypted and protected. TLS communication requires certificate to authenticate recipient of the secured data.
+When there is a need for additional security of the SIP traffic, the Transport Layer Security (TLS) is used to secure the device's SIP signaling connections. In TLS protocol, the data is encrypted and protected. TLS communication requires the certificate to authenticate the recipient of the secured data.
 
 PortSIP PBX and SBC use certificates to deliver secured SIP traffic and services and support WebRTC and Microsoft Teams Direct Routing. In addition, certificates are used to provide secure access to the device, and Web (HTTPS) sessions.
 
