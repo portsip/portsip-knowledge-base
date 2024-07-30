@@ -15,7 +15,7 @@ Use this feature when you need to meet compliance requirements that exclude reli
 
 ## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
 
-* CentOS 7.9, Debian 11/12, Ubuntu 18.04/20.04/22.04, 64-bit
+* Debian 11/12, Ubuntu 20.04/22.04/24.04, 64-bit
 * PortSIP PBX is deployed on AWS EC2
 * AWS EC2 instance(s) located within the same region as S3
 
