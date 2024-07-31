@@ -28,6 +28,7 @@
   * [What is SIP ALG and Why You Need to Disable It?](faq/what-is-sip-alg-and-why-you-need-to-disable-it.md)
 * [The Advantages of PortSIP PBX vs. Other PBXs](the-advantages-of-portsip-pbx-vs.-other-pbxs.md)
 * [Essential Factors for Choosing a Could PBX Solution](essential-factors-for-choosing-a-could-pbx-solution.md)
+* [Cloud PBX Empowering Service Provider](cloud-pbx-empowering-service-provider.md)
 * [PortSIP PBX Features](portsip-pbx-features.md)
 * [PortSIP Security Features](portsip-security-feature.md)
 * [PortSIP PBX Administration Guide](portsip-pbx-administration-guide/README.md)
