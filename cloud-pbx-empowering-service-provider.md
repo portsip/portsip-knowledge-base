@@ -12,7 +12,7 @@ Traditionally, PBX systems were located on-premises. These machines are big and 
 
 The advent of the cloud has revolutionized this. A Cloud PBX is hosted in secure, remote data centers and delivered via the internet. It offers the same call routing and management features as an on-premises PBX, but without the need for costly hardware. Furthermore, Cloud PBX solutions are available as a service with flexible plans. This allows smaller businesses to subscribe to the service, avoiding the heavy investment associated with an expensive on-premise system.
 
-<figure><img src="https://www.portsip.com/wp-content/uploads/2024/06/cloud-pbx-portsip-1.png" alt="" height="361" width="832"><figcaption></figcaption></figure>
+<figure><img src="https://www.portsip.com/wp-content/uploads/2024/06/cloud-pbx-portsip-1.png" alt=""><figcaption></figcaption></figure>
 
 Today, every VoIP Service provider is looking for a good solution to host their Cloud PBX service. However, several crucial elements need to be considered when making this decision:
 
@@ -148,7 +148,7 @@ Many Cloud PBX providers offer professional services (and collaborate with chann
 
 ## PortSIP PBX Solution Has Your Back
 
-<figure><img src="https://www.portsip.com/wp-content/uploads/2023/11/portsip-vs-other-pbx-1400x459.jpg" alt="portsip vs other pbxs" height="459" width="1400"><figcaption></figcaption></figure>
+<figure><img src="https://www.portsip.com/wp-content/uploads/2023/11/portsip-vs-other-pbx.jpg" alt=""><figcaption></figcaption></figure>
 
 When weighing the solution for hosting the Cloud PBX, you have to look at your needs today and tomorrow. There are, of course, a number of factors to consider when choosing a phone system solution. Pricing is the most obvious one, but there’s also security, flexibility, and scalability... You have to ask yourself where you want to be in the next year or two and beyond.
 
@@ -157,3 +157,6 @@ Here at [PortSIP](https://www.portsip.com/portsip-pbx/), we’ll walk you throug
 In the age of the cloud, you cannot keep inching along with a legacy PBX. Your traditional PBX solution costs you more than it’s saving.
 
 Take advantage of the [PortSIP Solution](https://www.portsip.com/portsip-pbx/) and the freedom to work from anywhere. [PortSIP PBX](https://www.portsip.com/2023/11/23/the-advantages-of-portsip-pbx-vs-other-pbxs/) lets you focus on serving your customers, not trying to figure out the system. You can leave the rest to us.
+
+
+
