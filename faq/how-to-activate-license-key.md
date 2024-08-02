@@ -1,6 +1,6 @@
 # How to Activate License key?
 
-The license key you purchased from PortSIP is shared between PortSIP PBX and PortSIP SBC. Once you receive the key from PortSIP, follow these steps to activate it:
+The license key you purchased from PortSIP is shared between PortSIP PBX and PortSIP SBC. Once you receive the key from PortSIP, follow these steps to activate it.
 
 ## **Activating the License Key for PortSIP PBX**
 
