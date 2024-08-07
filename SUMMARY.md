@@ -18,6 +18,7 @@
   * [Configuring the Endpoints with PortSIP PBX](faq/configuring-the-endpoints-with-portsip-pbx.md)
   * [What is the SBC?](faq/what-is-the-sbc.md)
   * [UCaaS: Shaping the Future of Unified Communications](faq/ucaas-shaping-the-future-of-unified-communications.md)
+  * [WebRTC + SIP: Simplifying Unified Communications](faq/webrtc-+-sip-simplifying-unified-communications.md)
   * [What File Format Is Required for PortSIP PBX Prompt?](faq/what-file-format-is-required-for-portsip-pbx-prompt.md)
   * [What is Direct Inward Dialing (DID)?](faq/what-is-direct-inward-dialing-did.md)
   * [What is the DID Pool?](faq/what-is-the-did-pool.md)
