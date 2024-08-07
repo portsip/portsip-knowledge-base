@@ -1,10 +1,10 @@
-# WebRTC + SIP: Simplifying Unified Communications
+# Simplifying Unified Communications with WebRTC and SIP
 
 [PortSIP SBC](https://www.portsip.com/portsip-sbc/) provides a bridge between Voice over Internet Protocol (VoIP) networks and the latest web services. It performs a number of federation services to transform SIP communications into WebRTC or vice versa, so organizations can retain their SIP-based call control (PBX, contact center, etc.) and offer tools that embed real-time communications into business applications, websites, processes, and workflows.
 
 ## What is WebRTC
 
-WebRTC and SIP are two distinct yet interconnected technologies that enable real-time communication over the internet. They are the backbone of modern web communication, empowering web pages and applications with capabilities such as video conferencing, voice calls, and data sharing.
+WebRTC and SIP are two distinct yet interconnected technologies that enable real-time communication over the Internet. They are the backbone of modern web communication, empowering web pages and applications with capabilities such as video conferencing, voice calls, and data sharing.
 
 This article delves into the intricacies of WebRTC and SIP, providing a comprehensive understanding of how each technology operates, their differences, advantages and disadvantages, and appropriate use cases.
 
