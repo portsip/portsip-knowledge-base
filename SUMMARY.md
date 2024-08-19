@@ -17,6 +17,7 @@
   * [Is the PortSIP PBX built on Asterisk, FreeSwitch?](faq/is-the-portsip-pbx-built-on-asterisk-freeswitch.md)
   * [Configuring the Endpoints with PortSIP PBX](faq/configuring-the-endpoints-with-portsip-pbx.md)
   * [What is the SBC?](faq/what-is-the-sbc.md)
+  * [What is the PBX? Features, Benefits](faq/what-is-the-pbx-features-benefits.md)
   * [The Future of Unified Communications: Powered by UCaaS](faq/the-future-of-unified-communications-powered-by-ucaas.md)
   * [Simplifying Unified Communications with WebRTC and SIP](faq/simplifying-unified-communications-with-webrtc-and-sip.md)
   * [What is CPaaS? Communications Platform as a Service Explained](faq/what-is-cpaas-communications-platform-as-a-service-explained.md)
