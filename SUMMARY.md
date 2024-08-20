@@ -8,7 +8,7 @@
   * [PortSIP SDK License Agreement](license-agreement/portsip-sdk-license-agreement.md)
   * [PortSIP Software End-User License Agreement](license-agreement/portsip-software-end-user-license-agreement.md)
 
-## PBX v16.x <a href="#pbx_v16" id="pbx_v16"></a>
+## PortSIP PBX
 
 ***
 
@@ -68,6 +68,7 @@
   * [7 Trunk Management](portsip-pbx-administration-guide/7-trunk-management/README.md)
     * [Configuring SIP Trunk](portsip-pbx-administration-guide/7-trunk-management/configuring-sip-trunk.md)
     * [Handle Outbound Calls Through SIP Trunk](portsip-pbx-administration-guide/7-trunk-management/handle-outbound-calls-through-sip-trunk.md)
+    * [Set Up Wavix SIP Trunk](portsip-pbx-administration-guide/7-trunk-management/set-up-wavix-sip-trunk.md)
   * [8 Call Route Management](portsip-pbx-administration-guide/8-call-route-management/README.md)
     * [Configuring Inbound Rule](portsip-pbx-administration-guide/8-call-route-management/configuring-inbound-rule.md)
     * [Configuring Outbound Rule](portsip-pbx-administration-guide/8-call-route-management/configuring-outbound-rule.md)
