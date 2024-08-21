@@ -40,7 +40,7 @@ To create a new SIP trunk on the Wavix platform
 
 If selected **Digest**, specify the SIP trunk name, set SIP trunk password, and select one of the DIDs on your account as Caller ID.
 
-<figure><img src="../../.gitbook/assets/wavix-fig2.png" alt="" width="563"><figcaption><p>Configure SIP trunk</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/fig2.png" alt="" width="563"><figcaption></figcaption></figure>
 
 ### IP Authentication
 
@@ -49,7 +49,7 @@ If select **IP Authentication**, please follow the below steps:
 1. Enter your PortSIP PBX static IP and click **Submit**
 2. Click **Save** to apply changes
 
-<figure><img src="../../.gitbook/assets/wavix-fig12.png" alt="" width="563"><figcaption><p>Wavix SIP trunk IP authentication</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/wavix-fig12.png" alt="" width="563"><figcaption></figcaption></figure>
 
 Once the Wavix ops team approves your request, IP authentication will be activated on your Wavix SIP trunk.
 
