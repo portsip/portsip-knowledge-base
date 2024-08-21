@@ -2,15 +2,15 @@
 
 This article provides solutions for common PortSIP PBX issues when making calls. When you make a call from the app or an IP Phone, if the call fails, you will receive a status code indicating the reason. Below, we explain the status codes and their meanings:
 
-**480 - Temporarily Unavailable**
+## **480 - Temporarily Unavailable**
 
 This status code usually means the callee is not online or unavailable to answer your call.
 
-**408 - Request Timeout**
+## **408 - Request Timeout**
 
 This status code indicates the callee can’t be reached, possibly due to a lost network connection.
 
-**503 - Service Unavailable**
+## **503 - Service Unavailable**
 
 This code may appear for the following reasons:
 
@@ -19,7 +19,7 @@ This code may appear for the following reasons:
 * The SIP trunk can’t provide service at this moment if the call is sent to the trunk.
 * The PortSIP PBX failed to resolve the trunk domain DNS.
 
-**403 - Forbidden**
+## **403 - Forbidden**
 
 This code may appear for the following reasons:
 
@@ -29,11 +29,11 @@ This code may appear for the following reasons:
 * The current established calls have reached the maximum call limit of the trunk.
 * The callee number is in the PBX number blacklist. You can manage the blacklist in the menu: **Blacklist and Codes > Number Blacklist**.
 
-**402 - Payment Required**
+## **402 - Payment Required**
 
 This code appears if the tenant admin has enabled online billing, but the extension caller does not have enough balance.
 
-**404 - Not Found**
+## **404 - Not Found**
 
 This code may appear for the following reasons:
 
