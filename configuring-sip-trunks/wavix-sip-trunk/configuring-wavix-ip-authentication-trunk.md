@@ -26,7 +26,7 @@ By default, an IP address can only be mapped to a single SIP trunk. If you need 
 
 After the SIP trunk is successfully created, it will appear on the list of SIP trunks on your account.
 
-<figure><img src="../../.gitbook/assets/wavix-fig3.png" alt=""><figcaption><p>List of SIP trunks and SIP trunk ID</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/wavix-fig3.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="danger" %}
 Please be advised that your 5-digit SIP trunk username is generated automatically and displayed in the SIP trunk ID column.
