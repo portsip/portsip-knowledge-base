@@ -38,7 +38,7 @@
     * [Purchase a DID on Wavix Platform](configuring-sip-trunks/wavix-sip-trunk/purchase-a-did-on-wavix-platform.md)
     * [Configuring Wavix IP Authentication Trunk](configuring-sip-trunks/wavix-sip-trunk/configuring-wavix-ip-authentication-trunk.md)
     * [Configuring Wavix Digest Trunk](configuring-sip-trunks/wavix-sip-trunk/configuring-wavix-digest-trunk.md)
-    * [Set Up Wavix SIP Trunk](configuring-sip-trunks/wavix-sip-trunk/set-up-wavix-sip-trunk.md)
+    * [Configuring Inbound & Outbound Calls](configuring-sip-trunks/wavix-sip-trunk/configuring-inbound-and-outbound-calls.md)
 * [PortSIP PBX Administration Guide](portsip-pbx-administration-guide/README.md)
   * [PortSIP PBX Features](portsip-pbx-administration-guide/portsip-pbx-features.md)
   * [PortSIP Security Features](portsip-pbx-administration-guide/portsip-security-feature.md)

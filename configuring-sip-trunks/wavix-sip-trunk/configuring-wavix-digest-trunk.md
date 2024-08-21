@@ -77,3 +77,4 @@ Once the PortSIP PBX successfully registered this trunk to Wavix platform, in th
 
 <figure><img src="../../.gitbook/assets/wavix-fig19.png" alt=""><figcaption></figcaption></figure>
 
+Now you can follow the article to [configuring inbound and outbound calls](configuring-inbound-and-outbound-calls.md).
