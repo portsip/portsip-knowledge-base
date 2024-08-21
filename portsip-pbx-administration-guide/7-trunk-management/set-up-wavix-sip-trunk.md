@@ -44,7 +44,22 @@ If selected **Digest**, specify the SIP trunk name, set SIP trunk password, and 
 
 ### IP Authentication
 
-If select IP Authentication,
+If select **IP Authentication**, please follow the below steps:
+
+1. Enter your PortSIP PBX static IP and click **Submit**
+2. Click **Save** to apply changes
+
+<figure><img src="../../.gitbook/assets/wavix-fig12.png" alt=""><figcaption><p>Wavix SIP trunk IP authentication</p></figcaption></figure>
+
+Once the Wavix ops team approves your request, IP authentication will be activated on your Wavix SIP trunk.
+
+{% hint style="info" %}
+After submitting the IP authentication request, you’ll not be able to update your IP address or change the authentication method.
+{% endhint %}
+
+{% hint style="info" %}
+By default, an IP address can only be mapped to a single SIP trunk. If you need to have several Wavix SIP trunks sharing the same IP address, please get in touch with support@wavix.com
+{% endhint %}
 
 After the SIP trunk is successfully created, it will appear on the list of SIP trunks on your account.
 
@@ -53,6 +68,20 @@ After the SIP trunk is successfully created, it will appear on the list of SIP t
 {% hint style="danger" %}
 Please be advised that your 5-digit SIP trunk username is generated automatically and displayed in the SIP trunk ID column.
 {% endhint %}
+
+## Configure SIP trunk in PortSIP PBX
+
+To configure inbound and outbound calls on your PortSIP PBX, log in to the PortSIP PBX Web Portal, go to the left menu **Call Manager > Trunks, and** click the **Add** button, in the popups menu, if you select the **Authentication method** is **Digest** when you [create the Wavix trunk](set-up-wavix-sip-trunk.md#digest)**,** please choose **Register Based Trunk**; For the IP Authentication, choose **IP Based Trunk**.&#x20;
+
+<figure><img src="../../.gitbook/assets/wavix-fig13.png" alt=""><figcaption><p>Configure Wavix Trunk in PortSIP PBX</p></figcaption></figure>
+
+{% hint style="info" %}
+If your Wavix trunk Authentication method is IP Authentication, you must configure it at the PortSIP PBX system Administrator level, then assign it to the tenants, and specify the DID numbers to the tenant.
+
+If your Wavix trunk Authentication method is Digest, you can configure it at the PortSIP PBX System Administrator level or a tenant level.&#x20;
+{% endhint %}
+
+
 
 
 
