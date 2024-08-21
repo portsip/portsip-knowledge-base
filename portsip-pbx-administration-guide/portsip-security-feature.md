@@ -161,7 +161,7 @@ To safeguard against malicious activities such as SPIT (SPam over Internet Telep
 
 Click the left menu **Advanced > Security**, on the **Blocked User Agents** page, you can edit the user-agents blacklist.
 
-<figure><img src=".gitbook/assets/user-agent-blacklist.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/user-agent-blacklist.png" alt=""><figcaption></figcaption></figure>
 
 ## Extension Security
 
@@ -179,7 +179,7 @@ PortSIP PBX allows you to whitelist and blacklist IP addresses. All traffic orig
 
 Assume a remote office is connected to the PortSIP PBX. The public IP address of the remote office is 103.224.182.210. This IP address's traffic is safe to trust. Follow the settings below to add this IP address to a whitelist.
 
-<figure><img src=".gitbook/assets/ip_whitelist (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ip_whitelist (1).png" alt=""><figcaption></figcaption></figure>
 
 * Click on the menu "**IP Blacklist**"
 * Click "**Add**" to add an entry
@@ -192,7 +192,7 @@ Assume a remote office is connected to the PortSIP PBX. The public IP address of
 
 Let us look at another scenario. Assume that there is a distributed attack coming from the following IP addresses – 41.202.160.2 and 41.202.191.5. These two IP addresses have already been blacklisted by PortSIP PBX’s anti-hacking auto-detection mechanisms. You would, however, want to blacklist all the range, since you are sure that you will never get any traffic from these IP addresses. In this case, we will blacklist the whole range from 41.202.0.0 to 41.202.255.255, i.e. all the IP addresses that started with 41.202. 1.
 
-<figure><img src=".gitbook/assets/ip_blacklist (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ip_blacklist (1).png" alt=""><figcaption></figcaption></figure>
 
 * Click on the menu **IP Blacklist**
 * Click **Add** to add an entry

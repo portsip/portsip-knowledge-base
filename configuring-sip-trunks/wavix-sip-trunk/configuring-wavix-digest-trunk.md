@@ -1,0 +1,2 @@
+# Configuring Wavix Digest Trunk
+

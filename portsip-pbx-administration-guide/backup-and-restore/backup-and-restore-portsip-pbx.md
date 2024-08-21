@@ -20,7 +20,7 @@ Remember, it’s always a good idea to test the restore process periodically to 
 
 ### **Linux**&#x20;
 
-When [installing PortSIP PBX for Linux](../portsip-sbc-administration-guide/1-installation-of-the-portsip-sbc.md#step-3-create-and-run-the-portsip-sbc-docker-container-instance), in step 3, you typically use the following command to create the PortSIP PBX Docker instance:
+When [installing PortSIP PBX for Linux](../../portsip-sbc-administration-guide/1-installation-of-the-portsip-sbc.md#step-3-create-and-run-the-portsip-sbc-docker-container-instance), in step 3, you typically use the following command to create the PortSIP PBX Docker instance:
 
 ```shell
 /bin/sh pbx_ctl.sh \
@@ -52,7 +52,7 @@ After successfully backing up the data, save it safely.
 
 ### **Windows**&#x20;
 
-When [installing PortSIP PBX for Windows](../portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx.md#step-1-installing-a-fresh-portsip-pbx-for-windows), in step 1, there is an option that allows you to choose the **parent** folder for storing the PBX data.&#x20;
+When [installing PortSIP PBX for Windows](../1-installation-of-the-portsip-pbx.md#step-1-installing-a-fresh-portsip-pbx-for-windows), in step 1, there is an option that allows you to choose the **parent** folder for storing the PBX data.&#x20;
 
 To back up the data, copy this folder to another server or an external disk. By default, if you didn’t specify otherwise, the **parent** folder is `C:\ProgramData\PortSIP`.&#x20;
 
@@ -93,7 +93,7 @@ docker image list
 
 You will get the result shown in the below screenshot.
 
-<figure><img src="../.gitbook/assets/docker_image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/docker_image.png" alt=""><figcaption></figcaption></figure>
 
 You can then delete Docker images using the first 4 digits of the IMAGE ID for PBX and Postgresql:
 

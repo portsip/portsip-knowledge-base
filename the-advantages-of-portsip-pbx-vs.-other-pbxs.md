@@ -122,7 +122,7 @@ For example, if a call comes from the SIP trunk and arrives at the PBX, then is 
 
 ## Storing Into AWS S3
 
-With PortSIP PBX, you can write your Video Recordings and Compositions to your own AWS (Amazon Web Services) S3 bucket, rather than a local disk. This guide explains how you can set up your own account or project to use this capability. For more details please read this article: [Storing into AWS S3](storing-into-aws-s3.md).
+With PortSIP PBX, you can write your Video Recordings and Compositions to your own AWS (Amazon Web Services) S3 bucket, rather than a local disk. This guide explains how you can set up your own account or project to use this capability. For more details please read this article: [Storing into AWS S3](portsip-pbx-administration-guide/storing-into-aws-s3.md).
 
 ## Privacy
 

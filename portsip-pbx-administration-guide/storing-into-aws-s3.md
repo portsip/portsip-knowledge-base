@@ -24,11 +24,11 @@ Use this feature when you need to meet compliance requirements that exclude reli
 1. Navigate to the **Identity and Access Management (IAM)** menu, select **Access Management**, and then click on the **Add User** button.&#x20;
 2. Input a name for the user, such as **s3store**, select **Programmatic Access**, and then click **Next**.
 
-![](.gitbook/assets/iam\_s3.png)
+![](../.gitbook/assets/iam\_s3.png)
 
 3\. Click on the **Create group** button to create a new group.
 
-![](.gitbook/assets/iam\_s3\_group.png)
+![](../.gitbook/assets/iam\_s3\_group.png)
 
 {% hint style="info" %}
 You can choose to add this user to an existing group rather than create a new group but must grant **AmazonS3FullAccess** permission to this existing group.
@@ -36,12 +36,12 @@ You can choose to add this user to an existing group rather than create a new gr
 
 4\. Enter a name for the group, for example, **portsip-pbx-s3**, Choose **AmazonS3FullAccess** Policy name, and click the **Create group** button.
 
-![](.gitbook/assets/iam\_s3\_2.png)
+![](../.gitbook/assets/iam\_s3\_2.png)
 
 5. Once the group is successfully created, select it and click the **Next** button. You have the option to add tags to this user, or you can simply skip this step by clicking the **Next** button.
 6. After the user is successfully added, make sure to note down the **Access Key ID** and **Secret Access Key** as shown.
 
-![](.gitbook/assets/iam\_s3\_1.png)
+![](../.gitbook/assets/iam\_s3\_1.png)
 
 ## Step 2: Create an S3 bucket <a href="#create-s3-bucket" id="create-s3-bucket"></a>
 
@@ -51,7 +51,7 @@ You can choose to add this user to an existing group rather than create a new gr
   * The _bucket-region_. This is the AWS region where your S3 bucket is located.
 * Click on the **Create** button then the S3 bucket will be created.
 
-<figure><img src=".gitbook/assets/aws3-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/aws3-1.png" alt=""><figcaption></figcaption></figure>
 
 ## Step 3: Modify the PortSIP PBX settings <a href="#change-the-portsip-pbx-settings" id="change-the-portsip-pbx-settings"></a>
 

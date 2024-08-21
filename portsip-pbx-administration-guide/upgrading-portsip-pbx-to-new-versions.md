@@ -16,7 +16,7 @@ If you installed the PortSIP SBC, please follow this article to [upgrade the Por
 
 ## Upgrading PBX for Windows
 
-1. We suggest backing up your PBX data. The data file path is usually `c:\programdata\portsip`. You can follow the article [Backup and Restore: An Essential Guide](../backup-and-restore/).
+1. We suggest backing up your PBX data. The data file path is usually `c:\programdata\portsip`. You can follow the article [Backup and Restore: An Essential Guide](backup-and-restore/).
 2. Download the latest installer from the [PortSIP website](https://www.portsip.com/download-portsip-pbx/).&#x20;
 3. Double-click the installer to install it and the upgrade will be performed automatically.
 
@@ -24,7 +24,7 @@ If you installed the PortSIP SBC, please follow this article to [upgrade the Por
 
 We recommend backing up your PBX data. The data file path is usually `/var/lib/portsip`. You can also back up the entire VM server or take a snapshot of the VM server.
 
-Please follow the article [Backup and Restore: An Essential Guide](../backup-and-restore/).
+Please follow the article [Backup and Restore: An Essential Guide](backup-and-restore/).
 
 {% hint style="warning" %}
 All commands must be executed in the **`/opt/portsip`** directory.
