@@ -53,7 +53,9 @@ Please follow the below steps:
 
 <figure><img src="../../.gitbook/assets/wavix-fig16.png" alt=""><figcaption></figcaption></figure>
 
-5. Click the **Next** button to assign this trunk to the tenants and provide them with the DID Pool (DID numbers). A tenant assigned to this trunk can only use the DID numbers within the DID pool range to create inbound and outbound rules, and configure the outbound caller ID for extensions.
+5. Click the **Next** button to assign this trunk to the tenants and provide them with the DID Pool (DID numbers).&#x20;
+
+A tenant assigned to this trunk can only use the DID numbers within the DID pool range to create inbound and outbound rules, and configure the outbound caller ID for extensions.
 
 <figure><img src="../../.gitbook/assets/wavix-fig17.png" alt=""><figcaption></figcaption></figure>
 
@@ -66,13 +68,7 @@ Please follow the below steps:
 
 Click the **OK** button to save the changes. The trunk configuration is now complete.
 
+In the trunk list you will see the status displayed as **Regisetered**(for IP-Based Trunk it always display Registered).
 
-
-
-
-
-
-
-
-
+<figure><img src="../../.gitbook/assets/wavix-fig19.png" alt=""><figcaption></figcaption></figure>
 
