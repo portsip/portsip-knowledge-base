@@ -154,7 +154,7 @@
   * [Backup and Restore PortSIP PBX](backup-and-restore/backup-and-restore-portsip-pbx.md)
   * [Backup and Restore PortSIP SBC](backup-and-restore/backup-and-restore-portsip-sbc.md)
 * [Call Control API](call-control-api.md)
-* [Troubleshooting Call Issues](call-control-api-1.md)
+* [Troubleshooting Call Issues](troubleshooting-call-issues.md)
 * [Migrate from legacy FCM APIs to HTTP v1 for Android Push Notifications](migrate-from-legacy-fcm-apis-to-http-v1-for-android-push-notifications.md)
 
 ## PBX v12.x (EOL) <a href="#pbx_v12" id="pbx_v12"></a>
