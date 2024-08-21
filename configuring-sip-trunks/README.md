@@ -1,5 +1,9 @@
 # Configuring SIP Trunks
 
+{% hint style="info" %}
+This guide is only applicable for the PortSIP PBX v22 or higher.
+{% endhint %}
+
 Session Initiation Protocol (SIP) Trunking is the digital way of making and receiving phone calls and other communications over an internet connection, utilizing SIP, an application layer protocol. "Trunking" in this context refers to the method of consolidating multiple communication channels into a single connection, allowing for the efficient use of resources and connection to a telephone network.
 
 SIP Trunks provision Voice over Internet Protocol (VoIP) connectivity between an on-premise phone system and the public switched telephone network, also known as PSTN. For instance, an office might have an existing PBX for phone service. SIP trunks provide phone service for the entire office so they can reach the outside world.
@@ -25,7 +29,7 @@ PortSIP PBX supports a wide range of mainstream SIP trunk providers worldwide. T
 In this article, we provide the deteailed guides for configure the below trunks:
 
 * [Configuring Wavix SIP Trunk](wavix-sip-trunk/)
-* Configuring VOIP.MS SIP Trunk
+* Configuring VoIP.ms SIP Trunk
 * Configuring Twillio SIP Trunk
 * Configuring Telnyx SIP T runk
 * Configuring Quest Blue SIP Trunk

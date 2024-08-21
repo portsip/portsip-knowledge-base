@@ -12,5 +12,7 @@ PortSIP PBX integrated the Wavix SIP trunking that allows you to set up easily.
 
 This article includes the following topics:
 
-
+* [Purchase a DID on Wavix Platform](purchase-a-did-on-wavix-platform.md)
+* [Configuring Wavix IP Authentication Trunk](configuring-wavix-ip-authentication-trunk.md)
+* [Configuring Wavix Digest Trunk](configuring-wavix-digest-trunk.md)
 
