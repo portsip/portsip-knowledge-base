@@ -28,6 +28,10 @@ After the SIP trunk is successfully created, it will appear on the list of SIP t
 
 <figure><img src="../../.gitbook/assets/wavix-fig20.png" alt=""><figcaption></figcaption></figure>
 
+{% hint style="info" %}
+For security reasons, all new Wavix accounts can place only 2 simultaneous calls. In case you’d like to adjust the limit, reach out to your account manager or email support@wavix.com
+{% endhint %}
+
 ## Configure IP Authentication Trunk in PortSIP PBX
 
 The IP Authentication Wavix trunk refers to the **IP Based Trunk** in PortSIP PBX. You must configure the **IP Based Trunk** at the PortSIP PBX system administrator level. Once successfully configured, you can share this trunk with tenants.
@@ -43,7 +47,7 @@ Please follow the below steps:
    * **Name**: Enter a friendly name for the trunk.
    * **Brand**: Select one of the Wavix trunks which near your location from the Brand field, such as **Wavix - US**.
 
-<figure><img src="../../.gitbook/assets/wavix-fig14.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 4. Click the **Next** button to adjust the options for the trunk. We recommend using the default settings, except for the **Max Concurrent Calls** field. This field limits the maximum number of calls that PortSIP can establish with this trunk. You can change it to an appropriate value.
 
