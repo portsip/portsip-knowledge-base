@@ -15,5 +15,5 @@ This article includes the following topics:
 * [Purchase a DID on Wavix Platform](purchase-a-did-on-wavix-platform.md)
 * [Configuring Wavix IP Authentication Trunk](configuring-wavix-ip-authentication-trunk.md)
 * [Configuring Wavix Digest Trunk](configuring-wavix-digest-trunk.md)
-* [Configuring Inbound & Outbound Calls](configuring-inbound-and-outbound-calls.md)
+* [Configuring Inbound & Outbound Calls](configuring-outbound-and-inbound-calls.md)
 
