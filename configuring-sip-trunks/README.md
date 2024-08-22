@@ -25,8 +25,8 @@ PortSIP PBX supports a wide range of mainstream SIP trunk providers worldwide. T
 In this article, we provide the deteailed guides for configure the below trunks:
 
 * [Configuring Wavix SIP Trunk](wavix-sip-trunk/)
-* Configuring VoIP.ms SIP Trunk
-* Configuring Twillio SIP Trunk
+* [Configuring VoIP.ms SIP Trunk](voip.ms-sip-trunk/)
+* Configuring Twilio SIP Trunk
 * Configuring Telnyx SIP T runk
 * Configuring Quest Blue SIP Trunk
 * Configuring Voxtelesys SIP Trunk
