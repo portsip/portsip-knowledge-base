@@ -12,7 +12,5 @@ To purchase a DID on your VoIP.MS account:
 
 <figure><img src="../../.gitbook/assets/voip.ms-fig1.png" alt=""><figcaption></figcaption></figure>
 
-After purchasing the DID, you can follow one of the guides to configure the trunk with PortSIP PBX.
+After purchasing the DID, you can follow the guide [Configuring VoIP.ms Register Based Trunk](configuring-voip.ms-register-based-trunk.md) to configure the trunk with PortSIP PBX.
 
-* Configuring VoIP.ms Register Based Trunk
-* Configuring VoIP.ms IP Authentication Trunk

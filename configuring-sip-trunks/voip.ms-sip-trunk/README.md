@@ -10,8 +10,7 @@ PortSIP PBX integrated the VoIP SIP trunking, allowing you to set up easily.
 
 This article includes the following topics:
 
-* Purchase a DID on VoIP.ms
-* Configuring Wavix IP Authentication Trunk
-* Configuring Wavix Digest Trunk
-* Configuring Outbound & Inbound Calls
+* [Purchase a DID on VoIP.ms](purchase-a-did-on-voip.ms.md)
+* [Configuring VoIP.MS Register Based Trunk](configuring-voip.ms-register-based-trunk.md)
+* [Configuring Outbound & Inbound Calls](configuring-outbound-and-inbound-calls.md)
 

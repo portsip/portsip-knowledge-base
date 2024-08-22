@@ -57,10 +57,10 @@ Please follow the below steps:
      * This tenant can only use the DID numbers within the DID pool range to create inbound and outbound rules and configure the outbound caller ID for extensions.
      * The DID pool can consist of a single number, a range of numbers, or a combination of both. For example:
        * `13322496213`
-         * `13322496213;13322496215`
-         * `13322496213-13322496215`
-         * `13322496213-13322496215;16468097069`&#x20;
-         * `13322496213-13322496215;16468097069-16468097079`
+       * `13322496213;13322496215`
+       * `13322496213-13322496215`
+       * `13322496213-13322496215;16468097069`&#x20;
+       * `13322496213-13322496215;16468097069-16468097079`
 
 <figure><img src="../../.gitbook/assets/wavix-fig14.png" alt=""><figcaption></figcaption></figure>
 
