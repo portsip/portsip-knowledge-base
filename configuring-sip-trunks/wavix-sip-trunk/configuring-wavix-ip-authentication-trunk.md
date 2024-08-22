@@ -26,26 +26,22 @@ By default, an IP address can only be mapped to a single SIP trunk. If you need 
 
 After the SIP trunk is successfully created, it will appear on the list of SIP trunks on your account.
 
-<figure><img src="../../.gitbook/assets/wavix-fig3.png" alt=""><figcaption></figcaption></figure>
-
-{% hint style="danger" %}
-Please be advised that your 5-digit SIP trunk username is generated automatically and displayed in the SIP trunk ID column.
-{% endhint %}
+<figure><img src="../../.gitbook/assets/wavix-fig20.png" alt=""><figcaption></figcaption></figure>
 
 ## Configure IP Authentication Trunk in PortSIP PBX
 
-The IP Authentication Wavix trunk corresponds to the **IP-Based Trunk** in PortSIP PBX. You must configure the **IP-Based Trunk** at the PortSIP PBX system administrator level. Once successfully configured, you can share this trunk with tenants.
+The IP Authentication Wavix trunk refers to the **IP Based Trunk** in PortSIP PBX. You must configure the **IP Based Trunk** at the PortSIP PBX system administrator level. Once successfully configured, you can share this trunk with tenants.
 
 Please follow the below steps:
 
 1. Sign in to the PortSIP PBX Web Portal as a System Administrator. Navigate to the left menu and select **Call Manager > Trunks**.&#x20;
-2. Click the **Add** button to open a menu. From the menu, choose **IP-Based Trunk**.
+2. Click the **Add** button to open a menu. From the menu, choose **IP Based Trunk**.
 
 <figure><img src="../../.gitbook/assets/wavix-fig13.png" alt="" width="563"><figcaption><p>Configure Wavix Trunk in PortSIP PBX</p></figcaption></figure>
 
 3. Enter the trunk name and choose the brand:
    * **Name**: Enter a friendly name for the trunk.
-   * **Brand**: Select one of the Wavix trunks from the Brand field, such as **Wavix - US**.
+   * **Brand**: Select one of the Wavix trunks which near your location from the Brand field, such as **Wavix - US**.
 
 <figure><img src="../../.gitbook/assets/wavix-fig14.png" alt=""><figcaption></figcaption></figure>
 
@@ -55,7 +51,7 @@ Please follow the below steps:
 
 5. Click the **Next** button to assign this trunk to the tenants and provide them with the DID Pool (DID numbers).&#x20;
 
-A tenant assigned to this trunk can only use the DID numbers within the DID pool range to create inbound and outbound rules, and configure the outbound caller ID for extensions.
+A tenant assigned to this trunk can only use the DID numbers within the DID pool range to create inbound and outbound rules and configure the outbound caller ID for extensions.
 
 <figure><img src="../../.gitbook/assets/wavix-fig17.png" alt=""><figcaption></figcaption></figure>
 
@@ -68,9 +64,9 @@ A tenant assigned to this trunk can only use the DID numbers within the DID pool
 
 Click the **OK** button to save the changes. The trunk configuration is now complete.
 
-In the trunk list you will see the status displayed as **Regisetered**(for IP-Based Trunk it always display Registered).
+In the trunk list, you will see the status displayed as **Registered** (for IP Based Trunk it always displays Registered).
 
 <figure><img src="../../.gitbook/assets/wavix-fig19.png" alt=""><figcaption></figcaption></figure>
 
-Now you can follow the article to [configuring inbound and outbound calls](configuring-inbound-and-outbound-calls.md).
+Now you can follow the article to [Configuring inbound and outbound calls](configuring-inbound-and-outbound-calls.md).
 
