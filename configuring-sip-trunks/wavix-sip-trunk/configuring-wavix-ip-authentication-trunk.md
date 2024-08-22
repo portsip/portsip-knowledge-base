@@ -47,7 +47,7 @@ Please follow the below steps:
    * **Name**: Enter a friendly name for the trunk.
    * **Brand**: Select one of the Wavix trunks which near your location from the Brand field, such as **Wavix - US**.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/wavix-fig15.png" alt="" width="563"><figcaption></figcaption></figure>
 
 4. Click the **Next** button to adjust the options for the trunk. We recommend using the default settings, except for the **Max Concurrent Calls** field. This field limits the maximum number of calls that PortSIP can establish with this trunk. You can change it to an appropriate value.
 
@@ -62,7 +62,6 @@ A tenant assigned to this trunk can only use the DID numbers within the DID pool
 * DID Pool: The DID pool can consist of a single number, a range of numbers, or a combination of both. For example:
   * `16468097065`
   * `16468097065;16468097066`
-  * `16468097065-16468097066`
   * `16468097065-16468097066;16468097069`&#x20;
   * `16468097065-16468097066;16468097070-16468097080`
 

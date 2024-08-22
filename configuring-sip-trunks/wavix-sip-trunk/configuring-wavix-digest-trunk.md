@@ -68,7 +68,6 @@ Please follow the below steps:
    * DID Pool: The DID pool can consist of a single number, a range of numbers, or a combination of both. For example:
      * `16468097065`
      * `16468097065;16468097066`
-     * `16468097065-16468097066`
      * `16468097065-16468097066;16468097069`&#x20;
      * `16468097065-16468097066;16468097070-16468097080`
 
