@@ -66,7 +66,7 @@ Please follow the below steps:
 
 4. Hostname or Address: For this field, enter  **sanjose2.voip.ms** that you noted in the[ Collecting Settings for PortSIP PBX](configuring-voip.ms-register-based-trunk.md#collecting-settings-for-portsip-pbx).
 5. Associated IP Addresses: [VoIP.ms](http://www.voip.ms/) offers many different points of presence, please add the the server IPs to the Associated IP Address with CIDR format. All traffic originating from these IP addresses will be recognized as VoIP.ms trunk and the anti-hacking algorithms will not come into effect. For more information on the IPs related to our servers, click [here](https://wiki.voip.ms/article/Servers).
-6. Click the **Next** button, and provide the **SIP trunk authentication name** and **password** set up for the SIP  trunk on the VoIP.ms platform.&#x20;
+6. Click the **Next** button, and provide the **SIP trunk authentication name** and **password** set up for the SIP  trunk on the VoIP.ms platform([Collecting Settings for PortSIP PBX](configuring-voip.ms-register-based-trunk.md#collecting-settings-for-portsip-pbx)).&#x20;
 
 <figure><img src="../../.gitbook/assets/wavix-fig18.png" alt=""><figcaption></figcaption></figure>
 
