@@ -4,16 +4,14 @@
 This guide is only applicable for the PortSIP PBX v22 or higher.
 {% endhint %}
 
-Wavix is a SIP trunk provider, it provides a robust set of calling, SMS/MMS features, and reliability that enhances your communications.
+VoIP.ms is a Montreal-based Voice over IP (VoIP) company that provides a vast range of standard telephony features as well as enhanced communication features to simplify both business and residential communications such as local DID numbers in 60+ countries, it also offers termination (outgoing calls) in over 125 countries across the globe, toll-free numbers, call conferencing and services such as E911, CNAM Lookup, SMS/MMS, virtual fax, virtual PRI and local number portability.
 
-One of the primary advantages of trunking with Wavix is its greatly expanded geographic reach. Wavix provides connectivity across 170+ countries, allowing you to make and receive calls around the world. Your callers and customers worldwide can connect with your business at local rates.
-
-PortSIP PBX integrated the Wavix SIP trunking that allows you to set up easily.
+PortSIP PBX integrated the VoIP SIP trunking, allowing you to set up easily.
 
 This article includes the following topics:
 
-* [Purchase a DID on Wavix Platform](../wavix-sip-trunk/purchase-a-did-on-wavix-platform.md)
-* [Configuring Wavix IP Authentication Trunk](../wavix-sip-trunk/configuring-wavix-ip-authentication-trunk.md)
-* [Configuring Wavix Digest Trunk](../wavix-sip-trunk/configuring-wavix-digest-trunk.md)
-* [Configuring Outbound & Inbound Calls](../wavix-sip-trunk/configuring-outbound-and-inbound-calls.md)
+* Purchase a DID on VoIP.ms
+* Configuring Wavix IP Authentication Trunk
+* Configuring Wavix Digest Trunk
+* Configuring Outbound & Inbound Calls
 
