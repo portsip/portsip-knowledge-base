@@ -22,7 +22,7 @@ PortSIP PBX supports a wide range of mainstream SIP trunk providers worldwide. T
 * [Telstra](https://www.telstra.com.au/)
 * [Keen systems](https://keen-systems.com/)
 
-In this article, we provide the deteailed guides for configure the below trunks:
+In this article, we provide the detailed guides for configuring the below trunks:
 
 * [Configuring Wavix SIP Trunk](wavix-sip-trunk/)
 * [Configuring VoIP.ms SIP Trunk](voip.ms-sip-trunk/)
@@ -30,4 +30,4 @@ In this article, we provide the deteailed guides for configure the below trunks:
 * Configuring Telnyx SIP T runk
 * Configuring Quest Blue SIP Trunk
 * Configuring Voxtelesys SIP Trunk
-* Configuring Vonage SIP T runk
+* Configuring Vonage SIP Trunk
