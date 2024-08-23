@@ -19,7 +19,7 @@ PortSIP PBX integrated the VoIP SIP trunking, allowing you to set up easily.
 This article includes the following topics:
 
 * [Purchase a DID on the Twilio Platform](purchase-a-did-on-the-twilio.md)
-* Configuring Twilio Register Based Trunk
-* Configuring Twilio IP Based Trunk
-* Configuring Outbound & Inbound Calls
+* [Configuring Twilio Register Based Trunk](configuring-twilio-register-based-trunk.md)
+* [Configuring Twilio Interconnect Trunk](configuring-twilio-interconnect-trunk.md)
+* [Configuring Outbound & Inbound Calls](configuring-outbound-and-inbound-calls.md)
 

@@ -46,6 +46,7 @@
   * [Twilio SIP Trunk](configuring-sip-trunks/twilio-sip-trunk/README.md)
     * [Purchase a DID on the Twilio](configuring-sip-trunks/twilio-sip-trunk/purchase-a-did-on-the-twilio.md)
     * [Configuring Twilio Register Based Trunk](configuring-sip-trunks/twilio-sip-trunk/configuring-twilio-register-based-trunk.md)
+    * [Configuring Twilio Interconnect Trunk](configuring-sip-trunks/twilio-sip-trunk/configuring-twilio-interconnect-trunk.md)
     * [Configuring Twilio IP Based Trunk](configuring-sip-trunks/twilio-sip-trunk/configuring-twilio-ip-based-trunk.md)
     * [Configuring Outbound & Inbound Calls](configuring-sip-trunks/twilio-sip-trunk/configuring-outbound-and-inbound-calls.md)
 * [PortSIP PBX Administration Guide](portsip-pbx-administration-guide/README.md)
