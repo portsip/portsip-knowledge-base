@@ -39,25 +39,30 @@ Press the **Create** button and now switch to the **Origination** page.
 
 ### Trunk Origination
 
-In the **Origination** section of the configuration add a new **Origination URI**, specifying your PortSIP PBX FQDN (available on the PortSIP PBX Web portal home) with a `sip:` prefix:
+In the **Origination** section of the configuration, we'll need to add the Origination URI to route traffic towards PortSIP PBX.  Specify your PortSIP PBX static public IP address (available on the PortSIP PBX Web portal home, for example, 151.101.2.3) with a `sip:` prefix.
 
+1. For the Origination SIP URI edit box, enter the format (without the quotes and with your  SIP elements unique public IP address or Fully Qualified Domain Name): `sip:151.101.2.3;region=us1` with a priority of **10** and a weight of **10**.\
+   \
+   This will originate all SIP Traffic from the Twilio US1 (Virginia) data center to your SIP element and limit the IP addresses to that region. Click **Add.**
 
+<figure><img src="../../.gitbook/assets/twilio-fig8.png" alt="" width="563"><figcaption></figcaption></figure>
 
+2. Click the plus button (`+`) next to Origination URI, to add a secondary Origination URI, should the primary encounter issues reaching your SIP element. For the Origination SIP URI edit box, enter the format (without the quotes and with your unique public IP address or Fully Qualified Domain Name): `sip:151.101.2.3;region=us2` with a priority of 20 and a weight of 10.
 
+<figure><img src="../../.gitbook/assets/twilio-fig9.png" alt="" width="563"><figcaption></figcaption></figure>
 
-### Collecting Settings for PortSIP PBX
+This will originate SIP Traffic from the Twilio US2 (Oregon) data center to your SIP element, only if the US1 Virginia data center is unable to deliver the call. Click **Add**.
 
-In order to be able to register and operate the trunk in your PortSIP PBX, you will to gather some information that will be needed in the configuration of the trunk in PortSIP PBX.
+### Assigning Telephone Numbers To Your Elastic SIP Trunk
 
-* Username: The username for registering the trunk can be found under the **Main Menu > Account Information.**
+1. On the left side of the screen under **Phone Numbers > Manage > Active Numbers**.
+2. Click a number that you want to assign to your trunk.
+3. In the new page under the **Voice Configuration** section, choose SIP Trunk for Configure with, and choose the trunk that you want to assign the number.
+4. Click the Save Configuration, that number is now associated with your SIP Trunk.
 
-<figure><img src="../../.gitbook/assets/voip.ms-fig4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/twilio-fig10.png" alt="" width="563"><figcaption></figcaption></figure>
 
-* Password: The trunk password can be found in the email you received from VoIP.ms during the registration process. You can also change the password by navigating to the menu **Main Menu > Account Settings > Security**.
-* DID numbers: The DID numbers can be seen by navigating to the menu **DID Numbers > Manage DID(s).**
-* Registrar: Go to the menu **Main Menu > Account Settings > Default DID Routing**. From here make a note of the selected server. In this example, the server is **sanjose2.voip.ms**.
-
-<figure><img src="../../.gitbook/assets/voip.ms-fig5.png" alt=""><figcaption></figcaption></figure>
+And with that, you’ve configured Twilio Elastic SIP Trunk!
 
 ## Configuring the Trunk with PortSIP PBX
 
