@@ -99,7 +99,7 @@ Please follow the below steps:
 3. Enter the trunk name and choose the brand:
    * **Name**: Enter a friendly name for the trunk.
    * **Brand**: Select **Twilio Interconnect** from the Brand field.
-   * **DID Pool**: This step is only for you at the _**Tenant admin Level**_ to configure this **Register Based Trunk**, you will need to set up your VoIP.ms DID numbers for this DID pool for this trunk.&#x20;
+   * **DID Pool**: This step is only for you at the _**Tenant admin Level**_ to configure this **Register Based Trunk**, you will need to set up your Twilio DID numbers for this DID pool for this trunk.&#x20;
      * This tenant can only use the DID numbers within the DID pool range to create inbound and outbound rules and configure the outbound caller ID for extensions.
      * The DID pool can consist of a single number, a range of numbers, or a combination of both. For example:
        * `12027594810`
