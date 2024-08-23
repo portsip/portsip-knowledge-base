@@ -22,15 +22,15 @@ In order to place outbound calls you need to configure Outbound Rules. Go to **C
 
 <figure><img src="../../.gitbook/assets/wavix-fig21.png" alt=""><figcaption></figcaption></figure>
 
-3. Scroll to the Place outbound calls using the following trunk routes section, click the Add icon, then select **VoIP.ms Trunk** and save the Outbound Rule.
+3. Scroll to the Place outbound calls using the following trunk routes section, click the Add icon, then select **Twilio Trunk** and save the Outbound Rule.
 
-<figure><img src="../../.gitbook/assets/voip.ms-flig9.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/twilio-fig19.png" alt=""><figcaption></figcaption></figure>
 
 When configuring your Outbound Rules make sure that all numbers are dialed either in the 10-digit (e.g. `3322496213`), 11-digit format (e.g. `13322496213`) or E164 format (e.g. `+13322496213`).
 
 Depending on your users’ dialing habits, you may want to strip some of the leading digits or prepend the country code. For example, the below configuration can be used to prepend all dialed numbers with the leading 1 in case your users are accustomed to US domestic number in the national format.
 
-<figure><img src="../../.gitbook/assets/voip.ms-flig10.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/twilio-fig20.png" alt=""><figcaption></figcaption></figure>
 
 ## Configure Inbound Rules
 
@@ -43,7 +43,7 @@ In order to receive inbound calls you need to configure Inbound Rules. Go to **C
 3. Enter the number for **DID/DDI Number or Number Range** field, the entered number must in the DID pool range of the selected trunk
 4. Set the extension to route calls to.
 
-<figure><img src="../../.gitbook/assets/voip.ms-flig11.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/twilio-fig21.png" alt=""><figcaption></figcaption></figure>
 
 Click **OK** to save the rule. Depending on your business needs, you may set specific office hours for the rule and route calls to different extensions, voice mailbox or automatically drop the call based on the schedule. Please reference the article [Office Hours and Holiday Schedule](../../portsip-pbx-administration-guide/office-hours-and-holiday-schedule/) for more details.
 
