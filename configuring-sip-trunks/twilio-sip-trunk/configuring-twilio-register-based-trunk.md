@@ -53,20 +53,20 @@ In the **Origination** section of the configuration, we'll need to add the Origi
 
 This will originate SIP Traffic from the Twilio US2 (Oregon) data center to your SIP element, only if the US1 Virginia data center is unable to deliver the call. Click **Add**.
 
-### Assigning Telephone Numbers To Your Elastic SIP Trunk
+### Assigning DID Numbers To Your Elastic SIP Trunk
 
 1. On the left side of the screen under **Phone Numbers > Manage > Active Numbers**.
 2. Click a number that you want to assign to your trunk.
 3. In the new page under the **Voice Configuration** section, choose SIP Trunk for Configure with, and choose the trunk that you want to assign the number.
 4. Click the Save Configuration, that number is now associated with your SIP Trunk.
 
-<figure><img src="../../.gitbook/assets/twilio-fig10.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/twilio-fig10.png" alt=""><figcaption></figcaption></figure>
 
 And with that, you’ve configured Twilio Elastic SIP Trunk!
 
 ## Configuring the Trunk with PortSIP PBX
 
-The Register Based VoIP.ms trunk refers to the **Register Based Trunk** in PortSIP PBX. You can configure the Register Based Trunk at either the PortSIP PBX **system administrator level** or the **Tenant Admin level**:
+The Register Based Twilio trunk refers to the **Register Based Trunk** in PortSIP PBX. You can configure the Register Based Trunk at either the PortSIP PBX **system administrator level** or the **Tenant Admin level**:
 
 * If configured at the system administrator level, you can share this trunk with tenants.
 * If configured at the tenant admin level, this trunk can only be used by the tenant itself
@@ -80,43 +80,43 @@ Please follow the below steps:
 
 3. Enter the trunk name and choose the brand:
    * **Name**: Enter a friendly name for the trunk.
-   * **Brand**: Select VoIP.ms from the Brand field.
+   * **Brand**: Select Twilio from the Brand field.
    * **DID Pool**: This step is only for you at the _**Tenant admin Level**_ to configure this **Register Based Trunk**, you will need to set up your VoIP.ms DID numbers for this DID pool for this trunk.&#x20;
      * This tenant can only use the DID numbers within the DID pool range to create inbound and outbound rules and configure the outbound caller ID for extensions.
      * The DID pool can consist of a single number, a range of numbers, or a combination of both. For example:
-       * `13322496213`
-       * `13322496213;13322496215`
-       * `13322496213-13322496215;16468097069`&#x20;
-       * `13322496213-13322496215;16468097069-16468097079`
+       * `12027594810`
+       * `12027594810;12027594815`
+       * `12027594810-12027594815;12027594820`&#x20;
+       * `12027594810-12027594815;12027594830-12027594845`
 
-<figure><img src="../../.gitbook/assets/voip.ms-flig6.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/twilio-fig11.png" alt=""><figcaption></figcaption></figure>
 
-3. Hostname or Address: For this field, enter **sanjose2.voip.ms** that you noted in the[ Collecting Settings for PortSIP PBX](configuring-twilio-register-based-trunk.md#collecting-settings-for-portsip-pbx).
-4. Associated IP Addresses: [VoIP.ms](http://www.voip.ms/) offers many different points of presence, please add the the server IPs to the Associated IP Address with CIDR format. All traffic originating from these IP addresses will be recognized as VoIP.ms trunk and the anti-hacking algorithms will not come into effect. For more information on the IPs related to our servers, click [here](https://wiki.voip.ms/article/Servers).
-5. Click the **Next** button, and provide the **SIP trunk authentication name** and **password** set up for the SIP  trunk on the VoIP.ms platform([Collecting Settings for PortSIP PBX](configuring-twilio-register-based-trunk.md#collecting-settings-for-portsip-pbx)).&#x20;
+4. Hostname or Address: For this field, enter your Twilio trunk Termination URI, in this case, is `portsip-pbx.pstn.twilio.com`.
+5. Click the **Next** button, and enter the ID and Password that we had defined in the Twilio Credential List for the **SIP trunk authentication name** and **password** fields**.**
 
-<figure><img src="../../.gitbook/assets/wavix-fig18.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/twilio-fig12.png" alt=""><figcaption></figcaption></figure>
 
-7. Click the **Next** button, you can adjust the options for the trunk, we recommend using the default settings except for the **Max Concurrent Calls,** this field is limited to the maximum calls that PortSIP established with this trunk, you can change it to an appropriate value.
+6. Click the **Next** button, you can adjust the options for the trunk, you must turn off the **Need Registration** option since Twilio trunk doesn't accept the REGISTER message.
 
-<figure><img src="../../.gitbook/assets/wavix-fig16.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/twilio-fig13.png" alt=""><figcaption></figcaption></figure>
 
-8. This step is only available when configuring the Register-Based Trunk at the _**System Administrator Level**_. Click the **Next** button to assign this trunk to the tenants and provide your VoIP.MS DIDs/Numbers to them with the DID Pool (DID numbers).  A DID can be only assigned to one tenant.
+We recommend using the default settings except for the **Max Concurrent Calls,** this field is limited to the maximum calls that PortSIP established with this trunk, you can change it to an appropriate value.
 
-* A tenant assigned to this trunk can only use the DID numbers within the DID pool range to create inbound and outbound rules and configure the outbound caller ID for extensions.
-* DID Pool: The DID pool can consist of a single number, a range of numbers, or a combination of both. For example:
-  * `13322496213`
-  * `13322496213;13322496215`
-  * `13322496213-13322496215;16468097069`&#x20;
-  * `13322496213-13322496215;16468097069-16468097079`
+7. This step is only available when configuring the Register-Based Trunk at the _**System Administrator Level**_. Click the **Next** button to assign this trunk to the tenants and provide your Twilio DIDs/Numbers to them with the DID Pool (DID numbers).  A DID can be only assigned to one tenant.
+   * A tenant assigned to this trunk can only use the DID numbers within the DID pool range to create inbound and outbound rules and configure the outbound caller ID for extensions.
+   * DID Pool: The DID pool can consist of a single number, a range of numbers, or a combination of both. For example:
+     * `12027594810`
+     * `12027594810;12027594815`
+     * `12027594810-12027594815;12027594820`&#x20;
+     * `12027594810-12027594815;12027594830-12027594845`
 
 <figure><img src="../../.gitbook/assets/voip.ms-flig7.png" alt=""><figcaption></figcaption></figure>
 
 Click the **OK** button to save the changes, the trunk configuration is completed.
 
-Once the PortSIP PBX successfully registers this trunk to the VoIP.ms platform, in the trunk list page you will see the status displayed as **Registered**.
+Since the Twilio trunk is turned off the **Need Registration** option, in the trunk list page you will always see the status displayed as **Registered**.
 
 <figure><img src="../../.gitbook/assets/voip.ms-flig8.png" alt=""><figcaption></figcaption></figure>
 
-Now you can follow the article to [Configuring inbound and outbound calls.](../voip.ms-sip-trunk/configuring-outbound-and-inbound-calls.md)
+Now you can follow the article to [Configuring inbound and outbound calls.](configuring-outbound-and-inbound-calls.md)
 
