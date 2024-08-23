@@ -88,10 +88,10 @@ Please follow the below steps:
        * `12027594810;12027594815`
        * `12027594810-12027594815;12027594820`&#x20;
        * `12027594810-12027594815;12027594830-12027594845`
+4. Hostname or Address: For this field, enter your Twilio trunk Termination URI, in this case, is `portsip-pbx.pstn.twilio.com`.
 
 <figure><img src="../../.gitbook/assets/twilio-fig11.png" alt=""><figcaption></figcaption></figure>
 
-4. Hostname or Address: For this field, enter your Twilio trunk Termination URI, in this case, is `portsip-pbx.pstn.twilio.com`.
 5. Click the **Next** button, and enter the ID and Password that we had defined in the Twilio Credential List for the **SIP trunk authentication name** and **password** fields**.**
 
 <figure><img src="../../.gitbook/assets/twilio-fig12.png" alt=""><figcaption></figcaption></figure>
