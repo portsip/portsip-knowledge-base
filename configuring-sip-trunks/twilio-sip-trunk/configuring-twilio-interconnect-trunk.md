@@ -41,7 +41,7 @@ Once created, we can leave all of the settings on the General page untouched and
 
 <figure><img src="../../.gitbook/assets/twilio-fig14.png" alt=""><figcaption></figcaption></figure>
 
-1. Move down to the **Authentication** section.  Starting with an IP ACL, create one that has the public IP address of your PortSIP PBX installation.  This information is present in the PortSIP PBX Home page.
+2. Move down to the **Authentication** section.  Starting with an IP ACL, create one that has the public IP address of your PortSIP PBX installation.  This information is present in the PortSIP PBX Home page.
 
 <figure><img src="../../.gitbook/assets/twilio-fig6.png" alt="" width="563"><figcaption></figcaption></figure>
 
@@ -92,7 +92,7 @@ Please follow the below steps:
 
 3. Enter the trunk name and choose the brand:
    * **Name**: Enter a friendly name for the trunk.
-   * **Brand**: Select Twilio from the Brand field.
+   * **Brand**: Select **Twilio Interconnect** from the Brand field.
    * **DID Pool**: This step is only for you at the _**Tenant admin Level**_ to configure this **Register Based Trunk**, you will need to set up your VoIP.ms DID numbers for this DID pool for this trunk.&#x20;
      * This tenant can only use the DID numbers within the DID pool range to create inbound and outbound rules and configure the outbound caller ID for extensions.
      * The DID pool can consist of a single number, a range of numbers, or a combination of both. For example:
@@ -100,10 +100,7 @@ Please follow the below steps:
        * `12027594810;12027594815`
        * `12027594810-12027594815;12027594820`&#x20;
        * `12027594810-12027594815;12027594830-12027594845`
-
-<figure><img src="../../.gitbook/assets/twilio-fig18.png" alt=""><figcaption></figcaption></figure>
-
-3. Hostname or Address: For this field, enter your Twilio trunk Termination URI that we saved in the above based on your PortSIP PBX location:
+4. Hostname or Address: For this field, enter your Twilio trunk Termination URI that we saved in the above based on your PortSIP PBX location:
    * portsip-pbx.pstn.ashburn.twilio.com&#x20;
    * portsip-pbx.pstn.umatilla.twilio.com&#x20;
    * portsip-pbx.pstn.dublin.twilio.com&#x20;
@@ -112,7 +109,10 @@ Please follow the below steps:
    * portsip-pbx.pstn.singapore.twilio.com&#x20;
    * portsip-pbx.pstn.tokyo.twilio.com&#x20;
    * portsip-pbx.pstn.sydney.twilio.com
-4. Click the **Next** button, and enter the ID and Password that we had defined in the Twilio Credential List for the **SIP trunk authentication name** and **password** fields**.**
+
+<figure><img src="../../.gitbook/assets/twilio-fig18.png" alt=""><figcaption></figcaption></figure>
+
+5. Click the **Next** button, and enter the ID and Password that we had defined in the Twilio Credential List for the **SIP trunk authentication name** and **password** fields**.**
 
 <figure><img src="../../.gitbook/assets/twilio-fig12.png" alt=""><figcaption></figcaption></figure>
 
