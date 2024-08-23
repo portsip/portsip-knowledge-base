@@ -6,6 +6,12 @@ Before proceeding with the next steps, you need to [purchase a DID on Twilio](pu
 
 Twilio Interconnect is an alternative to the open Internet that provides private connections between your network and Twilio. It offers the best performance and data throughput and the lowest latency. Since your data never touches the public Internet, it also provides the best security and can guarantee quality from end to end.
 
+For more details please check:
+
+* [Twilio Interconnect](https://www.twilio.com/en-us/interconnect)
+* [Interconnect](https://www.twilio.com/docs/interconnect)
+* [Configure your Trunk using Twilio Interconnect](https://www.twilio.com/docs/sip-trunking/configure-with-interconnect)
+
 ### Choose the product that is right for you <a href="#choose-the-product-that-is-right-for-you" id="choose-the-product-that-is-right-for-you"></a>
 
 There are several reasons why Interconnect is the preferred method of connecting to Twilio. _High availability,_ guaranteed data throughput\_, _quality of service,_ and _enterprise-grade security are just a few of the strong arguments for making use of Twilio Interconnect_. If you need highly consistent connectivity between your communication infrastructure and Twilio, then Twilio Interconnect is the right choice. Likewise, if you have policies (internal or external) that preclude you from sending traffic across the open Internet — for example, HIPAA, PCI, or GDPR.
