@@ -2,6 +2,20 @@
 
 Before proceeding with the next steps, you need to [purchase a DID on Twilio](purchase-a-did-on-the-twilio.md).
 
+## Twilio Interconnect Trunk
+
+Twilio Interconnect is an alternative to the open Internet that provides private connections between your network and Twilio. It offers the best performance and data throughput and the lowest latency. Since your data never touches the public Internet, it also provides the best security and can guarantee quality from end to end.
+
+### Choose the product that is right for you <a href="#choose-the-product-that-is-right-for-you" id="choose-the-product-that-is-right-for-you"></a>
+
+There are several reasons why Interconnect is the preferred method of connecting to Twilio. _High availability,_ guaranteed data throughput\_, _quality of service,_ and _enterprise-grade security are just a few of the strong arguments for making use of Twilio Interconnect_. If you need highly consistent connectivity between your communication infrastructure and Twilio, then Twilio Interconnect is the right choice. Likewise, if you have policies (internal or external) that preclude you from sending traffic across the open Internet — for example, HIPAA, PCI, or GDPR.
+
+Twilio Interconnect has several flavors to accommodate various use cases:
+
+* [Cross Connect](https://www.twilio.com/docs/interconnect/crossconnect) allows you to set up a dedicated, physical fiber interconnection with Twilio.
+* [Third-Party Exchange](https://www.twilio.com/docs/interconnect/third-party-exchange) is a way of having a private connection through a third-party provider that Twilio has an exchange agreement with.
+* [VPN](https://www.twilio.com/docs/interconnect/virtual-private-network) is the best option if you want to quickly try something out and play with some ideas, or if you have no presence in any of our or our partners' data centers and wish to have a secure connection to us.
+
 ## Create a SIP Trunk on the Twilio Platform
 
 To create a new SIP trunk on the Twilio platform:
@@ -23,11 +37,11 @@ Once created, we can leave all of the settings on the General page untouched and
 
 1. Go ahead and configure a unique URI:
    * In the **Termination** section, enter a Termination SIP URI you prefer.
-   * If there display the **Available** in green means that URI is acceptable. This full value (`portsip-pbx.pstn.twilio.com` in this case, yours will need to be different) will eventually be added to the PortSIP PBX Trunk configuration later.
+   * If there display the **Available** in green means that URI is acceptable. Click on **Show localized URIs** and copy the URIs information so you can use them to configure the trunk in your PortSIP PBX.
 
-<figure><img src="../../.gitbook/assets/twilio-fig5.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/twilio-fig14.png" alt=""><figcaption></figcaption></figure>
 
-2. Move down to the **Authentication** section.  Starting with an IP ACL, create one that has the public IP address of your PortSIP PBX installation.  This information is present in the PortSIP PBX Home page.
+1. Move down to the **Authentication** section.  Starting with an IP ACL, create one that has the public IP address of your PortSIP PBX installation.  This information is present in the PortSIP PBX Home page.
 
 <figure><img src="../../.gitbook/assets/twilio-fig6.png" alt="" width="563"><figcaption></figcaption></figure>
 
@@ -39,19 +53,17 @@ Press the **Create** button and now switch to the **Origination** page.
 
 ### Trunk Origination
 
-In the **Origination** section of the configuration, we'll need to add the Origination URI to route traffic towards PortSIP PBX.  Specify your PortSIP PBX static public IP address (available on the PortSIP PBX Web portal home, for example, 151.101.2.3) with a `sip:` prefix.
+In the **Origination** section of the configuration, configure your origination SIP URI, which identifies the network element entry point into your PortSIP PBX. To ensure your calls go over your private connection include the `edge` parameter in the URI with the value of the Twilio [Interconnect Edge Location](https://www.twilio.com/docs/global-infrastructure/edge-locations#private-interconnect) where your private connection is configured, for example:
 
-1. For the Origination SIP URI edit box, enter the format (without the quotes and with your  SIP elements unique public IP address or Fully Qualified Domain Name): `sip:151.101.2.3;region=us1` with a priority of **10** and a weight of **10**.\
-   \
-   This will originate all SIP Traffic from the Twilio US1 (Virginia) data center to your SIP element and limit the IP addresses to that region. Click **Add.**
+* `sip:151.101.2.3;edge={EDGE_LOCATION}`
+* `sip:pbx.portsip.com;edge={EDGE_LOCATION}`
 
-<figure><img src="../../.gitbook/assets/twilio-fig8.png" alt="" width="563"><figcaption></figcaption></figure>
+Note: without the {}, for example:
 
-2. Click the plus button (`+`) next to Origination URI, to add a secondary Origination URI, should the primary encounter issues reaching your SIP element. For the Origination SIP URI edit box, enter the format (without the quotes and with your unique public IP address or Fully Qualified Domain Name): `sip:151.101.2.3;region=us2` with a priority of 20 and a weight of 10.
+* `sip:151.101.2.3;edge=ashburn-ix`
+* `sip:pbx.portsip.com;edge=ashburn-ix`
 
-<figure><img src="../../.gitbook/assets/twilio-fig9.png" alt="" width="563"><figcaption></figcaption></figure>
-
-This will originate SIP Traffic from the Twilio US2 (Oregon) data center to your SIP element, only if the US1 Virginia data center is unable to deliver the call. Click **Add**.
+<figure><img src="../../.gitbook/assets/twilio-fig15.png" alt="" width="563"><figcaption></figcaption></figure>
 
 ### Assigning DID Numbers To Your Elastic SIP Trunk
 
@@ -91,7 +103,15 @@ Please follow the below steps:
 
 <figure><img src="../../.gitbook/assets/twilio-fig11.png" alt=""><figcaption></figcaption></figure>
 
-4. Hostname or Address: For this field, enter your Twilio trunk Termination URI, in this case, is `portsip-pbx.pstn.twilio.com`.
+4. Hostname or Address: For this field, enter your Twilio trunk Termination URI that we saved in the above based on your PortSIP PBX location:
+   * portsip-pbx.pstn.ashburn.twilio.com&#x20;
+   * portsip-pbx.pstn.umatilla.twilio.com&#x20;
+   * portsip-pbx.pstn.dublin.twilio.com&#x20;
+   * portsip-pbx.pstn.frankfurt.twilio.com&#x20;
+   * portsip-pbx.pstn.sao-paulo.twilio.com&#x20;
+   * portsip-pbx.pstn.singapore.twilio.com&#x20;
+   * portsip-pbx.pstn.tokyo.twilio.com&#x20;
+   * portsip-pbx.pstn.sydney.twilio.com
 5. Click the **Next** button, and enter the ID and Password that we had defined in the Twilio Credential List for the **SIP trunk authentication name** and **password** fields**.**
 
 <figure><img src="../../.gitbook/assets/twilio-fig12.png" alt=""><figcaption></figcaption></figure>
