@@ -108,3 +108,5 @@ You can also edit several DIDs at the same time. To do so, select multiple numbe
 
 Please make sure that all your Wavix DIDs are set up in the DID Pool of the Wavix Trunk you configured in the PortSIP PBX.
 
+For more details about the outbound and inbound rules configuration, please refer to the article [Call Route Management](../../portsip-pbx-administration-guide/8-call-route-management/).
+

@@ -43,7 +43,7 @@ In order to receive inbound calls you need to configure Inbound Rules. Go to **C
 3. Enter the number for **DID/DDI Number or Number Range** field, the entered number must in the DID pool range of the selected trunk
 4. Set the extension to route calls to.
 
-<figure><img src="../../.gitbook/assets/wavix-fig25.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/voip.ms-flig11.png" alt=""><figcaption></figcaption></figure>
 
 Click **OK** to save the rule. Depending on your business needs, you may set specific office hours for the rule and route calls to different extensions, voice mailbox or automatically drop the call based on the schedule. Please reference the article [Office Hours and Holiday Schedule](../../portsip-pbx-administration-guide/office-hours-and-holiday-schedule/) for more details.
 
