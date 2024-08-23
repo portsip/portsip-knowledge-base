@@ -116,7 +116,7 @@ Click the **OK** button to save the changes, the trunk configuration is complete
 
 Since the Twilio trunk is turned off the **Need Registration** option, in the trunk list page you will always see the status displayed as **Registered**.
 
-<figure><img src="../../.gitbook/assets/voip.ms-flig8.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/twilio-fig16.png" alt=""><figcaption></figcaption></figure>
 
 Now you can follow the article to [Configuring inbound and outbound calls.](configuring-outbound-and-inbound-calls.md)
 

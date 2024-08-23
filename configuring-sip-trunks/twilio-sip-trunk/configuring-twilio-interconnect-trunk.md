@@ -101,9 +101,9 @@ Please follow the below steps:
        * `12027594810-12027594815;12027594820`&#x20;
        * `12027594810-12027594815;12027594830-12027594845`
 
-<figure><img src="../../.gitbook/assets/twilio-fig11.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/twilio-fig18.png" alt=""><figcaption></figcaption></figure>
 
-4. Hostname or Address: For this field, enter your Twilio trunk Termination URI that we saved in the above based on your PortSIP PBX location:
+3. Hostname or Address: For this field, enter your Twilio trunk Termination URI that we saved in the above based on your PortSIP PBX location:
    * portsip-pbx.pstn.ashburn.twilio.com&#x20;
    * portsip-pbx.pstn.umatilla.twilio.com&#x20;
    * portsip-pbx.pstn.dublin.twilio.com&#x20;
@@ -112,7 +112,7 @@ Please follow the below steps:
    * portsip-pbx.pstn.singapore.twilio.com&#x20;
    * portsip-pbx.pstn.tokyo.twilio.com&#x20;
    * portsip-pbx.pstn.sydney.twilio.com
-5. Click the **Next** button, and enter the ID and Password that we had defined in the Twilio Credential List for the **SIP trunk authentication name** and **password** fields**.**
+4. Click the **Next** button, and enter the ID and Password that we had defined in the Twilio Credential List for the **SIP trunk authentication name** and **password** fields**.**
 
 <figure><img src="../../.gitbook/assets/twilio-fig12.png" alt=""><figcaption></figcaption></figure>
 
@@ -136,7 +136,7 @@ Click the **OK** button to save the changes, the trunk configuration is complete
 
 Since the Twilio trunk is turned off the **Need Registration** option, in the trunk list page you will always see the status displayed as **Registered**.
 
-<figure><img src="../../.gitbook/assets/voip.ms-flig8.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/twilio-fig17.png" alt=""><figcaption></figcaption></figure>
 
 Now you can follow the article to [Configuring inbound and outbound calls.](configuring-outbound-and-inbound-calls.md)
 
