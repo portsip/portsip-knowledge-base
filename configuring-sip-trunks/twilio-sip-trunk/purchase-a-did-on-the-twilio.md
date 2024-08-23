@@ -10,5 +10,8 @@ To purchase a DID on your Twilio account:
 
 <figure><img src="../../.gitbook/assets/twilio-fig2.png" alt=""><figcaption></figcaption></figure>
 
-After purchasing the DID, you can follow the guide [Configuring Twilio Register Based Trunk](configuring-twilio-register-based-trunk.md) to configure the trunk with PortSIP PBX.
+After purchasing the DID, you can follow the below guides to configure the Twilio trunk with PortSIP PBX.
+
+* [Configuring Twilio Register Based Trunk](configuring-twilio-register-based-trunk.md)
+* [Configuring Twilio Interconnect Trunk](configuring-twilio-interconnect-trunk.md)
 
