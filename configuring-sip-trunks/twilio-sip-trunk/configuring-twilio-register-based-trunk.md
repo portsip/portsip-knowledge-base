@@ -58,7 +58,7 @@ This will originate SIP Traffic from the Twilio US2 (Oregon) data center to your
 1. On the left side of the screen under **Phone Numbers > Manage > Active Numbers**.
 2. Click a number that you want to assign to your trunk.
 3. In the new page under the **Voice Configuration** section, choose SIP Trunk for Configure with, and choose the trunk that you want to assign the number.
-4. Click the Save Configuration, that number is now associated with your SIP Trunk.
+4. Click the **Save Configuration**, that number is now associated with your SIP Trunk.
 
 <figure><img src="../../.gitbook/assets/twilio-fig10.png" alt=""><figcaption></figcaption></figure>
 
