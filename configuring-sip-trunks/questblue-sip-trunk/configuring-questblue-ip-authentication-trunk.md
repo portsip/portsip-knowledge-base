@@ -6,46 +6,34 @@ Before proceeding with the next steps, you need to [purchase a DID on the QuestB
 
 To create a new SIP trunk on the QuestBlue platform:
 
-1. Select **Trunks** under **Numbers & trunks** in the top menu
-2. Click the **Create new** button
-3. Select **IP Authentication** under the **Authentication method**
-4. Enter your PortSIP PBX static IP and click **Submit**
-5. Click **Save** to apply changes
+1. Select **Trunks** under **SIP Trunks** in the left menu
+2. Click the **Add Trunk** button
+3. Enter a friendly name for the trunk
+4. Select **Static IP Trunk** for the **Trunk Type** field
+5. Choose an appropriate location for the **Trunk Region**
+6. Set an appropriate value for the **Max Channels**
+7. Enter your PortSIP PBX static IP for the **IP Address** field and click **Create Trunk**
 
-<figure><img src="../../.gitbook/assets/wavix-fig12.png" alt="" width="563"><figcaption></figcaption></figure>
-
-Once the Wavix ops team approves your request, IP authentication will be activated on your Wavix SIP trunk.
-
-{% hint style="info" %}
-After submitting the IP authentication request, you’ll not be able to update your IP address or change the authentication method.
-{% endhint %}
-
-{% hint style="info" %}
-By default, an IP address can only be mapped to a single SIP trunk. If you need to have several Wavix SIP trunks sharing the same IP address, please get in touch with support@wavix.com
-{% endhint %}
+<figure><img src="../../.gitbook/assets/questblue-fig2.png" alt=""><figcaption></figcaption></figure>
 
 After the SIP trunk is successfully created, it will appear on the list of SIP trunks on your account.
 
-<figure><img src="../../.gitbook/assets/wavix-fig20.png" alt=""><figcaption></figcaption></figure>
-
-{% hint style="info" %}
-For security reasons, all new Wavix accounts can place only 2 simultaneous calls. In case you’d like to adjust the limit, reach out to your account manager or email support@wavix.com
-{% endhint %}
+<figure><img src="../../.gitbook/assets/questblue-fig3.png" alt=""><figcaption></figcaption></figure>
 
 ## Configure IP Authentication Trunk in PortSIP PBX
 
-The IP Authentication Wavix trunk refers to the **IP Based Trunk** in PortSIP PBX. You must configure the **IP Based Trunk** at the PortSIP PBX system administrator level. Once successfully configured, you can share this trunk with tenants.
+The IP Authentication QuestBlue trunk refers to the **IP Based Trunk** in PortSIP PBX. You must configure the **IP Based Trunk** at the PortSIP PBX system administrator level. Once successfully configured, you can share this trunk with tenants.
 
 Please follow the below steps:
 
 1. Sign in to the PortSIP PBX Web Portal as a System Administrator. Navigate to the left menu and select **Call Manager > Trunks**.&#x20;
 2. Click the **Add** button to open a menu. From the menu, choose **IP Based Trunk**.
 
-<figure><img src="../../.gitbook/assets/wavix-fig13.png" alt="" width="563"><figcaption><p>Configure Wavix Trunk in PortSIP PBX</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/wavix-fig13.png" alt="" width="563"><figcaption><p>Configure QuestBlue Trunk in PortSIP PBX</p></figcaption></figure>
 
 3. Enter the trunk name and choose the brand:
    * **Name**: Enter a friendly name for the trunk.
-   * **Brand**: Select one of the Wavix trunks which near your location from the Brand field, such as **Wavix - US**.
+   * **Brand**: Select QuestBlue from the Brand field
 
 <figure><img src="../../.gitbook/assets/wavix-fig15.png" alt="" width="563"><figcaption></figcaption></figure>
 
