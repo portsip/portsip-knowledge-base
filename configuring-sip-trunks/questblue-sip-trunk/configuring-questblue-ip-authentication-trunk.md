@@ -10,7 +10,7 @@ To create a new SIP trunk on the QuestBlue platform:
 2. Click the **Add Trunk** button
 3. Enter a friendly name for the trunk
 4. Select **Static IP Trunk** for the **Trunk Type** field
-5. Choose an appropriate location for the **Trunk Region**
+5. Choose an appropriate location for the **Trunk Region**, and note down the SBC domain, for example, `sbc.questblue.com`.
 6. Set an appropriate value for the **Max Channels**
 7. Enter your PortSIP PBX static IP for the **IP Address** field and click **Create Trunk**
 
@@ -20,9 +20,20 @@ After the SIP trunk is successfully created, it will appear on the list of SIP t
 
 <figure><img src="../../.gitbook/assets/questblue-fig3.png" alt=""><figcaption></figcaption></figure>
 
+## Assign DID to a SIP Trunk
+
+To assign the DID to a SIP trunk, please follow the below steps:&#x20;
+
+1. Navigate to the menu **Telphone Numbers > Telphone Numbers**, you can see all active DIDs.
+2. Click the pen icon next to a DID. In the popup window, select the desired trunk from the Trunk combo box to assign the DID to it.
+3. Click **Submit** to save changes.
+4. You can repeat the above steps to assign more DIDs.
+
 ## Configure IP Authentication Trunk in PortSIP PBX
 
-The IP Authentication QuestBlue trunk refers to the **IP Based Trunk** in PortSIP PBX. You must configure the **IP Based Trunk** at the PortSIP PBX system administrator level. Once successfully configured, you can share this trunk with tenants.
+The IP Authentication QuestBlue trunk refers to the **IP Based Trunk** in PortSIP PBX.&#x20;
+
+You must configure the **IP Based Trunk** at the PortSIP PBX system administrator level. Once successfully configured, you can share this trunk with tenants.
 
 Please follow the below steps:
 
@@ -33,7 +44,8 @@ Please follow the below steps:
 
 3. Enter the trunk name and choose the brand:
    * **Name**: Enter a friendly name for the trunk.
-   * **Brand**: Select QuestBlue from the Brand field
+   * **Brand**: Select **QuestBlue** from the Brand field
+   * Hostname or IP address: Enter the QuestBlue SBC domain that is noted above [Create a SIP Trunk on the QuestBlue](configuring-questblue-ip-authentication-trunk.md#create-a-sip-trunk-on-the-questblue-platform), for example, `sbc.questblue.com`.
 
 <figure><img src="../../.gitbook/assets/wavix-fig15.png" alt="" width="563"><figcaption></figcaption></figure>
 
@@ -41,7 +53,7 @@ Please follow the below steps:
 
 <figure><img src="../../.gitbook/assets/wavix-fig16.png" alt=""><figcaption></figcaption></figure>
 
-5. Click the **Next** button to assign this trunk to the tenants and provide your Wavix DIDs/Numbers to them with the DID Pool (DID numbers).  A DID can be only assigned to one tenant.
+5. Click the **Next** button to assign this trunk to the tenants and provide your QuestBlue DIDs/Numbers to them with the DID Pool (DID numbers).  A DID can be only assigned to one tenant.
 
 A tenant assigned to this trunk can only use the DID numbers within the DID pool range to create inbound and outbound rules and configure the outbound caller ID for extensions.
 

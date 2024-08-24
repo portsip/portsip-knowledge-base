@@ -30,7 +30,9 @@ Please be advised that your 5-digit SIP trunk username is generated automaticall
 
 ## Configure Digest Trunk in PortSIP PBX
 
-The Digest Wavix trunk refers to the **Register Based Trunk** in PortSIP PBX. You can configure the Register Based Trunk at either the PortSIP PBX **system administrator level** or the **Tenant Admin level**:
+The Digest Wavix trunk refers to the **Register Based Trunk** in PortSIP PBX.&#x20;
+
+You can configure the Register Based Trunk at either the PortSIP PBX **system administrator level** or the **Tenant Admin level**:
 
 * If configured at the system administrator level, you can share this trunk with tenants.
 * If configured at the tenant admin level, this trunk can only be used by the tenant itself

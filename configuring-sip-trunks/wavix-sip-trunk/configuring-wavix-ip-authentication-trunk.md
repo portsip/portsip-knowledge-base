@@ -34,7 +34,9 @@ For security reasons, all new Wavix accounts can place only 2 simultaneous calls
 
 ## Configure IP Authentication Trunk in PortSIP PBX
 
-The IP Authentication Wavix trunk refers to the **IP Based Trunk** in PortSIP PBX. You must configure the **IP Based Trunk** at the PortSIP PBX system administrator level. Once successfully configured, you can share this trunk with tenants.
+The IP Authentication Wavix trunk refers to the **IP Based Trunk** in PortSIP PBX.&#x20;
+
+You must configure the **IP Based Trunk** at the PortSIP PBX system administrator level. Once successfully configured, you can share this trunk with tenants.
 
 Please follow the below steps:
 

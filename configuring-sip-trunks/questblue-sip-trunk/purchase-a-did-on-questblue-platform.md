@@ -13,6 +13,6 @@ To purchase a DID on your QuestBlue account:
 
 After purchasing the DID, you can follow one of the guides to configure the trunk with PortSIP PBX.
 
-* Configuring QuestBlue IP Authentication Trunk
-* Configuring QuestBlue Register AuthenticationTrunk
+* [Configuring QuestBlue IP Authentication Trunk](configuring-questblue-ip-authentication-trunk.md)
+* [Configuring QuestBlue Register AuthenticationTrunk](configuring-questblue-register-authentication-trunk.md)
 
