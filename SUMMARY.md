@@ -51,7 +51,7 @@
   * [QuestBlue SIP Trunk](configuring-sip-trunks/questblue-sip-trunk/README.md)
     * [Purchase a DID on QuestBlue Platform](configuring-sip-trunks/questblue-sip-trunk/purchase-a-did-on-questblue-platform.md)
     * [Configuring QuestBlue IP Authentication Trunk](configuring-sip-trunks/questblue-sip-trunk/configuring-questblue-ip-authentication-trunk.md)
-    * [Configuring QuestBlue Authentication Trunk](configuring-sip-trunks/questblue-sip-trunk/configuring-questblue-authentication-trunk.md)
+    * [Configuring QuestBlue Register Authentication Trunk](configuring-sip-trunks/questblue-sip-trunk/configuring-questblue-register-authentication-trunk.md)
     * [Configuring Outbound & Inbound Calls](configuring-sip-trunks/questblue-sip-trunk/configuring-outbound-and-inbound-calls.md)
 * [PortSIP PBX Administration Guide](portsip-pbx-administration-guide/README.md)
   * [PortSIP PBX Features](portsip-pbx-administration-guide/portsip-pbx-features.md)
