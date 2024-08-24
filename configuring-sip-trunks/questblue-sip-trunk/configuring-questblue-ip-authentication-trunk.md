@@ -10,7 +10,7 @@ To create a new SIP trunk on the QuestBlue platform:
 2. Click the **Add Trunk** button
 3. Enter a friendly name for the trunk
 4. Select **Static IP Trunk** for the **Trunk Type** field
-5. Choose an appropriate location for the **Trunk Region**, and note down the SBC domain, for example, `sbc.questblue.com`.
+5. Choose an appropriate location for the **Trunk Region**, and note down the SBC domain, the QuestBlue recommends `sbc.questblue.com`.
 6. Set an appropriate value for the **Max Channels**
 7. Enter your PortSIP PBX static IP for the **IP Address** field and click **Create Trunk**
 
@@ -47,13 +47,13 @@ Please follow the below steps:
    * **Brand**: Select **QuestBlue** from the Brand field
    * Hostname or IP address: Enter the QuestBlue SBC domain that is noted above [Create a SIP Trunk on the QuestBlue](configuring-questblue-ip-authentication-trunk.md#create-a-sip-trunk-on-the-questblue-platform), for example, `sbc.questblue.com`.
 
-<figure><img src="../../.gitbook/assets/wavix-fig15.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/questblue-fig12.png" alt=""><figcaption></figcaption></figure>
 
 4. Click the **Next** button, you can adjust the options for the trunk.
    * &#x20;**Max Concurrent Calls:** This field sets the maximum number of calls that PortSIP can establish with this trunk. You can adjust it to an appropriate value.
    * We recommend keeping the default settings for other options unless you have specific requirements.
 
-<figure><img src="../../.gitbook/assets/registration-trunk-options.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ip-trunk-options.png" alt=""><figcaption></figcaption></figure>
 
 5. Click the **Next** button to assign this trunk to the tenants and provide your QuestBlue DIDs/Numbers to them with the DID Pool (DID numbers).  A DID can be only assigned to one tenant.
 
@@ -71,7 +71,6 @@ Click the **OK** button to save the changes. The trunk configuration is now comp
 
 In the trunk list, you will see the status displayed as **Registered** (for IP Based Trunk it always displays Registered).
 
-<figure><img src="../../.gitbook/assets/wavix-fig19.png" alt=""><figcaption></figcaption></figure>
-
 Now you can follow the article to [Configuring inbound and outbound calls.](configuring-outbound-and-inbound-calls.md)
 
+<figure><img src="../../.gitbook/assets/questblue-fig13.png" alt=""><figcaption></figcaption></figure>

@@ -60,7 +60,7 @@ Please follow the below steps:
        * `16468097065-16468097066;16468097069`&#x20;
        * `16468097065-16468097066;16468097070-16468097080`
 
-<figure><img src="../../.gitbook/assets/wavix-fig14.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/questblue-fig14.png" alt=""><figcaption></figcaption></figure>
 
 4. Click the **Next** button, and set up the trunk credentials.
    * Authentication name: Enter the QuestBlue trunk name that you specified in [Create a SIP Trunk on the QuestBlue Platform](configuring-questblue-register-authentication-trunk.md#create-a-sip-trunk-on-the-questblue-platform), in this case, **portsipRegUser**.
@@ -88,7 +88,7 @@ Click the **OK** button to save the changes, the trunk configuration is complete
 
 Once the PortSIP PBX successfully registers this trunk to the QuestBlue platform, in the trunk list page you will see the status displayed as **Registered**.
 
-<figure><img src="../../.gitbook/assets/wavix-fig19.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/questblue-fig13.png" alt=""><figcaption></figcaption></figure>
 
 Now you can follow the article to [Configuring inbound and outbound calls.](configuring-outbound-and-inbound-calls.md)
 

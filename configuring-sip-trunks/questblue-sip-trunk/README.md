@@ -10,8 +10,8 @@ PortSIP PBX integrated the QuestBlue SIP trunking that allows you to set up easi
 
 This article includes the following topics:
 
-* Purchase a DID on QuestBlue Platform
-* Configuring QuestBlue IP Authentication Trunk
-* Configuring QuestBlue Register AuthenticationTrunk
-* Configuring Outbound & Inbound Calls
+* [Purchase a DID on QuestBlue Platform](purchase-a-did-on-questblue-platform.md)
+* [Configuring QuestBlue IP Authentication Trunk](configuring-questblue-ip-authentication-trunk.md)
+* [Configuring QuestBlue Register AuthenticationTrunk](configuring-questblue-register-authentication-trunk.md)
+* [Configuring Outbound & Inbound Calls](configuring-outbound-and-inbound-calls.md)
 
