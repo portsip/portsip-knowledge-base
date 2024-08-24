@@ -51,9 +51,11 @@ Please follow the below steps:
 
 <figure><img src="../../.gitbook/assets/wavix-fig15.png" alt="" width="563"><figcaption></figcaption></figure>
 
-4. Click the **Next** button to adjust the options for the trunk. We recommend using the default settings, except for the **Max Concurrent Calls** field. This field limits the maximum number of calls that PortSIP can establish with this trunk. You can change it to an appropriate value.
+4. Click the **Next** button, you can adjust the options for the trunk.
+   * &#x20;**Max Concurrent Calls:** This field sets the maximum number of calls that PortSIP can establish with this trunk. You can adjust it to an appropriate value.
+   * We recommend keeping the default settings for other options unless you have specific requirements.
 
-<figure><img src="../../.gitbook/assets/wavix-fig16.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/registration-trunk-options.png" alt=""><figcaption></figcaption></figure>
 
 5. Click the **Next** button to assign this trunk to the tenants and provide your Wavix DIDs/Numbers to them with the DID Pool (DID numbers).  A DID can be only assigned to one tenant.
 

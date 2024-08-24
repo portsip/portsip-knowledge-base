@@ -100,8 +100,8 @@ Please follow the below steps:
 
 6. Click the **Next** button, you can adjust the options for the trunk.
    * You must turn off the **Need Registration** option since Twilio trunk doesn't accept the REGISTER message.
-   * **Max Concurrent Calls,** this field is limited to the maximum calls that PortSIP established with this trunk, you can change it to an appropriate value.
-   * We recommend using the default settings&#x20;
+   * **Max Concurrent Calls:** This field sets the maximum number of calls that PortSIP can establish with this trunk. You can adjust it to an appropriate value.
+   * We recommend keeping the default settings for other options unless you have specific requirements.
 
 <figure><img src="../../.gitbook/assets/twilio-fig13.png" alt=""><figcaption></figcaption></figure>
 

@@ -25,7 +25,7 @@ After the SIP trunk is successfully created, it will appear on the list of SIP t
 To assign the DID to a SIP trunk, please follow the below steps:&#x20;
 
 1. Navigate to the menu **Telphone Numbers > Telphone Numbers**, you can see all active DIDs.
-2. Click the pen icon next to a DID. In the popup window, select the desired trunk from the Trunk combo box to assign the DID to it.
+2. Click the **pen icon** next to a DID. In the popup window, select the desired trunk from the **Trunk** field combo box to assign the DID to it.
 3. Click **Submit** to save changes.
 4. You can repeat the above steps to assign more DIDs.
 
@@ -49,9 +49,11 @@ Please follow the below steps:
 
 <figure><img src="../../.gitbook/assets/wavix-fig15.png" alt="" width="563"><figcaption></figcaption></figure>
 
-4. Click the **Next** button to adjust the options for the trunk. We recommend using the default settings, except for the **Max Concurrent Calls** field. This field limits the maximum number of calls that PortSIP can establish with this trunk. You can change it to an appropriate value.
+4. Click the **Next** button, you can adjust the options for the trunk.
+   * &#x20;**Max Concurrent Calls:** This field sets the maximum number of calls that PortSIP can establish with this trunk. You can adjust it to an appropriate value.
+   * We recommend keeping the default settings for other options unless you have specific requirements.
 
-<figure><img src="../../.gitbook/assets/wavix-fig16.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/registration-trunk-options.png" alt=""><figcaption></figcaption></figure>
 
 5. Click the **Next** button to assign this trunk to the tenants and provide your QuestBlue DIDs/Numbers to them with the DID Pool (DID numbers).  A DID can be only assigned to one tenant.
 

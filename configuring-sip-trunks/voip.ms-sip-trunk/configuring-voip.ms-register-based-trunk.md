@@ -36,7 +36,7 @@ In order to be able to register and operate the trunk in your PortSIP PBX, you w
 
 <figure><img src="../../.gitbook/assets/voip.ms-fig5.png" alt=""><figcaption></figcaption></figure>
 
-## Configuring the Trunk with PortSIP PBX
+## Configuring Trunk with PortSIP PBX
 
 The Register Based VoIP.ms trunk refers to the **Register Based Trunk** in PortSIP PBX. You can configure the Register Based Trunk at either the PortSIP PBX **system administrator level** or the **Tenant Admin level**:
 
@@ -69,9 +69,11 @@ Please follow the below steps:
 
 <figure><img src="../../.gitbook/assets/wavix-fig18.png" alt=""><figcaption></figcaption></figure>
 
-7. Click the **Next** button, you can adjust the options for the trunk, we recommend using the default settings except for the **Max Concurrent Calls,** this field is limited to the maximum calls that PortSIP established with this trunk, you can change it to an appropriate value.
+7. Click the **Next** button, you can adjust the options for the trunk.
+   * &#x20;**Max Concurrent Calls:** This field sets the maximum number of calls that PortSIP can establish with this trunk. You can adjust it to an appropriate value.
+   * We recommend keeping the default settings for other options unless you have specific requirements.
 
-<figure><img src="../../.gitbook/assets/wavix-fig16.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/registration-trunk-options.png" alt=""><figcaption></figcaption></figure>
 
 8. This step is only available when configuring the Register-Based Trunk at the _**System Administrator Level**_. Click the **Next** button to assign this trunk to the tenants and provide your VoIP.MS DIDs/Numbers to them with the DID Pool (DID numbers).  A DID can be only assigned to one tenant.
 
