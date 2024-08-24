@@ -10,8 +10,8 @@ PortSIP PBX integrated the QuestBlue SIP trunking for calls and SMS/MMS that all
 
 This article includes the following topics:
 
-* [Purchase a DID on Voxtelesys Platform](purchase-a-did-on-voxtelesys-platform.md)
-* [Configuring Voxtelesys IP Authentication Trunk](configuring-voxtelesys-ip-authentication-trunk.md)
-* [Configuring Voxtelesys Register AuthenticationTrunk](configuring-voxtelesys-register-authentication-trunk.md)
+* [Purchase a DID on Voxtelesys Platform](purchase-a-did-on-questblue-platform.md)
+* [Configuring Voxtelesys IP Authentication Trunk](configuring-questblue-ip-authentication-trunk.md)
+* [Configuring Voxtelesys Register AuthenticationTrunk](configuring-questblue-register-authentication-trunk.md)
 * [Configuring Outbound & Inbound Calls](configuring-outbound-and-inbound-calls.md)
 

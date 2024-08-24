@@ -1,4 +1,4 @@
-# Purchase a DID on QuestBlue Platform
+# Purchase a DID on Voxtelesys Platform
 
 Before placing or receiving a call, you need to have an active DID or a dozen DID numbers on your QuestBlue account. If you already have an active number on your QuestBlue account, the below steps are optional.
 
