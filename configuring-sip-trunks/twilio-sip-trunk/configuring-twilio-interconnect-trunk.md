@@ -122,11 +122,12 @@ Please follow the below steps:
 
 <figure><img src="../../.gitbook/assets/twilio-fig12.png" alt=""><figcaption></figcaption></figure>
 
-6. Click the **Next** button, you can adjust the options for the trunk, you must turn off the **Need Registration** option since Twilio trunk doesn't accept the REGISTER message.
+6. Click the **Next** button, you can adjust the options for the trunk.
+   * You must turn off the **Need Registration** option since Twilio trunk doesn't accept the REGISTER message.
+   * **Max Concurrent Calls,** this field is limited to the maximum calls that PortSIP established with this trunk, you can change it to an appropriate value.
+   * We recommend using the default settings&#x20;
 
 <figure><img src="../../.gitbook/assets/twilio-fig13.png" alt=""><figcaption></figcaption></figure>
-
-We recommend using the default settings except for the **Max Concurrent Calls,** this field is limited to the maximum calls that PortSIP established with this trunk, you can change it to an appropriate value.
 
 7. This step is only available when configuring the Register-Based Trunk at the _**System Administrator Level**_. Click the **Next** button to assign this trunk to the tenants and provide your Twilio DIDs/Numbers to them with the DID Pool (DID numbers).  A DID can be only assigned to one tenant.
    * A tenant assigned to this trunk can only use the DID numbers within the DID pool range to create inbound and outbound rules and configure the outbound caller ID for extensions.
