@@ -1,4 +1,4 @@
-# Configuring QuestBlue Register Authentication Trunk
+# Configuring Voxtelesys Register Authentication Trunk
 
 Before proceeding with the next steps, you need to [purchase a DID on the QuestBlue platform](../questblue-sip-trunk/purchase-a-did-on-questblue-platform.md).
 
@@ -63,8 +63,8 @@ Please follow the below steps:
 <figure><img src="../../.gitbook/assets/wavix-fig14.png" alt=""><figcaption></figcaption></figure>
 
 4. Click the **Next** button, and set up the trunk credentials.
-   * Authentication name: Enter the QuestBlue trunk name that you specified in [Create a SIP Trunk on the QuestBlue Platform](configuring-questblue-register-authentication-trunk.md#create-a-sip-trunk-on-the-questblue-platform), in this case, **portsipRegUser**.
-   * Password: The password you noted in the [Retrieve Trunk Password.](configuring-questblue-register-authentication-trunk.md#retrieve-trunk-password)
+   * Authentication name: Enter the QuestBlue trunk name that you specified in [Create a SIP Trunk on the QuestBlue Platform](configuring-voxtelesys-register-authentication-trunk.md#create-a-sip-trunk-on-the-questblue-platform), in this case, **portsipRegUser**.
+   * Password: The password you noted in the [Retrieve Trunk Password.](configuring-voxtelesys-register-authentication-trunk.md#retrieve-trunk-password)
 
 <figure><img src="../../.gitbook/assets/questblue-fig7.png" alt=""><figcaption></figcaption></figure>
 

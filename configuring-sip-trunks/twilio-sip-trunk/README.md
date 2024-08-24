@@ -14,7 +14,7 @@ Twilio’s Elastic SIP Trunking is effectively a "pipe" that connects an enterpr
 
 
 
-PortSIP PBX integrated the VoIP SIP trunking, allowing you to set up easily.
+PortSIP PBX integrated the VoIP SIP trunking for calls and SMS/MMS that allows you to set up easily.
 
 This article includes the following topics:
 
