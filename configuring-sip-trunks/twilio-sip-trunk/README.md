@@ -22,4 +22,5 @@ This article includes the following topics:
 * [Configuring Twilio Register Based Trunk](configuring-twilio-register-based-trunk.md)
 * [Configuring Twilio Interconnect Trunk](configuring-twilio-interconnect-trunk.md)
 * [Configuring Outbound & Inbound Calls](configuring-outbound-and-inbound-calls.md)
+* [Twilio SMS Integration](twilio-sms-integration.md)
 

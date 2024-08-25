@@ -39,6 +39,7 @@
     * [Configuring Twilio Register Based Trunk](configuring-sip-trunks/twilio-sip-trunk/configuring-twilio-register-based-trunk.md)
     * [Configuring Twilio Interconnect Trunk](configuring-sip-trunks/twilio-sip-trunk/configuring-twilio-interconnect-trunk.md)
     * [Configuring Outbound & Inbound Calls](configuring-sip-trunks/twilio-sip-trunk/configuring-outbound-and-inbound-calls.md)
+    * [Twilio SMS Integration](configuring-sip-trunks/twilio-sip-trunk/twilio-sms-integration.md)
   * [Wavix SIP Trunk](configuring-sip-trunks/wavix-sip-trunk/README.md)
     * [Purchase a DID on Wavix Platform](configuring-sip-trunks/wavix-sip-trunk/purchase-a-did-on-wavix-platform.md)
     * [Configuring Wavix IP Authentication Trunk](configuring-sip-trunks/wavix-sip-trunk/configuring-wavix-ip-authentication-trunk.md)
