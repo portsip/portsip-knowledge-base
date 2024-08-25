@@ -93,7 +93,7 @@ Please follow the below steps:
 
 <figure><img src="../../.gitbook/assets/wafix-fig34.png" alt="" width="563"><figcaption></figcaption></figure>
 
-## Verify configuration
+## Verify Configuration
 
 Now you can [create the outbound and inbound rules](configuring-outbound-and-inbound-calls.md) in PortSIP PBX for sending and receiving SMS/MMS using the Wavix Trunk, just like you create the rules for making and receiving calls.
 
