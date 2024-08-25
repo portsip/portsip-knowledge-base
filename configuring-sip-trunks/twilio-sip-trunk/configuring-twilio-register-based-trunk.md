@@ -121,5 +121,12 @@ Since the Twilio trunk is turned off the **Need Registration** option, in the tr
 
 <figure><img src="../../.gitbook/assets/twilio-fig16.png" alt=""><figcaption></figcaption></figure>
 
+For more details please check:
+
+* [Twilio Interconnect](https://www.twilio.com/en-us/interconnect)
+* [Interconnect](https://www.twilio.com/docs/interconnect)
+* [Configure your Trunk using Twilio Interconnect](https://www.twilio.com/docs/sip-trunking/configure-with-interconnect)
+* T[wilio Elastic Trunking](https://www.twilio.com/docs/sip-trunking)
+
 Now you can follow the article to [Configuring inbound and outbound calls.](configuring-outbound-and-inbound-calls.md)
 

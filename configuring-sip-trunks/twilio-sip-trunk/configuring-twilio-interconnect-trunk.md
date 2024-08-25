@@ -11,6 +11,7 @@ For more details please check:
 * [Twilio Interconnect](https://www.twilio.com/en-us/interconnect)
 * [Interconnect](https://www.twilio.com/docs/interconnect)
 * [Configure your Trunk using Twilio Interconnect](https://www.twilio.com/docs/sip-trunking/configure-with-interconnect)
+* T[wilio Elastic Trunking](https://www.twilio.com/docs/sip-trunking)
 
 ### Choose the product that is right for you <a href="#choose-the-product-that-is-right-for-you" id="choose-the-product-that-is-right-for-you"></a>
 
