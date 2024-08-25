@@ -1,6 +1,6 @@
-# Configuring QuestBlue Register Authentication Trunk
+# Configuring Telnyx Register Authentication Trunk
 
-Before proceeding with the next steps, you need to [purchase a DID on the QuestBlue platform](purchase-a-did-on-questblue-platform.md).
+Before proceeding with the next steps, you need to [purchase a DID on the Telnyx platform](purchase-a-did-on-telnyx-platform.md).
 
 ## Create a SIP Trunk on the QuestBlue platform
 
@@ -63,8 +63,8 @@ Please follow the below steps:
 <figure><img src="../../.gitbook/assets/questblue-fig14.png" alt=""><figcaption></figcaption></figure>
 
 4. Click the **Next** button, and set up the trunk credentials.
-   * Authentication name: Enter the QuestBlue trunk name that you specified in [Create a SIP Trunk on the QuestBlue Platform](configuring-questblue-register-authentication-trunk.md#create-a-sip-trunk-on-the-questblue-platform), in this case, **portsipRegUser**.
-   * Password: The password you noted in the [Retrieve Trunk Password.](configuring-questblue-register-authentication-trunk.md#retrieve-trunk-password)
+   * Authentication name: Enter the QuestBlue trunk name that you specified in [Create a SIP Trunk on the QuestBlue Platform](configuring-telnyx-register-authentication-trunk.md#create-a-sip-trunk-on-the-questblue-platform), in this case, **portsipRegUser**.
+   * Password: The password you noted in the [Retrieve Trunk Password.](configuring-telnyx-register-authentication-trunk.md#retrieve-trunk-password)
 
 <figure><img src="../../.gitbook/assets/questblue-fig7.png" alt=""><figcaption></figcaption></figure>
 
@@ -90,5 +90,5 @@ Once the PortSIP PBX successfully registers this trunk to the QuestBlue platform
 
 <figure><img src="../../.gitbook/assets/questblue-fig13.png" alt=""><figcaption></figcaption></figure>
 
-Now you can follow the article to [Configuring inbound and outbound calls.](configuring-outbound-and-inbound-calls.md)
+Now you can follow the article to [Configuring Outbound & Inbound Calls](configuring-outbound-and-inbound-calls.md).
 

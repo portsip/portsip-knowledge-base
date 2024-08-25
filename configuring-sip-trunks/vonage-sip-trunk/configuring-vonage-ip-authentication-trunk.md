@@ -1,6 +1,6 @@
-# Configuring QuestBlue IP Authentication Trunk
+# Configuring Vonage IP Authentication Trunk
 
-Before proceeding with the next steps, you need to [purchase a DID on the QuestBlue platform](purchase-a-did-on-questblue-platform.md).
+Before proceeding with the next steps, you need to [purchase a DID on the Telnyx platform](../telnyx-sip-trunk/purchase-a-did-on-telnyx-platform.md).
 
 ## Create a SIP Trunk on the QuestBlue platform
 
@@ -45,7 +45,7 @@ Please follow the below steps:
 3. Enter the trunk name and choose the brand:
    * **Name**: Enter a friendly name for the trunk.
    * **Brand**: Select **QuestBlue** from the Brand field
-   * Hostname or IP address: Enter the QuestBlue SBC domain that is noted above [Create a SIP Trunk on the QuestBlue](configuring-questblue-ip-authentication-trunk.md#create-a-sip-trunk-on-the-questblue-platform), for example, `sbc.questblue.com`.
+   * Hostname or IP address: Enter the QuestBlue SBC domain that is noted above [Create a SIP Trunk on the QuestBlue](configuring-vonage-ip-authentication-trunk.md#create-a-sip-trunk-on-the-questblue-platform), for example, `sbc.questblue.com`.
 
 <figure><img src="../../.gitbook/assets/questblue-fig12.png" alt=""><figcaption></figcaption></figure>
 
@@ -73,5 +73,5 @@ In the trunk list, you will see the status displayed as **Registered** (for IP B
 
 <figure><img src="../../.gitbook/assets/questblue-fig13.png" alt=""><figcaption></figcaption></figure>
 
-Now you can follow the article to [Configuring inbound and outbound calls.](configuring-outbound-and-inbound-calls.md)
+Now you can follow the article to [Configuring Outbound & Inbound Calls](configuring-outbound-and-inbound-calls.md).
 
