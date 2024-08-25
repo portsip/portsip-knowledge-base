@@ -49,6 +49,7 @@
     * [Purchase a DID on VoIP.ms](configuring-sip-trunks/voip.ms-sip-trunk/purchase-a-did-on-voip.ms.md)
     * [Configuring VoIP.ms Register Based Trunk](configuring-sip-trunks/voip.ms-sip-trunk/configuring-voip.ms-register-based-trunk.md)
     * [Configuring Outbound & Inbound Calls](configuring-sip-trunks/voip.ms-sip-trunk/configuring-outbound-and-inbound-calls.md)
+    * [VoIP.ms SMS Integration](configuring-sip-trunks/voip.ms-sip-trunk/voip.ms-sms-integration.md)
   * [Voxtelesys SIP Trunk](configuring-sip-trunks/voxtelesys-sip-trunk/README.md)
     * [Purchase a DID on Voxtelesys Platform](configuring-sip-trunks/voxtelesys-sip-trunk/purchase-a-did-on-questblue-platform.md)
     * [Configuring Voxtelesys IP Authentication Trunk](configuring-sip-trunks/voxtelesys-sip-trunk/configuring-questblue-ip-authentication-trunk.md)
