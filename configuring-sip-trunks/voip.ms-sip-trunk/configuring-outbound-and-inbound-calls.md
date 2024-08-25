@@ -4,9 +4,9 @@ You need to sign in to the PortSIP PBX web portal to create the outbound and inb
 
 ## Sign in PortSIP PBX Web Portal
 
-You can sign in the Web portal as the following ways:
+You can sign in to the PortSIP PBX Web portal using one of the following methods:
 
-1. Sin in as PBX system administrator, chose a tenant and click the Manage button to switch to that tenant.
+1. Sign in as the PBX system administrator, navigate to the **Tenants** menu, choose a tenant, and click the **Manage** button to switch to that tenant.
 2. Sign in as a tenant admin to manage the tenant.
 
 More details please reference [Tenant Management](../../portsip-pbx-administration-guide/3-tenant-management.md).

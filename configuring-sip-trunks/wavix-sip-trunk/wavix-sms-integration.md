@@ -14,7 +14,7 @@ Assume you have purchased DID phone numbers as per the guide on[Purchase a DID o
 
 The following step [SMS-enable your number](wavix-sms-integration.md#sms-enable-your-number) is mandatory only if you have purchased U.S. or Canadian numbers to send messages using a U.S. or Canadian phone number as the Sender ID.
 
-If you have purchased other countries' phone numbers and wish to use them as the Sender ID, please skip  [SMS-enable your number](wavix-sms-integration.md#sms-enable-your-number) and scroll down to the Create a Sender ID on the Wavix Platform section.
+If you have purchased other countries' phone numbers and wish to use them as the Sender ID, please skip  [SMS-enable your number](wavix-sms-integration.md#sms-enable-your-number) and scroll down to [Create a Sender ID on the Wavix Platform](wavix-sms-integration.md#create-a-sender-id-on-the-wavix-platform) section.
 
 ### SMS-enable your number
 
@@ -31,7 +31,7 @@ Inbound SMS can be enabled on US and Canadian phone numbers only. To activate su
 In case of any questions, please raise a ticket in the support tab or email [support@wavix.com](mailto:support@wavix.com)
 {% endhint %}
 
-## Create a Sender ID on the Wavix platform
+## Create a Sender ID on the Wavix Platform
 
 To create a Sender ID:
 
@@ -46,7 +46,7 @@ Alphanumeric Sender ID can be up to 11 characters long and can only include uppe
 If you have chosen the Numeric Sender ID type, but do not see any of your numbers in the Sender ID drop-down list, make sure the number you are looking for is actually SMS-enabled.
 {% endhint %}
 
-3. Select country(-ies) you will be sending SMS to. Depending on the destination countries, additional restrictions for Sender IDs may apply. Hover over the i icon next to the country name to see the details. If the Sender ID Type you’ve selected is not supported for the destination, the country will be greyed out.
+3. Select the country(-ies) you will be sending SMS to. Depending on the destination countries, additional restrictions for Sender IDs may apply. Hover over the i icon next to the country name to see the details. If the Sender ID Type you’ve selected is not supported for the destination, the country will be greyed out.
 
 {% hint style="info" %}
 Alphanumeric Sender IDs are not supported in a variety of countries, including the US and Canada, and may require pre-registration by local carriers in some others.
@@ -56,50 +56,44 @@ Alphanumeric Sender IDs are not supported in a variety of countries, including t
 
 4. Review your Sender ID and the list of destinations. Your Sender ID will be automatically listed in countries that do not require additional paperwork. A member of the Wavix provisioning team will reach out to you with additional information regarding the process of Sender ID registration in countries that do.
 
+## Configure SMS with Wavix Trunk in PortSIP PBX
 
+Before configuring SMS in PortSIP PBX, you must have already configured a Wavix SIP trunk using one of the following guides:
 
-## Configure IP Authentication Trunk in PortSIP PBX
+* [Configuring Wavix IP Authentication Trunk](configuring-wavix-ip-authentication-trunk.md)
+* [Configuring Wavix Digest Trunk](configuring-wavix-digest-trunk.md)
 
-The IP Authentication Wavix trunk refers to the **IP Based Trunk** in PortSIP PBX.&#x20;
+### Sign in PortSIP PBX Web Portal
 
-You must configure the **IP Based Trunk** at the PortSIP PBX system administrator level. Once successfully configured, you can share this trunk with tenants.
+You can sign in to the PortSIP PBX Web portal using one of the following methods:
+
+1. Sign in as the PBX system administrator, navigate to the **Tenants** menu, choose a tenant, and click the **Manage** button to switch to that tenant.
+2. Sign in as a tenant admin to manage the tenant.
+
+For more details please reference [Tenant Management](../../portsip-pbx-administration-guide/3-tenant-management.md).
+
+### Add an SMS configuration
 
 Please follow the below steps:
 
-1. Sign in to the PortSIP PBX Web Portal as a System Administrator. Navigate to the left menu and select **Call Manager > Trunks**.&#x20;
-2. Click the **Add** button to open a menu. From the menu, choose **IP Based Trunk**.
+1. In the [Wavix account](https://app.wavix.com/profile/api-keys), click the top menu Administration, click the **Create New** button to create an API key for the PortSIP PBX to send the SMS, and copy it. Or copy an existing API Key.
+2. In PortSIP PBX Web portal, navigate to the left menu, select **SMS/MMS**, and click the **Add** button.&#x20;
+3. Choose your configured Wavix Trunk:
+   * **Sender ID**: If you want to use the Sender ID that you created in the [Create a Sender ID on the Wavix Platform](wavix-sms-integration.md#create-a-sender-id-on-the-wavix-platform) section, please enter that Sender ID in this field. Otherwise, leave it empty, and the PortSIP PBX will use the DID number you configured for that Wavix trunk as the Sender ID.
+   * **API Key**: Paste your copied Wavix API key here.
 
-<figure><img src="../../.gitbook/assets/wavix-fig13.png" alt="" width="563"><figcaption><p>Configure Wavix Trunk in PortSIP PBX</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/wafix-fig32.png" alt=""><figcaption></figcaption></figure>
 
-3. Enter the trunk name and choose the brand:
-   * **Name**: Enter a friendly name for the trunk.
-   * **Brand**: Select one of the Wavix trunks which near your location from the Brand field, such as **Wavix - US**.
+4. Click **OK** to be brought to the SMS/MMS list page. You can select that SMS configuration and click the **Copy Webhook** button to copy it. Or Double-click the SMS configuration you created and copy the Webhook URL.
+5. In the [Wavix account](https://app.wavix.com/profile/api-keys), click on the **My account** icon in the top-right corner, then click **Default destinations** tab, paste the copied PortSIP PBX Webhook to **Inbound SMS webhook** field, and click **Save changes**.
 
-<figure><img src="../../.gitbook/assets/wavix-fig15.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/wafix-fig33.png" alt=""><figcaption></figcaption></figure>
 
-4. Click the **Next** button, you can adjust the options for the trunk.
-   * &#x20;**Max Concurrent Calls:** This field sets the maximum number of calls that PortSIP can establish with this trunk. You can adjust it to an appropriate value.
-   * We recommend keeping the default settings for other options unless you have specific requirements.
+6. You can also navigate to **Numbers & Trunks > My Numbers** in the [Wavix account](https://app.wavix.com/profile/api-keys),  select the number you want to edit, and paste the Webhook URL in the **Inbound SMS Endpoint** field.
 
-<figure><img src="../../.gitbook/assets/ip-trunk-options.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/wafix-fig34.png" alt="" width="563"><figcaption></figcaption></figure>
 
-5. Click the **Next** button to assign this trunk to the tenants and provide your Wavix DIDs/Numbers to them with the DID Pool (DID numbers).  A DID can be only assigned to one tenant.
+## Verify configuration
 
-A tenant assigned to this trunk can only use the DID numbers within the DID pool range to create inbound and outbound rules and configure the outbound caller ID for extensions.
-
-<figure><img src="../../.gitbook/assets/wavix-fig17.png" alt=""><figcaption></figcaption></figure>
-
-* DID Pool: The DID pool can consist of a single number, a range of numbers, or a combination of both. For example:
-  * `16468097065`
-  * `16468097065;16468097066`
-  * `16468097065-16468097066;16468097069`&#x20;
-  * `16468097065-16468097066;16468097070-16468097080`
-
-Click the **OK** button to save the changes. The trunk configuration is now complete.
-
-In the trunk list, you will see the status displayed as **Registered** (for IP Based Trunk it always displays Registered).
-
-<figure><img src="../../.gitbook/assets/wavix-fig19.png" alt=""><figcaption></figcaption></figure>
-
-Now you can follow the article to [Configuring inbound and outbound calls](configuring-outbound-and-inbound-calls.md).
+Now you can [create the outbound and inbound rules](configuring-outbound-and-inbound-calls.md) in PortSIP PBX for sending and receiving SMS/MMS using the Wavix Trunk, just like you create the rules for making and receiving calls.
 
