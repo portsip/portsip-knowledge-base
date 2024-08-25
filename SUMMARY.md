@@ -44,6 +44,7 @@
     * [Configuring Wavix IP Authentication Trunk](configuring-sip-trunks/wavix-sip-trunk/configuring-wavix-ip-authentication-trunk.md)
     * [Configuring Wavix Digest Trunk](configuring-sip-trunks/wavix-sip-trunk/configuring-wavix-digest-trunk.md)
     * [Configuring Outbound & Inbound Calls](configuring-sip-trunks/wavix-sip-trunk/configuring-outbound-and-inbound-calls.md)
+    * [Wavix SMS Integration](configuring-sip-trunks/wavix-sip-trunk/wavix-sms-integration.md)
   * [VoIP.ms SIP Trunk](configuring-sip-trunks/voip.ms-sip-trunk/README.md)
     * [Purchase a DID on VoIP.ms](configuring-sip-trunks/voip.ms-sip-trunk/purchase-a-did-on-voip.ms.md)
     * [Configuring VoIP.ms Register Based Trunk](configuring-sip-trunks/voip.ms-sip-trunk/configuring-voip.ms-register-based-trunk.md)

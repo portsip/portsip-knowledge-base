@@ -16,4 +16,5 @@ This article includes the following topics:
 * [Configuring Wavix IP Authentication Trunk](configuring-wavix-ip-authentication-trunk.md)
 * [Configuring Wavix Digest Trunk](configuring-wavix-digest-trunk.md)
 * [Configuring Outbound & Inbound Calls](configuring-outbound-and-inbound-calls.md)
+* [Wavix SMS Integration](wavix-sms-integration.md)
 
