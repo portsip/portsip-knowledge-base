@@ -41,7 +41,7 @@ In order to be able to register and operate the trunk in your PortSIP PBX, you w
 The Register Based VoIP.ms trunk refers to the **Register Based Trunk** in PortSIP PBX. You can configure the Register Based Trunk at either the PortSIP PBX **system administrator level** or the **Tenant Admin level**:
 
 * If configured at the system administrator level, you can share this trunk with tenants.
-* If configured at the tenant admin level, this trunk can only be used by the tenant itself
+* If configured at the tenant admin level, this trunk can only be used by the tenant itself.
 
 Please follow the below steps:
 

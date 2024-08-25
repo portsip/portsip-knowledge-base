@@ -71,7 +71,7 @@ The Register Based Twilio trunk refers to the **Register Based Trunk** in PortSI
 You can configure the Register Based Trunk at either the PortSIP PBX **system administrator level** or the **Tenant Admin level**:
 
 * If configured at the system administrator level, you can share this trunk with tenants.
-* If configured at the tenant admin level, this trunk can only be used by the tenant itself
+* If configured at the tenant admin level, this trunk can only be used by the tenant itself.
 
 Please follow the below steps:
 
