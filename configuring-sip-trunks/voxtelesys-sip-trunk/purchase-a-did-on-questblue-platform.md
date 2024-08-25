@@ -7,6 +7,8 @@ To purchase a DID on your Voxtelesys account:
 1. Log in to your account on the [Voxtelesys ](https://portal.voxtelesys.net/)platform
 2. Select the menu **Phone Numbers > Number Ordering**
 
+Note: You can also buy the DID by following this article on the Voxtelesys website: [Order/Add DIDs.](https://voxtelesys.com/tutorial/voxtelesys-portal-order-add-dids)
+
 ## **DID Search**
 
 Click the **DID Search** tab. DID Search allows you to lookup DID numbers using a variety of settings.
