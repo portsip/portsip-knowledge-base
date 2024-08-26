@@ -189,9 +189,11 @@ PortSIP PBX provides full REST API which means customers can easily integrate it
 
 In fact, the PortSIP PBX Web Portal is also built based on this REST API: [PortSIP PBX REST API](https://www.portsip.com/pbx-rest-api/v16/html/index.html).&#x20;
 
-## PortSIP VoIP SDK
+## Free PortSIP VoIP SDK for CPaaS
 
-PortSIP offers a VoIP SDK that can be used with PortSIP PBX to create modern UC apps. This award-winning SDK is used by many large companies such as T-Mobile, Nextiva, Qualcomm, Telstra, HPE, Siemens, Netflix, Agilent, and Dialogic: [PortSIP VoIP SDK](https://www.portsip.com/portsip-voip-sdk/).
+PortSIP offers a VoIP SDK that can be used with PortSIP PBX to create modern UC apps for iOS, Android, Windows, macOS, and WebRTC. It allows the service provider to operate the CPaaS easily.
+
+This award-winning SDK is used by many large companies such as T-Mobile, Nextiva, Qualcomm, Telstra, HPE, Siemens, Netflix, Agilent, and Dialogic: [PortSIP VoIP SDK](https://www.portsip.com/portsip-voip-sdk/).
 
 ## Push Notifications
 
