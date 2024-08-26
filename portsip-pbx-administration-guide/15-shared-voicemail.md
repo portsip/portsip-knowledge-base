@@ -24,7 +24,12 @@ For the below scenarios, we can redirect the call to a shared voicemail.
 
 ### Call Queue
 
-Redirect the unanswered queue call to a shared voicemail.
+Redirect the unanswered queue call to a shared voicemail:
+
+1. Click the **Destination if no answer** combo box and select **Forward to Number**.
+2. In the popup window, click the combo box and select **Shared Voicemail**. A list of currently shared voicemails will appear.
+3. Choose the shared voicemail you want the call to be redirected to.
+4. Click **OK**.
 
 <figure><img src="../.gitbook/assets/shared_vm_1.png" alt=""><figcaption></figcaption></figure>
 
@@ -32,11 +37,21 @@ Redirect the unanswered queue call to a shared voicemail.
 
 Redirect the unanswered ring group call to a shared voicemail.
 
+1. Click the **Destination if no answer** combo box and select **Forward to Number**.
+2. In the popup window, click the combo box and select **Shared Voicemail**. A list of currently shared voicemails will appear.
+3. Choose the shared voicemail you want the call to be redirected to.
+4. Click **OK**.
+
 <figure><img src="../.gitbook/assets/shared_vm_2.png" alt=""><figcaption></figcaption></figure>
 
 ### Virtual Receptionist
 
 Redirect the unanswered virtual receptionist call to a shared voicemail.
+
+1. Click the **Call Failed** combo box and select **Forward to Number**.
+2. In the popup window, click the combo box and select **Shared Voicemail**. A list of currently shared voicemails will appear.
+3. Choose the shared voicemail you want the call to be redirected to.
+4. Click **OK**.
 
 <figure><img src="../.gitbook/assets/shared_vm_3.png" alt=""><figcaption></figcaption></figure>
 
@@ -44,11 +59,21 @@ Redirect the unanswered virtual receptionist call to a shared voicemail.
 
 Redirect the call to a shared voicemail.
 
+1. Click the call forward destination combo box and select **Forward to Number**.
+2. In the popup window, click the combo box and select **Shared Voicemail**. A list of currently shared voicemails will appear.
+3. Choose the shared voicemail you want the call to be redirected to.
+4. Click **OK**.
+
 <figure><img src="../.gitbook/assets/shared_vm_4.png" alt=""><figcaption></figcaption></figure>
 
 ### Inbound Rule
 
 Redirect the inbound call to a shared voicemail.
+
+1. Click the call forward destination combo box and select **Forward to Number**.
+2. In the popup window, click the combo box and select **Shared Voicemail**. A list of currently shared voicemails will appear.
+3. Choose the shared voicemail you want the call to be redirected to.
+4. Click **OK**.
 
 <figure><img src="../.gitbook/assets/shared_vm_5.png" alt=""><figcaption></figcaption></figure>
 
