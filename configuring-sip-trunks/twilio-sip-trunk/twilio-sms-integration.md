@@ -10,12 +10,19 @@ If your business communicates with US-based customers, you should confirm the re
 
 ## Obtain the Twilio Account Info
 
-Login to the [Twilio Console](https://console.twilio.com/), and click the Account Dashboard, copy and note the **Account SID** and **Auth Token** in **Account Info** section.
+Login to the [Twilio Console](https://console.twilio.com/), and click the **Account Dashboard**, copy and note the **Account SID** and **Auth Token** in **Account Info** section.
 
-1. On the left side of the screen under **Phone Numbers > Manage > Active Numbers**.
-2. Click a number that you want to assign to your trunk.
-3. In the new page under the **Voice Configuration** section, choose SIP Trunk for Configure with, and choose the trunk that you want to assign the number.
-4. Click the **Save Configuration**, that number is now associated with your SIP Trunk.
+<figure><img src="../../.gitbook/assets/twilio-fig23.png" alt=""><figcaption></figcaption></figure>
+
+## Register a Sender ID
+
+An Alphanumeric Sender ID is your company name or brand used as the Sender ID in one-way SMS messages sent to [supported countries](https://help.twilio.com/hc/en-us/articles/223133767-International-support-for-Alphanumeric-Sender-ID). Alphanumeric Sender IDs may be up to 11 characters long. Accepted characters include both upper- and lower-case Ascii letters, the digits 0 through 9, and the space character. They may not be only numerals.
+
+If you want to enable the Sender ID, under Twilo [Console](https://www.twilio.com/console/phone-numbers/search), navigate to the menu **Develop > Phone Numbers > Alphanumeric Sender IDs**, and follow the instructions to register a Sender ID.
+
+For more details please check the article [Alphanumeric Sender ID](https://www.twilio.com/docs/glossary/what-alphanumeric-sender-id).
+
+<figure><img src="../../.gitbook/assets/twilio-fig26.png" alt=""><figcaption></figcaption></figure>
 
 ## Configure SMS with Twilio Trunk in PortSIP PBX
 
@@ -39,18 +46,18 @@ Please follow the below steps:
 
 1. In the PortSIP PBX Web portal, navigate to the left menu, select **SMS/MMS**, and click the **Add** button.&#x20;
 2. Choose your configured Twilio Trunk:
-   * **Sender ID**: If you want to send the SMS with a Sender ID, please follow this [guide ](https://www.twilio.com/docs/glossary/what-alphanumeric-sender-id)to create it., please enter that Sender ID in this field. Otherwise, leave it empty, and the PortSIP PBX will use the DID number you configured for that Twilio trunk as the Sender ID.
+   * **Sender ID**: If you want to send the SMS with a Sender ID, enter the Sender ID that you created in the [Register a Sender ID section](twilio-sms-integration.md#register-a-sender-id). You can leave it as empty.
    * **Account SID**: Paste your copied Twilio Account SID here.
    * **Auth Token**: Paste your copied Twilio Auth Token here.
 
 <figure><img src="../../.gitbook/assets/twilio-fig24.png" alt=""><figcaption></figcaption></figure>
 
-3. Click **OK** to be brought to the SMS/MMS list page. You can select that SMS configuration and click the **Copy Webhook** button to copy it. Or Double-click the SMS configuration you created and copy the Webhook URL.
+3. Click **OK** to be brought to the SMS/MMS list page. You can select that SMS configuration, then press the **Copy Webhook** button to copy the Webhook URL. Or Double-click the SMS configuration to edit the SMS configuration, in the details copy the Webhook URL.
 
-Configure the SMS in Twilio
+## Configure the SMS in Twilio
 
 1. Log in to your [Twilio console](https://console.twilio.com/)
-2. Navigate to the menu **Develop > Phone Numbers > Manage > Active Numbers**, you will see the numbers you are purchased.
+2. Navigate to the menu **Develop > Phone Numbers > Manage > Active Numbers**, and you will see the numbers you have purchased.
 
 <figure><img src="../../.gitbook/assets/twilio-fig2.png" alt=""><figcaption></figcaption></figure>
 
@@ -58,13 +65,11 @@ Configure the SMS in Twilio
 
 <figure><img src="../../.gitbook/assets/twilio-fig25.png" alt=""><figcaption></figcaption></figure>
 
-3. Enable the geographic permission for the desired region(s) where you want to send SMS messages so that messages can be successfully sent to the phone numbers within the region(s).\
+3. Enable the geographic permission for the desired region(s) where you want to send SMS messages so that messages can be successfully sent to the phone numbers within the region(s).
 
-4. You can also navigate to **Numbers & Trunks > My Numbers** in the [Wavix account](https://app.wavix.com/profile/api-keys),  select the number you want to edit, and paste the Webhook URL in the **Inbound SMS Endpoint** field.
-
-<figure><img src="../../.gitbook/assets/wafix-fig34.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/twilio-fig27.png" alt=""><figcaption></figcaption></figure>
 
 ## Verify Configuration
 
-Now you can [create the outbound and inbound rules](../wavix-sip-trunk/configuring-outbound-and-inbound-calls.md) in PortSIP PBX for sending and receiving SMS/MMS using the Wavix Trunk, just like you create the rules for making and receiving calls.
+Now you can [create the outbound and inbound](configuring-outbound-and-inbound-calls.md) rules in PortSIP PBX for sending and receiving SMS/MMS using the Twilio Trunk, just like you create the rules for making and receiving calls.
 
