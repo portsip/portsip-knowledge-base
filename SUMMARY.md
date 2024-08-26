@@ -61,6 +61,7 @@
     * [Configuring QuestBlue IP Authentication Trunk](configuring-sip-trunks/questblue-sip-trunk/configuring-questblue-ip-authentication-trunk.md)
     * [Configuring QuestBlue Register Authentication Trunk](configuring-sip-trunks/questblue-sip-trunk/configuring-questblue-register-authentication-trunk.md)
     * [Configuring Outbound & Inbound Calls](configuring-sip-trunks/questblue-sip-trunk/configuring-outbound-and-inbound-calls.md)
+    * [QuestBlue SMS Integration](configuring-sip-trunks/questblue-sip-trunk/questblue-sms-integration.md)
   * [Telnyx SIP Trunk](configuring-sip-trunks/telnyx-sip-trunk/README.md)
     * [Purchase a DID on Telnyx Platform](configuring-sip-trunks/telnyx-sip-trunk/purchase-a-did-on-telnyx-platform.md)
     * [Configuring Telnyx IP Authentication Trunk](configuring-sip-trunks/telnyx-sip-trunk/configuring-telnyx-ip-authentication-trunk.md)
