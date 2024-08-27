@@ -75,7 +75,7 @@ To assign the DID to a SIP trunk, please follow the below steps:&#x20;
 
 ## Configure IP Authentication Trunk in PortSIP PBX
 
-The IP Authentication QuestBlue trunk refers to the **IP Based Trunk** in PortSIP PBX.&#x20;
+The IP Authentication Voxtelesys trunk refers to the **IP Based Trunk** in PortSIP PBX.&#x20;
 
 You must configure the **IP Based Trunk** at the PortSIP PBX system administrator level. Once successfully configured, you can share this trunk with tenants.
 
@@ -88,18 +88,18 @@ Please follow the below steps:
 
 3. Enter the trunk name and choose the brand:
    * **Name**: Enter a friendly name for the trunk.
-   * **Brand**: Select **QuestBlue** from the Brand field
-   * Hostname or IP address: Enter the QuestBlue SBC domain that is noted above [Create a SIP Trunk on the QuestBlue](configuring-questblue-ip-authentication-trunk.md#create-a-sip-trunk-on-the-questblue-platform), for example, `sbc.questblue.com`.
+   * **Brand**: Select **Voxtelesys** from the Brand field
+   * Hostname or IP address: Enter the IP `23.155.16.10` for this field.
 
-<figure><img src="../../.gitbook/assets/wavix-fig15.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/voxtelesys-fig11.png" alt=""><figcaption></figcaption></figure>
 
-4. Click the **Next** button, you can adjust the options for the trunk.
+3. Click the **Next** button, you can adjust the options for the trunk.
    * &#x20;**Max Concurrent Calls:** This field sets the maximum number of calls that PortSIP can establish with this trunk. You can adjust it to an appropriate value.
    * We recommend keeping the default settings for other options unless you have specific requirements.
 
-<figure><img src="../../.gitbook/assets/registration-trunk-options.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ip-trunk-options.png" alt=""><figcaption></figcaption></figure>
 
-5. Click the **Next** button to assign this trunk to the tenants and provide your QuestBlue DIDs/Numbers to them with the DID Pool (DID numbers).  A DID can be only assigned to one tenant.
+3. Click the **Next** button to assign this trunk to the tenants and provide your Voxtelesys DIDs/Numbers to them with the DID Pool (DID numbers).  A DID can be only assigned to one tenant.
 
 A tenant assigned to this trunk can only use the DID numbers within the DID pool range to create inbound and outbound rules and configure the outbound caller ID for extensions.
 
@@ -115,7 +115,7 @@ Click the **OK** button to save the changes. The trunk configuration is now comp
 
 In the trunk list, you will see the status displayed as **Registered** (for IP Based Trunk it always displays Registered).
 
-<figure><img src="../../.gitbook/assets/wavix-fig19.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/voxtelesys-fig12.png" alt=""><figcaption></figcaption></figure>
 
-Now you can follow the article to [Configuring inbound and outbound calls.](../questblue-sip-trunk/configuring-outbound-and-inbound-calls.md)
+Now you can follow the article to [Configuring inbound and outbound calls](configuring-outbound-and-inbound-calls.md).
 
