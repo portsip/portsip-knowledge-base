@@ -37,7 +37,6 @@ Please follow the below steps:
 
 1. In the PortSIP PBX Web portal, navigate to the left menu, select **SMS/MMS**, and click the **Add** button.&#x20;
 2. Choose your configured QuestBlue Trunk :
-   * **Sender ID**: If you want to send the SMS with a Sender ID, enter the Sender ID that you created in the [Register a Sender ID](questblue-sms-integration.md#register-a-sender-id) section. You can leave it as empty.
    * **User**: Enter your QuestBlue Username here.
    * **Password**: Enter your QuestBlue password.
    * **Security Key**: Paste your copied [QuestBlue QB API Key](questblue-sms-integration.md#obtain-the-questblue-api-key) here.
