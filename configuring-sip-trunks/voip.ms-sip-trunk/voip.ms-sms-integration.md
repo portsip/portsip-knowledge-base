@@ -6,11 +6,13 @@ The VoIP.ms SMS service has some limitations. Please refer to this link for more
 
 ## Set an API Password
 
-If you do not already have a **Bearer Token** generated that you have copied somewhere, please follow the below steps to generate it.
+If you don’t already have an API Password set up, please follow these steps to generate one:
 
-1. Go to your VoIP.ms client portal, navigate to **Main Menu > SOAP and REST/JSON API**
-2. Click on Enable the API if it is not already made
-3. Enter a password for the A**PI Password**, then press **Save API Password**, and note it
+1. Log in to your VoIP.ms client portal.
+2. Navigate to **Main Menu > SOAP and REST/JSON API**.
+3. If the API is not already enabled, click on **Enable the API**.
+4. Enter a password in the **API Password** field, then click **Save API Password**.
+5. Make sure to note down the API Password for future reference.
 
 <figure><img src="../../.gitbook/assets/voip.ms-flig12.png" alt=""><figcaption></figcaption></figure>
 
