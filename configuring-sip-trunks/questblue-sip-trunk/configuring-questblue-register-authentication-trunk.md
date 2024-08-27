@@ -12,7 +12,7 @@ To create a new SIP trunk on the QuestBlue platform:
 4. Select **Registration Trunk** for the **Trunk Type** field
 5. Choose an appropriate location for the **Trunk Region**, and note down the SBC domain, for example, `sbc.questblue.com`.
 6. **Max Channels:** Leave it as default
-7. Enter your PortSIP PBX static IP for the **IP Address** field and click **Create Trunk**
+7. Click **Create Trunk**
 
 <figure><img src="../../.gitbook/assets/questblue-fig4.png" alt=""><figcaption></figcaption></figure>
 

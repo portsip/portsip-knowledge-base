@@ -1,5 +1,9 @@
 # QuestBlue SMS Integration
 
+{% hint style="warning" %}
+As you are looking to integrate SMS, It is required that for outbound messaging, you must also register a Brand and Campaign through your QuestBlue customer portal as required by the TCR.
+{% endhint %}
+
 Before proceeding with the next steps, you need to [purchase a DID on the QuestBlue platform](purchase-a-did-on-questblue-platform.md) with the SMS/MMS enabled.
 
 ## Obtain the QuestBlue API Key
@@ -10,8 +14,6 @@ You need to take the QuestBlue API key for the PortSIP PBX to send the SMS/MMS. 
 2. Navigate the menu API Management, and note the **QB API Key**.
 
 <figure><img src="../../.gitbook/assets/questblue-fig15.png" alt=""><figcaption></figcaption></figure>
-
-## Register a Sender ID
 
 ## Configure SMS with QuestBlue Trunk in PortSIP PBX
 
