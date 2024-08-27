@@ -4,29 +4,21 @@ Before proceeding with the next steps, you need to [purchase a DID on the QuestB
 
 ## Obtain the QuestBlue API Key
 
-You need to take the QuestBlue API key for the PortSIP PBX to sending the SMS/MMS. Please follow the below steps:
+You need to take the QuestBlue API key for the PortSIP PBX to send the SMS/MMS. Please follow the below steps:
 
 1. Login to the [QuestBlue ](https://customer.questblue.com/)online account
-2. Navigate the menu API Management,&#x20;
+2. Navigate the menu API Management, and note the **QB API Key**.
 
-<figure><img src="../../.gitbook/assets/twilio-fig23.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/questblue-fig15.png" alt=""><figcaption></figcaption></figure>
 
 ## Register a Sender ID
 
-An Alphanumeric Sender ID is your company name or brand used as the Sender ID in one-way SMS messages sent to [supported countries](https://help.twilio.com/hc/en-us/articles/223133767-International-support-for-Alphanumeric-Sender-ID). Alphanumeric Sender IDs may be up to 11 characters long. Accepted characters include both upper- and lower-case Ascii letters, the digits 0 through 9, and the space character. They may not be only numerals.
+## Configure SMS with QuestBlue Trunk in PortSIP PBX
 
-If you want to enable the Sender ID, under Twilo [Console](https://www.twilio.com/console/phone-numbers/search), navigate to the menu **Develop > Phone Numbers > Alphanumeric Sender IDs**, and follow the instructions to register a Sender ID.
+Before configuring SMS in PortSIP PBX, you must have already configured a QuestBlue SIP trunk using one of the following guides:
 
-For more details please check the article [Alphanumeric Sender ID](https://www.twilio.com/docs/glossary/what-alphanumeric-sender-id).
-
-<figure><img src="../../.gitbook/assets/twilio-fig26.png" alt=""><figcaption></figcaption></figure>
-
-## Configure SMS with Twilio Trunk in PortSIP PBX
-
-Before configuring SMS in PortSIP PBX, you must have already configured a Twilio SIP trunk using one of the following guides:
-
-* [Configuring Twilio Register Based Trunk](../twilio-sip-trunk/configuring-twilio-register-based-trunk.md)
-* [Configuring Twilio Interconnect Trunk](../twilio-sip-trunk/configuring-twilio-interconnect-trunk.md)
+* [Configuring QuestBlue Register Based Trunk](configuring-questblue-register-authentication-trunk.md)
+* [Configuring QuestBlue IP Based Trunk](configuring-questblue-register-authentication-trunk.md)
 
 ### Sign in PortSIP PBX Web Portal
 
@@ -42,31 +34,29 @@ For more details please reference [Tenant Management](../../portsip-pbx-administ
 Please follow the below steps:
 
 1. In the PortSIP PBX Web portal, navigate to the left menu, select **SMS/MMS**, and click the **Add** button.&#x20;
-2. Choose your configured Twilio Trunk:
-   * **Sender ID**: If you want to send the SMS with a Sender ID, enter the Sender ID that you created in the [Register a Sender ID section](questblue-sms-integration.md#register-a-sender-id). You can leave it as empty.
-   * **Account SID**: Paste your copied Twilio Account SID here.
-   * **Auth Token**: Paste your copied Twilio Auth Token here.
+2. Choose your configured QuestBlue Trunk :
+   * **Sender ID**: If you want to send the SMS with a Sender ID, enter the Sender ID that you created in the [Register a Sender ID](questblue-sms-integration.md#register-a-sender-id) section. You can leave it as empty.
+   * **User**: Enter your QuestBlue Username here.
+   * **Password**: Enter your QuestBlue password.
+   * **Security Key**: Paste your copied [QuestBlue QB API Key](questblue-sms-integration.md#obtain-the-questblue-api-key) here.
 
-<figure><img src="../../.gitbook/assets/twilio-fig24.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/questblue-fig16.png" alt=""><figcaption></figcaption></figure>
 
 3. Click **OK** to be brought to the SMS/MMS list page. You can select that SMS configuration, then press the **Copy Webhook** button to copy the Webhook URL. Or Double-click the SMS configuration to edit the SMS configuration, in the details copy the Webhook URL.
 
-## Configure the SMS in Twilio
+## Configure the SMS in QuestBlue
 
-1. Log in to your [Twilio console](https://console.twilio.com/)
-2. Navigate to the menu **Develop > Phone Numbers > Manage > Active Numbers**, and you will see the numbers you have purchased.
+1. Log in to your [QuestBlue account](https://customer.questblue.com/)
+2. Navigate to the menu **Messaging > SMS Settings**, the DIDs are listed, and click the pencil icon next to the DID that you want to enable the SMS.
 
-<figure><img src="../../.gitbook/assets/twilio-fig2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/questblue-fig17.png" alt=""><figcaption></figcaption></figure>
 
-3. Click a number to edit it and configure the messaging webhook with PBX's Webhook URL that you copied in PortSIP PBX in the above steps.
+3. In the SMS Settings page, choose **Post SMS to URL** from the combo box, and paste the PortSIP PBX Webhook URL to **URL to post SMS Message** field.
+4. Click **Update Settings**.
 
-<figure><img src="../../.gitbook/assets/twilio-fig25.png" alt=""><figcaption></figcaption></figure>
-
-3. Enable the geographic permission for the desired region(s) where you want to send SMS messages so that messages can be successfully sent to the phone numbers within the region(s).
-
-<figure><img src="../../.gitbook/assets/twilio-fig27.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/questblue-fig18.png" alt=""><figcaption></figcaption></figure>
 
 ## Verify Configuration
 
-Now you can [create the outbound and inbound](../twilio-sip-trunk/configuring-outbound-and-inbound-calls.md) rules in PortSIP PBX for sending and receiving SMS/MMS using the Twilio Trunk, just like you create the rules for making and receiving calls.
+Now you can [create the outbound and inbound](../../portsip-pbx-administration-guide/8-call-route-management/) rules in PortSIP PBX for sending and receiving SMS/MMS using the Twilio Trunk, just like you create the rules for making and receiving calls.
 
