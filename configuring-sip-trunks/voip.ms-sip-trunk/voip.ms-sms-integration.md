@@ -8,14 +8,14 @@ The VoIP.ms SMS service has some limitations. Please refer to this link for more
 
 If you do not already have a **Bearer Token** generated that you have copied somewhere, please follow the below steps to generate it.
 
-1. Go to your VoIP.ms client portal, navigate to Main Menu > SOAP and REST/JSON API
+1. Go to your VoIP.ms client portal, navigate to **Main Menu > SOAP and REST/JSON API**
 2. Click on Enable the API if it is not already made
-3. Where Bearer Token click on **Generate New Token** and copy it to the clipboard
+3. Enter a password for the A**PI Password**, then press **Save API Password**, and note it
 
 <figure><img src="../../.gitbook/assets/voip.ms-flig12.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="danger" %}
-When you generate a Bearer Token, be sure to copy and store it in a secure place, as it won't be visible again after generation. It will only be available to be copied once it being generated. If you lost your Bearer Token, you need to regenerate a new one.
+When you set up the API Password, be sure to copy and store it in a secure place, as it won't be visible again after generation. It will only be available to be copied once it is set up. If you lost your API Password, you need to set up a new one.
 {% endhint %}
 
 ## Configure SMS with VoIP.ms Trunk in PortSIP PBX
@@ -39,24 +39,25 @@ Please follow the below steps:
 
 1. In PortSIP PBX Web portal, navigate to the left menu, select **SMS/MMS**, and click the **Add** button.&#x20;
 2. Choose your configured VoIP.ms Trunk:
-   * **API Key**: Paste your copied VoIP.ms API key here
+   * **Username: E**nter your VoIP.ms account password
+   * **Password**: Paste your copied VoIP.ms API Password here
 
-<figure><img src="../../.gitbook/assets/wafix-fig32.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/voip.ms-flig14.png" alt=""><figcaption></figcaption></figure>
 
 3. Click **OK** to be brought to the SMS/MMS list page. You can select that SMS configuration and click the **Copy Webhook** button to copy it. Or Double-click the SMS configuration you created and copy the Webhook URL.
-4. Go to your VoIP.ms client portal and navigate to DID Number > Manage DIDs
+4. Go to your VoIP.ms client portal and navigate to **DID Number > Manage DIDs**
 5. Click the yellow pencil Edit button of your DID you wish to use for SMS
 6. &#x20;Scroll down to the SMS section until you see the Message Service (SMS/MMS) section.
 7. Enable the SMS/MMS service.
-8. In the SMS/MMS Webhook URL field, paste the Webhook URL you copied from PortSIP PBX
-9. Select if you wish to send and receive SMS/MMS messages with the format NANPA or E164.
-   * E164: To send a SMS or MMS with this format, you will need to include `+` sign and the country code for every messages
-   * NANPA: To send a SMS or MMS with this format, you only need to enter the 10-digit number without the country code.
+8. In the **SMS/MMS Webhook URL** field, paste the Webhook URL you copied from PortSIP PBX
+9. Select if you wish to send and receive SMS/MMS messages in the NANPA or E164 format.
+   * E164: To send an SMS or MMS with this format, you will need to include `+` sign and the country code for every message
+   * NANPA: To send an SMS or MMS with this format, you only need to enter the 10-digit number without the country code.
 10. Press the button **Click here to apply changes** then you get it done.
 
 <figure><img src="../../.gitbook/assets/voip.ms-flig13.png" alt=""><figcaption></figcaption></figure>
 
 ## Verify Configuration
 
-Now you can [create the outbound and inbound rules](configuring-outbound-and-inbound-calls.md) in PortSIP PBX for sending and receiving SMS/MMS using the VoIP.ms Trunk, just like you create the rules for making and receiving calls.
+Now you can [create the outbound and inbound rules](configuring-outbound-and-inbound-calls.md) in PortSIP PBX for sending and receiving SMS/MMS using VoIP.ms Trunk, just like you create the rules for making and receiving calls.
 
