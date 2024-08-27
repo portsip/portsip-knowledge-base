@@ -1,43 +1,24 @@
 # Configuring Voxtelesys Register Authentication Trunk
 
-Before proceeding with the next steps, you need to [purchase a DID on the QuestBlue platform](../questblue-sip-trunk/purchase-a-did-on-questblue-platform.md).
+Before proceeding with the next steps, you need to [purchase a DID on the Voxtelesys platform](purchase-a-did-on-questblue-platform.md).
 
-## Create a SIP Trunk on the QuestBlue platform
+## Collecting Settings for PortSIP PBX
 
-To create a new SIP trunk on the QuestBlue platform:
+In order to be able to register and operate the trunk in your PortSIP PBX, you will to gather some information that will be needed in the configuration of the trunk in PortSIP PBX.
 
-1. Select **Trunks** under **SIP Trunks** in the left menu
-2. Click the **Add Trunk** button
-3. Enter a name for the trunk, this is also the password for register, please note it
-4. Select **Registration Trunk** for the **Trunk Type** field
-5. Choose an appropriate location for the **Trunk Region**, and note down the SBC domain, for example, `sbc.questblue.com`.
-6. Set an appropriate value for the **Max Channels**
-7. Enter your PortSIP PBX static IP for the **IP Address** field and click **Create Trunk**
+1. Navigate the menu **SIP Registrations**
+2. Copy the below items and note them
+   * **Domain**
+   * **Username**
+   * **Password**
 
-<figure><img src="../../.gitbook/assets/questblue-fig4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/voxtelesys-fig13.png" alt=""><figcaption></figcaption></figure>
 
-After the SIP trunk is successfully created, it will appear on the list of SIP trunks on your account.
-
-<figure><img src="../../.gitbook/assets/questblue-fig5.png" alt=""><figcaption></figcaption></figure>
-
-## Retrieve Trunk Password
-
-On the trunks list page, click the **pen icon** next to a trunk, please copy and note the password of this trunk.
-
-<figure><img src="../../.gitbook/assets/questblue-fig6.png" alt=""><figcaption></figcaption></figure>
-
-## Assign DID to a SIP Trunk
-
-To assign the DID to a SIP trunk, please follow the below steps:&#x20;
-
-1. Navigate to the menu **Telphone Numbers > Telphone Numbers**, you can see all active DIDs.
-2. Click the **pen icon** next to a DID. In the popup window, select the desired trunk from the **Trunk** field combo box to assign the DID to it.
-3. Click **Submit** to save changes.
-4. You can repeat the above steps to assign more DIDs.
+From here, this is all we need to do on Voxtelesys’s side of things. We can now move on to PortSIP PBX to configure the Voxtelesys trunk.
 
 ## Configure Register Based Trunk in PortSIP PBX
 
-The **QuestBlue Registration** trunk refers to the **Register Based Trunk** in PortSIP PBX. You can configure the Register Based Trunk at either the PortSIP PBX **system administrator level** or the **Tenant Admin level**:
+The **Voxtelesys Registration** trunk refers to the **Register Based Trunk** in PortSIP PBX. You can configure the Register Based Trunk at either the PortSIP PBX **system administrator level** or the **Tenant Admin level**:
 
 * If configured at the system administrator level, you can share this trunk with tenants.
 * If configured at the tenant admin level, this trunk can only be used by the tenant itself
@@ -51,22 +32,23 @@ Please follow the below steps:
 
 3. Enter the trunk name and choose the brand:
    * **Name**: Enter a friendly name for the trunk.
-   * **Brand**: Select **QuestBlue** for this field.
-   * **DID Pool**: This step is only for you at the _**Tenant admin Level**_ to configure this **Register Based Trunk**,  you will need to set up your QuestBlue DID numbers for this DID pool for this trunk.
+   * **Brand**: Select **Voxtelesys** for this field.
+   * **DID Pool**: This step is only for you at the _**Tenant admin Level**_ to configure this **Register Based Trunk**,  you will need to set up your Voxtelesys DID numbers for this DID pool for this trunk.
      * This tenant can only use the DID numbers within the DID pool range to create inbound and outbound rules and configure the outbound caller ID for extensions.
      * &#x20;The DID pool can consist of a single number, a range of numbers, or a combination of both. For example:
        * `16468097065`
        * `16468097065-16468097066`
        * `16468097065-16468097066;16468097069`&#x20;
        * `16468097065-16468097066;16468097070-16468097080`
+   * Hostname or IP Address: Paste the **Domain** that you copied in the [Collecting Settings for PortSIP PBX](configuring-questblue-register-authentication-trunk.md#collecting-settings-for-portsip-pbx) section.
 
-<figure><img src="../../.gitbook/assets/wavix-fig14.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/voxtelesys-fig14.png" alt=""><figcaption></figcaption></figure>
 
 4. Click the **Next** button, and set up the trunk credentials.
-   * Authentication name: Enter the QuestBlue trunk name that you specified in [Create a SIP Trunk on the QuestBlue Platform](configuring-questblue-register-authentication-trunk.md#create-a-sip-trunk-on-the-questblue-platform), in this case, **portsipRegUser**.
-   * Password: The password you noted in the [Retrieve Trunk Password.](configuring-questblue-register-authentication-trunk.md#retrieve-trunk-password)
+   * Authentication name: Paste the **Username** that you copied in the [Collecting Settings for PortSIP PBX](configuring-questblue-register-authentication-trunk.md#collecting-settings-for-portsip-pbx) section.
+   * Password: Paste the **Password** that you copied in the [Collecting Settings for PortSIP PBX](configuring-questblue-register-authentication-trunk.md#collecting-settings-for-portsip-pbx) section.
 
-<figure><img src="../../.gitbook/assets/questblue-fig7.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/voxtelesys-fig15.png" alt=""><figcaption></figcaption></figure>
 
 5. Click the **Next** button, you can adjust the options for the trunk.
    * &#x20;**Max Concurrent Calls:** This field sets the maximum number of calls that PortSIP can establish with this trunk. You can adjust it to an appropriate value.
@@ -74,7 +56,7 @@ Please follow the below steps:
 
 <figure><img src="../../.gitbook/assets/registration-trunk-options.png" alt=""><figcaption></figcaption></figure>
 
-6. This step is only available when configuring the Register-Based Trunk at the _**System Administrator Level**_. Click the **Next** button to assign this trunk to the tenants and provide your QuestBlue DIDs/Numbers to them with the DID Pool (DID numbers).  A DID can be only assigned to one tenant.
+6. This step is only available when configuring the Register-Based Trunk at the _**System Administrator Level**_. Click the **Next** button to assign this trunk to the tenants and provide your Voxtelesys DIDs/Numbers to them with the DID Pool (DID numbers).  A DID can be only assigned to one tenant.
    * A tenant assigned to this trunk can only use the DID numbers within the DID pool range to create inbound and outbound rules and configure the outbound caller ID for extensions.
    * DID Pool: The DID pool can consist of a single number, a range of numbers, or a combination of both. For example:
      * `16468097065`
@@ -86,9 +68,9 @@ Please follow the below steps:
 
 Click the **OK** button to save the changes, the trunk configuration is completed.
 
-Once the PortSIP PBX successfully registers this trunk to the QuestBlue platform, in the trunk list page you will see the status displayed as **Registered**.
+Once the PortSIP PBX successfully registers this trunk to the Voxtelesys platform, in the trunk list page you will see the status displayed as **Registered**.
 
-<figure><img src="../../.gitbook/assets/wavix-fig19.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/voxtelesys-fig16.png" alt=""><figcaption></figcaption></figure>
 
-Now you can follow the article to [Configuring inbound and outbound calls.](../questblue-sip-trunk/configuring-outbound-and-inbound-calls.md)
+Now you can follow the article to [Configuring inbound and outbound calls.](configuring-outbound-and-inbound-calls.md)
 
