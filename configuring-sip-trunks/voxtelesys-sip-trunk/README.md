@@ -14,4 +14,5 @@ This article includes the following topics:
 * [Configuring Voxtelesys IP Authentication Trunk](configuring-questblue-ip-authentication-trunk.md)
 * [Configuring Voxtelesys Register AuthenticationTrunk](configuring-questblue-register-authentication-trunk.md)
 * [Configuring Outbound & Inbound Calls](configuring-outbound-and-inbound-calls.md)
+* [Voxtelesys SMS Integration](voxtelesys-sms-integration.md)
 
