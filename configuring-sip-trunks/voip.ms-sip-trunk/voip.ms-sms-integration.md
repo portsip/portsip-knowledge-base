@@ -4,7 +4,7 @@ Before proceeding with the next steps, you need to[ purchase a DID on the VoIP.m
 
 The VoIP.ms SMS service has some limitations. Please refer to this link for more details: [Service Limitations](https://wiki.voip.ms/article/SMS-MMS#Service\_Limitations).
 
-## Generate a Bearer Token
+## Set an API Password
 
 If you do not already have a **Bearer Token** generated that you have copied somewhere, please follow the below steps to generate it.
 
