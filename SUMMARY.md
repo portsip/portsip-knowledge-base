@@ -56,6 +56,7 @@
     * [Configuring Voxtelesys IP Authentication Trunk](configuring-sip-trunks/voxtelesys-sip-trunk/configuring-questblue-ip-authentication-trunk.md)
     * [Configuring Voxtelesys Register Authentication Trunk](configuring-sip-trunks/voxtelesys-sip-trunk/configuring-questblue-register-authentication-trunk.md)
     * [Configuring Outbound & Inbound Calls](configuring-sip-trunks/voxtelesys-sip-trunk/configuring-outbound-and-inbound-calls.md)
+    * [Voxtelesys SMS Integration](configuring-sip-trunks/voxtelesys-sip-trunk/voxtelesys-sms-integration.md)
   * [QuestBlue SIP Trunk](configuring-sip-trunks/questblue-sip-trunk/README.md)
     * [Purchase a DID on QuestBlue Platform](configuring-sip-trunks/questblue-sip-trunk/purchase-a-did-on-questblue-platform.md)
     * [Configuring QuestBlue IP Authentication Trunk](configuring-sip-trunks/questblue-sip-trunk/configuring-questblue-ip-authentication-trunk.md)
