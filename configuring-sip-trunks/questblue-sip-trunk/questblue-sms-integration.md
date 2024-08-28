@@ -59,5 +59,5 @@ Please follow the below steps:
 
 ## Verify Configuration
 
-Now you can [create the outbound and inbound](../../portsip-pbx-administration-guide/8-call-route-management/) rules in PortSIP PBX for sending and receiving SMS/MMS using the Twilio Trunk, just like you create the rules for making and receiving calls.
+Now you can [create the outbound and inbound rules](configuring-outbound-and-inbound-calls.md) in PortSIP PBX for sending and receiving SMS/MMS using the QuestBlue Trunk, just like you create the rules for making and receiving calls.
 
