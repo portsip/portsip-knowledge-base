@@ -20,17 +20,17 @@ In order to place outbound calls you need to configure Outbound Rules. Go to **C
 1. Give your Outbound Rule a name
 2. Set up at least one condition for this outbound rule in the section **Apply this rule to the following calls.**
 
-<figure><img src="../../.gitbook/assets/questblue-fig8.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/telnyx-fig14.png" alt=""><figcaption></figcaption></figure>
 
-3. Scroll to the Place outbound calls using the following trunk routes section, click the Add icon, then select **QuestBlue Trunk** and save the Outbound Rule.
+3. Scroll to the Place outbound calls using the following trunk routes section, click the **Add** icon, then select **Telnyx Trunk** and save the Outbound Rule.
 
-<figure><img src="../../.gitbook/assets/questblue-fig9.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/telnyx-fig15.png" alt=""><figcaption></figcaption></figure>
 
 ### Number Format
 
 Depending on your users’ dialing habits, you may want to strip some of the leading digits or prepend the country code. For example, the below configuration can be used to prepend all dialed numbers with the leading 1 in case your users are accustomed to US domestic numbers in the national format.
 
-<figure><img src="../../.gitbook/assets/questblue-fig10.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/telnyx-fig16.png" alt=""><figcaption></figcaption></figure>
 
 ## Configure Inbound Rules
 
@@ -41,9 +41,9 @@ In order to receive inbound calls you need to configure Inbound Rules. Go to **C
 1. Give your Inbound Rule a name
 2. Click the **Choose a Trunk** button to select the trunk
 3. Enter the number for **DID/DDI Number or Number Range** field, the entered number must be in the DID pool range of the selected trunk
-4. Set the extension to route calls to.
+4. Set the extension to route calls to, int the case is 1001
 
-<figure><img src="../../.gitbook/assets/questblue-fig11.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/telnyx-fig17.png" alt=""><figcaption></figcaption></figure>
 
 Click **OK** to save the rule. Depending on your business needs, you may set specific office hours for the rule and route calls to different extensions, and voice mailbox or automatically drop the call based on the schedule. Please reference the article [Office Hours and Holiday Schedule](../../portsip-pbx-administration-guide/office-hours-and-holiday-schedule/) for more details.
 

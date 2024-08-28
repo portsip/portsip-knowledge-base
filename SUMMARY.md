@@ -67,7 +67,6 @@
     * [Purchase a DID on Telnyx Platform](configuring-sip-trunks/telnyx-sip-trunk/purchase-a-did-on-telnyx-platform.md)
     * [Configuring Telnyx IP Authentication Trunk](configuring-sip-trunks/telnyx-sip-trunk/configuring-telnyx-ip-authentication-trunk.md)
     * [Configuring Telnyx Register Authentication Trunk](configuring-sip-trunks/telnyx-sip-trunk/configuring-telnyx-register-authentication-trunk.md)
-    * [backConfiguring Telnyx Register Authentication Trunk](configuring-sip-trunks/telnyx-sip-trunk/backconfiguring-telnyx-register-authentication-trunk.md)
     * [Configuring Outbound & Inbound Calls](configuring-sip-trunks/telnyx-sip-trunk/configuring-outbound-and-inbound-calls.md)
     * [Telnyx SMS Integration](configuring-sip-trunks/telnyx-sip-trunk/telnyx-sms-integration.md)
   * [Vonage SIP Trunk](configuring-sip-trunks/vonage-sip-trunk/README.md)
