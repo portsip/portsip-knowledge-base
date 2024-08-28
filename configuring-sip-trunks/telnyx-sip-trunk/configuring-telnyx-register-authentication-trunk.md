@@ -89,7 +89,7 @@ Please follow these steps:
 
 Click the **OK** button to save the changes. The trunk configuration is now complete.
 
-In the trunk list, you will see the status displayed as **Registered** (for IP Based Trunk it always displays Registered).
+Once the PortSIP PBX successfully registers this trunk to the Telnyx platform, in the trunk list page you will see the status displayed as **Registered**.
 
 <figure><img src="../../.gitbook/assets/telnyx-fig9.png" alt=""><figcaption></figcaption></figure>
 
