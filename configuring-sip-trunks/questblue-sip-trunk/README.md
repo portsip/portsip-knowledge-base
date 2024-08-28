@@ -14,4 +14,5 @@ This article includes the following topics:
 * [Configuring QuestBlue IP Authentication Trunk](configuring-questblue-ip-authentication-trunk.md)
 * [Configuring QuestBlue Register AuthenticationTrunk](configuring-questblue-register-authentication-trunk.md)
 * [Configuring Outbound & Inbound Calls](configuring-outbound-and-inbound-calls.md)
+* [QuestBlue SMS Integration](questblue-sms-integration.md)
 

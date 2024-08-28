@@ -112,7 +112,7 @@ Please follow the below steps to config the E1/T1 register to the cloud PortSIP 
 1. Select **Call Manager > Trunks**, click the arrow button, and choose **Accept Register**.
 2. Enter a friendly name for this trunk.
 3. DID Pool: A DID pool must be specified for the trunk. When creating the inbound rule for this tenant based on this trunk after it was added, the DID number used must be in this DID pool range. For more details please refer to DID Pool&#x20;
-4. Enter a domain for the **Host Domain or IP**, this domain doesn't require an existing domain, you can enter any domain here, for example, **portspitrunk1.io**.&#x20;
+4. Enter a domain for the **Host Domain or IP Address**, this domain doesn't require an existing domain, you can enter any domain here, for example, **portspitrunk1.io**.&#x20;
 
 {% hint style="danger" %}
 Ensure this domain does not equal any tenant's SIP domain.
@@ -124,7 +124,13 @@ Click the **Next** button to set up more parameters.
 2. For the password, you can enter any password here, the E1/T1 gateway will use this for the authorization when it registers to PortSIP PBX.
 3. Other settings are the same as in the previous section for configuring the **IP Based** and **Register Based** Trunk.
 4. After successfully adding the trunk, now you can configure the E1/T1 gateway to let it register to the cloud PortSIP PBX.&#x20;
-5. In the E1/T1 settings, set up the trunk **Host Domain or IP** as **SIP Domain/SIP Server**, in the case is "**portsiptrunk1.io**"; set up the cloud PBX public static IP as **Outbound Proxy Server**, set up the PortSIP PBX transport port as the **Outbound Proxy Server port**, set up the trunk **Authorization name** and **Password** as the **username/auth ID/auth name** and **password**, then the E1/T1 gateway can register to cloud PortSIP PBX.
+
+#### Configure the E1/T1 Gateway
+
+1. In the E1/T1 settings, enter the trunk **Host Domain or IP Address** (in this case **portsiptrunk1.io**) that you configured in the previous steps for the E1/T1 **SIP Server/Domain** field.
+2. For the E1/T1 **Outbound Proxy Server** field, input the cloud PBX public static IP address.
+3. Specify the PortSIP PBX transport port for the E1/T1 **Outbound Proxy Server port** field.
+4. &#x20;Enter the trunk **Authorization name** and **Password** that you configured earlier for the **username/auth ID/auth name** and **password** fields of your E1/T1. This will allow the E1/T1 gateway to register with the cloud PortSIP PBX.
 
 ## Outbound Parameters and Inbound Parameters
 
