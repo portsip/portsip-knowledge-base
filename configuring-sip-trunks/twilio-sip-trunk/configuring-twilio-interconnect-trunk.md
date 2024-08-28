@@ -8,14 +8,14 @@ Twilio Interconnect is an alternative to the open Internet that provides private
 
 For more details please check:
 
+* [Twilio Elastic Trunking](https://www.twilio.com/docs/sip-trunking)
 * [Twilio Interconnect](https://www.twilio.com/en-us/interconnect)
 * [Interconnect](https://www.twilio.com/docs/interconnect)
 * [Configure your Trunk using Twilio Interconnect](https://www.twilio.com/docs/sip-trunking/configure-with-interconnect)
-* T[wilio Elastic Trunking](https://www.twilio.com/docs/sip-trunking)
 
 ### Choose the product that is right for you <a href="#choose-the-product-that-is-right-for-you" id="choose-the-product-that-is-right-for-you"></a>
 
-There are several reasons why Interconnect is the preferred method of connecting to Twilio. _High availability,_ guaranteed data throughput\_, _quality of service,_ and _enterprise-grade security are just a few of the strong arguments for making use of Twilio Interconnect_. If you need highly consistent connectivity between your communication infrastructure and Twilio, then Twilio Interconnect is the right choice. Likewise, if you have policies (internal or external) that preclude you from sending traffic across the open Internet — for example, HIPAA, PCI, or GDPR.
+There are several reasons why Interconnect is the preferred method of connecting to Twilio. _High availability,_ guaranteed data throughput\_, _quality of service,_ and _enterprise-grade security are just a few of the strong arguments for making use of Twilio Interconnect_. If you need highly consistent connectivity between your communication infrastructure and Twilio, then Twilio Interconnect is the right choice likewise, if you have policies (internal or external) that preclude you from sending traffic across the open Internet — for example, HIPAA, PCI, or GDPR.
 
 Twilio Interconnect has several flavors to accommodate various use cases:
 
@@ -76,7 +76,7 @@ Note: without the {}, for example:
 
 1. On the left side of the screen under **Phone Numbers > Manage > Active Numbers**.
 2. Click a number that you want to assign to your trunk.
-3. In the new page under the **Voice Configuration** section, choose SIP Trunk for Configure with, and choose the trunk that you want to assign the number.
+3. On the new page under the Voice Configuration section, select **SIP Trunk** for the **Configure with** field. Then, for the **SIP Trunk** field, choose the trunk you previously created that you want to assign the number to.
 4. Click the **Save Configuration**, that number is now associated with your SIP Trunk.
 
 <figure><img src="../../.gitbook/assets/twilio-fig10.png" alt=""><figcaption></figcaption></figure>
@@ -101,7 +101,7 @@ Please follow the below steps:
 
 3. Enter the trunk name and choose the brand:
    * **Name**: Enter a friendly name for the trunk.
-   * **Brand**: Select **Twilio Interconnect** from the Brand field.
+   * **Brand**: Select **Twilio Interconnect** from the Brand field. **Important**!&#x20;
    * **DID Pool**: This step is only for you at the _**Tenant admin Level**_ to configure this **Register Based Trunk**, you will need to set up your Twilio DID numbers for this DID pool for this trunk.&#x20;
      * This tenant can only use the DID numbers within the DID pool range to create inbound and outbound rules and configure the outbound caller ID for extensions.
      * The DID pool can consist of a single number, a range of numbers, or a combination of both. For example:
@@ -109,7 +109,7 @@ Please follow the below steps:
        * `12027594810;12027594815`
        * `12027594810-12027594815;12027594820`&#x20;
        * `12027594810-12027594815;12027594830-12027594845`
-4. Hostname or Address: For this field, enter your Twilio trunk Termination URI that we saved in the above based on your PortSIP PBX location:
+4. **Hostname or IP Address**: For this field, input one of your Twilio trunk Termination URIs that we saved in the above based on your PortSIP PBX location:
    * portsip-pbx.pstn.ashburn.twilio.com&#x20;
    * portsip-pbx.pstn.umatilla.twilio.com&#x20;
    * portsip-pbx.pstn.dublin.twilio.com&#x20;
@@ -126,7 +126,7 @@ Please follow the below steps:
 <figure><img src="../../.gitbook/assets/twilio-fig12.png" alt=""><figcaption></figcaption></figure>
 
 6. Click the **Next** button, you can adjust the options for the trunk.
-   * You must turn off the **Need Registration** option since Twilio trunk doesn't accept the REGISTER message.
+   * You must turn off the **Need Registration** option since the Twilio Interconnect trunk doesn't accept the REGISTER message.
    * **Max Concurrent Calls:** This field sets the maximum number of calls that PortSIP can establish with this trunk. You can adjust it to an appropriate value.
    * We recommend keeping the default settings for other options unless you have specific requirements.
 

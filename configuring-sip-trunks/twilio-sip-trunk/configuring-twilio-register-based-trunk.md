@@ -27,7 +27,7 @@ Once created, we can leave all of the settings on the General page untouched and
 
 <figure><img src="../../.gitbook/assets/twilio-fig5.png" alt=""><figcaption></figcaption></figure>
 
-2. Move down to the **Authentication** section.  Starting with an IP ACL, create one that has the public IP address of your PortSIP PBX installation.  This information is present in the PortSIP PBX Home page.
+2. Move down to the **Authentication** section.  Starting with an IP ACL, create one that has the static public IP address of your PortSIP PBX installation.  This information is present in the PortSIP PBX Home page.
 
 <figure><img src="../../.gitbook/assets/twilio-fig6.png" alt="" width="563"><figcaption></figcaption></figure>
 
@@ -41,13 +41,13 @@ Press the **Create** button and now switch to the **Origination** page.
 
 In the **Origination** section of the configuration, we'll need to add the Origination URI to route traffic towards PortSIP PBX.  Specify your PortSIP PBX static public IP address (available on the PortSIP PBX Web portal home, for example, 151.101.2.3) with a `sip:` prefix.
 
-1. For the Origination SIP URI edit box, enter the format (without the quotes and with your  SIP elements unique public IP address or Fully Qualified Domain Name): `sip:151.101.2.3;region=us1` with a priority of **10** and a weight of **10**.\
+1. For the Origination SIP URI edit box, enter the format (without the quotes and with your  PBX static public IP address or Fully Qualified Domain Name): `sip:151.101.2.3;region=us1` with a priority of **10** and a weight of **10**.\
    \
    This will originate all SIP Traffic from the Twilio US1 (Virginia) data center to your SIP element and limit the IP addresses to that region. Click **Add.**
 
 <figure><img src="../../.gitbook/assets/twilio-fig8.png" alt="" width="563"><figcaption></figcaption></figure>
 
-2. Click the plus button (`+`) next to Origination URI, to add a secondary Origination URI, should the primary encounter issues reaching your SIP element. For the Origination SIP URI edit box, enter the format (without the quotes and with your unique public IP address or Fully Qualified Domain Name): `sip:151.101.2.3;region=us2` with a priority of 20 and a weight of 10.
+2. Click the plus button (`+`) next to Origination URI, to add a secondary Origination URI, should the primary encounter issues reaching your SIP element. For the Origination SIP URI edit box, enter the format (without the quotes and with your unique PBX static public IP address or Fully Qualified Domain Name): `sip:151.101.2.3;region=us2` with a priority of 20 and a weight of 10.
 
 <figure><img src="../../.gitbook/assets/twilio-fig9.png" alt="" width="563"><figcaption></figcaption></figure>
 
@@ -57,7 +57,7 @@ This will originate SIP Traffic from the Twilio US2 (Oregon) data center to your
 
 1. On the left side of the screen under **Phone Numbers > Manage > Active Numbers**.
 2. Click a number that you want to assign to your trunk.
-3. In the new page under the **Voice Configuration** section, choose SIP Trunk for Configure with, and choose the trunk that you want to assign the number.
+3. On the new page under the Voice Configuration section, select **SIP Trunk** for the **Configure with** field. Then, for the **SIP Trunk** field, choose the trunk you previously created that you want to assign the number to.
 4. Click the **Save Configuration**, that number is now associated with your SIP Trunk.
 
 <figure><img src="../../.gitbook/assets/twilio-fig10.png" alt=""><figcaption></figcaption></figure>
@@ -123,10 +123,7 @@ Since the Twilio trunk is turned off the **Need Registration** option, in the tr
 
 For more details please check:
 
-* [Twilio Interconnect](https://www.twilio.com/en-us/interconnect)
-* [Interconnect](https://www.twilio.com/docs/interconnect)
-* [Configure your Trunk using Twilio Interconnect](https://www.twilio.com/docs/sip-trunking/configure-with-interconnect)
-* T[wilio Elastic Trunking](https://www.twilio.com/docs/sip-trunking)
+* [Twilio Elastic Trunking](https://www.twilio.com/docs/sip-trunking)
 
 Now you can follow the article to [Configuring inbound and outbound calls.](configuring-outbound-and-inbound-calls.md)
 
