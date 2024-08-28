@@ -42,7 +42,7 @@ Please follow the below steps:
 1. Sign in to the PortSIP PBX Web Portal as a System Administrator or Tenant Admin. Navigate to the left menu and select **Call Manager > Trunks**.&#x20;
 2. Click the **Add** button to open a menu. From the menu, choose **Register Based Trunk**.
 
-<figure><img src="../../.gitbook/assets/wavix-fig13.png" alt="" width="563"><figcaption><p>Configure Wavix Trunk in PortSIP PBX</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/add-register-trunk.png" alt=""><figcaption></figcaption></figure>
 
 3. Enter the trunk name and choose the brand:
    * **Name**: Enter a friendly name for the trunk.

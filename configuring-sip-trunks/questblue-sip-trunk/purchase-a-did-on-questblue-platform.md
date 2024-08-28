@@ -5,7 +5,7 @@ Before placing or receiving a call, you need to have an active DID or a dozen DI
 To purchase a DID on your QuestBlue account:
 
 1. Log in to your account on the [QuestBlue ](https://customer.questblue.com/)platform
-2. Click on **Telphone Numbers > Oder Telphone Numbers menu** in the[ left-hand menu](https://customer.questblue.com/did/order/)
+2. Click on **Telphone Numbers > Order Telphone Numbers** menu in the[ left-hand menu](https://customer.questblue.com/did/order/)
 3. Search the numbers and click **Order** to buy the DID number in&#x20;
 4. You can see all purchased numbers in the menu **Telphone Numbers > Telphone Numbers.**
 

@@ -40,7 +40,7 @@ Please follow the below steps:
 1. Sign in to the PortSIP PBX Web Portal as a System Administrator. Navigate to the left menu and select **Call Manager > Trunks**.&#x20;
 2. Click the **Add** button to open a menu. From the menu, choose **IP Based Trunk**.
 
-<figure><img src="../../.gitbook/assets/wavix-fig13.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/add-ip-trunk.png" alt=""><figcaption></figcaption></figure>
 
 3. Enter the trunk name and choose the brand:
    * **Name**: Enter a friendly name for the trunk.
