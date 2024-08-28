@@ -55,7 +55,7 @@ Click **OK** to save the rule. Depending on your business needs, you may set spe
 
 ### Configure Route in Wavix
 
-For calls to be routed to your PortSIP PBX, log in to your Wavix account, select **My DIDs** under **Numbers & trunk** in the top menu, click on the three dots on the right hand side, and select the **Edit DID** option.
+For calls to be routed to your PortSIP PBX, log in to your Wavix account, select **My numbers** under **Numbers & trunk** in the top menu, click on the three dots on the right-hand side, and select the **Edit DID** option.
 
 1. Select the destination trunk in the **Destination** section
 2. Click **Add** to add the destination for the DID

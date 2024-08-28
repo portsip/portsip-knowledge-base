@@ -11,7 +11,7 @@ To create a new SIP trunk on the Wavix platform
 3. Select **Digest** under the **Authentication method**
 4. Specify the SIP trunk name, set the SIP trunk password, and select one of the DIDs on your account as Caller ID.
 
-<figure><img src="../../.gitbook/assets/fig2.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/wavix-fig2.png" alt="" width="563"><figcaption></figcaption></figure>
 
 5. Optionally you can set max outbound call duration, max number of simultaneous calls via the SIPtrunk, and max call cost. If these parameters are not set, global account limits apply.
 6. Click **Create**
