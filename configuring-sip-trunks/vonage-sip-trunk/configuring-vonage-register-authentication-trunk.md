@@ -1,39 +1,25 @@
 # Configuring Vonage Register Authentication Trunk
 
-Before proceeding with the next steps, you need to [purchase a DID on the Telnyx platform](../telnyx-sip-trunk/purchase-a-did-on-telnyx-platform.md).
+Before proceeding with the next steps, you need to [purchase a DID on the Vonage platform](purchase-a-did-on-vonage-platform.md).
 
-## Create a SIP Trunk on the QuestBlue platform
+## Create a SIP Trunk on the Vonage platform
 
-To create a new SIP trunk on the QuestBlue platform:
+To create a new SIP trunk on the Vonage platform:
 
-1. Select **Trunks** under **SIP Trunks** in the left menu
-2. Click the **Add Trunk** button
-3. Enter a name for the trunk, this is also the password for registering, please note it
-4. Select **Registration Trunk** for the **Trunk Type** field
-5. Choose an appropriate location for the **Trunk Region**, and note down the SBC domain, for example, `sbc.questblue.com`.
-6. Set an appropriate value for the **Max Channels**
-7. Enter your PortSIP PBX static IP for the **IP Address** field and click **Create Trunk**
+1. You can see all purchased numbers in the menu **Build & Manage > Numbers**.&#x20;
 
-<figure><img src="../../.gitbook/assets/questblue-fig4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/vonage-fig2.png" alt=""><figcaption></figcaption></figure>
 
-After the SIP trunk is successfully created, it will appear on the list of SIP trunks on your account.
+2. Click the pencil icon edit button of the DID. Once the edition window gets opened, you need to configure the voice section with the values below:
+   * **Forward To:** SIP
+   * **SIP URI:** sip:xxxxxxxx@YOUR-PBX-DOMAIN or sip:xxxxxxxx@YOUR-PBX-IP; For example: `sip:12057494879@16.230.112.22`; or `sip:12057494879@pbx.portsip.com`
 
-<figure><img src="../../.gitbook/assets/questblue-fig5.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/vonage-fig3.png" alt="" width="563"><figcaption></figcaption></figure>
 
-## Retrieve Trunk Password
+3. Click **Save** to save changes.
+4. Click on the Vonage logo in the top left corner to navigate to the Vonage Dashboard. Copy the **API Key** and **API Secret**, and note them for later use.
 
-On the trunks list page, click the **pen icon** next to a trunk, please copy and note the password of this trunk.
-
-<figure><img src="../../.gitbook/assets/questblue-fig6.png" alt=""><figcaption></figcaption></figure>
-
-## Assign DID to a SIP Trunk
-
-To assign the DID to a SIP trunk, please follow the below steps:&#x20;
-
-1. Navigate to the menu **Telphone Numbers > Telphone Numbers**, you can see all active DIDs.
-2. Click the **pen icon** next to a DID. In the popup window, select the desired trunk from the **Trunk** field combo box to assign the DID to it.
-3. Click **Submit** to save changes.
-4. You can repeat the above steps to assign more DIDs.
+<figure><img src="../../.gitbook/assets/vonage-fig4.png" alt=""><figcaption></figcaption></figure>
 
 ## Configure Register Based Trunk in PortSIP PBX
 

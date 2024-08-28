@@ -11,7 +11,6 @@ PortSIP PBX integrated the [Vonage SIP trunking](https://www.vonage.com/communic
 This article includes the following topics:
 
 * [Purchase a DID on the Vonage Platform](purchase-a-did-on-vonage-platform.md)
-* [Configuring Vonage IP Authentication Trunk](configuring-vonage-ip-authentication-trunk.md)
 * [Configuring Vonage Register AuthenticationTrunk](configuring-vonage-register-authentication-trunk.md)
 * [Configuring Outbound & Inbound Calls](configuring-outbound-and-inbound-calls.md)
 * [Vonage SMS Integration](vonage-sms-integration.md)
