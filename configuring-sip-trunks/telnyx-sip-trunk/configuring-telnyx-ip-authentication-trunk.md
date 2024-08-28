@@ -52,19 +52,19 @@ Please follow these steps:
 
 <figure><img src="../../.gitbook/assets/add-ip-trunk.png" alt=""><figcaption></figcaption></figure>
 
-3. Enter the trunk name and choose the brand:
+5. Enter the trunk name and choose the brand:
    * **Name**: Enter a friendly name for the trunk.
    * **Brand**: Select a Telnyx location near you from the Brand field, for example, "Telnyx - US".
 
 <figure><img src="../../.gitbook/assets/telnyx-fig8.png" alt=""><figcaption></figcaption></figure>
 
-4. Click the **Next** button, you can adjust the options for the trunk.
+6. Click the **Next** button, you can adjust the options for the trunk.
    * &#x20;**Max Concurrent Calls:** This field sets the maximum number of calls that PortSIP can establish with this trunk. You can adjust it to an appropriate value.
    * We recommend keeping the default settings for other options unless you have specific requirements.
 
 <figure><img src="../../.gitbook/assets/ip-trunk-options.png" alt=""><figcaption></figcaption></figure>
 
-5. Click the **Next** button to assign this trunk to the tenants and provide your Telnyx DIDs/Numbers to them with the DID Pool (DID numbers).  A DID can be only assigned to one tenant.
+7. Click the **Next** button to assign this trunk to the tenants and provide your Telnyx DIDs/Numbers to them with the DID Pool (DID numbers).  A DID can be only assigned to one tenant.
 
 A tenant assigned to this trunk can only use the DID numbers within the DID pool range to create inbound and outbound rules and configure the outbound caller ID for extensions.
 
