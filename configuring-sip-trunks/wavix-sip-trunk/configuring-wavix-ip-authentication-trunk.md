@@ -9,7 +9,7 @@ To create a new SIP trunk on the Wavix platform:
 1. Select **Trunks** under **Numbers & trunks** in the top menu
 2. Click the **Create new** button
 3. Select **IP Authentication** under the **Authentication method**
-4. Enter your PortSIP PBX static IP and click **Submit**
+4. Enter your PortSIP PBX static IP and click **Submit**, the button will be greyed and display as In review
 5. Click **Save** to apply changes
 
 <figure><img src="../../.gitbook/assets/wavix-fig38.png" alt="" width="563"><figcaption></figcaption></figure>
