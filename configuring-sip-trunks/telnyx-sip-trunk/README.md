@@ -12,7 +12,7 @@ This article includes the following topics:
 
 * [Purchase a DID on Telnyx Platform](purchase-a-did-on-telnyx-platform.md)
 * [Configuring Telnyx IP Authentication Trunk](configuring-telnyx-ip-authentication-trunk.md)
-* [Configuring Telnyx Register AuthenticationTrunk](configuring-telnyx-register-authentication-trunk.md)
+* [Configuring Telnyx Register AuthenticationTrunk](backconfiguring-telnyx-register-authentication-trunk.md)
 * [Configuring Outbound & Inbound Calls](configuring-outbound-and-inbound-calls.md)
 * [Telnyx SMS Integration](telnyx-sms-integration.md)
 

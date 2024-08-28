@@ -15,5 +15,5 @@ Once you are checked out, navigate to the menu **Numbers > My Numbers**, click t
 After purchasing the DID, you can follow one of the guides to configure the trunk with PortSIP PBX.
 
 * [Configuring Telnyx IP Authentication Trunk](configuring-telnyx-ip-authentication-trunk.md)
-* [Configuring Telnyx Register AuthenticationTrunk](configuring-telnyx-register-authentication-trunk.md)
+* [Configuring Telnyx Register AuthenticationTrunk](backconfiguring-telnyx-register-authentication-trunk.md)
 
