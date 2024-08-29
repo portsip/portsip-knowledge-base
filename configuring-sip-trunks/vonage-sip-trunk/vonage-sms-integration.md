@@ -45,9 +45,32 @@ Please follow the below steps:
 
 ## Configure the SMS in Vonage
 
+You will need to add a webhook URL to Vonage in order to receive inbound SMS. Vonage sends the SMS to this webhook URL when it forwards inbound SMS to your PortSIP PBX.
+
+### Adding a Webhook URL at the Account Level
+
 1. Log in to your account on the [Vonage ](https://ui.idp.vonage.com/ui/auth/login)platform.
-2. Navigate to the menu **Messaging > SMS Settings**, the DIDs are listed, and click the pencil icon next to the DID that you want to enable the SMS.
-3. In the SMS Settings page, choose **Post SMS to URL** from the combo box, and paste the PortSIP PBX Webhook URL to **URL to post SMS Message** field.
+2. Navigate to the menu **Build & Manager**, under the **SMS settings** section, set up as the below:
+   * Choose **SMS API**
+   * Choose **POST-JSON** for the **Webhook format**
+   * Paste the PortSIP PBX SMS Webhook URL to **the Inbound SMS webhooks** field
+3. Press **Save changes**
+
+<figure><img src="../../.gitbook/assets/vonage-fig29.png" alt=""><figcaption></figcaption></figure>
+
+### Adding a Webhook URL at the Number Level
+
+You can specify a unique inbound webhook URL for each of your numbers. Note that if you add a webhook URL to one of your numbers then this will take precedence over the account-level webhook URL.
+
+1. Navigate to the [Your Numbers](https://dashboard.nexmo.com/your-numbers) page, select the number you want to edit by clicking the pencil icon under the Manager column.
+
+<figure><img src="../../.gitbook/assets/vonage-fig30.png" alt=""><figcaption></figcaption></figure>
+
+2. Set the number-level webhook URL in the pop-up configuration window.
+
+<figure><img src="../../.gitbook/assets/vonage-fig31.png" alt="" width="563"><figcaption></figcaption></figure>
+
+3. Save the change before you close the pop-up window.
 
 ## Verify Configuration
 
