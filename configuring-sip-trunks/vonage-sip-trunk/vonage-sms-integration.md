@@ -1,26 +1,23 @@
 # Vonage SMS Integration
 
-{% hint style="warning" %}
-As you are looking to integrate SMS, It is required that for outbound messaging, you must also register a Brand and Campaign through your QuestBlue customer portal as required by the TCR.
-{% endhint %}
+Before proceeding with the next steps, you need to [purchase a DID on the Vonage platform](purchase-a-did-on-vonage-platform.md) that is SMS/MMS enabled.
 
-Before proceeding with the next steps, you need to [purchase a DID on the QuestBlue platform](../questblue-sip-trunk/purchase-a-did-on-questblue-platform.md) with the SMS/MMS enabled.
+## Obtain the Vonage API Key
 
-## Obtain the QuestBlue API Key
+You need to take the Vonage API key for the PortSIP PBX to send the SMS/MMS. Please follow the below steps:
 
-You need to take the QuestBlue API key for the PortSIP PBX to send the SMS/MMS. Please follow the below steps:
+1. Log in to your account on the [Vonage ](https://ui.idp.vonage.com/ui/auth/login)platform.
+2. Click on the Vonage logo in the top left corner to open the **Vonage API Dashboard**.
+3. Copy and note the **API Key** and **API Secret**.
 
-1. Login to the [QuestBlue ](https://customer.questblue.com/)online account
-2. Navigate the menu API Management, and note the **QB API Key**.
+<figure><img src="../../.gitbook/assets/vonage-fig4.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/questblue-fig15.png" alt=""><figcaption></figcaption></figure>
+## Configure SMS with Vonage Trunk in PortSIP PBX
 
-## Configure SMS with QuestBlue Trunk in PortSIP PBX
+Before configuring SMS in PortSIP PBX, you must have already configured a Vonage SIP trunk using one of the following guides:
 
-Before configuring SMS in PortSIP PBX, you must have already configured a QuestBlue SIP trunk using one of the following guides:
-
-* [Configuring QuestBlue Register Based Trunk](../questblue-sip-trunk/configuring-questblue-register-authentication-trunk.md)
-* [Configuring QuestBlue IP Based Trunk](../questblue-sip-trunk/configuring-questblue-register-authentication-trunk.md)
+* [Configuring Vonage Register Based Trunk](configuring-vonage-register-authentication-trunk.md)
+* [Configuring Vonage IP Based Trunk](configuring-vonage-ip-authentication-trunk.md)
 
 ### Sign in PortSIP PBX Web Portal
 
@@ -36,28 +33,23 @@ For more details please reference [Tenant Management](../../portsip-pbx-administ
 Please follow the below steps:
 
 1. In the PortSIP PBX Web portal, navigate to the left menu, select **SMS/MMS**, and click the **Add** button.&#x20;
-2. Choose your configured QuestBlue Trunk :
-   * **User**: Enter your QuestBlue Username here.
-   * **Password**: Enter your QuestBlue password.
-   * **Security Key**: Paste your copied [QuestBlue QB API Key](vonage-sms-integration.md#obtain-the-questblue-api-key) here.
+2. Choose your configured Vonage Trunk :
+   * **API Key**: Enter the Vonage API Key you noted in [Obtain the Vonage API Key](vonage-sms-integration.md#obtain-the-vonage-api-key)
+   * **Secret**: Enter the Vonage Secret you noted in [Obtain the Vonage API Key](vonage-sms-integration.md#obtain-the-vonage-api-key)
 
-<figure><img src="../../.gitbook/assets/questblue-fig16.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/vonage-fig27.png" alt=""><figcaption></figcaption></figure>
 
 3. Click **OK** to be brought to the SMS/MMS list page. You can select that SMS configuration, then press the **Copy Webhook** button to copy the Webhook URL. Or Double-click the SMS configuration to edit the SMS configuration, in the details copy the Webhook URL.
 
-## Configure the SMS in QuestBlue
+<figure><img src="../../.gitbook/assets/vonage-fig28.png" alt=""><figcaption></figcaption></figure>
 
-1. Log in to your [QuestBlue account](https://customer.questblue.com/)
+## Configure the SMS in Vonage
+
+1. Log in to your account on the [Vonage ](https://ui.idp.vonage.com/ui/auth/login)platform.
 2. Navigate to the menu **Messaging > SMS Settings**, the DIDs are listed, and click the pencil icon next to the DID that you want to enable the SMS.
-
-<figure><img src="../../.gitbook/assets/questblue-fig17.png" alt=""><figcaption></figcaption></figure>
-
 3. In the SMS Settings page, choose **Post SMS to URL** from the combo box, and paste the PortSIP PBX Webhook URL to **URL to post SMS Message** field.
-4. Click **Update Settings**.
-
-<figure><img src="../../.gitbook/assets/questblue-fig18.png" alt=""><figcaption></figcaption></figure>
 
 ## Verify Configuration
 
-Now you can [create the outbound and inbound](../../portsip-pbx-administration-guide/8-call-route-management/) rules in PortSIP PBX for sending and receiving SMS/MMS using the Twilio Trunk, just like you create the rules for making and receiving calls.
+Now you can [create the outbound and inbound rules](configuring-outbound-and-inbound-calls.md) in PortSIP PBX for sending and receiving SMS/MMS using the Vonage Trunk, just like you create the rules for making and receiving calls.
 
