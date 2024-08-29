@@ -36,6 +36,10 @@ If you have added the User Key and Secret for authentication, you must not add t
 <figure><img src="../../.gitbook/assets/vonage-fig14.png" alt=""><figcaption></figcaption></figure>
 
 8. Under the **Inbound Calling** section, add the URI so that the Vonage SIP trunk knows how to route inbound calls to your PortSIP PBX. Simply input the priority(0-100), such as 1, and enter the URI, which is your PortSIP PBX IP address or domain (e.g., 44.242.60.185 or pbx.portsip.com).
+   * **Priority**: Set the **priority** of the SIP trunk using unique numbers from 0 to 100. Vonage will process calls based on the set priority, with 0 being the highest priority. Keep in mind that if the priority values are not unique, Vonage cannot guarantee the delivery of calls according to the priority.
+   * **Timeout**: Set a timeout for the SIP URI in the text box next to it. The accepted values range from 2000 ms to 20000 ms. If no value is entered, Vonage will use a default timeout of 5000 ms.
+   * **TLS**: Vonage supports TLS for forwarded calls. To enable this, please check the TLS box in the SIP URI section. By default, traffic is sent to the port `5061`. for example, if you enabled the TLS, and your PortSIP PBX listened on port 5063 for TLS, you need to add the URI `44.242.60.185:5063`.
+   * **SRTP**: Vonage will also encrypt media using SRTP if necessary. To do that please check the SRTP box in SIP URI section.
 
 <figure><img src="../../.gitbook/assets/vonage-fig15.png" alt=""><figcaption></figcaption></figure>
 
