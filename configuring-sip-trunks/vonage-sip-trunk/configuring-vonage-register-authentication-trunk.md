@@ -16,11 +16,15 @@ To create a new SIP trunk on the Vonage platform:
 
 <figure><img src="../../.gitbook/assets/vonage-fig11.png" alt=""><figcaption></figcaption></figure>
 
-5. Click **Add Authentication** under the **User Key and Secret** section, enter the values for the **User Key** and **Secret** fields. Please make sure to note these values, as they will be needed for authentication from your PortSIP PBX later.
+5. Click **Add Authentication** under the **Outbound Calling** section you will be redirected to the **Authentication** page, under **User Key and Secret** section, enter the values for the **User Key** and **Secret** fields, then press the **+** button. Please make sure to note these values, as they will be needed for authentication from your PortSIP PBX later.
 
 <figure><img src="../../.gitbook/assets/vonage-fig12.png" alt=""><figcaption></figcaption></figure>
 
 6. After adding the User Key and Secret, the **User Key and Secret** section will display as enabled in green, indicating that the register authentication is enabled.&#x20;
+
+{% hint style="danger" %}
+If you have added the User Key and Secret for authentication, you must not add the Access Control List (ACL), as they cannot be enabled simultaneously.
+{% endhint %}
 
 <figure><img src="../../.gitbook/assets/vonage-fig13.png" alt=""><figcaption></figcaption></figure>
 
