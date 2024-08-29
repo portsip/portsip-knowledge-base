@@ -4,6 +4,8 @@ Before proceeding with the next steps, you need to [purchase a DID on the Vonage
 
 ## Create a SIP Trunk on the Vonage platform
 
+You can also reference the [Vonage documentation for configuring the SIP Trunk](https://developer.vonage.com/en/sip/sip-dashboard?source=sip).
+
 To create a new SIP trunk on the Vonage platform:
 
 1. Navigate to the menu **Build & Manage > SIP**.&#x20;
