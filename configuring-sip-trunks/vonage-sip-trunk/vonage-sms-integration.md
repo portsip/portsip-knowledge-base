@@ -33,13 +33,16 @@ For more details please reference [Tenant Management](../../portsip-pbx-administ
 Please follow the below steps:
 
 1. In the PortSIP PBX Web portal, navigate to the left menu, select **SMS/MMS**, and click the **Add** button.&#x20;
-2. Choose your configured Vonage Trunk :
+2. Sender ID: If you have the sender ID for outbound SMS, please input it here. For more details, please see:
+   * [Global Sender ID Registration Guide](https://api.support.vonage.com/hc/en-us/articles/6791919802652-Global-Sender-ID-Registration-Guide)
+   * [Global Sender ID Portal - FAQs](https://api.support.vonage.com/hc/en-us/articles/9092597969436-Global-Sender-ID-Portal-FAQs)
+3. Choose your configured Vonage Trunk :
    * **API Key**: Enter the Vonage API Key you noted in [Obtain the Vonage API Key](vonage-sms-integration.md#obtain-the-vonage-api-key)
    * **Secret**: Enter the Vonage Secret you noted in [Obtain the Vonage API Key](vonage-sms-integration.md#obtain-the-vonage-api-key)
 
 <figure><img src="../../.gitbook/assets/vonage-fig27.png" alt=""><figcaption></figcaption></figure>
 
-3. Click **OK** to be brought to the SMS/MMS list page. You can select that SMS configuration, then press the **Copy Webhook** button to copy the Webhook URL. Or Double-click the SMS configuration to edit the SMS configuration, in the details copy the Webhook URL.
+4. Click **OK** to be brought to the SMS/MMS list page. You can select that SMS configuration, then press the **Copy Webhook** button to copy the Webhook URL. Or Double-click the SMS configuration to edit the SMS configuration, in the details copy the Webhook URL.
 
 <figure><img src="../../.gitbook/assets/vonage-fig28.png" alt=""><figcaption></figcaption></figure>
 
