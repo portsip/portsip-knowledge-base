@@ -24,10 +24,13 @@ PortSIP PBX supports a wide range of mainstream SIP trunk providers worldwide. T
 
 In this article, we provide the detailed guides for configuring the below trunks:
 
-* [Configuring Wavix SIP Trunk](wavix-sip-trunk/)
-* [Configuring VoIP.ms SIP Trunk](voip.ms-sip-trunk/)
-* [Configuring Twilio SIP Trunk](twilio-sip-trunk/)
-* [Configuring Telnyx SIP T runk](telnyx-sip-trunk/)
 * [Configuring Quest Blue SIP Trunk](questblue-sip-trunk/)
-* [Configuring Voxtelesys SIP Trunk](voxtelesys-sip-trunk/)
+* [Configuring Twilio SIP Trunk](twilio-sip-trunk/)
+* [C](telnyx-sip-trunk/)[onfiguring Telnyx SIP T runk](telnyx-sip-trunk/)
 * [Configuring Vonage SIP Trunk](vonage-sip-trunk/)
+* [Configuring VoIP.ms SIP Trunk](voip.ms-sip-trunk/)
+* [Configuring Voxtelesys SIP Trunk](voxtelesys-sip-trunk/)
+* [Configuring Wavix SIP Trunk](wavix-sip-trunk/)
+
+
+
