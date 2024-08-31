@@ -41,7 +41,7 @@ This code may appear for the following reasons:
 * The called PSTN number does not exist.
 * The outbound call doesn’t match any outbound rule.
 * The outbound call matched a trunk that was not available.
-* The outbound rule matched, but it is currently outside office hours or during holidays.
+* The outbound rule matched, but it is currently outside office hours or during holidays, click the Office Hours tab of the outbound rule to check.
 
 Feel free to contact the PortSIP support team at [support@portsip.com](mailto:support@portsip.com) or [submit a ticket](https://portsip.atlassian.net/servicedesk/customer/portals). Our team will help you resolve any issues.
 
