@@ -1,6 +1,6 @@
 # Using Call Parking Feature
 
-## It's easy to park calls and retrieve calls with PortSIP
+## Park calls and retrieve calls with PortSIP
 
 **Park a call** — When you're on an active call, transfer the call to `*68` to place the call into a parking space.
 
@@ -40,7 +40,7 @@ Alice only needs to press the button (PortSIP App) or press the key (Fanvil, Yea
 
 The Group Call Park feature allows a defined group user to park a call against other available members of a Call Park group, which may be picked up by other members of the group on their phone.
 
-## Feature Notes
+### Feature Notes
 
 What to know before getting started:
 
@@ -50,12 +50,12 @@ What to know before getting started:
 * A tenant may have multiple Call Park groups.
 * Call Park group names must be unique.
 
-## Modifying Call Park Settings
+### Modifying Call Park Settings
 
 * Log in to the PBX web portal.
 * Select the menu **Advanced Services > Call Park**.
 
-## Adding and Deleting a Call Park Group
+### Adding and Deleting a Call Park Group
 
 1. Select the Add button to add a Call Park Group. The Settings screen appears.
 2. Within the settings area, enter a name within the **Group Name** field. This is a required field as it is used to identify the group down below.
@@ -68,7 +68,7 @@ What to know before getting started:
 * To assign a user to the group, select the "**GROUP MEMBERS**" tab and click the "**Add**" button to select the users in the Available list.
 * Click the OK button.
 
-## Feature Operation
+### Feature Operation
 
 To park a call to a group, the parking user transfers an active call to the feature access code (FAC) `*58`. The call park group service automatically hunts for the first available member of the Call Park group to park the call against. The Group Call Park feature always starts with the first assigned member. When a member is available, and the call is parked against that member. All members of the group will receive the park notifications.
 
