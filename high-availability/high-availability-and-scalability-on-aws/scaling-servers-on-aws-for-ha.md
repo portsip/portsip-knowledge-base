@@ -1,13 +1,13 @@
 # Scaling Servers on AWS for HA
 
-PortSIP PBX offers application server scaling capabilities to accommodate an increasing number of users and calls, thereby catering to your evolving business needs. For more information, please refer to the [PBX Cluster](../pbx-cluster/) article.&#x20;
+PortSIP PBX offers application server scaling capabilities to accommodate an increasing number of users and calls, thereby catering to your evolving business needs. For more information, please refer to the [PBX Cluster](../../pbx-cluster/) article.&#x20;
 
 This guide provides a detailed, step-by-step process for scaling application servers using PortSIP PBX High Availability (HA) on AWS.
 
 ## Prerequisites
 
 * The PortSIP PBX HA must be successfully deployed as the article: [High Availability Installations on AWS](high-availability-installations-on-aws.md).
-* Please read the guide [PBX Cluster](../pbx-cluster/) before processing.
+* Please read the guide [PBX Cluster](../../pbx-cluster/) before processing.
 * Currently, the PortSIP PBX supports the scale of the following application servers:
   * Media Server
   * Queue Server
@@ -91,7 +91,7 @@ Please follow the steps below to deploy the Meeting Server.
 2. Select the menu **Servers > Meeting Servers**.
 3. click the **Add** button, enter the server information as shown in the screenshot then click the **OK** button to save it. Please remember the server name **meeting-server-1**, we will use it in a later step.
 
-<figure><img src="../.gitbook/assets/aws_ha_extend_meeting_1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/aws_ha_extend_meeting_1.png" alt=""><figcaption></figcaption></figure>
 
 4. Perform the below commands on the PBX HA node **ip-172-31-16-133** only. The execution may take some time, so patience is required. Please do not interrupt, restart, or shut down while the process is in progress.
 
@@ -116,7 +116,7 @@ Please follow the steps below to deploy the Queue Server.
 2. Select the menu **Servers > Queue Servers**.
 3. click the **Add** button, enter the server information as shown in the screenshot then click the **OK** button to save it. Please remember the server name **queue-server-1**, we will use it in a later step.
 
-<figure><img src="../.gitbook/assets/aws_ha_extend_queue_1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/aws_ha_extend_queue_1.png" alt=""><figcaption></figcaption></figure>
 
 4. Perform the below commands on the PBX HA node **ip-172-31-16-133** only. The execution may take some time, so patience is required. Please do not interrupt, restart, or shut down while the process is in progress.
 
@@ -141,7 +141,7 @@ Please follow the steps below to deploy the Media Server.
 2. Select the menu **Servers > Media Servers**.
 3. click the **Add** button, enter the server information as shown in the screenshot then click the **OK** button to save it. Please remember the server name **media-server-1**, we will use it in a later step.
 
-<figure><img src="../.gitbook/assets/aws_ha_extend_media_1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/aws_ha_extend_media_1.png" alt=""><figcaption></figcaption></figure>
 
 4. Perform the below commands on the PBX HA node **ip-172-31-16-133** only. The execution may take some time, so patience is required. Please do not interrupt, restart, or shut down while the process is in progress.
 
@@ -166,7 +166,7 @@ Please follow the steps below to deploy the IVR Server (Virtual Receptionist).
 2. Select the menu **Servers > IVR Servers**.
 3. click the **Add** button, enter the server information as shown in the screenshot then click the **OK** button to save it. Please remember the server name **ivr-server-1**, we will use it in a later step.
 
-<figure><img src="../.gitbook/assets/aws_ha_extend_ivr_1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/aws_ha_extend_ivr_1.png" alt=""><figcaption></figcaption></figure>
 
 4. Perform the below commands on the PBX HA node **ip-172-31-16-133** only. The execution may take some time, so patience is required. Please do not interrupt, restart, or shut down while the process is in progress.
 
@@ -198,7 +198,7 @@ To do this, please follow the below steps:
 3. Enter the cluster server IP as shown in the screenshot below and choose a long **expiration date.**
 4. Repeat the above steps for each cluster server.
 
-<figure><img src="../.gitbook/assets/aws_cluster_ip_whitelist.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/aws_cluster_ip_whitelist.png" alt=""><figcaption></figcaption></figure>
 
 ## Managing Servers
 
