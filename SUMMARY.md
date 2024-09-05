@@ -1,18 +1,10 @@
 # Table of contents
 
-* [PortSIP PBX](README.md)
-* [PortSIP SBC](portsip-sbc.md)
-* [PortSIP UCaaS](portsip-ucaas.md)
-* [PortSIP VoIP SDK](portsip-voip-sdk.md)
-* [License Agreement](license-agreement/README.md)
-  * [PortSIP SDK License Agreement](license-agreement/portsip-sdk-license-agreement.md)
-  * [PortSIP Software End-User License Agreement](license-agreement/portsip-software-end-user-license-agreement.md)
-
 ## PortSIP PBX
 
 ***
 
-* [FAQ](faq/README.md)
+* [FAQ](README.md)
   * [Troubleshooting Call Issues](troubleshooting-call-issues.md)
   * [What is the Multi-Tenant PBX?](faq/what-is-the-multi-tenant-pbx.md)
   * [Is the PortSIP PBX built on Asterisk, FreeSwitch?](faq/is-the-portsip-pbx-built-on-asterisk-freeswitch.md)
@@ -33,6 +25,8 @@
   * [What is SIP ALG and Why You Need to Disable It?](faq/what-is-sip-alg-and-why-you-need-to-disable-it.md)
   * [Essential Factors for Choosing a Could PBX Solution](faq/essential-factors-for-choosing-a-could-pbx-solution.md)
   * [Migrate from legacy FCM APIs to HTTP v1 for Android Push Notifications](migrate-from-legacy-fcm-apis-to-http-v1-for-android-push-notifications.md)
+  * [PortSIP SDK License Agreement](faq/portsip-sdk-license-agreement.md)
+  * [PortSIP Software End-User License Agreement](faq/portsip-software-end-user-license-agreement.md)
 * [The Advantages of PortSIP PBX vs. Other PBXs](the-advantages-of-portsip-pbx-vs.-other-pbxs.md)
 * [Cloud PBX Empowering Service Provider](cloud-pbx-empowering-service-provider.md)
 * [Configuring SIP Trunks](configuring-sip-trunks/README.md)
@@ -78,11 +72,11 @@
     * [Configuring Outbound & Inbound Calls](configuring-sip-trunks/wavix-sip-trunk/configuring-outbound-and-inbound-calls.md)
     * [Wavix SMS Integration](configuring-sip-trunks/wavix-sip-trunk/wavix-sms-integration.md)
 * [PortSIP PBX Administration Guide](portsip-pbx-administration-guide/README.md)
+  * [Overview](portsip-pbx-administration-guide/overview.md)
   * [PortSIP PBX Features](portsip-pbx-administration-guide/portsip-pbx-features.md)
   * [PortSIP Security Features](portsip-pbx-administration-guide/portsip-security-feature.md)
   * [Upgrading PortSIP PBX to New Versions](portsip-pbx-administration-guide/upgrading-portsip-pbx-to-new-versions.md)
   * [Summary of Changes](portsip-pbx-administration-guide/summary-of-changes.md)
-  * [Overview](portsip-pbx-administration-guide/overview.md)
   * [Before Started](portsip-pbx-administration-guide/before-started.md)
   * [1 Installation of the PortSIP PBX](portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx.md)
   * [2 Configuring the PortSIP PBX](portsip-pbx-administration-guide/2-configuring-the-portsip-pbx.md)
@@ -194,6 +188,7 @@
   * [Before Started](portsip-sbc-administration-guide/before-started.md)
   * [1 Installation of the PortSIP SBC](portsip-sbc-administration-guide/1-installation-of-the-portsip-sbc.md)
   * [2 Configure the PortSIP SBC](portsip-sbc-administration-guide/2-configure-the-portsip-sbc.md)
+* [PortSIP UCaaS](portsip-ucaas.md)
 
 ## DEVELOPING WITH PORTSIP <a href="#development-portsip" id="development-portsip"></a>
 
