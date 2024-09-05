@@ -41,7 +41,7 @@ The PortSIP PBX HA for Ubuntu supports the following versions:
 
 **Figure 1-1**   PortSIP PBX HA Architecture
 
-<figure><img src="../../.gitbook/assets/pbx_ha_diagram_v16.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/pbx_ha_diagram_v16.png" alt=""><figcaption></figcaption></figure>
 
 ## Pacemaker
 
@@ -87,75 +87,75 @@ In this article, we installed the **Ubuntu 20.04**.
 
 ### Select language
 
-<figure><img src="../../.gitbook/assets/ubuntu-ha-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ubuntu-ha-1.png" alt=""><figcaption></figcaption></figure>
 
 ### Install available updates for the installer
 
-<figure><img src="../../.gitbook/assets/ubuntu-ha-2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ubuntu-ha-2.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/ubuntu-ha-3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ubuntu-ha-3.png" alt=""><figcaption></figcaption></figure>
 
 ### Keyboard configuration
 
-<figure><img src="../../.gitbook/assets/ubuntu-ha-4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ubuntu-ha-4.png" alt=""><figcaption></figcaption></figure>
 
 ### Choose type of install <a href="#choosetypeofinstallubuntuserver-mo-ren" id="choosetypeofinstallubuntuserver-mo-ren"></a>
 
 Please choose the **Ubuntu Server**.
 
-<figure><img src="../../.gitbook/assets/ubuntu-ha-5.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ubuntu-ha-5.png" alt=""><figcaption></figcaption></figure>
 
 ### Network connections  <a href="#networkconnections-pei-zhi-jing-tai-di-zhi" id="networkconnections-pei-zhi-jing-tai-di-zhi"></a>
 
 Please configure a static IP address for the server manually.
 
-<figure><img src="../../.gitbook/assets/ubuntu-ha-6.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ubuntu-ha-6.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/ubuntu-ha-7.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ubuntu-ha-7.png" alt=""><figcaption></figcaption></figure>
 
 #### For the PBX node 1 (pbx01):
 
-<figure><img src="../../.gitbook/assets/ubuntu-ha-8.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ubuntu-ha-8.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/ubuntu-ha-9.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ubuntu-ha-9.png" alt=""><figcaption></figcaption></figure>
 
 #### For the PBX node 2 (pbx02):
 
-<figure><img src="../../.gitbook/assets/ubuntu-ha-10.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ubuntu-ha-10.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/ubuntu-ha-11.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ubuntu-ha-11.png" alt=""><figcaption></figcaption></figure>
 
 #### For the PBX node 3 (pbx03):
 
-<figure><img src="../../.gitbook/assets/ubuntu-ha-12.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ubuntu-ha-12.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/ubuntu-ha-13.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ubuntu-ha-13.png" alt=""><figcaption></figcaption></figure>
 
 ### Configure proxy <a href="#configureproxy-mo-ren" id="configureproxy-mo-ren"></a>
 
 Keep it as the default settings.
 
-<figure><img src="../../.gitbook/assets/ubuntu-ha-30.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ubuntu-ha-30.png" alt=""><figcaption></figcaption></figure>
 
 ### Configure Ubuntu archive mirror <a href="#configureubuntuarchivemirror-mo-ren" id="configureubuntuarchivemirror-mo-ren"></a>
 
 Keep it as the default settings.
 
-<figure><img src="../../.gitbook/assets/ubuntu-ha-31.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ubuntu-ha-31.png" alt=""><figcaption></figcaption></figure>
 
 ### Guided storage configuration <a href="#guidedstorageconfiguration-mo-ren" id="guidedstorageconfiguration-mo-ren"></a>
 
 Keep it as the default settings.
 
-<figure><img src="../../.gitbook/assets/ubuntu-ha-14.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ubuntu-ha-14.png" alt=""><figcaption></figcaption></figure>
 
 ### Storage configuration <a href="#storageconfiguration-mo-ren" id="storageconfiguration-mo-ren"></a>
 
 Keep it as the default setting, the **/dev/sdb** should be **unused** state.
 
-<figure><img src="../../.gitbook/assets/ubuntu-ha-15.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ubuntu-ha-15.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/ubuntu-ha-16.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ubuntu-ha-16.png" alt=""><figcaption></figcaption></figure>
 
 ### Profile setup
 
@@ -163,45 +163,45 @@ For all three PBX servers, a new user named "**pbx**" needs to be created. This 
 
 #### For the PBX node 1 (pbx01):
 
-<figure><img src="../../.gitbook/assets/ubuntu-ha-17.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ubuntu-ha-17.png" alt=""><figcaption></figcaption></figure>
 
 #### For the PBX node 2 (pbx02):
 
-<figure><img src="../../.gitbook/assets/ubuntu-ha-18.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ubuntu-ha-18.png" alt=""><figcaption></figcaption></figure>
 
 #### For the PBX node 3 (pbx03):
 
-<figure><img src="../../.gitbook/assets/ubuntu-ha-19.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ubuntu-ha-19.png" alt=""><figcaption></figcaption></figure>
 
 ### Upgrade to Ubuntu Pro <a href="#upgradetoubuntupro-mo-ren" id="upgradetoubuntupro-mo-ren"></a>
 
 Keep it as the default settings: **Skip for now**.
 
-<figure><img src="../../.gitbook/assets/ubuntu-ha-20.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ubuntu-ha-20.png" alt=""><figcaption></figcaption></figure>
 
 ### SSH Setup <a href="#ssh-setup" id="ssh-setup"></a>
 
 Install the OpenSSH server.
 
-<figure><img src="../../.gitbook/assets/ubuntu-ha-21.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ubuntu-ha-21.png" alt=""><figcaption></figcaption></figure>
 
 ### Featured Server Snaps <a href="#featuredserversnaps-mo-ren" id="featuredserversnaps-mo-ren"></a>
 
 Keep it as the default settings.
 
-<figure><img src="../../.gitbook/assets/ubuntu-ha-22.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ubuntu-ha-22.png" alt=""><figcaption></figcaption></figure>
 
 ### Installing system <a href="#installingsystem-mo-ren" id="installingsystem-mo-ren"></a>
 
 Start the process of installing the operating system and remain patient while it completes.
 
-<figure><img src="../../.gitbook/assets/ubuntu-ha-23.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ubuntu-ha-23.png" alt=""><figcaption></figcaption></figure>
 
 ### Install complete <a href="#installcomplete-mo-ren" id="installcomplete-mo-ren"></a>
 
 Once the system is successfully installed, reboot the system (Reboot Now).
 
-<figure><img src="../../.gitbook/assets/ubuntu-ha-24.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ubuntu-ha-24.png" alt=""><figcaption></figcaption></figure>
 
 After the server reboot, use the "**pbx**" user credentials created during installation to log in and continue with the following steps.
 
@@ -231,7 +231,7 @@ ssh-keygen -t rsa
 
 &#x20;Follow the prompts to generate the certificate - press the **enter** button if required.
 
-<figure><img src="../../.gitbook/assets/ubuntu-ha-25.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ubuntu-ha-25.png" alt=""><figcaption></figcaption></figure>
 
 #### Set password-free login for all three servers
 
@@ -331,7 +331,7 @@ Once the resource configuration is complete, you can access your PBX by opening 
 
 When you sign into the PBX Web portal, the setup wizard will automatically pop up. In its first step, it asks for setting up the IP addresses and entering the virtual IP **192.168.1.130** for the **Private IPv4** filed. If your virtual IP is different from 192.168.1.130, please enter your actual virtual IP
 
-<figure><img src="../../.gitbook/assets/ubuntu-ha-26.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ubuntu-ha-26.png" alt=""><figcaption></figcaption></figure>
 
 Once successfully completed the Setup Wizard, select the menu **Advanced > Settings > Advanced**, select the **Enable Call Recovery** option, and confirm by clicking on the **OK** button.
 
@@ -405,7 +405,7 @@ cd /opt/portsip-pbx-ha-guide && /bin/bash ha_ctl.sh master
 
 For example, the below output indicates the current master node is **pbx01**.&#x20;
 
-<figure><img src="../../.gitbook/assets/ubuntu-ha-27.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ubuntu-ha-27.png" alt=""><figcaption></figcaption></figure>
 
 3. Back up data
 

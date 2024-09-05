@@ -4,7 +4,7 @@ Make a high-availability cluster using three PortSIP PBX servers. PortSIP PBX ca
 
 **Figure 1-1**   PortSIP PBX HA Architecture
 
-<figure><img src="../../.gitbook/assets/pbx_ha_diagram_v16.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/pbx_ha_diagram_v16.png" alt=""><figcaption></figcaption></figure>
 
 ## Pacemaker
 

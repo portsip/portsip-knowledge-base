@@ -18,7 +18,7 @@ This guide provides instructions on how to deploy PortSIP PBX HA on the AWS EC2 
 
 **Figure 1-1**   PortSIP PBX HA Architecture
 
-<figure><img src="../../.gitbook/assets/pbx_aws_ha_diagram.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/pbx_aws_ha_diagram.png" alt=""><figcaption></figcaption></figure>
 
 ## Pacemaker
 
@@ -62,7 +62,7 @@ To set up the PortSIP PBX HA on AWS, you’ll need to create the user group and 
 2. The permissions policies for this user group must include **AmazonEC2FullAccess** and **AmazonEBSCSIDriverPolicy**.
 3. As the below screenshot shows up, you could name the group **hagroup**, and ensure that the permissions policies include both **AmazonEC2FullAccess** and **AmazonEBSCSIDriverPolicy**.
 
-<figure><img src="../../.gitbook/assets/aws-ha-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/aws-ha-1.png" alt=""><figcaption></figcaption></figure>
 
 ### Create User
 
@@ -72,7 +72,7 @@ To create a new user, follow these steps:
 2. Click on **Create user** to start the process of creating a new user.
 3. As the below screenshot shows up, you could name the user **hauser**, and assign this user to the previously created user group **hagroup**.
 
-<figure><img src="../../.gitbook/assets/aws-ha-2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/aws-ha-2.png" alt=""><figcaption></figcaption></figure>
 
 ### **Create User Access Key**
 
@@ -81,11 +81,11 @@ Once you’ve successfully created the user, follow these steps to create an acc
 1. Click on **Create access key**.
 2. In Step 1, under **Access key best practices & alternatives**, select **Command Line Interface (CLI)** for the **Use case**.
 
-<figure><img src="../../.gitbook/assets/aws-ha-3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/aws-ha-3.png" alt=""><figcaption></figcaption></figure>
 
 4. Proceed to Step 3, **Retrieve access keys**. Here, it's crucial to note and save the **Access key** and **Secret access key** for future use.
 
-<figure><img src="../../.gitbook/assets/aws-ha-4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/aws-ha-4.png" alt=""><figcaption></figcaption></figure>
 
 ## VPC and Subnet <a href="#vpc-and-subnet" id="vpc-and-subnet"></a>
 
@@ -95,7 +95,7 @@ In the PortSIP PBX HA setup, all PBX nodes will be deployed within the same Avai
 
 To do this, open the AWS VPC menu and use the default VPC(You can also create a new VPC). As shown in the screenshot below, the VPC IPv4 CIDR is **172.31.0.0/16**.
 
-<figure><img src="../../.gitbook/assets/aws-ha-5.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/aws-ha-5.png" alt=""><figcaption></figcaption></figure>
 
 ### **Create the subnet**
 
@@ -108,7 +108,7 @@ To set up the subnets, follow these steps:
 The CIDR must be **20** otherwise the installation will fail.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/aws-create-subnet.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/aws-create-subnet.png" alt=""><figcaption></figcaption></figure>
 
 In this scenario, we’ll assign the following static private IPs to the nodes:
 
@@ -123,7 +123,7 @@ To set up the security group, follow these steps:
 1. Click on **Security Groups** to view the list of security groups. If there are no existing security groups, click on **Create security group** to create a new one.
 2. For example, your Security Group name could be **pbx-ha**, with a Security Group ID of **sg-0e2bea9ea4033f893**.
 
-<figure><img src="../../.gitbook/assets/aws-ha-7.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/aws-ha-7.png" alt=""><figcaption></figcaption></figure>
 
 ### Inbound rule&#x20;
 
@@ -173,7 +173,7 @@ You should choose the appropriate instance type for your business usage.
 
 For higher user volumes and concurrent calls, more CPU and memory resources are required. Therefore, it's important to choose an instance type that is appropriate for your specific needs. Please consider your user volume and call concurrency when selecting your instance type.&#x20;
 
-You can reference the [Hardware Specifications](../../faq/hardware-specifications-for-portsip.md) to choose the instance type.
+You can reference the [Hardware Specifications](../faq/hardware-specifications-for-portsip.md) to choose the instance type.
 
 ### Create a Key pair for login
 
@@ -181,7 +181,7 @@ In the **Key pair (login)** section, you have the option to select an existing *
 
 For instance, in this guide, we’ll create a new key pair and name it **aws-portsip-pbx-ha**. This will generate a certificate file named **aws-portsip-pbx-ha.pem**.
 
-<figure><img src="../../.gitbook/assets/aws-ha-8.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/aws-ha-8.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 In the PortSIP PBX HA, all EC2 instances must use the same key pair.
@@ -201,13 +201,13 @@ To set up the network for the EC2 servers, follow these steps:
 * Node 2: Enter "172.31.16.134"&#x20;
 * Node 3: Enter "172.31.16.135"
 
-<figure><img src="../../.gitbook/assets/aws-ha-9.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/aws-ha-9.png" alt=""><figcaption></figcaption></figure>
 
 ### Configuring Storage (Volume)
 
 In the Section **Storage(Volume)** we can configure the disk for the PBX HA, this disk is used for installing the Linux OS, usually, 40G or 100G is enough.
 
-<figure><img src="../../.gitbook/assets/aws-ha-10.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/aws-ha-10.png" alt=""><figcaption></figcaption></figure>
 
 ### Verifying Host NAME
 
@@ -227,7 +227,7 @@ Next, you'll need to allocate an Elastic IP for the PBX HA. Here’s how:
 
 Click on **Elastic IPs** to list the current allocated Elastic IPs. Click on **Allocate Elastic IP address** to create a new one. For example, your allocated IPv4 address could be **54.151.30.9**, with an allocation ID of **eipalloc-02c7cf64a5cd449c**.
 
-<figure><img src="../../.gitbook/assets/aws-ha-11.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/aws-ha-11.png" alt=""><figcaption></figcaption></figure>
 
 ## Create Elastic Block Store Volume <a href="#create-elastic-block-store-volume" id="create-elastic-block-store-volume"></a>
 
@@ -246,7 +246,7 @@ For example, your volume info could look like this:
 
 The following screenshot shows the example:
 
-<figure><img src="../../.gitbook/assets/aws-ha-12.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/aws-ha-12.png" alt=""><figcaption></figcaption></figure>
 
 ## Configuring AWS
 
@@ -268,7 +268,7 @@ aws --version
 
 Take the region name as the screenshot, in case the region name is **us-west-1**.
 
-<figure><img src="../../.gitbook/assets/aws-ha-13.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/aws-ha-13.png" alt=""><figcaption></figcaption></figure>
 
 Perform the below command on all EC2 instances.
 
@@ -354,7 +354,7 @@ You can also resolve your web domain to the Elastic IP.
 
 When you sign into the PBX Web portal, the setup wizard will automatically pop up. In its first step, Enter the private virtual IP **172.31.16.130** as the filed **Private IPv4**, and enter the Elastic IP **54.151.30.9** as the filed **Public IPv4**.
 
-<figure><img src="../../.gitbook/assets/aws-ha-14.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/aws-ha-14.png" alt=""><figcaption></figcaption></figure>
 
 Once successfully completed the Setup Wizard, select the menu **Advanced > Settings > Advanced**, select the **Enable Call Recovery** option, and confirm by clicking on the **OK** button.
 
@@ -442,7 +442,7 @@ Before upgrading, you can create a snapshot of the EBS. This allows you to roll 
 * Under Description, enter "pbx-ha-volumes-backup".
 * Choose **Create Snapshot** to create a snapshot.
 
-<figure><img src="../../.gitbook/assets/aws-ha-15.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/aws-ha-15.png" alt=""><figcaption></figcaption></figure>
 
 ### Download and Update Resources
 

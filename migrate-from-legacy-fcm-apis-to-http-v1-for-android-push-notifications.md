@@ -5,14 +5,14 @@ As announced by Google, [support for the legacy push method will cease in June 2
 PortSIP released the v16.4. version to support the new push method for Android notifications. All PortSIP PBX v16.x installations need to upgrade to v16.4 and change settings to ensure the new push notifications work correctly.
 
 {% hint style="warning" %}
-If you installed the PortSIP PBX v12.x, please reference this guide: [Upgrade PortSIP PBX v12.x to v12.8.7](../pbx\_v12/tutorials/upgrade-portsip-pbx-v12.x-to-the-v12.8.7.md).
+If you installed the PortSIP PBX v12.x, please reference this guide: [Upgrade PortSIP PBX v12.x to v12.8.7](pbx\_v12/tutorials/upgrade-portsip-pbx-v12.x-to-the-v12.8.7.md).
 {% endhint %}
 
 Please follow the below steps to update the push settings with PortSIP PBX v16.4.0.
 
 ## **Upgrading PortSIP PBX**
 
-Please upgrade your current PBX v16.x to v16.4 per this guide: [Upgrading PortSIP PBX to New Versions](../portsip-pbx-administration-guide/upgrading-portsip-pbx-to-new-versions.md).
+Please upgrade your current PBX v16.x to v16.4 per this guide: [Upgrading PortSIP PBX to New Versions](portsip-pbx-administration-guide/upgrading-portsip-pbx-to-new-versions.md).
 
 ## **Changing Push Settings for Android**&#x20;
 
@@ -32,7 +32,7 @@ For the purposes of this guide, let’s assume the push setting JSON file is: `p
 
 Please reference the below screenshot.
 
-<figure><img src="../.gitbook/assets/android_push_json_file (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/android_push_json_file (1).png" alt=""><figcaption></figcaption></figure>
 
 
 

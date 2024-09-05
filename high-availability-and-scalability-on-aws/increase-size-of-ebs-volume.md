@@ -18,7 +18,7 @@ Please follow the below steps to process.
 * Click on **Actions**, then select **Create snapshot**. In the **Description** field, enter **pbx-ha-volumes-backup**.&#x20;
 * Click on **Create snapshot**.
 
-<figure><img src="../../.gitbook/assets/aws-ha-16.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/aws-ha-16.png" alt=""><figcaption></figcaption></figure>
 
 ## Increase Size of EBS Volume
 
@@ -33,7 +33,7 @@ Please follow the steps below to increase the EBS volume size to **2000GB** as a
    * For **Throughput**, do not change the value.&#x20;
 4. Click on **Modify.** When prompted for confirmation, choose **Modify** again.
 
-<figure><img src="../../.gitbook/assets/aws-ha-17.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/aws-ha-17.png" alt=""><figcaption></figcaption></figure>
 
 ## Extend the File System <a href="#extend-the-file-system" id="extend-the-file-system"></a>
 
