@@ -276,9 +276,18 @@ Below are the message keys.
 
 ## **Subscribe and Unsubscribe**
 
-In order to subscribe to the events, a user needs to establish a session by opening a WebSocket connection to the listening port (8885) of the PortSIP PBX with authentication credentials. This requires a previously established user account on the PortSIP PBX. The user account can be an extension or a tenant.
+In order to subscribe to the events, a user needs to establish a session by opening a WebSocket connection to the listening port (8887) of the PortSIP PBX with authentication credentials. This requires a previously established user account on the PortSIP PBX. The user account can be an extension or a tenant.
 
-You can use the below JSON message to do the authorization:
+### Server URL
+
+The WSI Server URL varies between PortSIP PBX versions:
+
+* **v22.0 or higher**: `wss://pbx.portsip.com:8887/wsi`
+* **v16.x**: `wss://pbx.portsip.com:8885`
+
+The WebSocket client application needs to connect to the appropriate URL. Please replace `pbx.portsip.com` with your actual PBX domain.
+
+After successfully connecting to the WSI server, you can use the following JSON message for authorization:
 
 ```json
 {
