@@ -1,8 +1,8 @@
 # Agent States and Work Modes
 
-A_gent states_ specify what state an agent is in. For example, an agent in the **Ready** state is available to handle calls from an ACD queue. An agent can have several states with respect to different ACD devices, or he can use a single state to describe his relationship to all ACD devices. Agent states are reported in [queue events](../../developer-documentation/going-real-time-with-portsip-pbx-pub-sub.md#queue\_events).
+A_gent states_ specify what state an agent is in. For example, an agent in the **Ready** state is available to handle calls from an ACD queue. An agent can have several states with respect to different ACD devices, or he can use a single state to describe his relationship to all ACD devices. Agent states are reported in [queue events](../../developer-guide/going-real-time-with-portsip-pbx-pub-sub.md#queue\_events).
 
-The below Agent-State Diagram shows the agent states. Transitions between states, represented by arrows, show subsequent states that may be entered from a given state. You can use the [WSI](../../developer-documentation/going-real-time-with-portsip-pbx-pub-sub.md) to receive state events.
+The below Agent-State Diagram shows the agent states. Transitions between states, represented by arrows, show subsequent states that may be entered from a given state. You can use the [WSI](../../developer-guide/going-real-time-with-portsip-pbx-pub-sub.md) to receive state events.
 
 <figure><img src="../../.gitbook/assets/Agent_status.png" alt=""><figcaption></figcaption></figure>
 
@@ -55,4 +55,4 @@ The PortSIP also supports changing the agent status by calling the REST API.
 
 ## 3 Receive the Agent State Event in Real-time
 
-PortSIP PBX provides a real-time mechanism that allows the admin and queue manager to subscribe to queue and agent status; the PBX will push the related events to the subscriber via WebSocket; For more details please follow [Going Real-Time with PortSIP PBX Pub/Sub](../../developer-documentation/going-real-time-with-portsip-pbx-pub-sub.md#queue\_events).
+PortSIP PBX provides a real-time mechanism that allows the admin and queue manager to subscribe to queue and agent status; the PBX will push the related events to the subscriber via WebSocket; For more details please follow [Going Real-Time with PortSIP PBX Pub/Sub](../../developer-guide/going-real-time-with-portsip-pbx-pub-sub.md#queue\_events).
