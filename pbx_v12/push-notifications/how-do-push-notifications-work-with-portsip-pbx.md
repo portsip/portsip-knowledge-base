@@ -22,7 +22,7 @@ PortSIP PBX supports mobile push notifications for iOS and Android from V9.0. Al
 
 The below architecture demonstrates how PortSIP PBX provides the PUSH notifications.
 
-![PortSIP PBX push notifications architecture](../.gitbook/assets/pbx\_push\_arch.png)
+![PortSIP PBX push notifications architecture](../../.gitbook/assets/pbx\_push\_arch.png)
 
 
 

@@ -195,6 +195,21 @@
   * [1 Installation of the PortSIP SBC](portsip-sbc-administration-guide/1-installation-of-the-portsip-sbc.md)
   * [2 Configure the PortSIP SBC](portsip-sbc-administration-guide/2-configure-the-portsip-sbc.md)
 
+## DEVELOPING WITH PORTSIP <a href="#development-portsip" id="development-portsip"></a>
+
+***
+
+* [Developer Guide](developer-guide/README.md)
+  * [Calling APIs](developer-guide/calling-apis.md)
+  * [REST APIs](developer-guide/rest-apis.md)
+  * [Call Control APIs](developer-guide/call-control-api.md)
+  * [Mobile Push Notifications](developer-guide/mobile-push-notifications/README.md)
+    * [How Do Push Notifications Work with PortSIP PBX?](developer-guide/mobile-push-notifications/how-do-push-notifications-work-with-portsip-pbx.md)
+  * [WSI: Pub/Sub](developer-guide/going-real-time-with-portsip-pbx-pub-sub.md)
+  * [Messaging APIs](developer-guide/messaging-apis.md)
+  * [Integrating Push Notifications](developer-guide/integrating-push-notifications.md)
+  * [Webhook Events](developer-guide/webhook-notifications.md)
+
 ## PBX v12.x (EOL) <a href="#pbx_v12" id="pbx_v12"></a>
 
 * [PortSIP PBX v12.x is EOL](pbx\_v12/portsip-pbx-high-availability.md)
@@ -205,6 +220,12 @@
   * [Deploy PortSIP PBX HA for CentOS](pbx\_v12/portsip-uc-high-availability/deploy-portsip-pbx-ha-for-centos.md)
   * [Deploy PortSIP PBX HA for Ubuntu](pbx\_v12/portsip-uc-high-availability/deploy-portsip-pbx-ha-for-ubuntu.md)
   * [Migrate the HA data](pbx\_v12/portsip-uc-high-availability/migrate-the-ha-data.md)
+* [Push Notifications](pbx\_v12/push-notifications/README.md)
+  * [How do push notifications work with PortSIP PBX?](pbx\_v12/push-notifications/how-do-push-notifications-work-with-portsip-pbx.md)
+  * [Implement the PUSH notifications in Xamarin iOS APP with PortSIP PBX 12.x](pbx\_v12/push-notifications/implement-the-push-notifications-in-xamarin-ios-app-with-portsip-pbx-12.x.md)
+  * [Implement the PUSH notifications in native iOS APP with PortSIP PBX 12.x](pbx\_v12/push-notifications/implement-the-push-notifications-in-native-ios-app-with-portsip-pbx-12.x.md)
+  * [Implement PUSH notifications in Android APP with PortSIP PBX 12.x](pbx\_v12/push-notifications/implement-push-notifications-in-android-app-with-portsip-pbx-12.x.md)
+  * [Implement PUSH notifications in Xamarin Android APP with PortSIP PBX 12.x](pbx\_v12/push-notifications/implement-push-notifications-in-xamarin-android-app-with-portsip-pbx-12.x.md)
 * [Tutorials](pbx\_v12/tutorials/README.md)
   * [REST API Examples](pbx\_v12/tutorials/call-control-api.md)
   * [Trace server - A Better Way to Debug PortSIP UC](pbx\_v12/tutorials/debug-sip-message.md)
@@ -222,24 +243,3 @@
   * [Store the recording files to AWS S3](pbx\_v12/tutorials/store-the-recording-files-to-aws-s3.md)
   * [Configure Notifications for Kubernetes](pbx\_v12/tutorials/configure-notifications-for-kubernetes.md)
   * [Rebranding PortSIP PBX](pbx\_v12/tutorials/rebranding-portsip-pbx.md)
-
-## DEVELOPING WITH PORTSIP <a href="#development-portsip" id="development-portsip"></a>
-
-***
-
-* [Developer Guide](developer-guide/README.md)
-  * [Calling APIs](developer-guide/calling-apis.md)
-  * [REST APIs](developer-guide/rest-apis.md)
-  * [Call Control APIs](developer-guide/call-control-api.md)
-  * [Mobile Push Notifications](developer-guide/mobile-push-notifications/README.md)
-    * [How Do Push Notifications Work with PortSIP PBX?](developer-guide/mobile-push-notifications/how-do-push-notifications-work-with-portsip-pbx.md)
-  * [WSI: Pub/Sub](developer-guide/going-real-time-with-portsip-pbx-pub-sub.md)
-  * [Messaging APIs](developer-guide/messaging-apis.md)
-  * [Integrating Push Notifications](developer-guide/integrating-push-notifications.md)
-  * [Webhook Events](developer-guide/webhook-events.md)
-* [Push Notifications](push-notifications/README.md)
-  * [How do push notifications work with PortSIP PBX?](push-notifications/how-do-push-notifications-work-with-portsip-pbx.md)
-  * [Implement the PUSH notifications in Xamarin iOS APP with PortSIP PBX 12.x](push-notifications/implement-the-push-notifications-in-xamarin-ios-app-with-portsip-pbx-12.x.md)
-  * [Implement the PUSH notifications in native iOS APP with PortSIP PBX 12.x](push-notifications/implement-the-push-notifications-in-native-ios-app-with-portsip-pbx-12.x.md)
-  * [Implement PUSH notifications in Android APP with PortSIP PBX 12.x](push-notifications/implement-push-notifications-in-android-app-with-portsip-pbx-12.x.md)
-  * [Implement PUSH notifications in Xamarin Android APP with PortSIP PBX 12.x](push-notifications/implement-push-notifications-in-xamarin-android-app-with-portsip-pbx-12.x.md)

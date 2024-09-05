@@ -20,12 +20,12 @@ Since PortSIP PBX uses the Google Firebase to send PUSH notifications, we need t
 Add a new project to [Firebase console](https://firebase.google.com/).\
 You will need to set the project name and country. For example, I will call my project **SIPSamplePush**.
 
-![](<../.gitbook/assets/android\_push\_step1 (2).png>)
+![](<../../.gitbook/assets/android\_push\_step1 (2).png>)
 
 Select "**Add Firebase to your Android app**".\
 Set a package name for your app. I only set my package name and omit the SHA-1 because I don't use Firebase for my app's authentication.
 
-![](../.gitbook/assets/android\_push\_step2.png)
+![](../../.gitbook/assets/android\_push\_step2.png)
 
 Click the **REGISTER APP** button here to download **google-services.json**. This is an important file and you will need to put it into your app.
 
@@ -36,7 +36,7 @@ Click the **REGISTER APP** button here to download **google-services.json**. Thi
 Now please download the [PortSIP VoIP SDK Sample project](https://www.portsip.com/downloads/sdk/AndroidSample.zip) and open it (PUSH SIPSample project) with Android Studio.\
 Replace _google-services.json_ in **SIPSample** folder. The Google services plugin for Gradle will load the _google-services.json_ file you just downloaded.
 
-![](../.gitbook/assets/android\_push\_step3.png)
+![](../../.gitbook/assets/android\_push\_step3.png)
 
 ### **5. Configure Gradle files**
 
@@ -53,7 +53,7 @@ classpath 'com.google.gms:google-services:3.1.0' // Add this line
 }
 ```
 
-![](../.gitbook/assets/android\_push\_step4.png)
+![](../../.gitbook/assets/android\_push\_step4.png)
 
 (2) Update the app-level build.gradle (the one in your project/SIPSample)
 
@@ -95,7 +95,7 @@ applicationId "com.portsip.sipsamplepush" // this is the id that your app has
 } }
 ```
 
-![](../.gitbook/assets/android\_push\_step5.png)
+![](../../.gitbook/assets/android\_push\_step5.png)
 
 ### **6. Add services to app**
 
@@ -152,7 +152,7 @@ To see if the setup works, run a test by sending a test message to your own mobi
 
 In the Firebase console, write down your message and choose an app. Click "**SEND MESSAGE**".
 
-![](../.gitbook/assets/android\_push\_step6.png)
+![](../../.gitbook/assets/android\_push\_step6.png)
 
 
 
@@ -241,11 +241,11 @@ mSipSdk.refreshRegistration(0);
 
 
 
-![](../.gitbook/assets/android\_push\_step7.png)
+![](../../.gitbook/assets/android\_push\_step7.png)
 
 (2). In the “**Settings**” tab, click “**Cloud Messaging**” tab. You will see the “**Server key**” and “**Sender ID**”, please note it down.
 
-![](../.gitbook/assets/android\_push\_step8.png)
+![](../../.gitbook/assets/android\_push\_step8.png)
 
 
 
@@ -257,7 +257,7 @@ Click “**Add New App**” button, you will see below screen:
 
 
 
-![](<../.gitbook/assets/ios\_push\_stepq15 (3).png>)
+![](<../../.gitbook/assets/ios\_push\_stepq15 (3).png>)
 
 **Please set the following items:**
 

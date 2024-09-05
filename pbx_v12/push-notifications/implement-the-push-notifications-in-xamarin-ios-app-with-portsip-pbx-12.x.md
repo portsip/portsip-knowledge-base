@@ -22,15 +22,15 @@ Apple provides us with a framework called PushKit to support using this VoIP pus
 In case you don’t have an app (and consequently an App ID), you need to create one.\
 First, login to your [Apple developer account](https://developer.apple.com/account/) and access **Certificates, Identifier & Profiles**:
 
-![](../.gitbook/assets/ios\_push\_step1.png)
+![](../../.gitbook/assets/ios\_push\_step1.png)
 
 Next, go to **Identifiers -> App IDs** and click on the + button.
 
-![](../.gitbook/assets/ios\_push\_step2.png)
+![](../../.gitbook/assets/ios\_push\_step2.png)
 
 Two important things to fill out here are: **App ID Description** and **so-called Bundle ID** (this will most likely be something like com.yourdomain.yourappname):
 
-![](../.gitbook/assets/ios\_push\_step3.png)
+![](../../.gitbook/assets/ios\_push\_step3.png)
 
 Although not seen in the screenshots above, I used **PortSIPVoipTest** as Bundle ID. This will be important in the next step.
 
@@ -41,27 +41,27 @@ To generate a VoIP push certificate, first of all you need to login:\
 
 Click on the **All** button in the **Certificates** section on the left-hand side and the **+** button:
 
-![](../.gitbook/assets/ios\_push\_step4.png)
+![](../../.gitbook/assets/ios\_push\_step4.png)
 
 On the next page you need to select the VoIP Services Certificate:
 
-![](../.gitbook/assets/ios\_push\_step5.png)
+![](../../.gitbook/assets/ios\_push\_step5.png)
 
 After this you need to select the App ID for which you’re creating this VoIP certificate:
 
-![](../.gitbook/assets/ios\_push\_step6.png)
+![](../../.gitbook/assets/ios\_push\_step6.png)
 
 Next, you’ll be presented with instructions on how to create a so-called CSR (Certificate Signing Request) file:
 
-![](../.gitbook/assets/ios\_push\_step7.png)
+![](../../.gitbook/assets/ios\_push\_step7.png)
 
 Once you create that file, you’ll select it for uploading on the next screen. If everything goes well, you’ll be given the certificate that you **have to** download:
 
-![](../.gitbook/assets/ios\_push\_step8.png)
+![](../../.gitbook/assets/ios\_push\_step8.png)
 
 After you download the certificate, open it up, and the Keychain Access application shall open. Now you shall see the certificate under the **My Certificates** section:
 
-![](../.gitbook/assets/ios\_push\_step9.png)
+![](../../.gitbook/assets/ios\_push\_step9.png)
 
 
 
@@ -71,13 +71,13 @@ Download [sample project](https://www.portsip.com/downloads/sdk/iOSSample.zip), 
 
 Take special care when setting the Product Name as the Bundle Identifier is set automatically from it. We need to set this to be the same as the Bundle Identifier that we've set in the steps above.
 
-![](../.gitbook/assets/portsip-push-xamarin-ios1.png)
+![](../../.gitbook/assets/portsip-push-xamarin-ios1.png)
 
 ### **6. Setting the appropriate capabilities**
 
 To use the VoIP push in the app, we need to turn ON the Background Modes for our app and check a few of the checkboxes:
 
-![](../.gitbook/assets/portsip-push-xamarin-ios2.png) ![](../.gitbook/assets/portsip-push-xamarin-ios3.png)
+![](../../.gitbook/assets/portsip-push-xamarin-ios2.png) ![](../../.gitbook/assets/portsip-push-xamarin-ios3.png)
 
 
 
@@ -224,13 +224,13 @@ public void doAutoRegister()
 The VoIP certificate file that we’ve downloaded and added to the KeyChain has to be converted to a different file format so that we’ll be able to use it with the tools and services that I’ve listed above.\
 First, you need to open the KeyChain app on your Mac and export (right click and select **Export**) the certificate:
 
-![](../.gitbook/assets/ios\_push\_stepq13.png)
+![](../../.gitbook/assets/ios\_push\_stepq13.png)
 
 
 
 You will get a **YOUR\_CERT.p12** (e.g portgo\_voip\_push.p12) file. Now export the certificate key file.
 
-![](../.gitbook/assets/ios\_push\_stepq14.png)
+![](../../.gitbook/assets/ios\_push\_stepq14.png)
 
 You will get a YOUR\_CERT\_key.p12(e.g portgo\_voip\_push\_key.p12) file.
 
@@ -286,7 +286,7 @@ Click the “**Add New App**” button, you will see below screen:
 
 
 
-![](<../.gitbook/assets/ios\_push\_stepq15 (2).png>)
+![](<../../.gitbook/assets/ios\_push\_stepq15 (2).png>)
 
 #### **Please set the following items:**
 

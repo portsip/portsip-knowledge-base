@@ -22,14 +22,14 @@ You will need to set the project name and country. For example, I will call my p
 
 
 
-![](<../.gitbook/assets/android\_push\_step1 (1).png>)
+![](<../../.gitbook/assets/android\_push\_step1 (1).png>)
 
 Select "**Add Firebase to your Android app**".\
 Set a package name for your app. I only set my package name and omit the SHA-1 because I don't use Firebase for my app's authentication.
 
 
 
-![](../.gitbook/assets/9-1.png)
+![](../../.gitbook/assets/9-1.png)
 
 Click the **REGISTER APP** button here to download **google-services.json**. This is an important file and you will need to put it into your app.
 
@@ -45,7 +45,7 @@ Since Firebase Cloud Messaging is dependent on Google Play Services, the [Xamari
 
 
 
-![](../.gitbook/assets/portsip-push-xamarin.png)
+![](../../.gitbook/assets/portsip-push-xamarin.png)
 
 If you get an error during the installation of the NuGet, please close the **Portsip.Android.Test** the project, open it again, and retry the NuGet installation.
 
@@ -66,7 +66,7 @@ To receive messages from FCM, the [Xamarin Firebase - Messaging](https://www.nug
 
 
 
-![](../.gitbook/assets/portsip-push-xamarin-1.png)
+![](../../.gitbook/assets/portsip-push-xamarin-1.png)
 
 When you install **Xamarin.Firebase.Messaging**, all of the necessary dependencies are also installed.\
 Next, edit **MainActivity.cs** and add the following using statements:
@@ -88,7 +88,7 @@ The next step is to add the **google-services.json** file to the root directory 
 
 
 
-![](../.gitbook/assets/portsip-push-xamarin-2.png)
+![](../../.gitbook/assets/portsip-push-xamarin-2.png)
 
 When **google-services.json** is added to the project (and the **GoogleServicesJson** build action is set), the build process extracts the client ID and API key and then adds these credentials to the merged/generated **AndroidManifest.xml** that resides at **obj/Debug/android/AndroidManifest.xml**. This merge process automatically adds any permissions and other FCM elements that are needed for connection to FCM servers.
 
@@ -143,7 +143,7 @@ To see if the setup works, run a test by sending a test message to your own mobi
 
 In the Firebase console, write down your message and choose an app. Click "**SEND MESSAGE**".
 
-![](../.gitbook/assets/portsip-push-xamarin-3.png)
+![](../../.gitbook/assets/portsip-push-xamarin-3.png)
 
 
 
@@ -226,7 +226,7 @@ namespace PortSip.AndroidSample.Test
 
 (1). In the Firebase console, click the “**Settings**” button and choose the “**Project settings**” menu.
 
-![](../.gitbook/assets/portsip-push-xamarin-4.png)
+![](../../.gitbook/assets/portsip-push-xamarin-4.png)
 
 
 
@@ -234,7 +234,7 @@ namespace PortSip.AndroidSample.Test
 
 
 
-![](../.gitbook/assets/portsip-push-xamarin-5.png)
+![](../../.gitbook/assets/portsip-push-xamarin-5.png)
 
 ### **12. PortSIP PBX**
 
@@ -243,7 +243,7 @@ Click the “**Add New App**” button, you will see below screen:
 
 
 
-![](../.gitbook/assets/portsip-push-xamarin-6.png)
+![](../../.gitbook/assets/portsip-push-xamarin-6.png)
 
 Please setup the following items:
 
