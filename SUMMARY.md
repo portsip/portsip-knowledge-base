@@ -228,12 +228,14 @@
 ***
 
 * [Developer Documentation](developer-documentation/README.md)
+  * [Calling APIs](developer-documentation/calling-apis.md)
   * [REST APIs](developer-documentation/rest-apis.md)
   * [Call Control API](developer-documentation/call-control-api.md)
   * [Mobile Push Notifications](developer-documentation/mobile-push-notifications/README.md)
     * [How Do Push Notifications Work with PortSIP PBX?](developer-documentation/mobile-push-notifications/how-do-push-notifications-work-with-portsip-pbx.md)
   * [WSI: Pub/Sub](developer-documentation/going-real-time-with-portsip-pbx-pub-sub.md)
   * [Messaging APIs](developer-documentation/messaging-apis.md)
+  * [Integrating Push Notifications](developer-documentation/integrating-push-notifications.md)
   * [Webhook Notifications](developer-documentation/webhook-notifications.md)
 * [Push Notifications](push-notifications/README.md)
   * [How do push notifications work with PortSIP PBX?](push-notifications/how-do-push-notifications-work-with-portsip-pbx.md)
