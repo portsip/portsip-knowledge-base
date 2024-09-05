@@ -1,0 +1,17 @@
+id:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/id"
+  description: |
+    The unique ID of call pick group.
+name:
+  type: string
+  minLength: 1
+  maxLength: 64
+  description: |
+    The name of call park group
+description:
+  type: string
+  minLength: 1
+  maxLength: 1024
+  description: |
+    The description of call park group.

@@ -1,0 +1,19 @@
+post:
+  tags:
+    - SMS/MMS
+  operationId: deleteSms
+  summary: Delete SMS/MMS service
+  description: |
+    Destroy a SMS/MMS service
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/sms.yaml#/id"
+      description: The unique ID of the SMS/MMS service.
+  responses:
+    "204":
+      description: No Content
+    "400":
+      description: Error

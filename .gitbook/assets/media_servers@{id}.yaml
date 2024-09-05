@@ -1,0 +1,75 @@
+get:
+  tags:
+    - Media Server
+  operationId: getMediaServer
+  summary: Retrieve a media server
+  description: |
+    Retrieve a media server.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/mediaserver.yaml#/id"
+      description: The unique ID of the media server.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/mediaserver.yaml#/id"
+              name:
+                $ref: "../components/schemas/mediaserver.yaml#/name"
+              type:
+                $ref: "../components/schemas/mediaserver.yaml#/type"
+              enabled:
+                $ref: "../components/schemas/mediaserver.yaml#/enabled"
+              private_ipv4:
+                $ref: "../components/schemas/common.yaml#/ipv4"
+              private_ipv6:
+                $ref: "../components/schemas/common.yaml#/ipv6"
+              public_ipv4:
+                $ref: "../components/schemas/common.yaml#/ipv4"
+              public_ipv6:
+                $ref: "../components/schemas/common.yaml#/ipv6"
+              max_concurrency:
+                $ref: "../components/schemas/mediaserver.yaml#/max_concurrency"
+              custom_options:
+                $ref: "../components/schemas/common.yaml#/custom_options"
+    "4XX":
+      description: Error
+post:
+  tags:
+    - Media Server
+  operationId: updateMediaServer
+  summary: Update a media server
+  description: |
+    Update a media server
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/mediaserver.yaml#/id"
+      description: The unique ID of the media server.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            enabled:
+              $ref: "../components/schemas/mediaserver.yaml#/enabled"
+            max_concurrency:
+              $ref: "../components/schemas/mediaserver.yaml#/max_concurrency"
+            custom_options:
+              $ref: "../components/schemas/common.yaml#/custom_options"
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

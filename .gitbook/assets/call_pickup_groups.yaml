@@ -1,0 +1,65 @@
+post:
+  tags:
+    - Call Pickup
+  operationId: createCallPickupGroup
+  summary: Create a call pickup group
+  description: |
+    Create a new call pickup group.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            name:
+              $ref: "../components/schemas/callpickupgrp.yaml#/name"
+            description:
+              $ref: "../components/schemas/callpickupgrp.yaml#/description"
+  responses:
+    "201":
+      description: Created call pickup group
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/callpickupgrp.yaml#/id"
+    "4XX":
+      description: Error
+get:
+  tags:
+    - Call Pickup
+  operationId: listCallPickupGroups
+  summary: List call pickup groups
+  description: |
+    List call pickup groups
+  parameters:
+    - $ref: "../components/parameters/common.yaml#/filter"
+    - $ref: "../components/parameters/common.yaml#/search"
+    - $ref: "../components/parameters/common.yaml#/orderby"
+    - $ref: "../components/parameters/common.yaml#/skip"
+    - $ref: "../components/parameters/common.yaml#/top"
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                $ref: "../components/schemas/common.yaml#/count"
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      $ref: "../components/schemas/callpickupgrp.yaml#/id"
+                    name:
+                      $ref: "../components/schemas/callpickupgrp.yaml#/name"
+                    description:
+                      $ref: "../components/schemas/callpickupgrp.yaml#/description"
+    "4XX":
+      description: Error

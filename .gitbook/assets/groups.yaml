@@ -1,0 +1,67 @@
+post:
+  tags:
+    - User
+  operationId: createUserGroup
+  summary: Create an user group
+  description: |
+    Create a new user group.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            name:
+              $ref: "../components/schemas/extgrp.yaml#/name"
+            outbound_caller_ids:
+              $ref: "../components/schemas/provider.yaml#/outbound_caller_ids"
+            description:
+              $ref: "../components/schemas/extgrp.yaml#/description"
+  responses:
+    "201":
+      description: Created user group
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/extgrp.yaml#/id"
+    "4XX":
+      description: Error
+get:
+  tags:
+    - User
+  operationId: listUserGroups
+  summary: List user groups
+  description: |
+    Get a collection of user groups.
+  parameters:
+    - $ref: "../components/parameters/common.yaml#/filter"
+    - $ref: "../components/parameters/common.yaml#/search"
+    - $ref: "../components/parameters/common.yaml#/orderby"
+    - $ref: "../components/parameters/common.yaml#/skip"
+    - $ref: "../components/parameters/common.yaml#/top"
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                $ref: "../components/schemas/common.yaml#/count"
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      $ref: "../components/schemas/extgrp.yaml#/id"
+                    name:
+                      $ref: "../components/schemas/extgrp.yaml#/name"
+                    description:
+                      $ref: "../components/schemas/extgrp.yaml#/description"
+    "4XX":
+      description: Error

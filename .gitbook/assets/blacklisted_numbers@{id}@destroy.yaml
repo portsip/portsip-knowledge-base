@@ -1,0 +1,19 @@
+post:
+  tags:
+    - Security
+  operationId: deleteBlacklistedNumber
+  summary: Destroy blacklisted number
+  description: |
+    Destroy blacklisted number
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/blacklist.yaml#/id"
+      description: The unique ID of the blacklisted number.
+  responses:
+    "204":
+      description: No Content
+    "400":
+      description: Invalid entry ID supplied

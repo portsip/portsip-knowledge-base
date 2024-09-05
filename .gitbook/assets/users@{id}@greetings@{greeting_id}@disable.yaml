@@ -1,0 +1,27 @@
+post:
+  tags:
+    - User
+  operationId: disableGreeting
+  summary: Disable greeting
+  description: |
+    Disable user voicemail greeting.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/extension.yaml#/id"
+      description: The unique ID of user.
+    - name: greeting_id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/greeting.yaml#/id"
+      description: The unique ID of the greeting.
+  responses:
+    "200":
+      description: OK
+    "400":
+      description: Invalid extension number supplied
+    "404":
+      description: User not found

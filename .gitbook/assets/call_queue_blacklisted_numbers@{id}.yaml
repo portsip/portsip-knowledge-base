@@ -1,0 +1,87 @@
+get:
+  tags:
+    - CTI
+  operationId: showQueueBlacklistedNumber
+  summary: Retrieve a call queue blacklisted number
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/queueblacklist.yaml#/id"
+      description: The unique ID of the blacklisted number.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/queueblacklist.yaml#/id"
+              number:
+                $ref: "../components/schemas/queueblacklist.yaml#/number"
+              level:
+                $ref: "../components/schemas/queueblacklist.yaml#/level"
+              longitude:
+                $ref: "../components/schemas/queueblacklist.yaml#/longitude"
+              latitude:
+                $ref: "../components/schemas/queueblacklist.yaml#/latitude"
+              address:
+                $ref: "../components/schemas/common.yaml#/address"
+              created_at:
+                $ref: "../components/schemas/queueblacklist.yaml#/created_at"
+              updated_at:
+                $ref: "../components/schemas/queueblacklist.yaml#/updated_at"
+              expire_at:
+                $ref: "../components/schemas/queueblacklist.yaml#/expire_at"
+              trigger_times:
+                $ref: "../components/schemas/queueblacklist.yaml#/trigger_times"
+              enabled:
+                $ref: "../components/schemas/queueblacklist.yaml#/enabled"
+              description:
+                $ref: "../components/schemas/queueblacklist.yaml#/description"
+    "4XX":
+      description: Error
+post:
+  tags:
+    - CTI
+  operationId: updateQueueBlacklistedNumber
+  summary: Update a call queue blacklisted number
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/queueblacklist.yaml#/id"
+      description: The unique ID of the call queue blacklisted number.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            number:
+              $ref: "../components/schemas/queueblacklist.yaml#/number"
+            level:
+              $ref: "../components/schemas/queueblacklist.yaml#/level"
+            longitude:
+              $ref: "../components/schemas/queueblacklist.yaml#/longitude"
+            latitude:
+              $ref: "../components/schemas/queueblacklist.yaml#/latitude"
+            address:
+              $ref: "../components/schemas/common.yaml#/address"
+            expire_at:
+              $ref: "../components/schemas/queueblacklist.yaml#/expire_at"
+            trigger_times:
+              $ref: "../components/schemas/queueblacklist.yaml#/trigger_times"
+            enabled:
+              $ref: "../components/schemas/queueblacklist.yaml#/enabled"
+            description:
+              $ref: "../components/schemas/queueblacklist.yaml#/description"
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

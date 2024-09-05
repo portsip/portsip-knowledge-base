@@ -1,0 +1,64 @@
+id:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/id"
+  description: |
+    The unique ID of conference server.
+name:
+  type: string
+  minLength: 1
+  maxLength: 64
+  description: |
+    The name of conference server.
+enabled:
+  type: boolean
+  default: true
+  description: |
+    The activate status or deactivated status.
+type:
+  type: string
+  enum:
+    - INTERNAL
+    - EXTERNAL
+  readOnly: true
+  description: |
+    Every PortSIP PBX has a built-in conference server marked as `INTERNAL`;   
+    Newly added conference servers will be marked as "EXTERNAL".
+max_rooms:
+  type: integer
+  format: int32
+  minimum: 0
+  description: |
+    The maximum number of rooms for conference server.
+max_participants:
+  type: integer
+  format: int32
+  minimum: 0
+  description: |
+    The maximum number of participants for conference server.
+status:
+  type: string
+  enum:
+    - ONLINE
+    - OFFLINE
+  description: |
+    Conference room's status:
+    - `ONLINE`: room is online.
+    - `OFFLINE`: room is offline.
+state:
+  type: object
+  readOnly: true
+  properties:
+    rooms_count:
+      type: integer
+      description: |
+        The  number of rooms for conference server.
+    participants_count:
+      type: integer
+      description: |
+        The  number of participants for conference server.
+    cpu_usage:
+      $ref: "../../components/schemas/common.yaml#/cpu_usage"
+    memory_usage:
+      $ref: "../../components/schemas/common.yaml#/memory_usage"
+    status:
+      $ref: "#/status"

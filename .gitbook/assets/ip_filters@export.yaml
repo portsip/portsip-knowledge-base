@@ -1,0 +1,22 @@
+get:
+  tags:
+    - Administration
+  operationId: exportIpRules
+  summary: Export IP rules
+  description: |
+    Export a collection of IP rules to file.
+  responses:
+    "200":
+      description: OK
+      headers:
+        Content-Disposition:
+          schema:
+            type: string
+          description: the format is `attachment; filename="example"`
+      content:
+        application/octet-stream:
+          schema:
+            type: string
+            format: binary
+    "4XX":
+      description: Error

@@ -1,0 +1,58 @@
+get:
+  tags:
+    - Call Pickup
+  operationId: listCallPickupGroupMembers
+  summary: List call pickup group members
+  description: |
+    Retrieve a collection of call pickup group members.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/callpickupgrp.yaml#/id"
+      description: The unique ID of the call pickup group.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              items:
+                type: array
+                items:
+                  $ref: "../components/schemas/extension.yaml#/member"
+    "4XX":
+      description: Error
+post:
+  tags:
+    - Call Pickup
+  operationId: updateCallPickupGroupMemberList
+  summary: Update call pickup group member list
+  description: |
+    Update call pickup group member list.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/callpickupgrp.yaml#/id"
+      description: The unique ID of call pickup group.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            items:
+              type: array
+              items:
+                $ref: "../components/schemas/common.yaml#/extension_number"
+              description: Collection of member's extension number.
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

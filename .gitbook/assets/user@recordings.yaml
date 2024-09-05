@@ -1,0 +1,40 @@
+get:
+  tags:
+    - User
+  operationId: listUserRecordings
+  summary: List user call recordings
+  description: |
+    Retrieve a collection of user call recordings.
+  parameters:
+    - $ref: "../components/parameters/common.yaml#/filter"
+    - $ref: "../components/parameters/common.yaml#/search"
+    - $ref: "../components/parameters/common.yaml#/orderby"
+    - $ref: "../components/parameters/common.yaml#/skip"
+    - $ref: "../components/parameters/common.yaml#/top"
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                $ref: "../components/schemas/common.yaml#/count"
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      $ref: "../components/schemas/callrecording.yaml#/id"
+                    caller:
+                      $ref: "../components/schemas/callrecording.yaml#/caller"
+                    callee:
+                      $ref: "../components/schemas/callrecording.yaml#/callee"
+                    started_at:
+                      $ref: "../components/schemas/callrecording.yaml#/started_at"
+                    ended_at:
+                      $ref: "../components/schemas/callrecording.yaml#/ended_at"
+    "4XX":
+      description: Error

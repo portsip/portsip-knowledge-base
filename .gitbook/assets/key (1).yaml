@@ -1,0 +1,9 @@
+crt:
+  type: string
+  description: |
+    Content of this certificate file for TLS or WSS transport protocol.
+    The certificate file MUST be PEM-encoded with X.509.
+key:
+  type: string
+  description: |
+    Content of this private certificate file for TLS or WSS transport protocol.

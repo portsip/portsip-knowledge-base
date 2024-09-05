@@ -1,0 +1,28 @@
+id:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/id"
+  description: |
+    The unique ID of speed dial.
+code8:
+  type: string
+  minLength: 1
+  maxLength: 1
+  description: |
+    The speed dial 8 dialing code.   
+    Available code range from `2` to `9`.
+code100:
+  type: string
+  minLength: 2
+  maxLength: 2
+  description: |
+    The speed dial 100 dialing code.   
+    Available code range from `00` to `99`.
+phone_number:
+  type: string
+  description: |
+    The phone number that you want to call.
+description:
+  type: string
+  maximum: 1024
+  description: |
+    The description of speed dial.

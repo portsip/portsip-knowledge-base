@@ -1,0 +1,22 @@
+get:
+  tags:
+    - Media Server
+  operationId: getMediaServerStatus
+  summary: Query media server Status
+  description: Query media server's status by it's ID
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/mediaserver.yaml#/id"
+      description: The unique ID of the media server.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../components/schemas/mediaserver.yaml#/state"
+    "4XX":
+      description: Error

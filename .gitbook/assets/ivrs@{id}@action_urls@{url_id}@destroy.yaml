@@ -1,0 +1,25 @@
+post:
+  tags:
+    - Virtual Receptionist
+  operationId: deleteActionUrl
+  summary: Delete an action url
+  description: |
+    Destroy an action url from virtual receptionist.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/ivr.yaml#/id"
+      description: The unique ID of the virtual receptionist.
+    - name: url_id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/actionurl.yaml#/id"
+      description: The unique ID of the action url.
+  responses:
+    "204":
+      description: No Content
+    "4XX":
+      description: Error

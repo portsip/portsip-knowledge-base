@@ -1,0 +1,17 @@
+post:
+  tags:
+    - Outbound Rule
+  operationId: deleteOutboundRule
+  summary: Delete a outbound rule
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/outboundrule.yaml#/id"
+      description: The unique ID of the outbound rule.
+  responses:
+    "204":
+      description: No Content
+    "4XX":
+      description: Error

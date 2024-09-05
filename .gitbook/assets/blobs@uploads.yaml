@@ -1,0 +1,46 @@
+post:
+  tags:
+    - Blobs
+  operationId: initBlobUpload
+  summary: Initiate file upload
+  description: |
+    Initiate a file upload. This endpoint can be used to create resumable uploads.
+  parameters:
+    - name: filename
+      in: query
+      schema:
+        $ref: "../components/schemas/file.yaml#/name"
+      description: |
+        The file name of uploaded file.
+    - name: temporary
+      in: query
+      schema:
+        $ref: "../components/schemas/file.yaml#/temporary"
+      description: |
+        When uploading temporary files, set the parameter to `true`.
+  responses:
+    "202":
+      description: Accepted
+      headers:
+        PortSIP-Upload-ID:
+          schema:
+            type: string
+          description: |
+            The UUID of file upload.
+        PortSIP-Upload-Token:
+          schema:
+            type: string
+          description: |
+            The upload token of file upload.
+        Content-Length:
+          schema:
+            type: integer
+          description: |
+            The length of content.
+        Range:
+          schema:
+            type: string
+          description: |
+            The content range of file uploaded.
+    "4XX":
+      description: Error

@@ -1,0 +1,28 @@
+get:
+  tags:
+    - Conference
+  operationId: listConferenceRoomParticipants
+  summary: List room participants
+  description: |
+    Retrieve a collection of conference room participants.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/confroom.yaml#/id"
+      description: The unique ID of conference room.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              items:
+                type: array
+                items:
+                  $ref: "../components/schemas/confroom.yaml#/participant"
+    "4XX":
+      description: Error

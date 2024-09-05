@@ -1,0 +1,19 @@
+post:
+  tags:
+    - Administration
+  operationId: deleteTenant
+  summary: Delete a tenant
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/tenant.yaml#/id"
+      description: The unique ID of the tenant.
+  responses:
+    "204":
+      description: No Content
+    "400":
+      description: Invalid name supplied
+    "404":
+      description: Tenant not found

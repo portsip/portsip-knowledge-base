@@ -1,0 +1,23 @@
+get:
+  tags:
+    - Conference
+  operationId: getConferenceRoomStatus
+  summary: Query conference room's status
+  description: |
+    Query conference room's status by it's unique ID.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/confroom.yaml#/id"
+      description: The unique ID of the conference room.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../components/schemas/confroom.yaml#/state"
+    "4XX":
+      description: Error

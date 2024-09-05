@@ -1,0 +1,25 @@
+get:
+  tags:
+    - Administration
+  operationId: getTransportStatus
+  summary: Query transport's status
+  description: |
+    Query transport's status
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/transport.yaml#/protocol"
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                $ref: "../components/schemas/transport.yaml#/status"
+    "4XX":
+      description: Error

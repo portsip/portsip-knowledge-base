@@ -1,0 +1,103 @@
+post:
+  tags:
+    - Virtual Receptionist
+  operationId: createActionUrl
+  summary: Create an action url
+  description: |
+    Create an action url for virtual receptionist.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/ivr.yaml#/id"
+      description: The unique ID of the virtual receptionist.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          allOf:
+            - type: object
+              properties:
+                name:
+                  $ref: "../components/schemas/actionurl.yaml#/name"
+                enabled:
+                  $ref: "../components/schemas/actionurl.yaml#/enabled"
+                type:
+                  $ref: "../components/schemas/actionurl.yaml#/type"
+                method:
+                  $ref: "../components/schemas/actionurl.yaml#/method"
+                headers:
+                  $ref: "../components/schemas/actionurl.yaml#/headers"
+                caller_mask:
+                  $ref: "../components/schemas/actionurl.yaml#/caller_mask"
+                dtmf_mask:
+                  $ref: "../components/schemas/actionurl.yaml#/dtmf_mask"
+                connection_timeout:
+                  $ref: "../components/schemas/actionurl.yaml#/connection_timeout"
+                request_timeout:
+                  $ref: "../components/schemas/actionurl.yaml#/request_timeout"
+            - $ref: "../components/schemas/tenant.yaml#/event_url"
+  responses:
+    "201":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/actionurl.yaml#/id"
+    "4XX":
+      description: Error
+get:
+  tags:
+    - Virtual Receptionist
+  operationId: listActionUrls
+  summary: List action urls
+  description: |
+    Retrieves a list of action urls of virtual receptionist.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/ivr.yaml#/id"
+      description: The unique ID of the virtual receptionist.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              items:
+                type: array
+                items:
+                  allOf:
+                    - type: object
+                      properties:
+                        id:
+                          $ref: "../components/schemas/actionurl.yaml#/id"
+                        name:
+                          $ref: "../components/schemas/actionurl.yaml#/name"
+                        enabled:
+                          $ref: "../components/schemas/actionurl.yaml#/enabled"
+                        type:
+                          $ref: "../components/schemas/actionurl.yaml#/type"
+                        caller_mask:
+                          $ref: "../components/schemas/actionurl.yaml#/caller_mask"
+                        dtmf_mask:
+                          $ref: "../components/schemas/actionurl.yaml#/dtmf_mask"
+                        method:
+                          $ref: "../components/schemas/actionurl.yaml#/method"
+                        headers:
+                          $ref: "../components/schemas/actionurl.yaml#/headers"
+                        connection_timeout:
+                          $ref: "../components/schemas/actionurl.yaml#/connection_timeout"
+                        request_timeout:
+                          $ref: "../components/schemas/actionurl.yaml#/request_timeout"
+                    - $ref: "../components/schemas/tenant.yaml#/event_url"
+    "4XX":
+      description: Error

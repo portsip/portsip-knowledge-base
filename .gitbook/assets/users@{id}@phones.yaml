@@ -1,0 +1,201 @@
+post:
+  tags:
+    - User
+  operationId: createUserPhone
+  summary: Assign phone to user
+  description: |
+    Assign a phone to user.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/extension.yaml#/id"
+      description: The unique ID of the user.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            mac:
+              $ref: "../components/schemas/phone.yaml#/mac"
+            filename:
+              $ref: "../components/schemas/phone.yaml#/filename"
+            vendor:
+              $ref: "../components/schemas/phone.yaml#/vendor"
+            model:
+              $ref: "../components/schemas/phone.yaml#/model"
+            password:
+              $ref: "../components/schemas/phone.yaml#/password"
+            language:
+              $ref: "../components/schemas/phone.yaml#/language"
+            transfer:
+              $ref: "../components/schemas/phone.yaml#/transfer"
+            timezone:
+              $ref: "../components/schemas/phone.yaml#/timezone"
+            ringtone:
+              $ref: "../components/schemas/phone.yaml#/ringtone"
+            queue_ringtone:
+              $ref: "../components/schemas/phone.yaml#/queue_ringtone"
+            external_ringtone:
+              $ref: "../components/schemas/phone.yaml#/external_ringtone"
+            date_format:
+              $ref: "../components/schemas/phone.yaml#/date_format"
+            time_format:
+              $ref: "../components/schemas/phone.yaml#/time_format"
+            powerled:
+              $ref: "../components/schemas/phone.yaml#/powerled"
+            backlight:
+              $ref: "../components/schemas/phone.yaml#/backlight"
+            screensaver:
+              $ref: "../components/schemas/phone.yaml#/screensaver"
+            rps:
+              $ref: "../components/schemas/phone.yaml#/rps"
+            https:
+              $ref: "../components/schemas/phone.yaml#/https"
+            codecs:
+              $ref: "../components/schemas/phone.yaml#/codecs"
+            enable_lldp:
+              $ref: "../components/schemas/phone.yaml#/enable_lldp"
+            enable_vlan_wan_port:
+              $ref: "../components/schemas/phone.yaml#/enable_vlan_wan_port"
+            wan_port_id:
+              $ref: "../components/schemas/phone.yaml#/wan_port_id"
+            wan_port_priority:
+              $ref: "../components/schemas/phone.yaml#/wan_port_priority"
+            enable_vlan_pc_port:
+              $ref: "../components/schemas/phone.yaml#/enable_vlan_pc_port"
+            pc_port_id:
+              $ref: "../components/schemas/phone.yaml#/pc_port_id"
+            pc_port_priority:
+              $ref: "../components/schemas/phone.yaml#/pc_port_priority"
+            interface:
+              $ref: "../components/schemas/system.yaml#/interface"
+            preferred_transport:
+              $ref: "../components/schemas/transport.yaml#/protocol"
+            serial_number:
+              $ref: "../components/schemas/phone.yaml#/serial_number"
+            door_password1:
+              $ref: "../components/schemas/phone.yaml#/door_password1"
+            door_password2:
+              $ref: "../components/schemas/phone.yaml#/door_password2"
+          required:
+            - mac
+            - filename
+            - vendor
+            - model
+            - password
+            - language
+            - transfer
+            - timezone
+            - codecs
+            - interface
+            - preferred_transport
+  responses:
+    "201":
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/phone.yaml#/id"
+    "4XX":
+      description: Error
+get:
+  tags:
+    - User
+  operationId: listUserPhones
+  summary: List user's IP phones
+  description: |
+    Retrieve a collection of IP Phones.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/extension.yaml#/id"
+      description: The unique ID of the user.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      $ref: "../components/schemas/phone.yaml#/id"
+                    mac:
+                      $ref: "../components/schemas/phone.yaml#/mac"
+                    filename:
+                      $ref: "../components/schemas/phone.yaml#/filename"
+                    vendor:
+                      $ref: "../components/schemas/phone.yaml#/vendor"
+                    model:
+                      $ref: "../components/schemas/phone.yaml#/model"
+                    password:
+                      $ref: "../components/schemas/phone.yaml#/password"
+                    language:
+                      $ref: "../components/schemas/phone.yaml#/language"
+                    transfer:
+                      $ref: "../components/schemas/phone.yaml#/transfer"
+                    timezone:
+                      $ref: "../components/schemas/phone.yaml#/timezone"
+                    ringtone:
+                      $ref: "../components/schemas/phone.yaml#/ringtone"
+                    queue_ringtone:
+                      $ref: "../components/schemas/phone.yaml#/queue_ringtone"
+                    external_ringtone:
+                      $ref: "../components/schemas/phone.yaml#/external_ringtone"
+                    date_format:
+                      $ref: "../components/schemas/phone.yaml#/date_format"
+                    time_format:
+                      $ref: "../components/schemas/phone.yaml#/time_format"
+                    powerled:
+                      $ref: "../components/schemas/phone.yaml#/powerled"
+                    backlight:
+                      $ref: "../components/schemas/phone.yaml#/backlight"
+                    screensaver:
+                      $ref: "../components/schemas/phone.yaml#/screensaver"
+                    rps:
+                      $ref: "../components/schemas/phone.yaml#/rps"
+                    https:
+                      $ref: "../components/schemas/phone.yaml#/https"
+                    codecs:
+                      $ref: "../components/schemas/phone.yaml#/codecs"
+                    enable_lldp:
+                      $ref: "../components/schemas/phone.yaml#/enable_lldp"
+                    enable_vlan_wan_port:
+                      $ref: "../components/schemas/phone.yaml#/enable_vlan_wan_port"
+                    wan_port_id:
+                      $ref: "../components/schemas/phone.yaml#/wan_port_id"
+                    wan_port_priority:
+                      $ref: "../components/schemas/phone.yaml#/wan_port_priority"
+                    enable_vlan_pc_port:
+                      $ref: "../components/schemas/phone.yaml#/enable_vlan_pc_port"
+                    pc_port_id:
+                      $ref: "../components/schemas/phone.yaml#/pc_port_id"
+                    pc_port_priority:
+                      $ref: "../components/schemas/phone.yaml#/pc_port_priority"
+                    interface:
+                      $ref: "../components/schemas/system.yaml#/interface"
+                    preferred_transport:
+                      $ref: "../components/schemas/transport.yaml#/protocol"
+                    serial_number:
+                      $ref: "../components/schemas/phone.yaml#/serial_number"
+                    door_password1:
+                      $ref: "../components/schemas/phone.yaml#/door_password1"
+                    door_password2:
+                      $ref: "../components/schemas/phone.yaml#/door_password2"
+                    url:
+                      $ref: "../components/schemas/phone.yaml#/url"
+    "4XX":
+      description: Error

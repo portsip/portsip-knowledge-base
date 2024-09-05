@@ -1,0 +1,100 @@
+id:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/id"
+  description: |
+    The unique ID of session.
+trunk:
+  type: string
+  maxLength: 64
+  description: |
+    The name of trunk.
+rewrite_from:
+  type: string
+  minLength: 1
+  maxLength: 16
+  description: |
+    When call through the trunk specified by `trunk`,  
+    change the user part in the `FROM` header to specified value.
+rewrite_pai:
+  type: string
+  minLength: 1
+  maxLength: 16
+  description: |
+    When call through the trunk specified by `trunk`,  
+    change the user part in the `P-Asserted-Identity` header to specified value.
+rewrite_rpi:
+  type: string
+  minLength: 1
+  maxLength: 16
+  description: |
+    When call through the trunk specified by `trunk`,  
+    change the user part in the `Remote-Party-ID` header to specified value.
+send_sdp:
+  type: boolean
+  description: |
+    Whether to send sdp packets.
+user_data:
+  type: string
+  maxLength: 128
+  description: |
+    The user context of the call.
+target:
+  type: string
+  maxLength: 128
+  description: |
+    The callee target address.
+additional_header:
+  type: string
+  enum:
+    - ANSWER_MODE
+    - CALL_INFO
+    - ALERT_INFO_AUTO_ANSWER_DELAY0
+    - ALERT_INFO_AUTO_ANSWER
+    - ALERT_INFO_INTERCOM
+  description: |
+    Specifies whether to add an additional SIP header (RFC 5373) to the INVITE SIP message. The possible values are:
+    - `ANSWER_MODE`: Adds the `Answer-Mode` header to the INVITE SIP message.
+    - `CALL_INFO`: Adds the `Call-Info` header with `answer-after=0` to the INVITE SIP message.
+    - `ALERT_INFO_AUTO_ANSWER_DELAY0`:  Adds the `Alert-Info` header with `info=alert-autoanswer;delay=0` to the INVITE SIP message. 
+    - `ALERT_INFO_AUTO_ANSWER`: Adds the `Alert-Info` header with `info=Auto Answer` to the INVITE SIP message. 
+    - `ALERT_INFO_INTERCOM`:  Adds the `Alert-Info` header with `info=intercom` to the INVITE SIP message. 
+header_direction:
+  type: string
+  enum:
+    - CALLER
+    - CALLEE
+    - ALL
+  description: |
+    Specifies which party of the call should receive the `additional_header`, if the `additional_header` is not specified, this parameter will be ignored. The possible values are: 
+    - `CALLER`: Adds the specified header in `additional_header` to the INVITE SIP message sent to the caller.
+    - `CALLEE`: Adds the specified header in `additional_header` to the INVITE SIP message sent to the callee.
+    - `ALL`: Adds the specified header in `additional_header` to the INVITE SIP messages sent to both the caller and callee.
+refer_to:
+  type: string
+  description: |
+    The refer target, usually a number.
+started_at:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/date_time"
+  description: |
+    The start time of the call session.
+talking_time:
+  type: integer
+  format: uint32
+  description: |
+    The duration of the call session in seconds.
+info:
+  type: object
+  properties:
+    caller:
+      $ref: "../../components/schemas/cdr.yaml#/caller"
+    caller_display_name:
+      $ref: "../../components/schemas/cdr.yaml#/caller_display_name"
+    callee:
+      $ref: "../../components/schemas/cdr.yaml#/callee"
+    trunk:
+      $ref: "../../components/schemas/provider.yaml#/name"
+    started_at:
+      $ref: "#/started_at"
+    talking_time:
+      $ref: "#/talking_time"

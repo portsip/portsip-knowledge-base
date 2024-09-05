@@ -1,0 +1,67 @@
+get:
+  tags:
+    - Administration
+  operationId: showIpRule
+  summary: Retrieve an IP rule
+  description: |
+    Retrieve IP blacklist entry or whitelist entry.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/iprule.yaml#/id"
+      description: The unique ID of the rule.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/iprule.yaml#/id"
+              cidr:
+                $ref: "../components/schemas/common.yaml#/cidr"
+              target:
+                $ref: "../components/schemas/iprule.yaml#/target"
+              expire_at:
+                $ref: "../components/schemas/iprule.yaml#/expire_at"
+              description:
+                $ref: "../components/schemas/iprule.yaml#/description"
+    "4XX":
+      description: Error
+post:
+  tags:
+    - Administration
+  operationId: updateIpRule
+  summary: Update an IP rule
+  description: |
+    Update IP blacklist entry or whitelist entry that already exists.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/iprule.yaml#/id"
+      description: The unique ID of the rule.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            cidr:
+              $ref: "../components/schemas/common.yaml#/cidr"
+            target:
+              $ref: "../components/schemas/iprule.yaml#/target"
+            expire_at:
+              $ref: "../components/schemas/iprule.yaml#/expire_at"
+            description:
+              $ref: "../components/schemas/iprule.yaml#/description"
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

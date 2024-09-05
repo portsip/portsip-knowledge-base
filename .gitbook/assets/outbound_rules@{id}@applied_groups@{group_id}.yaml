@@ -1,0 +1,61 @@
+post:
+  tags:
+    - Outbound Rule
+  operationId: applyGroupToOutboundRule
+  summary: Apply group to outbound rule
+  description: |
+    Apply a group to outbound rule.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/outboundrule.yaml#/id"
+      description: The unique ID of the outbound rule.
+    - name: group_id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/extgrp.yaml#/id"
+      description: The unique ID of the group.
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error
+get:
+  tags:
+    - Outbound Rule
+  operationId: checkIfGroupAppliedOutboundRule
+  summary: Check if a group has outbound rule applied
+  description: |
+    Check if a group has outbound rule applied.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/outboundrule.yaml#/id"
+      description: The unique ID of the outbound rule.
+    - name: group_id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/extgrp.yaml#/id"
+      description: The unique ID of the group.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/extgrp.yaml#/id"
+              name:
+                $ref: "../components/schemas/extgrp.yaml#/name"
+              description:
+                $ref: "../components/schemas/extgrp.yaml#/description"
+    "404":
+      description: Not Found

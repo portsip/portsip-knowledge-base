@@ -1,0 +1,109 @@
+get:
+  tags:
+    - Administration
+  operationId: getSystemNotificationSettings
+  summary: Retrieve system notification settings
+  description: |
+    Retrieve details of system notification settings.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              server:
+                $ref: "../components/schemas/notification.yaml#/server"
+              port:
+                $ref: "../components/schemas/common.yaml#/port"
+              reply_to:
+                $ref: "../components/schemas/notification.yaml#/reply_to"
+              username:
+                $ref: "../components/schemas/notification.yaml#/username"
+              auth:
+                $ref: "../components/schemas/notification.yaml#/auth"
+              enable_tls_ssl:
+                $ref: "../components/schemas/notification.yaml#/enable_tls_ssl"
+              enable_starttls_auto:
+                $ref: "../components/schemas/notification.yaml#/enable_starttls_auto"
+              recipients:
+                $ref: "../components/schemas/notification.yaml#/recipients"
+              hard_disk_threshold:
+                $ref: "../components/schemas/notification.yaml#/hard_disk_threshold"
+              notify_hard_disk_exceeded_threshold:
+                $ref: "../components/schemas/notification.yaml#/notify_hard_disk_exceeded_threshold"
+              cpu_threshold:
+                $ref: "../components/schemas/notification.yaml#/cpu_threshold"
+              notify_cpu_exceeded_threshold:
+                $ref: "../components/schemas/notification.yaml#/notify_cpu_exceeded_threshold"
+              memory_threshold:
+                $ref: "../components/schemas/notification.yaml#/memory_threshold"
+              notify_memory_exceeded_threshold:
+                $ref: "../components/schemas/notification.yaml#/notify_memory_exceeded_threshold"
+              notify_ip_blocked:
+                $ref: "../components/schemas/notification.yaml#/notify_ip_blocked"
+              notify_license_limited:
+                $ref: "../components/schemas/notification.yaml#/notify_license_limited"
+              notify_service_disconnected:
+                $ref: "../components/schemas/notification.yaml#/notify_service_disconnected"
+              notify_push_certs_update_failed:
+                $ref: "../components/schemas/notification.yaml#/notify_push_certs_update_failed"
+    "4XX":
+      description: Error
+post:
+  tags:
+    - Administration
+  operationId: updateSystemNotificationSettings
+  summary: Update system notification settings
+  description: |
+    Update system notification settings.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            server:
+              $ref: "../components/schemas/notification.yaml#/server"
+            port:
+              $ref: "../components/schemas/common.yaml#/port"
+            reply_to:
+              $ref: "../components/schemas/notification.yaml#/reply_to"
+            username:
+              $ref: "../components/schemas/notification.yaml#/username"
+            password:
+              $ref: "../components/schemas/notification.yaml#/password"
+            auth:
+              $ref: "../components/schemas/notification.yaml#/auth"
+            enable_tls_ssl:
+              $ref: "../components/schemas/notification.yaml#/enable_tls_ssl"
+            enable_starttls_auto:
+              $ref: "../components/schemas/notification.yaml#/enable_starttls_auto"
+            recipients:
+              $ref: "../components/schemas/notification.yaml#/recipients"
+            hard_disk_threshold:
+              $ref: "../components/schemas/notification.yaml#/hard_disk_threshold"
+            notify_hard_disk_exceeded_threshold:
+              $ref: "../components/schemas/notification.yaml#/notify_hard_disk_exceeded_threshold"
+            cpu_threshold:
+              $ref: "../components/schemas/notification.yaml#/cpu_threshold"
+            notify_cpu_exceeded_threshold:
+              $ref: "../components/schemas/notification.yaml#/notify_cpu_exceeded_threshold"
+            memory_threshold:
+              $ref: "../components/schemas/notification.yaml#/memory_threshold"
+            notify_memory_exceeded_threshold:
+              $ref: "../components/schemas/notification.yaml#/notify_memory_exceeded_threshold"
+            notify_ip_blocked:
+              $ref: "../components/schemas/notification.yaml#/notify_ip_blocked"
+            notify_license_limited:
+              $ref: "../components/schemas/notification.yaml#/notify_license_limited"
+            notify_service_disconnected:
+              $ref: "../components/schemas/notification.yaml#/notify_service_disconnected"
+            notify_push_certs_update_failed:
+              $ref: "../components/schemas/notification.yaml#/notify_push_certs_update_failed"
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

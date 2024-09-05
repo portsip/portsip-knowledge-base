@@ -1,0 +1,23 @@
+post:
+  tags:
+    - Shared Voicemail
+  operationId: delSharedVoicemailGreeting
+  summary: Delete shared voicemail greeting
+  description: |
+    Destroy a greeting from shared voicemail.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/sharedvoicemail.yaml#/id"
+    - name: greeting_id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/greeting.yaml#/id"
+  responses:
+    "204":
+      description: No Content
+    "4XX":
+      description: Error

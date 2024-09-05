@@ -1,0 +1,33 @@
+post:
+  tags:
+    - User
+  operationId: setMeetingParticipantPosition
+  summary: Set meeting participant position
+  description: |
+    Set meeting participant position.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/confroom.yaml#/id"
+      description: The unique ID of the meeting.
+    - name: participant_id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/confroom.yaml#/participant_id"
+      description: The id of the participant.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            position:
+              $ref: "../components/schemas/confroom.yaml#/position"
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

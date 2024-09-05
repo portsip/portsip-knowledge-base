@@ -1,0 +1,32 @@
+get:
+  tags:
+    - Notification
+  operationId: listDefaultEmailTemplates
+  summary: List default email templates
+  description: |
+    List all of default email templates
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              items:
+                type: array
+                items:
+                  type: object
+                  properties: 
+                    name:
+                      $ref: "../components/schemas/email_template.yaml#/name"
+                    from:
+                      $ref: "../components/schemas/email_template.yaml#/from"
+                    subject:
+                      $ref: "../components/schemas/email_template.yaml#/subject"
+                    body:
+                      $ref: "../components/schemas/email_template.yaml#/body"
+                description: |
+                  A collection of default email templates.
+    "4XX":
+      description: Error

@@ -1,0 +1,30 @@
+get:
+  tags:
+    - Blobs
+  operationId: downloadBlobs
+  summary: Download file blobs
+  description: |
+    Download file from server by it's digest.
+  security: []
+  parameters:
+    - name: digest
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/common.yaml#/digest"
+      description: The digest of the file blob.
+  responses:
+    '200':
+      description: OK
+      headers:
+        Content-Disposition:
+          schema:
+            type: string
+          description: the format is `attachment; filename="example"`
+      content:
+        application/octet-stream:
+          schema:
+            type: string
+            format: binary
+    "4XX":
+      description: Error

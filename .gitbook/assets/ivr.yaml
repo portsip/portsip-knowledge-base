@@ -1,0 +1,205 @@
+id:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/id"
+  description: |
+    The unique ID of virtual receptionist.
+name:
+  type: string
+  minLength: 1
+  maxLength: 64
+  description: |
+    The name of virtual receptionist.
+extension_number:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/extension_number"
+  description: |
+    The extension number of virtual receptionist.
+status:
+  type: string
+  enum:
+    - OFFLINE
+    - ONLINE
+  readOnly: true
+  description: |
+    The status of this virtual receptionists.
+    - `OFFLINE`:
+    - `ONLINE`:
+dtmf_interval:
+  type: integer
+  format: int32
+  minimum: 1
+  default: 2
+  description: |
+    The time to wait for the next DTMF input.
+enable_pin:
+  type: boolean
+  default: true
+  description: |
+    Whether the PIN is required for DISA.
+forward_rule_action:
+  type: string
+  enum:
+    - FORWARD_TO_NUMBER
+    - FORWARD_TO_VOICEMAIL
+    - REPEAT
+    - HANGUP
+  description: |
+    Forward actions includes:
+    - `FORWARD_TO_NUMBER`:
+    - `FORWARD_TO_VOICEMAIL`:
+    - `REPEAT`:
+    - `HANGUP`:
+forward_rule_number:
+  type: string
+  description: |
+    Specify the forwarding destination number.  
+    Can be either:  
+    - Extension number: The extension number of PortSIP PBX.
+    - External number: The numeric sequence of numbers, with or without a plus sign at the beginning.
+timeout_forward_rule:
+  type: object
+  properties:
+    timeout:
+      type: integer
+      default: 30
+      description: |
+        Single call timeout
+    repeat_times:
+      type: integer
+      format: int32
+      minimum: 0
+      default: 3
+      description: |
+        When timeout, the number of times to repeat the prompt tone
+    action:
+      $ref: "#/forward_rule_action"
+    number:
+      $ref: "#/forward_rule_number"
+failure_forward_rule:
+  type: object
+  properties:
+    action:
+      $ref: "#/forward_rule_action"
+    number:
+      $ref: "#/forward_rule_number"
+custom_forward_rule_action:
+  type: string
+  enum:
+    - FORWARD_TO_NUMBER
+    - FORWARD_TO_VOICEMAIL
+    - REPEAT
+    - HANGUP
+    - DISA
+  description: |
+    Forward rule actions for DTMF:   
+    Can be either:   
+    - `FORWARD_TO_NUMBER`:
+    - `FORWARD_TO_VOICEMAIL`:
+    - `REPEAT`:
+    - `HANGUP`:
+    - `DISA`:
+custom_forward_rules:
+  type: array
+  items:
+    type: object
+    properties:
+      user_input:
+        type: string
+        description: |
+          User input.
+      office_hours:
+        $ref: "common.yaml#/office_hours_with_mode"
+      office_hours_forward_rule:
+        type: object
+        properties:
+          action:
+            $ref: "#/custom_forward_rule_action"
+          number:
+            $ref: "#/forward_rule_number"
+      non_office_hours_forward_rule:
+        type: object
+        properties:
+          action:
+            $ref: "#/custom_forward_rule_action"
+          number:
+            $ref: "#/forward_rule_number"
+      holidays:
+        type: array
+        items:
+          $ref: "holiday.yaml#/id"
+        description: |
+          A collection of ID of tenant's holiday.
+      holiday_forward_rule:
+        type: object
+        properties:
+          action:
+            $ref: "#/custom_forward_rule_action"
+          number:
+            $ref: "#/forward_rule_number"
+custom_forward_rules_details:
+  type: array
+  items:
+    type: object
+    properties:
+      user_input:
+        type: string
+        description: |
+          User input.
+      office_hours:
+        $ref: "common.yaml#/office_hours_with_mode"
+      office_hours_forward_rule:
+        type: object
+        properties:
+          action:
+            $ref: "#/custom_forward_rule_action"
+          number:
+            $ref: "#/forward_rule_number"
+      non_office_hours_forward_rule:
+        type: object
+        properties:
+          action:
+            $ref: "#/custom_forward_rule_action"
+          number:
+            $ref: "#/forward_rule_number"
+      holidays:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              $ref: "holiday.yaml#/id"
+            name:
+              $ref: "holiday.yaml#/name"
+            region:
+              $ref: "common.yaml#/region"
+            consecutive:
+              $ref: "holiday.yaml#/consecutive"
+            every_year:
+              $ref: "holiday.yaml#/every_year"
+            year_start:
+              $ref: "holiday.yaml#/year_start"
+            year_end:
+              $ref: "holiday.yaml#/year_end"
+            month_start:
+              $ref: "holiday.yaml#/month_start"
+            month_end:
+              $ref: "holiday.yaml#/month_end"
+            day_start:
+              $ref: "holiday.yaml#/day_start"
+            day_end:
+              $ref: "holiday.yaml#/day_end"
+            hour_start:
+              $ref: "holiday.yaml#/hour_start"
+            hour_end:
+              $ref: "holiday.yaml#/hour_end"
+            minute_start:
+              $ref: "holiday.yaml#/minute_start"
+            minute_end:
+              $ref: "holiday.yaml#/minute_end"
+      holiday_forward_rule:
+        type: object
+        properties:
+          action:
+            $ref: "#/custom_forward_rule_action"
+          number:
+            $ref: "#/forward_rule_number"

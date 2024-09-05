@@ -1,0 +1,20 @@
+post:
+  tags:
+    - User
+  operationId: enableCurrentUserGreeting
+  summary: Enable one of current user's greetings.
+  description: |
+    Set one of current user's greetings to activated state.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/greeting.yaml#/id"
+  responses:
+    "200":
+      description: OK
+    "400":
+      description: Invalid extension number supplied
+    "404":
+      description: User not found

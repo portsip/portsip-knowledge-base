@@ -1,0 +1,44 @@
+get:
+  tags:
+    - CDR
+  operationId: listCompletedCallReports
+  summary: List completed call reports
+  parameters:
+    - $ref: "../components/parameters/common.yaml#/filter"
+    - $ref: "../components/parameters/common.yaml#/search"
+    - $ref: "../components/parameters/common.yaml#/orderby"
+    - $ref: "../components/parameters/common.yaml#/skip"
+    - $ref: "../components/parameters/common.yaml#/top"
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                $ref: "../components/schemas/common.yaml#/count"
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      $ref: "../components/schemas/callreport.yaml#/id"
+                    name:
+                      $ref: "../components/schemas/callreport.yaml#/name"
+                    type:
+                      $ref: "../components/schemas/callreport.yaml#/type"
+                    format:
+                      $ref: "../components/schemas/callreport.yaml#/format"
+                    completed_at:
+                      $ref: "../components/schemas/callreport.yaml#/completed_at"
+                    file_name:
+                      $ref: "../components/schemas/file.yaml#/name"
+                    file_size:
+                      $ref: "../components/schemas/file.yaml#/size"
+                    file_url:
+                      $ref: "../components/schemas/file.yaml#/url"
+    "4XX":
+      description: Error

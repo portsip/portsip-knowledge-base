@@ -1,0 +1,98 @@
+post:
+  tags:
+    - CDR
+  operationId: createCallReport
+  summary: Create new call report
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            name:
+              $ref: "../components/schemas/callreport.yaml#/name"
+            type:
+              $ref: "../components/schemas/callreport.yaml#/type"
+            email:
+              $ref: "../components/schemas/callreport.yaml#/email"
+            format:
+              $ref: "../components/schemas/callreport.yaml#/format"
+            range:
+              $ref: "../components/schemas/callreport.yaml#/range"
+            started_at:
+              $ref: "../components/schemas/callreport.yaml#/started_at"
+            ended_at:
+              $ref: "../components/schemas/callreport.yaml#/ended_at"
+            cron_expr:
+              $ref: "../components/schemas/common.yaml#/cron_expr"
+            filter:
+              oneOf:
+                - $ref: "../components/schemas/callreport.yaml#/normal_filter"
+                - $ref: "../components/schemas/callreport.yaml#/extension_statistics_filter"
+                - $ref: "../components/schemas/callreport.yaml#/extension_group_call_cost_filter"
+                - $ref: "../components/schemas/callreport.yaml#/queue_performance_filter"
+                - $ref: "../components/schemas/callreport.yaml#/queue_detailed_statistics_filter"
+                - $ref: "../components/schemas/callreport.yaml#/queue_abandoned_calls_filter"
+                - $ref: "../components/schemas/callreport.yaml#/queue_sla_statistics_filter"
+                - $ref: "../components/schemas/callreport.yaml#/queue_breaches_sla_statistics_filter"
+                - $ref: "../components/schemas/callreport.yaml#/queue_agents_statistics_filter"
+                - $ref: "../components/schemas/callreport.yaml#/queue_callbacks_filter"
+                - $ref: "../components/schemas/callreport.yaml#/team_queue_general_statistics_filter"
+                - $ref: "../components/schemas/callreport.yaml#/ring_group_statistics_filter"
+          required:
+            - name
+            - type
+            - email
+            - format
+            - range
+            - filter
+  responses:
+    "201":
+      description: Created
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/callreport.yaml#/id"
+    "4XX":
+      description: Error
+get:
+  tags:
+    - CDR
+  operationId: listCallReports
+  summary: List call reports
+  parameters:
+    - $ref: "../components/parameters/common.yaml#/filter"
+    - $ref: "../components/parameters/common.yaml#/search"
+    - $ref: "../components/parameters/common.yaml#/orderby"
+    - $ref: "../components/parameters/common.yaml#/skip"
+    - $ref: "../components/parameters/common.yaml#/top"
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                $ref: "../components/schemas/common.yaml#/count"
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      $ref: "../components/schemas/callreport.yaml#/id"
+                    name:
+                      $ref: "../components/schemas/callreport.yaml#/name"
+                    type:
+                      $ref: "../components/schemas/callreport.yaml#/type"
+                    cron_expr:
+                      $ref: "../components/schemas/common.yaml#/cron_expr"
+                    status:
+                      $ref: "../components/schemas/callreport.yaml#/status"
+    "4XX":
+      description: Error

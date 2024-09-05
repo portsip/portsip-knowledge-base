@@ -1,0 +1,22 @@
+apis:
+  pbx:
+    root: openapi/openapi.yaml
+extends:
+  - recommended
+rules:
+  no-unused-components: error
+  operation-4xx-response: off
+  no-ambiguous-paths: warn
+features.openapi:
+  hideHostname: false
+  hideDownloadButton: false
+  hideSchemaTitles: true
+  requiredPropsFirst: true
+  htmlTemplate: ./html/index.html
+  theme:
+    colors:
+      primary:
+        main: "#32329f"
+  generateCodeSamples:
+    languages:
+      - lang: curl

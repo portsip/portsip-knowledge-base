@@ -1,0 +1,54 @@
+get:
+  tags:
+    - Extension
+  operationId: getExtensionNumber
+  summary: Get extension number
+  description: |
+    Get details by extension number.
+  parameters:
+    - name: extension_number
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/common.yaml#/extension_number"
+      description: |
+        The extension number to check.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                allOf:
+                  - $ref: "../components/schemas/common.yaml#/id"
+                description: |
+                  The unique ID of the Ext.
+              extension_number:
+                allOf:
+                  - $ref: "../components/schemas/common.yaml#/extension_number"
+                description: |
+                  The extension number of the Ext.
+              name:
+                type: string
+                description: |
+                  The name of this Ext.
+              type:
+                type: string
+                enum:
+                  - EXTENSION
+                  - RING_GROUP
+                  - CALL_QUEUE
+                  - CONFERENCE_ROOM
+                  - VIRTUAL_RECEPTIONIST
+                description: |
+                  User agent client includes:
+                  - `EXTENSION`: type of extension type.
+                  - `RING_GROUP`: type of ring group.
+                  - `CALL_QUEUE`: type of call queue.
+                  - `CONFERENCE_ROOM`: type of conference room.
+                  - `VIRTUAL_RECEPTIONIST`: type of virtual receptionist.
+    "404":
+      description: Not Found

@@ -1,0 +1,9 @@
+id:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/id"
+  description: |
+    The unique ID of greeting.
+enabled:
+  type: boolean
+  description: |
+    Whether the greeting is enabled or not.

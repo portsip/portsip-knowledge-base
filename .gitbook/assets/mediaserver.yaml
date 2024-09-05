@@ -1,0 +1,58 @@
+id:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/id"
+  description: |
+    The unique ID of media server.
+name:
+  type: string
+  minLength: 1
+  maxLength: 64
+  description: |
+    The name of media server.
+type:
+  type: string
+  enum:
+    - INTERNAL
+    - EXTERNAL
+  readOnly: true
+  description: |
+    Every PortSIP PBX has a built-in media server marked as `INTERNAL`;   
+    Newly added media servers will be marked as "EXTERNAL".
+enabled:
+  type: boolean
+  default: true
+  description: |
+    The activate status or deactivated status.
+max_concurrency:
+  type: integer
+  format: int32
+  minimum: 1
+  default: 2000
+  description: |
+    Max concurrent sessions.
+current_concurrency:
+  type: integer
+  format: int32
+  description: |
+    Current concurrent sessions.
+status:
+  type: string
+  enum:
+    - OFFLINE
+    - ONLINE
+  readOnly: true
+  description: |
+    Server status includes:
+    - `OFFLINE`:
+    - `ONLINE`:
+state:
+  type: object
+  properties:
+    current_concurrency:
+      $ref: "#/current_concurrency"
+    cpu_usage:
+      $ref: "../../components/schemas/common.yaml#/cpu_usage"
+    memory_usage:
+      $ref: "../../components/schemas/common.yaml#/memory_usage"
+    status:
+      $ref: "#/status"

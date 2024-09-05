@@ -1,0 +1,34 @@
+version:
+  type: string
+  description: |
+    The version information of PortSIP PBX.
+max_dealers:
+  type: integer
+  format: int32
+  description: |
+    The maximum number of sub-dealers.
+current_dealers:
+  type: integer
+  format: int32
+  description: |
+    The number of current sub-dealers.
+max_users:
+  type: integer
+  format: int32
+  description: |
+    The maximum number of authorized users purchased by the dealer from distributor.
+current_users:
+  type: integer
+  format: int32
+  description: |
+    The number of current users of the dealer.
+max_tenants:
+  type: integer
+  format: int32
+  description: |
+    The maximum number of tenants the current dealer is allowed to create.
+current_tenants:
+  type: integer
+  format: int32
+  description: |
+    The number of current tenants of the dealer.

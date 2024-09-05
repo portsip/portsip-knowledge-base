@@ -1,0 +1,221 @@
+feature:
+  type: string
+  enum:
+    - ACCESSING_SHARED_VOICEMAIL
+    - ACCESSING_VOICEMAIL
+    - ANONYMOUS_CALL_ACTIVATION
+    - ANONYMOUS_CALL_DEACTIVATION
+    - ANONYMOUS_CALL_REJECTION_ACTIVATION
+    - ANONYMOUS_CALL_REJECTION_DEACTIVATION
+    - AUTOMATIC_CALLBACK_ACTIVATION
+    - AUTOMATIC_CALLBACK_DEACTIVATION
+    - CALL_BRIDGE
+    - CALL_FLIP
+    - CALL_FORWARDING_ALWAYS_ACTIVATION
+    - CALL_FORWARDING_ALWAYS_DEACTIVATION
+    - CALL_FORWARDING_ALWAYS_TO_VOICEMAIL_ACTIVATION
+    - CALL_FORWARDING_ALWAYS_TO_VOICEMAIL_DEACTIVATION
+    - CALL_FORWARDING_BUSY_ACTIVATION
+    - CALL_FORWARDING_BUSY_DEACTIVATION
+    - CALL_FORWARDING_BUSY_TO_VOICEMAIL_ACTIVATION
+    - CALL_FORWARDING_BUSY_TO_VOICEMAIL_DEACTIVATION
+    - CALL_FORWARDING_NO_ANSWER_ACTIVATION
+    - CALL_FORWARDING_NO_ANSWER_DEACTIVATION
+    - CALL_FORWARDING_NO_ANSWER_TO_VOICEMAIL_ACTIVATION
+    - CALL_FORWARDING_NO_ANSWER_TO_VOICEMAIL_DEACTIVATION
+    - CALL_FORWARDING_NOT_REACHABLE_DURING_OFFICE_HOURS_ACTIVATION
+    - CALL_FORWARDING_NOT_REACHABLE_DURING_OFFICE_HOURS_DEACTIVATION
+    - CALL_FORWARDING_NOT_REACHABLE_OUTSIDE_OFFICE_HOURS_ACTIVATION
+    - CALL_FORWARDING_NOT_REACHABLE_OUTSIDE_OFFICE_HOURS_DEACTIVATION
+    - CALL_PARK
+    - CALL_RECORDING_PAUSE
+    - CALL_RECORDING_RESUME
+    - CALL_RECORDING_START
+    - CALL_RECORDING_STOP
+    - CALL_RETRIEVE
+    - CALLER_ID_DELIVERY_BLOCKING_PER_CALL
+    - CALLER_ID_DELIVERY_BLOCKING_PERSISTENT_ACTIVATION
+    - CALLER_ID_DELIVERY_BLOCKING_PERSISTENT_DEACTIVATION
+    - CALLER_ID_DELIVERY_PER_CALL
+    - CHANGE_AGENT_STATE_TO_NOT_READY
+    - CHANGE_AGENT_STATE_TO_READY
+    - CLEAR_PUSH
+    - DIRECT_VOICEMAIL_TRANSFER
+    - DIRECTED_CALL_PICKUP
+    - DO_NOT_DISTURB
+    - DO_NOT_DISTURB_ACTIVATION
+    - GROUP_CALL_PARK
+    - GROUP_CALL_PICKUP
+    - LAST_CALL_RETURN
+    - LAST_NUMBER_REDIAL
+    - LOG_AGENT_INTO_QUEUE
+    - LOG_AGENT_OUT_OF_QUEUE
+    - LOGIN_HOT_DESKING
+    - LOGOUT_HOT_DESKING
+    - PAGE_INTERCOM_ACTIVATION_PER_CALL
+    - PER_ANONYMOUS_CALL_ACTIVATION
+    - PER_ANONYMOUS_CALL_DEACTIVATION
+    - RESET_CALLS
+    - SILENT_CALL_MONITORING
+    - SPEED_DIAL_100
+    - SPEED_DIAL_8
+  description: |
+    Feature access code's feature.  
+    - `ACCESSING_SHARED_VOICEMAIL`:
+      Access Shared Voicemail from either a IP Phone or Soft phone App or any other SIP end point.
+      For example, dial *56 followed by the shared voicemail number.
+    - `ACCESSING_VOICEMAIL`:
+      You can access your personal voicemail box using your own phone or another phone by dial *57.  
+      When you hear the audio prompt to enter your extension number and voicemail password (PIN) and press #.
+    - `CALL_FORWARDING_ALWAYS_ACTIVATION`:
+      Redirects incoming phone calls to another number
+      such as a mobile phone or another user within your company.
+      After dialing the assigned code, dial the phone number to redirect calls to,
+      followed by the pound key (#).
+    - `CALL_FORWARDING_ALWAYS_DEACTIVATION`:
+      Disables Call Forwarding Always.
+    - `CALL_FORWARDING_ALWAYS_TO_VOICEMAIL_ACTIVATION`:
+      Sends all incoming calls to voicemail.
+    - `CALL_FORWARDING_ALWAYS_TO_VOICEMAIL_DEACTIVATION`:
+      Deactivates the Call Forwarding Always to voicemail service.
+    - `CHANGE_AGENT_STATE_TO_READY`:
+      Change Agent State To Ready.
+    - `CHANGE_AGENT_STATE_TO_NOT_READY`:
+      Change agent state to Not Ready.
+    - `CALL_FORWARDING_BUSY_ACTIVATION`:
+      Redirects incoming phone calls to another number,
+      such as a mobile phone or another user within your company,
+      but only when you are engaged in another call.
+      After dialing the assigned code, dial the phone number to redirect
+    - `CALL_FORWARDING_BUSY_DEACTIVATION`:
+      Disables Call Forwarding Busy.
+    - `CALL_FORWARDING_BUSY_TO_VOICEMAIL_ACTIVATION`:
+      Sends calls to voicemail only when you are already engaged in a call.
+    - `CALL_FORWARDING_BUSY_TO_VOICEMAIL_DEACTIVATION`:
+      Deactivates the Call Forwarding Busy to Voicemail service.
+    - `CALL_FORWARDING_NO_ANSWER_ACTIVATION`:
+      Redirects incoming phone calls to another number,
+      such as a mobile phone or another user,
+      when you do not answer your phone.
+      After dialing the assigned code,
+      dial the phone number to redirect calls to, followed by the pound key (#).
+    - `CALL_FORWARDING_NO_ANSWER_DEACTIVATION`:
+      Disables Call Forwarding No Answer.
+    - `CALL_FORWARDING_NO_ANSWER_TO_VOICEMAIL_ACTIVATION`:
+      Sends calls to voicemail when you do not answer your phone.
+    - `CALL_FORWARDING_NO_ANSWER_TO_VOICEMAIL_DEACTIVATION`:
+      Deactivates the Call Forwarding No Answer to voicemail service.
+    - `CALL_FORWARDING_NOT_REACHABLE_DURING_OFFICE_HOURS_ACTIVATION`:
+      Forwards all incoming calls to a different number when your device is not registered on the network during office hours.
+      After dialing the assigned code, dial the phone number to redirect calls to, followed by the pound key (#).
+    - `CALL_FORWARDING_NOT_REACHABLE_DURING_OFFICE_HOURS_DEACTIVATION`:
+      Turns off the Call Forwarding Not Reachable Service for office hours.
+    - `CALL_FORWARDING_NOT_REACHABLE_OUTSIDE_OFFICE_HOURS_ACTIVATION`
+      Forwards all incoming calls to a different number when your device is not registered on the network outside office hours.
+      After dialing the assigned code, dial the phone number to redirect calls to, followed by the pound key.
+    - `CALL_FORWARDING_NOT_REACHABLE_OUTSIDE_OFFICE_HOURS_DEACTIVATION`
+      Turns off the Call Forwarding Not Reachable Service outside office hours.
+    - `CALLER_ID_DELIVERY_BLOCKING_PER_CALL`:
+      Activates the Calling Line ID Delivery Blocking service on a per-call basis.
+    - `CALLER_ID_DELIVERY_BLOCKING_PERSISTENT_ACTIVATION`:
+      Activates the Calling Line ID Delivery Blocking service on all calls.
+    - `CALLER_ID_DELIVERY_BLOCKING_PERSISTENT_DEACTIVATION`:
+      Deactivates the Calling Line ID Delivery Blocking service.
+    - `CALLER_ID_DELIVERY_PER_CALL`:
+      Displays your calling line ID for outbound calls on a per-call basis.
+      Before placing a call, dial the assigned code.
+    - `CALL_PARK`:
+      Parks a call against your extension or another user's extension.
+      Once a call is parked, it can be retrieved from another phone by using the Call Retrieve Feature Access Code.
+      To park a call, dial *68 followed by the extension to park the call on, or # to park the call on your own extension.
+    - `CALL_RECORDING_START`:
+      Starts a recording if a user has On Demand with User-Initiated Start or saves an entire recording in the On Demand mode.
+    - `CALL_RECORDING_STOP`:
+      Stops a recording in the On Demand with User-Initiated Start.
+    - `CALL_RECORDING_PAUSE`:
+      Pauses an active recording in the Always with Pause/Resume,
+      On Demand with User Initiated Start, or On Demand modes.
+    - `CALL_RECORDING_RESUME`:
+      Resumes a paused recording in the Always with Pause/Resume,
+      On Demand with User Initiated Start, or On Demand modes.
+    - `CALL_RETRIEVE`:
+      Used to retrieve a parked call.
+      Enter *88 followed by the extension that call is parked against.
+      If the call is parked against your own extension, press the # key.
+    - `DIRECT_VOICEMAIL_TRANSFER`:
+      Transfers a call on hold directly to voicemail.
+      The call can be transferred to your voicemail mailbox or to any other voicemail mailbox in the group.
+      For example, to transfer a call to another user's voicemail,
+      press the transfer soft key, then enter *55 followed by the user's extension.
+    - `DIRECTED_CALL_PICKUP`:
+      Answers calls ringing on another user's line.
+      Enter the assigned access code followed by the extension of the user whose call is to be picked up.
+    - `DO_NOT_DISTURB_ACTIVATION`:
+      Activates the Do Not Disturb feature.
+      When Do Not Disturb is enabled, your phone does not ring and all calls go directly to voicemail.
+    - `DO_NOT_DISTURB_DEACTIVATION`:
+      Disables the Do Not Disturb Feature.
+    - `GROUP_CALL_PARK`:
+      Parks a call against the first available extension in a Park Group.
+      Once a call is parked, it can be retrieved from another phone by using the Call Retrieve Feature Access Code.
+      To park a call, dial *58 followed by #.
+    - `GROUP_CALL_PICKUP`:
+      Enables you to pick up calls within an assigned call pickup group.
+      The call pickup group is determined by an administrator.
+      When you dial the call pickup code, the ringing phone in the group is answered.
+      If more than one phone is ringing, Call Pickup will answer the call that has been ringing the longest.
+    - `LAST_CALL_RETURN`:
+      Dials the last number that called your phone.
+    - `LAST_NUMBER_REDIAL`:
+      Redials the last number placed from your phone.
+    - `ANONYMOUS_CALL_REJECTION_ACTIVATION`:
+      Allows user to reject incoming calls from caller who have blocked caller ID information.
+    - `ANONYMOUS_CALL_REJECTION_DEACTIVATION`:
+      Allows user to reject incoming calls from caller who have blocked caller ID information.
+    - `SPEED_DIAL_8`:
+      Allows the user to associate one-digit (2 through 9) speed dial codes with frequently called or hard to remember phone numbers.
+    - `SPEED_DIAL_100`:
+      Allows the user to associate two-digit (00 through 1) speed dial codes with frequently called or hard to remember phone numbers.
+    - `ANONYMOUS_CALL_ACTIVATION`:
+      Enables persistent make anonymous outbound call
+    - `ANONYMOUS_CALL_DEACTIVATION`:
+      Disables persistent anonymous outbound call
+    - `PER_ANONYMOUS_CALL_ACTIVATION`:
+      Activates the Anonymous call service on a per-call basis.
+    - `PER_ANONYMOUS_CALL_DEACTIVATION`:
+      Disables the Anonymous call service on a per-call basis.
+    - `CALL_BRIDGE`:
+      Allows a user with Shared Call Appearance, Anywhere, Executive, or Flexible Seating Guest service to join a bridge.
+    - `AUTOMATIC_CALLBACK_ACTIVATION`:
+      Monitors a busy line and notifies the user as soon as the line becomes free.
+    - `AUTOMATIC_CALLBACK_DEACTIVATION`:
+      Disables the Automatic Callback feature
+    - `PAGE_INTERCOM_ACTIVATION_PER_CALL`:
+      Activates the Page/Intercom on a per-call basis
+    - `LOG_AGENT_INTO_QUEUE`:
+      Log agent into queue
+    - `LOG_AGENT_OUT_OF_QUEUE`:
+      Log agent out of queue
+    - `LOGIN_HOT_DESKING`:
+      Hot Desking Login.
+    - `LOGOUT_HOT_DESKING`:
+      Hot Desking Logout.
+    - `SILENT_CALL_MONITORING`:
+      Silent call monitoring allows a supervisor to eavesdrop on a call conversation.  
+      For example, if 102 is on a call, other granted users can dial *63102 and listen on 102's call without being discovered.
+    - `CALL_FLIP`:
+      Transfer calls from one device to another quickly and effortlessly with Call Flip.
+    - `CLEAR_PUSH`:
+      Delete the user's push notification data.
+    - `RESET_CALLS`:
+      Terminate the calls that are either received or made by the user.
+code:
+  type: string
+  minLength: 2
+  maxLength: 5
+  description: |
+    A sequence of up to four digits beginning with an `*`.
+enabled:
+  type: boolean
+  description: |
+    Enable the feature access code or not.

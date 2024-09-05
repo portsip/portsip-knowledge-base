@@ -1,0 +1,30 @@
+get:
+  tags:
+    - Auto Provisioning
+  operationId: listDectPhoneModels
+  summary: List DECT phone models
+  description: |
+    List DECT phone models.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    filename:
+                      $ref: "../components/schemas/phone.yaml#/filename"
+                    model:
+                      $ref: "../components/schemas/phone.yaml#/model"
+                    lines:
+                      $ref: "../components/schemas/dectphone.yaml#/lines"
+                    display_name:
+                      $ref: "../components/schemas/phone.yaml#/display_name"
+    "4XX":
+      description: Error

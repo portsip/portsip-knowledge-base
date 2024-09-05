@@ -1,0 +1,164 @@
+post:
+  tags:
+    - Administration
+  operationId: createTenant
+  summary: Create a tenant
+  description: |
+    Create an new tenant.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            name:
+              $ref: "../components/schemas/tenant.yaml#/name"
+            domain:
+              $ref: "../components/schemas/tenant.yaml#/domain"
+            website:
+              $ref: "../components/schemas/tenant.yaml#/website"
+            timezone:
+              $ref: "../components/schemas/tenant.yaml#/timezone"
+            currency:
+              $ref: "../components/schemas/tenant.yaml#/currency"
+            region:
+              $ref: "../components/schemas/common.yaml#/region"
+            enabled:
+              $ref: "../components/schemas/tenant.yaml#/enabled"
+            enable_video_recording:
+              $ref: "../components/schemas/tenant.yaml#/enable_video_recording"
+            enable_audio_recording:
+              $ref: "../components/schemas/tenant.yaml#/enable_audio_recording"
+            enable_dual_track_recording:
+              $ref: "../components/schemas/tenant.yaml#/enable_dual_track_recording"
+            enable_billing:
+              $ref: "../components/schemas/tenant.yaml#/enable_billing"
+            enable_feature_billing:
+              $ref: "../components/schemas/tenant.yaml#/enable_feature_billing"
+            enable_feature_call_statistics:
+              $ref: "../components/schemas/tenant.yaml#/enable_feature_call_statistics"
+            enable_feature_contact_center:
+              $ref: "../components/schemas/tenant.yaml#/enable_feature_contact_center"
+            enable_concurrent_login:
+              $ref: "../components/schemas/tenant.yaml#/enable_concurrent_login"
+            custom_options:
+              $ref: "../components/schemas/common.yaml#/custom_options"
+            max_extensions:
+              $ref: "../components/schemas/tenant.yaml#/max_extensions"
+            max_concurrent_calls:
+              $ref: "../components/schemas/tenant.yaml#/max_concurrent_calls"
+            max_ring_groups:
+              $ref: "../components/schemas/tenant.yaml#/max_ring_groups"
+            max_virtual_receptionists:
+              $ref: "../components/schemas/tenant.yaml#/max_virtual_receptionists"
+            max_call_queues:
+              $ref: "../components/schemas/tenant.yaml#/max_call_queues"
+            max_conference_rooms:
+              $ref: "../components/schemas/tenant.yaml#/max_conference_rooms"
+            disk_quota:
+              $ref: "../components/schemas/tenant.yaml#/disk_quota"
+            im_disk_quota:
+              $ref: "../components/schemas/tenant.yaml#/im_disk_quota"
+            extension_im_disk_quota:
+              $ref: "../components/schemas/tenant.yaml#/extension_im_disk_quota"
+            recording_retention:
+              $ref: "../components/schemas/tenant.yaml#/recording_retention"
+            call_report_retention:
+              $ref: "../components/schemas/tenant.yaml#/call_report_retention"
+            log_retention:
+              $ref: "../components/schemas/tenant.yaml#/log_retention"
+            temp_file_retention:
+              $ref: "../components/schemas/tenant.yaml#/temp_file_retention"
+            office_hours:
+              $ref: "../components/schemas/common.yaml#/office_hours"
+            e164:
+              $ref: "../components/schemas/tenant.yaml#/number_process"
+            cdr_event:
+              $ref: "../components/schemas/tenant.yaml#/event_url"
+            extension_event:
+              $ref: "../components/schemas/tenant.yaml#/event_url"
+            contact_match_type:
+              $ref: "../components/schemas/tenant.yaml#/contact_match_type"
+            contact_match_length:
+              $ref: "../components/schemas/tenant.yaml#/contact_match_length"
+            contact_append_type:
+              $ref: "../components/schemas/tenant.yaml#/contact_append_type"
+            contact_update_interval:
+              $ref: "../components/schemas/tenant.yaml#/contact_update_interval"
+          required:
+            - name
+            - domain
+            - timezone
+            - currency
+            - region
+  responses:
+    "201":
+      description: Created
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/tenant.yaml#/id"
+    "4XX":
+      description: Error
+get:
+  tags:
+    - Administration
+  operationId: listTenants
+  summary: List tenants
+  description: |
+    Returns a list of tenant summary information.
+    Note that it uses a different, smaller representation of a tenant than retrieving a single tenant.
+  parameters:
+    - $ref: "../components/parameters/common.yaml#/filter"
+    - $ref: "../components/parameters/common.yaml#/search"
+    - $ref: "../components/parameters/common.yaml#/orderby"
+    - $ref: "../components/parameters/common.yaml#/skip"
+    - $ref: "../components/parameters/common.yaml#/top"
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                $ref: "../components/schemas/common.yaml#/count"
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      $ref: "../components/schemas/tenant.yaml#/id"
+                    name:
+                      $ref: "../components/schemas/tenant.yaml#/name"
+                    domain:
+                      $ref: "../components/schemas/tenant.yaml#/domain"
+                    max_extensions:
+                      $ref: "../components/schemas/tenant.yaml#/max_extensions"
+                    max_concurrent_calls:
+                      $ref: "../components/schemas/tenant.yaml#/max_concurrent_calls"
+                    enabled:
+                      $ref: "../components/schemas/tenant.yaml#/enabled"
+                    website:
+                      $ref: "../components/schemas/tenant.yaml#/website"
+                    timezone:
+                      $ref: "../components/schemas/tenant.yaml#/timezone"
+                    currency:
+                      $ref: "../components/schemas/tenant.yaml#/currency"
+                    region:
+                      $ref: "../components/schemas/common.yaml#/region"
+                    avatar_file_name:
+                      $ref: "../components/schemas/file.yaml#/name"
+                    avatar_file_size:
+                      $ref: "../components/schemas/file.yaml#/size"
+                    avatar_file_url:
+                      $ref: "../components/schemas/file.yaml#/url"
+                    created_at:
+                      $ref: "../components/schemas/tenant.yaml#/created_at"
+    "4XX":
+      description: Error

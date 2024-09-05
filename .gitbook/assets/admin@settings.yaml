@@ -1,0 +1,208 @@
+get:
+  tags:
+    - Administration
+  operationId: listOptions
+  summary: Retrieve system settings
+  description: |
+    Retrieve settings for PortSIP PBX.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              user_agent:
+                $ref: "../components/schemas/system.yaml#/user_agent"
+              blocked_user_agents:
+                $ref: "../components/schemas/system.yaml#/blocked_user_agents"
+              enable_shared_address_space_address_range:
+                $ref: "../components/schemas/system.yaml#/enable_shared_address_space_address_range"
+              enable_digest_auth:
+                $ref: "../components/schemas/system.yaml#/enable_digest_auth"
+              enable_auth_mid_dialog:
+                $ref: "../components/schemas/system.yaml#/enable_auth_mid_dialog"
+              enable_digest_auth_int:
+                $ref: "../components/schemas/system.yaml#/enable_digest_auth_int"
+              enable_external_recording:
+                $ref: "../components/schemas/system.yaml#/enable_external_recording"
+              enable_reject_bad_nonce:
+                $ref: "../components/schemas/system.yaml#/enable_reject_bad_nonce"
+              statistics_log_interval:
+                $ref: "../components/schemas/system.yaml#/statistics_log_interval"
+              dead_session_timeout:
+                $ref: "../components/schemas/system.yaml#/dead_session_timeout"
+              enable_session_timer:
+                $ref: "../components/schemas/system.yaml#/enable_session_timer"
+              session_timer_duration:
+                $ref: "../components/schemas/system.yaml#/session_timer_duration"
+              enable_to_tag_in_register:
+                $ref: "../components/schemas/system.yaml#/enable_to_tag_in_register"
+              enable_congestion_management:
+                $ref: "../components/schemas/system.yaml#/enable_congestion_management"
+              congestion_management_metric:
+                $ref: "../components/schemas/system.yaml#/congestion_management_metric"
+              congestion_management_tolerance:
+                $ref: "../components/schemas/system.yaml#/congestion_management_tolerance"
+              enable_create_non_exist_extension:
+                $ref: "../components/schemas/system.yaml#/enable_create_non_exist_extension"
+              enable_prack:
+                $ref: "../components/schemas/system.yaml#/enable_prack"
+              enable_tenant_level_trunk:
+                $ref: "../components/schemas/system.yaml#/enable_tenant_level_trunk"
+              enable_diversion_support:
+                $ref: "../components/schemas/system.yaml#/enable_diversion_support"
+              enable_history_info_support:
+                $ref: "../components/schemas/system.yaml#/enable_history_info_support"
+              enable_outbound_support:
+                $ref: "../components/schemas/system.yaml#/enable_outbound_support"
+              flow_timer:
+                $ref: "../components/schemas/system.yaml#/flow_timer"
+              register_expiration_time:
+                $ref: "../components/schemas/system.yaml#/register_expiration_time"
+              enable_auto_answer_alert_info_header:
+                $ref: "../components/schemas/system.yaml#/enable_auto_answer_alert_info_header"
+              auto_answer_alert_info_header:
+                $ref: "../components/schemas/system.yaml#/auto_answer_alert_info_header"
+              enable_auto_answer_call_info_header:
+                $ref: "../components/schemas/system.yaml#/enable_auto_answer_call_info_header"
+              enable_require_answer_mode:
+                $ref: "../components/schemas/system.yaml#/enable_require_answer_mode"
+              enable_www_auth:
+                $ref: "../components/schemas/system.yaml#/enable_www_auth"
+              user_equal_required_for_auth_name:
+                $ref: "../components/schemas/system.yaml#/user_equal_required_for_auth_name"
+              trace_server_host:
+                $ref: "../components/schemas/system.yaml#/trace_server_host"
+              trace_server_port:
+                $ref: "../components/schemas/system.yaml#/trace_server_port"
+              web_failed_auth_amount:
+                $ref: "../components/schemas/system.yaml#/web_failed_auth_amount"
+              web_blacklist_time_interval:
+                $ref: "../components/schemas/system.yaml#/web_blacklist_time_interval"
+              sip_failed_auth_amount:
+                $ref: "../components/schemas/system.yaml#/sip_failed_auth_amount"
+              sip_failed_challenge_requests_amount:
+                $ref: "../components/schemas/system.yaml#/sip_failed_challenge_requests_amount"
+              sip_blacklist_time_interval:
+                $ref: "../components/schemas/system.yaml#/sip_blacklist_time_interval"
+              sip_detection_period:
+                $ref: "../components/schemas/system.yaml#/sip_detection_period"
+              sip_barrier_1_packets:
+                $ref: "../components/schemas/system.yaml#/sip_barrier_1_packets"
+              sip_barrier_1_blocking_time:
+                $ref: "../components/schemas/system.yaml#/sip_barrier_1_blocking_time"
+              sip_barrier_2_packets:
+                $ref: "../components/schemas/system.yaml#/sip_barrier_2_packets"
+              sip_barrier_2_blocking_time:
+                $ref: "../components/schemas/system.yaml#/sip_barrier_2_blocking_time"
+              custom_options:
+                $ref: "../components/schemas/system.yaml#/custom_options"
+    "4XX":
+      description: Error
+post:
+  tags:
+    - Administration
+  operationId: updateOptions
+  summary: Update system settings
+  description: |
+    Update settings for PortSIP PBX
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            user_agent:
+              $ref: "../components/schemas/system.yaml#/user_agent"
+            blocked_user_agents:
+              $ref: "../components/schemas/system.yaml#/blocked_user_agents"
+            enable_shared_address_space_address_range:
+              $ref: "../components/schemas/system.yaml#/enable_shared_address_space_address_range"
+            enable_digest_auth:
+              $ref: "../components/schemas/system.yaml#/enable_digest_auth"
+            enable_auth_mid_dialog:
+              $ref: "../components/schemas/system.yaml#/enable_auth_mid_dialog"
+            enable_digest_auth_int:
+              $ref: "../components/schemas/system.yaml#/enable_digest_auth_int"
+            enable_external_recording:
+              $ref: "../components/schemas/system.yaml#/enable_external_recording"
+            enable_reject_bad_nonce:
+              $ref: "../components/schemas/system.yaml#/enable_reject_bad_nonce"
+            statistics_log_interval:
+              $ref: "../components/schemas/system.yaml#/statistics_log_interval"
+            dead_session_timeout:
+              $ref: "../components/schemas/system.yaml#/dead_session_timeout"
+            enable_session_timer:
+              $ref: "../components/schemas/system.yaml#/enable_session_timer"
+            session_timer_duration:
+              $ref: "../components/schemas/system.yaml#/session_timer_duration"
+            enable_to_tag_in_register:
+              $ref: "../components/schemas/system.yaml#/enable_to_tag_in_register"
+            enable_congestion_management:
+              $ref: "../components/schemas/system.yaml#/enable_congestion_management"
+            congestion_management_metric:
+              $ref: "../components/schemas/system.yaml#/congestion_management_metric"
+            congestion_management_tolerance:
+              $ref: "../components/schemas/system.yaml#/congestion_management_tolerance"
+            enable_create_non_exist_extension:
+              $ref: "../components/schemas/system.yaml#/enable_create_non_exist_extension"
+            enable_prack:
+              $ref: "../components/schemas/system.yaml#/enable_prack"
+            enable_tenant_level_trunk:
+              $ref: "../components/schemas/system.yaml#/enable_tenant_level_trunk"
+            enable_diversion_support:
+              $ref: "../components/schemas/system.yaml#/enable_diversion_support"
+            enable_history_info_support:
+              $ref: "../components/schemas/system.yaml#/enable_history_info_support"
+            enable_outbound_support:
+              $ref: "../components/schemas/system.yaml#/enable_outbound_support"
+            flow_timer:
+              $ref: "../components/schemas/system.yaml#/flow_timer"
+            register_expiration_time:
+              $ref: "../components/schemas/system.yaml#/register_expiration_time"
+            enable_auto_answer_alert_info_header:
+              $ref: "../components/schemas/system.yaml#/enable_auto_answer_alert_info_header"
+            auto_answer_alert_info_header:
+              $ref: "../components/schemas/system.yaml#/auto_answer_alert_info_header"
+            enable_auto_answer_call_info_header:
+              $ref: "../components/schemas/system.yaml#/enable_auto_answer_call_info_header"
+            enable_require_answer_mode:
+              $ref: "../components/schemas/system.yaml#/enable_require_answer_mode"
+            enable_www_auth:
+              $ref: "../components/schemas/system.yaml#/enable_www_auth"
+            user_equal_required_for_auth_name:
+              $ref: "../components/schemas/system.yaml#/user_equal_required_for_auth_name"
+            trace_server_host:
+              $ref: "../components/schemas/system.yaml#/trace_server_host"
+            trace_server_port:
+              $ref: "../components/schemas/system.yaml#/trace_server_port"
+            web_failed_auth_amount:
+              $ref: "../components/schemas/system.yaml#/web_failed_auth_amount"
+            web_blacklist_time_interval:
+              $ref: "../components/schemas/system.yaml#/web_blacklist_time_interval"
+            sip_failed_auth_amount:
+              $ref: "../components/schemas/system.yaml#/sip_failed_auth_amount"
+            sip_failed_challenge_requests_amount:
+              $ref: "../components/schemas/system.yaml#/sip_failed_challenge_requests_amount"
+            sip_blacklist_time_interval:
+              $ref: "../components/schemas/system.yaml#/sip_blacklist_time_interval"
+            sip_detection_period:
+              $ref: "../components/schemas/system.yaml#/sip_detection_period"
+            sip_barrier_1_packets:
+              $ref: "../components/schemas/system.yaml#/sip_barrier_1_packets"
+            sip_barrier_1_blocking_time:
+              $ref: "../components/schemas/system.yaml#/sip_barrier_1_blocking_time"
+            sip_barrier_2_packets:
+              $ref: "../components/schemas/system.yaml#/sip_barrier_2_packets"
+            sip_barrier_2_blocking_time:
+              $ref: "../components/schemas/system.yaml#/sip_barrier_2_blocking_time"
+            custom_options:
+              $ref: "../components/schemas/system.yaml#/custom_options"
+    required: true
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

@@ -1,0 +1,23 @@
+post:
+  tags:
+    - User
+  operationId: delGreeting
+  summary: Delete voicemail greeting
+  description: |
+    Destroy a voicemail greeting from user.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/extension.yaml#/id"
+    - name: greeting_id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/greeting.yaml#/id"
+  responses:
+    "204":
+      description: No Content
+    "4XX":
+      description: Error

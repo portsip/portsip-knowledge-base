@@ -1,0 +1,127 @@
+post:
+  tags:
+    - Auto Provisioning
+  operationId: createDectPhone
+  summary: Create a DECT phone
+  description: |
+    Create a DECT phone.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            name:
+              $ref: "../components/schemas/dectphone.yaml#/name"
+            mac:
+              $ref: "../components/schemas/phone.yaml#/mac"
+            template:
+              $ref: "../components/schemas/phone.yaml#/filename"
+            vendor:
+              $ref: "../components/schemas/phone.yaml#/vendor"
+            model:
+              $ref: "../components/schemas/phone.yaml#/model"
+            password:
+              $ref: "../components/schemas/phone.yaml#/password"
+            timezone:
+              $ref: "../components/schemas/phone.yaml#/timezone"
+            region:
+              $ref: "../components/schemas/phone.yaml#/region"
+            language:
+              $ref: "../components/schemas/phone.yaml#/language"
+            tone:
+              $ref: "../components/schemas/dectphone.yaml#/tone"
+            rps:
+              $ref: "../components/schemas/phone.yaml#/rps"
+            https:
+              $ref: "../components/schemas/phone.yaml#/https"
+            codecs:
+              $ref: "../components/schemas/phone.yaml#/codecs"
+            interface:
+              $ref: "../components/schemas/system.yaml#/interface"
+            preferred_transport:
+              $ref: "../components/schemas/transport.yaml#/protocol"
+          required:
+            - name
+            - mac
+            - template
+            - vendor
+            - model
+            - password
+            - timezone
+            - language
+            - tone
+            - codecs
+            - interface
+            - preferred_transport
+    required: true
+  responses:
+    "201":
+      description: Created
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/dectphone.yaml#/id"
+    "4XX":
+      description: Error
+get:
+  tags:
+    - Auto Provisioning
+  operationId: listDectPhones
+  summary: List DECT phones
+  description: |
+    List DECT phones
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      $ref: "../components/schemas/dectphone.yaml#/id"
+                    name:
+                      $ref: "../components/schemas/dectphone.yaml#/name"
+                    mac:
+                      $ref: "../components/schemas/phone.yaml#/mac"
+                    template:
+                      $ref: "../components/schemas/phone.yaml#/filename"
+                    vendor:
+                      $ref: "../components/schemas/phone.yaml#/vendor"
+                    model:
+                      $ref: "../components/schemas/phone.yaml#/model"
+                    password:
+                      $ref: "../components/schemas/phone.yaml#/password"
+                    timezone:
+                      $ref: "../components/schemas/phone.yaml#/timezone"
+                    region:
+                      $ref: "../components/schemas/phone.yaml#/region"
+                    language:
+                      $ref: "../components/schemas/phone.yaml#/language"
+                    tone:
+                      $ref: "../components/schemas/dectphone.yaml#/tone"
+                    rps:
+                      $ref: "../components/schemas/phone.yaml#/rps"
+                    https:
+                      $ref: "../components/schemas/phone.yaml#/https"
+                    codecs:
+                      $ref: "../components/schemas/phone.yaml#/codecs"
+                    lines:
+                      $ref: "../components/schemas/dectphone.yaml#/lines"
+                    interface:
+                      $ref: "../components/schemas/system.yaml#/interface"
+                    preferred_transport:
+                      $ref: "../components/schemas/transport.yaml#/protocol"
+                    url:
+                      $ref: "../components/schemas/phone.yaml#/url"
+    "4XX":
+      description: Error

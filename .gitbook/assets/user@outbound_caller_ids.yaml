@@ -1,0 +1,19 @@
+get:
+  tags:
+    - User
+  operationId: listCurrentUserOutboundCallerIds
+  summary: Retrieve a collection of outbound caller ids
+  description: |
+    Retrieve a collection of outbound caller ids.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              items:
+                $ref: "../components/schemas/provider.yaml#/outbound_caller_ids"
+    "4XX":
+      description: Error

@@ -1,0 +1,49 @@
+post:
+  tags:
+    - Call Session
+  operationId: attendReferCall
+  summary: Attend refer a call session.
+  description: |
+    Attend refer a call session by it's session ID.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/session.yaml#/id"
+      description: The unique ID of call session.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            extension_number:
+              allOf:
+                - $ref: "../components/schemas/common.yaml#/extension_number"
+              description: |
+                The extension number to attend refer the session.
+            refer_to_1:
+              $ref: "../components/schemas/session.yaml#/refer_to"
+            session_1:
+              allOf:
+                - $ref: "../components/schemas/session.yaml#/id"
+              description: |
+                The unique ID of the session specified by `refer_to_1`, this session ID is not mandatory.
+            refer_to_2:
+              $ref: "../components/schemas/session.yaml#/refer_to"
+            session_2:
+              allOf:
+                - $ref: "../components/schemas/session.yaml#/id"
+              description: |
+                The unique ID of the session specified by `refer_to_2`, this session ID is not mandatory.
+          required:
+            - extension_number
+            - refer_to_1
+            - refer_to_2
+    required: true
+  responses:
+    "200":
+      description: Ok
+    "4XX":
+      description: Error

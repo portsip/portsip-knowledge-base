@@ -1,0 +1,69 @@
+post:
+  tags:
+    - Administration
+  operationId: assignProvider
+  summary: Assign provider
+  description: |
+    Assign provider to tenant.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/provider.yaml#/id"
+      description: The unique ID of the provider.
+    - name: tenant_id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/tenant.yaml#/id"
+      description: The unique ID of the tenant.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            did_numbers:
+              $ref: "../components/schemas/provider.yaml#/did_numbers"
+            concurrency:
+              $ref: "../components/schemas/provider.yaml#/concurrency"
+  responses:
+    "204":
+      description: No Content
+    "4XX":
+      description: Error
+get:
+  tags:
+    - Administration
+  operationId: checkProviderAssignee
+  summary: Check provider assignee
+  description: |
+    Check if a provider is assigned to the tenant.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/provider.yaml#/id"
+      description: The unique ID of the provider.
+    - name: tenant_id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/tenant.yaml#/id"
+      description: The unique ID of the tenant.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              did_numbers:
+                $ref: "../components/schemas/provider.yaml#/did_numbers"
+              concurrency:
+                $ref: "../components/schemas/provider.yaml#/concurrency"
+    "404":
+      description: Not Found

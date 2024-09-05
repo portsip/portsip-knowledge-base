@@ -1,0 +1,19 @@
+post:
+  tags:
+    - User
+  operationId: startRecordingMeeting
+  summary: Start recording in meeting
+  description: |
+    Start recording in meeting.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/confroom.yaml#/id"
+      description: The unique ID of the meeting.
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

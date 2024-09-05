@@ -1,0 +1,398 @@
+id:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/id"
+  description: |
+    The unique ID of user.
+created_at:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/date_time"
+  description: |
+    The creation time of user.
+enable_audio_recording:
+  type: boolean
+  default: false
+  description: |
+    Records all calls and saves audio recordings on server.
+enable_video_recording:
+  type: boolean
+  default: false
+  description: |
+    Records all calls and saves video recordings on server.
+enable_dnd:
+  type: boolean
+  description: |
+    Enable `Do Not Disturb` or not.
+enable_acb:
+  type: boolean
+  description: |
+    Enable `Automatic Callback` or not.
+enable_hot_desking:
+  type: boolean
+  default: false
+  description: |
+    Enable hot desking feature or not.
+enabled:
+  type: boolean
+  default: true
+  description: |
+    Allows temporarily disabling the extension.
+anonymous_outbound_calls:
+  type: boolean
+  default: false
+  description: |
+    Always make outbound anonymous calls or not.
+delivery_outbound_cid:
+  type: boolean
+  default: true
+  description: |
+    Always delivery outbound caller ID or not.
+sms:
+  type: string
+  enum:
+    - DISABLE
+    - ALLOW
+    - ALLOW_WITH_SENDER_ID
+  description: |
+    The preferred configuration for SMS/MMS.   
+    Note: Only users with `UserManagement::Users` privilege can change this property.   
+      - `DISABLE`: Disable user SMS/MMS feature.
+      - `DISABLE`: Enable user SMS/MMS feature but with outbound caller ID.
+      - `ALLOW_WITH_SENDER_ID`: Enable user SMS/MMS but with trunk sender ID.
+voicemail_prompt:
+  $ref: "../../components/schemas/common.yaml#/language"
+enable_voicemail_pin:
+  type: boolean
+  default: true
+  description: |
+    Whether the PIN is required to access voice mail of extension.
+enable_voicemail_notify:
+  type: boolean
+  default: false
+  description: |
+    Enable voicemail to email notify.
+voicemail_play_datetime:
+  type: string
+  enum:
+    - DISABLE
+    - 12_HOUR_CLOCK
+    - 24_HOUR_CLOCK
+  description: |
+    Announces Date and Time of Message.
+    - `DISABLE`: Do not read;
+    - `12_HOUR_CLOCK`: Read in 12-hour clock;
+    - `24_HOUR_CLOCK`: Read in 24-hour clock.
+forward_action:
+  type: string
+  enum:
+    - FORWARD_TO_NUMBER
+    - FORWARD_TO_VOICEMAIL
+    - HANGUP
+  description: |
+    Forward action includes:
+    - `FORWARD_TO_NUMBER`: Forward to the specified number
+    - `FORWARD_TO_VOICEMAIL`: Forward to the specified voicemail.
+    - `HANGUP`: Finish call
+forward_action_timeout:
+  type: string
+  enum:
+    - FORWARD_TO_NUMBER
+    - FORWARD_TO_VOICEMAIL
+    - RING_ANYWAY
+    - HANGUP
+  description: |
+    Forward action includes:
+    - `FORWARD_TO_NUMBER`: Forward to the specified number
+    - `FORWARD_TO_VOICEMAIL`: Forward to the specified voicemail.
+    - `RING_ANYWAY`: Ring anyway.
+    - `HANGUP`: Finish call
+forward_number:
+  type: string
+  description: |
+    Specify the forwarding destination number.  
+    Can be either:  
+    - Extension number: The extension number of PortSIP PBX.
+    - External number: The numeric sequence of numbers, with or without a plus sign at the beginning.
+forward_timeout:
+  type: integer
+  format: int32
+  minimum: 0
+  default: 60
+  description: |
+    Duration that the call will remain ringing when no one answered, in seconds.
+available_office_hours_forward_rule:
+  type: object
+  properties:
+    action:
+      $ref: "#/forward_action_timeout"
+    number:
+      $ref: "#/forward_number"
+available_non_office_hours_forward_rule:
+  type: object
+  properties:
+    action:
+      $ref: "#/forward_action_timeout"
+    number:
+      $ref: "#/forward_number"
+available_no_answer_forward_rule:
+  type: object
+  properties:
+    action:
+      $ref: "#/forward_action"
+    number:
+      $ref: "#/forward_number"
+    timeout:
+      $ref: "#/forward_timeout"
+busy_office_hours_forward_rule:
+  type: object
+  properties:
+    action:
+      $ref: "#/forward_action_timeout"
+    number:
+      $ref: "#/forward_number"
+busy_non_office_hours_forward_rule:
+  type: object
+  properties:
+    action:
+      $ref: "#/forward_action_timeout"
+    number:
+      $ref: "#/forward_number"
+busy_no_answer_forward_rule:
+  type: object
+  properties:
+    action:
+      $ref: "#/forward_action"
+    number:
+      $ref: "#/forward_number"
+    timeout:
+      $ref: "#/forward_timeout"
+dnd_office_hours_forward_rule:
+  type: object
+  properties:
+    action:
+      $ref: "#/forward_action"
+    number:
+      $ref: "#/forward_number"
+dnd_non_office_hours_forward_rule:
+  type: object
+  properties:
+    action:
+      $ref: "#/forward_action"
+    number:
+      $ref: "#/forward_number"
+away_office_hours_forward_rule:
+  type: object
+  properties:
+    action:
+      $ref: "#/forward_action"
+    number:
+      $ref: "#/forward_number"
+away_non_office_hours_forward_rule:
+  type: object
+  properties:
+    action:
+      $ref: "#/forward_action"
+    number:
+      $ref: "#/forward_number"
+lunch_office_hours_forward_rule:
+  type: object
+  properties:
+    action:
+      $ref: "#/forward_action"
+    number:
+      $ref: "#/forward_number"
+lunch_non_office_hours_forward_rule:
+  type: object
+  properties:
+    action:
+      $ref: "#/forward_action"
+    number:
+      $ref: "#/forward_number"
+trip_office_hours_forward_rule:
+  type: object
+  properties:
+    action:
+      $ref: "#/forward_action"
+    number:
+      $ref: "#/forward_number"
+trip_non_office_hours_forward_rule:
+  type: object
+  properties:
+    action:
+      $ref: "#/forward_action"
+    number:
+      $ref: "#/forward_number"
+offline_office_hours_forward_rule:
+  type: object
+  properties:
+    action:
+      $ref: "#/forward_action"
+    number:
+      $ref: "#/forward_number"
+offline_non_office_hours_forward_rule:
+  type: object
+  properties:
+    action:
+      $ref: "#/forward_action"
+    number:
+      $ref: "#/forward_number"
+custom_forward_rules:
+  type: array
+  items:
+    type: object
+    properties:
+      action:
+        $ref: "#/forward_action_timeout"
+      number:
+        $ref: "#/forward_number"
+      caller_id:
+        type: string
+        description: |
+          Specify the caller ID mask.
+      type:
+        type: string
+        enum:
+          - ALL_HOURS
+          - SPECIFIC_HOURS
+          - OUTSIDE_SPECIFIC_HOURS
+        description: |
+          Specify hours mode for forward rule:
+          - `ALL_HOURS`:
+          - `SPECIFIC_HOURS`:
+          - `OUTSIDE_SPECIFIC_HOURS`:
+      hours:
+        allOf:
+          - $ref: "../../components/schemas/common.yaml#/office_hours"
+        description: |
+          Specify hours for this custom forward rule.
+profile:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/id"
+  description: |
+    The unique ID of user profile file.
+status:
+  type: string
+  enum:
+    - ONLINE
+    - DO_NOT_DISTURB
+    - AVAILABLE
+    - AWAY
+    - BUSINESS_TRIP
+    - LUNCH
+    - ON_CALL
+    - OFFLINE
+  description: |
+    Status of extension:
+      - `ONLINE`
+      - `DO_NOT_DISTURB`
+      - `AVAILABLE`
+      - `AWAY`
+      - `BUSINESS_TRIP`
+      - `LUNCH`
+      - `ON_CALL`
+      - `OFFLINE`
+registration:
+  type: object
+  properties:
+    instance_id:
+      type: string
+      description: |
+        The instance ID of registration.
+    user_agent:
+      type: string
+      description: |
+        User agent of login device.
+    application:
+      type: string
+      description: |
+        The application name of login device.
+    ip:
+      type: string
+      description: |
+        The IP address of login device.
+    enable_push:
+      type: boolean
+      description: |
+        Whether push is enabled of login device.
+    contact_address:
+      type: string
+      description: |
+        The contact address information.
+state:
+  type: object
+  properties:
+    status:
+      $ref: "#/status"
+    presence_note:
+      type: string
+      maxLength: 128
+      description: |
+        The presence note.
+    registration:
+      type: array
+      items:
+        $ref: "#/registration"
+      description: |
+        Collection of registration information.
+    enable_dnd:
+      type: boolean
+      description: |
+        `Do Not Disturb` enabled or not.
+    enable_acb:
+      type: boolean
+      description: |
+        `Automatic Callback` enabled or not.
+dest_status:
+  type: string
+  enum:
+    - DO_NOT_DISTURB
+    - AVAILABLE
+    - AWAY
+    - BUSINESS_TRIP
+    - LUNCH
+  description: |
+    The current status of extension:
+    - `DO_NOT_DISTURB`
+    - `AVAILABLE`
+    - `AWAY`
+    - `BUSINESS_TRIP`
+    - `LUNCH`
+dest_state:
+  type: object
+  properties:
+    status:
+      $ref: "#/dest_status"
+    presence_note:
+      type: string
+      maxLength: 128
+      description: |
+        The presence note.
+blf:
+  type: object
+  properties:
+    key:
+      type: string
+      description: |
+        The key of BLF.
+    value:
+      type: string
+      description: |
+        The value of BLF.
+    first_name:
+      type: string
+      description: |
+        The first name of BLF.
+    last_name:
+      type: string
+      description: |
+        The last name of BLF.
+member:
+  type: object
+  properties:
+    id:
+      $ref: "#/id"
+    name:
+      $ref: "user.yaml#/username"
+    display_name:
+      $ref: "user.yaml#/display_name"
+    extension_number:
+      $ref: "common.yaml#/extension_number"

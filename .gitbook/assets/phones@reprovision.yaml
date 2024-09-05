@@ -1,0 +1,12 @@
+post:
+  tags:
+    - Auto Provisioning
+  operationId: reprovisionAllPhones
+  summary: Reprovision all phones
+  description: |
+    Re-provision all phones.
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

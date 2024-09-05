@@ -1,0 +1,31 @@
+post:
+  tags:
+    - Conference
+  operationId: updateConferenceRoomParticipantsLayout
+  summary: Update conference room participant layout
+  description: |
+    Update conference room participants layout based on room layout.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/confroom.yaml#/id"
+      description: The unique ID of the conference room.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            items:
+              type: array
+              items:
+                $ref: "../components/schemas/confroom.yaml#/participant_id"
+              description: |
+                A collection of participant's id.
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

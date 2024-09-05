@@ -1,0 +1,18 @@
+post:
+  tags:
+    - User
+  operationId: resetAllUserProfiles
+  summary: Reset all user profiles
+  description: |
+    Reset the active user profile with the specified ID, or reset all active user profiles when `id` is not specified.
+  parameters:
+    - name: id
+      in: query
+      schema:
+        $ref: "../components/schemas/extension.yaml#/id"
+      description: The unique ID of the user.
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

@@ -1,0 +1,45 @@
+get:
+  tags:
+    - User
+  operationId: getUserRecording
+  summary: Retrieve an user call recording
+  description: |
+    Get details of an user call recording.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/callrecording.yaml#/id"
+      description: The unique ID of the call recording.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    caller:
+                      $ref: "../components/schemas/callrecording.yaml#/caller"
+                    callee:
+                      $ref: "../components/schemas/callrecording.yaml#/callee"
+                    started_at:
+                      $ref: "../components/schemas/callrecording.yaml#/started_at"
+                    ended_at:
+                      $ref: "../components/schemas/callrecording.yaml#/ended_at"
+                    duration:
+                      $ref: "../components/schemas/callrecording.yaml#/duration"
+                    file_name:
+                      $ref: "../components/schemas/file.yaml#/name"
+                    file_size:
+                      $ref: "../components/schemas/file.yaml#/size"
+                    file_url:
+                      $ref: "../components/schemas/file.yaml#/url"
+    "4XX":
+      description: Error

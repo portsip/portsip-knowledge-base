@@ -1,0 +1,19 @@
+post:
+  tags:
+    - CTI
+  operationId: deleteVipNumber
+  summary: Delete VIP number
+  description: |
+    Destroy a VIP number by it's unique ID.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/vipnum.yaml#/id"
+      description: The unique ID of the VIP number.
+  responses:
+    "204":
+      description: No Content
+    "4XX":
+      description: Error

@@ -1,0 +1,27 @@
+post:
+  tags:
+    - Conference
+  operationId: inviteConferenceRoomParticipant
+  summary: Invite as room participant
+  description: |
+    Invite an user as conference room participant.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/confroom.yaml#/id"
+      description: The unique ID of the conference room.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            number:
+              $ref: "../components/schemas/confroom.yaml#/number"
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

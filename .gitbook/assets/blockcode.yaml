@@ -1,0 +1,17 @@
+id:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/id"
+  description: |
+    The unique ID of blocked code.
+prefix:
+  type: string
+  minLength: 1
+  maxLength: 16
+  description: |
+    The number prefix of blocked code.  
+    An alphanumeric sequence beginning with an optional plus sign.
+description:
+  type: string
+  maxLength: 1024
+  description: |
+    The description of blocked code.

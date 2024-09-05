@@ -1,0 +1,25 @@
+post:
+  tags:
+    - CTI
+  operationId: deleteMonitorGroupManager
+  summary: Delete monitor group manager
+  description: |
+    Delete an manager from monitor group manager list.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/monitorgrp.yaml#/id"
+      description: The unique ID of the group.
+    - name: extension_number
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/common.yaml#/extension_number"
+      description: The extension number of the group manager.
+  responses:
+    "204":
+      description: No Content
+    "4XX":
+      description: Error

@@ -1,0 +1,40 @@
+get:
+  tags:
+    - CDR
+  operationId: getCompletedCallReportDetails
+  summary: Get completed call report details
+  description: |
+    Get details of completed call report by it's unique ID.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/callreport.yaml#/id"
+      description: The unique ID of the call report.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/callreport.yaml#/id"
+              name:
+                $ref: "../components/schemas/callreport.yaml#/name"
+              type:
+                $ref: "../components/schemas/callreport.yaml#/type"
+              format:
+                $ref: "../components/schemas/callreport.yaml#/format"
+              completed_at:
+                $ref: "../components/schemas/callreport.yaml#/completed_at"
+              file_name:
+                $ref: "../components/schemas/file.yaml#/name"
+              file_size:
+                $ref: "../components/schemas/file.yaml#/size"
+              file_url:
+                $ref: "../components/schemas/file.yaml#/url"
+    "4XX":
+      description: Error

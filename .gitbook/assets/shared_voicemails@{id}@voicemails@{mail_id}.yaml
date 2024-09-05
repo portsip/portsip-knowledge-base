@@ -1,0 +1,46 @@
+get:
+  tags:
+    - Shared Voicemail
+  operationId: retrieveSharedVoicemailMail
+  summary: Retrieve a shared voicemail mail
+  description: |
+    Retrieve shared voicemail mail details.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/sharedvoicemail.yaml#/id"
+      description: The unique ID of the shared voicemail.
+    - name: mail_id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/voicemail.yaml#/id"
+      description: The unique ID of voicemail.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/voicemail.yaml#/id"
+              sender:
+                $ref: "../components/schemas/voicemail.yaml#/sender"
+              created_at:
+                $ref: "../components/schemas/voicemail.yaml#/created_at"
+              duration:
+                $ref: "../components/schemas/voicemail.yaml#/duration"
+              status:
+                $ref: "../components/schemas/voicemail.yaml#/status"
+              file_name:
+                $ref: "../components/schemas/file.yaml#/name"
+              file_size:
+                $ref: "../components/schemas/file.yaml#/size"
+              file_url:
+                $ref: "../components/schemas/file.yaml#/url"
+    "4XX":
+      description: Error

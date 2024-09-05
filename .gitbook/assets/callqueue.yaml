@@ -1,0 +1,297 @@
+id:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/id"
+  description: |
+    The unique ID of call queue.
+name:
+  type: string
+  minLength: 1
+  maxLength: 64
+  description: |
+    The name of call queue.
+extension_number:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/extension_number"
+  description: |
+    The extension number of call queue.
+polling_strategy:
+  type: string
+  enum:
+    - RING_SIMULTANEOUSLY
+    - PRIORITIZED_HUNT
+    - CYCLIC_HUNT
+    - LEAST_WORKED_HUNT
+    - SKILL_BASED_ROUTING_PRIORITIZED_HUNT
+    - SKILL_BASED_ROUTING_CYCLIC_HUNT
+    - SKILL_BASED_ROUTING_LEAST_WORKED_HUNT
+  default: RING_SIMULTANEOUSLY
+  description: |
+    Polling strategy:   
+    Can be either:   
+    - `RING_SIMULTANEOUSLY`: Ring all available agents of the queue simultaneously.
+    - `PRIORITIZED_HUNT`: Ring each available agent of the queue serially in the configured order.
+    - `CYCLIC_HUNT`: Ring each available agent of the queue serially, 
+        ring the agent that hasn't been rang from a call from this queue in the longest amount of time first.
+    - `LEAST_WORKED_HUNT`: Ring each available agent of the queue serially, 
+        ring the agent that hasn't answered a call from this queue in the longest amount of time first.
+    - `SKILL_BASED_ROUTING_PRIORITIZED_HUNT`: The call assign to the agents in the level "1" skill group first,   
+        and move on to the less experienced agents in subsequent skill groups, if the call is not answered in current skill group.   
+        Ring each available agent of the queue serially in the configured order.
+    - `SKILL_BASED_ROUTING_CYCLIC_HUNT`: The call assign to the agents in the level "1" skill group first,   
+        and move on to the less experienced agents in subsequent skill groups, if the call is not answered in current skill group.   
+        Ring each available agent of the queue serially,   
+        ring the agent that hasn't been rang from a call from this queue in the longest amount of time first.
+    - `SKILL_BASED_ROUTING_LEAST_WORKED_HUNT`: The call assign to the agents in the level "1" skill group first,   
+        and move on to the less experienced agents in subsequent skill groups, if the call is not answered in current skill group.   
+        Ring each available agent of the queue serially,   
+        ring the agent that hasn't answered a call from this queue in the longest amount of time first.
+status:
+  type: string
+  enum:
+    - ONLINE
+    - OFFLINE
+  example: ONLINE
+  description: |
+    Status of queue:
+    - `ONLINE`:
+    - `OFFLINE`:
+ring_time:
+  type: integer
+  format: int32
+  minimum: 1
+  maximum: 65535
+  default: 20
+  description: |
+    Duration that each extension will ring, in seconds.
+max_callers:
+  type: integer
+  format: int32
+  minimum: 0
+  description: |
+    The maximum number of callers allowed in queue.
+intro_type:
+  type: string
+  enum:
+    - DISABLE
+    - NORMAL
+    - FULL
+  default: DISABLE
+  description: |
+    Introductory tone:
+    - `DISABLE`: disable introductory tone
+    - `NORMAL`: play normal introductory tone.
+    - `FULL`: play full introductory tone.
+max_waiting_time:
+  type: integer
+  format: int32
+  minimum: 15
+  maximum: 65535
+  default: 300
+  description: |
+    The maximum time limit for waiting in the queue, in seconds. 
+    After this time interval, the call will be handled as pre-configured.
+wait_when_no_agents_online:
+  type: boolean
+  default: false
+  description: |
+    Queue will waiting when no agent online.
+inform_position:
+  type: string
+  enum:
+    - DISABLE
+    - PERIODICALLY
+    - ON_CONNECTED
+  default: DISABLE
+  description: |
+    Queue will announce the actual position of the caller who's currently waiting in the queue.  
+    Callback mode can be either:  
+    - `DISABLE`: Disable informing waiting position.
+    - `PERIODICALLY`: Inform waiting position periodically.
+    - `ON_CONNECTED`: Inform waiting position once caller connected and then play periodically.
+inform_position_interval:
+  type: integer
+  format: int32
+  minimum: 10
+  maximum: 1800
+  default: 10
+  description: |
+    Time interval for repeating announcement of the waiting position, in seconds.   
+    This parameter will be available only if `inform_position` is `PERIODICALLY` or `ON_CONNECTED`.
+agent_auto_ready:
+  type: boolean
+  default: true
+  description: |
+    Automatically set agent status to `Ready` 
+    after logging in to a queue or completing a call (ACD call or non AC call).
+agent_auto_not_ready_after_non_acd_call:
+  type: boolean
+  default: true
+  description: |
+    Automatically set agent status to `Not Ready` after completing a non-ACD call.   
+    This option will be ignored if `agent_auto_ready` is enabled.
+sla_time:
+  type: integer
+  format: int32
+  minimum: 0
+  maximum: 65536
+  default: 0
+  description: |
+    The SLA time of call queue in seconds.
+enable_callback:
+  type: boolean
+  default: false
+  description: |
+    Enable callback feature or not.
+callback_mode:
+  type: string
+  enum:
+    - ACTIVE
+    - TIMEOUT
+  default: ACTIVE
+  description: |
+    Callback mode includes:
+    - `ACTIVE`: Triggered on user request (Press 3).
+    - `TIMEOUT`: Offered to caller after timeout.
+callback_timeout:
+  type: integer
+  format: int32
+  minimum: 0
+  default: 600
+  description: |
+    Offered to caller after timeout in seconds.
+callback_outbound_prefix:
+  type: string
+  description: |
+    Callback outbound prefix.
+enable_sticky_routing:
+  type: boolean
+  default: true
+  description: |
+    When a customer calls the queue, 
+    if the customer has communicated with an agent before and the agent is currently in the ready state, 
+    then this agent will have priority to answer the call.
+sticky_routing_duration:
+  type: integer
+  format: int32
+  minimum: 1
+  maximum: 365
+  default: 30
+  description: |
+    The duration of sticky routing in days.
+skill_level:
+  type: integer
+  format: int32
+  minimum: 1
+  maximum: 100
+  default: 1
+  description: |
+    The skill level of agent in queue.   
+    Only valid when `polling_strategy` is skill based.
+enable_paid:
+  type: boolean
+  default: true
+  description: |
+    Whether to add call queue information into `P-Asserted-Identity` header.
+enable_prid:
+  type: boolean
+  default: true
+  description: |
+    Whether to add call queue information into `Remote-Party-ID` header.
+extension_number_as_to_header:
+  type: boolean
+  default: false
+  description: |
+    Whether to user extension number as invite `To` header.
+agent_status:
+  type: string
+  enum:
+    - READY
+    - NOT_READY
+    - QUEUE_CALL
+    - OTHER_CALL
+    - WRAP_UP
+    - BREAK
+    - LUNCH
+    - LOGGED_OUT
+    - OFFLINE
+  readOnly: true
+  description: |
+    Current status of agent: 
+    - `READY`:  
+    - `NOT_READY`:  
+    - `QUEUE_CALL`:  
+    - `OTHER_CALL`:  
+    - `WRAP_UP`:  
+    - `BREAK`:  
+    - `LUNCH`:  
+    - `TRANSFER`:   
+    - `CONSULT_TRANSFER`:   
+    - `ON_HOLD`:   
+    - `LOGGED_OUT`:  
+    - `OFFLINE`:
+agent_target_status:
+  type: string
+  enum:
+    - READY
+    - NOT_READY
+    - WRAP_UP
+    - BREAK
+    - LUNCH
+    - LOGGED_IN
+    - LOGGED_OUT
+  example: READY
+  description: |
+    Change call queue agent status to one of the following: 
+    - `READY`:  
+    - `NOT_READY`:  
+    - `WRAP_UP`:  
+    - `BREAK`:  
+    - `LUNCH`:   
+    - `LOGGED_IN`:   
+    - `LOGGED_OUT`:
+session_id:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/id"
+  description: |
+    The unique ID of session in call queue.
+caller:
+  type: object
+  properties:
+    session_id:
+      $ref: "#/session_id"
+    extension_number:
+      $ref: "../../components/schemas/common.yaml#/extension_number"
+    display_name:
+      type: string
+      description: |
+        The display name of caller.
+    waiting_time:
+      type: integer
+      format: uint32
+      description: |
+        The waiting time (seconds) of caller in the queue.
+forward_rule_action:
+  type: string
+  enum:
+    - FORWARD_TO_NUMBER
+    - FORWARD_TO_VOICEMAIL
+    - HANGUP
+  description: |
+    Forward action includes:
+    - `FORWARD_TO_NUMBER`:
+    - `FORWARD_TO_VOICEMAIL`:
+    - `HANGUP`: finish call
+forward_rule_number:
+  type: string
+  description: |
+    Specify the forwarding destination number.  
+    Can be either:  
+    - Extension number: The extension number of PortSIP PBX.
+    - External number: The numeric sequence of numbers, with or without a plus sign at the beginning.
+no_answer_forward_rule:
+  type: object
+  properties:
+    action:
+      $ref: "#/forward_rule_action"
+    number:
+      $ref: "#/forward_rule_number"

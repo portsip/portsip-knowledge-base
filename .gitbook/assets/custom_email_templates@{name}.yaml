@@ -1,0 +1,61 @@
+get:
+  tags:
+    - Notification
+  operationId: getCustomEmailTemplateDetails
+  summary: Retrieve custom details of template
+  description: |
+    Get details of custom template by name.
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/email_template.yaml#/name"
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                $ref: "../components/schemas/email_template.yaml#/name"
+              from:
+                $ref: "../components/schemas/email_template.yaml#/from"
+              subject:
+                $ref: "../components/schemas/email_template.yaml#/subject"
+              body:
+                $ref: "../components/schemas/email_template.yaml#/body"
+    "4XX":
+      description: Error
+post:
+  tags:
+    - Notification
+  operationId: updateCustomEmailTemplate
+  summary: Update custom email template
+  description: |
+    Update custom email template.
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/email_template.yaml#/name"
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            from:
+              $ref: "../components/schemas/email_template.yaml#/from"
+            subject:
+              $ref: "../components/schemas/email_template.yaml#/subject"
+            body:
+              $ref: "../components/schemas/email_template.yaml#/body"
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

@@ -1,0 +1,63 @@
+get:
+  tags:
+    - User
+  operationId: showUserGroup
+  summary: Retrieve an user group
+  description: |
+    Retrieves the properties of an user group.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/extgrp.yaml#/id"
+      description: The unique ID of the user group.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/extgrp.yaml#/id"
+              name:
+                $ref: "../components/schemas/extgrp.yaml#/name"
+              outbound_caller_ids:
+                $ref: "../components/schemas/provider.yaml#/outbound_caller_ids"
+              description:
+                $ref: "../components/schemas/extgrp.yaml#/description"
+    "4XX":
+      description: Error
+post:
+  tags:
+    - User
+  operationId: updateUserGroup
+  summary: Update an user group.
+  description: |
+    Update an user group
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/extgrp.yaml#/id"
+      description: The unique ID of the user group.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            name:
+              $ref: "../components/schemas/extgrp.yaml#/name"
+            outbound_caller_ids:
+              $ref: "../components/schemas/provider.yaml#/outbound_caller_ids"
+            description:
+              $ref: "../components/schemas/extgrp.yaml#/description"
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

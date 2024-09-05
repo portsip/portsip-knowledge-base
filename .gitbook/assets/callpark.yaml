@@ -1,0 +1,53 @@
+enabled:
+  type: boolean
+  description: |
+    Enable call park server or not.
+extension_number:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/extension_number"
+  description: |
+    Extension number used by call park server.
+recall_time:
+  type: integer
+  format: int32
+  minimum: 60
+  maximum: 900
+  default: 300
+  description: |
+    Set how long the call can be parked on the park server, in seconds.
+    After this time, the park server needs to forward the call to the preset extension or ring group according to the settings.
+    The default value is 300 seconds, the minimum value is 60 seconds, and the maximum value is 900 seconds.
+recall_ring_group_time:
+  type: integer
+  format: int32
+  minimum: 60
+  maximum: 900
+  default: 300
+  description: |
+    Set how long the call can be parked on the park server, in seconds.
+    If the call is not picked up after this time,
+    the park server needs to forward the call to the preset ring group according to the settings.
+    The default value is 300 seconds, the minimum value is 60 seconds, and the maximum value is 90 seconds.
+recall_to:
+  type: string
+  enum:
+    - USER_ONLY
+    - USER_FIRST_THEN_RING_GROUP
+    - RING_GROUP_ONLY
+  description: |
+    Select how the park server forwards the call
+    when the parked call is not picked up in the **Recall Time**.
+    The forwarding destination can be an extension or a ring group.
+    Can be either:
+    - `USER_ONLY`: 
+    - `USER_FIRST_THEN_RING_GROUP`: 
+    - `RING_GROUP_ONLY`:
+
+    When set to `USER_FIRST_THEN_RING_GROUP` or `RING_GROUP_ONLY`, `ring_group_id` must also be specified.
+ring_group_id:
+  allOf:
+    - $ref: "../../components/schemas/ringgroup.yaml#/id"
+  description: |
+    The unique ID of ring group.
+    Select a Ring Group as the Recall destination. 
+    Only valid when the value of `recall_to` is `USER_FIRST_THEN_RING_GROUP` or `RING_GROUP_ONLY`.

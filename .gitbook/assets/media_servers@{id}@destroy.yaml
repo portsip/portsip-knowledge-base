@@ -1,0 +1,17 @@
+post:
+  tags:
+    - Media Server
+  operationId: deleteMediaServer
+  summary: Delete a media server
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/mediaserver.yaml#/id"
+      description: The unique ID of the media server.
+  responses:
+    "204":
+      description: No Content
+    "400":
+      description: Invalid server ID supplied.

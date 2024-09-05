@@ -1,0 +1,38 @@
+get:
+  tags:
+    - Administration
+  operationId: getSBCToken
+  summary: Retrieve SBC token
+  description: |
+    Retrieve SBC token
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              token:
+                $ref: "../components/schemas/sbc.yaml#/token"
+    "4XX":
+      description: Error
+post:
+  tags:
+    - Administration
+  operationId: regenerateSBCToken
+  summary: Regenerate SBC token
+  description: |
+    Regenerate SBC token
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              token:
+                $ref: "../components/schemas/sbc.yaml#/token"
+    "4XX":
+      description: Error

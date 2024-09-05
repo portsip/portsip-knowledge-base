@@ -1,0 +1,133 @@
+post:
+  tags:
+    - Trunk
+  operationId: createProvider
+  summary: Create a provider
+  description: |
+    Add a new provider into system.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            name:
+              $ref: "../components/schemas/provider.yaml#/name"
+            enabled:
+              $ref: "../components/schemas/provider.yaml#/enabled"
+            brand:
+              $ref: "../components/schemas/provider.yaml#/brand"
+            auth_mode:
+              $ref: "../components/schemas/provider.yaml#/auth_mode"
+            transport:
+              $ref: "../components/schemas/provider.yaml#/transport"
+            hostname:
+              $ref: "../components/schemas/provider.yaml#/hostname"
+            port:
+              $ref: "../components/schemas/provider.yaml#/port"
+            auth_id:
+              $ref: "../components/schemas/provider.yaml#/auth_id"
+            username:
+              $ref: "../components/schemas/provider.yaml#/username"
+            password:
+              $ref: "../components/schemas/provider.yaml#/password"
+            registration:
+              $ref: "../components/schemas/provider.yaml#/registration"
+            register_interval:
+              $ref: "../components/schemas/provider.yaml#/register_interval"
+            outbound_server:
+              $ref: "../components/schemas/provider.yaml#/outbound_server"
+            outbound_server_port:
+              $ref: "../components/schemas/provider.yaml#/outbound_server_port"
+            inlan:
+              $ref: "../components/schemas/provider.yaml#/inlan"
+            single_via_header:
+              $ref: "../components/schemas/provider.yaml#/single_via_header"
+            rewrite_via_ip:
+              $ref: "../components/schemas/provider.yaml#/rewrite_via_ip"
+            verify_port:
+              $ref: "../components/schemas/provider.yaml#/verify_port"
+            keep_alive:
+              $ref: "../components/schemas/provider.yaml#/keep_alive"
+            concurrency:
+              $ref: "../components/schemas/provider.yaml#/concurrency"
+            keep_alive_interval:
+              $ref: "../components/schemas/provider.yaml#/keep_alive_interval"
+            additional_ips:
+              $ref: "../components/schemas/provider.yaml#/additional_ips"
+            adjust_sdp_direction:
+              $ref: "../components/schemas/provider.yaml#/adjust_sdp_direction"
+            remove_srtp_info:
+              $ref: "../components/schemas/provider.yaml#/remove_srtp_info"
+            did_numbers:
+              $ref: "../components/schemas/provider.yaml#/did_numbers"
+            inbound_parameters:
+              $ref: "../components/schemas/provider.yaml#/inbound_parameters"
+            outbound_parameters:
+              $ref: "../components/schemas/provider.yaml#/outbound_parameters"
+          required:
+            - name
+            - transport
+            - hostname
+            - port
+            - outbound_server
+            - outbound_server_port
+            - concurrency
+  responses:
+    "201":
+      description: Created
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/provider.yaml#/id"
+    "4XX":
+      description: Error
+get:
+  tags:
+    - Trunk
+  operationId: listProviders
+  summary: List providers
+  description: |
+    Retrieve a collection of providers
+  parameters:
+    - $ref: "../components/parameters/common.yaml#/filter"
+    - $ref: "../components/parameters/common.yaml#/search"
+    - $ref: "../components/parameters/common.yaml#/orderby"
+    - $ref: "../components/parameters/common.yaml#/skip"
+    - $ref: "../components/parameters/common.yaml#/top"
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                $ref: "../components/schemas/common.yaml#/count"
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      $ref: "../components/schemas/provider.yaml#/id"
+                    name:
+                      $ref: "../components/schemas/provider.yaml#/name"
+                    enabled:
+                      $ref: "../components/schemas/provider.yaml#/enabled"
+                    brand:
+                      $ref: "../components/schemas/provider.yaml#/brand"
+                    hostname:
+                      $ref: "../components/schemas/provider.yaml#/hostname"
+                    port:
+                      $ref: "../components/schemas/provider.yaml#/port"
+                    did_numbers:
+                      $ref: "../components/schemas/provider.yaml#/did_numbers"
+                    shared:
+                      $ref: "../components/schemas/provider.yaml#/shared"
+    "4XX":
+      description: Error

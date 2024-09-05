@@ -1,0 +1,21 @@
+post:
+  tags:
+    - Call Queue
+  operationId: deleteQueue
+  summary: Delete a call queue
+  description: |
+    Destroy call queue
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/callqueue.yaml#/id"
+      description: The unique ID of the call queue.
+  responses:
+    "204":
+      description: No Content
+    "400":
+      description: Invalid call queue ID supplied
+    "404":
+      description: User not found

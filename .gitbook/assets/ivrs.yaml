@@ -1,0 +1,89 @@
+post:
+  tags:
+    - Virtual Receptionist
+  operationId: createVr
+  summary: Create a virtual receptionist.
+  description: |
+    Add a new virtual receptionist into system.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            name:
+              $ref: "../components/schemas/ivr.yaml#/name"
+            extension_number:
+              $ref: "../components/schemas/common.yaml#/extension_number"
+            language:
+              $ref: "../components/schemas/common.yaml#/language"
+            dtmf_interval:
+              $ref: "../components/schemas/ivr.yaml#/dtmf_interval"
+            prompt_file_id:
+              $ref: "../components/schemas/file.yaml#/id"
+            transfer_prompt_file_id:
+              $ref: "../components/schemas/file.yaml#/id"
+            enable_pin:
+              $ref: "../components/schemas/ivr.yaml#/enable_pin"
+            pin:
+              $ref: "../components/schemas/common.yaml#/pin"
+            timeout_forward_rule:
+              $ref: "../components/schemas/ivr.yaml#/timeout_forward_rule"
+            failure_forward_rule:
+              $ref: "../components/schemas/ivr.yaml#/failure_forward_rule"
+            custom_forward_rules:
+              $ref: "../components/schemas/ivr.yaml#/custom_forward_rules"
+            outbound_caller_ids:
+              $ref: "../components/schemas/provider.yaml#/outbound_caller_ids"
+          required:
+            - name
+            - extension_number
+            - pin
+  responses:
+    "201":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/ivr.yaml#/id"
+    "4XX":
+      description: Error
+get:
+  tags:
+    - Virtual Receptionist
+  operationId: listVrs
+  summary: Lists virtual receptionists
+  description: |
+    Retrieve a collection of virtual receptionists.
+  parameters:
+    - $ref: "../components/parameters/common.yaml#/filter"
+    - $ref: "../components/parameters/common.yaml#/search"
+    - $ref: "../components/parameters/common.yaml#/orderby"
+    - $ref: "../components/parameters/common.yaml#/skip"
+    - $ref: "../components/parameters/common.yaml#/top"
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                $ref: "../components/schemas/common.yaml#/count"
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      $ref: "../components/schemas/ivr.yaml#/id"
+                    name:
+                      $ref: "../components/schemas/ivr.yaml#/name"
+                    extension_number:
+                      $ref: "../components/schemas/common.yaml#/extension_number"
+    "4XX":
+      description: Error

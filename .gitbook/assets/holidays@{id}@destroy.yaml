@@ -1,0 +1,19 @@
+post:
+  tags:
+    - Tenant
+  operationId: deleteHoliday
+  summary: Destroy a holiday
+  description: |
+    Destroy a certain holiday entry.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/holiday.yaml#/id"
+      description: The unique ID of the holiday.
+  responses:
+    "204":
+      description: No Content
+    "400":
+      description: Invalid rule ID supplied.

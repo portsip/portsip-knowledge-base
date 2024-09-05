@@ -1,0 +1,69 @@
+post:
+  tags:
+    - Call Park
+  operationId: createCallParkGroup
+  summary: Create a call park group
+  description: |
+    Create a new call park group.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            name:
+              $ref: "../components/schemas/callparkgrp.yaml#/name"
+            recall_to:
+              $ref: "../components/schemas/callpark.yaml#/recall_to"
+            ring_group_id:
+              $ref: "../components/schemas/callpark.yaml#/ring_group_id"
+  responses:
+    "201":
+      description: Created call park group
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/callparkgrp.yaml#/id"
+    "4XX":
+      description: Error
+get:
+  tags:
+    - Call Park
+  operationId: listCallParkGroups
+  summary: List call park groups
+  description: |
+    List call park groups
+  parameters:
+    - $ref: "../components/parameters/common.yaml#/filter"
+    - $ref: "../components/parameters/common.yaml#/search"
+    - $ref: "../components/parameters/common.yaml#/orderby"
+    - $ref: "../components/parameters/common.yaml#/skip"
+    - $ref: "../components/parameters/common.yaml#/top"
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                $ref: "../components/schemas/common.yaml#/count"
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      $ref: "../components/schemas/callparkgrp.yaml#/id"
+                    name:
+                      $ref: "../components/schemas/callparkgrp.yaml#/name"
+                    recall_to:
+                      $ref: "../components/schemas/callpark.yaml#/recall_to"
+                    ring_group_id:
+                      $ref: "../components/schemas/callpark.yaml#/ring_group_id"
+    "4XX":
+      description: Error

@@ -1,0 +1,20 @@
+id:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/id"
+  description: |
+    The unique ID of monitor group.
+name:
+  type: string
+  minLength: 1
+  maxLength: 64
+  description: |
+    Name of monitor group
+enabled:
+  type: boolean
+  description: |
+    Enable monitor group or not.
+description:
+  type: string
+  maxLength: 1024
+  description: |
+    Description for monitor group

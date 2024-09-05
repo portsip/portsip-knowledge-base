@@ -1,0 +1,23 @@
+get:
+  tags:
+    - Microsoft 365
+  operationId: listMicrosoft365Users
+  summary: Retrieve a collection of Microsoft 365 users
+  description: |
+    Retrieve a collection of Microsoft 365 users.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                $ref: "../components/schemas/common.yaml#/count"
+              items:
+                type: array
+                items:
+                  $ref: "../components/schemas/ms365.yaml#/user"
+    "4XX":
+      description: Error

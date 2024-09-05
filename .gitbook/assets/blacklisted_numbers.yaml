@@ -1,0 +1,71 @@
+post:
+  tags:
+    - Security
+  operationId: createBlacklistedNumber
+  summary: Create new blacklisted number
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            number:
+              $ref: "../components/schemas/blacklist.yaml#/number"
+            expire_at:
+              $ref: "../components/schemas/blacklist.yaml#/expire_at"
+            description:
+              $ref: "../components/schemas/blacklist.yaml#/description"
+          required:
+            - number
+  responses:
+    "201":
+      description: Created
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/blacklist.yaml#/id"
+    "4XX":
+      description: Error
+get:
+  tags:
+    - Security
+  operationId: listBlacklistedNumbers
+  summary: List blacklisted numbers
+  parameters:
+    - $ref: "../components/parameters/common.yaml#/filter"
+    - $ref: "../components/parameters/common.yaml#/search"
+    - $ref: "../components/parameters/common.yaml#/orderby"
+    - $ref: "../components/parameters/common.yaml#/skip"
+    - $ref: "../components/parameters/common.yaml#/top"
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                $ref: "../components/schemas/common.yaml#/count"
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      $ref: "../components/schemas/blacklist.yaml#/id"
+                    number:
+                      $ref: "../components/schemas/blacklist.yaml#/number"
+                    expire_at:
+                      $ref: "../components/schemas/blacklist.yaml#/expire_at"
+                    created_at:
+                      $ref: "../components/schemas/blacklist.yaml#/created_at"
+                    updated_at:
+                      $ref: "../components/schemas/blacklist.yaml#/updated_at"
+                    description:
+                      $ref: "../components/schemas/blacklist.yaml#/description"
+    "4XX":
+      description: Error

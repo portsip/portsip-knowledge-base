@@ -1,0 +1,63 @@
+get:
+  tags:
+    - Virtual Receptionist
+  operationId: showIvrServer
+  summary: Retrieve a virtual receptionist server
+  description: |
+    Retrieve a virtual receptionist server.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/ivrserver.yaml#/id"
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/ivrserver.yaml#/id"
+              name:
+                $ref: "../components/schemas/ivrserver.yaml#/name"
+              enabled:
+                $ref: "../components/schemas/ivrserver.yaml#/enabled"
+              ipv4:
+                $ref: "../components/schemas/common.yaml#/ipv4"
+              ipv6:
+                $ref: "../components/schemas/common.yaml#/ipv6"
+              type:
+                $ref: "../components/schemas/ivrserver.yaml#/type"
+    "4XX":
+      description: Error
+post:
+  tags:
+    - Virtual Receptionist
+  operationId: updateVrServer
+  summary: Update a virtual receptionist server
+  description: |
+    Update a virtual receptionist server.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/ivrserver.yaml#/id"
+      description: The unique ID of the virtual receptionist server.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            enabled:
+              $ref: "../components/schemas/ivrserver.yaml#/enabled"
+    required: true
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

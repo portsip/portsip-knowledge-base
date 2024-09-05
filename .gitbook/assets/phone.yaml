@@ -1,0 +1,200 @@
+id:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/id"
+  description: |
+    The unique ID of phone.
+language:
+  type: string
+  enum:
+    - ENGLISH
+    - CHINESE
+    - DUTCH
+    - FRENCH
+    - GERMAN
+    - GREEK
+    - ITALIAN
+    - JAPANESE
+    - POLISH
+    - RUSSIAN
+    - SPANISH
+    - SWEDISH
+    - UKRAINIAN
+    - BULGARIAN
+  description: |
+    Language for strings displayed on Phone Display LCD.
+    Supported languages include ENGLISH, CHINESE, DUTCH, FRENCH, GERMAN,
+    GREEK, ITALIAN, JAPANESE, POLISH, RUSSIAN, SPANISH, SWEDISH, UKRAINIAN, and BULGARIAN.
+transfer:
+  type: string
+  enum:
+    - BLIND
+    - ATTENDED
+    - NEW_CALL
+  default: BLIND
+  description: |
+    The transfer method for auto provision.  
+    Can be either: 
+    - `BLIND`: After the IP phone is configured with the BLF of a certain key, during a call on the IP phone, press the key, and the phone will directly initiate a Blind transfer to the configured number.
+    - `ATTENDED`: After the IP phone is configured with the BLF of a key, during a call on the IP phone, press the key, and the phone will directly initiate an Attended transfer to the configured number.
+    - `NEW_CALL`: After the IP phone is configured with the BLF of a certain key, during a call on the IP phone, press the key, and the phone will initiate a new call to the configured number.
+ua:
+  type: string
+  description: |
+    User agent
+mac:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/mac"
+  description: |
+    MAC address of this IP phone.
+vendor:
+  type: string
+  description: |
+    The phone vendor of IP phone.
+model:
+  type: string
+  description: |
+    The name of IP phone model.
+display_name:
+  type: string
+  description: |
+    The display name of the phone model.
+fwver:
+  type: string
+  description: |
+    The firmware version of IP phone.
+password:
+  type: string
+  description: |
+    Password for accessing the Web interface of phone.
+    The username remains default because most phone manufacturers do not
+    allow modification of the user name. This is supported for some phone model, such as "Snom 300".
+rps:
+  type: boolean
+  description: |
+    Send to RPS or not.
+https:
+  type: boolean
+  description: |
+    Whether to use https
+vm_pin:
+  type: string
+  description: |
+    The voicemail PIN of the phone.
+is_custom:
+  type: boolean
+  description: |
+    Whether it's a customize template.
+filename:
+  type: string
+  description: |
+    Template XML file name for phone provisioning.
+file_content:
+  type: string
+  description: |
+    The file content of the template.
+ringtone:
+  type: string
+  description: |
+    The ringtone of phone.
+queue_ringtone:
+  type: string
+  description: |
+    The queue ringtone of phone for queue calls or ring group calls.
+external_ringtone:
+  type: string
+  description: |
+    The ringtone of phone for external calls.
+date_format:
+  type: string
+  description: |
+    The date format of phone.
+time_format:
+  type: string
+  description: |
+    The time format of phone.
+powerled:
+  type: string
+  description: |
+    The power led of phone.
+backlight:
+  type: string
+  description: |
+    The backlight of phone.
+screensaver:
+  type: string
+  description: |
+    The screensaver of phone.
+timezone:
+  type: string
+  description: |
+    The timezone of phone.
+region:
+  allOf:
+    - $ref: "common.yaml#/region"
+  description: |
+    The region of phone.
+codecs:
+  type: array
+  items:
+    type: string
+  description: |
+    Settings for the priority of the codecs in this phone.
+    This indicates the first preferred codec.
+enable_lldp:
+  type: boolean
+  default: false
+  description: Enable or disable Link Layer Discovery Protocol.
+enable_vlan_wan_port:
+  type: boolean
+  default: false
+  description: |
+    Enable or disable VLAN for WAN Port.
+wan_port_id:
+  type: integer
+  minimum: 1
+  maximum: 4094
+  description: |
+    VLAN ID for WAN PORT.
+wan_port_priority:
+  type: integer
+  minimum: 0
+  maximum: 7
+  description: |
+    VLAN priority for WAN Port.
+enable_vlan_pc_port:
+  type: boolean
+  default: false
+  description: |
+    Enable or disable VLAN for PC Port.
+pc_port_id:
+  type: integer
+  minimum: 1
+  maximum: 4094
+  description: |
+    VLAN ID for PC PORT.
+pc_port_priority:
+  type: integer
+  minimum: 0
+  maximum: 7
+  description: |
+    VLAN priority for PC Port.
+url:
+  type: string
+  description: |
+    Auto provision server URL.
+serial_number:
+  type: string
+  description: |
+    The serial number of phone.
+door_password1:
+  type: string
+  minLength: 4
+  maxLength: 8
+  description: |
+    The primary door password of phone. Only numeric sequences are allowed.
+door_password2:
+  type: string
+  minLength: 4
+  maxLength: 8
+  description: |
+    The secondary door password of phone. Only numeric sequences are allowed.

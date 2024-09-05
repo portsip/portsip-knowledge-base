@@ -1,0 +1,6 @@
+code:
+  type: string
+  minLength: 1
+  maxLength: 32
+  description: |
+    Country calling codes or country dial-in codes.

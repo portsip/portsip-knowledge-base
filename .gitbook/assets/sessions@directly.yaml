@@ -1,0 +1,87 @@
+get:
+  tags:
+    - Call Session
+  operationId: createCallSessionDirectly
+  summary: Create call session directly
+  description: |
+    Create call session directly.
+  security: [ ]
+  parameters:
+    - name: extension_number
+      in: query
+      required: true
+      schema:
+        $ref: "../components/schemas/common.yaml#/extension_number"
+    - name: password
+      in: query
+      required: true
+      schema:
+        $ref: "../components/schemas/common.yaml#/extension_password"
+    - name: domain
+      in: query
+      required: true
+      schema:
+        $ref: "../components/schemas/tenant.yaml#/domain"
+    - name: caller
+      in: query
+      required: true
+      schema:
+        $ref: "../components/schemas/cdr.yaml#/caller"
+    - name: caller_display_name
+      in: query
+      schema:
+        $ref: "../components/schemas/cdr.yaml#/caller_display_name"
+    - name: callee
+      in: query
+      required: true
+      schema:
+        $ref: "../components/schemas/cdr.yaml#/callee"
+    - name: send_sdp
+      in: query
+      required: true
+      schema:
+        $ref: "../components/schemas/session.yaml#/send_sdp"
+    - name: trunk
+      in: query
+      schema:
+        $ref: "../components/schemas/provider.yaml#/name"
+    - name: rewrite_from
+      in: query
+      schema:
+        $ref: "../components/schemas/session.yaml#/rewrite_from"
+    - name: rewrite_pai
+      in: query
+      schema:
+        $ref: "../components/schemas/session.yaml#/rewrite_pai"
+    - name: rewrite_rpi
+      in: query
+      schema:
+        $ref: "../components/schemas/session.yaml#/rewrite_rpi"
+    - name: user_data
+      in: query
+      schema:
+        $ref: "../components/schemas/session.yaml#/user_data"
+    - name: target
+      in: query
+      schema:
+        $ref: "../components/schemas/session.yaml#/target"
+    - name: additional_header
+      in: query
+      schema:
+        $ref: "../components/schemas/session.yaml#/additional_header"
+    - name: header_direction
+      in: query
+      schema:
+        $ref: "../components/schemas/session.yaml#/header_direction"
+  responses:
+    "201":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/session.yaml#/id"
+    "4XX":
+      description: Error

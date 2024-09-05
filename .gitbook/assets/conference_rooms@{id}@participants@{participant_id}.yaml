@@ -1,0 +1,29 @@
+get:
+  tags:
+    - Conference
+  operationId: getConferenceRoomParticipant
+  summary: Get room participant details
+  description: |
+    Get room participant details.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/confroom.yaml#/id"
+      description: The unique ID of conference room.
+    - name: participant_id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/confroom.yaml#/participant_id"
+      description: The id of the participant.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../components/schemas/confroom.yaml#/participant"
+    "4XX":
+      description: Error

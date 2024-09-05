@@ -1,0 +1,46 @@
+get:
+  tags:
+    - User
+  operationId: listUserCDRs
+  summary: List user call detail records
+  description: |
+    Retrieve a collection of user call detail records.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                $ref: "../components/schemas/common.yaml#/count"
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      $ref: "../components/schemas/cdr.yaml#/id"
+                    caller:
+                      $ref: "../components/schemas/cdr.yaml#/caller"
+                    caller_domain:
+                      $ref: "../components/schemas/cdr.yaml#/caller_domain"
+                    caller_display_name:
+                      $ref: "../components/schemas/cdr.yaml#/caller_display_name"
+                    callee:
+                      $ref: "../components/schemas/cdr.yaml#/callee"
+                    callee_domain:
+                      $ref: "../components/schemas/cdr.yaml#/callee_domain"
+                    callee_display_name:
+                      $ref: "../components/schemas/cdr.yaml#/callee_display_name"
+                    started_at:
+                      $ref: "../components/schemas/cdr.yaml#/started_at"
+                    ended_at:
+                      $ref: "../components/schemas/cdr.yaml#/ended_at"
+                    duration:
+                      $ref: "../components/schemas/cdr.yaml#/duration"
+                    status_code:
+                      $ref: "../components/schemas/cdr.yaml#/status_code"
+    "4XX":
+      description: Error

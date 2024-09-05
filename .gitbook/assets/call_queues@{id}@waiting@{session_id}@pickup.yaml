@@ -1,0 +1,24 @@
+post:
+  tags:
+    - Call Queue
+  operationId: pickupQueueWaiting
+  summary: Answer specified call
+  description: |
+    Call queue Answer specified call
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/callqueue.yaml#/id"
+      description: The unique ID of the call queue.
+    - name: session_id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/callqueue.yaml#/session_id"
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

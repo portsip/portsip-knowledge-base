@@ -1,0 +1,60 @@
+get:
+  tags:
+    - User
+  operationId: showRole
+  summary: Retrieve a role
+  description: Retrieves the settings of a role.
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/role.yaml#/name"
+      description: The name of the role.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                $ref: "../components/schemas/role.yaml#/name"
+              permissions:
+                $ref: "../components/schemas/role.yaml#/permissions"
+              description:
+                $ref: "../components/schemas/role.yaml#/description"
+    "4XX":
+      description: Error
+post:
+  tags:
+    - User
+  operationId: updateRole
+  summary: Update a role
+  description: Modify the settings of a role.
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/role.yaml#/name"
+      description: The name of the role.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            name:
+              $ref: "../components/schemas/role.yaml#/name"
+            permissions:
+              $ref: "../components/schemas/role.yaml#/permissions"
+            description:
+              $ref: "../components/schemas/role.yaml#/description"
+    required: true
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

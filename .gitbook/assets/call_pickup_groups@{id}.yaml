@@ -1,0 +1,61 @@
+get:
+  tags:
+    - Call Pickup
+  operationId: showCallPickupGroup
+  summary: Retrieve a call pickup group
+  description: |
+    Retrieves details of a call pickup group.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/callparkgrp.yaml#/id"
+      description: |
+        The unique ID of the call pickup group.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/callpickupgrp.yaml#/id"
+              name:
+                $ref: "../components/schemas/callpickupgrp.yaml#/name"
+              description:
+                $ref: "../components/schemas/callpickupgrp.yaml#/description"
+    "4XX":
+      description: Error
+post:
+  tags:
+    - Call Pickup
+  operationId: updateCallPickupGroup
+  summary: Update an call pickup group.
+  description: |
+    Update an call pickup group.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/callpickupgrp.yaml#/id"
+      description: |
+        The unique ID of the call pickup group.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            name:
+              $ref: "../components/schemas/callpickupgrp.yaml#/name"
+            description:
+              $ref: "../components/schemas/callpickupgrp.yaml#/description"
+  responses:
+    "200":
+      description: Updated call pickup group
+    "4XX":
+      description: Error

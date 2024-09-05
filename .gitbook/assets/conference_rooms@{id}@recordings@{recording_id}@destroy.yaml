@@ -1,0 +1,25 @@
+post:
+  tags:
+    - Conference
+  operationId: deleteConferenceRecording
+  summary: Delete a conference record
+  description: |
+    Delete a conference recording of conference room.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/confroom.yaml#/id"
+      description: The unique ID of the conference room.
+    - name: recording_id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/confrecording.yaml#/id"
+      description: The unique ID of the conference room recording.
+  responses:
+    "204":
+      description: No Content
+    "4XX":
+      description: Error

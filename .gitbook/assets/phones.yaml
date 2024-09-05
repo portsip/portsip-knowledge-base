@@ -1,0 +1,40 @@
+get:
+  tags:
+    - Auto Provisioning
+  operationId: listPhones
+  summary: List IP phones
+  description: |
+    List IP phones
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    extension_number:
+                      $ref: "../components/schemas/common.yaml#/extension_number"
+                    vendor:
+                      $ref: "../components/schemas/phone.yaml#/vendor"
+                    model:
+                      $ref: "../components/schemas/phone.yaml#/model"
+                    fwver:
+                      $ref: "../components/schemas/phone.yaml#/fwver"
+                    name:
+                      $ref: "../components/schemas/user.yaml#/display_name"
+                    password:
+                      $ref: "../components/schemas/phone.yaml#/password"
+                    vm_pin:
+                      $ref: "../components/schemas/phone.yaml#/vm_pin"
+                    ip:
+                      $ref: "../components/schemas/common.yaml#/ip"
+                    mac:
+                      $ref: "../components/schemas/phone.yaml#/mac"
+    "4XX":
+      description: Error

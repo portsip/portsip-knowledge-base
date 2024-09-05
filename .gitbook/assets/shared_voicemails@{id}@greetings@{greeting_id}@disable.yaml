@@ -1,0 +1,23 @@
+post:
+  tags:
+    - Shared Voicemail
+  operationId: disableSharedVoicemailGreeting
+  summary: Disable shared voicemail greeting
+  description: |
+    Disable shared voicemail greeting by it's unique ID.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/sharedvoicemail.yaml#/id"
+    - name: greeting_id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/greeting.yaml#/id"
+  responses:
+    "200":
+      description: OK
+    "404":
+      description: User not found

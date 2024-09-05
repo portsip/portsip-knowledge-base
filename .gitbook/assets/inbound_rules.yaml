@@ -1,0 +1,126 @@
+post:
+  tags:
+    - Inbound Rule
+  operationId: createInboundRule
+  summary: Create an inbound rule
+  description: |
+    Add a new inbound rule.
+    Please make sure you have at least one provider created before creating a new inbound rule.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            name:
+              $ref: "../components/schemas/inboundrule.yaml#/name"
+            enabled:
+              $ref: "../components/schemas/inboundrule.yaml#/enabled"
+            cid_number_mask:
+              $ref: "../components/schemas/inboundrule.yaml#/cid_number_mask"
+            did_numbers:
+              $ref: "../components/schemas/inboundrule.yaml#/did_numbers"
+            did_numbers_as_to_header:
+              $ref: "../components/schemas/inboundrule.yaml#/did_numbers_as_to_header"
+            office_hours_forward_rule:
+              $ref: "../components/schemas/inboundrule.yaml#/office_hours_forward_rule"
+            non_office_hours_forward_rule:
+              $ref: "../components/schemas/inboundrule.yaml#/non_office_hours_forward_rule"
+            holiday_forward_rule:
+              $ref: "../components/schemas/inboundrule.yaml#/holiday_forward_rule"
+            office_hours:
+              $ref: "../components/schemas/common.yaml#/office_hours_with_mode"
+            holidays:
+              type: array
+              items:
+                $ref: "../components/schemas/holiday.yaml#/id"
+              description: |
+                A collection of ID of tenant's holiday.
+            provider_id:
+              $ref: "../components/schemas/provider.yaml#/id"
+            enable_advanced_routing:
+              $ref: "../components/schemas/inboundrule.yaml#/enable_advanced_routing"
+            advanced_routing:
+              $ref: "../components/schemas/inboundrule.yaml#/advanced_routing"
+            play_recording_disclaimer:
+              $ref: "../components/schemas/inboundrule.yaml#/play_recording_disclaimer"
+          required:
+            - name
+            - did_numbers
+            - provider_id
+  responses:
+    "201":
+      description: Created
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/inboundrule.yaml#/id"
+    "4XX":
+      description: Error
+get:
+  tags:
+    - Inbound Rule
+  operationId: listInboundRules
+  summary: List inbound rules
+  description: |
+    Retrieve a collection of inbound rules
+  parameters:
+    - $ref: "../components/parameters/common.yaml#/filter"
+    - $ref: "../components/parameters/common.yaml#/search"
+    - $ref: "../components/parameters/common.yaml#/orderby"
+    - $ref: "../components/parameters/common.yaml#/skip"
+    - $ref: "../components/parameters/common.yaml#/top"
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                $ref: "../components/schemas/common.yaml#/count"
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      $ref: "../components/schemas/inboundrule.yaml#/id"
+                    name:
+                      $ref: "../components/schemas/inboundrule.yaml#/name"
+                    enabled:
+                      $ref: "../components/schemas/inboundrule.yaml#/enabled"
+                    cid_number_mask:
+                      $ref: "../components/schemas/inboundrule.yaml#/cid_number_mask"
+                    did_numbers:
+                      $ref: "../components/schemas/inboundrule.yaml#/did_numbers"
+                    did_numbers_as_to_header:
+                      $ref: "../components/schemas/inboundrule.yaml#/did_numbers_as_to_header"
+                    office_hours_forward_rule:
+                      $ref: "../components/schemas/inboundrule.yaml#/office_hours_forward_rule"
+                    non_office_hours_forward_rule:
+                      $ref: "../components/schemas/inboundrule.yaml#/non_office_hours_forward_rule"
+                    holiday_forward_rule:
+                      $ref: "../components/schemas/inboundrule.yaml#/holiday_forward_rule"
+                    office_hours:
+                      $ref: "../components/schemas/common.yaml#/office_hours_with_mode"
+                    holidays:
+                      type: array
+                      items:
+                        $ref: "../components/schemas/holiday.yaml#/holiday"
+                      description: |
+                        A collection of tenant's holiday.
+                    provider_id:
+                      $ref: "../components/schemas/provider.yaml#/id"
+                    enable_advanced_routing:
+                      $ref: "../components/schemas/inboundrule.yaml#/enable_advanced_routing"
+                    advanced_routing:
+                      $ref: "../components/schemas/inboundrule.yaml#/advanced_routing"
+                    play_recording_disclaimer:
+                      $ref: "../components/schemas/inboundrule.yaml#/play_recording_disclaimer"
+    "4XX":
+      description: Error

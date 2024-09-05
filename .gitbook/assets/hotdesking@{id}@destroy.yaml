@@ -1,0 +1,18 @@
+post:
+  tags:
+    - Hot Desking
+  operationId: deleteHotDeskingDevice
+  summary: Delete hot desking
+  description: |
+    Destroy hot desking.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/hotdesking.yaml#/id"
+  responses:
+    "204":
+      description: No Content
+    "4XX":
+      description: Error

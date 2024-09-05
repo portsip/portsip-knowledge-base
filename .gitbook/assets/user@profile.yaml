@@ -1,0 +1,12 @@
+post:
+  tags:
+    - User
+  operationId: resetCurrentUserProfile
+  summary: Reset current user profile
+  description: |
+    Reset current user profile.
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

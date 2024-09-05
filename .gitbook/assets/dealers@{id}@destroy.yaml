@@ -1,0 +1,19 @@
+post:
+  tags:
+    - Administration
+  operationId: deleteDealer
+  summary: Delete a dealer
+  description: |
+    Delete a dealer by it's unique ID.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/dealer.yaml#/id"
+      description: The unique ID of the dealer.
+  responses:
+    "204":
+      description: No Content
+    "4XX":
+      description: Error

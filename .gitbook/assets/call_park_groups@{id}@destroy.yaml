@@ -1,0 +1,19 @@
+post:
+  tags:
+    - Call Park
+  operationId: deleteCallParkGroup
+  summary: Delete a call park group
+  description: |
+    Delete a call park group.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/callparkgrp.yaml#/id"
+      description: The unique ID of the call park group.
+  responses:
+    "204":
+      description: No Content
+    "4XX":
+      description: Error

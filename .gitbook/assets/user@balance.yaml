@@ -1,0 +1,19 @@
+get:
+  tags:
+    - User
+  operationId: getCurrentUserBalance
+  summary: Retrieve current user balance.
+  description: |
+    Retrieve current user's balance.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              balance:
+                $ref: "../components/schemas/common.yaml#/balance"
+    "4XX":
+      description: Error

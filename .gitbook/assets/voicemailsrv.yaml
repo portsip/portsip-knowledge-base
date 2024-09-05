@@ -1,0 +1,19 @@
+extension_number:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/extension_number"
+  description: The extension number of voicemail server.
+retain_days:
+  type: integer
+  format: int32
+  minimum: 0
+  default: 30
+  description: |
+    Duration the voicemail will be kept before auto deleted, in days.
+min_seconds:
+  type: integer
+  format: int32
+  minimum: 0
+  default: 1
+  description: |
+    The minimum length of a voicemail, in seconds.
+    Any callings shorter than this value will not be saved as voicemail.

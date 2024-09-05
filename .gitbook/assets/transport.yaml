@@ -1,0 +1,43 @@
+id:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/id"
+  description: |
+    The unique ID of transport.
+protocol:
+  type: string
+  enum:
+    - UDP
+    - TCP
+    - TLS
+  description: |
+    The transport protocol:  
+    Can be either:  
+    - `UDP`:
+    - `TCP`:
+    - `TLS`:
+port:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/port"
+  description: |
+    The port of transport.
+verification:
+  type: string
+  enum:
+    - DISABLE
+    - OPTIONAL
+    - MANDATORY
+  description: |
+    Indicates if PBX wishes (Optional) or requires (Mandatory) TLS clients to present a client certificate:
+    - `DISABLE`: disable client certificate.
+    - `OPTIONAL`: client authentication optional.
+    - `MANDATORY`: force client authentication.
+status:
+  type: string
+  enum:
+    - ACTIVATED
+    - DEACTIVATED
+  readOnly: true
+  description: |
+    Status of transport includes:
+    - `ACTIVATED`:
+    - `DEACTIVATED`:

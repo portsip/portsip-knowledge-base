@@ -1,0 +1,69 @@
+post:
+  tags:
+    - CTI
+  operationId: createMonitorGroup
+  summary: Create a monitor group
+  description: |
+    Create a new monitor group.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            name:
+              $ref: "../components/schemas/monitorgrp.yaml#/name"
+            enabled:
+              $ref: "../components/schemas/monitorgrp.yaml#/enabled"
+            description:
+              $ref: "../components/schemas/monitorgrp.yaml#/description"
+  responses:
+    "201":
+      description: Created monitor group
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/monitorgrp.yaml#/id"      
+    "4XX":
+      description: Error
+get:
+  tags:
+    - CTI
+  operationId: listMonitorGroups
+  summary: List monitor groups
+  description: |
+    List monitor groups
+  parameters:
+    - $ref: "../components/parameters/common.yaml#/filter"
+    - $ref: "../components/parameters/common.yaml#/search"
+    - $ref: "../components/parameters/common.yaml#/orderby"
+    - $ref: "../components/parameters/common.yaml#/skip"
+    - $ref: "../components/parameters/common.yaml#/top"
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                $ref: "../components/schemas/common.yaml#/count"
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      $ref: "../components/schemas/monitorgrp.yaml#/id"
+                    name:
+                      $ref: "../components/schemas/monitorgrp.yaml#/name"
+                    enabled:
+                      $ref: "../components/schemas/monitorgrp.yaml#/enabled"
+                    description:
+                      $ref: "../components/schemas/monitorgrp.yaml#/description"
+    "4XX":
+      description: Error

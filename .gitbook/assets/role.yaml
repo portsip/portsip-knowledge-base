@@ -1,0 +1,146 @@
+name:
+  type: string
+  minLength: 1
+  maxLength: 64
+  example: User
+  description: |
+    Roles include built-in roles and custom roles.   
+    Built-in roles roles cannot be modified.   
+    Also, the names of built-in roles are reserved words, 
+    custom roles are not allowed to use these names to avoid unnecessary confusion.   
+    Built-in roles include:   
+    - `SystemAdmin`: the system administrator has almost all permissions.
+    - `Replicator`: the application permissions collection.
+    - `Dealer`: the sales manager has all sold tenant resource permissions
+    - `Admin`: the admin has all tenant-wide resource permissions.
+    - `StandardUser`: the user all user-wide resource permissions.
+    - `StandardInternationalUser`: the user all user-wide resource permissions with international call permissions.
+    - `QueueManager`: The call queue manager.
+description:
+  type: string
+  maxLength: 1024
+  description: |
+    Role's description.
+enabled:
+  type: boolean
+  default: false
+  description: |
+    The flag whether the permission is enabled.
+general:
+  type: object
+  properties:
+    voicemail_view_only:
+      $ref: "#/enabled"
+    voicemail_full_access:
+      $ref: "#/enabled"
+    meeting:
+      $ref: "#/enabled"
+system:
+  type: object
+  properties:
+    information:
+      $ref: "#/enabled"
+    dealer:
+      $ref: "#/enabled"
+    tenant:
+      $ref: "#/enabled"
+company:
+  type: object
+  properties:
+    view_only:
+      $ref: "#/enabled"
+    full_access:
+      $ref: "#/enabled"
+trunk:
+  type: object
+  properties:
+    view_only:
+      $ref: "#/enabled"
+    full_access:
+      $ref: "#/enabled"
+company_call_log:
+  type: object
+  properties:
+    call_log_view_only:
+      $ref: "#/enabled"
+    call_log_full_access:
+      $ref: "#/enabled"
+    call_recording_view_only:
+      $ref: "#/enabled"
+    call_recording_full_access:
+      $ref: "#/enabled"
+phone_system:
+  type: object
+  properties:
+    view_only:
+      $ref: "#/enabled"
+    full_access:
+      $ref: "#/enabled"
+user_management:
+  type: object
+  properties:
+    roles:
+      $ref: "#/enabled"
+    users:
+      $ref: "#/enabled"
+policies:
+  type: object
+  properties:
+    domestic_calls:
+      $ref: "#/enabled"
+    internal_calls:
+      $ref: "#/enabled"
+    international_calls:
+      $ref: "#/enabled"
+analytics:
+  type: object
+  properties:
+    call_report_view_only:
+      $ref: "#/enabled"
+    call_report_full_access:
+      $ref: "#/enabled"
+user_call_log:
+  type: object
+  properties:
+    call_log_view_only:
+      $ref: "#/enabled"
+    call_log_full_access:
+      $ref: "#/enabled"
+    call_recording_view_only:
+      $ref: "#/enabled"
+    call_recording_full_access:
+      $ref: "#/enabled"
+billing:
+  type: object
+  properties:
+    view_only:
+      $ref: "#/enabled"
+    full_access:
+      $ref: "#/enabled"
+permissions:
+  type: object
+  properties:
+    general:
+      $ref: "#/general"
+    system:
+      $ref: "#/system"
+    trunk:
+      $ref: "#/trunk"
+    company:
+      $ref: "#/company"
+    company_call_log:
+      $ref: "#/company_call_log"
+    phone_system:
+      $ref: "#/phone_system"
+    user_management:
+      $ref: "#/user_management"
+    user_call_log:
+      $ref: "#/user_call_log"
+    policies:
+      $ref: "#/policies"
+    analytics:
+      $ref: "#/analytics"
+    billing:
+      $ref: "#/billing"
+  description: |
+    The permission list of role.

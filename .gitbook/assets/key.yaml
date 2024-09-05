@@ -1,0 +1,47 @@
+post:
+  tags:
+    - Administration
+  operationId: updateKey
+  summary: Update certificate key
+  description: |
+    Update certificate key.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            crt:
+              $ref: "../components/schemas/key.yaml#/crt"
+            key:
+              $ref: "../components/schemas/key.yaml#/key"
+          required:
+            - crt
+            - key
+    required: true
+  responses:
+    "204":
+      description: No Content
+    "4XX":
+      description: Error
+get:
+  tags:
+    - Administration
+  operationId: showKey
+  summary: Show certificate key
+  description: |
+    Retrieve content of certificate key.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              crt:
+                $ref: "../components/schemas/key.yaml#/crt"
+              key:
+                $ref: "../components/schemas/key.yaml#/key"
+    "4XX":
+      description: Error

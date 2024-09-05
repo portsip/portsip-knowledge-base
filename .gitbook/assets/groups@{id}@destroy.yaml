@@ -1,0 +1,21 @@
+post:
+  tags:
+    - User
+  operationId: deleteUserGroup
+  summary: Delete an user group
+  description: |
+    Delete a certain user group.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/extgrp.yaml#/id"
+      description: The unique ID of the user group.
+  responses:
+    "204":
+      description: No Content
+    "400":
+      description: Invalid user number supplied
+    "404":
+      description: User not found

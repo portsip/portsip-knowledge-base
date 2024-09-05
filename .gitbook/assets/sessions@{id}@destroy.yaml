@@ -1,0 +1,21 @@
+post:
+  tags:
+    - Call Session
+  operationId: deleteCallSession
+  summary: Destroy call session
+  description: |
+    Destroy call session by it's session ID.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/session.yaml#/id"
+      description: The unique ID of call session.
+  responses:
+    "204":
+      description: No Content
+    "400":
+      description: Invalid call session id supplied
+    "404":
+      description: Not found

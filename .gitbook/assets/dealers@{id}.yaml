@@ -1,0 +1,92 @@
+get:
+  tags:
+    - Administration
+  operationId: retrieveDealer
+  summary: Retrieve a dealer
+  description: |
+    Get details of the dealer by it's unique ID.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/dealer.yaml#/id"
+      description: The unique ID of the dealer.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/dealer.yaml#/id"
+              enabled:
+                $ref: "../components/schemas/dealer.yaml#/enabled"
+              level:
+                $ref: "../components/schemas/dealer.yaml#/level"
+              name:
+                $ref: "../components/schemas/user.yaml#/username"
+              email:
+                $ref: "../components/schemas/user.yaml#/email"
+              display_name:
+                $ref: "../components/schemas/user.yaml#/display_name"
+              website:
+                $ref: "../components/schemas/user.yaml#/website"
+              phone:
+                $ref: "../components/schemas/user.yaml#/mobile_phone"
+              address:
+                $ref: "../components/schemas/common.yaml#/address"
+              description:
+                $ref: "../components/schemas/dealer.yaml#/description"
+              max_tenants:
+                $ref: "../components/schemas/dealer.yaml#/max_tenants"
+              max_extensions:
+                $ref: "../components/schemas/dealer.yaml#/max_extensions"
+    "4XX":
+      description: Error
+post:
+  tags:
+    - Administration
+  operationId: updateDealer
+  summary: Update a dealer
+  description: |
+    Modify the settings of the dealer.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/dealer.yaml#/id"
+      description: The unique ID of the dealer.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            enabled:
+              $ref: "../components/schemas/dealer.yaml#/enabled"
+            email:
+              $ref: "../components/schemas/user.yaml#/email"
+            display_name:
+              $ref: "../components/schemas/user.yaml#/display_name"
+            website:
+              $ref: "../components/schemas/user.yaml#/website"
+            phone:
+              $ref: "../components/schemas/user.yaml#/mobile_phone"
+            address:
+              $ref: "../components/schemas/common.yaml#/address"
+            description:
+              $ref: "../components/schemas/dealer.yaml#/description"
+            max_tenants:
+              $ref: "../components/schemas/dealer.yaml#/max_tenants"
+            max_extensions:
+              $ref: "../components/schemas/dealer.yaml#/max_extensions"
+    required: true
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

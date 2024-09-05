@@ -1,0 +1,51 @@
+get:
+  tags:
+    - Administration
+  operationId: showLicense
+  summary: Retrieve license information
+  description: |
+    Retrieve license information
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              api_version:
+                $ref: "../components/schemas/license.yaml#/api_version"
+              product_name:
+                $ref: "../components/schemas/license.yaml#/product_name"
+              max_sim_calls:
+                $ref: "../components/schemas/license.yaml#/max_sim_calls"
+              license_key:
+                $ref: "../components/schemas/license.yaml#/license_key"
+              company_name:
+                $ref: "../components/schemas/license.yaml#/company_name"
+              contact_email:
+                $ref: "../components/schemas/license.yaml#/contact_email"        
+    "4XX":
+      description: Error
+post:
+  tags:
+    - Administration
+  operationId: updateLicense
+  summary: Update license
+  description: |
+    Update license
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            license_key:
+              $ref: "../components/schemas/license.yaml#/license_key"
+          required:
+            - license_key
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

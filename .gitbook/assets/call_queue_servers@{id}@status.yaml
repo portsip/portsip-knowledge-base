@@ -1,0 +1,23 @@
+get:
+  tags:
+    - Call Queue
+  operationId: getCallQueueServerStatus
+  summary: Query call queue server status
+  description: |
+    Retrieve a call queue server's status.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/queueserver.yaml#/id"
+      description: The unique ID of the call queue server.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../components/schemas/queueserver.yaml#/state"
+    "4XX":
+      description: Error

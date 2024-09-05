@@ -1,0 +1,59 @@
+post:
+  tags:
+    - User
+  operationId: createGreetingForCurrentUser
+  summary: Create voicemail greeting for current user
+  description: |
+    Create voicemail greeting for current user.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            file_id:
+              $ref: "../components/schemas/file.yaml#/id"
+  responses:
+    "201":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/greeting.yaml#/id"
+    "4XX":
+      description: Error
+get:
+  tags:
+    - User
+  operationId: listCurrentUserGreetings
+  summary: List current user voicemail greetings
+  description: |
+    Retrieves a collection of greetings for current user.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      $ref: "../components/schemas/greeting.yaml#/id"
+                    enabled:
+                      $ref: "../components/schemas/greeting.yaml#/enabled"
+                    file_name:
+                      $ref: "../components/schemas/file.yaml#/name"
+                    file_size:
+                      $ref: "../components/schemas/file.yaml#/size"
+                    file_url:
+                      $ref: "../components/schemas/file.yaml#/url"
+    "4XX":
+      description: Error

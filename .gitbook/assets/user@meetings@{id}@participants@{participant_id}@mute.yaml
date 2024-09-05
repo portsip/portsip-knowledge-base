@@ -1,0 +1,25 @@
+post:
+  tags:
+    - User
+  operationId: muteMeetingParticipant
+  summary: Mute meeting participant
+  description: |
+    Mute meeting participant.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/confroom.yaml#/id"
+      description: The unique ID of the meeting.
+    - name: participant_id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/confroom.yaml#/participant_id"
+      description: The id of the participant.
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

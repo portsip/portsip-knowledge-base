@@ -1,0 +1,24 @@
+id:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/id"
+  description: |
+    The unique ID of SMS/MMS service.
+name:
+  type: string
+  minLength: 1
+  maxLength: 64
+  description: |
+    The name of SMS/MMS service.
+enabled:
+  type: boolean
+  default: true
+  description: |
+    The flag for whether the SMS/MMS service is enabled.
+credentials:
+  type: string
+  description: |
+    The credentials of SMS/MMS service.
+sender_id:
+  type: string
+  description: |
+    The sender ID of SMS/MMS service.

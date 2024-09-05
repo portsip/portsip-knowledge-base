@@ -1,0 +1,19 @@
+post:
+  tags:
+    - Voicemail
+  operationId: setVoicemailRead
+  summary: Update voicemail status to read
+  description: |
+    Update voicemail status to read
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/voicemail.yaml#/id"
+      description: The unique ID of voicemail.
+  responses:
+    "200":
+      description: OK
+    "400":
+      description: Invalid voicemail ID supplied

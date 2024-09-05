@@ -1,0 +1,36 @@
+get:
+  tags:
+    - User
+  operationId: getCurrentUserStatus
+  summary: Retrieves current user status
+  description: |
+    Get status of current user.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../components/schemas/extension.yaml#/state"
+    "4XX":
+      description: Error
+post:
+  tags:
+    - User
+  operationId: setCurrentUserStatus
+  summary: Set current extension user status
+  description: |
+    Set current extension user status.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            status:
+              $ref: "../components/schemas/extension.yaml#/dest_state"
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

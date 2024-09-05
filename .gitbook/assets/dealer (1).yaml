@@ -1,0 +1,48 @@
+id:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/id"
+  description: |
+    The unique ID of dealer.
+password:
+  type: string
+  description: |
+    The password of dealer.
+enabled:
+  type: boolean
+  default: true
+  description: |
+    Enable this dealer or not.
+level:
+  type: string
+  enum:
+    - DISTRIBUTOR
+    - SUB_DISTRIBUTOR
+    - RESELLER
+  description: |
+    Dealer level includes:
+    - `DISTRIBUTOR`: the first level of dealers.
+    - `SUB_DISTRIBUTOR`: the second level of dealers.
+    - `RESELLER`: the third level of dealers.
+description:
+  type: string
+  description: |
+    The description of dealer.
+created_at:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/date_time"
+  description: |
+    The creation time of dealer.
+max_tenants:
+  type: integer
+  format: int32
+  minimum: 0
+  default: 100
+  description: |
+    The maximum number of tenants that the dealer is allowed to create.
+max_extensions:
+  type: integer
+  format: int32
+  minimum: 0
+  default: 50000
+  description: |
+    The maximum number of extensions that the dealer is allowed to create.

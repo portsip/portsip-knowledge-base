@@ -1,0 +1,65 @@
+get:
+  tags:
+    - CTI
+  operationId: showExclusiveNumber
+  summary: Retrieve a exclusive number
+  description: |
+    Get details of a exclusive number
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/exclvnum.yaml#/id"
+      description: The unique ID of the exclusive number.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/exclvnum.yaml#/id"
+              number:
+                $ref: "../components/schemas/exclvnum.yaml#/number"
+              created_at:
+                $ref: "../components/schemas/exclvnum.yaml#/created_at"
+              enabled:
+                $ref: "../components/schemas/exclvnum.yaml#/enabled"
+              description:
+                $ref: "../components/schemas/exclvnum.yaml#/description"
+    "4XX":
+      description: Error
+post:
+  tags:
+    - CTI
+  operationId: updateExclusiveNumber
+  summary: Update exclusive number
+  description: |
+    Update properties of a exclusive number.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/exclvnum.yaml#/id"
+      description: The unique ID of the exclusive number.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            number:
+              $ref: "../components/schemas/exclvnum.yaml#/number"
+            enabled:
+              $ref: "../components/schemas/exclvnum.yaml#/enabled"
+            description:
+              $ref: "../components/schemas/exclvnum.yaml#/description"
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

@@ -1,0 +1,389 @@
+id:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/id"
+  description: |
+    The unique ID of tenant.
+name:
+  type: string
+  minLength: 1
+  maxLength: 1024
+  description: |
+    The name of the tenant.
+domain:
+  type: string
+  minLength: 1
+  maxLength: 280
+  description: |
+    The SIP domain of tenant.  
+    It is usually a fully qualified domain name (FQDN).
+    If there is no FQDN, you can also use the IP address of the PBX server as the SIP domain.
+    The SIP domain name is only used for SIP message authentication and does not require analysis.
+created_at:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/date_time"
+  description: |
+    The creation time of tenant.
+website:
+  type: string
+  maxLength: 255
+  description: |
+    The official website of tenant.
+timezone:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/timezone"
+  description: |
+    Timezone for tenant.
+currency:
+  type: string
+  example: USD
+  description: |
+    The Currency code (ISO 4217).
+enabled:
+  type: boolean
+  default: true
+  description: |
+    Enable this tenant or not.
+enable_billing:
+  type: boolean
+  default: false
+  description: |
+    Enable call billing or not.
+enable_feature_billing:
+  type: boolean
+  default: false
+  description: |
+    Enable call billing feature or not.
+enable_feature_call_statistics:
+  type: boolean
+  default: true
+  description: |
+    Enable call statistics feature or not.
+enable_feature_contact_center:
+  type: boolean
+  default: true
+  description: |
+    Enable contact center feature or not.
+billing_account:
+  type: string
+  enum:
+    - TENANT
+    - USER
+  default: TENANT
+  description: |
+    The billing account:  
+    Can be either:  
+    - `TENANT`: Use company account for billing.
+    - `USER`: Use private user account for billing.
+billing_type:
+  type: string
+  enum:
+    - OFFLINE
+    - ONLINE
+  default: OFFLINE
+  description: |
+    The billing type:  
+    Can be either:  
+    - `OFFLINE`: Use offline charging for billing.
+    - `ONLINE`: Use online charging for billing.
+enable_video_recording:
+  type: boolean
+  default: false
+  description: |
+    Allow extension video recording.
+enable_audio_recording:
+  type: boolean
+  default: false
+  description: |
+    Allow extension audio recording.
+enable_dual_track_recording:
+  type: boolean
+  default: false
+  description: |
+    Allow dual track recording for calls.
+enable_concurrent_login:
+  type: boolean
+  default: true
+  description: |
+    Allow concurrent login enable.
+enable_queue_blacklist_first_level:
+  type: boolean
+  default: false
+  description: |
+    Enable call queue's blacklist first level or not
+enable_queue_blacklist_second_level:
+  type: boolean
+  default: false
+  description: |
+    Enable call queue's blacklist second level or not
+custom_options:
+  $ref: "../../components/schemas/common.yaml#/custom_options"
+max_extensions:
+  type: integer
+  format: int32
+  minimum: 0
+  default: 1000
+  description: |
+    The maximum number of users that the tenant is allowed to create.
+max_concurrent_calls:
+  type: integer
+  format: int32
+  minimum: 0
+  default: 20
+  description: |
+    The maximum number of concurrent calls that the tenant is allowed to have.
+max_ring_groups:
+  type: integer
+  format: int32
+  minimum: 0
+  default: 20
+  description: |
+    The maximum number of ring groups that the tenant is allowed to create.
+max_virtual_receptionists:
+  type: integer
+  format: int32
+  minimum: 0
+  default: 20
+  description: |
+    The maximum number of virtual receptionists that the tenant is allowed to create.
+max_call_queues:
+  type: integer
+  format: int32
+  minimum: 0
+  default: 20
+  description: |
+    The maximum number of call queues that the tenant is allowed to create.
+max_conference_rooms:
+  type: integer
+  format: int32
+  minimum: 0
+  default: 20
+  description: |
+    The maximum number of conference rooms that the tenant is allowed to create.
+disk_quota:
+  type: string
+  default: ""
+  description: |
+    The maximum size of disk space that the tenant is allowed to have.  
+    Specify a positive number and specify the unit at the same time, KB, MB, GB, PB are all allowed.  
+    For example: 100MB, 1000GB. Leave it empty, means unlimited.
+im_disk_quota:
+  type: string
+  default: ""
+  description: |
+    The maximum size of disk space that the tenant is allowed to have for IM service.  
+    Specify a positive number and specify the unit at the same time, KB, MB, GB, PB are all allowed.  
+    For example: 100MB, 1000GB. Leave it empty, means unlimited.
+extension_im_disk_quota:
+  type: string
+  default: "1GB"
+  description: |
+    The maximum size of disk space that the extension user is allowed to have for IM service.  
+    Specify a positive number and specify the unit at the same time, KB, MB, GB, PB are all allowed.  
+    For example: 100MB, 1000GB. Leave it empty, means unlimited.
+used_disk_quota:
+  type: string
+  description: |
+    The used disk quota, an number followed by unit (KB, MB, GB, PB).
+recording_retention:
+  type: integer
+  format: int32
+  minimum: 1
+  default: 180
+  description: |
+    The retention period in days of recordings.
+call_report_retention:
+  type: integer
+  minimum: 1
+  default: 30
+  description: |
+    The retention period in days of call report files.
+log_retention:
+  type: integer
+  minimum: 1
+  default: 180
+  description: |
+    The retention period in days of audit logs and event logs.
+temp_file_retention:
+  type: integer
+  minimum: 1
+  default: 30
+  description: |
+    The retention period in days of temporary files.
+contact_match_type:
+  type: string
+  enum:
+    - DISABLE
+    - MATCH_EXACTLY
+    - MATCH_LENGTH
+  default: DISABLE
+  description: |
+    The match method of contact:  
+    Can be either:  
+    - `DISABLE`: Disable match.
+    - `MATCH_EXACTLY`: Match exactly.
+    - `MATCH_LENGTH`: Match at least specified number of characters.
+contact_match_length:
+  type: integer
+  format: int32
+  minimum: 0
+  description: |
+    The matched length of characters when contact_match_type is `MATCH_LENGTH`.
+contact_append_type:
+  type: string
+  enum:
+    - DISABLE
+    - APPEND
+    - PREPEND
+  default: DISABLE
+  description: |
+    Method for adding Group, Queue or DID/DDI Names to Caller ID:  
+    Can be either:  
+    - `DISABLE`: Do not add.
+    - `APPEND`: Append names.
+    - `PREPEND`: Prepend names.
+contact_update_interval:
+  type: integer
+  format: uint32
+  minimum: 1
+  maximum: 43200
+  default: 10080
+  description: |
+    The interval for synchronizing contacts from the server, in minutes.
+number_process:
+  type: object
+  properties:
+    enabled:
+      type: boolean
+      default: false
+      description: |
+        Enable number processing or not.
+    international_code:
+      type: string
+      description: |
+        The International code.
+    country:
+      type: string
+      description: |
+        Country code.
+      example: Angola(244)
+    area_code:
+      type: string
+      description: |
+        Area code.
+    national_code:
+      type: string
+      description: |
+        National code.
+    prefix:
+      type: string
+      description: |
+        Add prefix.
+    remove_special_chars:
+      type: boolean
+      default: false
+      description: |
+        Remove special characters in the numbers(the "(" and ")" and spaces).
+    remove_duplicate_countries:
+      type: boolean
+      default: true
+      description: |
+        Remove duplicate countries.
+    remove_duplicate_area_codes:
+      type: boolean
+      default: true
+      description: |
+        Remove duplicate area code.
+event_url:
+  type: object
+  properties:
+    enabled:
+      type: boolean
+      default: false
+      description: |
+        Enabled this event or not.
+    auth:
+      type: string
+      enum:
+        - DISABLE
+        - BASIC
+        - DIGEST
+        - BEARER
+      default: DISABLE
+      description: |
+        The authentication method of event URL:  
+        Can be either:  
+        - `DISABLE`: Disable authentication.
+        - `BASIC`: Use basic authentication.
+        - `DIGEST`: Use digest authentication.
+        - `BEARER`: Use bearer authentication.
+    username:
+      type: string
+      minLength: 6
+      maxLength: 64
+      pattern: "[a-z0-9]{6,64}"
+      description: |
+        The username for authentication, when auth is `BASIC` or `DIGEST`.
+    password:
+      type: string
+      minLength: 6
+      maxLength: 64
+      pattern: "[a-z0-9]{6,64}"
+      description: |
+        The password for authentication, when auth is `BASIC` or `DIGEST`.
+    token:
+      type: string
+      description: |
+        The token for authentication, when auth is `BEARER`.
+    url:
+      type: string
+      minLength: 1
+      maxLength: 128
+      pattern: "[a-z0-9]{6,64}"
+      description: |
+        The event url.
+custom_header_name:
+  type: string
+  description: |
+    The name of custom SIP header.
+custom_header_value:
+  type: string
+  description: |
+    The value of custom SIP header.
+custom_header_scope:
+  type: string
+  enum:
+    - ALL
+    - TRUNK
+    - USER
+  default: TRUNK
+  description: |
+    The applied calls of custom SIP headers:   
+    Can be either:  
+    - `ALL`: Applies to all calls.
+    - `TRUNK`: Applies to trunk calls.
+    - `USER`: Applies to user calls.
+custom_headers:
+  type: object
+  properties:
+    add:
+      type: array
+      items:
+        type: object
+        properties:
+          name:
+            $ref: "#/custom_header_name"
+          value:
+            $ref: "#/custom_header_value"
+          scope:
+            $ref: "#/custom_header_scope"
+    relay:
+      type: array
+      items:
+        type: object
+        properties:
+          name:
+            $ref: "#/custom_header_name"
+          scope:
+            $ref: "#/custom_header_scope"
+  description: |
+    The added custom SIP headers and forwarded SIP headers in tenant scope.

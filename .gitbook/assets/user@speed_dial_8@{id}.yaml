@@ -1,0 +1,61 @@
+get:
+  tags:
+    - User
+  operationId: retrieveSpeedDial8
+  summary: Retrieve details of speed dial 8
+  description: |
+    Retrieve details of speed dial 8 by it's ID.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/speed_dial.yaml#/id"
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/speed_dial.yaml#/id"
+              code:
+                $ref: "../components/schemas/speed_dial.yaml#/code8"
+              phone_number:
+                $ref: "../components/schemas/speed_dial.yaml#/phone_number"
+              description:
+                $ref: "../components/schemas/speed_dial.yaml#/description"
+    "4XX":
+      description: Error
+post:
+  tags:
+    - User
+  operationId: updateSpeedDial8
+  summary: Update speed dial 8
+  description: |
+    Update speed dial 8.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/speed_dial.yaml#/id"
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            code:
+              $ref: "../components/schemas/speed_dial.yaml#/code8"
+            phone_number:
+              $ref: "../components/schemas/speed_dial.yaml#/phone_number"
+            description:
+              $ref: "../components/schemas/speed_dial.yaml#/description"
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

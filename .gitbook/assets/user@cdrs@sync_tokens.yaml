@@ -1,0 +1,28 @@
+post:
+  tags:
+    - User
+  operationId: createPersonalCdrSyncToken
+  summary: Create new personal cdr sync token
+  parameters:
+    - name: date_from
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date_time
+        description: |
+          The start time sync token in RFC 3339 format, for example, ```2017-07-21T17:32:28Z```.
+          The RFC 3339 format is defined by [RFC 3339, section 5.6](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)
+        example: "2017-07-21T17:32:28Z"
+  responses:
+    "201":
+      description: Created
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              token:
+                $ref: "../components/schemas/common.yaml#/sync_token"
+    "4XX":
+      description: Error

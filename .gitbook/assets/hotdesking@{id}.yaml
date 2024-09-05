@@ -1,0 +1,167 @@
+get:
+  tags:
+    - Hot Desking
+  operationId: showHotDeskingDevice
+  summary: Retrieve hot desking
+  description: |
+    Retrieve hot desking by it's unique ID.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/hotdesking.yaml#/id"
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/hotdesking.yaml#/id"
+              extension_number:
+                $ref: "../components/schemas/hotdesking.yaml#/extension_number"
+              current_extension_number:
+                $ref: "../components/schemas/hotdesking.yaml#/current_extension_number"
+              display_name:
+                $ref: "../components/schemas/hotdesking.yaml#/display_name"
+              mac:
+                $ref: "../components/schemas/phone.yaml#/mac"
+              filename:
+                $ref: "../components/schemas/phone.yaml#/filename"
+              vendor:
+                $ref: "../components/schemas/phone.yaml#/vendor"
+              model:
+                $ref: "../components/schemas/phone.yaml#/model"
+              password:
+                $ref: "../components/schemas/phone.yaml#/password"
+              language:
+                $ref: "../components/schemas/phone.yaml#/language"
+              transfer:
+                $ref: "../components/schemas/phone.yaml#/transfer"
+              timezone:
+                $ref: "../components/schemas/phone.yaml#/timezone"
+              ringtone:
+                $ref: "../components/schemas/phone.yaml#/ringtone"
+              queue_ringtone:
+                $ref: "../components/schemas/phone.yaml#/queue_ringtone"
+              external_ringtone:
+                $ref: "../components/schemas/phone.yaml#/external_ringtone"
+              date_format:
+                $ref: "../components/schemas/phone.yaml#/date_format"
+              time_format:
+                $ref: "../components/schemas/phone.yaml#/time_format"
+              powerled:
+                $ref: "../components/schemas/phone.yaml#/powerled"
+              backlight:
+                $ref: "../components/schemas/phone.yaml#/backlight"
+              screensaver:
+                $ref: "../components/schemas/phone.yaml#/screensaver"
+              rps:
+                $ref: "../components/schemas/phone.yaml#/rps"
+              https:
+                $ref: "../components/schemas/phone.yaml#/https"
+              codecs:
+                $ref: "../components/schemas/phone.yaml#/codecs"
+              enable_lldp:
+                $ref: "../components/schemas/phone.yaml#/enable_lldp"
+              enable_vlan_wan_port:
+                $ref: "../components/schemas/phone.yaml#/enable_vlan_wan_port"
+              wan_port_id:
+                $ref: "../components/schemas/phone.yaml#/wan_port_id"
+              wan_port_priority:
+                $ref: "../components/schemas/phone.yaml#/wan_port_priority"
+              enable_vlan_pc_port:
+                $ref: "../components/schemas/phone.yaml#/enable_vlan_pc_port"
+              pc_port_id:
+                $ref: "../components/schemas/phone.yaml#/pc_port_id"
+              pc_port_priority:
+                $ref: "../components/schemas/phone.yaml#/pc_port_priority"
+              interface:
+                $ref: "../components/schemas/system.yaml#/interface"
+              preferred_transport:
+                $ref: "../components/schemas/transport.yaml#/protocol"
+              serial_number:
+                $ref: "../components/schemas/phone.yaml#/serial_number"
+              url:
+                $ref: "../components/schemas/phone.yaml#/url"
+    "4XX":
+      description: Error
+post:
+  tags:
+    - Hot Desking
+  operationId: updateHotDeskingDevice
+  summary: Update hot desking
+  description: |
+    Update hot desking
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/hotdesking.yaml#/id"
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            display_name:
+              $ref: "../components/schemas/hotdesking.yaml#/display_name"
+            password:
+              $ref: "../components/schemas/phone.yaml#/password"
+            language:
+              $ref: "../components/schemas/phone.yaml#/language"
+            transfer:
+              $ref: "../components/schemas/phone.yaml#/transfer"
+            timezone:
+              $ref: "../components/schemas/phone.yaml#/timezone"
+            ringtone:
+              $ref: "../components/schemas/phone.yaml#/ringtone"
+            queue_ringtone:
+              $ref: "../components/schemas/phone.yaml#/queue_ringtone"
+            external_ringtone:
+              $ref: "../components/schemas/phone.yaml#/external_ringtone"
+            date_format:
+              $ref: "../components/schemas/phone.yaml#/date_format"
+            time_format:
+              $ref: "../components/schemas/phone.yaml#/time_format"
+            powerled:
+              $ref: "../components/schemas/phone.yaml#/powerled"
+            backlight:
+              $ref: "../components/schemas/phone.yaml#/backlight"
+            screensaver:
+              $ref: "../components/schemas/phone.yaml#/screensaver"
+            rps:
+              $ref: "../components/schemas/phone.yaml#/rps"
+            https:
+              $ref: "../components/schemas/phone.yaml#/https"
+            codecs:
+              $ref: "../components/schemas/phone.yaml#/codecs"
+            enable_lldp:
+              $ref: "../components/schemas/phone.yaml#/enable_lldp"
+            enable_vlan_wan_port:
+              $ref: "../components/schemas/phone.yaml#/enable_vlan_wan_port"
+            wan_port_id:
+              $ref: "../components/schemas/phone.yaml#/wan_port_id"
+            wan_port_priority:
+              $ref: "../components/schemas/phone.yaml#/wan_port_priority"
+            enable_vlan_pc_port:
+              $ref: "../components/schemas/phone.yaml#/enable_vlan_pc_port"
+            pc_port_id:
+              $ref: "../components/schemas/phone.yaml#/pc_port_id"
+            pc_port_priority:
+              $ref: "../components/schemas/phone.yaml#/pc_port_priority"
+            interface:
+              $ref: "../components/schemas/system.yaml#/interface"
+            preferred_transport:
+              $ref: "../components/schemas/transport.yaml#/protocol"
+            serial_number:
+              $ref: "../components/schemas/phone.yaml#/serial_number"
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

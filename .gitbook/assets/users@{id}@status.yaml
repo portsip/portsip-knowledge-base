@@ -1,0 +1,23 @@
+get:
+  tags:
+    - User
+  operationId: getUserStatus
+  summary: Retrieves user current status
+  description: |
+    Retrieves current status of given user.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/extension.yaml#/id"
+      description: The unique ID of the user.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../components/schemas/extension.yaml#/state"
+    "4XX":
+      description: Error

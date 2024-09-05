@@ -1,0 +1,110 @@
+post:
+  tags:
+    - Billing
+  operationId: createCallRate
+  summary: Create a call rate
+  description: |
+    Add a new call rate into system.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            prefix:
+              $ref: "../components/schemas/billing.yaml#/prefix"
+            type:
+              $ref: "../components/schemas/billing.yaml#/type"
+            free_seconds:
+              $ref: "../components/schemas/billing.yaml#/free_seconds"
+            grace_period:
+              $ref: "../components/schemas/billing.yaml#/grace_period"
+            interval_1:
+              $ref: "../components/schemas/billing.yaml#/interval_1"
+            interval_n:
+              $ref: "../components/schemas/billing.yaml#/interval_n"
+            connect_fee:
+              $ref: "../components/schemas/billing.yaml#/connect_fee"
+            postcall_surcharge:
+              $ref: "../components/schemas/billing.yaml#/postcall_surcharge"
+            price_1:
+              $ref: "../components/schemas/billing.yaml#/price_1"
+            price_n:
+              $ref: "../components/schemas/billing.yaml#/price_n"
+            description:
+              $ref: "../components/schemas/billing.yaml#/description"
+          required:
+            - prefix
+            - type
+            - free_seconds
+            - grace_period
+            - interval_1
+            - interval_n
+            - connect_fee
+            - postcall_surcharge
+            - price_1
+            - price_n
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/billing.yaml#/id"
+    "4XX":
+      description: Error
+get:
+  tags:
+    - Billing
+  operationId: listCallRates
+  summary: List call rates
+  description: |
+    Retrieve a collection of call rates
+  parameters:
+    - $ref: "../components/parameters/common.yaml#/filter"
+    - $ref: "../components/parameters/common.yaml#/search"
+    - $ref: "../components/parameters/common.yaml#/orderby"
+    - $ref: "../components/parameters/common.yaml#/skip"
+    - $ref: "../components/parameters/common.yaml#/top"
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                $ref: "../components/schemas/common.yaml#/count"
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      $ref: "../components/schemas/billing.yaml#/id"
+                    prefix:
+                      $ref: "../components/schemas/billing.yaml#/prefix"
+                    type:
+                      $ref: "../components/schemas/billing.yaml#/type"
+                    free_seconds:
+                      $ref: "../components/schemas/billing.yaml#/free_seconds"
+                    grace_period:
+                      $ref: "../components/schemas/billing.yaml#/grace_period"
+                    interval_1:
+                      $ref: "../components/schemas/billing.yaml#/interval_1"
+                    interval_n:
+                      $ref: "../components/schemas/billing.yaml#/interval_n"
+                    postcall_surcharge:
+                      $ref: "../components/schemas/billing.yaml#/postcall_surcharge"
+                    price_1:
+                      $ref: "../components/schemas/billing.yaml#/price_1"
+                    price_n:
+                      $ref: "../components/schemas/billing.yaml#/price_n"
+                    description:
+                      $ref: "../components/schemas/billing.yaml#/description"
+    "4XX":
+      description: Error

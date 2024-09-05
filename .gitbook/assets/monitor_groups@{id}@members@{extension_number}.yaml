@@ -1,0 +1,25 @@
+post:
+  tags:
+    - CTI
+  operationId: createMonitorGroupMember
+  summary: Add monitor group member
+  description: |
+    Add user member into monitor group.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/monitorgrp.yaml#/id"
+      description: The unique ID of the monitor group.
+    - name: extension_number
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/common.yaml#/extension_number"
+      description: The extension number of the member.
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

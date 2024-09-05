@@ -1,0 +1,243 @@
+language:
+  type: string
+  example: en-US
+  description: |
+    BCP 47 Language Tags (The Internet Best Current Practices (BCP) for language tags).
+    A language tag is composed of a sequence of one or more subtags such as language, region, variant and script subtags.
+    When a language tag is comprised of more than one subtag, the subtag values are separated by the "-" character.
+    You will most commonly find language tags written with 2 subtags - language and region. For example: en-US.
+token:
+  type: string
+  description: |
+    Access token to be passed as a header
+  example: 4DFCF1D4C30B4D798ECE3AE43769F008.
+expires_at:
+  type: string
+  format: date_time
+  description: |
+    The expiration date of the access token in RFC 3339 format, for example, ```2017-07-21T17:32:28Z```.
+    The RFC 3339 format is defined by [RFC 3339, section 5.6](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)
+  example: "2017-07-21T17:32:28Z"
+expires_in:
+  type: integer
+  format: int32
+  example: 1800
+  readOnly: true
+  description: |
+    The number of seconds that the access token will be valid.
+id:
+  type: string
+  example: "NzAwNTUxOTA5NzczMTQ4MTYw"
+  description: |
+    The unique ID of the resource.
+protocol:
+  type: string
+  example: UDP
+  description: |
+    transports protocol udp, tcp, tls
+timezone:
+  type: string
+  description: |
+    The IANA Time Zone names, such as "Asia/Shanghai".
+region:
+  type: string
+  description: |
+    A valid country code based on iso3166-1 alpha-3 standard. see: https://www.iso.org/iso-3166-country-codes.html
+date_time:
+  type: string
+  format: date_time
+  description: |
+    The RFC 3339 format is defined by
+    The date_time notation as defined by [RFC 3339, section 5.6](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), 
+    for example, 2017-07-21T17:32:28Z
+  example: "2017-07-21T17:32:28Z"
+email:
+  type: string
+  maxLength: 128
+  description: |
+    The email address.
+  example: example@example.com
+hostname:
+  type: string
+  description: |
+    Server hostname or IP address
+extension_number:
+  type: string
+  minLength: 3
+  maxLength: 64
+  pattern: "[0-9]{3,64}"
+  description: |
+    The extension number.
+extension_password:
+  type: string
+  description: |
+    The extension password.
+balance:
+  type: number
+  format: double
+  description: |
+    User balance. Precision is five digits.
+cidr:
+  type: string
+  description: |
+    The `CIDR` notation IP address and prefix length,
+    like "192.0.2.0/24" or "2001:db8::/32", as defined in RFC 4632 and RFC 4291.
+ip:
+  type: string
+  description: |
+    IP address.
+ipv4:
+  type: string
+  description: |
+    Host IPV4 address.
+ipv6:
+  type: string
+  description: |
+    Host IPV6 address.
+mac:
+  type: string
+  description: |
+    MAC address.
+address:
+  type: string
+  maxLength: 128
+  description: |
+    The address.
+port:
+  type: integer
+  format: int32
+  minimum: 0
+  maximum: 65535
+  example: 80
+  description: |
+    A port number is a 16-bit unsigned integer, thus ranging from 0 to 65535.
+    For TCP, port number 0 is reserved and cannot be used, while for UDP, the source port is optional and a value of zero means no port
+cpu_usage:
+  type: integer
+  description: |
+    CPU usage.
+memory_usage:
+  type: integer
+  description: |
+    Memory usage.
+cron_expr:
+  type: string
+  description: |
+    The crontab expression <https://en.wikipedia.org/wiki/Cron>
+office_hours_mode:
+  type: string
+  enum:
+    - GLOBAL
+    - CUSTOM
+  example: CUSTOM
+  description: |
+    The office hours mode can be either:  
+    - `GLOBAL`: Use global office hours.
+    - `CUSTOM`: Use specific office hours.
+office_hour:
+  type: object
+  properties:
+    enabled:
+      type: boolean
+      description: |
+        When enabled, all day is working time, when disabled, all day is vacation time.
+    ranges:
+      type: array
+      items:
+        type: object
+        properties:
+          from:
+            type: string
+            example: "09:00"
+            description: |
+              The start time for office hour with format `HH:MM` in 24 hour clock, such as "09:00".  
+              Must be earlier than `to`.
+          to:
+            type: string
+            example: "17:00"
+            description: |
+              The start time for office hour with format `HH:MM` in 24 hour clock, such as "17:00".  
+              Must be later than `from`.
+      description: |
+        Multiple start and end time periods make up the working time.
+office_hours:
+  type: object
+  properties:
+    monday:
+      $ref: "#/office_hour"
+    tuesday:
+      $ref: "#/office_hour"
+    wednesday:
+      $ref: "#/office_hour"
+    thursday:
+      $ref: "#/office_hour"
+    friday:
+      $ref: "#/office_hour"
+    saturday:
+      $ref: "#/office_hour"
+    sunday:
+      $ref: "#/office_hour"
+office_hours_with_mode:
+  allOf:
+    - type: object
+      properties:
+        mode:
+          $ref: "#/office_hours_mode"
+    - $ref: "#/office_hours"
+count:
+  type: integer
+  format: int64
+  minimum: 0
+  example: 100
+  description: |
+    Total number of resource.
+custom_options:
+  type: string
+  description: |
+    Some custom configuration options serialized as json string
+uuid:
+  type: string
+  example: "52e51422-573d-4fc9-b5c6-4a30058f5d71"
+  description: |
+    The universally unique identifier (UUID).
+digest:
+  type: string
+  example: "84d89877f0d4041efb6bf91a16f0248f2fd573e6af05c19f96bedb9f882f7882"
+  description: |
+    The Content Digests.
+    A digest is a serialized hash result, consisting of a algorithm and hex portion.
+    Only sha256 based digest accepted.
+url:
+  type: string
+  minLength: 1
+  description: |
+    The `Universal Resource Locator` of some resource.
+pin:
+  type: string
+  minLength: 6
+  maxLength: 10
+  description: |
+    The PIN number for accessing.   
+    The PIN policies include:  
+    1. A sequence of numbers 6-10 digits in length.  
+    2. No repeating numbers (e.g. "111", "222")
+    3. No sequential numbers (e.g. "012", "789")
+sync_token:
+  type: string
+  description: |
+    The sync token.   
+    Clients should treat the sync token as an opaque string and should never try to assemble it.   
+    This document imposes no constraints on the format and clients should never impose any.
+  example: RQ2dX9ZC7VuWlVpXXvad2dL3lyhjnN-7eOw95wXymoo.
+resource_change_type:
+  type: string
+  enum:
+    - CREATED
+    - UPDATED
+    - DELETED
+  example: CREATED
+  description: |
+    The resource change types can be either:  
+    - `CREATED`: The resource has been created.   
+    - `UPDATED`: The resource has been updated.   
+    - `DELETED`: The resource has been deleted.   

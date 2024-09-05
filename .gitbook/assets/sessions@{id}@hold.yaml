@@ -1,0 +1,32 @@
+post:
+  tags:
+    - Call Session
+  operationId: holdCall
+  summary: Hold call session
+  description: |
+    Hold call session by it's session ID.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/session.yaml#/id"
+      description: The unique ID of call session.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            extension_number:
+              allOf:
+                - $ref: "../components/schemas/common.yaml#/extension_number"
+              description: |
+                The extension number to hold the session.
+          required:
+            - extension_number
+  responses:
+    "200":
+      description: Ok
+    "4XX":
+      description: Error

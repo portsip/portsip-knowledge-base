@@ -1,0 +1,28 @@
+get:
+  tags:
+    - Call Park
+  operationId: listCallParkGroupMembers
+  summary: List call park group members
+  description: |
+    Retrieve a collection of call park group members.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/callparkgrp.yaml#/id"
+      description: The unique ID of the call park group.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              items:
+                type: array
+                items:
+                  $ref: "../components/schemas/extension.yaml#/member"
+    "4XX":
+      description: Error

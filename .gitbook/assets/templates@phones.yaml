@@ -1,0 +1,55 @@
+post:
+  tags:
+    - Auto Provisioning
+  operationId: createFirmwareTemplate
+  summary: Create a new firmware template
+  description: |
+    Create a new firmware template into system.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            filename:
+              $ref: "../components/schemas/phone.yaml#/filename"
+            content:
+              $ref: "../components/schemas/phone.yaml#/file_content"
+  responses:
+    "201":
+      description: Created
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              filename:
+                $ref: "../components/schemas/phone.yaml#/filename"
+    "4XX":
+      description: Error
+get:
+  tags:
+    - Auto Provisioning
+  operationId: listFirmwareTemplates
+  summary: List firmware templates
+  description: |
+    List IP phones template files
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    filename:
+                      $ref: "../components/schemas/phone.yaml#/filename"
+                    is_custom:
+                      $ref: "../components/schemas/phone.yaml#/is_custom"
+    "4XX":
+      description: Error

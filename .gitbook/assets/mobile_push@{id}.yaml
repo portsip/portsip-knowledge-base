@@ -1,0 +1,73 @@
+get:
+  tags:
+    - Push Notification
+  operationId: showPush
+  summary: Retrieve an app push notification.
+  description: |
+    Retrieve details of app push notification by it's unique ID.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/push.yaml#/id"
+      description: The unique ID of the app push notification.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/push.yaml#/id"
+              app_name:
+                $ref: "../components/schemas/push.yaml#/app_name"
+              enabled:
+                $ref: "../components/schemas/push.yaml#/enabled"
+              mode:
+                $ref: "../components/schemas/push.yaml#/mode"
+              android_service_account:
+                $ref: "../components/schemas/push.yaml#/android_service_account"
+              ios_certificate:
+                $ref: "../components/schemas/push.yaml#/ios_certificate"
+              ios_private_key:
+                $ref: "../components/schemas/push.yaml#/ios_private_key"
+    "4XX":
+      description: Error
+post:
+  tags:
+    - Push Notification
+  operationId: updatePush
+  summary: Update an app push notification
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/push.yaml#/id"
+      description: The unique ID of the app push notification.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            app_name:
+              $ref: "../components/schemas/push.yaml#/app_name"
+            enabled:
+              $ref: "../components/schemas/push.yaml#/enabled"
+            mode:
+              $ref: "../components/schemas/push.yaml#/mode"
+            android_service_account:
+              $ref: "../components/schemas/push.yaml#/android_service_account"
+            ios_certificate:
+              $ref: "../components/schemas/push.yaml#/ios_certificate"
+            ios_private_key:
+              $ref: "../components/schemas/push.yaml#/ios_private_key"
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

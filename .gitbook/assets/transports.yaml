@@ -1,0 +1,73 @@
+post:
+  tags:
+    - Administration
+  operationId: createTransport
+  summary: Create a transport
+  description: |
+    Add a new transport.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            protocol:
+              $ref: "../components/schemas/transport.yaml#/protocol"
+            port:
+              $ref: "../components/schemas/transport.yaml#/port"
+            verification:
+              $ref: "../components/schemas/transport.yaml#/verification"
+          required:
+            - protocol
+            - port
+    required: true
+  responses:
+    "201":
+      description: Created transport
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/transport.yaml#/id"
+    "4XX":
+      description: Error
+get:
+  tags:
+    - Administration
+  operationId: listTransports
+  summary: List transports
+  description: |
+    Retrieve a collection of transports
+  parameters:
+    - $ref: "../components/parameters/common.yaml#/filter"
+    - $ref: "../components/parameters/common.yaml#/search"
+    - $ref: "../components/parameters/common.yaml#/orderby"
+    - $ref: "../components/parameters/common.yaml#/skip"
+    - $ref: "../components/parameters/common.yaml#/top"
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                $ref: "../components/schemas/common.yaml#/count"
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      $ref: "../components/schemas/transport.yaml#/id"
+                    protocol:
+                      $ref: "../components/schemas/transport.yaml#/protocol"
+                    port:
+                      $ref: "../components/schemas/transport.yaml#/port"
+                    verification:
+                      $ref: "../components/schemas/transport.yaml#/verification"
+    "4XX":
+      description: Error

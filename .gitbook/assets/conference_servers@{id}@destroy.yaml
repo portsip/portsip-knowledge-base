@@ -1,0 +1,21 @@
+post:
+  tags:
+    - Conference
+  operationId: deleteConferenceServer
+  summary: Delete a conference server
+  description: |
+    Delete a conference server
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/confserver.yaml#/id"
+      description: The unique ID of the conference server.
+  responses:
+    "204":
+      description: No Content
+    "400":
+      description: Invalid server id supplied
+    "404":
+      description: User not found

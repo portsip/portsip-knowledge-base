@@ -1,0 +1,72 @@
+get:
+  tags:
+    - Conference
+  operationId: showConferenceServer
+  summary: Retrieve a conference server
+  description: |
+    Retrieve a conference server.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/confserver.yaml#/id"
+      description: The unique ID of the conference server.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/confserver.yaml#/id"
+              name:
+                $ref: "../components/schemas/confserver.yaml#/name"
+              enabled:
+                $ref: "../components/schemas/confserver.yaml#/enabled"
+              type:
+                $ref: "../components/schemas/confserver.yaml#/type"
+              ipv4:
+                $ref: "../components/schemas/common.yaml#/ipv4"
+              ipv6:
+                $ref: "../components/schemas/common.yaml#/ipv6"
+              max_rooms:
+                $ref: "../components/schemas/confserver.yaml#/max_rooms"
+              max_participants:
+                $ref: "../components/schemas/confserver.yaml#/max_participants"
+    "4XX":
+      description: Error
+post:
+  tags:
+    - Conference
+  operationId: updateConferenceServer
+  summary: Update a conference server
+  description: |
+    Update a conference server
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/confserver.yaml#/id"
+      description: The unique ID of the conference server.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            enabled:
+              $ref: "../components/schemas/confserver.yaml#/enabled"
+            max_rooms:
+              $ref: "../components/schemas/confserver.yaml#/max_rooms"
+            max_participants:
+              $ref: "../components/schemas/confserver.yaml#/max_participants"
+    required: true
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

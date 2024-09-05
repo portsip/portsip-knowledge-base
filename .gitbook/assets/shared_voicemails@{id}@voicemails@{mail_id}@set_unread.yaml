@@ -1,0 +1,25 @@
+post:
+  tags:
+    - Shared Voicemail
+  operationId: setSharedVoicemailMailUnread
+  summary: Update shared voicemail mail status to unread
+  description: |
+    Update shared voicemail mail status to unread
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/sharedvoicemail.yaml#/id"
+      description: The unique ID of the shared voicemail.
+    - name: mail_id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/voicemail.yaml#/id"
+      description: The unique ID of voicemail.
+  responses:
+    "200":
+      description: OK
+    "400":
+      description: Invalid voicemail ID supplied

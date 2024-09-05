@@ -1,0 +1,23 @@
+post:
+  tags:
+    - Shared Voicemail
+  operationId: enableSharedVoicemailGreeting
+  summary: Enable one of shared voicemail's greetings.
+  description: |
+    Set one of shared voicemail's greetings to activated state.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/sharedvoicemail.yaml#/id"
+    - name: greeting_id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/greeting.yaml#/id"
+  responses:
+    "200":
+      description: OK
+    "404":
+      description: User not found

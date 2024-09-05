@@ -1,0 +1,28 @@
+get:
+  tags:
+    - CTI
+  operationId: listMonitorGroupMembers
+  summary: List monitor group members
+  description: |
+    Retrieve a collection of monitor group members.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/monitorgrp.yaml#/id"
+      description: The unique ID of the monitor group.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              items:
+                type: array
+                items:
+                  $ref: "../components/schemas/extension.yaml#/member"
+    "4XX":
+      description: Error

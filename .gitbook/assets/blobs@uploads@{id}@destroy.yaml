@@ -1,0 +1,20 @@
+post:
+  tags:
+    - Blobs
+  operationId: deleteBlobUpload
+  summary: Delete file upload
+  description: |
+    Cancel outstanding upload processes, releasing associated resources.
+    If this is not called, the unfinished uploads will eventually timeout.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/common.yaml#/uuid"
+      description: The keyed UUID of the file upload.
+  responses:
+    "204":
+      description: No Content
+    "4XX":
+      description: Error

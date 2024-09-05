@@ -1,0 +1,65 @@
+get:
+  tags:
+    - Call Park
+  operationId: showCallParkGroup
+  summary: Retrieve a call park group
+  description: |
+    Retrieves details of a call park group.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/callparkgrp.yaml#/id"
+      description: |
+        The unique ID of the call park group.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/callparkgrp.yaml#/id"
+              name:
+                $ref: "../components/schemas/callparkgrp.yaml#/name"
+              recall_to:
+                $ref: "../components/schemas/callpark.yaml#/recall_to"
+              ring_group_id:
+                $ref: "../components/schemas/callpark.yaml#/ring_group_id"
+    "4XX":
+      description: Error
+post:
+  tags:
+    - Call Park
+  operationId: updateCallParkGroup
+  summary: Update an call park group.
+  description: |
+    Update an call park group.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/callparkgrp.yaml#/id"
+      description: |
+        The unique ID of the call park group.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            name:
+              $ref: "../components/schemas/callparkgrp.yaml#/name"
+            recall_to:
+              $ref: "../components/schemas/callpark.yaml#/recall_to"
+            ring_group_id:
+              $ref: "../components/schemas/callpark.yaml#/ring_group_id"
+  responses:
+    "200":
+      description: Updated call park group
+    "4XX":
+      description: Error

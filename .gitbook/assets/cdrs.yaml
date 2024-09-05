@@ -1,0 +1,66 @@
+get:
+  tags:
+    - CDR
+  operationId: listCDRs
+  summary: List CDRs
+  description: |
+    Retrieve a collection of call detail records.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                $ref: "../components/schemas/common.yaml#/count"
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      $ref: "../components/schemas/cdr.yaml#/id"
+                    caller:
+                      $ref: "../components/schemas/cdr.yaml#/caller"
+                    caller_domain:
+                      $ref: "../components/schemas/cdr.yaml#/caller_domain"
+                    caller_display_name:
+                      $ref: "../components/schemas/cdr.yaml#/caller_display_name"
+                    callee:
+                      $ref: "../components/schemas/cdr.yaml#/callee"
+                    callee_domain:
+                      $ref: "../components/schemas/cdr.yaml#/callee_domain"
+                    callee_display_name:
+                      $ref: "../components/schemas/cdr.yaml#/callee_display_name"
+                    started_at:
+                      $ref: "../components/schemas/cdr.yaml#/started_at"
+                    rang_at:
+                      $ref: "../components/schemas/cdr.yaml#/rang_at"
+                    answered_at:
+                      $ref: "../components/schemas/cdr.yaml#/answered_at"
+                    ended_at:
+                      $ref: "../components/schemas/cdr.yaml#/ended_at"
+                    call_id:
+                      $ref: "../components/schemas/cdr.yaml#/call_id"
+                    direction:
+                      $ref: "../components/schemas/cdr.yaml#/direction"
+                    end_reason:
+                      $ref: "../components/schemas/cdr.yaml#/end_reason"
+                    reroute_reason:
+                      $ref: "../components/schemas/cdr.yaml#/reroute_reason"
+                    status_code:
+                      $ref: "../components/schemas/cdr.yaml#/status_code"
+                    destination:
+                      $ref: "../components/schemas/cdr.yaml#/destination"
+                    outbound_caller_id:
+                      $ref: "../components/schemas/provider.yaml#/outbound_caller_id"
+                    did_cid:
+                      $ref: "../components/schemas/cdr.yaml#/did_cid"
+                    trunk:
+                      $ref: "../components/schemas/cdr.yaml#/trunk"
+                    duration:
+                      $ref: "../components/schemas/cdr.yaml#/duration"
+    "4XX":
+      description: Error

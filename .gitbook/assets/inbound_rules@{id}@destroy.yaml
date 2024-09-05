@@ -1,0 +1,19 @@
+post:
+  tags:
+    - Inbound Rule
+  operationId: deleteInboundRule
+  summary: Delete an inbound rule
+  description: |
+    Destroy an inbound rule.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/inboundrule.yaml#/id"
+      description: The unique ID of the inbound rule.
+  responses:
+    "204":
+      description: No Content
+    "400":
+      description: Invalid inbound rule ID supplied

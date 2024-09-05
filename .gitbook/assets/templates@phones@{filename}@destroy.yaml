@@ -1,0 +1,18 @@
+post:
+  tags:
+    - Auto Provisioning
+  operationId: deleteFirmwareTemplate
+  summary: Remove an firmware template
+  description: |
+    Remove custom template by it's filename.
+  parameters:
+    - name: filename
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/phone.yaml#/filename"
+  responses:
+    "204":
+      description: No Content
+    "4XX":
+      description: Error

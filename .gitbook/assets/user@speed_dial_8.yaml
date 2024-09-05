@@ -1,0 +1,64 @@
+post:
+  tags:
+    - User
+  operationId: addSpeedDial8
+  summary: Add new speed dial 8
+  description: |
+    Create new speed dial 8.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            code:
+              $ref: "../components/schemas/speed_dial.yaml#/code8"
+            phone_number:
+              $ref: "../components/schemas/speed_dial.yaml#/phone_number"
+            description:
+              $ref: "../components/schemas/speed_dial.yaml#/description"
+          required:
+            - code
+            - phone_number
+  responses:
+    "201":
+      description: Created
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/speed_dial.yaml#/id"
+    "4XX":
+      description: Error
+get:
+  tags:
+    - User
+  operationId: listSpeedDial8
+  summary: List speed dial 8
+  description: |
+    List speed dial 8.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      $ref: "../components/schemas/speed_dial.yaml#/id"
+                    code:
+                      $ref: "../components/schemas/speed_dial.yaml#/code8"
+                    phone_number:
+                      $ref: "../components/schemas/speed_dial.yaml#/phone_number"
+                    description:
+                      $ref: "../components/schemas/speed_dial.yaml#/description"
+    "4XX":
+      description: Error

@@ -1,0 +1,45 @@
+get:
+  tags:
+    - Conference
+  operationId: listConferenceRecordings
+  summary: List conference recordings
+  description: |
+    Retrieve a collection of conference room's recordings.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/confroom.yaml#/id"
+      description: The unique ID of the conference room.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                $ref: "../components/schemas/common.yaml#/count"
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      $ref: "../components/schemas/confrecording.yaml#/id"
+                    answered_at:
+                      $ref: "../components/schemas/confrecording.yaml#/answered_at"
+                    ended_at:
+                      $ref: "../components/schemas/confrecording.yaml#/ended_at"
+                    duration:
+                      $ref: "../components/schemas/callrecording.yaml#/duration"
+                    file_name:
+                      $ref: "../components/schemas/file.yaml#/name"
+                    file_size:
+                      $ref: "../components/schemas/file.yaml#/size"
+                    file_url:
+                      $ref: "../components/schemas/file.yaml#/url"
+    "4XX":
+      description: Error

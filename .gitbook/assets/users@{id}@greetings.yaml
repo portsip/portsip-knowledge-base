@@ -1,0 +1,72 @@
+post:
+  tags:
+    - User
+  operationId: createGreeting
+  summary: Create voicemail greeting
+  description: |
+    Create a voicemail greeting for user.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/extension.yaml#/id"
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            file_id:
+              $ref: "../components/schemas/file.yaml#/id"
+  responses:
+    "201":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/greeting.yaml#/id"
+    "4XX":
+      description: Error
+get:
+  tags:
+    - User
+  operationId: listGreetings
+  summary: List voicemail greetings
+  description: |
+    Retrieves a collection of greetings available to certain user.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/common.yaml#/id"
+      description: The unique ID of the user.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      $ref: "../components/schemas/greeting.yaml#/id"
+                    enabled:
+                      $ref: "../components/schemas/greeting.yaml#/enabled"
+                    file_name:
+                      $ref: "../components/schemas/file.yaml#/name"
+                    file_size:
+                      $ref: "../components/schemas/file.yaml#/size"
+                    file_url:
+                      $ref: "../components/schemas/file.yaml#/url"
+    "4XX":
+      description: Error

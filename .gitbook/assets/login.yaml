@@ -1,0 +1,55 @@
+get:
+  tags:
+    - Authentication
+  operationId: getLoginStatus
+  summary: Get login status of current session
+  description: |
+    Get login status of current session.
+  security: []
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              access_token:
+                $ref: "../components/schemas/common.yaml#/token"
+              expires_at:
+                $ref: "../components/schemas/common.yaml#/expires_at"
+              expires_in:
+                $ref: "../components/schemas/common.yaml#/expires_in"
+              role:
+                $ref: "../components/schemas/role.yaml#/name"
+    "401":
+      description: Unauthorized
+post:
+  tags:
+    - Authentication
+  operationId: login
+  summary: Login into system
+  description: |
+    Login with username and password.
+  security: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            username:
+              $ref: "../components/schemas/user.yaml#/username"
+            password:
+              $ref: "../components/schemas/user.yaml#/password"
+            domain:
+              $ref: "../components/schemas/tenant.yaml#/domain"
+          required:
+            - username
+            - password
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

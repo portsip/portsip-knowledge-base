@@ -1,0 +1,43 @@
+get:
+  tags:
+    - MOH
+  operationId: showMohServer
+  summary: Retrieve moh server
+  description: |
+    Retrieve moh server information.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              enabled:
+                $ref: "../components/schemas/moh.yaml#/enabled"
+              play_type:
+                $ref: "../components/schemas/moh.yaml#/play_type"
+    "4XX":
+      description: Error
+post:
+  tags:
+    - MOH
+  operationId: updateMohServer
+  summary: Update moh server
+  description: |
+    Update moh server
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            enabled:
+              $ref: "../components/schemas/moh.yaml#/enabled"
+            play_type:
+              $ref: "../components/schemas/moh.yaml#/play_type"
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

@@ -1,0 +1,28 @@
+get:
+  tags:
+    - Call Queue
+  operationId: getQueueWaitingList
+  summary: List caller sequence of a call queue
+  description: |
+    Retrieve a collection of call queue's waiting sequence
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/callqueue.yaml#/id"
+      description: The unique ID of the call queue.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              items:
+                type: array
+                items:
+                  $ref: "../components/schemas/callqueue.yaml#/caller"
+    "4XX":
+      description: Error

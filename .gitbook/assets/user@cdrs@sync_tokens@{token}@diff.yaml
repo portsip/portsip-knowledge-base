@@ -1,0 +1,54 @@
+post:
+  tags:
+    - User
+  operationId: listPersonalCdrChanges
+  summary: List personal cdr changes
+  description: List personal cdr changes.
+  parameters:
+    - name: token
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/common.yaml#/sync_token"
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              token:
+                $ref: "../components/schemas/common.yaml#/sync_token"
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      $ref: "../components/schemas/cdr.yaml#/id"
+                    change_type:
+                      $ref: "../components/schemas/common.yaml#/resource_change_type"
+                    items:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          caller:
+                            $ref: "../components/schemas/cdr.yaml#/caller"
+                          callee:
+                            $ref: "../components/schemas/cdr.yaml#/callee"
+                          started_at:
+                            $ref: "../components/schemas/cdr.yaml#/started_at"
+                          answered_at:
+                            $ref: "../components/schemas/cdr.yaml#/answered_at"
+                          ended_at:
+                            $ref: "../components/schemas/cdr.yaml#/ended_at"
+                          outbound_caller_id:
+                            $ref: "../components/schemas/provider.yaml#/outbound_caller_id"
+                          did_cid:
+                            $ref: "../components/schemas/cdr.yaml#/did_cid"
+                          trunk:
+                            $ref: "../components/schemas/cdr.yaml#/trunk"
+    "4XX":
+      description: Error

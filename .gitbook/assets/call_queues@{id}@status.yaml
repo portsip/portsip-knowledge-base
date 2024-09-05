@@ -1,0 +1,26 @@
+get:
+  tags:
+    - Call Queue
+  operationId: getQueueStatus
+  summary: Query call queue's status
+  description: |
+    Query call queue's status by it's unique ID.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/callqueue.yaml#/id"
+      description: The unique ID of the call queue.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                $ref: "../components/schemas/callqueue.yaml#/status"
+    "4XX":
+      description: Error

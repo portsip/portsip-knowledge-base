@@ -1,0 +1,19 @@
+post:
+  tags:
+    - User
+  operationId: lockMeeting
+  summary: Lock meeting
+  description: |
+    Lock meeting by it's unique ID.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/confroom.yaml#/id"
+      description: The unique ID of the meeting.
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

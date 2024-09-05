@@ -1,0 +1,91 @@
+id:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/id"
+  readOnly: true
+  description: |
+    The unique ID of holiday.
+name:
+  type: string
+  minLength: 1
+  maxLength: 64
+  description: |
+    The name of the holiday.
+every_year:
+  type: boolean
+  description: |
+    Does the holiday take effect every year.
+consecutive:
+  type: boolean
+  description: |
+    Whether the holiday consists of consecutive days.
+year_start:
+  type: integer
+  description: |
+    The start year of holiday.
+year_end:
+  type: integer
+  description: |
+    The end year of holiday.
+month_start:
+  type: integer
+  description: |
+    The start month of holiday.
+month_end:
+  type: integer
+  description: |
+    The end month of holiday.
+day_start:
+  type: integer
+  description: |
+    The start day of holiday.
+day_end:
+  type: integer
+  description: |
+    The end day of holiday.
+hour_start:
+  type: integer
+  description: |
+    The start hour of holiday.
+hour_end:
+  type: integer
+  description: |
+    The end hour of holiday.
+minute_start:
+  type: integer
+  description: |
+    The start minute of holiday.
+minute_end:
+  type: integer
+  description: |
+    The end minute of holiday.
+holiday:
+  type: object
+  properties:
+    id:
+      $ref: "#/id"
+    name:
+      $ref: "#/name"
+    every_year:
+      $ref: "#/every_year"
+    consecutive:
+      $ref: "#/consecutive"
+    year_start:
+      $ref: "#/year_start"
+    year_end:
+      $ref: "#/year_end"
+    month_start:
+      $ref: "#/month_start"
+    month_end:
+      $ref: "#/month_end"
+    day_start:
+      $ref: "#/day_start"
+    day_end:
+      $ref: "#/day_end"
+    hour_start:
+      $ref: "#/hour_start"
+    hour_end:
+      $ref: "#/hour_end"
+    minute_start:
+      $ref: "#/minute_start"
+    minute_end:
+      $ref: "#/minute_end"

@@ -1,0 +1,19 @@
+post:
+  tags:
+    - Administration
+  operationId: switchTenants
+  summary: Switch between tenants
+  description: |
+    Switch between tenants.
+  parameters:
+    - name: id
+      in: query
+      schema:
+        $ref: "../components/schemas/tenant.yaml#/id"
+      description: |
+        The unique ID of the tenant.
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

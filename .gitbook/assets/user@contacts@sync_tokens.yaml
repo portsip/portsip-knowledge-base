@@ -1,0 +1,17 @@
+post:
+  tags:
+    - User
+  operationId: createPersonalContactSyncToken
+  summary: Create new personal contact sync token
+  responses:
+    "201":
+      description: Created
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              token:
+                $ref: "../components/schemas/common.yaml#/sync_token"
+    "4XX":
+      description: Error

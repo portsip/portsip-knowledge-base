@@ -1,0 +1,21 @@
+post:
+  tags:
+    - Virtual Receptionist
+  operationId: deleteVrServer
+  summary: Delete a virtual receptionist server
+  description: |
+    Delete a virtual receptionist server
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/ivrserver.yaml#/id"
+      description: The unique ID of the virtual receptionist server.
+  responses:
+    "204":
+      description: No Content
+    "400":
+      description: Invalid server id supplied
+    "404":
+      description: Server not found

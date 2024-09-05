@@ -1,0 +1,19 @@
+post:
+  tags:
+    - Auto Provisioning
+  operationId: rebootPhone
+  summary: Reboot Phone
+  description: |
+    Reboot Phone
+  parameters:
+    - name: mac
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/common.yaml#/mac"
+      description: The MAC address of the IP phone.
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

@@ -1,0 +1,26 @@
+id:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/id"
+  description: |
+    The unique ID of exclusive number.
+number:
+  type: string
+  minLength: 1
+  maxLength: 64
+  description: |
+    The telephone number.
+created_at:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/date_time"
+  description: |
+    Exclusive number created at this time.
+enabled:
+  type: boolean
+  default: true
+  description: |
+    Enable the exclusive number or not.
+description:
+  type: string
+  maxLength: 1024
+  description: |
+    Exclusive number's description.

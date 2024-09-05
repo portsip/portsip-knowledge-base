@@ -1,0 +1,20 @@
+domain:
+  type: string
+  description: |
+    The SBC domain.
+http_port:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/port"
+  default: 8882
+  description: |
+    The SBC web port for http.
+https_port:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/port"
+  default: 8883
+  description: |
+    The SBC web port fot https.
+token:
+  type: string
+  description: |
+    The access token for SBC.

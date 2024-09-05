@@ -1,0 +1,23 @@
+post:
+  tags:
+    - Administration
+  operationId: changeSystemAdminUsername
+  summary: Change system admin username
+  description: |
+    Change system admin username.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            name:
+              $ref: "../components/schemas/user.yaml#/username"
+          required:
+            - name
+    required: true
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

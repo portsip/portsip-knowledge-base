@@ -1,0 +1,64 @@
+version:
+  type: string
+  description: |
+    The version information of PortSIP PBX.
+licensed_users:
+  type: integer
+  format: int32
+  description: |
+    The maximum number of authorized users purchased by the tenant from System Admin or Dealer.
+current_users:
+  type: integer
+  format: int32
+  description: |
+    The number of current users of the tenant.
+online_users:
+  type: integer
+  format: int32
+  description: |
+    The number of current online users of the tenant.
+current_calls:
+  type: integer
+  format: int32
+  description: |
+    The current number of calls.
+current_queues:
+  type: integer
+  format: int32
+  description: |
+    The current number of call queues.
+current_conference_rooms:
+  type: integer
+  format: int32
+  description: |
+    The current number of conference rooms.
+current_ring_groups:
+  type: integer
+  format: int32
+  description: |
+    The current number of ring groups.
+current_ivrs:
+  type: integer
+  format: int32
+  description: |
+    The current number of virtual receptionists.
+current_trunks:
+  type: integer
+  format: int32
+  description: |
+    The current number of trunks.
+calls_in_24_hours:
+  type: array
+  items:
+    type: object
+    properties:
+      time:
+        allOf:
+          - $ref: "../../components/schemas/common.yaml#/date_time"
+        description: |
+          Time on which calls were started.
+      count:
+        type: integer
+        format: int32
+        description: |
+          The number of calls at this time.

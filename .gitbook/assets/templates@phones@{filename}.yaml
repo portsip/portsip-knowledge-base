@@ -1,0 +1,55 @@
+get:
+  tags:
+    - Auto Provisioning
+  operationId: showFirmwareTemplate
+  summary: Retrieve details of firmware template
+  description: |
+    Retrieve details of template file by it's filename.
+  parameters:
+    - name: filename
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/phone.yaml#/filename"
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              filename:
+                $ref: "../components/schemas/phone.yaml#/filename"
+              content:
+                $ref: "../components/schemas/phone.yaml#/file_content"
+              is_custom:
+                $ref: "../components/schemas/phone.yaml#/is_custom"
+    "4XX":
+      description: Error
+post:
+  tags:
+    - Auto Provisioning
+  operationId: updateFirmwareTemplate
+  summary: Update firmware template
+  description: |
+    Update phone template.
+  parameters:
+    - name: filename
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/phone.yaml#/filename"
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            content:
+              $ref: "../components/schemas/phone.yaml#/file_content"
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

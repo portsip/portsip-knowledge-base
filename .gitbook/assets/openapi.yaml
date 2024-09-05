@@ -1,0 +1,933 @@
+openapi: "3.1.0"
+servers:
+  - url: "http://127.0.0.1:8888/api"
+    description: Development server
+info:
+  title: PortSIP PBX Rest API
+  version: 16.1.0
+  license:
+    name: "PortSIP"
+    url: "https://portsip.com"
+  x-logo:
+    url: "/image/api-logo.png"
+  description:
+    $ref: "./info-description.md"
+components:
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+security:
+  - bearer: [ ]
+tags:
+  - name: "Authentication"
+    x-displayName: "Authentication"
+    description: |
+      Login into system and logout from system.
+  - name: "Administration"
+    x-displayName: "Administrations"
+    description: |
+      Manage PBX System.
+  - name: "Extension"
+    x-displayName: "Extensions"
+    description: |
+      Manage extensions.
+  - name: "Authentication"
+    x-displayName: "Authentication"
+    description: |
+      Manage authentication.
+  - name: "Tenant"
+    x-displayName: "Tenants"
+    description: |
+      Manage your tenants.
+      Admin user has access to details for his account and other tenant users,
+      whilst tenant user has access to his account info only.
+  - name: "Billing"
+    x-displayName: "Billing"
+    description: |
+      Manage your billing.
+  - name: "Call Queue"
+    x-displayName: "Call Queues"
+    description: |
+      Manage your call queues.
+  - name: "CTI"
+    x-displayName: "CTI"
+    description: |
+      Manage CTI functions.
+  - name: "Call Session"
+    x-displayName: "Call Sessions"
+    description: |
+      Manage your call sessions.
+  - name: "CDR"
+    x-displayName: "Call Detail Records"
+    description: |
+      Manage your call detail records.
+  - name: "Conference"
+    x-displayName: "Conference"
+    description: |
+      Manage your conference.
+  - name: "Contact"
+    x-displayName: "Contact"
+    description: |
+      Manage your contacts.
+  - name: "Emergency Number"
+    x-displayName: "Emergency Numbers"
+    description: |
+      Manage your Emergency numbers.
+  - name: "Extension"
+    x-displayName: "Extensions"
+    description: |
+      Manage your extensions.
+  - name: "File"
+    x-displayName: "Files"
+    description: |
+      Manage your files.
+  - name: "Blobs"
+    x-displayName: "Blobs"
+    description: |
+      Manage file blobs.
+  - name: "Trunk"
+    x-displayName: "Trunks"
+    description: |
+      Manage your trunks.
+  - name: "Inbound Rule"
+    x-displayName: "Inbound Rules"
+    description: |
+      Manage your inbound rules.
+  - name: "Outbound Rule"
+    x-displayName: "Outbound rules"
+    description: |
+      Manage your outbound rules.
+  - name: "Virtual Receptionist"
+    x-displayName: "Virtual Receptionists"
+    description: |
+      Manage your virtual receptionists.
+  - name: "Media Server"
+    x-displayName: "Media Server"
+    description: |
+      Manage your media servers.
+  - name: "MOH"
+    x-displayName: "MOH"
+    description: |
+      Manage your MOH.
+  - name: "Automatic Callback"
+    x-displayName: "Automatic Callback"
+    description: |
+      Manage Automatic Callback settings.
+  - name: "Auto Provisioning"
+    x-displayName: "Auto Provisioning"
+    description: |
+      Manage your phone auto provisioning.
+  - name: "Push Notification"
+    x-displayName: "Push Notification"
+    description: |
+      Manage your push notification.
+  - name: "Ring Group"
+    x-displayName: "Ring Groups"
+    description: |
+      Manage your ring groups.
+  - name: "Shared Voicemail"
+    x-displayName: "Shared Voicemails"
+    description: |
+      Manage your shared voicemail.
+  - name: "Security"
+    x-displayName: "Security"
+    description: |
+      Manage your security options.
+  - name: "Feature Access Code"
+    x-displayName: "Feature Access Codes"
+    description: |
+      Manage your feature access codes.
+  - name: "Voicemail"
+    x-displayName: "Voicemails"
+    description: |
+      Manage voicemail functions.
+  - name: "Call Park"
+    x-displayName: "Call Park"
+    description: |
+      Manage call park functions.
+  - name: "Call Pickup"
+    x-displayName: "Call Pickup"
+    description: |
+      Manage call pickup functions.
+  - name: "Hot Desking"
+    x-displayName: "Hot Desking"
+    description: |
+      Hot Desking of PBX system.
+  - name: "SMS/MMS"
+    x-displayName: "SMS/MMS"
+    description: |
+      Manage SMS/MMS service.
+  - name: "Notification"
+    x-displayName: "Notification"
+    description: |
+      Manage notification functions.
+  - name: "Troubleshooting"
+    x-displayName: "Troubleshooting"
+    description: |
+      Troubleshooting of PBX system.
+  - name: "Microsoft 365"
+    x-displayName: "Microsoft 365"
+    description: |
+      Microsoft 365 Integration.
+paths:
+  /info:
+    $ref: "paths/info.yaml"
+  /login:
+    $ref: "paths/login.yaml"
+  /login/by_extension:
+    $ref: "paths/login@by_extension.yaml"
+  /login/by_microsoft:
+    $ref: "paths/login@by_microsoft.yaml"
+  /logout:
+    $ref: "paths/logout.yaml"
+  /network:
+    $ref: "paths/network.yaml"
+  /admin/status:
+    $ref: "paths/admin@status.yaml"
+  /admin/username:
+    $ref: "paths/admin@username.yaml"
+  /admin/password:
+    $ref: "paths/admin@password.yaml"
+  /admin/settings:
+    $ref: "paths/admin@settings.yaml"
+  /admin/notification:
+    $ref: "paths/admin@notification.yaml"
+  /sbc:
+    $ref: "paths/sbc.yaml"
+  /sbc/token:
+    $ref: "paths/sbc@token.yaml"
+  /sbc/token/destroy:
+    $ref: "paths/sbc@token@destroy.yaml"
+  /dealers:
+    $ref: "paths/dealers.yaml"
+  /dealers/{id}:
+    $ref: "paths/dealers@{id}.yaml"
+  /dealers/{id}/password:
+    $ref: "paths/dealers@{id}@password.yaml"
+  /dealers/{id}/destroy:
+    $ref: "paths/dealers@{id}@destroy.yaml"
+  /mobile_push:
+    $ref: "paths/mobile_push.yaml"
+  /mobile_push/{id}:
+    $ref: "paths/mobile_push@{id}.yaml"
+  /mobile_push/{id}/destroy:
+    $ref: "paths/mobile_push@{id}@destroy.yaml"
+  /templates/phones:
+    $ref: "paths/templates@phones.yaml"
+  /templates/phones/{filename}:
+    $ref: "paths/templates@phones@{filename}.yaml"
+  /templates/phones/{filename}/destroy:
+    $ref: "paths/templates@phones@{filename}@destroy.yaml"
+  /ip_filters:
+    $ref: "paths/ip_filters.yaml"
+  /ip_filters/{id}:
+    $ref: "paths/ip_filters@{id}.yaml"
+  /ip_filters/{id}/destroy:
+    $ref: "paths/ip_filters@{id}@destroy.yaml"
+  /ip_filters/export:
+    $ref: "paths/ip_filters@export.yaml"
+  /transports:
+    $ref: "paths/transports.yaml"
+  /transports/{id}:
+    $ref: "paths/transports@{id}.yaml"
+  /transports/{id}/destroy:
+    $ref: "paths/transports@{id}@destroy.yaml"
+  /transports/{id}/status:
+    $ref: "paths/transports@{id}@status.yaml"
+  /tenants:
+    $ref: "paths/tenants.yaml"
+  /tenants/{id}:
+    $ref: "paths/tenants@{id}.yaml"
+  /tenants/switch:
+    $ref: "paths/tenants@switch.yaml"
+  /tenants/{id}/dealer:
+    $ref: "paths/tenants@{id}@dealer.yaml"
+  /tenants/{id}/destroy:
+    $ref: "paths/tenants@{id}@destroy.yaml"
+  /tenant:
+    $ref: "paths/tenant.yaml"
+  /tenant/status:
+    $ref: "paths/tenant@status.yaml"
+  /tenant/notification:
+    $ref: "paths/tenant@notification.yaml"
+  /tenant/password_policy:
+    $ref: "paths/tenant@password_policy.yaml"
+  /tenant/billing:
+    $ref: "paths/tenant@billing.yaml"
+  /tenant/balance:
+    $ref: "paths/tenant@balance.yaml"
+  /tenant/custom_headers:
+    $ref: "paths/tenant@custom_headers.yaml"
+  /conference_servers:
+    $ref: "paths/conference_servers.yaml"
+  /conference_servers/{id}:
+    $ref: "paths/conference_servers@{id}.yaml"
+  /conference_servers/{id}/status:
+    $ref: "paths/conference_servers@{id}@status.yaml"
+  /conference_servers/{id}/destroy:
+    $ref: "paths/conference_servers@{id}@destroy.yaml"
+  /media_servers:
+    $ref: "paths/media_servers.yaml"
+  /media_servers/{id}:
+    $ref: "paths/media_servers@{id}.yaml"
+  /media_servers/{id}/status:
+    $ref: "paths/media_servers@{id}@status.yaml"
+  /media_servers/{id}/destroy:
+    $ref: "paths/media_servers@{id}@destroy.yaml"
+  /license:
+    $ref: "paths/license.yaml"
+  /key:
+    $ref: "paths/key.yaml"
+  /brand:
+    $ref: "paths/brand.yaml"
+  /dealer:
+    $ref: "paths/dealer.yaml"
+  /dealer/status:
+    $ref: "paths/dealer@status.yaml"
+  /dealer/username:
+    $ref: "paths/dealer@username.yaml"
+  /dealer/password:
+    $ref: "paths/dealer@password.yaml"
+  /roles:
+    $ref: "paths/roles.yaml"
+  /roles/{name}:
+    $ref: "paths/roles@{name}.yaml"
+  /roles/{name}/destroy:
+    $ref: "paths/roles@{name}@destroy.yaml"
+  /user:
+    $ref: "paths/user.yaml"
+  /user/password:
+    $ref: "paths/user@password.yaml"
+  /user/extension_password:
+    $ref: "paths/user@extension_password.yaml"
+  /user/profile:
+    $ref: "paths/user@profile.yaml"
+  /user/status:
+    $ref: "paths/user@status.yaml"
+  /user/balance:
+    $ref: "paths/user@balance.yaml"
+  /user/greetings:
+    $ref: "paths/user@greetings.yaml"
+  /user/greetings/{id}/enable:
+    $ref: "paths/user@greetings@{id}@enable.yaml"
+  /user/greetings/{id}/disable:
+    $ref: "paths/user@greetings@{id}@disable.yaml"
+  /user/greetings/{id}/destroy:
+    $ref: "paths/user@greetings@{id}@destroy.yaml"
+  /user/phones:
+    $ref: "paths/user@phones.yaml"
+  /user/phones/{id}:
+    $ref: "paths/user@phones@{id}.yaml"
+  /user/phones/{id}/destroy:
+    $ref: "paths/user@phones@{id}@destroy.yaml"
+  /user/cdrs:
+    $ref: "paths/user@cdrs.yaml"
+  /user/cdrs/{id}:
+    $ref: "paths/user@cdrs@{id}.yaml"
+  /user/cdrs/sync_tokens:
+    $ref: "paths/user@cdrs@sync_tokens.yaml"
+  /user/cdrs/sync_tokens/{token}/diff:
+    $ref: "paths/user@cdrs@sync_tokens@{token}@diff.yaml"
+  /user/recordings:
+    $ref: "paths/user@recordings.yaml"
+  /user/recordings/{id}:
+    $ref: "paths/user@recordings@{id}.yaml"
+  /user/recordings/{id}/destroy:
+    $ref: "paths/user@recordings@{id}@destroy.yaml"
+  /user/speed_dial_8:
+    $ref: "paths/user@speed_dial_8.yaml"
+  /user/speed_dial_8/{id}:
+    $ref: "paths/user@speed_dial_8@{id}.yaml"
+  /user/speed_dial_8/{id}/destroy:
+    $ref: "paths/user@speed_dial_8@{id}@destroy.yaml"
+  /user/speed_dial_100:
+    $ref: "paths/user@speed_dial_100.yaml"
+  /user/speed_dial_100/{id}:
+    $ref: "paths/user@speed_dial_100@{id}.yaml"
+  /user/speed_dial_100/{id}/destroy:
+    $ref: "paths/user@speed_dial_100@{id}@destroy.yaml"
+  /user/meetings:
+    $ref: "paths/user@meetings.yaml"
+  /user/meetings/{id}:
+    $ref: "paths/user@meetings@{id}.yaml"
+  /user/meetings/{id}/destroy:
+    $ref: "paths/user@meetings@{id}@destroy.yaml"
+  /user/meetings/{id}/mute:
+    $ref: "paths/user@meetings@{id}@mute.yaml"
+  /user/meetings/{id}/unmute:
+    $ref: "paths/user@meetings@{id}@unmute.yaml"
+  /user/meetings/{id}/lock:
+    $ref: "paths/user@meetings@{id}@lock.yaml"
+  /user/meetings/{id}/unlock:
+    $ref: "paths/user@meetings@{id}@unlock.yaml"
+  /user/meetings/{id}/start:
+    $ref: "paths/user@meetings@{id}@start.yaml"
+  /user/meetings/{id}/stop:
+    $ref: "paths/user@meetings@{id}@stop.yaml"
+  /user/meetings/{id}/start_recording:
+    $ref: "paths/user@meetings@{id}@start_recording.yaml"
+  /user/meetings/{id}/stop_recording:
+    $ref: "paths/user@meetings@{id}@stop_recording.yaml"
+  /user/meetings/{id}/participants:
+    $ref: "paths/user@meetings@{id}@participants.yaml"
+  /user/meetings/{id}/participants/layout:
+    $ref: "paths/user@meetings@{id}@participants@layout.yaml"
+  /user/meetings/{id}/participants/{participant_id}:
+    $ref: "paths/user@meetings@{id}@participants@{participant_id}.yaml"
+  /user/meetings/{id}/participants/invite:
+    $ref: "paths/user@meetings@{id}@participants@invite.yaml"
+  /user/meetings/{id}/participants/{participant_id}/mute:
+    $ref: "paths/user@meetings@{id}@participants@{participant_id}@mute.yaml"
+  /user/meetings/{id}/participants/{participant_id}/unmute:
+    $ref: "paths/user@meetings@{id}@participants@{participant_id}@unmute.yaml"
+  /user/meetings/{id}/participants/{participant_id}/chairman:
+    $ref: "paths/user@meetings@{id}@participants@{participant_id}@chairman.yaml"
+  /user/meetings/{id}/participants/{participant_id}/position:
+    $ref: "paths/user@meetings@{id}@participants@{participant_id}@position.yaml"
+  /user/meetings/{id}/participants/{participant_id}/destroy:
+    $ref: "paths/user@meetings@{id}@participants@{participant_id}@destroy.yaml"
+  /user/holidays:
+    $ref: "paths/user@holidays.yaml"
+  /user/holidays/{id}:
+    $ref: "paths/user@holidays@{id}.yaml"
+  /user/holidays/{id}/destroy:
+    $ref: "paths/user@holidays@{id}@destroy.yaml"
+  /user/global_holidays:
+    $ref: "paths/user@global_holidays.yaml"
+  /user/contacts:
+    $ref: "paths/user@contacts.yaml"
+  /user/contacts/{id}:
+    $ref: "paths/user@contacts@{id}.yaml"
+  /user/contacts/{id}/favorite:
+    $ref: "paths/user@contacts@{id}@favorite.yaml"
+  /user/contacts/{id}/unfavorite:
+    $ref: "paths/user@contacts@{id}@unfavorite.yaml"
+  /user/contacts/{id}/destroy:
+    $ref: "paths/user@contacts@{id}@destroy.yaml"
+  /user/contacts/sync_tokens:
+    $ref: "paths/user@contacts@sync_tokens.yaml"
+  /user/contacts/sync_tokens/{token}/diff:
+    $ref: "paths/user@contacts@sync_tokens@{token}@diff.yaml"
+  /user/business_contacts/{id}/favorite:
+    $ref: "paths/user@business_contacts@{id}@favorite.yaml"
+  /user/business_contacts/{id}/unfavorite:
+    $ref: "paths/user@business_contacts@{id}@unfavorite.yaml"
+  /user/business_contacts/sync_tokens:
+    $ref: "paths/user@business_contacts@sync_tokens.yaml"
+  /user/business_contacts/sync_tokens/{token}/diff:
+    $ref: "paths/user@business_contacts@sync_tokens@{token}@diff.yaml"
+  /user/extension_contacts/{id}/favorite:
+    $ref: "paths/user@extension_contacts@{id}@favorite.yaml"
+  /user/extension_contacts/{id}/unfavorite:
+    $ref: "paths/user@extension_contacts@{id}@unfavorite.yaml"
+  /user/extension_contacts/sync_tokens:
+    $ref: "paths/user@extension_contacts@sync_tokens.yaml"
+  /user/extension_contacts/sync_tokens/{token}/diff:
+    $ref: "paths/user@extension_contacts@sync_tokens@{token}@diff.yaml"
+  /user/call_queues:
+    $ref: "paths/user@call_queues.yaml"
+  /user/call_queues/{id}/agent:
+    $ref: "paths/user@call_queues@{id}@agent.yaml"
+  /user/outbound_caller_ids:
+    $ref: "paths/user@outbound_caller_ids.yaml"
+  /users:
+    $ref: "paths/users.yaml"
+  /users/profile:
+    $ref: "paths/users@profile.yaml"
+  /users/{id}:
+    $ref: "paths/users@{id}.yaml"
+  /users/{id}/password:
+    $ref: "paths/users@{id}@password.yaml"
+  /users/{id}/extension_password:
+    $ref: "paths/users@{id}@extension_password.yaml"
+  /users/{id}/role:
+    $ref: "paths/users@{id}@role.yaml"
+  /users/{id}/profile:
+    $ref: "paths/users@{id}@profile.yaml"
+  /users/{id}/ms365_binding:
+    $ref: "paths/users@{id}@ms365_binding.yaml"
+  /users/{id}/ms365_binding/destroy:
+    $ref: "paths/users@{id}@ms365_binding@destroy.yaml"
+  /users/{id}/destroy:
+    $ref: "paths/users@{id}@destroy.yaml"
+  /users/{id}/status:
+    $ref: "paths/users@{id}@status.yaml"
+  /users/{id}/status/{instance_id}/destroy_status:
+    $ref: "paths/users@{id}@status@{instance_id}@destroy_status.yaml"
+  /users/{id}/balance:
+    $ref: "paths/users@{id}@balance.yaml"
+  /users/{id}/greetings:
+    $ref: "paths/users@{id}@greetings.yaml"
+  /users/{id}/greetings/{greeting_id}/enable:
+    $ref: "paths/users@{id}@greetings@{greeting_id}@enable.yaml"
+  /users/{id}/greetings/{greeting_id}/disable:
+    $ref: "paths/users@{id}@greetings@{greeting_id}@disable.yaml"
+  /users/{id}/greetings/{greeting_id}/destroy:
+    $ref: "paths/users@{id}@greetings@{greeting_id}@destroy.yaml"
+  /users/{id}/phones:
+    $ref: "paths/users@{id}@phones.yaml"
+  /users/{id}/phones/{phone_id}:
+    $ref: "paths/users@{id}@phones@{phone_id}.yaml"
+  /users/{id}/phones/{phone_id}/destroy:
+    $ref: "paths/users@{id}@phones@{phone_id}@destroy.yaml"
+  /users/{id}/holidays:
+    $ref: "paths/users@{id}@holidays.yaml"
+  /users/{id}/holidays/{holiday_id}:
+    $ref: "paths/users@{id}@holidays@{holiday_id}.yaml"
+  /users/{id}/holidays/{holiday_id}/destroy:
+    $ref: "paths/users@{id}@holidays@{holiday_id}@destroy.yaml"
+  /users/{id}/global_holidays:
+    $ref: "paths/users@{id}@global_holidays.yaml"
+  /users/{id}/call_queues:
+    $ref: "paths/users@{id}@call_queues.yaml"
+  /users/{id}/call_queues/{queue_id}/agent:
+    $ref: "paths/users@{id}@call_queues@{queue_id}@agent.yaml"
+  /extension_numbers/{extension_number}:
+    $ref: "paths/extension_numbers@{extension_number}.yaml"
+  /groups:
+    $ref: "paths/groups.yaml"
+  /groups/{id}:
+    $ref: "paths/groups@{id}.yaml"
+  /groups/{id}/destroy:
+    $ref: "paths/groups@{id}@destroy.yaml"
+  /groups/{id}/members:
+    $ref: "paths/groups@{id}@members.yaml"
+  /groups/{id}/members/{extension_number}:
+    $ref: "paths/groups@{id}@members@{extension_number}.yaml"
+  /groups/{id}/members/{extension_number}/destroy:
+    $ref: "paths/groups@{id}@members@{extension_number}@destroy.yaml"
+  /voicemails:
+    $ref: "paths/voicemails.yaml"
+  /voicemails/{id}:
+    $ref: "paths/voicemails@{id}.yaml"
+  /voicemails/{id}/set_read:
+    $ref: "paths/voicemails@{id}@set_read.yaml"
+  /voicemails/{id}/set_unread:
+    $ref: "paths/voicemails@{id}@set_unread.yaml"
+  /voicemails/{id}/destroy:
+    $ref: "paths/voicemails@{id}@destroy.yaml"
+  /recordings:
+    $ref: "paths/recordings.yaml"
+  /recordings/{id}:
+    $ref: "paths/recordings@{id}.yaml"
+  /recordings/{id}/destroy:
+    $ref: "paths/recordings@{id}@destroy.yaml"
+  /call_queue_servers:
+    $ref: "paths/call_queue_servers.yaml"
+  /call_queue_servers/{id}:
+    $ref: "paths/call_queue_servers@{id}.yaml"
+  /call_queue_servers/{id}/status:
+    $ref: "paths/call_queue_servers@{id}@status.yaml"
+  /call_queue_servers/{id}/destroy:
+    $ref: "paths/call_queue_servers@{id}@destroy.yaml"
+  /call_queues:
+    $ref: "paths/call_queues.yaml"
+  /call_queues/{id}:
+    $ref: "paths/call_queues@{id}.yaml"
+  /call_queues/{id}/status:
+    $ref: "paths/call_queues@{id}@status.yaml"
+  /call_queues/{id}/destroy:
+    $ref: "paths/call_queues@{id}@destroy.yaml"
+  /call_queues/{id}/waiting:
+    $ref: "paths/call_queues@{id}@waiting.yaml"
+  /call_queues/{id}/waiting/{session_id}/pickup:
+    $ref: "paths/call_queues@{id}@waiting@{session_id}@pickup.yaml"
+  /call_queues/{id}/agents:
+    $ref: "paths/call_queues@{id}@agents.yaml"
+  /call_queues/{id}/agents/{agent_number}:
+    $ref: "paths/call_queues@{id}@agents@{agent_number}.yaml"
+  /exclusive_numbers:
+    $ref: "paths/exclusive_numbers.yaml"
+  /exclusive_numbers/{id}:
+    $ref: "paths/exclusive_numbers@{id}.yaml"
+  /exclusive_numbers/{id}/destroy:
+    $ref: "paths/exclusive_numbers@{id}@destroy.yaml"
+  /exclusive_numbers/{id}/call_queues:
+    $ref: "paths/exclusive_numbers@{id}@call_queues.yaml"
+  /exclusive_numbers/{id}/call_queues/{queue_id}/agents:
+    $ref: "paths/exclusive_numbers@{id}@call_queues@{queue_id}@agents.yaml"
+  /exclusive_numbers/{id}/call_queues/{queue_id}/destroy:
+    $ref: "paths/exclusive_numbers@{id}@call_queues@{queue_id}@destroy.yaml"
+  /exclusive_numbers/export:
+    $ref: "paths/exclusive_numbers@export.yaml"
+  /vip_numbers:
+    $ref: "paths/vip_numbers.yaml"
+  /vip_numbers/{id}:
+    $ref: "paths/vip_numbers@{id}.yaml"
+  /vip_numbers/{id}/destroy:
+    $ref: "paths/vip_numbers@{id}@destroy.yaml"
+  /vip_numbers/export:
+    $ref: "paths/vip_numbers@export.yaml"
+  /call_queue_blacklisted_numbers:
+    $ref: "paths/call_queue_blacklisted_numbers.yaml"
+  /call_queue_blacklisted_numbers/{id}:
+    $ref: "paths/call_queue_blacklisted_numbers@{id}.yaml"
+  /call_queue_blacklisted_numbers/{id}/destroy:
+    $ref: "paths/call_queue_blacklisted_numbers@{id}@destroy.yaml"
+  /call_queue_blacklisted_numbers/export:
+    $ref: "paths/call_queue_blacklisted_numbers@export.yaml"
+  /call_queue_blacklist_prompts:
+    $ref: "paths/call_queue_blacklist_prompts.yaml"
+  /sessions:
+    $ref: "paths/sessions.yaml"
+  /sessions/directly:
+    $ref: "paths/sessions@directly.yaml"
+  /sessions/{id}:
+    $ref: "paths/sessions@{id}.yaml"
+  /sessions/{id}/hold:
+    $ref: "paths/sessions@{id}@hold.yaml"
+  /sessions/{id}/unhold:
+    $ref: "paths/sessions@{id}@unhold.yaml"
+  /sessions/{id}/refer:
+    $ref: "paths/sessions@{id}@refer.yaml"
+  /sessions/{id}/attended_refer:
+    $ref: "paths/sessions@{id}@attended_refer.yaml"
+  /sessions/{id}/destroy:
+    $ref: "paths/sessions@{id}@destroy.yaml"
+  /conference_rooms:
+    $ref: "paths/conference_rooms.yaml"
+  /conference_rooms/{id}:
+    $ref: "paths/conference_rooms@{id}.yaml"
+  /conference_rooms/{id}/destroy:
+    $ref: "paths/conference_rooms@{id}@destroy.yaml"
+  /conference_rooms/{id}/status:
+    $ref: "paths/conference_rooms@{id}@status.yaml"
+  /conference_rooms/{id}/mute:
+    $ref: "paths/conference_rooms@{id}@mute.yaml"
+  /conference_rooms/{id}/unmute:
+    $ref: "paths/conference_rooms@{id}@unmute.yaml"
+  /conference_rooms/{id}/lock:
+    $ref: "paths/conference_rooms@{id}@lock.yaml"
+  /conference_rooms/{id}/unlock:
+    $ref: "paths/conference_rooms@{id}@unlock.yaml"
+  /conference_rooms/{id}/start_recording:
+    $ref: "paths/conference_rooms@{id}@start_recording.yaml"
+  /conference_rooms/{id}/stop_recording:
+    $ref: "paths/conference_rooms@{id}@stop_recording.yaml"
+  /conference_rooms/{id}/participants:
+    $ref: "paths/conference_rooms@{id}@participants.yaml"
+  /conference_rooms/{id}/participants/layout:
+    $ref: "paths/conference_rooms@{id}@participants@layout.yaml"
+  /conference_rooms/{id}/participants/{participant_id}:
+    $ref: "paths/conference_rooms@{id}@participants@{participant_id}.yaml"
+  /conference_rooms/{id}/participants/invite:
+    $ref: "paths/conference_rooms@{id}@participants@invite.yaml"
+  /conference_rooms/{id}/participants/{participant_id}/mute:
+    $ref: "paths/conference_rooms@{id}@participants@{participant_id}@mute.yaml"
+  /conference_rooms/{id}/participants/{participant_id}/unmute:
+    $ref: "paths/conference_rooms@{id}@participants@{participant_id}@unmute.yaml"
+  /conference_rooms/{id}/participants/{participant_id}/chairman:
+    $ref: "paths/conference_rooms@{id}@participants@{participant_id}@chairman.yaml"
+  /conference_rooms/{id}/participants/{participant_id}/position:
+    $ref: "paths/conference_rooms@{id}@participants@{participant_id}@position.yaml"
+  /conference_rooms/{id}/participants/{participant_id}/destroy:
+    $ref: "paths/conference_rooms@{id}@participants@{participant_id}@destroy.yaml"
+  /conference_rooms/{id}/recordings:
+    $ref: "paths/conference_rooms@{id}@recordings.yaml"
+  /conference_rooms/{id}/recordings/{recording_id}/destroy:
+    $ref: "paths/conference_rooms@{id}@recordings@{recording_id}@destroy.yaml"
+  /conference_rooms/{id}/recordings/{recording_id}/set_read:
+    $ref: "paths/conference_rooms@{id}@recordings@{recording_id}@set_read.yaml"
+  /conference_rooms/{id}/recordings/{recording_id}/set_unread:
+    $ref: "paths/conference_rooms@{id}@recordings@{recording_id}@set_unread.yaml"
+  /contacts:
+    $ref: "paths/contacts.yaml"
+  /contacts/{id}:
+    $ref: "paths/contacts@{id}.yaml"
+  /contacts/{id}/destroy:
+    $ref: "paths/contacts@{id}@destroy.yaml"
+  /contacts/export:
+    $ref: "paths/contacts@export.yaml"
+  /emergency_numbers:
+    $ref: "paths/emergency_numbers.yaml"
+  /emergency_numbers/{id}:
+    $ref: "paths/emergency_numbers@{id}.yaml"
+  /emergency_numbers/{id}/destroy:
+    $ref: "paths/emergency_numbers@{id}@destroy.yaml"
+  /files:
+    $ref: "paths/files.yaml"
+  /files/{id}:
+    $ref: "paths/files@{id}.yaml"
+  /files/{id}/destroy:
+    $ref: "paths/files@{id}@destroy.yaml"
+  /blobs/uploads:
+    $ref: "paths/blobs@uploads.yaml"
+  /blobs/uploads/{id}/append:
+    $ref: "paths/blobs@uploads@{id}@append.yaml"
+  /blobs/uploads/{id}/complete:
+    $ref: "paths/blobs@uploads@{id}@complete.yaml"
+  /blobs/uploads/{id}/status:
+    $ref: "paths/blobs@uploads@{id}@status.yaml"
+  /blobs/uploads/{id}/destroy:
+    $ref: "paths/blobs@uploads@{id}@destroy.yaml"
+  /blobs/{digest}:
+    $ref: "paths/blobs@{digest}.yaml"
+  /inbound_rules:
+    $ref: "paths/inbound_rules.yaml"
+  /inbound_rules/{id}:
+    $ref: "paths/inbound_rules@{id}.yaml"
+  /inbound_rules/{id}/destroy:
+    $ref: "paths/inbound_rules@{id}@destroy.yaml"
+  /inbound_rules/export:
+    $ref: "paths/inbound_rules@export.yaml"
+  /moh_server:
+    $ref: "paths/moh_server.yaml"
+  /moh_server/musics:
+    $ref: "paths/moh_server@musics.yaml"
+  /moh_server/musics/{id}:
+    $ref: "paths/moh_server@musics@{id}.yaml"
+  /moh_server/musics/{id}/destroy:
+    $ref: "paths/moh_server@musics@{id}@destroy.yaml"
+  /monitor:
+    $ref: "paths/monitor.yaml"
+  /monitor_groups:
+    $ref: "paths/monitor_groups.yaml"
+  /monitor_groups/{id}:
+    $ref: "paths/monitor_groups@{id}.yaml"
+  /monitor_groups/{id}/destroy:
+    $ref: "paths/monitor_groups@{id}@destroy.yaml"
+  /monitor_groups/{id}/members:
+    $ref: "paths/monitor_groups@{id}@members.yaml"
+  /monitor_groups/{id}/members/{extension_number}:
+    $ref: "paths/monitor_groups@{id}@members@{extension_number}.yaml"
+  /monitor_groups/{id}/members/{extension_number}/destroy:
+    $ref: "paths/monitor_groups@{id}@members@{extension_number}@destroy.yaml"
+  /monitor_groups/{id}/managers:
+    $ref: "paths/monitor_groups@{id}@managers.yaml"
+  /monitor_groups/{id}/managers/{extension_number}:
+    $ref: "paths/monitor_groups@{id}@managers@{extension_number}.yaml"
+  /monitor_groups/{id}/managers/{extension_number}/destroy:
+    $ref: "paths/monitor_groups@{id}@managers@{extension_number}@destroy.yaml"
+  /call_park:
+    $ref: "paths/call_park.yaml"
+  /call_park_groups:
+    $ref: "paths/call_park_groups.yaml"
+  /call_park_groups/{id}:
+    $ref: "paths/call_park_groups@{id}.yaml"
+  /call_park_groups/{id}/destroy:
+    $ref: "paths/call_park_groups@{id}@destroy.yaml"
+  /call_park_groups/{id}/members:
+    $ref: "paths/call_park_groups@{id}@members.yaml"
+  /call_park_groups/{id}/members/{extension_number}:
+    $ref: "paths/call_park_groups@{id}@members@{extension_number}.yaml"
+  /call_park_groups/{id}/members/{extension_number}/destroy:
+    $ref: "paths/call_park_groups@{id}@members@{extension_number}@destroy.yaml"
+  /call_pickup_groups:
+    $ref: "paths/call_pickup_groups.yaml"
+  /call_pickup_groups/{id}:
+    $ref: "paths/call_pickup_groups@{id}.yaml"
+  /call_pickup_groups/{id}/destroy:
+    $ref: "paths/call_pickup_groups@{id}@destroy.yaml"
+  /call_pickup_groups/{id}/members:
+    $ref: "paths/call_pickup_groups@{id}@members.yaml"
+  /call_pickup_groups/{id}/members/{extension_number}:
+    $ref: "paths/call_pickup_groups@{id}@members@{extension_number}.yaml"
+  /voicemail:
+    $ref: "paths/voicemail.yaml"
+  /acb:
+    $ref: "paths/acb.yaml"
+  /outbound_rules:
+    $ref: "paths/outbound_rules.yaml"
+  /outbound_rules/{id}:
+    $ref: "paths/outbound_rules@{id}.yaml"
+  /outbound_rules/{id}/destroy:
+    $ref: "paths/outbound_rules@{id}@destroy.yaml"
+  /outbound_rules/export:
+    $ref: "paths/outbound_rules@export.yaml"
+  /outbound_rules/{id}/applied_groups:
+    $ref: "paths/outbound_rules@{id}@applied_groups.yaml"
+  /outbound_rules/{id}/applied_groups/{group_id}:
+    $ref: "paths/outbound_rules@{id}@applied_groups@{group_id}.yaml"
+  /outbound_rules/{id}/applied_groups/{group_id}/destroy:
+    $ref: "paths/outbound_rules@{id}@applied_groups@{group_id}@destroy.yaml"
+  /phone_models:
+    $ref: "paths/phone_models.yaml"
+  /phone_models/{filename}:
+    $ref: "paths/phone_models@{filename}.yaml"
+  /phones:
+    $ref: "paths/phones.yaml"
+  /phones/reprovision:
+    $ref: "paths/phones@reprovision.yaml"
+  /phones/{mac}:
+    $ref: "paths/phones@{mac}.yaml"
+  /phones/{mac}/assignee:
+    $ref: "paths/phones@{mac}@assignee.yaml"
+  /phones/{mac}/reprovision:
+    $ref: "paths/phones@{mac}@reprovision.yaml"
+  /phones/{mac}/reboot:
+    $ref: "paths/phones@{mac}@reboot.yaml"
+  /phones/{mac}/reject:
+    $ref: "paths/phones@{mac}@reject.yaml"
+  /dect_phone_models:
+    $ref: "paths/dect_phone_models.yaml"
+  /dect_phone_models/{name}:
+    $ref: "paths/dect_phone_models@{name}.yaml"
+  /dect_phones:
+    $ref: "paths/dect_phones.yaml"
+  /dect_phones/{id}:
+    $ref: "paths/dect_phones@{id}.yaml"
+  /dect_phones/{id}/destroy:
+    $ref: "paths/dect_phones@{id}@destroy.yaml"
+  /dect_phones/{id}/members:
+    $ref: "paths/dect_phones@{id}@members.yaml"
+  /dect_phones/{id}/members/{extension_number}:
+    $ref: "paths/dect_phones@{id}@members@{extension_number}.yaml"
+  /providers:
+    $ref: "paths/providers.yaml"
+  /providers/{id}:
+    $ref: "paths/providers@{id}.yaml"
+  /providers/{id}/status:
+    $ref: "paths/providers@{id}@status.yaml"
+  /providers/{id}/destroy:
+    $ref: "paths/providers@{id}@destroy.yaml"
+  /providers/export:
+    $ref: "paths/providers@export.yaml"
+  /providers/{id}/assignees:
+    $ref: "paths/providers@{id}@assignees.yaml"
+  /providers/{id}/assignees/{tenant_id}:
+    $ref: "paths/providers@{id}@assignees@{tenant_id}.yaml"
+  /providers/{id}/assignees/{tenant_id}/destroy:
+    $ref: "paths/providers@{id}@assignees@{tenant_id}@destroy.yaml"
+  /ring_groups:
+    $ref: "paths/ring_groups.yaml"
+  /ring_groups/{id}:
+    $ref: "paths/ring_groups@{id}.yaml"
+  /ring_groups/{id}/agents:
+    $ref: "paths/ring_groups@{id}@agents.yaml"
+  /ring_groups/{id}/agents/{agent_number}:
+    $ref: "paths/ring_groups@{id}@agents@{agent_number}.yaml"
+  /ring_groups/{id}/destroy:
+    $ref: "paths/ring_groups@{id}@destroy.yaml"
+  /shared_voicemails:
+    $ref: "paths/shared_voicemails.yaml"
+  /shared_voicemails/{id}:
+    $ref: "paths/shared_voicemails@{id}.yaml"
+  /shared_voicemails/{id}/destroy:
+    $ref: "paths/shared_voicemails@{id}@destroy.yaml"
+  /shared_voicemails/{id}/voicemails:
+    $ref: "paths/shared_voicemails@{id}@voicemails.yaml"
+  /shared_voicemails/{id}/voicemails/{mail_id}:
+    $ref: "paths/shared_voicemails@{id}@voicemails@{mail_id}.yaml"
+  /shared_voicemails/{id}/voicemails/{mail_id}/set_read:
+    $ref: "paths/shared_voicemails@{id}@voicemails@{mail_id}@set_read.yaml"
+  /shared_voicemails/{id}/voicemails/{mail_id}/set_unread:
+    $ref: "paths/shared_voicemails@{id}@voicemails@{mail_id}@set_unread.yaml"
+  /shared_voicemails/{id}/voicemails/{mail_id}/destroy:
+    $ref: "paths/shared_voicemails@{id}@voicemails@{mail_id}@destroy.yaml"
+  /shared_voicemails/{id}/greetings:
+    $ref: "paths/shared_voicemails@{id}@greetings.yaml"
+  /shared_voicemails/{id}/greetings/{greeting_id}/enable:
+    $ref: "paths/shared_voicemails@{id}@greetings@{greeting_id}@enable.yaml"
+  /shared_voicemails/{id}/greetings/{greeting_id}/disable:
+    $ref: "paths/shared_voicemails@{id}@greetings@{greeting_id}@disable.yaml"
+  /shared_voicemails/{id}/greetings/{greeting_id}/destroy:
+    $ref: "paths/shared_voicemails@{id}@greetings@{greeting_id}@destroy.yaml"
+  /holidays:
+    $ref: "paths/holidays.yaml"
+  /holidays/{id}:
+    $ref: "paths/holidays@{id}.yaml"
+  /holidays/{id}/destroy:
+    $ref: "paths/holidays@{id}@destroy.yaml"
+  /allowed_country_codes:
+    $ref: "paths/allowed_country_codes.yaml"
+  /disallowed_codes:
+    $ref: "paths/disallowed_codes.yaml"
+  /disallowed_codes/{id}:
+    $ref: "paths/disallowed_codes@{id}.yaml"
+  /disallowed_codes/{id}/destroy:
+    $ref: "paths/disallowed_codes@{id}@destroy.yaml"
+  /disallowed_codes/export:
+    $ref: "paths/disallowed_codes@export.yaml"
+  /blacklisted_numbers:
+    $ref: "paths/blacklisted_numbers.yaml"
+  /blacklisted_numbers/{id}:
+    $ref: "paths/blacklisted_numbers@{id}.yaml"
+  /blacklisted_numbers/{id}/destroy:
+    $ref: "paths/blacklisted_numbers@{id}@destroy.yaml"
+  /blacklisted_numbers/export:
+    $ref: "paths/blacklisted_numbers@export.yaml"
+  /call_rates:
+    $ref: "paths/call_rates.yaml"
+  /call_rates/{id}:
+    $ref: "paths/call_rates@{id}.yaml"
+  /call_rates/{id}/destroy:
+    $ref: "paths/call_rates@{id}@destroy.yaml"
+  /call_rates/export:
+    $ref: "paths/call_rates@export.yaml"
+  /ivr_servers:
+    $ref: "paths/ivr_servers.yaml"
+  /ivr_servers/{id}:
+    $ref: "paths/ivr_servers@{id}.yaml"
+  /ivr_servers/{id}/status:
+    $ref: "paths/ivr_servers@{id}@status.yaml"
+  /ivr_servers/{id}/destroy:
+    $ref: "paths/ivr_servers@{id}@destroy.yaml"
+  /ivrs:
+    $ref: "paths/ivrs.yaml"
+  /ivrs/{id}:
+    $ref: "paths/ivrs@{id}.yaml"
+  /ivrs/{id}/status:
+    $ref: "paths/ivrs@{id}@status.yaml"
+  /ivrs/{id}/destroy:
+    $ref: "paths/ivrs@{id}@destroy.yaml"
+  /ivrs/{id}/action_urls:
+    $ref: "paths/ivrs@{id}@action_urls.yaml"
+  /ivrs/{id}/action_urls/{url_id}:
+    $ref: "paths/ivrs@{id}@action_urls@{url_id}.yaml"
+  /ivrs/{id}/action_urls/{url_id}/destroy:
+    $ref: "paths/ivrs@{id}@action_urls@{url_id}@destroy.yaml"
+  /hotdesking:
+    $ref: "paths/hotdesking.yaml"
+  /hotdesking/{id}:
+    $ref: "paths/hotdesking@{id}.yaml"
+  /hotdesking/{id}/status:
+    $ref: "paths/hotdesking@{id}@status.yaml"
+  /hotdesking/{id}/logout:
+    $ref: "paths/hotdesking@{id}@logout.yaml"
+  /hotdesking/{id}/destroy:
+    $ref: "paths/hotdesking@{id}@destroy.yaml"
+  /sms:
+    $ref: "paths/sms.yaml"
+  /sms/{id}:
+    $ref: "paths/sms@{id}.yaml"
+  /sms/{id}/destroy:
+    $ref: "paths/sms@{id}@destroy.yaml"
+  /cdrs:
+    $ref: "paths/cdrs.yaml"
+  /cdrs/{id}:
+    $ref: "paths/cdrs@{id}.yaml"
+  /call_reports:
+    $ref: "paths/call_reports.yaml"
+  /call_reports/{id}:
+    $ref: "paths/call_reports@{id}.yaml"
+  /call_reports/{id}/destroy:
+    $ref: "paths/call_reports@{id}@destroy.yaml"
+  /completed_call_reports:
+    $ref: "paths/completed_call_reports.yaml"
+  /completed_call_reports/{id}:
+    $ref: "paths/completed_call_reports@{id}.yaml"
+  /completed_call_reports/{id}/destroy:
+    $ref: "paths/completed_call_reports@{id}@destroy.yaml"
+  /feature_access_codes:
+    $ref: "paths/feature_access_codes.yaml"
+  /default_email_templates:
+    $ref: "paths/default_email_templates.yaml"
+  /default_email_templates/{name}:
+    $ref: "paths/default_email_templates@{name}.yaml"
+  /custom_email_templates:
+    $ref: "paths/custom_email_templates.yaml"
+  /custom_email_templates/{name}:
+    $ref: "paths/custom_email_templates@{name}.yaml"
+  /audit_logs:
+    $ref: "paths/audit_logs.yaml"
+  /event_logs:
+    $ref: "paths/event_logs.yaml"
+  /test_email:
+    $ref: "paths/test_email.yaml"
+  /ms365:
+    $ref: "paths/ms365.yaml"
+  /ms365/certificate:
+    $ref: "paths/ms365@certificate.yaml"
+  /ms365/users:
+    $ref: "paths/ms365@users.yaml"

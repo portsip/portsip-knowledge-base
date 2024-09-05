@@ -1,0 +1,52 @@
+id:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/id"
+  description: |
+    The unique ID of DECT phone.
+name:
+  type: string
+  minLength: 1
+  maxLength: 64
+  description: |
+    The name of DECT phone.
+tone:
+  type: string
+  description: |
+    The tone set of DECT phone.
+lines:
+  type: integer
+  readOnly: true
+  description: |
+    The max lines of DECT phone.
+ipui:
+  type: string
+  description: |
+    The International Portable User Identity.
+handset_index:
+  type: string
+  description: |
+    The handset index.
+member:
+  type: object
+  properties:
+    id:
+      allOf:
+        - $ref: "common.yaml#/id"
+      readOnly: true
+      description: |
+        The unique ID of extension.
+    extension_number:
+      allOf:
+        - $ref: "common.yaml#/extension_number"
+      description: |
+        The extension number of extension.
+    display_name:
+      allOf:
+        - $ref: "user.yaml#/display_name"
+      readOnly: true
+      description: |
+        The display name of extension.
+    ipui:
+      $ref: "dectphone.yaml#/ipui"
+    handset_index:
+      $ref: "dectphone.yaml#/handset_index"

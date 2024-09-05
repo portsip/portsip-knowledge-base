@@ -1,0 +1,23 @@
+get:
+  tags:
+    - Virtual Receptionist
+  operationId: getVrServerStatus
+  summary: Query virtual receptionist server status
+  description: |
+    Retrieve a virtual receptionist server's status.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/ivrserver.yaml#/id"
+      description: The unique ID of the virtual receptionist server.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../components/schemas/ivrserver.yaml#/state"
+    "4XX":
+      description: Error

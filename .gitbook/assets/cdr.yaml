@@ -1,0 +1,138 @@
+id:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/id"
+  description: |
+    The unique ID of CDR.
+caller:
+  type: string
+  maxLength: 256
+  description: |
+    The caller number of the call.
+callee:
+  type: string
+  maxLength: 256
+  description: |
+    The callee number of the call.
+caller_domain:
+  type: string
+  maxLength: 1024
+  description: |
+    The caller domain of the call.
+callee_domain:
+  type: string
+  maxLength: 1024
+  description: |
+    The callee domain of the call.
+caller_display_name:
+  type: string
+  maxLength: 1024
+  description: |
+    The caller display name of the call.
+callee_display_name:
+  type: string
+  maxLength: 1024
+  description: |
+    The callee display name of the call.
+started_at:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/date_time"
+  description: |
+    The start time of the call.
+rang_at:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/date_time"
+  description: |
+    The ringing time of the call.
+answered_at:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/date_time"
+  description: |
+    The answer time of the call.
+ended_at:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/date_time"
+  description: |
+    The end time of the call.
+duration:
+  type: integer
+  format: int32
+  description: |
+    The total talk time for a session (in seconds).
+call_id:
+  type: string
+  description: |
+    The call ID of CDR.
+direction:
+  type: string
+  enum:
+    - INBOUND_CALL
+    - OUTBOUND_CALL
+    - EXTENSION_CALL
+    - INBOUND_OUTBOUND_CALL
+  description: |
+    The direction of CDR:
+    - `INBOUND_CALL`:
+    - `OUTBOUND_CALL`:
+    - `EXTENSION_CALL`:
+    - `INBOUND_OUTBOUND_CALL`:
+end_reason:
+  type: string
+  enum:
+    - CALLER_DISCONNECTED
+    - CALLEE_DISCONNECTED
+    - BLIND_TRANSFER_COMPLETED
+    - CONSULT_TRANSFER_COMPLETED
+    - REPLACED
+    - REFERRED
+    - REDIRECTED
+    - CANCELLED
+  description: |
+    The ended reason of CDR:  
+    Can be either:  
+    - `CALLER_DISCONNECTED`:
+    - `CALLEE_DISCONNECTED`:
+    - `BLIND_TRANSFER_COMPLETED`:
+    - `CONSULT_TRANSFER_COMPLETED`:
+    - `REPLACED`:
+    - `REFERRED`:
+    - `REDIRECTED`:
+    - `CANCELLED`:
+reroute_reason:
+  type: string
+  enum:
+    - TRANSFER
+    - OVERFLOW
+  description: |
+    The reroute reason of CDR:  
+    Can be either:  
+    - `TRANSFER`:
+    - `OVERFLOW`:
+status_code:
+  type: integer
+  description: |
+    The status code of CDR.
+destination:
+  type: string
+  description: |
+    The destination number of CDR.
+did_cid:
+  type: string
+  description: |
+    The DID CID of CDR.
+trunk:
+  type: string
+  description: |
+    The trunk name of CDR.
+cost:
+  type: number
+  format: double
+  description: |
+    The cost for this call.
+billed_account:
+  type: string
+  description: |
+    The account name for billing.
+user_data:
+  type: string
+  description: |
+    The additional custom user data of CDR.

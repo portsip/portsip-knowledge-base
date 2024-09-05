@@ -1,0 +1,89 @@
+post:
+  tags:
+    - Conference
+  operationId: createConferenceServer
+  summary: Create a conference server
+  description: |
+    Create a conference server.  
+    Please note that: at least one of ipv4 or ipv6 must be specified.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            name:
+              $ref: "../components/schemas/confserver.yaml#/name"
+            enabled:
+              $ref: "../components/schemas/confserver.yaml#/enabled"
+            ipv4:
+              $ref: "../components/schemas/common.yaml#/ipv4"
+            ipv6:
+              $ref: "../components/schemas/common.yaml#/ipv6"
+            max_rooms:
+              $ref: "../components/schemas/confserver.yaml#/max_rooms"
+            max_participants:
+              $ref: "../components/schemas/confserver.yaml#/max_participants"
+          required:
+            - name
+            - max_rooms
+            - max_participants
+    description: Conference room object
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/confserver.yaml#/id"
+    "4XX":
+      description: Error
+get:
+  tags:
+    - Conference
+  operationId: listConferenceServers
+  summary: List conference servers
+  description: |
+    List conference servers
+  parameters:
+    - $ref: "../components/parameters/common.yaml#/filter"
+    - $ref: "../components/parameters/common.yaml#/search"
+    - $ref: "../components/parameters/common.yaml#/orderby"
+    - $ref: "../components/parameters/common.yaml#/skip"
+    - $ref: "../components/parameters/common.yaml#/top"
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                $ref: "../components/schemas/common.yaml#/count"
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      $ref: "../components/schemas/confserver.yaml#/id"
+                    name:
+                      $ref: "../components/schemas/confserver.yaml#/name"
+                    enabled:
+                      $ref: "../components/schemas/confserver.yaml#/enabled"
+                    type:
+                      $ref: "../components/schemas/confserver.yaml#/type"
+                    ipv4:
+                      $ref: "../components/schemas/common.yaml#/ipv4"
+                    ipv6:
+                      $ref: "../components/schemas/common.yaml#/ipv6"
+                    max_rooms:
+                      $ref: "../components/schemas/confserver.yaml#/max_rooms"
+                    max_participants:
+                      $ref: "../components/schemas/confserver.yaml#/max_participants"
+    "4XX":
+      description: Error

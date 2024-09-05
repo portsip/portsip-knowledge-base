@@ -1,0 +1,21 @@
+post:
+  tags:
+    - Conference
+  operationId: deleteConferenceRoom
+  summary: Delete a conference room
+  description: |
+    Destroy a conference room
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/confroom.yaml#/id"
+      description: The unique ID of the conference room.
+  responses:
+    "204":
+      description: No Content
+    "400":
+      description: Invalid username supplied
+    "404":
+      description: Not found

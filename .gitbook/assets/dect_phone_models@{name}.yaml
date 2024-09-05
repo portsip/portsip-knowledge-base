@@ -1,0 +1,47 @@
+get:
+  tags:
+    - Auto Provisioning
+  operationId: retrieveDectPhoneModel
+  summary: Retrieve details of DECT phone model
+  description: |
+    Retrieve details of DECT phone model.
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/phone.yaml#/filename"
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              template:
+                $ref: "../components/schemas/phone.yaml#/filename"
+              languages:
+                type: array
+                items:
+                  $ref: "../components/schemas/phone.yaml#/language"
+                description: |
+                  A collection of language tags.
+              tones:
+                type: array
+                items:
+                  $ref: "../components/schemas/phone.yaml#/ringtone"
+                description: |
+                  A collection of ringtones.
+              time_zones:
+                type: array
+                items:
+                  $ref: "../components/schemas/phone.yaml#/timezone"
+                description: |
+                  A collection of time zones.
+              codecs:
+                $ref: "../components/schemas/phone.yaml#/codecs"
+              lines:
+                $ref: "../components/schemas/dectphone.yaml#/lines"
+    "4XX":
+      description: Error

@@ -1,0 +1,34 @@
+get:
+  tags:
+    - Troubleshooting
+  operationId: listEventLogs
+  summary: List event logs
+  description: |
+    Retrieve a collection of event logs.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                $ref: "../components/schemas/common.yaml#/count"
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      $ref: "../components/schemas/eventlog.yaml#/id"
+                    created_at:
+                      $ref: "../components/schemas/eventlog.yaml#/created_at"
+                    level:
+                      $ref: "../components/schemas/eventlog.yaml#/level"
+                    source:
+                      $ref: "../components/schemas/eventlog.yaml#/source"
+                    message:
+                      $ref: "../components/schemas/eventlog.yaml#/message"
+    "4XX":
+      description: Error

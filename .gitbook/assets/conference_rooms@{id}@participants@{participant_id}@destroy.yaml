@@ -1,0 +1,25 @@
+post:
+  tags:
+    - Conference
+  operationId: kickOutConferenceRoomParticipant
+  summary: Kick out room participant
+  description: |
+    Kick out conference room participant.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/confroom.yaml#/id"
+      description: The unique ID of the conference room.
+    - name: participant_id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/confroom.yaml#/participant_id"
+      description: The id of the participant.
+  responses:
+    "204":
+      description: No Content
+    "4XX":
+      description: Error

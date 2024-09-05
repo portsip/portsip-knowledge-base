@@ -1,0 +1,29 @@
+get:
+  tags:
+    - Ring Group
+  operationId: retrieveRingGroupAgent
+  summary: Retrieve ring group agent details.
+  description: |
+    Retrieve information of ring group agent.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/ringgroup.yaml#/id"
+      description: The unique ID of the ring group.
+    - name: agent_number
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/common.yaml#/extension_number"
+      description: The extension number of the agent.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../components/schemas/ringgroup.yaml#/agent"
+    "4XX":
+      description: Error

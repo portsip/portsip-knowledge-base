@@ -1,0 +1,88 @@
+id:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/id"
+  description: |
+    The unique ID of inbound rule.
+name:
+  type: string
+  minLength: 1
+  maxLength: 64
+  description: |
+    Inbound rule name.
+enabled:
+  type: boolean
+  default: true
+  description: |
+    Enabled or not.
+cid_number_mask:
+  type: string
+  description: |
+    The CID number Mask for inbound rule.  
+    You can add the number in it's entirety, identifying a single caller,   
+    or use the * as a wildcard. For example 0044********** will identify a
+    UK Caller and 004420******** will identify a caller from London.   
+    Note: the * digits must matched number actually digits. If the number is 3 digits, then should use ***
+    The CID number mask also allow set a number range, for example: 00442012345670-00442012345680.
+did_numbers:
+  type: string
+  minLength: 1
+  description: |
+    A single DID/DDI number or a hyphen-separated range of DID/DDI numbers.
+did_numbers_as_to_header:
+  type: boolean
+  default: false
+  description: |
+    Whether to user DID numbers as invite `To` header.
+forward_rule_action:
+  type: string
+  enum:
+    - FORWARD_TO_NUMBER
+    - FORWARD_TO_VOICEMAIL
+    - HANGUP
+  description: |
+    Forward action can be either:  
+    - `FORWARD_TO_NUMBER`:
+    - `FORWARD_TO_VOICEMAIL`:
+    - `HANGUP`: finish call
+forward_rule_number:
+  type: string
+  description: |
+    Specify the forwarding destination number.  
+    Can be either:  
+    - Extension number: The extension number of PortSIP PBX.
+    - External number: The numeric sequence of numbers, with or without a plus sign at the beginning.
+office_hours_forward_rule:
+  type: object
+  properties:
+    action:
+      $ref: "#/forward_rule_action"
+    number:
+      $ref: "#/forward_rule_number"
+non_office_hours_forward_rule:
+  type: object
+  properties:
+    action:
+      $ref: "#/forward_rule_action"
+    number:
+      $ref: "#/forward_rule_number"
+holiday_forward_rule:
+  type: object
+  properties:
+    action:
+      $ref: "#/forward_rule_action"
+    number:
+      $ref: "#/forward_rule_number"
+enable_advanced_routing:
+  type: boolean
+  default: false
+  description: |
+    Whether to enable advanced routing.
+advanced_routing:
+  type: string
+  description: |
+    Advanced routing rules.
+play_recording_disclaimer:
+  type: boolean
+  default: false
+  description: |
+    Whether to play recording disclaimer to inbound calls.

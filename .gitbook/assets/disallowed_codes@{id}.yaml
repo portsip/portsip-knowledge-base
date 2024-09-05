@@ -1,0 +1,61 @@
+get:
+  tags:
+    - Security
+  operationId: showBlockCode
+  summary: Retrieve blocked code
+  description: |
+    Retrieve details of blocked code by it's unique ID.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/common.yaml#/id"
+      description: The unique ID of the blocked code.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/blockcode.yaml#/id"
+              number_prefix:
+                $ref: "../components/schemas/blockcode.yaml#/prefix"
+              description:
+                $ref: "../components/schemas/blockcode.yaml#/description"
+    "4XX":
+      description: Error
+post:
+  tags:
+    - Security
+  operationId: updateBlockCode
+  summary: Update a blocked code
+  description: |
+    Update a blocked code by it's ID.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/common.yaml#/id"
+      description: The unique ID of the code.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            id:
+              $ref: "../components/schemas/blockcode.yaml#/id"
+            number_prefix:
+              $ref: "../components/schemas/blockcode.yaml#/prefix"
+            description:
+              $ref: "../components/schemas/blockcode.yaml#/description"
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

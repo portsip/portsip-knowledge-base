@@ -1,0 +1,161 @@
+national_cloud:
+  type: string
+  enum:
+    - GLOBAL
+    - CHINA
+  default: GLOBAL
+  description: |
+    The Microsoft cloud services are available in several separate national clouds.   
+    These national cloud versions are physical and logical network-isolated instances of Microsoft enterprise cloud services   
+    that are confined within the geographic borders of specific countries and operated by local personnel.
+    Can be either:   
+    - `GLOBAL`: Azure global service.
+    - `CHINA`: Azure China service.
+redirect_uri:
+  type: string
+  readOnly: true
+  description: |
+    Redirect URI. The URIs we will accept as destinations when returning authentication responses (tokens) after successfully authenticating or signing out users.   
+    The redirect URI you send in the request to the login server should match one listed here. Also referred to as reply URLs.
+sbc_redirect_uri:
+  type: string
+  readOnly: true
+  description: |
+    Same as the `redirect_uri`, but via the sbc network topology.
+directory_id:
+  type: string
+  description: |
+    The Directory ID (Tenant ID) of Microsoft identity platform.
+application_id:
+  type: string
+  description: |
+    The Application (client) ID of Azure AD.
+id:
+  type: string
+  description: |
+    The `OID` or `Principal Name` of Microsoft 365 user.
+user:
+  type: object
+  properties:
+    id:
+      type: string
+      description: |
+        The `OID` of Microsoft 365 user.
+    name:
+      type: string
+      description: |
+        The name of Microsoft 365 user.
+    email:
+      allOf:
+        - $ref: "common.yaml#/email"
+        - description: |
+            The email address of Microsoft 365 user.
+selected:
+  type: array
+  items:
+    type: string
+    description: |
+      The `Principal Name` of Microsoft 365 user.
+  description: |
+    A collection of Microsoft 365 user's ID.
+sync_type:
+  type: string
+  enum:
+    - ALL
+    - INCLUDE
+    - EXCLUDE
+  default: ALL
+  description: |
+    The synchronization policy:   
+    Can be either:   
+    - `ALL`: All users will be synced.
+    - `INCLUDE`: All users except selected users will be synced.
+    - `EXCLUDE`: All selected users will be synced.
+personal_contacts:
+  type: object
+  properties:
+    enabled:
+      type: boolean
+      default: false
+      description: |
+        Whether to enable user personal contacts synchronization.
+    selected_users:
+      $ref: "#/selected"
+    sync_type:
+      $ref: "#/sync_type"
+users:
+  type: object
+  properties:
+    enabled:
+      type: boolean
+      default: false
+      description: |
+        Whether to enable Microsoft 365 users with extensions synchronization.
+    sync_guest_users:
+      type: boolean
+      default: false
+      description: |
+        Whether to enable gust user synchronization.
+    sync_photo:
+      type: boolean
+      default: false
+      description: |
+        Whether to synchronize user photo.
+    starting_extension_number:
+      type: string
+      minLength: 3
+      maxLength: 13
+      pattern: "[0-9]{3,13}"
+      description: |
+        The starting extension number for synchronized users.   
+        Left padding with zeros is not allowed.
+    selected_users:
+      $ref: "#/selected"
+    sync_type:
+      $ref: "#/sync_type"
+events:
+  type: object
+  properties:
+    enabled:
+      type: boolean
+      default: false
+      description: |
+        Whether to enable Microsoft 365 users with extensions synchronization.
+    selected_users:
+      $ref: "#/selected"
+    sync_type:
+      $ref: "#/sync_type"
+shared_mailbox:
+  type: object
+  properties:
+    enabled:
+      type: boolean
+      default: false
+      description: |
+        Whether to enable Microsoft 365 users with extensions synchronization.
+    selected_users:
+      $ref: "#/selected"
+    sync_type:
+      $ref: "#/sync_type"
+sign_in_as_administrator:
+  type: object
+  properties:
+    enabled:
+      type: boolean
+      default: false
+      description: |
+        Whether to enable Microsoft 365 users with extensions synchronization.
+    selected_users:
+      $ref: "#/selected"
+sign_in_as_standard_user:
+  type: object
+  properties:
+    enabled:
+      type: boolean
+      default: false
+      description: |
+        Whether to enable Microsoft 365 users with extensions synchronization.
+    selected_users:
+      $ref: "#/selected"
+    sync_type:
+      $ref: "#/sync_type"

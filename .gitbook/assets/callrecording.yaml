@@ -1,0 +1,29 @@
+id:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/id"
+  readOnly: true
+  description: |
+    The unique ID of call recording.
+caller:
+  type: string
+  description: |
+    Caller who started the call.
+callee:
+  type: string
+  description: |
+    Callee who answered the call.
+started_at:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/date_time"
+  description: |
+    Time on which the call is answered.
+ended_at:
+  allOf:
+    - $ref: "../../components/schemas/common.yaml#/date_time"
+  description: |
+    Time on which the call is ended.
+duration:
+  type: integer
+  format: int32
+  description: |
+    The playback time (in seconds).

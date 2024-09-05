@@ -1,0 +1,24 @@
+post:
+  tags:
+    - User
+  operationId: deleteUserGroupMember
+  summary: Delete group member
+  description: Delete an user group member.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/extgrp.yaml#/id"
+      description: The unique ID of the group.
+    - name: extension_number
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/common.yaml#/extension_number"
+      description: The extension number of the group member.
+  responses:
+    "204":
+      description: No Content
+    "4XX":
+      description: Error

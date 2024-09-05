@@ -1,0 +1,19 @@
+post:
+  tags:
+    - Auto Provisioning
+  operationId: rejectPhone
+  summary: Reject a phone
+  description: |
+    Reject a phone from auto provisioning.
+  parameters:
+    - name: mac
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/common.yaml#/mac"
+      description: The MAC address of the IP phone.
+  responses:
+    "200":
+      description: OK
+    "400":
+      description: Invalid mac address.

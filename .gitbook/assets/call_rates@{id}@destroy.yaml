@@ -1,0 +1,19 @@
+post:
+  tags:
+    - Billing
+  operationId: deleteCallRate
+  summary: Delete a call rate
+  description: |
+    Destroy a call rate.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/billing.yaml#/id"
+      description: The unique ID of the call rate.
+  responses:
+    "204":
+      description: No Content
+    "4XX":
+      description: Error

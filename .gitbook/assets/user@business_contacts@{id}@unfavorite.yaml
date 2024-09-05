@@ -1,0 +1,19 @@
+post:
+  tags:
+    - User
+  operationId: unfavoriteBusinessContact
+  summary: Unfavorite a business contact
+  description: |
+    Favorite a business contact.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/contact.yaml#/id"
+      description: The unique ID of the contact.
+  responses:
+    "200":
+      description: OK
+    "4XX":
+      description: Error

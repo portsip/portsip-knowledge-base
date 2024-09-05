@@ -1,0 +1,97 @@
+post:
+  tags:
+    - User
+  operationId: updateUserGlobalHoliday
+  summary: Update user's global holidays
+  description: |
+    Update global holidays from tenant holidays.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/extension.yaml#/id"
+      description: The unique ID of the user.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            items:
+              type: array
+              items:
+                $ref: "../components/schemas/holiday.yaml#/id"
+              description: |
+                A collection of ID of tenant's holiday.
+  responses:
+    "201":
+      description: Created
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/holiday.yaml#/id"
+    "4XX":
+      description: Error
+get:
+  tags:
+    - User
+  operationId: listUserGlobalHolidays
+  summary: List user's global holidays
+  description: |
+    Retrieve a collection of global holidays.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/extension.yaml#/id"
+      description: The unique ID of the user.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      $ref: "../components/schemas/holiday.yaml#/id"
+                    name:
+                      $ref: "../components/schemas/holiday.yaml#/name"
+                    region:
+                      $ref: "../components/schemas/common.yaml#/region"
+                    consecutive:
+                      $ref: "../components/schemas/holiday.yaml#/consecutive"
+                    every_year:
+                      $ref: "../components/schemas/holiday.yaml#/every_year"
+                    year_start:
+                      $ref: "../components/schemas/holiday.yaml#/year_start"
+                    year_end:
+                      $ref: "../components/schemas/holiday.yaml#/year_end"
+                    month_start:
+                      $ref: "../components/schemas/holiday.yaml#/month_start"
+                    month_end:
+                      $ref: "../components/schemas/holiday.yaml#/month_end"
+                    day_start:
+                      $ref: "../components/schemas/holiday.yaml#/day_start"
+                    day_end:
+                      $ref: "../components/schemas/holiday.yaml#/day_end"
+                    hour_start:
+                      $ref: "../components/schemas/holiday.yaml#/hour_start"
+                    hour_end:
+                      $ref: "../components/schemas/holiday.yaml#/hour_end"
+                    minute_start:
+                      $ref: "../components/schemas/holiday.yaml#/minute_start"
+                    minute_end:
+                      $ref: "../components/schemas/holiday.yaml#/minute_end"
+    "4XX":
+      description: Error

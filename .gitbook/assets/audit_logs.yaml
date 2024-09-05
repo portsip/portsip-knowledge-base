@@ -1,0 +1,44 @@
+get:
+  tags:
+    - Troubleshooting
+  operationId: listAuditLogs
+  summary: List audit logs
+  description: |
+    Retrieve a collection of audit logs.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                $ref: "../components/schemas/common.yaml#/count"
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      $ref: "../components/schemas/auditlog.yaml#/id"
+                    created_at:
+                      $ref: "../components/schemas/auditlog.yaml#/created_at"
+                    source:
+                      $ref: "../components/schemas/auditlog.yaml#/source"
+                    ip:
+                      $ref: "../components/schemas/auditlog.yaml#/ip"
+                    action:
+                      $ref: "../components/schemas/auditlog.yaml#/action"
+                    object_type:
+                      $ref: "../components/schemas/auditlog.yaml#/object_type"
+                    user_name:
+                      $ref: "../components/schemas/auditlog.yaml#/user_name"
+                    object_name:
+                      $ref: "../components/schemas/auditlog.yaml#/object_name"
+                    old_state:
+                      $ref: "../components/schemas/auditlog.yaml#/old_state"
+                    new_state:
+                      $ref: "../components/schemas/auditlog.yaml#/new_state"
+    "4XX":
+      description: Error

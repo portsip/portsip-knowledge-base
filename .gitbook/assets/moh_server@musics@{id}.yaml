@@ -1,0 +1,32 @@
+get:
+  tags:
+    - MOH
+  operationId: showMohMusic
+  summary: Retrieve a moh music
+  description: |
+    Retrieve a moh music.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        $ref: "../components/schemas/moh.yaml#/id"
+      description: The unique ID of the music.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: "../components/schemas/moh.yaml#/id"
+              file_name:
+                $ref: "../components/schemas/file.yaml#/name"
+              file_size:
+                $ref: "../components/schemas/file.yaml#/size"
+              file_url:
+                $ref: "../components/schemas/file.yaml#/url"
+    "4XX":
+      description: Error
