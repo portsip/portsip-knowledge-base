@@ -12,7 +12,6 @@
 
 ***
 
-* [Developer Documentation](developer-documentation.md)
 * [FAQ](faq/README.md)
   * [What is the Multi-Tenant PBX?](faq/what-is-the-multi-tenant-pbx.md)
   * [Is the PortSIP PBX built on Asterisk, FreeSwitch?](faq/is-the-portsip-pbx-built-on-asterisk-freeswitch.md)
@@ -166,14 +165,11 @@
   * [Certificates for TLS/HTTPS/WebRTC](portsip-pbx-administration-guide/certificates-for-tls-https-webrtc/README.md)
     * [Preparing TLS Certificates](portsip-pbx-administration-guide/certificates-for-tls-https-webrtc/preparing-tls-certificates.md)
     * [Update Certificates](portsip-pbx-administration-guide/certificates-for-tls-https-webrtc/update-certificates.md)
-  * [Going Real-Time with PortSIP PBX Pub/Sub](portsip-pbx-administration-guide/going-real-time-with-portsip-pbx-pub-sub.md)
   * [Backup and Restore: An Essential Guide](portsip-pbx-administration-guide/backup-and-restore/README.md)
     * [Backup and Restore PortSIP PBX](portsip-pbx-administration-guide/backup-and-restore/backup-and-restore-portsip-pbx.md)
     * [Backup and Restore PortSIP SBC](portsip-pbx-administration-guide/backup-and-restore/backup-and-restore-portsip-sbc.md)
   * [Storing Into AWS S3](portsip-pbx-administration-guide/storing-into-aws-s3.md)
   * [Trace Server - A Better Way to Monitoring SIP Messages and QoS for PortSIP PBX](portsip-pbx-administration-guide/debug-sip-message.md)
-* [Mobile Push Notifications](mobile-push-notifications/README.md)
-  * [How Do Push Notifications Work with PortSIP PBX?](mobile-push-notifications/how-do-push-notifications-work-with-portsip-pbx.md)
 * [PBX Cluster](pbx-cluster/README.md)
   * [Topology](pbx-cluster/topology.md)
   * [Preparing Cluster Servers](pbx-cluster/preparing-cluster-servers.md)
@@ -188,7 +184,6 @@
   * [High Availability Installations on  AWS](high-availability-and-scalability-on-aws/high-availability-installations-on-aws.md)
   * [Increase Size of EBS Volume](high-availability-and-scalability-on-aws/increase-size-of-ebs-volume.md)
   * [Scaling Servers on AWS for HA](high-availability-and-scalability-on-aws/scaling-servers-on-aws-for-ha.md)
-* [Call Control API](call-control-api.md)
 * [Troubleshooting Call Issues](troubleshooting-call-issues.md)
 * [Migrate from legacy FCM APIs to HTTP v1 for Android Push Notifications](migrate-from-legacy-fcm-apis-to-http-v1-for-android-push-notifications.md)
 * [PortSIP SBC Administration Guide](portsip-sbc-administration-guide/README.md)
@@ -198,6 +193,14 @@
   * [Before Started](portsip-sbc-administration-guide/before-started.md)
   * [1 Installation of the PortSIP SBC](portsip-sbc-administration-guide/1-installation-of-the-portsip-sbc.md)
   * [2 Configure the PortSIP SBC](portsip-sbc-administration-guide/2-configure-the-portsip-sbc.md)
+* [Developer Documentation](developer-documentation/README.md)
+  * [REST APIs](developer-documentation/rest-apis.md)
+  * [Call Control API](developer-documentation/call-control-api.md)
+  * [Mobile Push Notifications](developer-documentation/mobile-push-notifications/README.md)
+    * [How Do Push Notifications Work with PortSIP PBX?](developer-documentation/mobile-push-notifications/how-do-push-notifications-work-with-portsip-pbx.md)
+  * [WSI: Pub/Sub](developer-documentation/going-real-time-with-portsip-pbx-pub-sub.md)
+  * [Messaging APIs](developer-documentation/messaging-apis.md)
+  * [Webhook Notifications](developer-documentation/webhook-notifications.md)
 
 ## PBX v12.x (EOL) <a href="#pbx_v12" id="pbx_v12"></a>
 

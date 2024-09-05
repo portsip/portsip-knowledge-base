@@ -154,7 +154,7 @@ PortSIP PBX supports sending the CDR and extension call events to a pre-configur
 
 PortSIP PBX provides the Pub/Sub mechanism which is based on the WebSocket (PortSIP WSI).&#x20;
 
-The user is able to create the WebSocket in any programming language to subscribe to the PBX events, once the subscribed events occur, PortSIP PBX will send the event message to the subscriber automatically, the message is in the JSON format. For more details please read this article: [Going Real-Time with PortSIP PBX Pub/Sub](portsip-pbx-administration-guide/going-real-time-with-portsip-pbx-pub-sub.md).
+The user is able to create the WebSocket in any programming language to subscribe to the PBX events, once the subscribed events occur, PortSIP PBX will send the event message to the subscriber automatically, the message is in the JSON format. For more details please read this article: [Going Real-Time with PortSIP PBX Pub/Sub](developer-documentation/going-real-time-with-portsip-pbx-pub-sub.md).
 
 ## Dealers
 
@@ -199,7 +199,7 @@ This award-winning SDK is used by many large companies such as T-Mobile, Nextiva
 
 A Voice over Internet Protocol (VoIP) app lets users make and receive phone calls by using an Internet connection instead of the device’s cellular service. Since the VoIP app relies heavily on the network, it’s not surprising that making calls usually results in high power consumption.
 
-PortSIP PBX supports mobile push notifications for iOS and Android apps. All PortSIP users will benefit from this feature, for more details please read this article: [How Do Push Notifications Work with PortSIP PBX?](mobile-push-notifications/how-do-push-notifications-work-with-portsip-pbx.md)
+PortSIP PBX supports mobile push notifications for iOS and Android apps. All PortSIP users will benefit from this feature, for more details please read this article: [How Do Push Notifications Work with PortSIP PBX?](developer-documentation/mobile-push-notifications/how-do-push-notifications-work-with-portsip-pbx.md)
 
 ## Rebranding App
 

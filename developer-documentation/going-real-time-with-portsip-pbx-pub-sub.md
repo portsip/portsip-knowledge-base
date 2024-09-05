@@ -1,4 +1,4 @@
-# Going Real-Time with PortSIP PBX Pub/Sub
+# WSI: Pub/Sub
 
 PortSIP PBX provides the Pub/Sub mechanism which is based on the WebSocket (PortSIP WSI). The user is able to create the WebSocket in any programming language to subscribe to the PBX events, once the subscribed events occur, PortSIP PBX will push the event message to the subscriber automatically, the message is in the JSON format.
 
@@ -156,7 +156,7 @@ Once a call has ended, the CDR of this call will be pushed to the subscribers, t
 * `call_cdr`: once a call has ended, the CDR will be packed in JSON format and pushed to the subscriber.
 * `call_start`: once an extension receives a call, the call information will be packed in JSON format and pushed to the subscriber.
 
-For more details please refer to this [topic](20-cdr-and-call-recordings/#cdr).
+For more details please refer to this [topic](../portsip-pbx-administration-guide/20-cdr-and-call-recordings/#cdr).
 
 ### queue\_events
 
