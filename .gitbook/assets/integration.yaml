@@ -1,8 +1,0 @@
-sync_type:
-  type: string
-  enum:
-    - Microsoft 365
-  description: |
-    The synchronization method.   
-    Can be either:   
-    - `Microsoft 365`: Sync from Microsoft 365.

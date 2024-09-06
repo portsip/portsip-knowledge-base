@@ -1,9 +1,0 @@
-enabled:
-  type: boolean
-  description: |
-    Enable monitor server or not.
-extension_number:
-  allOf:
-    - $ref: "../../components/schemas/common.yaml#/extension_number"
-  description: |
-    The extension number of monitor server.
