@@ -3,7 +3,7 @@
 ## PortSIP PBX
 
 * [What is PortSIP?](README.md)
-* [The Advantages of PortSIP PBX vs. Other PBXs](<README (1).md>)
+* [The Advantages of PortSIP PBX vs. Other PBXs](portsip-pbx/the-advantages-of-portsip-pbx-vs.-other-pbxs.md)
 * [Cloud PBX Empowering Service Provider](cloud-pbx-empowering-service-provider.md)
 * [Configuring SIP Trunks](configuring-sip-trunks/README.md)
   * [QuestBlue SIP Trunk](configuring-sip-trunks/questblue-sip-trunk/README.md)
