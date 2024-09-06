@@ -201,9 +201,9 @@
   * [Call Control APIs](developer-guide/call-control-api.md)
   * [Mobile Push Notifications](developer-guide/mobile-push-notifications/README.md)
     * [How Do Push Notifications Work with PortSIP PBX?](developer-guide/mobile-push-notifications/how-do-push-notifications-work-with-portsip-pbx.md)
+    * [Integrating Push Notifications](developer-guide/mobile-push-notifications/integrating-push-notifications.md)
   * [WSI: Pub/Sub](developer-guide/going-real-time-with-portsip-pbx-pub-sub.md)
   * [Messaging APIs](developer-guide/messaging-apis.md)
-  * [Integrating Push Notifications](developer-guide/integrating-push-notifications.md)
   * [Webhook Events](developer-guide/webhook-notifications.md)
 
 ## PBX v12.x (EOL) <a href="#pbx_v12" id="pbx_v12"></a>
