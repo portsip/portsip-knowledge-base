@@ -33,6 +33,7 @@ This message will be returned under the following scenarios:
       "extension_id": "794493219508322304",
       "call_status": "On Call",
       "online": false,
+      "presence" : "AWAY",
       "presence_note": "",
       "push_online": false,
       "time": "1704186780"
@@ -42,6 +43,7 @@ This message will be returned under the following scenarios:
       "extension_id": "794493219718037504",
       "call_status": "On Call",
       "online": false,
+      "presence" : "AVAILABLE",
       "presence_note": "",
       "push_online": false,
       "time": "1704186780"
@@ -57,7 +59,13 @@ The message is in JSON format and includes the following fields:
 * `tenant_id`: Represents the ID of the tenant to which the extension belongs.
 * `status`: It's a JSON array that includes the extension status, including the following fields:
   * `extension`: Represents the SIP URI of the extension.
-  * `presence_note`: Contains the text of the presence status.
+  * `presence`: the presence status with the enum string:&#x20;
+    * `DO_NOT_DISTURB`
+    * `AVAILABLE`
+    * `AWAY`
+    * `BUSINESS_TRIP`
+    * `LUNCH`
+  * `presence_note`: Contains the text of the additional presence status.
   * `call_status`: The "**On Call**" status signifies that the extension is currently engaged in a call. The "**Ringing**" status means that the extension is currently receiving a call and is ringing. If this value is empty, it indicates that the extension is not involved in any call.
   * `online`: Indicates whether the extension is currently registered to the PBX.
   * `push_online`: This field indicates whether mobile push notifications are currently enabled for the extension. This is only valid if `online` is false.
@@ -102,7 +110,8 @@ This message will be returned under the following scenario:
 {
   "event_type": "extension_presence",
   "extension": "sip:101@test.io",
-  "presence_note": "Away",
+  "presence" : "AVAILABLE",
+  "presence_note": "Drving",
   "tenant_id": "792406615960584192",
   "extension_id": "792406615960584220",
   "time": "1703690547"
@@ -113,6 +122,12 @@ The message is in JSON format and includes the following fields:
 
 * `event_type`: Indicates the type of the message.
 * `extension`: Represents the SIP URI of the extension.
+* `presence`: the presence status with the enum string:&#x20;
+  * `DO_NOT_DISTURB`
+  * `AVAILABLE`
+  * `AWAY`
+  * `BUSINESS_TRIP`
+  * `LUNCH`
 * `presence_note`: Contains the text of the presence status.
 * `tenant_id`: Represents the ID of the tenant to which the extension belongs.
 * `extension_id`: Represents the ID of the extension.
