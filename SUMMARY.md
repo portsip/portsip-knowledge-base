@@ -2,8 +2,6 @@
 
 ## PortSIP PBX
 
-***
-
 * [What is PortSIP?](README.md)
 * [The Advantages of PortSIP PBX vs. Other PBXs](<README (1).md>)
 * [Cloud PBX Empowering Service Provider](cloud-pbx-empowering-service-provider.md)
@@ -156,7 +154,7 @@
     * [High Availability Installations on Ubuntu](high-availability-for-on-premise/high-availability-installations-on-ubuntu.md)
   * [High Availability and Scalability on AWS](high-availability-and-scalability-on-aws/README.md)
     * [PortSIP PBX High Availability Architecture](high-availability-and-scalability-on-aws/portsip-pbx-high-availability.md)
-    * [High Availability Installations on  AWS](high-availability-and-scalability-on-aws/high-availability-installations-on-aws.md)
+    * [High Availability Installations on AWS](high-availability-and-scalability-on-aws/high-availability-installations-on-aws.md)
     * [Increase Size of EBS Volume](high-availability-and-scalability-on-aws/increase-size-of-ebs-volume.md)
     * [Scaling Servers on AWS for HA](high-availability-and-scalability-on-aws/scaling-servers-on-aws-for-ha.md)
 * [PortSIP SBC Administration Guide](portsip-sbc-administration-guide/README.md)
@@ -192,8 +190,6 @@
   * [PortSIP Software End-User License Agreement](license-agreement/portsip-software-end-user-license-agreement.md)
 
 ## DEVELOPING WITH PORTSIP <a href="#development-portsip" id="development-portsip"></a>
-
-***
 
 * [Developer Guide](developer-guide/README.md)
   * [Calling APIs](developer-guide/calling-apis.md)
