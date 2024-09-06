@@ -1,8 +1,0 @@
-client_id:
-  type: string
-  description: |
-    The client ID of application for authorization.
-client_secret:
-  type: string
-  description: |
-    The client secret for authorization.
