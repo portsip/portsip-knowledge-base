@@ -193,7 +193,7 @@
 
 * [Developer Guide](developer-guide/README.md)
   * [Calling APIs](development-portsip/developer-guide/calling-apis/README.md)
-    * [User Manual](development-portsip/developer-guide/calling-apis/user-manual.md)
+    * [User Manual for Windows](development-portsip/developer-guide/calling-apis/user-manual-for-windows.md)
   * [REST APIs](developer-guide/rest-apis.md)
   * [Call Control APIs](developer-guide/call-control-api.md)
   * [Mobile Push Notifications](developer-guide/mobile-push-notifications/README.md)
