@@ -418,7 +418,9 @@ If we just want to unsubscribe from the CDR events, use the below command.
 
 If we want to subscribe to the queue status, use the below command.
 
-Note, that the extension only has permission to subscribe to the queues belonging to that extension, if the extension(subscriber) is not a member of the queue, and also not a queue manager of the queue, the events will not push to the extension(subscriber). For example, if extension 101 is the member/agent/queue manager of queue 8001 and 8002, after 101 is subscribed to queue events, both 8001 and 8002 queue status will be pushed to extension 101.
+Note, that the extension only has permission to subscribe to the queues belonging to that extension, if the extension(subscriber) is not an agent of the queue, and also not a queue manager of the queue, the events will not push to the extension(subscriber).&#x20;
+
+For example, if extension 101 is the agent/queue manager of queues 8001 and 8002 after 101 is subscribed to queue events, both 8001 and 8002 queue status will be pushed to extension 101.
 
 The admin user role of the tenant and queue manager has permission to subscribe to any queues.
 
