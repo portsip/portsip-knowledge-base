@@ -168,10 +168,11 @@ The message is in JSON format and includes the following fields:
 
 Once a call has ended, the CDR of this call will be pushed to the subscribers, this event means subscribing to all calls CDR of a tenant. The message topic is: **`cdr_events`**, the message key is below.
 
-* `call_cdr`: once a call has ended, the CDR will be packed in JSON format and pushed to the subscriber.
-* `call_start`: once an extension receives a call, the call information will be packed in JSON format and pushed to the subscriber.
+* `call_start`: Once an extension receives a call, the call information will be packed in a JSON object and pushed to the subscriber.
+* `call_update_info`: The call information is updated, and the call information will be packed in a JSON object and pushed to the subscriber.
+* `call_cdr`: Once a call has ended, the CDR will be packed in a JSON object and pushed to the subscriber.
 
-For more details please refer to this [topic](../portsip-pbx-administration-guide/20-cdr-and-call-recordings/#cdr).
+For more details about the CDR JSON object structure information, please refer to [Event Reference](../development-portsip/developer-guide/webhook-notifications/event-reference.md).
 
 ### queue\_events
 
@@ -218,8 +219,6 @@ Below are the message keys.
 }
 ```
 
-
-
 * **queue\_caller\_status**: if the waiting callers of a queue were changed, the PBX will push the **queue\_caller\_status** event in JSON format to the subscribers. The reason can be:
   * **enqueue**: This caller has just connected with the queue and is now on the waiting list.
   * **agent\_answered**: The caller left the queue since it was answered by an agent.
@@ -244,8 +243,6 @@ Below are the message keys.
    ]
 }
 ```
-
-
 
 * **queue\_agent\_status**: If an agent’s status in the queue changes, or a new agent is added to the queue, or an existing agent is removed from the queue, the PBX will push the **queue\_agent\_status** event in JSON format to the subscribers. The **removed\_agents** field indicates the agents that have been newly removed from the queue.
 
@@ -286,8 +283,6 @@ Below are the message keys.
    "timestamp":"1676206249"
 }
 ```
-
-
 
 ## **Subscribe and Unsubscribe**
 
