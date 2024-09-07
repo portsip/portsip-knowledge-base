@@ -57,34 +57,48 @@ Yes, both 32-bit and 64-bit are supported for SDK.
 
 ## **Initialize and register functions**
 
-**Int32 PortSIP.PortSIPLib.initialize (TRANSPORT\_TYPE **_**transportType**_**, String **_**localIp**_**, Int32 **_**localSIPPort**_**, PORTSIP\_LOG\_LEVEL **_**logLevel**_**, String **_**logFilePath**_**, Int32 **_**maxCallSessions**_**, String **_**sipAgentString**_**, Int32 **_**audioDeviceLayer**_**, Int32 **_**videoDeviceLayer**_**, String **_**TLSCertificatesRootPath**_**, String **_**TLSCipherList**_**, Boolean **_**verifyTLSCertificate**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.initialize (TRANSPORT_TYPE transportType, 
+                                String localIp, 
+                                Int32 localSIPPort,
+                                PORTSIP_LOG_LEVEL logLevel, 
+                                String logFilePath, 
+                                Int32 maxCallSessions, 
+                                String sipAgentString, 
+                                Int32 audioDeviceLayer, 
+                                Int32 videoDeviceLayer, 
+                                String TLSCertificatesRootPath, 
+                                String TLSCipherList, 
+                                Boolean verifyTLSCertificate)
+```
 
-Initialize the SDK. **Parameters**
+Initialize the SDK.&#x20;
 
-| _transport_        | Transport for SIP signaling. TRANSPORT\_PERS is the PortSIP private transport for anti SIP blocking. It must be used with PERS.                                                                                                                                                                                                                                   |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _localIP_          | <p>The local computer IP address to be bound (for example: 192.168.1.108). It will be used for sending and receiving SIP messages and RTP packets. If this IP is passed in IPv6 format, the SDK will be using IPv6.</p><p>If you want the SDK to choose correct network interface (IP) automatically, please pass the "0.0.0.0"(for IPv4) or "::" (for IPv6).</p> |
-| _localSIPPort_     | The SIP message transport listener port, for example: 5060.                                                                                                                                                                                                                                                                                                       |
-| _logLevel_         | Set the application log level. The SDK will generate "PortSIP\_Log\_datatime.log" file if the log enabled.                                                                                                                                                                                                                                                        |
-| _logFilePath_      | The log file path. The path (folder) MUST be existent.                                                                                                                                                                                                                                                                                                            |
-| _maxCallLines_     | Theoretically, unlimited lines could be supported depending on the device capability. For SIP client recommended value ranges 1 - 100;                                                                                                                                                                                                                            |
-| _sipAgent_         | The User-Agent header to be inserted into SIP messages.                                                                                                                                                                                                                                                                                                           |
-| _audioDeviceLayer_ | Specify the audio device layer to be used:                                                                                                                                                                                                                                                                                                                        |
+#### **Parameters**
 
-11
+| _transport_               | Transport for SIP signaling. TRANSPORT\_PERS is the PortSIP private transport for anti SIP blocking. It must be used with PERS.                                                                                                                                                                                                                                   |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _localIP_                 | <p>The local computer IP address to be bound (for example: 192.168.1.108). It will be used for sending and receiving SIP messages and RTP packets. If this IP is passed in IPv6 format, the SDK will be using IPv6.</p><p>If you want the SDK to choose correct network interface (IP) automatically, please pass the "0.0.0.0"(for IPv4) or "::" (for IPv6).</p> |
+| _localSIPPort_            | The SIP message transport listener port, for example: 5060.                                                                                                                                                                                                                                                                                                       |
+| _logLevel_                | Set the application log level. The SDK will generate "PortSIP\_Log\_datatime.log" file if the log enabled.                                                                                                                                                                                                                                                        |
+| _logFilePath_             | The log file path. The path (folder) MUST be existent.                                                                                                                                                                                                                                                                                                            |
+| _maxCallLines_            | Theoretically, unlimited lines could be supported depending on the device capability. For SIP client recommended value ranges 1 - 100;                                                                                                                                                                                                                            |
+| _sipAgent_                | The User-Agent header to be inserted into SIP messages.                                                                                                                                                                                                                                                                                                           |
+| _audioDeviceLayer_        | <p>Specify the audio device layer to be used: </p><p>0 = Use the OS default device.</p><p>1 = Virtual device, usually use this for the device which has no sound device installed.</p>                                                                                                                                                                            |
+| _videoDeviceLayer_        | <p>Specifies the video device layer that should be used:</p><p>0 = Use the OS default device.</p><p>1 = Use a Virtual device. Usually use this for the device that has no camera installed.</p>                                                                                                                                                                   |
+| _TLSCertificatesRootPath_ | Specify the TLS certificate path, from which the SDK will load the certificates automatically. Note: On Windows, this path will be ignored, and SDK will read the certificates from the Windows certificates stored area instead.                                                                                                                                 |
+| _TLSCipherList_           | Specify the TLS cipher list. This parameter is usually passed as empty so that the SDK will offer all available ciphers.                                                                                                                                                                                                                                          |
+| _verifyTLSCertificat_     | Indicate if SDK will verify the TLS certificate. By setting it to false, the SDK will not verify the validity of the TLS certificate.                                                                                                                                                                                                                             |
+|                           |                                                                                                                                                                                                                                                                                                                                                                   |
+|                           |                                                                                                                                                                                                                                                                                                                                                                   |
 
-|                            | <p>0 = Use the OS default device.</p><p>1 = Virtual device, usually use this for the device which has no sound device installed.</p>                                                                                          |
-| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _videoDeviceLayer_         | <p>Specifies the video device layer that should be used:</p><p>0 = Use the OS default device.</p><p>1 = Use Virtual device. Usually use this for the device which has no camera installed.</p>                                |
-| _TLSCertificatesRo otPath_ | Specify the TLS certificate path, from which the SDK will load the certificates automatically. Note: On Windows, this path will be ignored, and SDK will read the certificates from Windows certificates stored area instead. |
-| _TLSCipherList_            | Specify the TLS cipher list. This parameter is usually passed as empty so that the SDK will offer all available ciphers.                                                                                                      |
-| _verifyTLSCertificat e_    | Indicate if SDK will verify the TLS certificate. By setting to false, the SDK will not verify the validity of TLS certificate.                                                                                                |
+#### **Returns**
 
-**Returns**
+If the function succeeds, it will return a value of 0. If the function fails, it will return a specific error code
 
-If the function succeeds, it will return value 0. If the function fails, it will return a specific error code
-
-**String PortSIP.PortSIPLib.getVersion ()**
+```csharp
+String PortSIP.PortSIPLib.getVersion ()
+```
 
 Get the current version number of the SDK.
 
