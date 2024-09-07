@@ -6,7 +6,7 @@ This section describes the Call Control API portion of the PortSIP PBX [REST API
 
 Before calling the REST API to make the call, and control the call, we need to authenticate with the PortSIP PBX to obtain the `access_token`. Please refer to the  [REST API](rest-apis.md).
 
-## Initiate a call
+## Initiate a call directly
 
 <mark style="color:green;">`GET`</mark> `/sessions/directly`
 
@@ -38,7 +38,59 @@ api/sessions/directly?extension_number=1001&password=A1s2d3f4&caller=1001&callee
 
 **Response**
 
-If the REST API is successfully invoked, the PBX will return a session ID. You can use this to track the call.
+{% tabs %}
+{% tab title="200" %}
+```json
+{
+    "id": "884757570370146304"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+
+
+## Initiate a call
+
+<mark style="color:green;">`POST`</mark> `/sessions`
+
+Use this REST API to initiate a call, the `access_token` is required for this API.
+
+**Headers**
+
+| Name          | Value              |
+| ------------- | ------------------ |
+| Content-Type  | `application/json` |
+| Authorization | `Bearer <token>`   |
+|               |                    |
+
+**Body**
+
+| Name                  | Type         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| caller                | string       | The caller number, it's can be either an extension number or a PSTN number. (required)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| callee                | string       | The callee number, it's can be either an extension number or a PSTN number. (required)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| send\_sdp             | boolean      | Include the SDP in the INVITE message to initiate the call, true or false. (required)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| caller\_display\_name |              | Specify the display name for caller. (optional)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| trunk                 | string       | This is a trunk name used to indicate that this call should be routed through the specified trunk. If the specified trunk is not available, the call will fail.(optional)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| rewrite\_from         | string       | Age of the user                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| rewrite\_pai          | string       | Specify when to send this call to the trunk. Use `rewrite_pai` to rewrite the user of the `P-Asserted-Identity` header in the INVITE message. (optional)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| rewrite\_rpi          |              | Specify when to send this call to the trunk. Use `rewrite_rpi` to rewrite the user of the `Remote-Party-ID` header in the INVITE message. (optional)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| user\_data            | string       | Use this key to pass the additional information to the call. This information will be stored in the CDR, allowing you to easily track and analyze the call.(optional)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| additional\_header    | string enum  | <p></p><p>Specifies whether to add an additional SIP header (RFC 5373) to the INVITE SIP message. The possible values are:</p><ul><li><strong>ANSWER_MODE</strong>: Adds the Answer-Mode header to the INVITE SIP message.</li><li><strong>CALL_INFO</strong>: Adds the Call-Info header with <code>answer-after=0</code> to the INVITE SIP message.</li><li><strong>ALERT_INFO_AUTO_ANSWER_DELAY0</strong>: Adds the Alert-Info header with <code>info=alert-autoanswer;delay=0</code> to the INVITE SIP message.</li><li><strong>ALERT_INFO_AUTO_ANSWER</strong>: Adds the Alert-Info header with <code>info=Auto Answer</code> to the INVITE SIP message.</li><li><strong>ALERT_INFO_INTERCOM</strong>: Adds the Alert-Info header with <code>info=intercom</code> to the INVITE SIP message.</li></ul><p>(optional)</p> |
+| additional\_header    | string enum. | <p></p><p>Specifies which party of the call should receive the additional_header. If the additional_header is not specified, this parameter will be ignored. The possible values are:</p><ul><li><strong>CALLER</strong>: Adds the specified header in additional_header to the INVITE SIP message sent to the caller.</li><li><strong>CALLEE</strong>: Adds the specified header in additional_header to the INVITE SIP message sent to the callee.</li><li><strong>ALL</strong>: Adds the specified header in additional_header to the INVITE SIP messages sent to both the caller and callee.</li></ul><p>(optional)</p>                                                                                                                                                                                                 |
+
+**Response**
+
+{% tabs %}
+{% tab title="200" %}
+```json
+{
+    "id": "884757570370146304"
+}
+```
+{% endtab %}
+{% endtabs %}
 
 
 
