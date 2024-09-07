@@ -46,32 +46,16 @@ For more details please read the Sample project source code.
 7. Click the "Initialize" button on A and B. If the default port 5060 is already in use, the P2PSample will prompt "Initialize failure". In case of this, please click the "Uninitialize" button and change the local port, and click the "Initialize" button again.
 8. The log box will appear "Initialized." if the SDK is successfully initialized.
 9. To make call from A to B, enter: sip[:222@192.168.1.11 ](mailto:222@192.168.1.11)and click "Dial" button; while to make call from B to A, enter: sip[:111@192.168.1.10.](mailto:111@192.168.1.10)
-10. **Is the SDK thread safe?**
 
-Yes, the SDK is thread safe. You can call any of the API functions without the need to consider the multiple threads. Note: the SDK allows to call API functions in callback events directly - except for the "onAudioRawCallback", "onVideoRawCallback", "onRTPPacketCallback" callbacks.
+### **Is the SDK thread safe?**
 
-5
+Yes, the SDK is thread safe. You can call any of the API functions without the need to consider the multiple threads. Note: the SDK allows to call of API functions in callback events directly - except for the "onAudioRawCallback", "onVideoRawCallback", and "onRTPPacketCallback" callbacks.
 
-6. **Does the SDK support native 64-bit?** Yes, both 32-bit and 64-bit are supported for SDK.
+### **Does the SDK support native 64-bit?**&#x20;
 
+Yes, both 32-bit and 64-bit are supported for SDK.
 
-
-**Initialize and register functions**
-
-**Functions**
-
-*   Int32 PortSIP.PortSIPLib.initialize (TRANSPORT\_TYPE transportType, String localIp, Int32 localSIPPort, PORTSIP\_LOG\_LEVEL logLevel, String logFilePath, Int32 maxCallSessions, String sipAgentString, Int32 audioDeviceLayer, Int32 videoDeviceLayer, String TLSCertificatesRootPath, String TLSCipherList, Boolean verifyTLSCertificate)
-
-    _Initialize the SDK._
-* void PortSIP.PortSIPLib.unInitialize () _Un-initialize the SDK and release resources._
-* String PortSIP.PortSIPLib.getVersion () _Get the current version number of the SDK._
-*   Int32 PortSIP.PortSIPLib.setLicenseKey (String key)
-
-    _Set the license key. It must be called before setUser function._&#x20;
-
-**Detailed Description** Initialize and register functions&#x20;
-
-**Function Documentation**
+## **Initialize and register functions**
 
 **Int32 PortSIP.PortSIPLib.initialize (TRANSPORT\_TYPE **_**transportType**_**, String **_**localIp**_**, Int32 **_**localSIPPort**_**, PORTSIP\_LOG\_LEVEL **_**logLevel**_**, String **_**logFilePath**_**, Int32 **_**maxCallSessions**_**, String **_**sipAgentString**_**, Int32 **_**audioDeviceLayer**_**, Int32 **_**videoDeviceLayer**_**, String **_**TLSCertificatesRootPath**_**, String **_**TLSCipherList**_**, Boolean **_**verifyTLSCertificate**_**)**
 
