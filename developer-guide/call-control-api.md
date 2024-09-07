@@ -147,7 +147,7 @@ Use this API to hold a call by specifying the session ID. Pass the call session 
 
 **Body**
 
-<table><thead><tr><th>Name</th><th width="305">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>extension_number</code></td><td>string</td><td>If the <code>extension_number</code> is specified, the PBX will also check if it is an participant of the call. If not, the hold will fail. If the <code>extension_number</code> is not specified, the PBX will only check the call with the session ID parameter. If the session ID does not match any existing call, the hold will fail.</td></tr><tr><td></td><td></td><td></td></tr></tbody></table>
+<table><thead><tr><th>Name</th><th width="305">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>extension_number</code></td><td>string</td><td>The PBX will find the call by the session ID. Since a call can have multiple call legs, the PBX will match the call leg by <code>extension_number</code> and then perform the hold on this call leg. (required)</td></tr><tr><td></td><td></td><td></td></tr></tbody></table>
 
 **Response**
 
