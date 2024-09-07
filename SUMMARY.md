@@ -205,6 +205,8 @@
   * [Messaging APIs](developer-guide/messaging-apis.md)
   * [Webhook Events](development-portsip/developer-guide/webhook-notifications/README.md)
     * [Registering a Webhook](development-portsip/developer-guide/webhook-notifications/registering-a-webhook.md)
+    * [Receiving Events via a Webhook](development-portsip/developer-guide/webhook-notifications/receiving-events-via-a-webhook.md)
+    * [Event Reference](development-portsip/developer-guide/webhook-notifications/event-reference.md)
 
 ## PBX v12.x (EOL) <a href="#pbx_v12" id="pbx_v12"></a>
 
