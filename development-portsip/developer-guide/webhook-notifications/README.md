@@ -6,7 +6,7 @@ The PortSIP PBX provides a Webhook API to be notified when events occur. This AP
 
 The overall mechanism relies on HTTP request containing event payload being sent to a consumer Endpoint URL.
 
-## Development guidelines <a href="#development-guidelines" id="development-guidelines"></a>
+## Development Guidelines <a href="#development-guidelines" id="development-guidelines"></a>
 
 We strongly advise developers consuming this API to respect the following guidelines:
 
