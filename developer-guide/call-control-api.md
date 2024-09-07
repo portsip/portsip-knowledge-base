@@ -147,7 +147,7 @@ Use this API to hold a call by specifying the session ID. Pass the call session 
 
 **Body**
 
-<table><thead><tr><th>Name</th><th width="305">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>extension_number</code></td><td>string</td><td>The PBX will find the call by the session ID. Since a call can have multiple call legs, the PBX will match the call leg by <code>extension_number</code> and then perform the hold on this call leg. (required)</td></tr><tr><td></td><td></td><td></td></tr></tbody></table>
+<table><thead><tr><th>Name</th><th width="305">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>extension_number</code></td><td>string</td><td>The <code>extension_number</code> can be either a PortSIP PBX extension number or a PSTN number. Since a call can have multiple call legs, if this parameter is specified, the PBX will match the call leg by <code>extension_number</code> and session ID, then perform the hold on the matched call leg. If the ID parameter in the URL is set to <code>1</code>, the hold will be performed on the last call associated with this <code>extension_number</code>. (required)</td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></tbody></table>
 
 **Response**
 
@@ -179,7 +179,7 @@ Use this API to unhold a call by specifying the session ID. Pass the call sessio
 
 **Body**
 
-<table><thead><tr><th>Name</th><th width="305">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>extension_number</code></td><td>string</td><td>If the <code>extension_number</code> is specified, the PBX will also check if it is an participant of the call. If not, the unhold will fail. If the <code>extension_number</code> is not specified, the PBX will only check the call with the session ID parameter. If the session ID does not match any existing call, the unhold will fail.</td></tr><tr><td></td><td></td><td></td></tr></tbody></table>
+<table><thead><tr><th>Name</th><th width="305">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>extension_number</code></td><td>string</td><td>The <code>extension_number</code> can be either a PortSIP PBX extension number or a PSTN number. Since a call can have multiple call legs, if this parameter is specified, the PBX will match the call leg by <code>extension_number</code> and session ID, then perform the unhold on the matched call leg. If the ID parameter in the URL is set to <code>1</code>, the unhold will be performed on the last call associated with this <code>extension_number</code>. (required)</td></tr><tr><td></td><td></td><td></td></tr></tbody></table>
 
 **Response**
 
@@ -190,9 +190,103 @@ Use this API to unhold a call by specifying the session ID. Pass the call sessio
 {% endtab %}
 {% endtabs %}
 
+## Blind transfer a call
 
+<mark style="color:green;">`POST`</mark> `/sessions/{id}/refer`
 
+Use this API to blind transfer a call by specifying the session ID. Pass the call session ID to the URL parameter ID.
 
+**Headers**
 
+| Name          | Value              |
+| ------------- | ------------------ |
+| Content-Type  | `application/json` |
+| Authorization | `Bearer <token>`   |
 
+**Body**
+
+| Name               | Type   | Description                                                                                                                                                                                                                                                                                               |
+| ------------------ | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `extension_number` | string | To transfer a call to a specific `refer_to` number, you need to specify the `extension_number,` it's can be either a PortSIP PBX extension number or a PSTN number. If the `ID` parameter in the URL is set to `1`, the last call associated with that `extension_number` will be transferred. (required) |
+| `refer_to`         | string | The target number to which the call will be transferred.  (required)                                                                                                                                                                                                                                      |
+|                    |        |                                                                                                                                                                                                                                                                                                           |
+
+**Example**
+
+1001 has established a call. Use the following body payload to blind transfer extension 1001 to the number 0033187691:
+
+```json
+{
+"extension_number" : "1001",
+"refer_to" : "0033187691"
+}
+```
+
+**Response**
+
+{% tabs %}
+{% tab title="200" %}
+```json
+```
+{% endtab %}
+
+{% tab title="400" %}
+```json
+```
+{% endtab %}
+{% endtabs %}
+
+## Attended transfer a call
+
+<mark style="color:green;">`POST`</mark> `/sessions/{id}/attended_refer`
+
+Use this API to attended transfer a call by specifying the session ID. Pass the current call session ID to the URL parameter ID.&#x20;
+
+Consider this scenario: Extension 1001 establishes calls with both 1002 and 1003. Now, use this API to perform an attended transfer, which will connect the call between 1002 and 1003, and extension 1001 will be disconnected from the calls.
+
+**Headers**
+
+| Name          | Value              |
+| ------------- | ------------------ |
+| Content-Type  | `application/json` |
+| Authorization | `Bearer <token>`   |
+
+**Body**
+
+| Name               | Type   | Description                                                                                                                                                                                                                                           |
+| ------------------ | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `extension_number` | string | To do attended transfer, you need to specify the `extension_number`for select the transffer, it's can be either a PortSIP PBX extension number or a PSTN number (required)                                                                            |
+| session\_1         | string | The session ID of the call which will be transffered. The PBX will match the call leg by both `extension_number` and this specified session ID. This parameter can be set as "0".                                                                     |
+| refer\_to\_1       | string | If the `session_1` is specified as 0, then the PBX will use the `extension_number` and this `refer_to_1` to match the call leg. This parameter can be set as a empty string. If the session\_1  is "0" and refer\_to\_1 is empty, this API will fail. |
+| session\_2         | string | The session ID of the call which will be transffered. The PBX will match the call leg by both `extension_number` and this specified session ID. This parameter can be set as "0".                                                                     |
+| refer\_to\_2       | string | If the `session_2` is specified as 0, then the PBX will use the `extension_number` and this `refer_to_2` to match the call leg. This parameter can be set as a empty string. If the session\_2  is "0" and refer\_to\_2 is empty, this API will fail. |
+|                    |        |                                                                                                                                                                                                                                                       |
+|                    |        |                                                                                                                                                                                                                                                       |
+
+**Example**
+
+Extension 1001 establishes calls with both 1002 and 1003. Now, use this API to perform an attended transfer, which will connect the call between 1002 and 1003, and extension 1001 will be disconnected from the calls.
+
+```json
+{
+"session_1" : "0",
+"refer_to_1" : "1002",
+"session_2" : "0",
+"refer_to_2" : "1003"
+}
+```
+
+**Response**
+
+{% tabs %}
+{% tab title="200" %}
+```json
+```
+{% endtab %}
+
+{% tab title="400" %}
+```json
+```
+{% endtab %}
+{% endtabs %}
 
