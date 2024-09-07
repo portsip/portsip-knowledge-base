@@ -203,7 +203,8 @@
     * [Integrating Push Notifications](developer-guide/mobile-push-notifications/integrating-push-notifications.md)
   * [WSI: Pub/Sub](developer-guide/going-real-time-with-portsip-pbx-pub-sub.md)
   * [Messaging APIs](developer-guide/messaging-apis.md)
-  * [Webhook Events](developer-guide/webhook-notifications.md)
+  * [Webhook Events](development-portsip/developer-guide/webhook-notifications/README.md)
+    * [Registering a Webhook](development-portsip/developer-guide/webhook-notifications/registering-a-webhook.md)
 
 ## PBX v12.x (EOL) <a href="#pbx_v12" id="pbx_v12"></a>
 
