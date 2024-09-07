@@ -12,6 +12,8 @@ Before calling the REST API to make the call, and control the call, we need to a
 
 Use the GET method to initiate a call directly. This API does not require an `access_token`. Some hardware is not programmable and only allows pasting the URL to initiate the call. This API is designed for that purpose.
 
+**Example**
+
 ```url
 api/sessions/directly?extension_number=1001&password=A1s2d3f4&caller=1001&callee=1002&domain=test.io&send_sdp=true
 ```
