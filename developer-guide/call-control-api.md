@@ -14,9 +14,8 @@ Use the GET method to initiate a call directly. This API does not require an `ac
 
 **Example**
 
-```url
-api/sessions/directly?extension_number=1001&password=A1s2d3f4&caller=1001&callee=1002&domain=test.io&send_sdp=true
-```
+<pre class="language-url"><code class="lang-url"><strong>/api/sessions/directly?extension_number=1001&#x26;password=A1s2d3f4&#x26;caller=1001&#x26;callee=1002&#x26;domain=test.io&#x26;send_sdp=true
+</strong></code></pre>
 
 **URL Parameters**
 
@@ -82,7 +81,7 @@ Use this REST API to initiate a call, the `access_token` is required for this AP
 
 **Example of the body**
 
-```postman_json
+```json
 {
 "caller" : "1001",
 "callee" : "1002",
@@ -111,7 +110,7 @@ Use this API to hang up a call by specifying the session ID. Pass the call sessi
 **Example**
 
 ```url
-api/sessions/884761305393664000/destroy
+/api/sessions/884761305393664000/destroy
 ```
 
 **Headers**
@@ -126,16 +125,29 @@ api/sessions/884761305393664000/destroy
 ```
 {% endtab %}
 {% endtabs %}
+
+## Hold a call
+
+<mark style="color:green;">`POST`</mark> `/sessions/{id}/hold`
+
+Use this API to hold a call by specifying the session ID. Pass the call session ID to the URL parameter ID.
 
 **Example**
 
 ```url
-api/sessions/884761305393664000/destroy
+/api/sessions/884761305393664000/hold
 ```
 
 **Headers**
 
-<table><thead><tr><th width="525">Name</th><th>Value</th></tr></thead><tbody><tr><td>Content-Type</td><td><code>application/json</code></td></tr><tr><td>Authorization</td><td><code>Bearer &#x3C;token></code></td></tr></tbody></table>
+| Name          | Value              |
+| ------------- | ------------------ |
+| Content-Type  | `application/json` |
+| Authorization | `Bearer <token>`   |
+
+**Body**
+
+<table><thead><tr><th>Name</th><th width="305">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>extension_number</code></td><td>string</td><td>If the <code>extension_number</code> is specified, the PBX will also check if it is an participant of the call. If not, the hold will fail. If the <code>extension_number</code> is not specified, the PBX will only check the call with the session ID parameter. If the session ID does not match any existing call, the hold will fail.</td></tr><tr><td></td><td></td><td></td></tr></tbody></table>
 
 **Response**
 
@@ -146,9 +158,37 @@ api/sessions/884761305393664000/destroy
 {% endtab %}
 {% endtabs %}
 
-dsdd
+## Unhold a call
 
+<mark style="color:green;">`POST`</mark> `/sessions/{id}/unhold`
 
+Use this API to unhold a call by specifying the session ID. Pass the call session ID to the URL parameter ID.
+
+**Example**
+
+```url
+/api/sessions/884761305393664000/unhold
+```
+
+**Headers**
+
+| Name          | Value              |
+| ------------- | ------------------ |
+| Content-Type  | `application/json` |
+| Authorization | `Bearer <token>`   |
+
+**Body**
+
+<table><thead><tr><th>Name</th><th width="305">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>extension_number</code></td><td>string</td><td>If the <code>extension_number</code> is specified, the PBX will also check if it is an participant of the call. If not, the unhold will fail. If the <code>extension_number</code> is not specified, the PBX will only check the call with the session ID parameter. If the session ID does not match any existing call, the unhold will fail.</td></tr><tr><td></td><td></td><td></td></tr></tbody></table>
+
+**Response**
+
+{% tabs %}
+{% tab title="200" %}
+```json
+```
+{% endtab %}
+{% endtabs %}
 
 
 
