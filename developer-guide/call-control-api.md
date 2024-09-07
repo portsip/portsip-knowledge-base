@@ -80,6 +80,16 @@ Use this REST API to initiate a call, the `access_token` is required for this AP
 | additional\_header    | string enum  | <p></p><p>Specifies whether to add an additional SIP header (RFC 5373) to the INVITE SIP message. The possible values are:</p><ul><li><strong>ANSWER_MODE</strong>: Adds the Answer-Mode header to the INVITE SIP message.</li><li><strong>CALL_INFO</strong>: Adds the Call-Info header with <code>answer-after=0</code> to the INVITE SIP message.</li><li><strong>ALERT_INFO_AUTO_ANSWER_DELAY0</strong>: Adds the Alert-Info header with <code>info=alert-autoanswer;delay=0</code> to the INVITE SIP message.</li><li><strong>ALERT_INFO_AUTO_ANSWER</strong>: Adds the Alert-Info header with <code>info=Auto Answer</code> to the INVITE SIP message.</li><li><strong>ALERT_INFO_INTERCOM</strong>: Adds the Alert-Info header with <code>info=intercom</code> to the INVITE SIP message.</li></ul><p>(optional)</p> |
 | additional\_header    | string enum. | <p></p><p>Specifies which party of the call should receive the additional_header. If the additional_header is not specified, this parameter will be ignored. The possible values are:</p><ul><li><strong>CALLER</strong>: Adds the specified header in additional_header to the INVITE SIP message sent to the caller.</li><li><strong>CALLEE</strong>: Adds the specified header in additional_header to the INVITE SIP message sent to the callee.</li><li><strong>ALL</strong>: Adds the specified header in additional_header to the INVITE SIP messages sent to both the caller and callee.</li></ul><p>(optional)</p>                                                                                                                                                                                                 |
 
+**Example of the body**
+
+```postman_json
+{
+"caller" : "1001",
+"callee" : "1002",
+ "send_sdp" : true
+}
+```
+
 **Response**
 
 {% tabs %}
