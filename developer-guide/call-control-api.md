@@ -50,8 +50,6 @@ api/sessions/directly?extension_number=1001&password=A1s2d3f4&caller=1001&callee
 {% endtab %}
 {% endtabs %}
 
-
-
 ## Initiate a call
 
 <mark style="color:green;">`POST`</mark> `/sessions`
@@ -103,6 +101,58 @@ Use this REST API to initiate a call, the `access_token` is required for this AP
 ```
 {% endtab %}
 {% endtabs %}
+
+## Hang up a call
+
+<mark style="color:green;">`POST`</mark> `/sessions/{id}/destroy`
+
+Use this API to hang up a call by specifying the session ID. Pass the call session ID to the URL parameter ID.
+
+**Example**
+
+```url
+api/sessions/884761305393664000/destroy
+```
+
+**Headers**
+
+<table><thead><tr><th width="525">Name</th><th>Value</th></tr></thead><tbody><tr><td>Content-Type</td><td><code>application/json</code></td></tr><tr><td>Authorization</td><td><code>Bearer &#x3C;token></code></td></tr></tbody></table>
+
+**Response**
+
+{% tabs %}
+{% tab title="200" %}
+```json
+```
+{% endtab %}
+{% endtabs %}
+
+**Example**
+
+```url
+api/sessions/884761305393664000/destroy
+```
+
+**Headers**
+
+<table><thead><tr><th width="525">Name</th><th>Value</th></tr></thead><tbody><tr><td>Content-Type</td><td><code>application/json</code></td></tr><tr><td>Authorization</td><td><code>Bearer &#x3C;token></code></td></tr></tbody></table>
+
+**Response**
+
+{% tabs %}
+{% tab title="200" %}
+```json
+```
+{% endtab %}
+{% endtabs %}
+
+dsdd
+
+
+
+
+
+
 
 
 
