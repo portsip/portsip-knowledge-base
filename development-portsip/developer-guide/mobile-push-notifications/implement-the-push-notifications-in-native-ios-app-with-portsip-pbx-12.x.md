@@ -276,9 +276,9 @@ In the first function, we merely output the device token. We will need this toke
 
 In the second function, we ‘act’ on the received VoIP push notification. On iOS 13.0 and later, we must report a call to CallKit.
 
-The third function, `didInvalidatePushTokenForType`, is used for handling when the token is invalidated.
+The third function, `didInvalidatePushTokenForType`is used for handling when the token is invalidated.
 
-We need to notify PortPBX that this client has enabled PUSH by adding the SIP header “x-p-push” to the REGISTER message.
+We need to notify PortPBX that this client has enabled PUSH by adding the SIP header **X-Push** to the REGISTER message.
 
 ```
 -(void) addPushSupportWithPortPBX: (BOOL) enablePush
@@ -309,7 +309,7 @@ We need to notify PortPBX that this client has enabled PUSH by adding the SIP he
     } [portSIPSDK addSipMessageHeader: -1
 methodName: @ "REGISTER"
 msgType: 1
-headerName: @ "x-p-push"
+headerName: @ "X-Push"
 headerValue: pushMessage];
 }
 
