@@ -174,6 +174,27 @@ Once a call has ended, the CDR of this call will be pushed to the subscribers, t
 
 For more details about the CDR JSON object structure information, please refer to [Event Reference](../development-portsip/developer-guide/webhook-notifications/event-reference.md).
 
+### queue\_management\_events
+
+The tenant Admin and Queue Manager have permission to subscribe to the `queue_management_events`. Once successfully subscribed, the PBX will push all current queue information to the subscriber. After that, during the subscription, whenever a queue is updated, deleted, or added, the subscriber will receive the queue information in real-time.
+
+Below are the message keys.
+
+* event\_type: Indicates the event type, it can have the following values:
+  * queue\_created
+  * queue\_updated
+  * queue\_destroy
+* queue\_number: The extension number of the queue.
+* tenant\_id: The ID of the tenant which this queue is belongs.
+
+```json
+{
+  "event_type": "queue_created",
+  "queue_number": "8800",
+  "tenant_id": "883634229655633920"
+}
+```
+
 ### queue\_events
 
 Once the queue status is changed, for example, the caller who is in the queue has hung up the call, or the caller who is in the queue is answered by an agent, the related status information will be pushed to the subscribers. The message topic is **queue\_events.**&#x20;
@@ -435,4 +456,15 @@ The admin user role of the tenant and queue manager has permission to subscribe 
 ]  
 }
 ```
+
+Subscribe to the `queue_management_events`:
+
+```json
+{
+"command":"subscribe",
+"topics":[ "queue_management_events" ]
+}
+```
+
+
 
