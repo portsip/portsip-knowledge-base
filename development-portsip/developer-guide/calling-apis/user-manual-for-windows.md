@@ -2534,7 +2534,13 @@ It will return the count of video capturing devices. If it fails, it will return
 
 ***
 
-**Int32 PortSIP.PortSIPLib.getVideoCaptureDeviceName (Int32 **_**deviceIndex**_**, StringBuilder **_**uniqueIdUTF8**_**, Int32 **_**uniqueIdUTF8Length**_**, StringBuilder **_**deviceNameUTF8**_**, Int32 **_**deviceNameUTF8Length**_**)**
+```
+Int32 PortSIP.PortSIPLib.getVideoCaptureDeviceName (Int32 deviceIndex, 
+StringBuilder uniqueIdUTF8, 
+Int32 uniqueIdUTF8Length, 
+StringBuilder deviceNameUTF8,
+ Int32 deviceNameUTF8Length)
+```
 
 Get the name of a specific video capture device given by an index.&#x20;
 
@@ -2553,7 +2559,14 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-**Int32 PortSIP.PortSIPLib.showVideoCaptureSettingsDialogBox (String **_**uniqueIdUTF8**_**, Int32 **_**uniqueIdUTF8Length**_**, String **_**dialogTitle**_**, IntPtr **_**parentWindow**_**, Int32 **_**x**_**, Int32 **_**y**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.showVideoCaptureSettingsDialogBox (String uniqueIdUTF8, 
+                                Int32 uniqueIdUTF8Length, 
+                                String dialogTitle, 
+                                IntPtr parentWindow, 
+                                Int32 x, 
+                                Int32 y)
+```
 
 Display the capture device property dialog box for the specified capture device.&#x20;
 
