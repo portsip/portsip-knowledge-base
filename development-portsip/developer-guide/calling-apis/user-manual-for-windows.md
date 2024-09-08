@@ -2716,15 +2716,15 @@ This callback function is invoked when an outgoing call fails.
 
 **Parameters**
 
-| _sessionId_          | The unique identifier for the call.                                           |
-| -------------------- | ----------------------------------------------------------------------------- |
-| _callerDisplayNam e_ | The display name of the calling party.                                        |
-| _caller_             | The caller.The SIP URI of the calling party.The SIP URI of the calling party. |
-| _calleeDisplayNam e_ | The display name of callee.The display name of the receiving party.           |
-| _callee_             | The callee.                                                                   |
-| _reason_             | The failure reason.                                                           |
-| _code_               | The failure code.                                                             |
-| _sipMessage_         | The SIP message received.                                                     |
+| _sessionId_          | The unique identifier for the call.                                                                            |
+| -------------------- | -------------------------------------------------------------------------------------------------------------- |
+| _callerDisplayNam e_ | The display name of the calling party.                                                                         |
+| _caller_             | The SIP URI of the calling party.                                                                              |
+| _calleeDisplayNam e_ | The display name of callee.The display name of the receiving party.                                            |
+| _callee_             | The SIP URI of the receiving party.                                                                            |
+| _reason_             | A human-readable description of the reason for the call failure.                                               |
+| _code_               | A numerical code representing the reason for the call failure.                                                 |
+| _sipMessage_         | A string object containing the complete SIP response received from the SIP server indicating the call failure. |
 
 {% code overflow="wrap" %}
 ```csharp
@@ -2732,15 +2732,17 @@ Int32 PortSIP.SIPCallbackEvents.onInviteUpdated (Int32 sessionId, String audioCo
 ```
 {% endcode %}
 
-This event will be triggered when remote party updates this call. **Parameters**
+This callback function is invoked when the remote party updates the parameters of an existing call. This can occur, for example, when the remote party changes the audio or video codecs being used, or when additional media streams are added or removed.
 
-| _sessionId_       | The session ID of the call.                                                                     |
-| ----------------- | ----------------------------------------------------------------------------------------------- |
-| _audioCodecNames_ | <p>The matched audio codecs. It's separated by "#" if there are more than one</p><p>codecs.</p> |
-| _videoCodecNames_ | The matched video codecs. It's separated by "#" if there are more than one codecs.              |
-| _existsAudio_     | If it's true, it indicates that this call includes the audio.                                   |
-| _existsVideo_     | If it's true, it indicates that this call includes the video.                                   |
-| _sipMessage_      | The SIP message received.                                                                       |
+**Parameters**
+
+| _sessionId_       | The unique identifier for the call.                                                                                    |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| _audioCodecNames_ | A string containing the names of the matched audio codecs for the call, separated by "#" if there are multiple codecs. |
+| _videoCodecNames_ | A string containing the names of the matched video codecs for the call, separated by "#" if there are multiple codecs. |
+| _existsAudio_     | A Boolean value indicating whether the call includes audio.                                                            |
+| _existsVideo_     | A Boolean value indicating whether the call includes video.                                                            |
+| _sipMessage_      | A string object containing the complete SIP UPDATE message received.                                                   |
 
 {% code overflow="wrap" %}
 ```csharp
@@ -2748,12 +2750,12 @@ Int32 PortSIP.SIPCallbackEvents.onInviteConnected (Int32 sessionId)
 ```
 {% endcode %}
 
-This event would be triggered when UAC sent/UAS received ACK(the call is connected). Some functions (hold, updateCall etc...) can be called only after the call connected, otherwise these functions will return error.
+This callback function is invoked when a call is successfully established. This occurs after both parties have exchanged the necessary SIP messages and agreed to the terms of the call (Received the ACK).
 
 **Parameters**
 
-| _sessionId_ | The session ID of the call. |
-| ----------- | --------------------------- |
+| _sessionId_ | The unique identifier for the call. |
+| ----------- | ----------------------------------- |
 
 {% code overflow="wrap" %}
 ```csharp
@@ -2761,12 +2763,12 @@ Int32 PortSIP.SIPCallbackEvents.onInviteBeginingForward (String forwardTo)
 ```
 {% endcode %}
 
-If the enableCallForward method is called and a call is incoming, the call will be forwarded automatically and this event will be triggered.
+This callback function is invoked when an incoming call is automatically forwarded to another destination. This occurs if call forwarding is enabled and an incoming call is received.
 
 **Parameters**
 
-| _forwardTo_ | The forwarding target SIP URI. |
-| ----------- | ------------------------------ |
+| _forwardTo_ | The SIP URI of the destination to which the call is being forwarded. |
+| ----------- | -------------------------------------------------------------------- |
 
 {% code overflow="wrap" %}
 ```csharp
@@ -2774,12 +2776,12 @@ Int32 PortSIP.SIPCallbackEvents.onInviteClosed (Int32 sessionId)
 ```
 {% endcode %}
 
-This event is triggered once remote side closes the call.
+This callback function is invoked when the remote party ends a call.
 
 **Parameters**
 
-| _sessionId_ | The session ID of the call. |
-| ----------- | --------------------------- |
+| _sessionId_ | The unique identifier for the call that has been closed. |
+| ----------- | -------------------------------------------------------- |
 
 {% code overflow="wrap" %}
 ```csharp
@@ -2787,15 +2789,15 @@ Int32 PortSIP.SIPCallbackEvents.onDialogStateUpdated (String BLFMonitoredUri, St
 ```
 {% endcode %}
 
-If a user subscribed and his dialog status monitored, when the monitored user is holding a call or being rang, this event will be triggered
+This callback function is invoked when the status of a monitored user's call changes. This is typically used in BLF (Busy Lamp Field) scenarios where a user subscribes to the status of another user's calls.
 
 **Parameters**
 
-| _BLFMonitoredUri_     | the monitored user's URI    |
-| --------------------- | --------------------------- |
-| _BLFDialogState_      | - the status of the call    |
-| _BLFDialogId_         | - the id of the call        |
-| _BLFDialogDirecti on_ | - the direction of the call |
+| _BLFMonitoredUri_     | The SIP URI of the user being monitored.                               |
+| --------------------- | ---------------------------------------------------------------------- |
+| _BLFDialogState_      | A string representing the current state of the monitored user's call.  |
+| _BLFDialogId_         | A unique identifier for the monitored user's call.                     |
+| _BLFDialogDirecti on_ | A string indicating the direction of the monitored user's call.        |
 
 {% code overflow="wrap" %}
 ```csharp
@@ -2803,10 +2805,12 @@ Int32 PortSIP.SIPCallbackEvents.onRemoteHold (Int32 sessionId)
 ```
 {% endcode %}
 
-If the remote side placed the call on hold, this event would be triggered. **Parameters**
+This callback function is invoked when the remote party places a call on hold.
 
-| _sessionId_ | The session ID of the call. |
-| ----------- | --------------------------- |
+**Parameters**
+
+| _sessionId_ | The unique identifier for the call that has been placed on hold. |
+| ----------- | ---------------------------------------------------------------- |
 
 {% code overflow="wrap" %}
 ```csharp
@@ -2814,14 +2818,16 @@ Int32 PortSIP.SIPCallbackEvents.onRemoteUnHold (Int32 sessionId, String audioCod
 ```
 {% endcode %}
 
-If the remote side un-hold the call, this event would be triggered. **Parameters**
+This callback function is invoked when the remote party resumes a call that was previously placed on hold.
 
-| _sessionId_       | The session ID of the call.                                                                     |
-| ----------------- | ----------------------------------------------------------------------------------------------- |
-| _audioCodecNames_ | <p>The matched audio codecs. It's separated by "#" if there are more than one</p><p>codecs.</p> |
-| _videoCodecNames_ | The matched video codecs. It's separated by "#" if there are more than one codecs.              |
-| _existsAudio_     | If it's true, it indicates that this call includes the audio.                                   |
-| _existsVideo_     | If it's true, it indicates that this call includes the video.                                   |
+**Parameters**
+
+| _sessionId_       | The unique identifier for the call that has been resumed.                                                              |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| _audioCodecNames_ | A string containing the names of the matched audio codecs for the call, separated by "#" if there are multiple codecs. |
+| _videoCodecNames_ | A string containing the names of the matched video codecs for the call, separated by "#" if there are multiple codecs. |
+| _existsAudio_     | A Boolean value indicating whether the call includes audio.                                                            |
+| _existsVideo_     | A Boolean value indicating whether the call includes video.                                                            |
 
 ### **Refer events**
 
@@ -2831,14 +2837,16 @@ Int32 PortSIP.SIPCallbackEvents.onReceivedRefer (Int32 sessionId, Int32 referId,
 ```
 {% endcode %}
 
-This event will be triggered once receiving a REFER message. **Parameters**
+This callback function is invoked when the SDK receives a REFER message during an active call. A REFER message is used to transfer a call to a different party.
 
-| _sessionId_       | The session ID of the call.                                        |
-| ----------------- | ------------------------------------------------------------------ |
-| _referId_         | The ID of the REFER message. Pass it to acceptRefer or rejectRefer |
-| _to_              | The refer target.                                                  |
-| _from_            | The sender of REFER message.                                       |
-| _referSipMessage_ | The SIP message of "REFER". Pass it to "acceptRefer" function.     |
+**Parameters**
+
+| _sessionId_       | The unique identifier for the call that received the REFER message.                                                                                                                                                                                                                                           |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _referId_         | A unique identifier for the REFER message itself. This ID is used to accept or reject the transfer.                                                                                                                                                                                                           |
+| _to_              | The SIP URI of the target party to which the call is being transferred.                                                                                                                                                                                                                                       |
+| _from_            | The SIP URI of the party who sent the REFER message.                                                                                                                                                                                                                                                          |
+| _referSipMessage_ | A string object containing the complete REFER SIP message received. This message contains the details of the call transfer request, including the target party, reason for the transfer, and other relevant information. You can pass this message to the `acceptRefer` function to accept the call transfer. |
 
 {% code overflow="wrap" %}
 ```csharp
@@ -2846,12 +2854,12 @@ Int32 PortSIP.SIPCallbackEvents.onReferAccepted (Int32 sessionId)
 ```
 {% endcode %}
 
-This callback will be triggered once remote side called "acceptRefer" to accept the REFER.
+This callback function is invoked when the remote party accepts a call transfer that was previously requested using a REFER message.
 
 **Parameters**
 
-| _sessionId_ | The session ID of the call. |
-| ----------- | --------------------------- |
+| _sessionId_ | The unique identifier for the call that was transferred. |
+| ----------- | -------------------------------------------------------- |
 
 {% code overflow="wrap" %}
 ```csharp
@@ -2859,12 +2867,14 @@ Int32 PortSIP.SIPCallbackEvents.onReferRejected (Int32 sessionId, String reason,
 ```
 {% endcode %}
 
-This callback will be triggered once remote side called "rejectRefer" to reject the REFER. **Parameters**
+This callback function is invoked when the remote party rejects a call transfer.
 
-| _sessionId_ | The session ID of the call. |
-| ----------- | --------------------------- |
-| _reason_    | Reject reason.              |
-| _code_      | Reject code.                |
+**Parameters**
+
+| _sessionId_ | The unique identifier for the call that was not transferred. This parameter provides a way to track and manage the call even though the transfer was rejected. |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _reason_    | A human-readable description of the reason for the call transfer rejection.                                                                                    |
+| _code_      | A numerical code representing the reason for the call transfer rejection.                                                                                      |
 
 {% code overflow="wrap" %}
 ```csharp
@@ -2872,25 +2882,22 @@ Int32 PortSIP.SIPCallbackEvents.onTransferTrying (Int32 sessionId)
 ```
 {% endcode %}
 
-When the refer call is being processed, this event will be triggered.
+This callback function is invoked when a call transfer is in progress. This indicates that the SIP SERVER/PBX is processing the REFER message and attempting to transfer the call to the specified destination.
 
 **Parameters**
 
-| _sessionId_ | The session ID of the call. |
-| ----------- | --------------------------- |
+| _sessionId_ | The unique identifier for the call that is being transferred. |
+| ----------- | ------------------------------------------------------------- |
 
-{% code overflow="wrap" %}
-```csharp
-Int32 PortSIP.SIPCallbackEvents.onTransferRinging (Int32 sessionId)
-```
-{% endcode %}
+<pre class="language-csharp" data-overflow="wrap"><code class="lang-csharp"><strong>Int32 PortSIP.SIPCallbackEvents.onTransferRinging (Int32 sessionId)
+</strong></code></pre>
 
-When the refer call is ringing, this event will be triggered.
+This callback function is invoked when a call transfer is ringing at the destination. This indicates that the transferred call has reached the target party and is waiting for them to answer.
 
 **Parameters**
 
-| _sessionId_ | The session ID of the call. |
-| ----------- | --------------------------- |
+| _sessionId_ | The unique identifier for the transferred call. |
+| ----------- | ----------------------------------------------- |
 
 {% code overflow="wrap" %}
 ```csharp
@@ -2898,12 +2905,12 @@ Int32 PortSIP.SIPCallbackEvents.onACTVTransferSuccess (Int32 sessionId)
 ```
 {% endcode %}
 
-When the refer call succeeds, this event will be triggered. The ACTV means Active. For example: A established the call with B, and A transferred B to C. When C accepts the refer call, A will receive this event.
+This callback function is invoked when an active call transfer is successful. This occurs when the target party accepts a call that was transferred using a REFER message.
 
 **Parameters**
 
-| _sessionId_ | The session ID of the call. |
-| ----------- | --------------------------- |
+| _sessionId_ | The unique identifier for the transferred call. |
+| ----------- | ----------------------------------------------- |
 
 {% code overflow="wrap" %}
 ```csharp
@@ -2911,14 +2918,14 @@ Int32 PortSIP.SIPCallbackEvents.onACTVTransferFailure (Int32 sessionId, String r
 ```
 {% endcode %}
 
-When the refer call fails, this event will be triggered. The ACTV means Active. For example: A established the call with B, and A transfered B to C. When C rejects the refer call, A will receive this event.
+This callback function is invoked when an active call transfer fails. This occurs when the target party rejects a call that was transferred using a REFER message.
 
 **Parameters**
 
-| _sessionId_ | The session ID of the call. |
-| ----------- | --------------------------- |
-| _reason_    | The error reason.           |
-| _code_      | The error code.             |
+| _sessionId_ | The unique identifier for the transferred call.                           |
+| ----------- | ------------------------------------------------------------------------- |
+| _reason_    | A human-readable description of the reason for the call transfer failure. |
+| _code_      | A numerical code representing the reason for the call transfer failure.   |
 
 ### **Signaling events**
 
@@ -2928,7 +2935,9 @@ Int32 PortSIP.SIPCallbackEvents.onReceivedSignaling (Int32 sessionId, StringBuil
 ```
 {% endcode %}
 
-This event will be triggered when receiving an SIP message. **Parameters**
+This callback function is invoked when the SDK receives any SIP message related to a call. This includes INVITE, ACK, BYE, CANCEL, HOLD, UNHOLD, REFER, and other SIP messages.
+
+**Parameters**
 
 | _sessionId_ | The session ID of the call. |
 | ----------- | --------------------------- |
@@ -2942,9 +2951,9 @@ Int32 PortSIP.SIPCallbackEvents.onSendingSignaling (Int32 sessionId, StringBuild
 
 This event will be triggered when a SIP message sent. **Parameters**
 
-| _sessionId_ | The session ID of the call. |
-| ----------- | --------------------------- |
-| _signaling_ | The SIP message sent.       |
+| _sessionId_ | The unique identifier for the call associated with the received SIP message. |
+| ----------- | ---------------------------------------------------------------------------- |
+| _signaling_ | A string object containing the complete SIP message received.                |
 
 ### **MWI events**
 
@@ -2954,14 +2963,16 @@ Int32 PortSIP.SIPCallbackEvents.onWaitingVoiceMessage (String messageAccount, In
 ```
 {% endcode %}
 
-If there is voice message (MWI) waiting, this event will be triggered. **Parameters**
+This callback function is invoked when a new voice message (MWI) is waiting for the user.
 
-| _messageAccount_         | Voice message account     |
-| ------------------------ | ------------------------- |
-| _urgentNewMessag eCount_ | Urgent new message count. |
-| _urgentOldMessage Count_ | Urgent old message count. |
-| _newMessageCount_        | New message count.        |
-| _oldMessageCount_        | Old message count.        |
+**Parameters**
+
+| _messageAccount_         | The voice message account associated with the waiting messages. |
+| ------------------------ | --------------------------------------------------------------- |
+| _urgentNewMessag eCount_ | The number of urgent new voice messages.                        |
+| _urgentOldMessage Count_ | The number of urgent old voice messages.                        |
+| _newMessageCount_        | The number of new voice messages (non-urgent).                  |
+| _oldMessageCount_        | The number of old voice messages (non-urgent).                  |
 
 {% code overflow="wrap" %}
 ```csharp
@@ -2969,18 +2980,18 @@ Int32 PortSIP.SIPCallbackEvents.onWaitingFaxMessage (String messageAccount, Int3
 ```
 {% endcode %}
 
-If there is fax message (MWI) waiting, this event will be triggered. **Parameters**
+This callback function is invoked when a new fax message (MWI) is waiting for the user.
 
-| _messageAccount_         | Fax message account       |
-| ------------------------ | ------------------------- |
-| _urgentNewMessag eCount_ | Urgent new message count. |
-| _urgentOldMessage Count_ | Urgent old message count. |
-| _newMessageCount_        | New message count.        |
-| _oldMessageCount_        | Old message count.        |
+**Parameters**
+
+| _messageAccount_         | The fax message account associated with the waiting messages. |
+| ------------------------ | ------------------------------------------------------------- |
+| _urgentNewMessag eCount_ | The number of urgent new fax messages.                        |
+| _urgentOldMessage Count_ | The number of urgent old fax messages.                        |
+| _newMessageCount_        | The number of new fax messages.                               |
+| _oldMessageCount_        | The number of old fax messages.                               |
 
 ### **DTMF events**
-
-This event will be triggered when receiving a DTMF tone from the remote side.
 
 {% code overflow="wrap" %}
 ```csharp
@@ -2988,31 +2999,13 @@ Int32 PortSIP.SIPCallbackEvents.onRecvDtmfTone (Int32 sessionId, Int32 tone)
 ```
 {% endcode %}
 
+This callback function is invoked when a DTMF tone is received from the remote party during a call.
+
 **Parameters**
 
-| _sessionId_ | The session ID of the call. |
-| ----------- | --------------------------- |
-| _tone_      | DTMF tone.                  |
-| code        | Description                 |
-| 0           | The DTMF tone 0.            |
-| 1           | The DTMF tone 1.            |
-| 2           | The DTMF tone 2.            |
-| 3           | The DTMF tone 3.            |
-| 4           | The DTMF tone 4.            |
-| 5           | The DTMF tone 5.            |
-| 6           | The DTMF tone 6.            |
-| 7           | The DTMF tone 7.            |
-| 8           | The DTMF tone 8.            |
-| 9           | The DTMF tone 9.            |
-| 10          | The DTMF tone \*.           |
-| 11          | The DTMF tone #.            |
-| 12          | The DTMF tone A.            |
-| 13          | The DTMF tone B.            |
-| 14          | The DTMF tone C.            |
-| 15          | The DTMF tone D.            |
-| 16          | The DTMF tone FLASH.        |
+<table data-header-hidden><thead><tr><th width="365"></th><th></th></tr></thead><tbody><tr><td><em>sessionId</em></td><td>The unique identifier for the call.</td></tr><tr><td><em>tone</em></td><td><p>The DTMF tone that was received. The possible values for <code>tone</code> are:</p><ul><li>0: DTMF tone 0</li><li>1: DTMF tone 1</li><li>2: DTMF tone 2</li><li>3: DTMF tone 3</li><li>4: DTMF tone 4</li><li>5: DTMF tone 5</li><li>6: DTMF tone 6</li><li>7: DTMF tone 7</li><li>8: DTMF tone 8</li><li>9: DTMF tone 9</li><li>10: DTMF tone *</li><li>11: DTMF tone #</li><li>12: DTMF tone A</li><li>13: DTMF tone B</li><li>14: DTMF tone C</li><li>15: DTMF tone D</li><li>16: DTMF tone FLASH</li></ul></td></tr></tbody></table>
 
-**INFO/OPTIONS message events**
+### **INFO/OPTIONS message events**
 
 {% code overflow="wrap" %}
 ```csharp
@@ -3020,12 +3013,12 @@ Int32 PortSIP.SIPCallbackEvents.onRecvOptions (StringBuilder optionsMessage)
 ```
 {% endcode %}
 
-This event will be triggered when receiving the OPTIONS message.
+This callback function is invoked when the SDK receives an OPTIONS SIP message.
 
 **Parameters**
 
-| _optionsMessage_ | The received whole OPTIONS message in text format. |
-| ---------------- | -------------------------------------------------- |
+| _optionsMessage_ | A string object containing the complete OPTIONS SIP message received. |
+| ---------------- | --------------------------------------------------------------------- |
 
 {% code overflow="wrap" %}
 ```csharp
@@ -3033,10 +3026,12 @@ Int32 PortSIP.SIPCallbackEvents.onRecvInfo (StringBuilder infoMessage)
 ```
 {% endcode %}
 
-This event will be triggered when receiving the INFO message. **Parameters**
+This callback function is invoked when the SDK receives an INFO SIP message.&#x20;
 
-| _infoMessage_ | The received whole INFO message in text format. |
-| ------------- | ----------------------------------------------- |
+**Parameters**
+
+| _infoMessage_ | A string object containing the complete INFO SIP message received. |
+| ------------- | ------------------------------------------------------------------ |
 
 {% code overflow="wrap" %}
 ```csharp
@@ -3044,13 +3039,15 @@ Int32 PortSIP.SIPCallbackEvents.onRecvNotifyOfSubscription (Int32 subscribeId, S
 ```
 {% endcode %}
 
-This event will be triggered when receiving a NOTIFY message of the subscription. **Parameters**
+This callback function is invoked when the SDK receives a NOTIFY message related to a previously established subscription. A subscription is used to receive updates or notifications from a SIP server or another endpoint.
 
-| _subscribeId_   | The ID of SUBSCRIBE request.                                       |
-| --------------- | ------------------------------------------------------------------ |
-| _notifyMessage_ | The received INFO message in text format.                          |
-| _contentData_   | The received message body. It's can be either text or binary data. |
-| _contentLenght_ | The length of "messageData".                                       |
+**Parameters**
+
+| _subscribeId_   | The unique identifier for the subscription associated with the received NOTIFY message.                 |
+| --------------- | ------------------------------------------------------------------------------------------------------- |
+| _notifyMessage_ | A string object containing the complete NOTIFY SIP message received.                                    |
+| _contentData_   | A byte array containing the content of the NOTIFY message body. This can be either text or binary data. |
+| _contentLenght_ | The length of the `contentData` in bytes.                                                               |
 
 {% code overflow="wrap" %}
 ```csharp
@@ -3058,11 +3055,13 @@ Int32 PortSIP.SIPCallbackEvents.onSubscriptionFailure (Int32 subscribeId, Int32 
 ```
 {% endcode %}
 
-This event will be triggered on sending SUBSCRIBE failure. **Parameters**
+This callback function is invoked when a subscription attempt fails. This occurs when the SDK sends a SUBSCRIBE message but receives an error response from the SIP server.
 
-| _subscribeId_ | The ID of SUBSCRIBE request. |
-| ------------- | ---------------------------- |
-| _statusCode_  | The status code.             |
+**Parameters**
+
+| _subscribeId_ | The unique identifier for the subscription request that failed.        |
+| ------------- | ---------------------------------------------------------------------- |
+| _statusCode_  | A numerical code representing the reason for the subscription failure. |
 
 {% code overflow="wrap" %}
 ```csharp
@@ -3070,10 +3069,12 @@ Int32 PortSIP.SIPCallbackEvents.onSubscriptionTerminated (Int32 subscribeId)
 ```
 {% endcode %}
 
-This event will be triggered when a SUBSCRIPTION is terminated or expired. **Parameters**
+This callback function is invoked when a subscription is terminated or expires. This can occur due to various reasons, such as a timeout, explicit termination by the server or client, or other factors.
 
-| _subscribeId_ | The ID of SUBSCRIBE request. |
-| ------------- | ---------------------------- |
+**Parameters**
+
+| _subscribeId_ | The unique identifier for the terminated or expired subscription. |
+| ------------- | ----------------------------------------------------------------- |
 
 ### **Presence events**
 
@@ -3083,13 +3084,15 @@ Int32 PortSIP.SIPCallbackEvents.onPresenceRecvSubscribe (Int32 subscribeId, Stri
 ```
 {% endcode %}
 
-This event will be triggered when receiving the SUBSCRIBE request from a contact. **Parameters**
+This callback function is invoked when the SDK receives a SUBSCRIBE message from a contact, indicating that the contact wants to subscribe to your presence status.
 
-| _subscribeId_     | The ID of SUBSCRIBE request.                 |
-| ----------------- | -------------------------------------------- |
-| _fromDisplayName_ | The display name of contact.                 |
-| _from_            | The contact who sends the SUBSCRIBE request. |
-| _subject_         | The subject of the SUBSCRIBE request.        |
+**Parameters**
+
+| _subscribeId_     | The unique identifier for the SUBSCRIBE request.                                                                                                         |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _fromDisplayName_ | The display name of the contact who sent the SUBSCRIBE request.                                                                                          |
+| _from_            | The SIP URI of the contact who sent the SUBSCRIBE request.                                                                                               |
+| _subject_         | The subject of the SUBSCRIBE request. This may indicate the specific type of presence information the contact is interested in (e.g., "online", "busy"). |
 
 {% code overflow="wrap" %}
 ```csharp
@@ -3097,12 +3100,14 @@ Int32 PortSIP.SIPCallbackEvents.onPresenceOnline (String fromDisplayName, String
 ```
 {% endcode %}
 
-When the contact is online or changes presence status, this event will be triggered. **Parameters**
+This callback function is invoked when a contact's presence status changes to "online".
 
-| _fromDisplayName_ | The display name of contact.                 |
-| ----------------- | -------------------------------------------- |
-| _from_            | The contact who sends the SUBSCRIBE request. |
-| _stateText_       | The presence status text.                    |
+**Parameters**
+
+| _fromDisplayName_ | The display name of the contact whose presence status has changed.                                |
+| ----------------- | ------------------------------------------------------------------------------------------------- |
+| _from_            | The SIP URI of the contact whose presence status has changed.                                     |
+| _stateText_       | A human-readable description of the contact's presence status. In this case, it will be "online". |
 
 {% code overflow="wrap" %}
 ```csharp
@@ -3110,11 +3115,13 @@ Int32 PortSIP.SIPCallbackEvents.onPresenceOffline (String fromDisplayName, Strin
 ```
 {% endcode %}
 
-When the contact goes offline, this event will be triggered. **Parameters**
+This callback function is invoked when a contact's presence status changes to "offline".
 
-| _fromDisplayName_ | The display name of contact.                |
-| ----------------- | ------------------------------------------- |
-| _from_            | The contact who sends the SUBSCRIBE request |
+**Parameters**
+
+| _fromDisplayName_ | The display name of the contact whose presence status has changed. |
+| ----------------- | ------------------------------------------------------------------ |
+| _from_            | The SIP URI of the contact whose presence status has changed.      |
 
 {% code overflow="wrap" %}
 ```csharp
@@ -3122,34 +3129,33 @@ Int32 PortSIP.SIPCallbackEvents.onRecvMessage (Int32 sessionId, String mimeType,
 ```
 {% endcode %}
 
-This event will be triggered when receiving a MESSAGE message in dialog. **Parameters**
-
-| _sessionId_          | The session ID of the call.                               |
-| -------------------- | --------------------------------------------------------- |
-| _mimeType_           | The message mime type.                                    |
-| _subMimeType_        | The message sub mime type.                                |
-| _messageData_        | The received message body. It can be text or binary data. |
-| _messageDataLengt h_ | The length of "messageData".                              |
-
-{% code overflow="wrap" %}
-```csharp
-Int32 PortSIP.SIPCallbackEvents.onRecvOutOfDialogMessage (String fromDisplayName, String from, String toDisplayName, String to, String mimeType, String subMimeType, byte[] messageData, Int32 messageDataLength)
-```
-{% endcode %}
-
-This event will be triggered when receiving a MESSAGE message out of dialog. For example: pager message.
+This callback function is invoked when the SDK receives a MESSAGE SIP message during a call. A MESSAGE message is used to exchange text or binary data between parties in a call.
 
 **Parameters**
 
-| _fromDisplayName_    | The display name of sender.                               |
-| -------------------- | --------------------------------------------------------- |
-| _from_               | The message sender.                                       |
-| _toDisplayName_      | The display name of recipient.                            |
-| _to_                 | The recipient.                                            |
-| _mimeType_           | The message mime type.                                    |
-| _subMimeType_        | The message sub mime type.                                |
-| _messageData_        | The received message body. It can be text or binary data. |
-| _messageDataLengt h_ | The length of "messageData".                              |
+| _sessionId_          | The unique identifier for the call.                                                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| _mimeType_           | The MIME type of the received message. This specifies the content type of the message, such as "text" or "image".      |
+| _subMimeType_        | The sub-MIME type of the received message. This provides additional information about the content type, if applicable. |
+| _messageData_        | A byte array containing the content of the received message. This can be text or binary data.                          |
+| _messageDataLengt h_ | The length of the `messageData` in bytes.                                                                              |
+
+<pre class="language-csharp" data-overflow="wrap"><code class="lang-csharp"><strong>Int32 PortSIP.SIPCallbackEvents.onRecvOutOfDialogMessage (String fromDisplayName, String from, String toDisplayName, String to, String mimeType, String subMimeType, byte[] messageData, Int32 messageDataLength)
+</strong></code></pre>
+
+This callback function is invoked when the SDK receives a MESSAGE SIP message that is not associated with an existing call (out-of-dialog message). This is typically used for messaging scenarios where a direct call is not established.
+
+**Parameters**
+
+| _fromDisplayName_    | The display name of the sender of the message.                                                                         |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| _from_               | The SIP URI of the sender of the message.                                                                              |
+| _toDisplayName_      | The display name of the recipient of the message.                                                                      |
+| _to_                 | The SIP URI of the recipient of the message.                                                                           |
+| _mimeType_           | The MIME type of the received message. This specifies the content type of the message, such as "text" or "image".      |
+| _subMimeType_        | The sub-MIME type of the received message. This provides additional information about the content type, if applicable. |
+| _messageData_        | A byte array containing the content of the received message. This can be text or binary data.                          |
+| _messageDataLengt h_ | The length of the `messageData` in bytes.                                                                              |
 
 {% code overflow="wrap" %}
 ```csharp
@@ -3157,11 +3163,13 @@ Int32 PortSIP.SIPCallbackEvents.onSendMessageSuccess (Int32 sessionId, Int32 mes
 ```
 {% endcode %}
 
-If the message is sent successfully in dialog, this event will be triggered. **Parameters**
+This callback function is invoked when a MESSAGE message is sent successfully during a call.
 
-| _sessionId_ | The session ID of the call.                                             |
-| ----------- | ----------------------------------------------------------------------- |
-| _messageId_ | The message ID. It's equal to the return value of sendMessage function. |
+**Parameters**
+
+| _sessionId_ | The unique identifier for the call.                                                                                 |
+| ----------- | ------------------------------------------------------------------------------------------------------------------- |
+| _messageId_ | The unique identifier for the sent message. This is the same value that was returned by the `sendMessage` function. |
 
 {% code overflow="wrap" %}
 ```csharp
@@ -3169,13 +3177,15 @@ Int32 PortSIP.SIPCallbackEvents.onSendMessageFailure (Int32 sessionId, Int32 mes
 ```
 {% endcode %}
 
-If the message fails to be sent out of dialog, this event will be triggered. **Parameters**
+This callback function is invoked when a MESSAGE message fails to be sent, either during a call or out-of-dialog.
 
-| _sessionId_ | The session ID of the call.                                             |
-| ----------- | ----------------------------------------------------------------------- |
-| _messageId_ | The message ID. It's equal to the return value of sendMessage function. |
-| _reason_    | The failure reason.                                                     |
-| _code_      | Failure code.                                                           |
+**Parameters**
+
+| _sessionId_ | The unique identifier for the call (if applicable).                 |
+| ----------- | ------------------------------------------------------------------- |
+| _messageId_ | The unique identifier for the message that failed to be sent.       |
+| _reason_    | A human-readable description of the reason for the message failure. |
+| _code_      | A numerical code representing the reason for the message failure.   |
 
 {% code overflow="wrap" %}
 ```csharp
@@ -3183,15 +3193,17 @@ Int32 PortSIP.SIPCallbackEvents.onSendOutOfDialogMessageSuccess (Int32 messageId
 ```
 {% endcode %}
 
-If the message is sent succeeded out of dialog, this event will be triggered. **Parameters**
+This callback function is invoked when a MESSAGE message is sent successfully out of dialog (not associated with an existing call).
 
-| _messageId_       | The message ID. It's equal to the return value of SendOutOfDialogMessage function. |
-| ----------------- | ---------------------------------------------------------------------------------- |
-| _fromDisplayName_ | The display name of message sender.                                                |
-| _from_            | The message sender.                                                                |
-| _toDisplayName_   | The display name of message recipient.                                             |
-| to                | The message receiver.                                                              |
-|                   |                                                                                    |
+**Parameters**
+
+| _messageId_       | The unique identifier for the sent message. |
+| ----------------- | ------------------------------------------- |
+| _fromDisplayName_ | The display name of the message sender.     |
+| _from_            | The SIP URI of the message sender.          |
+| _toDisplayName_   | The display name of the message recipient.  |
+| to                | The SIP URI of the message recipient.       |
+|                   |                                             |
 
 {% code overflow="wrap" %}
 ```csharp
@@ -3199,16 +3211,18 @@ Int32 PortSIP.SIPCallbackEvents.onSendOutOfDialogMessageFailure (Int32 messageId
 ```
 {% endcode %}
 
-If the message was sent failure out of dialog, this event will be triggered. **Parameters**
+This callback function is invoked when a MESSAGE message fails to be sent out of dialog.
 
-| _messageId_       | The message ID. It's equal to the return value of SendOutOfDialogMessage function. |
-| ----------------- | ---------------------------------------------------------------------------------- |
-| _fromDisplayName_ | The display name of message sender                                                 |
-| _from_            | The message sender.                                                                |
-| _toDisplayName_   | The display name of message recipient.                                             |
-| _to_              | The message recipient.                                                             |
-| _reason_          | The failure reason.                                                                |
-| _code_            | The failure code.                                                                  |
+**Parameters**
+
+| _messageId_       | The unique identifier for the message that failed to be sent. This is the same value that was returned by the `SendOutOfDialogMessage` function when the message was originally sent. It allows you to track and reference the failed message. |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _fromDisplayName_ | The display name of the message sender.                                                                                                                                                                                                        |
+| _from_            | The SIP URI of the message sender.                                                                                                                                                                                                             |
+| _toDisplayName_   | The display name of the message recipient.                                                                                                                                                                                                     |
+| _to_              | he SIP URI of the message recipient.                                                                                                                                                                                                           |
+| _reason_          | A human-readable description of the reason for the message failure.                                                                                                                                                                            |
+| _code_            | A numerical code representing the reason for the message failure.                                                                                                                                                                              |
 
 ### **Play audio and video files finished events**
 
@@ -3218,13 +3232,13 @@ Int32 PortSIP.SIPCallbackEvents.onPlayFileFinished (Int32 sessionId, String file
 ```
 {% endcode %}
 
-If startPlayingFileToRemote function is called with no loop mode, this event will be triggered once the file play finished.
+This callback function is invoked when the playback of a file to the remote party has completed in a non-looping mode.
 
 **Parameters**
 
-| _sessionId_ | The session ID of the call.  |
-| ----------- | ---------------------------- |
-| _fileName_  | The name of the file played. |
+| _sessionId_ | The unique identifier for the call.   |
+| ----------- | ------------------------------------- |
+| _fileName_  | The name of the file that was played. |
 
 {% code overflow="wrap" %}
 ```csharp
@@ -3232,17 +3246,15 @@ Int32 PortSIP.SIPCallbackEvents.onStatistics (Int32 sessionId, String stat)
 ```
 {% endcode %}
 
-If getStatistics function is called, this event will be triggered once receiving a RTP statistics .
+This callback function is invoked when RTP statistics are received for a given session. This occurs after calling the `getStatistics` function.
 
 **Parameters**
 
-| _sessionId_ | The session ID of the call.      |
-| ----------- | -------------------------------- |
-| _stat_      | RTP statistics of a json format. |
+| _sessionId_ | The unique identifier for the call.                             |
+| ----------- | --------------------------------------------------------------- |
+| _stat_      | A JSON string representing the RTP statistics for the session.  |
 
 ### **RTP callback events**
-
-
 
 {% code overflow="wrap" %}
 ```csharp
@@ -3250,27 +3262,20 @@ Int32 PortSIP.SIPCallbackEvents.onRTPPacketCallback (IntPtr callbackObject, Int3
 ```
 {% endcode %}
 
-If enableRtpCallback function is called to enable the RTP callback, this event will be triggered once receiving a RTP packet or a RTP packet sent.
+This callback function is invoked when an RTP packet is received or sent during a call. This callback is enabled by calling the `enableRtpCallback` function.
 
 **Parameters**
 
-| _sessionId_     | The session ID of the call.                                                                                  |
-| --------------- | ------------------------------------------------------------------------------------------------------------ |
-| _mediaType_     | If the received RTP packet is audio this parameter is 0 video this parameter is 1 screen this parameter is 2 |
-| _direction_     | The RTP stream callback direction.                                                                           |
-| Type            | Description                                                                                                  |
-| DIRECTION\_SEND | Callback the send RTP stream for one channel based on the given sessionId.                                   |
-| DIRECTION\_RECV | Callback the received RTP stream for one channel based on the given sessionId.                               |
-
-**Parameters**
-
-| _RTPPacket_  | The memory of whole RTP packet.  |
-| ------------ | -------------------------------- |
-| _packetSize_ | The size of received RTP Packet. |
+| _sessionId_  | The unique identifier for the call.                                                                                                                                                                                                 |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _mediaType_  | <p></p><p>The type of media associated with the RTP packet:</p><ul><li>0: Audio</li><li>1: Video</li><li>2: Screen</li></ul>                                                                                                        |
+| _direction_  | <p></p><p>The direction of the RTP stream:</p><ul><li><code>DIRECTION_SEND</code>: Callback for sending RTP streams for a channel.</li><li><code>DIRECTION_RECV</code>: Callback for receiving RTP streams for a channel.</li></ul> |
+| _RTPPacket_  | A pointer to the memory containing the entire RTP packet.                                                                                                                                                                           |
+| _packetSize_ | The size of the received RTP packet in bytes.                                                                                                                                                                                       |
 
 **Note**
 
-Don't call any SDK API functions in this event directly. If you want to call the API functions or other code which is time-consuming, you should post a message to another thread and execute SDK API functions or other code in another thread.
+It is important to avoid calling SDK API functions directly within this callback function, as it may lead to performance issues or unexpected behavior. Instead, consider posting a message to another thread to execute time-consuming operations.
 
 ### **Audio and video stream callback events**
 
@@ -3280,20 +3285,20 @@ Int32 PortSIP.SIPCallbackEvents.onAudioRawCallback (IntPtr callbackObject, Int32
 ```
 {% endcode %}
 
-This event will be triggered once receiving the audio packets if called enableAudioStreamCallback function.
+This callback function is invoked when audio packets are received or sent during a call. This callback is enabled by calling the `enableAudioStreamCallback` function.
 
 **Parameters**
 
-| _sessionId_          | The session ID of the call.                                     |
-| -------------------- | --------------------------------------------------------------- |
-| _audioCallbackMod e_ | The type that is passed in enableAudioStreamCallback function.  |
-| _data_               | The memory of audio stream. It's in PCM format.                 |
-| _dataLength_         | The data size.                                                  |
-| _samplingFreqHz_     | The audio stream sample in HZ. For example, it's 8000 or 16000. |
+| _sessionId_          | The unique identifier for the call.                                                           |
+| -------------------- | --------------------------------------------------------------------------------------------- |
+| _audioCallbackMod e_ | The type of audio callback, as specified in the `enableAudioStreamCallback` function.         |
+| _data_               | A byte array containing the raw audio data in PCM format.                                     |
+| _dataLength_         | The size of the audio data in bytes.                                                          |
+| _samplingFreqHz_     | The sampling frequency of the audio data in Hertz (Hz). Common values include 8000 and 16000. |
 
 **Note**
 
-Don't call any SDK API functions in this event directly. If you want to call the API functions or other code which is time-consuming, you should post a message to another thread and execute SDK API functions or other code in another thread.
+It is important to avoid calling SDK API functions directly within this callback function, as it may lead to performance issues or unexpected behavior. Instead, consider posting a message to another thread to execute time-consuming operations.
 
 ```
 Int32 PortSIP.SIPCallbackEvents.onVideoRawCallback (IntPtr callbackObject, 
@@ -3305,22 +3310,22 @@ Int32 PortSIP.SIPCallbackEvents.onVideoRawCallback (IntPtr callbackObject,
                                 Int32 dataLength)
 ```
 
-This event will be triggered once receiving the video packets if called enableVideoStreamCallback function.
+This callback function is invoked when video packets are received or sent during a call. This callback is enabled by calling the `enableVideoStreamCallback` function.
 
 **Parameters**
 
 ```C#
 ```
 
-| _sessionId_          | The session ID of the call.                                     |
-| -------------------- | --------------------------------------------------------------- |
-| _videoCallbackMod e_ | The type which is passed in enableVideoStreamCallback function. |
-| _width_              | The width of video image.                                       |
-| _height_             | The height of video image.                                      |
-| _data_               | The memory of video stream. It's in YUV420 format, YV12.        |
-| _dataLength_         | The data size.                                                  |
+| _sessionId_          | The unique identifier for the call.                                                   |
+| -------------------- | ------------------------------------------------------------------------------------- |
+| _videoCallbackMod e_ | The type of video callback, as specified in the `enableVideoStreamCallback` function. |
+| _width_              | The width of the video frame in pixels.                                               |
+| _height_             | The height of the video frame in pixels.                                              |
+| _data_               | A byte array containing the raw video data in YUV420 format (YV12).                   |
+| _dataLength_         | The size of the video data in bytes.                                                  |
 
 **Note**
 
-Don't call any SDK API functions in this event directly. If you want to call the API functions or other code which is time-consuming, you should post a message to another thread and execute SDK API functions or other code in another thread.
+It is important to avoid calling SDK API functions directly within this callback function, as it may lead to performance issues or unexpected behavior. Instead, consider posting a message to another thread to execute time-consuming operations.
 
