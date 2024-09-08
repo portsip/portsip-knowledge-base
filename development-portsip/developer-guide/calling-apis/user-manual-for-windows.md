@@ -121,39 +121,6 @@ Set the license key. It must be called before the `setUser` function.
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-## **NIC and local IP functions**
-
-```csharp
-Int32 PortSIP.PortSIPLib.getNICNums ()
-```
-
-Retrieve the number of Network Interface Cards (NICs) available on the device.
-
-**Returns**
-
-If the function succeeds, it will return the number of Network Interface Cards (NICs), which will be greater than or equal to 0. If the function fails, it will return a specific error code.
-
-
-
-```csharp
-Int32 PortSIP.PortSIPLib.getLocalIpAddress (Int32 index, 
-                                StringBuilder ip, 
-                                Int32 ipSize)
-```
-
-Get the local IP address by Network Interface Card index.&#x20;
-
-**Parameters**
-
-| _index_  | Specify the IP address index. For example, if the PC has two NICs and you wish to obtain the IP address of the second NIC, set this parameter to `1`. The first NIC IP index is `0`. |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| _ip_     | Specify the `StringBuilder` buffer that is used to receive the IP address.                                                                                                           |
-| _ipSize_ | Specify the `StringBuilder` buffer size, which must be at least 32 bytes.                                                                                                            |
-
-**Returns**
-
-If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
-
 ```csharp
 Int32 PortSIP.PortSIPLib.setUser (String userName, 
                                 String displayName, 
@@ -358,9 +325,40 @@ Set the RTP callbacks to allow access to the sent and received RTP packets. The 
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-18
+## **NIC and local IP functions**
 
-**Audio and video codecs functions**
+```csharp
+Int32 PortSIP.PortSIPLib.getNICNums ()
+```
+
+Retrieve the number of Network Interface Cards (NICs) available on the device.
+
+**Returns**
+
+If the function succeeds, it will return the number of Network Interface Cards (NICs), which will be greater than or equal to 0. If the function fails, it will return a specific error code.
+
+
+
+```csharp
+Int32 PortSIP.PortSIPLib.getLocalIpAddress (Int32 index, 
+                                StringBuilder ip, 
+                                Int32 ipSize)
+```
+
+Get the local IP address by Network Interface Card index.&#x20;
+
+**Parameters**
+
+| _index_  | Specify the IP address index. For example, if the PC has two NICs and you wish to obtain the IP address of the second NIC, set this parameter to `1`. The first NIC IP index is `0`. |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| _ip_     | Specify the `StringBuilder` buffer that is used to receive the IP address.                                                                                                           |
+| _ipSize_ | Specify the `StringBuilder` buffer size, which must be at least 32 bytes.                                                                                                            |
+
+**Returns**
+
+If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+## **Audio and video codec functions**
 
 **Functions**
 
