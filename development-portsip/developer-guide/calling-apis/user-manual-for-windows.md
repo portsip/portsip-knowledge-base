@@ -55,6 +55,8 @@ Yes, the SDK is thread-safe. You can call any of the API functions without worry
 
 Yes, the SDK supports both 32-bit and 64-bit architectures.
 
+***
+
 ## **Initialize and register functions**
 
 ```csharp
@@ -94,7 +96,9 @@ Initialize the SDK.&#x20;
 
 #### **Returns**
 
-If the function succeeds, it will return a value of 0. If the function fails, it will return a specific error code
+If the function succeeds, it will return a value of 0. If the function fails, it will return a specific error code.
+
+***
 
 ```csharp
 String PortSIP.PortSIPLib.getVersion ()
@@ -105,6 +109,8 @@ Get the current version number of the SDK.
 **Returns**
 
 Return a current version number MAJOR.MINOR.PATCH of the SDK.
+
+***
 
 ```csharp
 Int32 PortSIP.PortSIPLib.setLicenseKey (String key)
@@ -120,6 +126,8 @@ Set the license key. It must be called before the `setUser` function.
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 ```csharp
 Int32 PortSIP.PortSIPLib.setUser (String userName, 
@@ -158,6 +166,8 @@ Set user account info.
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 ```csharp
 Int32 PortSIP.PortSIPLib.setDisplayName (String displayName)
 ```
@@ -173,6 +183,8 @@ Set the display name for the user.
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 ```
 Int32 PortSIP.PortSIPLib.setInstanceId (String uuid)
 ```
@@ -187,6 +199,8 @@ Set outbound (RFC5626) instanceId to be used in contact headers.&#x20;
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 ```
 Int32 PortSIP.PortSIPLib.registerServer (Int32 expires, Int32 retryTimes)
@@ -204,9 +218,13 @@ Register to the SIP server or PBX server(login to the server).
 
 If the function succeeds, it will return 0. If it fails, it will return a specific error code. Upon successful registration to the server, the `onRegisterSuccess` callback will be triggered; otherwise, the `onRegisterFailure` callback will be triggered.
 
-**Int32 PortSIP.PortSIPLib.unRegisterServer (Int32 **_**waitMS**_**)**
+***
 
-Unregister from the SIP proxy server.
+```csharp
+Int32 PortSIP.PortSIPLib.unRegisterServer (Int32 waitMS)
+```
+
+Unregister from the SIP server/PBX.
 
 **Parameters**
 
@@ -216,6 +234,8 @@ Unregister from the SIP proxy server.
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 ```csharp
 Int32 PortSIP.PortSIPLib.enableRport (Boolean enable)
@@ -232,6 +252,8 @@ Enable/disable rport(RFC3581).
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 ```csharp
 Int32 PortSIP.PortSIPLib.enableEarlyMedia (Boolean enable)
 ```
@@ -247,6 +269,8 @@ Enable/disable Early Media.
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 ```csharp
 Int32 PortSIP.PortSIPLib.enablePriorityIPv6Domain (Boolean enable)
 ```
@@ -261,6 +285,8 @@ Enable or disable the option to specify the preferred protocol when a domain sup
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 ```csharp
 Int32 PortSIP.PortSIPLib.setUriUserEncoding (String character, Boolean enable)
@@ -278,6 +304,8 @@ Indicate to the SDK that the user part of the URI should be encoded for escaping
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 ```csharp
 Int32 PortSIP.PortSIPLib.setReliableProvisional (Int32 mode)
 ```
@@ -292,6 +320,8 @@ Enable/disable PRACK.
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 ```
 Int32 PortSIP.PortSIPLib.enable3GppTags (Boolean enable)
@@ -308,6 +338,8 @@ Enable/disable the 3Gpp tags, including "ims.icsi.mmtel" and "g.3gpp.smsip".
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 ```csharp
 void PortSIP.PortSIPLib.enableCallbackSignaling (Boolean enableSending, 
                                 Boolean enableReceived)
@@ -315,11 +347,14 @@ void PortSIP.PortSIPLib.enableCallbackSignaling (Boolean enableSending,
 
 This function is used to enable or disable the callback for SIP messages.
 
-17 **Parameters**
+**Parameters**
 
 | _enableSending_  | Set to `true` to enable the callback for sent SIP messages, or `false` to disable it. Once enabled, the `onSendingSignaling` event will be triggered when the SDK sends a SIP message.         |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | _enableReceived_ | Set to `true` to enable the callback for received SIP messages, or `false` to disable it. Once enabled, the `onReceivedSignaling` event will be triggered when the SDK receives a SIP message. |
+|                  |                                                                                                                                                                                                |
+
+***
 
 ```csharp
 Int32 PortSIP.PortSIPLib.enableRtpCallback (Int32 sessionId, 
@@ -340,6 +375,8 @@ Enable RTP callbacks to access sent and received RTP packets. The `onRTPPacketCa
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 ## **NIC and local IP functions**
 
 ```csharp
@@ -352,7 +389,7 @@ Retrieve the number of Network Interface Cards (NICs) available on the device.
 
 If the function succeeds, it will return the number of Network Interface Cards (NICs), which will be greater than or equal to 0. If the function fails, it will return a specific error code.
 
-
+***
 
 ```csharp
 Int32 PortSIP.PortSIPLib.getLocalIpAddress (Int32 index, 
@@ -373,6 +410,8 @@ Get the local IP address by Network Interface Card index.&#x20;
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 ## **Audio and video codec functions**
 
 ```csharp
@@ -391,6 +430,8 @@ Enables an audio codec, making it appear in the Session Description Protocol (SD
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 ```csharp
 Int32 PortSIP.PortSIPLib.addVideoCodec (VIDEOCODEC_TYPE codecType)
 ```
@@ -406,6 +447,8 @@ Enables a video codec, making it appear in the Session Description Protocol (SDP
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 ```
 Boolean PortSIP.PortSIPLib.isAudioCodecEmpty ()
 ```
@@ -416,6 +459,8 @@ This function checks whether any audio codecs are enabled.
 
 If no audio codec is enabled, it will return value true, otherwise false.
 
+***
+
 ```csharp
 Boolean PortSIP.PortSIPLib.isVideoCodecEmpty ()
 ```
@@ -425,6 +470,8 @@ This function checks whether any video codecs are enabled.
 **Returns**
 
 If no video codec is enabled, it will return value true, otherwise false.
+
+***
 
 ```csharp
 Int32 PortSIP.PortSIPLib.setAudioCodecPayloadType (AUDIOCODEC_TYPE codecType, 
@@ -443,6 +490,8 @@ Set the RTP payload type for a dynamic audio codec.
 
 If the function succeeds, it will return value 0. If the function fails, it will return value a specific error code.
 
+***
+
 ```csharp
 Int32 PortSIP.PortSIPLib.setVideoCodecPayloadType (VIDEOCODEC_TYPE codecType, 
                                                    Int32 payloadType)
@@ -459,6 +508,8 @@ Set the RTP payload type for a dynamic Video codec.
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 ```csharp
 Int32 PortSIP.PortSIPLib.setAudioCodecParameter (AUDIOCODEC_TYPE codecType, 
@@ -477,11 +528,15 @@ Set the codec parameters for an audio codec.
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 **Remarks**
 
 Here is an example:
 
 `setAudioCodecParameter(AUDIOCODEC_AMR, "mode-set=0; octet-align=1; robust-sorting=0");`
+
+***
 
 ```csharp
 Int32 PortSIP.PortSIPLib.setVideoCodecParameter (VIDEOCODEC_TYPE codecType, 
@@ -506,6 +561,8 @@ Here is an example:
 
 `setVideoCodecParameter(VIDEO_CODEC_H264, "profile-level-id=420033; packetization-mode=0");`
 
+***
+
 ## **Additional setting functions**
 
 ```csharp
@@ -525,6 +582,8 @@ Set the SRTP policy.&#x20;
 
 If the function succeeds, it will return value 0. If the function fails, it will return value a specific error code.
 
+***
+
 ```csharp
 Int32 PortSIP.PortSIPLib.setRtpPortRange (Int32 minimumRtpPort, Int32 maximumRtpPort)
 ```
@@ -540,6 +599,8 @@ Set the RTP port range for RTP traffic.
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 **Remarks**
 
@@ -561,6 +622,8 @@ Enable call forwarding.&#x20;
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 ```csharp
 Int32 PortSIP.PortSIPLib.disableCallForward ()
 ```
@@ -571,7 +634,7 @@ Disable call forwarding. The SDK will not forward any incoming calls after this 
 
 If the function succeeds, it will return value 0. If the function fails, the return value is a specific error code.
 
-
+***
 
 ```csharp
 Int32 PortSIP.PortSIPLib.enableSessionTimer (Int32 timerSeconds, 
@@ -595,6 +658,8 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 Repeated INVITE requests, or re-INVITEs, are sent during an active call to allow user agents (UAs) or proxies to determine the status of a SIP session. Without this keepalive mechanism, stateful proxies that remember incoming and outgoing requests may continue to retain call state unnecessarily. If a UA fails to send a BYE message at the end of a session, or if the BYE message is lost due to network issues, a stateful proxy will not know that the session has ended. Re-INVITEs ensure that active sessions remain active and completed sessions are terminated.
 
+***
+
 ```csharp
 Int32 PortSIP.PortSIPLib.disableSessionTimer ()
 ```
@@ -604,6 +669,8 @@ Disable the session timer.
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 ```csharp
 void PortSIP.PortSIPLib.setDoNotDisturb (Boolean state)
@@ -615,6 +682,9 @@ Enable or disable the "Do Not Disturb" feature.
 
 | _state_ | If set to `true`, the SDK will reject all incoming calls automatically. |
 | ------- | ----------------------------------------------------------------------- |
+|         |                                                                         |
+
+***
 
 ```csharp
 Int32 PortSIP.PortSIPLib.enableAutoCheckMwi (Boolean state)
@@ -630,6 +700,8 @@ Allows enabling or disabling the automatic check for Message Waiting Indication 
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 ```csharp
 Int32 PortSIP.PortSIPLib.setRtpKeepAlive (Boolean state, 
@@ -650,6 +722,8 @@ Enable or disable to send RTP keep-alive packet when the call is established.&#x
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 ```csharp
 Int32 PortSIP.PortSIPLib.setKeepAliveTime (Int32 keepAliveTime)
 ```
@@ -664,6 +738,8 @@ Enable or disable the sending of SIP keep-alive packets.
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 <pre class="language-csharp"><code class="lang-csharp">Int32 PortSIP.PortSIPLib.getSipMessageHeaderValue (String sipMessage, 
 <strong>                                String headerName, 
@@ -689,13 +765,16 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 When receiving a SIP message in the `onReceivedSignaling` callback event and you wish to get the SIP message header value, please use `getSipMessageHeaderValue.` Example:
 
-```
+```csharp
 StringBuilder value = new StringBuilder(); 
 value.Length = 512; 
 getSipMessageHeaderValue(message, name, value);
 ```
 
+***
+
 ```csharp
+
 Int32 PortSIP.PortSIPLib.addSipMessageHeader (Int32 sessionId, 
                                 String methodName, 
                                 Int32 msgType, 
@@ -718,6 +797,8 @@ Add a custom SIP message header to the specified outgoing SIP message.
 
 If the function succeeds, it will return addedSipMessageId, which is greater than 0. If the function fails, it will return a specific error code.
 
+***
+
 ```csharp
 Int32 PortSIP.PortSIPLib.removeAddedSipMessageHeader (Int32 sipMessageHeaderId)
 ```
@@ -732,6 +813,8 @@ Remove the custom headers that were added using `addSipMessageHeader`.
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 ```csharp
 Int32 PortSIP.PortSIPLib.clearAddedSipMessageHeaders ()
@@ -750,6 +833,8 @@ addExtensionHeader(-1, "ALL", 3, "Billing", "usd100.00");
 addExtensionHeader(-1, "ALL", 3, "ServiceId", "8873456");
 clearAddedSipMessageHeaders();
 ```
+
+***
 
 ```csharp
 Int32 PortSIP.PortSIPLib.modifySipMessageHeader (Int32 sessionId, 
@@ -772,6 +857,8 @@ Modify the special SIP header value for every outgoing SIP message.
 
 If the function succeeds, it will return modifiedSipMessageId, which is greater than 0. If the function fails, it will return a specific error code.
 
+***
+
 ```csharp
 Int32 PortSIP.PortSIPLib.removeModifiedSipMessageHeader (Int32 sipMessageHeaderId)
 ```
@@ -787,6 +874,8 @@ Remove the modified headers (custom headers) from every outgoing SIP message.
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 ```csharp
 Int32 PortSIP.PortSIPLib.clearModifiedSipMessageHeaders ()
 ```
@@ -799,7 +888,53 @@ For example, to modify the values of two headers for every outgoing SIP message 
 modifySipMessageHeader(-1, "ALL", 3, "Expires", "1000");
 modifySipMessageHeader(-1, "ALL", 3, "User-Agent", "MyTest Softphone 1.0");
 clearModifiedSipMessageHeaders();
+
 ```
+
+***
+
+```csharp
+Int32 PortSIP.PortSIPLib.addSupportedMimeType (String methodName, String mimeType, String subMimeType)
+```
+
+Set the SDK to receive SIP messages that include a special MIME type.
+
+**Parameters**
+
+| _methodName_  | The method name of the SIP message, such as `INVITE`, `OPTION`, `INFO`, `MESSAGE`, `UPDATE`, `ACK`, etc. For more details, please refer to RFC3261. |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _mimeType_    | The mime type of SIP message.                                                                                                                       |
+| _subMimeType_ | The sub mime type of SIP message.                                                                                                                   |
+
+**Returns**
+
+If the function succeeds, it will return the value `0`. If the function fails, it will return a specific error code.
+
+**Remarks**
+
+By default, the PortSIP VoIP SDK supports the following media types (MIME types) for incoming SIP messages:
+
+* `"message/sipfrag"` in NOTIFY messages.
+* `"application/simple-message-summary"` in NOTIFY messages.
+* `"text/plain"` in MESSAGE messages.
+* `"application/dtmf-relay"` in INFO messages.
+* `"application/media_control+xml"` in INFO messages.
+
+The SDK allows receiving SIP messages that include the above MIME types. If the remote side sends an INFO SIP message with its “Content-Type” header value set to `"text/plain"`, the SDK will reject this INFO message, as `"text/plain"` for INFO messages is not included in the default support list.
+
+To enable the SDK to receive SIP INFO messages that include the `"text/plain"` MIME type, use the following command:
+
+```cpp
+addSupportedMimeType("INFO", "text", "plain");
+```
+
+If you want to receive NOTIFY messages with `"application/media_control+xml"`, use the following command:
+
+```cpp
+addSupportedMimeType("NOTIFY", "application", "media_control+xml");
+```
+
+For more details about MIME types, please visit the IANA Media Types website:[http://www.iana.org/assignments/media-types/](http://www.iana.org/assignments/media-types/)
 
 ## **Audio and video functions**
 
