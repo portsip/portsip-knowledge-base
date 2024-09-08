@@ -1,6 +1,6 @@
 # User Manual for Windows
 
-## the **FAQ**
+## **FAQ**
 
 ### Where can I download the PortSIP VoIP SDK for testing?
 
@@ -192,32 +192,34 @@ If the function succeeds, it will return value 0. If the function fails, it will
 Int32 PortSIP.PortSIPLib.registerServer (Int32 expires, Int32 retryTimes)
 ```
 
-Register to SIP server or PBX server(login to the server).
+Register to the SIP server or PBX server(login to the server).
 
 15 **Parameters**
 
-| _expires_    | Registration refresh Interval in seconds with maximum 3600. It will be inserted into SIP REGISTER message headers.                                                                       |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _retryTimes_ | The retry times if failed to refresh the registration. If it's set to be less than or equal to 0, the retry will be disabled and onRegisterFailure callback triggered when retry failed. |
+| _expires_    | Specify the registration refresh interval in seconds, with a maximum of 3600 seconds. This value will be inserted into the SIP REGISTER message headers.                        |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _retryTimes_ | The number of retry attempts if registration refresh fails. If set to 0 or less, retries will be disabled, and the `onRegisterFailure` callback will be triggered upon failure. |
 
 **Returns**
 
-If the function succeeds, it will return value 0. If the function fails, it will return a specific error code. If registration to server succeeded, onRegisterSuccess will be triggered, otherwise onRegisterFailure triggered.
+If the function succeeds, it will return 0. If it fails, it will return a specific error code. Upon successful registration to the server, the `onRegisterSuccess` callback will be triggered; otherwise, the `onRegisterFailure` callback will be triggered.
 
 **Int32 PortSIP.PortSIPLib.unRegisterServer (Int32 **_**waitMS**_**)**
 
-Un-register from the SIP proxy server.
+Unregister from the SIP proxy server.
 
 **Parameters**
 
-| _waitMS_ | Wait for the server to reply that the un-registration is successful, waitMS is the longest waiting milliseconds, 0 means not waiting. |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| _waitMS_ | Wait for the server to confirm successful un-registration. `waitMS` specifies the maximum wait time in milliseconds; a value of 0 means no waiting |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-**Int32 PortSIP.PortSIPLib.enableRport (Boolean **_**enable**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.enableRport (Boolean enable)
+```
 
 Enable/disable rport(RFC3581).
 
@@ -230,7 +232,9 @@ Enable/disable rport(RFC3581).
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-**Int32 PortSIP.PortSIPLib.enableEarlyMedia (Boolean **_**enable**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.enableEarlyMedia (Boolean enable)
+```
 
 Enable/disable Early Media.
 
@@ -243,47 +247,55 @@ Enable/disable Early Media.
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-**Int32 PortSIP.PortSIPLib.enablePriorityIPv6Domain (Boolean **_**enable**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.enablePriorityIPv6Domain (Boolean enable)
+```
 
-Enable/disable which allows specifying the preferred protocol when a domain supports both IPV4 and IPV6 simultaneously.
+Enable or disable the option to specify the preferred protocol when a domain supports both IPv4 and IPv6 simultaneously.
 
 16 **Parameters**
 
-| _enable_ | Set to true to enable priority IPv6 Domain. with the default priority being IPV4. |
-| -------- | --------------------------------------------------------------------------------- |
+| _enable_ | Set to `true` to prioritize IPv6 domains. By default, IPv4 is prioritized. |
+| -------- | -------------------------------------------------------------------------- |
 
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-**Int32 PortSIP.PortSIPLib.setUriUserEncoding (String **_**character**_**, Boolean **_**enable**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.setUriUserEncoding (String character, Boolean enable)
+```
 
-Modifies the default URI user character needs to be escaped.
+Indicate to the SDK that the user part of the URI should be encoded for escaping.
 
 **Parameters**
 
-| _character_ | The character to be modified, set one at a time.                                        |
-| ----------- | --------------------------------------------------------------------------------------- |
-| _enable_    | Whether escaping is required, true for allowing escaping, false for disabling escaping. |
+| _character_ | Specify the character to be encoded, setting one at a time.                                       |
+| ----------- | ------------------------------------------------------------------------------------------------- |
+| _enable_    | Indicate whether escaping is required: set to `true` to allow escaping, or `false` to disable it. |
 
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-**Int32 PortSIP.PortSIPLib.setReliableProvisional (Int32 **_**mode**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.setReliableProvisional (Int32 mode)
+```
 
 Enable/disable PRACK.
 
 **Parameters**
 
-| _mode_ | Modes work as follows: 0 - Never, Disable PRACK,By default the PRACK is disabled. 1 - SupportedEssential, Only send reliable provisionals if sending a body and far end supports. 2 - Supported, Always send reliable provisionals if far end supports. 3 - Required Always send reliable provisionals. |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _mode_ | <p></p><p>This mode parameter can be set to one of the following values:</p><ul><li><code>0 - Never</code>: Disable PRACK. By default, PRACK is disabled.</li><li><code>1 - SupportedEssential</code>: Only send reliable provisionals if sending a body and the far end supports it.</li><li><code>2 - Supported</code>: Always send reliable provisionals if the far end supports it.</li><li><code>3 - Required</code>: Always send reliable provisionals.</li></ul> |
+| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-**Int32 PortSIP.PortSIPLib.enable3GppTags (Boolean **_**enable**_**)**
+```
+Int32 PortSIP.PortSIPLib.enable3GppTags (Boolean enable)
+```
 
 Enable/disable the 3Gpp tags, including "ims.icsi.mmtel" and "g.3gpp.smsip".
 
@@ -296,30 +308,33 @@ Enable/disable the 3Gpp tags, including "ims.icsi.mmtel" and "g.3gpp.smsip".
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-**void PortSIP.PortSIPLib.enableCallbackSignaling (Boolean **_**enableSending**_**, Boolean **_**enableReceived**_**)**
+```csharp
+void PortSIP.PortSIPLib.enableCallbackSignaling (Boolean enableSending, 
+                                Boolean enableReceived)
+```
 
-Enable/disable to callback the SIP messages.
+This function is used to enable or disable the callback for SIP messages.
 
 17 **Parameters**
 
-| _enableSending_  | Set as true to enable to callback the sent SIP messages, or false to disable. Once enabled, the "onSendingSignaling" event will be triggered when the SDK sends a SIP message.         |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _enableReceived_ | Set as true to enable to callback the received SIP messages, or false to disable. Once enabled, the "onReceivedSignaling" event will be triggered when the SDK receives a SIP message. |
+| _enableSending_  | Set to `true` to enable the callback for sent SIP messages, or `false` to disable it. Once enabled, the `onSendingSignaling` event will be triggered when the SDK sends a SIP message.         |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _enableReceived_ | Set to `true` to enable the callback for received SIP messages, or `false` to disable it. Once enabled, the `onReceivedSignaling` event will be triggered when the SDK receives a SIP message. |
 
-**Int32 PortSIP.PortSIPLib.enableRtpCallback (Int32 **_**sessionId**_**, Int32 **_**mediaType**_**, Int32 **_**directionMode**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.enableRtpCallback (Int32 sessionId, 
+                                Int32 mediaType, 
+                                Int32 directionMode)
+```
 
-Set the RTP callbacks to allow access to the sent and received RTP packets. The onRTPPacketCallback events will be triggered.
+Enable RTP callbacks to access sent and received RTP packets. The `onRTPPacketCallback` events will be triggered.
 
 **Parameters**
 
-| _sessionId_           | The session ID of call.                                                        |
-| --------------------- | ------------------------------------------------------------------------------ |
-| _mediaType_           | 0 -audo 1-video 2-screen.                                                      |
-| _directionMode_       | The RTP stream callback mode.                                                  |
-| Type                  | Description                                                                    |
-| DIRECTION\_SEND       | Callback the send RTP stream for one channel based on the given sessionId.     |
-| DIRECTION\_RECV       | Callback the received RTP stream for one channel based on the given sessionId. |
-| DIRECTION\_SEND\_RECV | Callback both local and remote RTWP stream on the given sessionId.             |
+| _sessionId_     | The session ID of call.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _mediaType_     | 0 -audo 1-video 2-screen.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| _directionMode_ | <p></p><p>Specify the RTP stream callback mode. The available options are:</p><ul><li><strong>DIRECTION_SEND</strong>: Callback for the sending RTP stream of a single channel, based on the provided <code>sessionId</code>.</li><li><strong>DIRECTION_RECV</strong>: Callback for the receiving RTP stream of a single channel, based on the provided <code>sessionId</code>.</li><li><strong>DIRECTION_SEND_RECV</strong>: Callback for both the local and remote RTP streams on the provided <code>sessionId</code>.</li></ul> |
 
 **Returns**
 
