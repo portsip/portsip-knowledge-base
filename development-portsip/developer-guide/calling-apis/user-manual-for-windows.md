@@ -375,49 +375,65 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ## **Audio and video codec functions**
 
-**Int32 PortSIP.PortSIPLib.addAudioCodec (AUDIOCODEC\_TYPE **_**codecType**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.addAudioCodec (AUDIOCODEC_TYPE codecType)
+```
 
-Enable an audio codec. It will be appears in SDP. **Parameters**
-
-| _codecType_ | Audio codec type. |
-| ----------- | ----------------- |
-
-**Returns**
-
-If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
-
-**Int32 PortSIP.PortSIPLib.addVideoCodec (VIDEOCODEC\_TYPE **_**codecType**_**)**
-
-Enable a video codec. It will appear in SDP.
+Enables an audio codec, making it appear in the Session Description Protocol (SDP).
 
 **Parameters**
 
-| _codecType_ | Video codec type. |
-| ----------- | ----------------- |
+| _codecType_ | <p>This parameter specifies the type of audio codec you want to enable. It should be of the <code>AUDIOCODEC_TYPE</code> enum. The enum values are following: </p><ul><li><strong>AUDIOCODEC_NONE</strong>: Undefined video codec..</li><li><strong>AUDIOCODEC_G729</strong>: G729 codec, 8kHz, 8kbps.</li><li><strong>AUDIOCODEC_PCMA</strong>: PCMA/G711 A-law codec, 8kHz, 64kbps.</li><li><strong>AUDIOCODEC_PCMU</strong>: PCMU/G711 μ-law codec, 8kHz, 64kbps.</li><li><strong>AUDIOCODEC_GSM</strong>: GSM codec, 8kHz, 13kbps.</li><li><strong>AUDIOCODEC_G722</strong>: G722 codec, 16kHz, 64kbps.</li><li><strong>AUDIOCODEC_ILBC</strong>: iLBC codec, 8kHz, 30ms-13kbps or 20ms-15kbps.</li><li><strong>AUDIOCODEC_AMR</strong>: Adaptive Multi-Rate (AMR) codec, 8kHz, various bitrates (4.75-12.20kbps).</li><li><strong>AUDIOCODEC_AMRWB</strong>: Adaptive Multi-Rate Wideband (AMR-WB) codec, 16kHz, various bitrates (6.60-23.85kbps).</li><li><strong>AUDIOCODEC_SPEEX</strong>: SPEEX codec, 8kHz, various bitrates (2-24kbps).</li><li><strong>AUDIOCODEC_SPEEXWB</strong>: SPEEX Wideband codec, 16kHz, various bitrates (4-42kbps).</li><li><strong>AUDIOCODEC_ISACWB</strong>: iSAC Wideband codec, 16kHz, various bitrates (32-54kbps).</li><li><strong>AUDIOCODEC_ISACSWB</strong>: iSAC Super Wideband codec, 16kHz, various bitrates (32-160kbps).</li><li><strong>AUDIOCODEC_G7221</strong>: G722.1 codec, 16kHz, various bitrates (16, 24, 32kbps).</li><li><strong>AUDIOCODEC_OPUS</strong>: OPUS codec, 48kHz, 32kbps.</li><li><strong>AUDIOCODEC_DTMF</strong>: DTMF codec, RFC 2833.</li></ul> |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-**Boolean PortSIP.PortSIPLib.isAudioCodecEmpty ()**
+```csharp
+Int32 PortSIP.PortSIPLib.addVideoCodec (VIDEOCODEC_TYPE codecType)
+```
 
-Detect if enabled audio codecs is empty or not.
+Enables a video codec, making it appear in the Session Description Protocol (SDP).
+
+**Parameters**
+
+| _codecType_ | <p></p><p>This parameter specifies the type of video codec you want to enable. It should be of the VIDEO<code>CODEC_TYPE</code> enum. The enum values are following: </p><ul><li><strong>VIDEO_CODEC_NONE</strong>: Undefined video codec..</li><li><strong>VIDEO_CODEC_I420</strong></li><li><strong>VIDEO_CODEC_H263</strong></li><li><strong>VIDEO_CODEC_H263_1998</strong></li><li><strong>VIDEO_CODEC_H264</strong></li><li><strong>VIDEO_CODEC_VP8</strong></li><li><strong>VIDEO_CODEC_VP9</strong></li></ul> |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+**Returns**
+
+If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+```
+Boolean PortSIP.PortSIPLib.isAudioCodecEmpty ()
+```
+
+This function checks whether any audio codecs are enabled.
 
 **Returns**
 
 If no audio codec is enabled, it will return value true, otherwise false.
 
-**Boolean PortSIP.PortSIPLib.isVideoCodecEmpty ()**
+```csharp
+Boolean PortSIP.PortSIPLib.isVideoCodecEmpty ()
+```
 
-Detect if enabled video codecs is empty or not.
+This function checks whether any video codecs are enabled.
 
 **Returns**
 
 If no video codec is enabled, it will return value true, otherwise false.
 
-**Int32 PortSIP.PortSIPLib.setAudioCodecPayloadType (AUDIOCODEC\_TYPE **_**codecType**_**, Int32 **_**payloadType**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.setAudioCodecPayloadType (AUDIOCODEC_TYPE codecType, 
+                                                   Int32 payloadType)
+```
 
-Set the RTP payload type for dynamic audio codec. **Parameters**
+Set the RTP payload type for a dynamic audio codec.
+
+**Parameters**
 
 | _codecType_   | Audio codec type, which is defined in the PortSIPTypes file. |
 | ------------- | ------------------------------------------------------------ |
@@ -427,11 +443,14 @@ Set the RTP payload type for dynamic audio codec. **Parameters**
 
 If the function succeeds, it will return value 0. If the function fails, it will return value a specific error code.
 
-20
+```csharp
+Int32 PortSIP.PortSIPLib.setVideoCodecPayloadType (VIDEOCODEC_TYPE codecType, 
+                                                   Int32 payloadType)
+```
 
-**Int32 PortSIP.PortSIPLib.setVideoCodecPayloadType (VIDEOCODEC\_TYPE **_**codecType**_**, Int32 **_**payloadType**_**)**
+Set the RTP payload type for a dynamic Video codec.
 
-Set the RTP payload type for dynamic Video codec. **Parameters**
+**Parameters**
 
 | _codecType_   | Video codec type, which is defined in the PortSIPTypes file. |
 | ------------- | ------------------------------------------------------------ |
@@ -441,13 +460,18 @@ Set the RTP payload type for dynamic Video codec. **Parameters**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-**Int32 PortSIP.PortSIPLib.setAudioCodecParameter (AUDIOCODEC\_TYPE **_**codecType**_**, String **_**parameter**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.setAudioCodecParameter (AUDIOCODEC_TYPE codecType, 
+                                                 String parameter)
+```
 
-Set the codec parameter for audio codec. **Parameters**
+Set the codec parameters for an audio codec.
+
+**Parameters**
 
 | _codecType_ | Audio codec type, defined in the PortSIPTypes file. |
 | ----------- | --------------------------------------------------- |
-| _parameter_ | The parameter in string format.                     |
+| _parameter_ | The code parameter in string format.                |
 
 **Returns**
 
@@ -455,13 +479,18 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 **Remarks**
 
-Example:
+Here is an example:
 
-setAudioCodecParameter(AUDIOCODEC\_AMR, "mode-set=0; octet-align=1; robust-sorting=0");
+`setAudioCodecParameter(AUDIOCODEC_AMR, "mode-set=0; octet-align=1; robust-sorting=0");`
 
-**Int32 PortSIP.PortSIPLib.setVideoCodecParameter (VIDEOCODEC\_TYPE **_**codecType**_**, String **_**parameter**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.setVideoCodecParameter (VIDEOCODEC_TYPE codecType, 
+                                                 String parameter)
+```
 
-Set the codec parameter for video codec. **Parameters**
+Set the codec parameter for a video codec.&#x20;
+
+**Parameters**
 
 | _codecType_ | Video codec type, defined in the PortSIPTypes file. |
 | ----------- | --------------------------------------------------- |
@@ -473,26 +502,36 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 **Remarks**
 
-Example:
+Here is an example:
 
-setVideoCodecParameter(VIDEO\_CODEC\_H264, "profile-level-id=420033; packetization-mode=0");
+`setVideoCodecParameter(VIDEO_CODEC_H264, "profile-level-id=420033; packetization-mode=0");`
 
 ## **Additional setting functions**
 
-**Int32 PortSIP.PortSIPLib.setSrtpPolicy (SRTP\_POLICY **_**srtpPolicy**_**, Boolean **_**allowSrtpOverUnsecureTransport**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.setSrtpPolicy (SRTP_POLICY srtpPolicy, 
+                                        Boolean allowSrtpOverUnsecureTransport)
+```
 
-Set the SRTP policy. **Parameters**
+Set the SRTP policy.&#x20;
 
-| _srtpPolicy_ | The SRTP policy. |
-| ------------ | ---------------- |
+**Parameters**
+
+| _srtpPolicy_                   | <p>The SRTP policy can be one of the following enum values:</p><ul><li><strong>SRTP_POLICY_NONE = 0</strong>: Do not use SRTP. The SDK can receive both encrypted (SRTP) and unencrypted calls, but cannot place outgoing encrypted calls.</li><li><strong>SRTP_POLICY_FORCE</strong>: All calls must use SRTP. The SDK allows receiving encrypted calls and placing outgoing encrypted calls only.</li><li><strong>SRTP_POLICY_PREFER</strong>: Prefer using SRTP. The SDK allows receiving both encrypted and unencrypted calls, and placing both outgoing encrypted and unencrypted calls.</li></ul> |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| allowSrtpOverUnsecureTransport | The `allowSrtpOverUnsecureTransport` parameter specifies whether SRTP is allowed over unsecured transport protocols such as UDP and TCP. Set to `true` to allow, and `false` to disallow.                                                                                                                                                                                                                                                                                                                                                                                                               |
 
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return value a specific error code.
 
-**Int32 PortSIP.PortSIPLib.setRtpPortRange (Int32 **_**minimumRtpPort**_**, Int32 **_**maximumRtpPort**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.setRtpPortRange (Int32 minimumRtpPort, Int32 maximumRtpPort)
+```
 
-Set the RTP ports range for RTP streaming. **Parameters**
+Set the RTP port range for RTP traffic.
+
+**Parameters**
 
 | _minimumRtpPort_ | The minimum RTP port. |
 | ---------------- | --------------------- |
@@ -504,35 +543,49 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 **Remarks**
 
-The port range ((max - min) % maxCallLines) should be greater than 4. **Int32 PortSIP.PortSIPLib.enableCallForward (Boolean **_**forBusyOnly**_**, String **_**forwardTo**_**)**
+The port range ((max - min) % maxCallLines) should be greater than 4.
 
-Enable call forward. **Parameters**
+```csharp
+Int32 PortSIP.PortSIPLib.enableCallForward (Boolean forBusyOnly, String forwardTo)
+```
 
-| _forBusyOnly_ | If this parameter is set as true, the SDK will forward all incoming calls when currently it's busy. If it's set as false, the SDK forward all incoming calls anyway. |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _forwardTo_   | The call forward target. It must be like sip[:xxxx@sip.portsip.com.](mailto:xxxx@sip.portsip.com)                                                                    |
+Enable call forwarding.&#x20;
+
+**Parameters**
+
+| _forBusyOnly_ |  If set to `true`, the SDK will forward all incoming calls when it is busy. If set to `false`, the SDK will forward all incoming calls regardless. |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _forwardTo_   | The call forward target. It must be in the format `sip:xxxx@sip.portsip.com`                                                                       |
 
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-**Int32 PortSIP.PortSIPLib.disableCallForward ()**
+```csharp
+Int32 PortSIP.PortSIPLib.disableCallForward ()
+```
 
-Disable the call forwarding. The SDK is not forwarding any incoming call after this function is called.
+Disable call forwarding. The SDK will not forward any incoming calls after this function is called.
 
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, the return value is a specific error code.
 
-**Int32 PortSIP.PortSIPLib.enableSessionTimer (Int32 **_**timerSeconds**_**, SESSION\_REFRESH\_MODE **_**refreshMode**_**)**
 
-Allows to periodically refresh Session Initiation Protocol (SIP) sessions by sending INVITE requests repeatedly.
+
+```csharp
+Int32 PortSIP.PortSIPLib.enableSessionTimer (Int32 timerSeconds, 
+                                             SESSION_REFRESH_MODE refreshMode)
+```
+
+Allows periodic refreshing of Session Initiation Protocol (SIP) sessions by repeatedly sending INVITE requests.
 
 **Parameters**
 
-| _timerSeconds_ | The value of the refreshment interval in seconds. Minimum value of 90 seconds required.           |
-| -------------- | ------------------------------------------------------------------------------------------------- |
-| _refreshMode_  | Allow to set the session refresh by UAC or UAS: SESSION\_REFERESH\_UAC or SESSION\_REFERESH\_UAS; |
+| _timerSeconds_ | The refresh interval value in seconds. A minimum value of 90 seconds is required.                                                                                                                                 |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _refreshMode_  | <p></p><p>Allows setting the session refresh by either the User Agent Client (UAC) or the User Agent Server (UAS):</p><ul><li><code>SESSION_REFRESH_UAC</code></li><li><code>SESSION_REFRESH_UAS</code></li></ul> |
+|                |                                                                                                                                                                                                                   |
 
 **Returns**
 
@@ -540,75 +593,93 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 **Remarks**
 
-The repeated INVITE requests, or re-INVITEs, are sent during an active call log to allow user agents (UA) or proxies to determine the status of a SIP session. Without this keepalive mechanism, proxies that remember incoming and outgoing requests (stateful proxies) may continue to retain call state in vain. If a UA fails to send a BYE message at the end of a session or if the BYE message is lost because of network problems, a stateful proxy will not know that the session has ended. The re-INVITES ensure that active sessions stay active and completed sessions are terminated.
+Repeated INVITE requests, or re-INVITEs, are sent during an active call to allow user agents (UAs) or proxies to determine the status of a SIP session. Without this keepalive mechanism, stateful proxies that remember incoming and outgoing requests may continue to retain call state unnecessarily. If a UA fails to send a BYE message at the end of a session, or if the BYE message is lost due to network issues, a stateful proxy will not know that the session has ended. Re-INVITEs ensure that active sessions remain active and completed sessions are terminated.
 
-**Int32 PortSIP.PortSIPLib.disableSessionTimer ()**
+```csharp
+Int32 PortSIP.PortSIPLib.disableSessionTimer ()
+```
 
 Disable the session timer.
 
-24
-
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-**void PortSIP.PortSIPLib.setDoNotDisturb (Boolean **_**state**_**)**
+```csharp
+void PortSIP.PortSIPLib.setDoNotDisturb (Boolean state)
+```
 
-Enable the "Do not disturb" to enable/disable.
+Enable or disable the "Do Not Disturb" feature.
 
 **Parameters**
 
-| _state_ | If it is set to true, the SDK will reject all incoming calls anyway. |
-| ------- | -------------------------------------------------------------------- |
+| _state_ | If set to `true`, the SDK will reject all incoming calls automatically. |
+| ------- | ----------------------------------------------------------------------- |
 
-**Int32 PortSIP.PortSIPLib.enableAutoCheckMwi (Boolean **_**state**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.enableAutoCheckMwi (Boolean state)
+```
 
-Allows to enable/disable the check MWI (Message Waiting Indication) automatically. **Parameters**
-
-| _state_ | If it is set as true, MWI will be checked automatically once successfully registered to a SIP proxy server. |
-| ------- | ----------------------------------------------------------------------------------------------------------- |
-
-**Returns**
-
-If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
-
-**Int32 PortSIP.PortSIPLib.setRtpKeepAlive (Boolean **_**state**_**, Int32 **_**keepAlivePayloadType**_**, Int32 **_**deltaTransmitTimeMS**_**)**
-
-Enable or disable to send RTP keep-alive packet when the call is established. **Parameters**
-
-| _state_                 | Set to true to allow to send the keep-alive packet during the conversation.                        |
-| ----------------------- | -------------------------------------------------------------------------------------------------- |
-| _keepAlivePayload Type_ | The payload type of the keep-alive RTP packet. It's usually set to 126.                            |
-| _deltaTransmitTime MS_  | The keep-alive RTP packet sending interval, in millisecond. Recommend value ranges 15000 - 300000. |
-
-**Returns**
-
-If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
-
-**Int32 PortSIP.PortSIPLib.setKeepAliveTime (Int32 **_**keepAliveTime**_**)**
-
-Enable or disable to send SIP keep-alive packet.
+Allows enabling or disabling the automatic check for Message Waiting Indication (MWI).
 
 **Parameters**
 
-| _keepAliveTime_ | This is the SIP keep alive time interval in seconds. Set it to 0 to disable the SIP keep alive. Recommend to set as 30 or 50. |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| _state_ | If set to `true`, MWI will be checked automatically once successfully registered to a SIP server/PBX. |
+| ------- | ----------------------------------------------------------------------------------------------------- |
 
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-25
+```csharp
+Int32 PortSIP.PortSIPLib.setRtpKeepAlive (Boolean state, 
+                                Int32 keepAlivePayloadType, 
+                                Int32 deltaTransmitTimeMS)
+```
 
-**Int32 PortSIP.PortSIPLib.getSipMessageHeaderValue (String **_**sipMessage**_**, String **_**headerName**_**, StringBuilder **_**headerValue**_**, Int32 **_**headerValueLength**_**)**
+Enable or disable to send RTP keep-alive packet when the call is established.&#x20;
 
-Access the SIP header of SIP message. **Parameters**
+**Parameters**
 
-| _sipMessage_         | The SIP message.                                                                 |
-| -------------------- | -------------------------------------------------------------------------------- |
-| _headerName_         | The header which wishes to access the SIP message.                               |
-| _headerValue_        | The buffer to receive header value.                                              |
-| _headerValueLengt h_ | The headerValue buffer size. Usually we recommend to set it more than 512 bytes. |
+| _state_                 | Set to true to allow to send the keep-alive packet during the call.                                               |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| _keepAlivePayload Type_ | The payload type of the keep-alive RTP packet, usually set to 126.                                                |
+| _deltaTransmitTime MS_  | The keep-alive RTP packet sending interval, in milliseconds. The recommended value ranges from 15,000 to 300,000. |
+
+**Returns**
+
+If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+```csharp
+Int32 PortSIP.PortSIPLib.setKeepAliveTime (Int32 keepAliveTime)
+```
+
+Enable or disable the sending of SIP keep-alive packets.
+
+**Parameters**
+
+| _keepAliveTime_ | This is the SIP keep-alive time interval in seconds. Set it to 0 to disable SIP keep-alive. It is recommended to set it to 30 or 50 seconds. |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+
+**Returns**
+
+If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+<pre class="language-csharp"><code class="lang-csharp">Int32 PortSIP.PortSIPLib.getSipMessageHeaderValue (String sipMessage, 
+<strong>                                String headerName, 
+</strong>                                StringBuilder headerValue, 
+                                Int32 headerValueLength)
+</code></pre>
+
+Access the SIP header of a SIP message.
+
+**Parameters**
+
+| _sipMessage_         | The SIP message.                                                                           |
+| -------------------- | ------------------------------------------------------------------------------------------ |
+| _headerName_         | The header to access in the SIP message.                                                   |
+| _headerValue_        | The buffer to receive header value.                                                        |
+| _headerValueLengt h_ | The `headerValue` buffer size. It is usually recommended to set it to more than 512 bytes. |
 
 **Returns**
 
@@ -616,213 +687,295 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 **Remarks**
 
-When receiving a SIP message in the onReceivedSignaling callback event, and wishes to get SIP message header value, please use getSipMessageHeaderValue:
+When receiving a SIP message in the `onReceivedSignaling` callback event and you wish to get the SIP message header value, please use `getSipMessageHeaderValue.` Example:
 
-StringBuilder value = new StringBuilder(); value.Length = 512; getSipMessageHeaderValue(message, name, value);
+```
+StringBuilder value = new StringBuilder(); 
+value.Length = 512; 
+getSipMessageHeaderValue(message, name, value);
+```
 
-**Int32 PortSIP.PortSIPLib.addSipMessageHeader (Int32 **_**sessionId**_**, String **_**methodName**_**, Int32 **_**msgType**_**, String **_**headerName**_**, String **_**headerValue**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.addSipMessageHeader (Int32 sessionId, 
+                                String methodName, 
+                                Int32 msgType, 
+                                String headerName, 
+                                String headerValue)
+```
 
-Add the SIP Message header into the specified outgoing SIP message. **Parameters**
+Add a custom SIP message header to the specified outgoing SIP message.
 
-| _sessionId_   | Add the header to the SIP message with the specified session Id only. By setting to -1, it will be added to all messages.                                           |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _methodName_  | Just add the header to the SIP message with specified method name. For example: "INVITE", "REGISTER", "INFO" etc. If "ALL" specified, it will add all SIP messages. |
-| _msgType_     | 1 refers to apply to the request message, 2 refers to apply to the response message, 3 refers to apply to both request and response.                                |
-| _headerName_  | The custom header name that will appears in every outgoing SIP message.                                                                                             |
-| _headerValue_ | The custom header value.                                                                                                                                            |
+**Parameters**
+
+| _sessionId_   | To add a header to the SIP message with a specified session ID, use the following instructions. If you set the session ID to `-1`, the header will be added to all messages.                                                    |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _methodName_  | To add a header to the SIP message with a specified method name, such as “INVITE”, “REGISTER”, or “INFO”, follow these instructions. If you specify “ALL”, the header will be added to all SIP messages.                        |
+| _msgType_     | <ul><li><code>msgType: 1</code> - Applies to the request message.</li><li><code>msgType: 2</code> - Applies to the response message.</li><li><code>msgType: 3</code> - Applies to both request and response messages.</li></ul> |
+| _headerName_  | The custom header name that will appear in every outgoing SIP message.                                                                                                                                                          |
+| _headerValue_ | The custom header value.                                                                                                                                                                                                        |
 
 **Returns**
 
 If the function succeeds, it will return addedSipMessageId, which is greater than 0. If the function fails, it will return a specific error code.
 
-**Int32 PortSIP.PortSIPLib.removeAddedSipMessageHeader (Int32 **_**sipMessageHeaderId**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.removeAddedSipMessageHeader (Int32 sipMessageHeaderId)
+```
 
-Remove the headers (custom header) added by addSipMessageHeader. **Parameters**
+Remove the custom headers that were added using `addSipMessageHeader`.
 
-| _addedSipMessageI d_ | The addedSipMessageId return by addSipMessageHeader. |
-| -------------------- | ---------------------------------------------------- |
+**Parameters**
 
-26
+| _addedSipMessageId_ | The `addedSipMessageId` is returned by the `addSipMessageHeader` function. |
+| ------------------- | -------------------------------------------------------------------------- |
+
+**Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-**Int32 PortSIP.PortSIPLib.clearAddedSipMessageHeaders ()**
+```csharp
+Int32 PortSIP.PortSIPLib.clearAddedSipMessageHeaders ()
+```
 
-Clear the added extension headers (custom headers)
+Clear the added extension headers (custom headers).
 
 **Remarks**
 
-For example, we have added two custom headers into every outgoing SIP message and wish to remove them.
+**Example: Adding and Removing Custom Headers**
 
-addExtensionHeader(-1, "ALL", 3, "Blling", "usd100.00"); addExtensionHeader(-1, "ALL", 3, "ServiceId", "8873456"); clearAddedSipMessageHeaders();
+For example, if you have added two custom headers to every outgoing SIP message and wish to remove them, you can use the following commands:
 
-**Int32 PortSIP.PortSIPLib.modifySipMessageHeader (Int32 **_**sessionId**_**, String **_**methodName**_**, Int32 **_**msgType**_**, String **_**headerName**_**, String **_**headerValue**_**)**
+```csharp
+addExtensionHeader(-1, "ALL", 3, "Billing", "usd100.00");
+addExtensionHeader(-1, "ALL", 3, "ServiceId", "8873456");
+clearAddedSipMessageHeaders();
+```
 
-Modify the special SIP header value for every outgoing SIP message. **Parameters**
+```csharp
+Int32 PortSIP.PortSIPLib.modifySipMessageHeader (Int32 sessionId, 
+                                String methodName, 
+                                Int32 msgType, 
+                                String headerName, 
+                                String headerValue)
+```
 
-| _sessionId_  | The header to the SIP message with the specified session Id. By setting to -1, it will be added to all messages.                                                       |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _methodName_ | Modify the header to the SIP message with specified method name only. For example: "INVITE", "REGISTER", "INFO" etc. If "ALL" specified, it will add all SIP messages. |
-| _msgType_    | 1 refers to apply to the request message, 2 refers to apply to the response message, 3 refers to apply to both request and response.                                   |
+Modify the special SIP header value for every outgoing SIP message.
+
+**Parameters**
+
+| _sessionId_  | The header of the SIP message with the specified session ID. By setting it to `-1`, the header will be modified to all messages.                                                                     |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _methodName_ | Modify the header of the SIP message with the specified method name only. For example, “INVITE”, “REGISTER”, or “INFO”. If “ALL” is specified, the header will be added to all SIP messages.         |
+| _msgType_    | <ul><li><code>1</code> - Applies to the request message.</li><li><code>2</code> - Applies to the response message.</li><li><code>3</code> - Applies to both request and response messages.</li></ul> |
 
 **Returns**
 
 If the function succeeds, it will return modifiedSipMessageId, which is greater than 0. If the function fails, it will return a specific error code.
 
-**Int32 PortSIP.PortSIPLib.removeModifiedSipMessageHeader (Int32 **_**sipMessageHeaderId**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.removeModifiedSipMessageHeader (Int32 sipMessageHeaderId)
+```
 
-Remove the extension header (custom header) from every outgoing SIP message. **Parameters**
+Remove the modified headers (custom headers) from every outgoing SIP message.
 
-| _modifiedSipMessa geId_ | The modifiedSipMessageId is returned by modifySipMessageHeader. |
-| ----------------------- | --------------------------------------------------------------- |
+**Parameters**
+
+| _modifiedSipMessageId_ | The `modifiedSipMessageId` is returned by the `modifySipMessageHeader` function. |
+| ---------------------- | -------------------------------------------------------------------------------- |
 
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-**Int32 PortSIP.PortSIPLib.clearModifiedSipMessageHeaders ()**
+```csharp
+Int32 PortSIP.PortSIPLib.clearModifiedSipMessageHeaders ()
+```
 
-Clear the modified headers value, and do not modify every outgoing SIP message header values any longer.
+Clear the modified header values, and stop modifying the header values of every outgoing SIP message.
 
-For example, to modify two headers' value for every outgoing SIP message and wish to clear it:
+For example, to modify the values of two headers for every outgoing SIP message and then clear them, use the following commands:
 
-modifySipMessageHeader(-1, "ALL", 3, "Expires", "1000"); modifySipMessageHeader(-1, "ALL", 3, "User-Agent", "MyTest Softphone 1.0""); clearModifiedSipMessageHeaders();
+```cpp
+modifySipMessageHeader(-1, "ALL", 3, "Expires", "1000");
+modifySipMessageHeader(-1, "ALL", 3, "User-Agent", "MyTest Softphone 1.0");
+clearModifiedSipMessageHeaders();
+```
 
 ## **Audio and video functions**
 
-**Int32 PortSIP.PortSIPLib.addSupportedMimeType (String **_**methodName**_**, String **_**mimeType**_**, String **_**subMimeType**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.addSupportedMimeType (String methodName, String mimeType, String subMimeType)
+```
 
-Set the SDK to receive the SIP messages that include special mime type. **Parameters**
-
-| _methodName_  | Method name of the SIP message, such as INVITE, OPTION, INFO, MESSAGE, UPDATE, ACK etc. For more details please read the RFC3261. |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| _mimeType_    | The mime type of SIP message.                                                                                                     |
-| _subMimeType_ | The sub mime type of SIP message.                                                                                                 |
-
-**Returns**
-
-If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
-
-**Remarks**
-
-By default, PortSIP VoIP SDK supports these media types (mime types) below for incoming SIP messages:
-
-"message/sipfrag" in NOTIFY message. "application/simple-message-summary" in NOTIFY message. "text/plain" in MESSAGE message. "application/dtmf-relay" in INFO message. "application/media\_control+xml" in INFO message.
-
-The SDK allows to receive SIP messages that include above mime types. Now if remote side send an INFO SIP message with its "Content-Type" header value "text/plain". SDK will reject this INFO message, as "text/plain" of INFO message is not included in the default support list. How should we enable the SDK to receive the SIP INFO message that includes "text/plain" mime type? The answer is addSupportedMimyType:
-
-addSupportedMimeType("INFO", "text", "plain");&#x20;
-
-If we want to receive the NOTIFY message with "application/media\_control+xml", please:
-
-addSupportedMimeType("NOTIFY", "application", "media\_control+xml");
-
-For more details about the mime type, please visit this website: [http://www.iana.org/assignments/media-types/](http://www.iana.org/assignments/media-types/)
-
-**Int32 PortSIP.PortSIPLib.setAudioSamples (Int32 **_**ptime**_**, Int32 **_**maxPtime**_**)**
-
-Set the audio capture sample.
+Set the SDK to receive SIP messages that include a special MIME type.
 
 **Parameters**
 
-| _ptime_    | It should be a multiple of 10 between 10 - 60 (with 10 and 60 inclusive).                                                               |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| _maxPtime_ | For the "maxptime" attribute, it should be a multiple of 10 between 10 - 60 (with 10 and 60 inclusive). It cannot be less than "ptime". |
+| _methodName_  | The method name of the SIP message, such as `INVITE`, `OPTION`, `INFO`, `MESSAGE`, `UPDATE`, `ACK`, etc. For more details, please refer to RFC3261. |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _mimeType_    | The mime type of SIP message.                                                                                                                       |
+| _subMimeType_ | The sub mime type of SIP message.                                                                                                                   |
 
 **Returns**
 
-If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+If the function succeeds, it will return the value `0`. If the function fails, it will return a specific error code.
 
 **Remarks**
 
-It will appear in the SDP of INVITE and 200 OK message as "ptime and "maxptime" attribute.
+By default, the PortSIP VoIP SDK supports the following media types (MIME types) for incoming SIP messages:
+
+* `"message/sipfrag"` in NOTIFY messages.
+* `"application/simple-message-summary"` in NOTIFY messages.
+* `"text/plain"` in MESSAGE messages.
+* `"application/dtmf-relay"` in INFO messages.
+* `"application/media_control+xml"` in INFO messages.
+
+The SDK allows receiving SIP messages that include the above MIME types. If the remote side sends an INFO SIP message with its “Content-Type” header value set to `"text/plain"`, the SDK will reject this INFO message, as `"text/plain"` for INFO messages is not included in the default support list.
+
+To enable the SDK to receive SIP INFO messages that include the `"text/plain"` MIME type, use the following command:
+
+```cpp
+addSupportedMimeType("INFO", "text", "plain");
+```
+
+If you want to receive NOTIFY messages with `"application/media_control+xml"`, use the following command:
+
+```cpp
+addSupportedMimeType("NOTIFY", "application", "media_control+xml");
+```
+
+For more details about MIME types, please visit the IANA Media Types website:[http://www.iana.org/assignments/media-types/](http://www.iana.org/assignments/media-types/)
+
+```csharp
+Int32 PortSIP.PortSIPLib.setAudioSamples (Int32 ptime, Int32 maxPtime)
+```
+
+Set the audio capture sample for the SDK.
+
+**Parameters**
+
+| _ptime_    | It should be a multiple of 10 between 10 - 60 (with 10 and 60 inclusive).                                                             |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| _maxPtime_ | The `maxptime` attribute should be a multiple of 10, ranging from 10 to 60 (inclusive). It cannot be less than the `ptime` attribute. |
+
+**Returns**
+
+If the function succeeds, it will return the value `0`. If the function fails, it will return a specific error code.
+
+**Remarks**
+
+The `ptime` and `maxptime` attributes will appear in the SDP of INVITE and 200 OK messages.
 
 ## **Access SIP message header functions**
 
-**Int32 PortSIP.PortSIPLib.setAudioDeviceId (Int32 **_**recordingDeviceId**_**, Int32 **_**playoutDeviceId**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.setAudioDeviceId (Int32 recordingDeviceId, 
+                                           Int32 playoutDeviceId)
+```
 
-Set the audio device that will be used for audio call. **Parameters**
+This function specifies the audio devices to be used for recording and playback during voice calls.
 
-| _recordingDeviceId_ | Device ID (index) for audio recording. (Microphone). |
-| ------------------- | ---------------------------------------------------- |
-| _playoutDeviceId_   | Device ID (index) for audio playback (Speaker).      |
+**Parameters**
+
+| _recordingDeviceId_ | The ID(index) of the audio device to use for recording(microphone). |
+| ------------------- | ------------------------------------------------------------------- |
+| _playoutDeviceId_   | The ID(index) of the audio device to use for playback(speaker).     |
 
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-**Int32 PortSIP.PortSIPLib.setVideoOrientation (Int32 **_**rotation**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.setVideoOrientation (Int32 rotation)
+```
 
-Set the video device that will be used for video call.
+This function sets the rotation angle for the video captured by the camera.
 
 **Parameters**
 
-| _rotation_ | for video |
-| ---------- | --------- |
+| _rotation_ | The rotation angle in degrees. Valid values are 0 (no rotation), 90 (clockwise rotation), 180 (180-degree rotation), and 270 (counterclockwise rotation). |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-**Int32 PortSIP.PortSIPLib.setVideoDeviceId (Int32 **_**deviceId**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.setVideoDeviceId (Int32 deviceId)
+```
 
-Set the video device that will be used for video call.
+This function specifies the video device to be used for capturing and sending video during video calls.
 
 **Parameters**
 
-| _deviceId_ | Device ID (index) for video device (camera). |
-| ---------- | -------------------------------------------- |
+| _deviceId_ | The ID(index) of the video device(camera) to use. |
+| ---------- | ------------------------------------------------- |
 
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-**Int32 PortSIP.PortSIPLib.setVideoResolution (Int32 **_**width**_**, Int32 **_**height**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.setVideoResolution (Int32 width, Int32 height)
+```
 
-Set the video capturing resolution.
+This function sets the resolution (width and height) of the video captured by the camera.
 
 **Parameters**
 
-| _width_  | Video width.  |
-| -------- | ------------- |
-| _height_ | Video height. |
-
-32 **Returns**
-
-If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
-
-**Int32 PortSIP.PortSIPLib.setAudioBitrate (Int32 **_**sessionId**_**, AUDIOCODEC\_TYPE **_**audioCodecType**_**, Int32 **_**bitrateKbps**_**)**
-
-Set the audio bitrate. **Parameters**
-
-| _bitrateKbps_ | The audio bitrate in KBPS. |
-| ------------- | -------------------------- |
+| _width_  | The desired width of the video in pixels.  |
+| -------- | ------------------------------------------ |
+| _height_ | The desired height of the video in pixels. |
 
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-**Int32 PortSIP.PortSIPLib.setVideoBitrate (Int32 **_**sessionId**_**, Int32 **_**bitrateKbps**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.setAudioBitrate (Int32 sessionId, AUDIOCODEC_TYPE audioCodecType, Int32 bitrateKbps)
+```
 
-Set the video bitrate.
+This function sets the audio bitrate for a specific audio codec in a given session.
 
 **Parameters**
 
-| _bitrateKbps_ | The video bitrate in KBPS. |
-| ------------- | -------------------------- |
+| _sessionId_    | The ID of the session for which to set the audio bitrate. |
+| -------------- | --------------------------------------------------------- |
+| audioCodecType | The type of audio codec to configure.                     |
+| bitrateKbps    | The desired audio bitrate in kilobits per second (kbps).  |
 
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-**Int32 PortSIP.PortSIPLib.setVideoFrameRate (Int32 **_**sessionId**_**, Int32 **_**frameRate**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.setVideoBitrate (Int32 sessionId, Int32 bitrateKbps)
+```
 
-Set the video frame rate.
+This function sets the video bitrate for a given session.
 
 **Parameters**
 
-| _frameRate_ | The frame rate value with minimum value 5, and maximum value 30. A greater value will enable you better video quality but requires more bandwidth. |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _sessionId_    | The ID of the session for which to set the video bitrate. |
+| -------------- | --------------------------------------------------------- |
+| videoCodecType | The type of video codec to configure.                     |
+| bitrateKbps    | The desired video bitrate in kilobits per second (kbps).  |
+
+**Returns**
+
+If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+```csharp
+Int32 PortSIP.PortSIPLib.setVideoFrameRate (Int32 sessionId, Int32 frameRate)
+```
+
+This function sets the video frame rate for a given session.
+
+**Parameters**
+
+| _sessionId_ | The ID of the session for which to set the video frame rate.                                                                                                                                                              |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| frameRate   | The desired video frame rate in frames per second (fps). The minimum allowed frame rate is 5 fps, and the maximum is 30 fps. Increasing the frame rate can improve video smoothness but will also require more bandwidth. |
 
 **Returns**
 
@@ -830,105 +983,129 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 **Remarks**
 
-Usually you do not need to call this function to set the frame rate. The SDK uses default frame rate.
+By default, the SDK uses a reasonable frame rate for video calls. You generally do not need to explicitly set the frame rate using this function unless you require a specific value. However, if you want to fine-tune the video quality-bandwidth trade-off, you can adjust the frame rate as needed within the supported range.
 
-**Int32 PortSIP.PortSIPLib.sendVideo (Int32 **_**sessionId**_**, Boolean **_**sendState**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.sendVideo (Int32 sessionId, Boolean sendState)
+```
 
-Send the video to remote side.
-
-**Parameters**
-
-| _sessionId_ | The session ID of the call.                              |
-| ----------- | -------------------------------------------------------- |
-| _sendState_ | Set to true to send the video, or false to stop sending. |
-
-33 **Returns**
-
-If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
-
-**void PortSIP.PortSIPLib.muteMicrophone (Boolean **_**mute**_**)**
-
-Mute the device microphone. It's unavailable for Android and iOS.
+This function controls whether video is sent to the remote party in a given session.
 
 **Parameters**
 
-| _mute_ | If the value is set to true, the microphone will be muted. You may also set it to false to un-mute it. |
-| ------ | ------------------------------------------------------------------------------------------------------ |
-
-**void PortSIP.PortSIPLib.muteSpeaker (Boolean **_**mute**_**)**
-
-Mute the device speaker. It's unavailable for Android and iOS. **Parameters**
-
-| _mute_ | If the value is set to true, the speaker is muted. You may also set it to false to un-mute it. |
-| ------ | ---------------------------------------------------------------------------------------------- |
-
-**void PortSIP.PortSIPLib.setChannelOutputVolumeScaling (Int32 **_**sessionId**_**, Int32 **_**scaling**_**)**
-
-Set a volume |scaling| to be applied to the outgoing signal of a specific audio channel. **Parameters**
-
-| _sessionId_ | The session ID of the call.                    |
-| ----------- | ---------------------------------------------- |
-| _scaling_   | Valid scale ranges \[0, 1000]. Default is 100. |
+| _sessionId_ | The ID of the session for which to control video sending.                                       |
+| ----------- | ----------------------------------------------------------------------------------------------- |
+| _sendState_ | A Boolean value indicating whether to start sending video (true) or stop sending video (false). |
 
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-**void PortSIP.PortSIPLib.setChannelInputVolumeScaling (Int32 **_**sessionId**_**, Int32 **_**scaling**_**)**
+```csharp
+void PortSIP.PortSIPLib.muteMicrophone (Boolean mute)
+```
 
-Set a volume |scaling| to be applied to the microphone signal of a specific audio channel. **Parameters**
-
-| _sessionId_ | The session ID of the call.                    |
-| ----------- | ---------------------------------------------- |
-| _scaling_   | Valid scale ranges \[0, 1000]. Default is 100. |
-
-**Returns**
-
-If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
-
-**Int32 PortSIP.PortSIPLib.setRemoteVideoWindow (Int32 **_**sessionId**_**, IntPtr **_**remoteVideoWindow**_**)**
-
-Set the window for a session that is used to display the received remote video image. **Parameters**
-
-| _sessionId_        | The session ID of the call.                        |
-| ------------------ | -------------------------------------------------- |
-| _remoteVideoWindo_ | The window to display received remote video image. |
-
-34
-
-| _w_         |   |
-| ----------- | - |
-| **Returns** |   |
-
-If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
-
-**Int32 PortSIP.PortSIPLib.displayLocalVideo (Boolean **_**state**_**, Boolean **_**mirror**_**, IntPtr **_**localVideoWindow**_**)**
-
-Start/stop displaying the local video image. **Parameters**
-
-| _state_            | Set to true to display local video image.                                |
-| ------------------ | ------------------------------------------------------------------------ |
-| _mirror_           | Set to true to display the mirror image of local video.                  |
-| _localVideoWindow_ | The window on which the local video image from camera will be displayed. |
-
-**Returns**
-
-If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
-
-**Int32 PortSIP.PortSIPLib.setVideoNackStatus (Boolean **_**state**_**)**
-
-Enable/disable the NACK feature (rfc6642) that helps to improve the video quality.
+This function controls whether the microphone is muted for audio input. This function is not available on Android and iOS platforms.
 
 **Parameters**
 
-| _state_ | Set to true to enable. |
-| ------- | ---------------------- |
+| _mute_ | A Boolean value indicating whether to mute the microphone (true) or unmute it (false). |
+| ------ | -------------------------------------------------------------------------------------- |
+
+```csharp
+void PortSIP.PortSIPLib.muteSpeaker (Boolean mute)
+```
+
+This function controls whether the speaker is muted for audio output. This function is not available on Android and iOS platforms.
+
+**Parameters**
+
+| _mute_ | A Boolean value indicating whether to mute the speaker (true) or unmute it (false). |
+| ------ | ----------------------------------------------------------------------------------- |
+
+```csharp
+void PortSIP.PortSIPLib.setChannelOutputVolumeScaling (Int32 sessionId, 
+                                                       Int32 scaling)
+```
+
+This function adjusts the volume scaling for a specific audio channel in a given session.
+
+**Parameters**
+
+| _sessionId_ | The ID of the session for which to adjust the volume scaling. |
+| ----------- | ------------------------------------------------------------- |
+| _scaling_   | Scale ranges \[0, 1000]. Default is 100.                      |
 
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-35
+```csharp
+void PortSIP.PortSIPLib.setChannelInputVolumeScaling (Int32 sessionId, Int32 scaling)
+```
+
+This function adjusts the volume scaling for the microphone signal of a specific audio channel in a given session.
+
+**Parameters**
+
+| _sessionId_ | The ID of the session for which to adjust the volume scaling. |
+| ----------- | ------------------------------------------------------------- |
+| _scaling_   | Ccale ranges \[0, 1000]. Default is 100.                      |
+
+**Returns**
+
+If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+```csharp
+Int32 PortSIP.PortSIPLib.setRemoteVideoWindow (Int32 sessionId, 
+                                               IntPtr remoteVideoWindow)
+```
+
+This function specifies the window handle where the received remote video will be displayed for a given session.
+
+**Parameters**
+
+| _sessionId_        | The ID of the session for which to set the remote video window. |
+| ------------------ | --------------------------------------------------------------- |
+| _remoteVideoWindo_ | The window handle where the remote video will be rendered.      |
+
+**Returns**
+
+If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+```csharp
+Int32 PortSIP.PortSIPLib.displayLocalVideo (Boolean state, 
+                                      Boolean mirror, 
+                                      IntPtr localVideoWindow)
+```
+
+This function controls whether the local video is displayed in a specified window.
+
+**Parameters**
+
+| _state_            | A Boolean value indicating whether to start displaying local video (true) or stop displaying it (false). |
+| ------------------ | -------------------------------------------------------------------------------------------------------- |
+| _mirror_           | A Boolean value indicating whether to mirror the local video horizontally.                               |
+| _localVideoWindow_ | The window handle where the local video will be rendered.                                                |
+
+**Returns**
+
+If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+```csharp
+Int32 PortSIP.PortSIPLib.setVideoNackStatus (Boolean state)
+```
+
+This function controls whether the NACK (Negative ACKnowledgement) feature is enabled for video transmission in a session. NACK helps to improve video quality by requesting retransmission of lost packets.
+
+**Parameters**
+
+| _state_ | A Boolean value indicating whether to enable NACK (true) or disable it (false). |
+| ------- | ------------------------------------------------------------------------------- |
+
+**Returns**
+
+If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ## **Call functions**
 
