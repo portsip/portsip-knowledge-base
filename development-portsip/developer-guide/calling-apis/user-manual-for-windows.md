@@ -741,6 +741,51 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
+```csharp
+Int32 PortSIP.PortSIPLib.addSupportedMimeType (String methodName, String mimeType, String subMimeType)
+```
+
+Set the SDK to receive SIP messages that include a special MIME type.
+
+**Parameters**
+
+| _methodName_  | The method name of the SIP message, such as `INVITE`, `OPTION`, `INFO`, `MESSAGE`, `UPDATE`, `ACK`, etc. For more details, please refer to RFC3261. |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _mimeType_    | The mime type of SIP message.                                                                                                                       |
+| _subMimeType_ | The sub mime type of SIP message.                                                                                                                   |
+
+**Returns**
+
+If the function succeeds, it will return the value `0`. If the function fails, it will return a specific error code.
+
+**Remarks**
+
+By default, the PortSIP VoIP SDK supports the following media types (MIME types) for incoming SIP messages:
+
+* `"message/sipfrag"` in NOTIFY messages.
+* `"application/simple-message-summary"` in NOTIFY messages.
+* `"text/plain"` in MESSAGE messages.
+* `"application/dtmf-relay"` in INFO messages.
+* `"application/media_control+xml"` in INFO messages.
+
+The SDK allows receiving SIP messages that include the above MIME types. If the remote side sends an INFO SIP message with its “Content-Type” header value set to `"text/plain"`, the SDK will reject this INFO message, as `"text/plain"` for INFO messages is not included in the default support list.
+
+To enable the SDK to receive SIP INFO messages that include the `"text/plain"` MIME type, use the following command:
+
+```cpp
+addSupportedMimeType("INFO", "text", "plain");
+```
+
+If you want to receive NOTIFY messages with `"application/media_control+xml"`, use the following command:
+
+```cpp
+addSupportedMimeType("NOTIFY", "application", "media_control+xml");
+```
+
+For more details about MIME types, please visit the IANA Media Types website:[http://www.iana.org/assignments/media-types/](http://www.iana.org/assignments/media-types/)
+
+## **Access SIP message header functions**
+
 <pre class="language-csharp"><code class="lang-csharp">Int32 PortSIP.PortSIPLib.getSipMessageHeaderValue (String sipMessage, 
 <strong>                                String headerName, 
 </strong>                                StringBuilder headerValue, 
@@ -893,93 +938,7 @@ clearModifiedSipMessageHeaders();
 
 ***
 
-```csharp
-Int32 PortSIP.PortSIPLib.addSupportedMimeType (String methodName, String mimeType, String subMimeType)
-```
-
-Set the SDK to receive SIP messages that include a special MIME type.
-
-**Parameters**
-
-| _methodName_  | The method name of the SIP message, such as `INVITE`, `OPTION`, `INFO`, `MESSAGE`, `UPDATE`, `ACK`, etc. For more details, please refer to RFC3261. |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _mimeType_    | The mime type of SIP message.                                                                                                                       |
-| _subMimeType_ | The sub mime type of SIP message.                                                                                                                   |
-
-**Returns**
-
-If the function succeeds, it will return the value `0`. If the function fails, it will return a specific error code.
-
-**Remarks**
-
-By default, the PortSIP VoIP SDK supports the following media types (MIME types) for incoming SIP messages:
-
-* `"message/sipfrag"` in NOTIFY messages.
-* `"application/simple-message-summary"` in NOTIFY messages.
-* `"text/plain"` in MESSAGE messages.
-* `"application/dtmf-relay"` in INFO messages.
-* `"application/media_control+xml"` in INFO messages.
-
-The SDK allows receiving SIP messages that include the above MIME types. If the remote side sends an INFO SIP message with its “Content-Type” header value set to `"text/plain"`, the SDK will reject this INFO message, as `"text/plain"` for INFO messages is not included in the default support list.
-
-To enable the SDK to receive SIP INFO messages that include the `"text/plain"` MIME type, use the following command:
-
-```cpp
-addSupportedMimeType("INFO", "text", "plain");
-```
-
-If you want to receive NOTIFY messages with `"application/media_control+xml"`, use the following command:
-
-```cpp
-addSupportedMimeType("NOTIFY", "application", "media_control+xml");
-```
-
-For more details about MIME types, please visit the IANA Media Types website:[http://www.iana.org/assignments/media-types/](http://www.iana.org/assignments/media-types/)
-
 ## **Audio and video functions**
-
-```csharp
-Int32 PortSIP.PortSIPLib.addSupportedMimeType (String methodName, String mimeType, String subMimeType)
-```
-
-Set the SDK to receive SIP messages that include a special MIME type.
-
-**Parameters**
-
-| _methodName_  | The method name of the SIP message, such as `INVITE`, `OPTION`, `INFO`, `MESSAGE`, `UPDATE`, `ACK`, etc. For more details, please refer to RFC3261. |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _mimeType_    | The mime type of SIP message.                                                                                                                       |
-| _subMimeType_ | The sub mime type of SIP message.                                                                                                                   |
-
-**Returns**
-
-If the function succeeds, it will return the value `0`. If the function fails, it will return a specific error code.
-
-**Remarks**
-
-By default, the PortSIP VoIP SDK supports the following media types (MIME types) for incoming SIP messages:
-
-* `"message/sipfrag"` in NOTIFY messages.
-* `"application/simple-message-summary"` in NOTIFY messages.
-* `"text/plain"` in MESSAGE messages.
-* `"application/dtmf-relay"` in INFO messages.
-* `"application/media_control+xml"` in INFO messages.
-
-The SDK allows receiving SIP messages that include the above MIME types. If the remote side sends an INFO SIP message with its “Content-Type” header value set to `"text/plain"`, the SDK will reject this INFO message, as `"text/plain"` for INFO messages is not included in the default support list.
-
-To enable the SDK to receive SIP INFO messages that include the `"text/plain"` MIME type, use the following command:
-
-```cpp
-addSupportedMimeType("INFO", "text", "plain");
-```
-
-If you want to receive NOTIFY messages with `"application/media_control+xml"`, use the following command:
-
-```cpp
-addSupportedMimeType("NOTIFY", "application", "media_control+xml");
-```
-
-For more details about MIME types, please visit the IANA Media Types website:[http://www.iana.org/assignments/media-types/](http://www.iana.org/assignments/media-types/)
 
 ```csharp
 Int32 PortSIP.PortSIPLib.setAudioSamples (Int32 ptime, Int32 maxPtime)
@@ -1001,7 +960,7 @@ If the function succeeds, it will return the value `0`. If the function fails, i
 
 The `ptime` and `maxptime` attributes will appear in the SDP of INVITE and 200 OK messages.
 
-## **Access SIP message header functions**
+***
 
 ```csharp
 Int32 PortSIP.PortSIPLib.setAudioDeviceId (Int32 recordingDeviceId, 
@@ -1020,6 +979,8 @@ This function specifies the audio devices to be used for recording and playback 
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 ```csharp
 Int32 PortSIP.PortSIPLib.setVideoOrientation (Int32 rotation)
 ```
@@ -1034,6 +995,8 @@ This function sets the rotation angle for the video captured by the camera.
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 ```csharp
 Int32 PortSIP.PortSIPLib.setVideoDeviceId (Int32 deviceId)
@@ -1050,6 +1013,8 @@ This function specifies the video device to be used for capturing and sending vi
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 ```csharp
 Int32 PortSIP.PortSIPLib.setVideoResolution (Int32 width, Int32 height)
 ```
@@ -1065,6 +1030,8 @@ This function sets the resolution (width and height) of the video captured by th
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 ```csharp
 Int32 PortSIP.PortSIPLib.setAudioBitrate (Int32 sessionId, AUDIOCODEC_TYPE audioCodecType, Int32 bitrateKbps)
@@ -1083,6 +1050,8 @@ This function sets the audio bitrate for a specific audio codec in a given sessi
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 ```csharp
 Int32 PortSIP.PortSIPLib.setVideoBitrate (Int32 sessionId, Int32 bitrateKbps)
 ```
@@ -1099,6 +1068,8 @@ This function sets the video bitrate for a given session.
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 ```csharp
 Int32 PortSIP.PortSIPLib.setVideoFrameRate (Int32 sessionId, Int32 frameRate)
@@ -1120,6 +1091,8 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 By default, the SDK uses a reasonable frame rate for video calls. You generally do not need to explicitly set the frame rate using this function unless you require a specific value. However, if you want to fine-tune the video quality-bandwidth trade-off, you can adjust the frame rate as needed within the supported range.
 
+***
+
 ```csharp
 Int32 PortSIP.PortSIPLib.sendVideo (Int32 sessionId, Boolean sendState)
 ```
@@ -1136,6 +1109,8 @@ This function controls whether video is sent to the remote party in a given sess
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 ```csharp
 void PortSIP.PortSIPLib.muteMicrophone (Boolean mute)
 ```
@@ -1147,6 +1122,8 @@ This function controls whether the microphone is muted for audio input. This fun
 | _mute_ | A Boolean value indicating whether to mute the microphone (true) or unmute it (false). |
 | ------ | -------------------------------------------------------------------------------------- |
 
+***
+
 ```csharp
 void PortSIP.PortSIPLib.muteSpeaker (Boolean mute)
 ```
@@ -1157,6 +1134,8 @@ This function controls whether the speaker is muted for audio output. This funct
 
 | _mute_ | A Boolean value indicating whether to mute the speaker (true) or unmute it (false). |
 | ------ | ----------------------------------------------------------------------------------- |
+
+***
 
 ```csharp
 void PortSIP.PortSIPLib.setChannelOutputVolumeScaling (Int32 sessionId, 
@@ -1175,6 +1154,8 @@ This function adjusts the volume scaling for a specific audio channel in a given
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 ```csharp
 void PortSIP.PortSIPLib.setChannelInputVolumeScaling (Int32 sessionId, Int32 scaling)
 ```
@@ -1190,6 +1171,8 @@ This function adjusts the volume scaling for the microphone signal of a specific
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 ```csharp
 Int32 PortSIP.PortSIPLib.setRemoteVideoWindow (Int32 sessionId, 
@@ -1207,6 +1190,8 @@ This function specifies the window handle where the received remote video will b
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 ```csharp
 Int32 PortSIP.PortSIPLib.displayLocalVideo (Boolean state, 
@@ -1227,6 +1212,8 @@ This function controls whether the local video is displayed in a specified windo
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 ```csharp
 Int32 PortSIP.PortSIPLib.setVideoNackStatus (Boolean state)
 ```
@@ -1241,6 +1228,8 @@ This function controls whether the NACK (Negative ACKnowledgement) feature is en
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 ## **Call functions**
 
@@ -1259,6 +1248,8 @@ Make a call.
 
 If the function succeeds, it will return the session ID of the call that is greater than 0. If the function fails, it will return a specific error code. Note: the function success just means the outgoing call is being processed. You need to detect the call final state in onInviteTrying, onInviteRinging, onInviteFailure callback events.
 
+***
+
 **Int32 PortSIP.PortSIPLib.rejectCall (Int32 **_**sessionId**_**, int **_**code**_**)**
 
 rejectCall Reject the incoming call.
@@ -1273,6 +1264,8 @@ rejectCall Reject the incoming call.
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 **Int32 PortSIP.PortSIPLib.hangUp (Int32 **_**sessionId**_**)**
 
 hangUp Hang up the call.
@@ -1285,6 +1278,8 @@ hangUp Hang up the call.
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 **Int32 PortSIP.PortSIPLib.answerCall (Int32 **_**sessionId**_**, Boolean **_**videoCall**_**)**
 
@@ -1299,6 +1294,8 @@ answerCall Answer the incoming call.
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 **Int32 PortSIP.PortSIPLib.updateCall (Int32 **_**sessionId**_**, bool **_**enableAudio**_**, bool **_**enableVideo**_**, bool **_**enableScreen**_**)**
 
@@ -1325,6 +1322,8 @@ Example 2: Remove video stream from current conversation.
 
 updateCall(sessionId, true, false);&#x20;
 
+***
+
 **Int32 PortSIP.PortSIPLib.hold (Int32 **_**sessionId**_**)**
 
 To place a call on hold.
@@ -1338,6 +1337,8 @@ To place a call on hold.
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 **Int32 PortSIP.PortSIPLib.unHold (Int32 **_**sessionId**_**)**
 
 Take off hold.
@@ -1347,11 +1348,11 @@ Take off hold.
 | _sessionId_ | The session ID of call. |
 | ----------- | ----------------------- |
 
-38
-
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 **Int32 PortSIP.PortSIPLib.muteSession (Int32 **_**sessionId**_**, Boolean **_**muteIncomingAudio**_**, Boolean **_**muteOutgoingAudio**_**, Boolean **_**muteIncomingVideo**_**, Boolean **_**muteOutgoingVideo**_**)**
 
@@ -1368,6 +1369,8 @@ Mute the specified session audio or video. **Parameters**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 **Int32 PortSIP.PortSIPLib.forwardCall (Int32 **_**sessionId**_**, String **_**forwardTo**_**)**
 
 Forward call to another one when receiving the incoming call.
@@ -1381,6 +1384,8 @@ Forward call to another one when receiving the incoming call.
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return value a specific error code.
+
+***
 
 **Int32 PortSIP.PortSIPLib.pickupBLFCall (String **_**replaceDialogId**_**, Boolean **_**videoCall**_**)**
 
@@ -1400,6 +1405,8 @@ The scenario is:
 
 1. User 101 subscribed the user 100's call status: sendSubscription("100", "dialog");
 2. When 100 hold a call or 100 is ringing, onDialogStateUpdated callback will be triggered, and 101 will receive this callback. Now 101 can use pickupBLFCall function to pick the call rather than 100 to talk with caller.
+
+***
 
 **Int32 PortSIP.PortSIPLib.sendDtmf (Int32 **_**sessionId**_**, DTMF\_METHOD **_**dtmfMethod**_**, int **_**code**_**, int **_**dtmfDuration**_**, bool **_**playDtmfTone**_**)**
 
@@ -1438,7 +1445,7 @@ Send DTMF tone. **Parameters**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-40
+***
 
 ## **Refer functions**
 
@@ -1460,9 +1467,9 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 refer(sessionId, "sip:testuser12@sip.portsip.com");&#x20;
 
-41
-
 You can watch the video on YouTube at[ https://www.youtube.com/watch?v=\_2w9EGgr3FY.](https://www.youtube.com/watch?v=\_2w9EGgr3FY) It will demonstrate the transfer.
+
+***
 
 **Int32 PortSIP.PortSIPLib.attendedRefer (Int32 **_**sessionId**_**, Int32 **_**replaceSessionId**_**, String **_**referTo**_**)**
 
@@ -1481,6 +1488,8 @@ You can watch the video on YouTube at[ https://www.youtube.com/watch?v=\_2w9EGgr
 Please read the sample project source code for more details, or you can watch the video on YouTube at https://www.youtube.com/watch?v=NezhIZW4lV4,
 
 which will demonstrate the transfer.
+
+***
 
 **Int32 PortSIP.PortSIPLib.attendedRefer2 (IntPtr **_**libSDK**_**, Int32 **_**sessionId**_**, Int32 **_**replaceSessionId**_**, String **_**replaceMethod**_**, String **_**target**_**, String **_**referTo**_**)**
 
@@ -1503,6 +1512,8 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 Please read the sample project source code for more details, or you can watch the video on YouTube at[ https://www.youtube.com/watch?v=NezhIZW4lV4,](https://www.youtube.com/watch?v=NezhIZW4lV4) which will demonstrate the transfer.
 
+***
+
 **Int32 PortSIP.PortSIPLib.outOfDialogRefer (Int32 **_**replaceSessionId**_**, String **_**replaceMethod**_**, String **_**target**_**, String **_**referTo**_**)**
 
 Send an out of dialog REFER to replace the specified call. **Parameters**
@@ -1516,6 +1527,8 @@ Send an out of dialog REFER to replace the specified call. **Parameters**
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 **Int32 PortSIP.PortSIPLib.acceptRefer (Int32 **_**referId**_**, String **_**referSignalingMessage**_**)**
 
@@ -1531,6 +1544,8 @@ Accept the REFER request, and a new call will be made if called this function. T
 
 If the function succeeds, it will return a session ID greater than 0 to the new call for REFER; otherwise a specific error code less than 0.
 
+***
+
 **Int32 PortSIP.PortSIPLib.rejectRefer (Int32 **_**referId**_**)**
 
 Reject the REFER request.
@@ -1543,6 +1558,8 @@ Reject the REFER request.
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 ## **Send audio and video stream functions**&#x20;
 
@@ -1564,6 +1581,8 @@ If the function succeeds, it will return value 0. If the function fails, it will
 **Remarks**
 
 This function MUST be called first to send the PCM stream data to another side.
+
+***
 
 **Int32 PortSIP.PortSIPLib.sendPcmStreamToRemote (Int32 **_**sessionId**_**, byte\[] **_**data**_**, Int32 **_**dataLength**_**)**
 
@@ -1587,6 +1606,8 @@ Usually it should be used as below:
 enableSendPcmStreamToRemote(sessionId, true, 16000); sendPcmStreamToRemote(sessionId, data, dataSize);
 
 You can't have too much audio data at one time as we have 100ms audio buffer only. Once you put too much, data will be lost. It is recommended to send 20ms audio data every 20ms.
+
+***
 
 **Int32 PortSIP.PortSIPLib.enableSendVideoStreamToRemote (Int32 **_**sessionId**_**, Boolean **_**state**_**)**
 
