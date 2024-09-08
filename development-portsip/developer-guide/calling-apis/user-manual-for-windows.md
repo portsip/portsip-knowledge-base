@@ -1,59 +1,59 @@
 # User Manual for Windows
 
-## **FAQ**
+## the **FAQ**
 
-### **Where can I download the PortSIP VoIP SDK for test?**
+### Where can I download the PortSIP VoIP SDK for testing?
 
-The PortSIP VoIP SDK with Sample project at [PortSIP Website](https://www.portsip.com/download-portsip-voip-sdk/).
+You can download the PortSIP VoIP SDK along with the sample project from the PortSIP Website.
 
-### **How can I compile the sample project?**
+### How can I compile the sample project?
 
-1. Download the sample project from [PortSIP Website](https://www.portsip.com/download-portsip-voip-sdk/).
+1. Download the sample project from the PortSIP Website.
 2. Uncompress the .zip file.
-3. Open the project with your IDE. and&#x20;
+3. Open the project with Visual Studio.
 4. Compile the sample project directly and run it to test.
-5. If the SDK connects to the PortSIP PBX, it's no limitations.&#x20;
-6. The trial SDK works with any 3rd PBX and SIP server, which only allows a 2-3 minute conversation.
 
-### **How can I create a new project with PortSIP VoIP SDK?**
+If the SDK connects to the PortSIP PBX, there are no limitations. The trial SDK works with any third-party PBX and SIP server, but it only allows for a 2-3 minute conversation.
+
+### How can I create a new project with PortSIP VoIP SDK?
 
 #### **C#/VB.NET:**
 
-1. Download the Sample project and uncompress it.&#x20;
-2. Create a new "Windows application" project in Visual Studio.
-3. Copy the `portsip_sdk.dll` and `portsip_media.dll` from the sample project directory to your project output directory: `bin\release` and `bin\debug`.
-4. Copy the **PortSIP** folder from the sample project directory to your project folder and add it to Solution.
-5. Inherit the interface **SIPCallbackEvents** to process the callback events.
-6. Right-click the project, and choose Properties. Click the **Build** tab, and then check the **Allow unsafe code** checkbox.
+1. Download and uncompress the sample project.
+2. Create a new “Windows Application” project in Visual Studio.
+3. Copy `portsip_sdk.dll` and `portsip_media.dll` from the sample project directory to your project’s output directories: `bin\release` and `bin\debug`.
+4. Copy the `PortSIP` folder from the sample project directory to your project folder and add it to the Solution.
+5. Implement the `SIPCallbackEvents` interface to process callback events.
+6. Right-click the project, choose **Properties**, click the **Build** tab, and check the **Allow unsafe code** checkbox.
 
-For more details please read the Sample project source code.
+For more details, please refer to the sample project source code.
 
-#### **VC++:**
+#### VC++:
 
-1. Download and uncompress the sample project.&#x20;
-2. Create a new "MFC Application" project.
-3. Copy the `portsip_sdk.dll` and `portsip_media.dll` from the sample project directory to your project output directories.
+1. Download and uncompress the sample project.
+2. Create a new “MFC Application” project.
+3. Copy `portsip_sdk.dll` and `portsip_media.dll` from the sample project directory to your project’s output directories.
 4. Copy the `include/PortSIPLib` folder to your project folder and add the `.hxx` files from the `PortSIPLib` folder to your project.
-5. Copy the `lib` folder to your project folder and link `portsip_sdk.lib` into your project.&#x20;
+5. Copy the `lib` folder to your project folder and link `portsip_sdk.lib` into your project.
 
-For more details please read the Sample project source code.
+For more details, please refer to the sample project source code.
 
-### **How can I test the P2P call (without an SIP server PBX )?**
+### How can I test a P2P call (without a SIP server PBX)?
 
-4. Download and extract the SDK sample project ZIP file, compile and run the "P2PSample" project.
-5. Run the P2Psample on two devices. For example, run it on device A and device B, and IP address for A is 192.168.1.10, IP address for B is 192.168.1.11.
-6. Enter a user name and password on A. For example, user name 111, and password aaa (you can enter anything for the password as the SDK will ignore it). Enter a user name and password on B, for example: user name 222, password aaa.
-7. Click the "Initialize" button on A and B. If the default port 5060 is already in use, the P2PSample will prompt "Initialize failure". In case of this, please click the "Uninitialize" button and change the local port, and click the "Initialize" button again.
-8. The log box will appear "Initialized." if the SDK is successfully initialized.
-9. To make call from A to B, enter: sip[:222@192.168.1.11 ](mailto:222@192.168.1.11)and click "Dial" button; while to make call from B to A, enter: sip[:111@192.168.1.10.](mailto:111@192.168.1.10)
+1. Uncompress the SDK sample project ZIP file and compile the `P2PSample` project.
+2. Run the `P2PSample` on device A and device B. For example, IP address for A is `192.168.1.10`, and IP address for B is `192.168.1.11`.
+3. Enter a username and password on A (e.g., username: `111`, password: `aaa`). You can enter anything for the password as the SDK will ignore it. Do the same for B (e.g., username: `222`, password: `aaa`).
+4. Click the **Initialize** button on both A and B. If the default port `5060` is already in use by another application, the `P2PSample` will prompt “Initialize failure”. In this case, click the **Uninitialize** button, change the local port, and click the **Initialize** button again.
+5. The log box will display “Initialized.” if the SDK is successfully initialized.
+6. To make a call from A to B, enter `sip:222@192.168.1.11` and click the **Dial** button. To make a call from B to A, enter `sip:111@192.168.1.10`. If A used `5066` as the local port, for example, dial to `sip:111@192.168.1.10:5066`, and vice versa for B.
 
-### **Is the SDK thread safe?**
+### Is the SDK thread-safe?
 
-Yes, the SDK is thread safe. You can call any of the API functions without the need to consider the multiple threads. Note: the SDK allows to call of API functions in callback events directly - except for the "onAudioRawCallback", "onVideoRawCallback", and "onRTPPacketCallback" callbacks.
+Yes, the SDK is thread-safe. You can call any of the API functions without worrying about multiple threads. Note: The SDK allows calling API functions in callback events directly, except for the `onAudioRawCallback`, `onVideoRawCallback`, and `onRTPPacketCallback` callbacks.
 
-### **Does the SDK support native 64-bit?**&#x20;
+### Does the SDK support native 64-bit?
 
-Yes, both 32-bit and 64-bit are supported for SDK.
+Yes, the SDK supports both 32-bit and 64-bit architectures.
 
 ## **Initialize and register functions**
 
@@ -76,21 +76,21 @@ Initialize the SDK.&#x20;
 
 #### **Parameters**
 
-| _transport_               | Transport for SIP signaling. TRANSPORT\_PERS is the PortSIP private transport for anti SIP blocking. It must be used with PERS.                                                                                                                                                                                                                                   |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _localIP_                 | <p>The local computer IP address to be bound (for example: 192.168.1.108). It will be used for sending and receiving SIP messages and RTP packets. If this IP is passed in IPv6 format, the SDK will be using IPv6.</p><p>If you want the SDK to choose correct network interface (IP) automatically, please pass the "0.0.0.0"(for IPv4) or "::" (for IPv6).</p> |
-| _localSIPPort_            | The SIP message transport listener port, for example: 5060.                                                                                                                                                                                                                                                                                                       |
-| _logLevel_                | Set the application log level. The SDK will generate "PortSIP\_Log\_datatime.log" file if the log enabled.                                                                                                                                                                                                                                                        |
-| _logFilePath_             | The log file path. The path (folder) MUST be existent.                                                                                                                                                                                                                                                                                                            |
-| _maxCallLines_            | Theoretically, unlimited lines could be supported depending on the device capability. For SIP client recommended value ranges 1 - 100;                                                                                                                                                                                                                            |
-| _sipAgent_                | The User-Agent header to be inserted into SIP messages.                                                                                                                                                                                                                                                                                                           |
-| _audioDeviceLayer_        | <p>Specify the audio device layer to be used: </p><p>0 = Use the OS default device.</p><p>1 = Virtual device, usually use this for the device which has no sound device installed.</p>                                                                                                                                                                            |
-| _videoDeviceLayer_        | <p>Specifies the video device layer that should be used:</p><p>0 = Use the OS default device.</p><p>1 = Use a Virtual device. Usually use this for the device that has no camera installed.</p>                                                                                                                                                                   |
-| _TLSCertificatesRootPath_ | Specify the TLS certificate path, from which the SDK will load the certificates automatically. Note: On Windows, this path will be ignored, and SDK will read the certificates from the Windows certificates stored area instead.                                                                                                                                 |
-| _TLSCipherList_           | Specify the TLS cipher list. This parameter is usually passed as empty so that the SDK will offer all available ciphers.                                                                                                                                                                                                                                          |
-| _verifyTLSCertificat_     | Indicate if SDK will verify the TLS certificate. By setting it to false, the SDK will not verify the validity of the TLS certificate.                                                                                                                                                                                                                             |
-|                           |                                                                                                                                                                                                                                                                                                                                                                   |
-|                           |                                                                                                                                                                                                                                                                                                                                                                   |
+| _transport_               | <p></p><p>The transport for SIP signaling can be one of the following values:</p><ul><li><code>TRANSPORT_UDP</code></li><li><code>TRANSPORT_TLS</code></li><li><code>TRANSPORT_TCP</code></li></ul>                                                                                                                                                                                                                                               |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _localIP_                 | <p>The local computer IP address to be bound (e.g., <code>192.168.1.108</code>) will be used for sending and receiving SIP messages and RTP packets. If this IP is provided in IPv6 format, the SDK will use IPv6.</p><p>To allow the SDK to automatically choose the correct network interface (IP), use <code>"0.0.0.0"</code> for IPv4 or <code>"::"</code> for IPv6.</p>                                                                      |
+| _localSIPPort_            | The SIP message transport listener port (e.g., `5060`) is used for SIP signaling. Please ensure this port is not being used by another application.                                                                                                                                                                                                                                                                                               |
+| _logLevel_                | <p></p><p>Set the application log level to enable logging. When logging is enabled, the SDK will generate a log file named <code>PortSIP_Log_&#x3C;datetime>.log</code>.</p><p>The supported log levels are:</p><ul><li><code>PORTSIP_LOG_NONE = -1</code></li><li><code>PORTSIP_LOG_ERROR = 1</code></li><li><code>PORTSIP_LOG_WARNING = 2</code></li><li><code>PORTSIP_LOG_INFO = 3</code></li><li><code>PORTSIP_LOG_DEBUG = 4</code></li></ul> |
+| _logFilePath_             | Specify the log file path. The path (folder) must already exist.                                                                                                                                                                                                                                                                                                                                                                                  |
+| _maxCallLines_            | Theoretically, unlimited lines could be supported depending on the device’s capability. For a client app, the recommended value ranges from 1 to 100.                                                                                                                                                                                                                                                                                             |
+| _sipAgent_                | The User-Agent header to be inserted into SIP messages.                                                                                                                                                                                                                                                                                                                                                                                           |
+| _audioDeviceLayer_        | <p></p><p>Specify the audio device layer to be used:</p><ul><li><code>0</code> = Use the OS default device.</li><li><code>1</code> = Virtual device, typically used for devices without a sound device installed.</li></ul>                                                                                                                                                                                                                       |
+| _videoDeviceLayer_        | <p></p><p>Specify the video device layer to be used:</p><ul><li><code>0</code> = Use the OS default device.</li><li><code>1</code> = Use a virtual device, typically used for devices without a camera installed.</li></ul>                                                                                                                                                                                                                       |
+| _TLSCertificatesRootPath_ | Specify the TLS certificate path from which the SDK will automatically load the certificates. Note: On Windows, this path will be ignored, and the SDK will read the certificates from the Windows certificate store instead.                                                                                                                                                                                                                     |
+| _TLSCipherList_           | Specify the TLS cipher list. This parameter is usually passed as empty so that the SDK will offer all available ciphers. It can be passed empty string if not use the TLS transport.                                                                                                                                                                                                                                                              |
+| _verifyTLSCertificat_     | Specify the TLS cipher list. This parameter is usually left empty so that the SDK will offer all available ciphers.                                                                                                                                                                                                                                                                                                                               |
+|                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+|                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
 #### **Returns**
 
@@ -106,9 +106,11 @@ Get the current version number of the SDK.
 
 Return a current version number MAJOR.MINOR.PATCH of the SDK.
 
-**Int32 PortSIP.PortSIPLib.setLicenseKey (String **_**key**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.setLicenseKey (String key)
+```
 
-Set the license key. It must be called before setUser function.
+Set the license key. It must be called before the `setUser` function.
 
 **Parameters**
 
@@ -119,95 +121,81 @@ Set the license key. It must be called before setUser function.
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-12
+## **NIC and local IP functions**
 
-**NIC and local IP functions**
+```csharp
+Int32 PortSIP.PortSIPLib.getNICNums ()
+```
 
-**Functions**
+Retrieve the number of Network Interface Cards (NICs) available on the device.
 
-* Int32 PortSIP.PortSIPLib.getNICNums () _Get the Network Interface Card numbers._
-* Int32 PortSIP.PortSIPLib.getLocalIpAddress (Int32 index, StringBuilder ip, Int32 ipSize) _Get the local IP address by Network Interface Card index._
-*   Int32 PortSIP.PortSIPLib.setUser (String userName, String displayName, String authName, String password, String sipDomain, String sipServerAddr, Int32 sipServerPort, String stunServerAddr, Int32 stunServerPort, String outboundServerAddr, Int32 outboundServerPort)
+**Returns**
 
-    _Set user account info._
-*   void PortSIP.PortSIPLib.removeUser ()
+If the function succeeds, it will return the number of Network Interface Cards (NICs), which will be greater than or equal to 0. If the function fails, it will return a specific error code.
 
-    _Remove the user. It will un-register from SIP server given that the user is already registered._
-* Int32 PortSIP.PortSIPLib.setDisplayName (String displayName) _Set the display name of user._
-*   Int32 PortSIP.PortSIPLib.setInstanceId (String uuid)
 
-    _Set outbound (RFC5626) instanceId to be used in contact headers._
-* Int32 PortSIP.PortSIPLib.registerServer (Int32 expires, Int32 retryTimes) _Register to SIP proxy server (login to server)._
-* Int32 PortSIP.PortSIPLib.unRegisterServer (Int32 waitMS) _Un-register from the SIP proxy server._
-* Int32 PortSIP.PortSIPLib.enableRport (Boolean enable) _Enable/disable rport(RFC3581)._
-* Int32 PortSIP.PortSIPLib.enableEarlyMedia (Boolean enable) _Enable/disable Early Media._
-*   Int32 PortSIP.PortSIPLib.enablePriorityIPv6Domain (Boolean enable)
 
-    _Enable/disable which allows specifying the preferred protocol when a domain supports both IPV4 and IPV6 simultaneously._
-* Int32 PortSIP.PortSIPLib.setUriUserEncoding (String character, Boolean enable) _Modifies the default URI user character needs to be escaped._
-* Int32 PortSIP.PortSIPLib.setReliableProvisional (Int32 mode) _Enable/disable PRACK._
-*   Int32 PortSIP.PortSIPLib.enable3GppTags (Boolean enable)
+```csharp
+Int32 PortSIP.PortSIPLib.getLocalIpAddress (Int32 index, 
+                                StringBuilder ip, 
+                                Int32 ipSize)
+```
 
-    _Enable/disable the 3Gpp tags, including "ims.icsi.mmtel" and "g.3gpp.smsip"._
+Get the local IP address by Network Interface Card index.&#x20;
 
-13
+**Parameters**
 
-*   void PortSIP.PortSIPLib.enableCallbackSignaling (Boolean enableSending, Boolean enableReceived)
-
-    _Enable/disable to callback the SIP messages._
-*   Int32 PortSIP.PortSIPLib.enableRtpCallback (Int32 sessionId, Int32 mediaType, Int32 directionMode)
-
-    _Set the RTP callbacks to allow access to the sent and received RTP packets. The onRTPPacketCallback events will be triggered._&#x20;
-
-**Detailed Description Function Documentation**&#x20;
-
-**Int32 PortSIP.PortSIPLib.getNICNums ()**
-
-Get the Network Interface Card numbers. **Returns**
-
-If the function succeeds, it will return the NIC numbers which is greater than or equal to 0. If the function fails, it will return a specific error code.
-
-**Int32 PortSIP.PortSIPLib.getLocalIpAddress (Int32 **_**index**_**, StringBuilder **_**ip**_**, Int32 **_**ipSize**_**)**
-
-Get the local IP address by Network Interface Card index. **Parameters**
-
-| _index_  | <p>The IP address index. For example, if the PC has two NICs, and we wish to</p><p>obtain the second NIC IP. Set this parameter to 1 and the first NIC IP index is 0.</p> |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _ip_     | The buffer that is used to receive the IP.                                                                                                                                |
-| _ipSize_ | The IP buffer size, which cannot be less than 32 bytes.                                                                                                                   |
+| _index_  | Specify the IP address index. For example, if the PC has two NICs and you wish to obtain the IP address of the second NIC, set this parameter to `1`. The first NIC IP index is `0`. |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| _ip_     | Specify the `StringBuilder` buffer that is used to receive the IP address.                                                                                                           |
+| _ipSize_ | Specify the `StringBuilder` buffer size, which must be at least 32 bytes.                                                                                                            |
 
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-**Int32 PortSIP.PortSIPLib.setUser (String **_**userName**_**, String **_**displayName**_**, String **_**authName**_**, String **_**password**_**, String **_**sipDomain**_**, String **_**sipServerAddr**_**, Int32 **_**sipServerPort**_**, String **_**stunServerAddr**_**, Int32 **_**stunServerPort**_**, String **_**outboundServerAddr**_**, Int32 **_**outboundServerPort**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.setUser (String userName, 
+                                String displayName, 
+                                String authName, 
+                                String password, 
+                                String sipDomain, 
+                                String sipServerAddr,
+                                Int32 sipServerPort, 
+                                String stunServerAddr, 
+                                Int32 stunServerPort, 
+                                String outboundServerAddr,
+                                Int32 outboundServerPort)
+```
 
 Set user account info.
 
-14 **Parameters**
+**Parameters**
 
-| _userName_            | Account (User name) of the SIP. Usually provided by an IP-Telephony service provider.                                                                                                                   |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _displayName_         | The display name of user. You can set it as your like, such as "James Kend". It's optional.                                                                                                             |
-| _authName_            | Authorization user name (usually equal to the username).                                                                                                                                                |
-| _password_            | The password of user. It's optional.                                                                                                                                                                    |
-| _localIp_             | The local computer IP address to be bound. For example: 192.168.1.108. It will be used for sending and receiving SIP message and RTP packet. If pass this IP as the IPv6 format, the SDK will use IPv6. |
-| _localSipPort_        | The SIP message transport listener port. For example: 5060.                                                                                                                                             |
-| _userDomain_          | User domain; this parameter is optional that allows to pass an empty string if you are not using the domain.                                                                                            |
-| _sipServer_           | SIP proxy server IP or domain. For example: xx.xxx.xx.x or sip.xxx.com.                                                                                                                                 |
-| _sipServerPort_       | Port of the SIP proxy server. For example: 5060.                                                                                                                                                        |
-| _stunServer_          | Stun server used for NAT traversal. It's optional and can pass empty string to disable STUN.                                                                                                            |
-| _stunServerPort_      | STUN server port. It will be ignored if the outboundServer is empty.                                                                                                                                    |
-| _outboundServer_      | Outbound proxy server. For example: sip.domain.com. It's optional and allows to pass a empty string if not using outbound server.                                                                       |
-| _outboundServerPo rt_ | Outbound proxy server port, it will be ignored if the outboundServer is empty.                                                                                                                          |
+| _userName_            | The SIP account (username) is usually provided by an IP-Telephony service provider. For PortSIP PBX, this is the extension number.                                                                   |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _displayName_         | The display name of the user. You can set it to anything you like, such as “James Kend”. This field is optional and can be an empty string.                                                          |
+| _authName_            | The authorization username is usually the same as the SIP account (username).                                                                                                                        |
+| _password_            | The password of user. It's optional and can be an empty string.                                                                                                                                      |
+| _localIp_             | The local computer IP address to be bound (e.g., `192.168.1.108`) will be used for sending and receiving SIP messages and RTP packets. If this IP is provided in IPv6 format, the SDK will use IPv6. |
+| _localSipPort_        | The SIP message transport listener port (e.g., `5060`) is used for SIP signaling.                                                                                                                    |
+| _userDomain_          | The user domain is an optional parameter. You can pass an empty string if you are not using a domain. To connect to the PortSIP PBX, this is the tenant SIP domain.                                  |
+| _sipServer_           | Specify the IP address or domain of the SIP server or PBX.                                                                                                                                           |
+| _sipServerPort_       | Specify the SIP message port that the SIP server or PBX is listening on.                                                                                                                             |
+| _stunServer_          | Specify the STUN server used for NAT traversal. This parameter is optional, and you can pass an empty string to disable STUN.                                                                        |
+| _stunServerPort_      | Specify the STUN server port. This parameter will be ignored if the `outboundServer` is empty.                                                                                                       |
+| _outboundServer_      | Specify the outbound proxy server IP address or domain. This parameter is optional, and you can pass an empty string if you are not using an outbound server.                                        |
+| _outboundServerPo rt_ | Specify the outbound proxy server port. This parameter will be ignored if the `outboundServer` is empty.                                                                                             |
 
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-**Int32 PortSIP.PortSIPLib.setDisplayName (String **_**displayName**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.setDisplayName (String displayName)
+```
 
-Set the display name of user.
+Set the display name for the user.
 
 **Parameters**
 
@@ -218,9 +206,13 @@ Set the display name of user.
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-**Int32 PortSIP.PortSIPLib.setInstanceId (String **_**uuid**_**)**
+```
+Int32 PortSIP.PortSIPLib.setInstanceId (String uuid)
+```
 
-Set outbound (RFC5626) instanceId to be used in contact headers. **Parameters**
+Set outbound (RFC5626) instanceId to be used in contact headers.&#x20;
+
+**Parameters**
 
 | _uuid_ | The ID that will appear in the contact header. Please make sure it's a unique ID. |
 | ------ | --------------------------------------------------------------------------------- |
@@ -229,9 +221,11 @@ Set outbound (RFC5626) instanceId to be used in contact headers. **Parameters**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-**Int32 PortSIP.PortSIPLib.registerServer (Int32 **_**expires**_**, Int32 **_**retryTimes**_**)**
+```
+Int32 PortSIP.PortSIPLib.registerServer (Int32 expires, Int32 retryTimes)
+```
 
-Register to SIP proxy server (login to server).
+Register to SIP server or PBX server(login to the server).
 
 15 **Parameters**
 
