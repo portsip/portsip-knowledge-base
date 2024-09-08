@@ -57,7 +57,9 @@ Yes, the SDK supports both 32-bit and 64-bit architectures.
 
 ***
 
-## **Initialize and register functions**
+## SDK API Functions
+
+### **Initialize and register functions**
 
 ```csharp
 Int32 PortSIP.PortSIPLib.initialize (TRANSPORT_TYPE transportType, 
@@ -377,7 +379,7 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-## **NIC and local IP functions**
+### **NIC and local IP functions**
 
 ```csharp
 Int32 PortSIP.PortSIPLib.getNICNums ()
@@ -412,7 +414,7 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-## **Audio and video codec functions**
+### **Audio and video codec functions**
 
 ```csharp
 Int32 PortSIP.PortSIPLib.addAudioCodec (AUDIOCODEC_TYPE codecType)
@@ -563,7 +565,7 @@ Here is an example:
 
 ***
 
-## **Additional setting functions**
+### **Additional setting functions**
 
 ```csharp
 Int32 PortSIP.PortSIPLib.setSrtpPolicy (SRTP_POLICY srtpPolicy, 
@@ -784,7 +786,7 @@ addSupportedMimeType("NOTIFY", "application", "media_control+xml");
 
 For more details about MIME types, please visit the IANA Media Types website:[http://www.iana.org/assignments/media-types/](http://www.iana.org/assignments/media-types/)
 
-## **Access SIP message header functions**
+### **Access SIP message header functions**
 
 <pre class="language-csharp"><code class="lang-csharp">Int32 PortSIP.PortSIPLib.getSipMessageHeaderValue (String sipMessage, 
 <strong>                                String headerName, 
@@ -938,7 +940,7 @@ clearModifiedSipMessageHeaders();
 
 ***
 
-## **Audio and video functions**
+### **Audio and video functions**
 
 ```csharp
 Int32 PortSIP.PortSIPLib.setAudioSamples (Int32 ptime, Int32 maxPtime)
@@ -1231,7 +1233,7 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-## **Call functions**
+### **Call functions**
 
 **Int32 PortSIP.PortSIPLib.call (String **_**callee**_**, Boolean **_**sendSdp**_**, Boolean **_**videoCall**_**)**
 
@@ -1447,7 +1449,7 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-## **Refer functions**
+### **Refer functions**
 
 **Int32 PortSIP.PortSIPLib.refer (Int32 **_**sessionId**_**, String **_**referTo**_**)**
 
@@ -1561,7 +1563,7 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-## **Send audio and video stream functions**&#x20;
+### **Send audio and video stream functions**&#x20;
 
 **Int32 PortSIP.PortSIPLib.enableSendPcmStreamToRemote (Int32 **_**sessionId**_**, Boolean **_**state**_**, Int32 **_**streamSamplesPerSec**_**)**
 
@@ -1623,7 +1625,9 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 **Int32 PortSIP.PortSIPLib.sendVideoStreamToRemote (Int32 **_**sessionId**_**, byte\[] **_**data**_**, Int32 **_**dataLength**_**, Int32 **_**width**_**, Int32 **_**height**_**)**
 
-Send the video stream to remote side. **Parameters**
+Send the video stream to remote side.
+
+&#x20;**Parameters**
 
 | _sessionId_  | Session ID of the call conversation.              |
 | ------------ | ------------------------------------------------- |
@@ -1642,11 +1646,11 @@ Send the video stream in i420 from another source instead of video device captur
 
 Before calling this function, you MUST call the enableSendVideoStreamToRemote function.
 
-45
-
 Usually it should be used as below:
 
 enableSendVideoStreamToRemote(sessionId, true); sendVideoStreamToRemote(sessionId, data, dataSize, 352, 288);
+
+***
 
 **Int32 PortSIP.PortSIPLib.enableSendScreenStreamToRemote (Int32 **_**sessionId**_**, Boolean **_**state**_**)**
 
@@ -1662,13 +1666,15 @@ Enable the SDK send Screen stream data to remote side from selected screen sourc
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-46
+***
 
-## **RTP packets, Audio stream and video stream callback functions**
+### **RTP packets, Audio stream and video stream callback functions**
 
 **Int32 PortSIP.PortSIPLib.enableAudioStreamCallback (Int32 **_**sessionId**_**, Boolean **_**enable**_**, DIRECTION\_MODE **_**direction**_**)**
 
-Enable/disable the audio stream callback. **Parameters**
+Enable/disable the audio stream callback.&#x20;
+
+**Parameters**
 
 | _sessionId_           | The session ID of call.                                                                  |
 | --------------------- | ---------------------------------------------------------------------------------------- |
@@ -1687,9 +1693,13 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 The onAudioRawCallback event will be triggered if the callback is enabled.
 
+***
+
 **Int32 PortSIP.PortSIPLib.enableVideoStreamCallback (Int32 **_**sessionId**_**, DIRECTION\_MODE **_**direction**_**)**
 
-Enable/disable the video stream callback. **Parameters**
+Enable/disable the video stream callback.&#x20;
+
+**Parameters**
 
 | _callbackObject_      | The callback object that you passed in can be accessed once callback function triggered. |
 | --------------------- | ---------------------------------------------------------------------------------------- |
@@ -1707,10 +1717,14 @@ If the function succeeds, it will return value 0. If the function fails, it will
 **Remarks**
 
 The onVideoRawCallback event will be triggered if the callback is enabled.
+
+***
 
 **Int32 PortSIP.PortSIPLib.enableScreenStreamCallback (Int32 **_**sessionId**_**, DIRECTION\_MODE **_**direction**_**)**
 
-Enable/disable the video stream callback. **Parameters**
+Enable/disable the video stream callback.&#x20;
+
+**Parameters**
 
 | _callbackObject_      | The callback object that you passed in can be accessed once callback function triggered. |
 | --------------------- | ---------------------------------------------------------------------------------------- |
@@ -1729,11 +1743,15 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 The onVideoRawCallback event will be triggered if the callback is enabled.
 
-## **Record functions**
+***
+
+### **Record functions**
 
 **Int32 PortSIP.PortSIPLib.startRecord (Int32 **_**sessionId**_**, String **_**recordFilePath**_**, String **_**recordFileName**_**, Boolean **_**appendTimestamp**_**, Int32 **_**channels**_**, FILE\_FORMAT **_**recordFileFormat**_**, RECORD\_MODE **_**audioRecordMode**_**, RECORD\_MODE **_**videoRecordMode**_**)**
 
-Start recording the call. **Parameters**
+Start recording the call.
+
+&#x20;**Parameters**
 
 | _sessionId_        | The session ID of call conversation.                                             |
 | ------------------ | -------------------------------------------------------------------------------- |
@@ -1749,6 +1767,8 @@ Start recording the call. **Parameters**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 **Int32 PortSIP.PortSIPLib.stopRecord (Int32 **_**sessionId**_**)**
 
 Stop record.
@@ -1758,11 +1778,15 @@ Stop record.
 | _sessionId_ | The session ID of call conversation. |
 | ----------- | ------------------------------------ |
 
-## **Play audio and video file to remote functions**
+***
+
+### **Play audio and video file to remote functions**
 
 **Int32 PortSIP.PortSIPLib.startPlayingFileToRemote (Int32 **_**sessionId**_**, String **_**fileName**_**, Boolean **_**loop**_**, Int32 **_**playAudio**_**)**
 
-Play a file to remote party. **Parameters**
+Play a file to remote party.&#x20;
+
+**Parameters**
 
 | _sessionId_ | Session ID of the call.                                                                  |
 | ----------- | ---------------------------------------------------------------------------------------- |
@@ -1774,6 +1798,8 @@ Play a file to remote party. **Parameters**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 **Int32 PortSIP.PortSIPLib.stopPlayingFileToRemote (Int32 **_**sessionId**_**)**
 
 Stop playing file to remote party.
@@ -1783,9 +1809,13 @@ Stop playing file to remote party.
 | _sessionId_ | Session ID of the call. |
 | ----------- | ----------------------- |
 
+***
+
 **Int32 PortSIP.PortSIPLib.startPlayingFileLocally (String **_**fileUrl**_**, Boolean **_**loop**_**, IntPtr **_**playVideoWindow**_**)**
 
-Play a file to remote party. **Parameters**
+Play a file to remote party.&#x20;
+
+**Parameters**
 
 | _sessionId_       | Session ID of the call.                                                                  |
 | ----------------- | ---------------------------------------------------------------------------------------- |
@@ -1797,6 +1827,8 @@ Play a file to remote party. **Parameters**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 **Int32 PortSIP.PortSIPLib.stopPlayingFileLocally ()**
 
 Stop playing file to locally.
@@ -1805,30 +1837,36 @@ Stop playing file to locally.
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-## **Conference functions**
+***
+
+### **Conference functions**
 
 **Int32 PortSIP.PortSIPLib.createAudioConference ()**
 
-Create an audio conference. It will be failed if the existent conference is not ended yet. **Returns**
-
-If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
-
-**Int32 PortSIP.PortSIPLib.createVideoConference (IntPtr **_**conferenceVideoWindow**_**, Int32 **_**width**_**, Int32 **_**height**_**, Int32 **_**layout**_**)**
-
-Create a video conference. It will be failed if the existent conference is not ended yet. **Parameters**
-
-| _conferenceVideoW indow_ | The UIView used to display the conference video. |
-| ------------------------ | ------------------------------------------------ |
-
-53
-
-| _videoResolution_ | The conference video resolution.                                                                                                                                                                            |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _layout_          | Conference Video layout, default is 0 - Adaptive. 0 - Adaptive(1,3,5,6) 1 - Only Local Video 2 - 2 video,PIP 3 - 2 video, Left and right 4 - 2 video, Up and Down 5 - 3 video 6 - 4 split video 7 - 5 video |
+Create an audio conference. It will be failed if the existent conference is not ended yet.&#x20;
 
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
+
+**Int32 PortSIP.PortSIPLib.createVideoConference (IntPtr **_**conferenceVideoWindow**_**, Int32 **_**width**_**, Int32 **_**height**_**, Int32 **_**layout**_**)**
+
+Create a video conference. It will be failed if the existent conference is not ended yet.&#x20;
+
+**Parameters**
+
+| _conferenceVideoWindow_ | The UIView used to display the conference video.                                                                                                                                                            |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _videoResolution_       | The conference video resolution.                                                                                                                                                                            |
+| _layout_                | Conference Video layout, default is 0 - Adaptive. 0 - Adaptive(1,3,5,6) 1 - Only Local Video 2 - 2 video,PIP 3 - 2 video, Left and right 4 - 2 video, Up and Down 5 - 3 video 6 - 4 split video 7 - 5 video |
+
+**Returns**
+
+If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 **Int32 PortSIP.PortSIPLib.setConferenceVideoWindow (IntPtr **_**videoWindow**_**)**
 
@@ -1843,9 +1881,13 @@ Set the window for a conference that is used to display the received remote vide
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 **Int32 PortSIP.PortSIPLib.joinToConference (Int32 **_**sessionId**_**)**
 
-Join a session into existent conference. If the call is in hold, it will be un-hold automatically. **Parameters**
+Join a session into existent conference. If the call is in hold, it will be un-hold automatically.&#x20;
+
+**Parameters**
 
 | _sessionId_ | Session ID of the call. |
 | ----------- | ----------------------- |
@@ -1853,6 +1895,8 @@ Join a session into existent conference. If the call is in hold, it will be un-h
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 **Int32 PortSIP.PortSIPLib.removeFromConference (Int32 **_**sessionId**_**)**
 
@@ -1867,13 +1911,15 @@ Remove a session from an existent conference.
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-54
+***
 
-## **RTP and RTCP QOS functions**
+### **RTP and RTCP QOS functions**
 
 **Int32 PortSIP.PortSIPLib.setAudioRtcpBandwidth (Int32 **_**sessionId**_**, Int32 **_**BitsRR**_**, Int32 **_**BitsRS**_**, Int32 **_**KBitsAS**_**)**
 
-Set the audio RTCP bandwidth parameters to the RFC3556. **Parameters**
+Set the audio RTCP bandwidth parameters to the RFC3556.&#x20;
+
+**Parameters**
 
 | _sessionId_ | The session ID of call conversation. |
 | ----------- | ------------------------------------ |
@@ -1884,10 +1930,14 @@ Set the audio RTCP bandwidth parameters to the RFC3556. **Parameters**
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 **Int32 PortSIP.PortSIPLib.setVideoRtcpBandwidth (Int32 **_**sessionId**_**, Int32 **_**BitsRR**_**, Int32 **_**BitsRS**_**, Int32 **_**KBitsAS**_**)**
 
-Set the video RTCP bandwidth parameters as the RFC3556. **Parameters**
+Set the video RTCP bandwidth parameters as the RFC3556.&#x20;
+
+**Parameters**
 
 | _sessionId_ | The session ID of call conversation. |
 | ----------- | ------------------------------------ |
@@ -1899,7 +1949,9 @@ Set the video RTCP bandwidth parameters as the RFC3556. **Parameters**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-## **RTP statistics functions**
+***
+
+### **RTP statistics functions**
 
 **Int32 PortSIP.PortSIPLib.getStatistics (Int32 **_**sessionId**_**)**
 
@@ -1914,48 +1966,64 @@ Obtain the statistics of channel. the event onStatistics will be triggered.
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-56
+***
 
-## **Audio effect functions**
+### **Audio effect functions**
 
 **void PortSIP.PortSIPLib.enableVAD (Boolean **_**state**_**)**
 
-Enable/disable Voice Activity Detection (VAD). **Parameters**
+Enable/disable Voice Activity Detection (VAD).&#x20;
+
+**Parameters**
 
 | _state_ | Set to true to enable VAD, or false to disable. |
 | ------- | ----------------------------------------------- |
 
+***
+
 **void PortSIP.PortSIPLib.enableAEC (Boolean **_**state**_**)**
 
 Enable/disable AEC (Acoustic Echo Cancellation).
-
-57
 
 **Parameters**
 
 | _state_ | Set it to true to enable AEC, or false to disable. |
 | ------- | -------------------------------------------------- |
 
+***
+
 **void PortSIP.PortSIPLib.enableCNG (Boolean **_**state**_**)**
 
-Enable/disable Comfort Noise Generator (CNG). **Parameters**
+Enable/disable Comfort Noise Generator (CNG).&#x20;
+
+**Parameters**
 
 | _state_ | Set it to true to enable CNG, or false to disable. |
 | ------- | -------------------------------------------------- |
 
+***
+
 **void PortSIP.PortSIPLib.enableAGC (Boolean **_**state**_**)**
 
-Enable/disable Automatic Gain Control (AGC). **Parameters**
+Enable/disable Automatic Gain Control (AGC).&#x20;
+
+**Parameters**
 
 | _state_ | Set it to true to enable AGC, or false to disable. |
 | ------- | -------------------------------------------------- |
 
+***
+
 **void PortSIP.PortSIPLib.enableANS (Boolean **_**state**_**)**
 
-Enable/disable Audio Noise Suppression (ANS). **Parameters**
+Enable/disable Audio Noise Suppression (ANS).&#x20;
+
+**Parameters**
 
 | _state_ | Set it to true to enable ANS, or false to disable. |
 | ------- | -------------------------------------------------- |
+
+***
 
 **Int32 PortSIP.PortSIPLib.enableAudioQos (Boolean **_**state**_**)**
 
@@ -1970,6 +2038,8 @@ Set the DSCP (differentiated services code point) value of QoS (Quality of Servi
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 **Int32 PortSIP.PortSIPLib.enableVideoQos (Boolean **_**state**_**)**
 
 Set the DSCP (differentiated services code point) value of QoS (Quality of Service) for video channel.
@@ -1982,6 +2052,8 @@ Set the DSCP (differentiated services code point) value of QoS (Quality of Servi
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 **Int32 PortSIP.PortSIPLib.setVideoMTU (Int32 **_**mtu**_**)**
 
@@ -1996,7 +2068,9 @@ Set the MTU size for video RTP packet.
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-## **Send OPTIONS/INFO/MESSAGE functions**
+***
+
+### **Send OPTIONS/INFO/MESSAGE functions**
 
 **Int32 PortSIP.PortSIPLib.sendOptions (String **_**to**_**, String **_**sdp**_**)**
 
@@ -2013,6 +2087,8 @@ Send OPTIONS message.
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 **Int32 PortSIP.PortSIPLib.sendInfo (Int32 **_**sessionId**_**, String **_**mimeType**_**, String **_**subMimeType**_**, String **_**infoContents**_**)**
 
 Send a INFO message to remote side in a call. **Parameters**
@@ -2026,6 +2102,8 @@ Send a INFO message to remote side in a call. **Parameters**
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 **Int32 PortSIP.PortSIPLib.sendSubscription (String **_**to**_**, String **_**eventName**_**)**
 
@@ -2045,13 +2123,15 @@ If the function succeeds, it will return the ID of SUBSCRIBE which is greater th
 
 Example 1, below code indicates that user/extension 101 is subscribed to MWI (Message Waiting notifications) for checking his voicemail: int32 mwiSubId = sendSubscription("sip:101@test.com", "message-summary");
 
-Example 2, to monitor a user/extension call status, You can use code: sendSubscription("100", "dialog"); Extension 100 refers to the user/extension to be monitored. Once being monitored, when extension 100 hold a call or is ringing, the
+Example 2, to monitor a user/extension call status, You can use code: sendSubscription("100", "dialog"); Extension 100 refers to the user/extension to be monitored. Once being monitored, when extension 100 hold a call or is ringing, the onDialogStateUpdated callback will be triggered.
 
-onDialogStateUpdated callback will be triggered.
+***
 
 **Int32 PortSIP.PortSIPLib.terminateSubscription (Int32 **_**subscribeId**_**)**
 
-Terminate the given subscription. **Parameters**
+Terminate the given subscription.&#x20;
+
+**Parameters**
 
 | _subscribeId_ | The ID of the subscription. |
 | ------------- | --------------------------- |
@@ -2060,17 +2140,19 @@ Terminate the given subscription. **Parameters**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-61
-
 **Remarks**
 
 For example, if you want stop check the MWI, use below code:
 
-terminateSubscription(mwiSubId);&#x20;
+`terminateSubscription(mwiSubId);`&#x20;
+
+***
 
 **Int32 PortSIP.PortSIPLib.sendMessage (Int32 **_**sessionId**_**, String **_**mimeType**_**, String **_**subMimeType**_**, byte\[] **_**message**_**, Int32 **_**messageLength**_**)**
 
-Send a MESSAGE message to remote side in dialog. **Parameters**
+Send a MESSAGE message to remote side in dialog.&#x20;
+
+**Parameters**
 
 | _sessionId_     | The session ID of the call.                                           |
 | --------------- | --------------------------------------------------------------------- |
@@ -2087,15 +2169,19 @@ If the function succeeds, it will return a message ID that allows to track the m
 
 Example 1: send a plain text message. Note: to send text in other languages, please use the UTF-8 to encode the message before sending.
 
-sendMessage(sessionId, "text", "plain", "hello",6);&#x20;
+`sendMessage(sessionId, "text", "plain", "hello",6);`&#x20;
 
 Example 2: send a binary message.
 
-sendMessage(sessionId, "application", "vnd.3gpp.sms", binData, binDataSize);
+`sendMessage(sessionId, "application", "vnd.3gpp.sms", binData, binDataSize);`
+
+***
 
 **Int32 PortSIP.PortSIPLib.sendOutOfDialogMessage (String **_**to**_**, String **_**mimeType**_**, String **_**subMimeType**_**, Boolean **_**isSMS**_**, byte\[] **_**message**_**, Int32 **_**messageLength**_**)**
 
-Send an out of dialog MESSAGE message to remote side. **Parameters**
+Send an out of dialog MESSAGE message to remote side.&#x20;
+
+**Parameters**
 
 | _to_            | The message recipient, such as sip[:receiver@portsip.com](mailto:receiver@portsip.com)                                       |
 | --------------- | ---------------------------------------------------------------------------------------------------------------------------- |
@@ -2112,17 +2198,19 @@ If the function succeeds, it will return a message ID that allows to track the m
 
 Example 1: send a plain text message. Note: to send text in other languages, please use the UTF-8 to encode the message before sending.
 
-sendOutOfDialogMessage("sip:user1@sip.portsip.com", "text", "plain", false, "hello", 6);
+`sendOutOfDialogMessage("sip:user1@sip.portsip.com", "text", "plain", false, "hello", 6);`
 
 Example 2: send a binary message.
 
-62
+`sendOutOfDialogMessage("sip:user1@sip.portsip.com","application", "vnd.3gpp.sms", false, binData, binDataSize);`
 
-sendOutOfDialogMessage("sip:user1@sip.portsip.com","application", "vnd.3gpp.sms", false, binData, binDataSize);
+***
 
 **Int32 PortSIP.PortSIPLib.setDefaultSubscriptionTime (Int32 **_**secs**_**)**
 
-Set the default expiration time to be used when creating a subscription. **Parameters**
+Set the default expiration time to be used when creating a subscription.&#x20;
+
+**Parameters**
 
 | _secs_ | The default expiration time of subscription. |
 | ------ | -------------------------------------------- |
@@ -2130,6 +2218,8 @@ Set the default expiration time to be used when creating a subscription. **Param
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 **Int32 PortSIP.PortSIPLib.setDefaultPublicationTime (Int32 **_**secs**_**)**
 
@@ -2144,9 +2234,13 @@ Set the default expiration time to be used when creating a publication.
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 **Int32 PortSIP.PortSIPLib.setPresenceMode (Int32 **_**mode**_**)**
 
-Indicate the SDK uses the P2P mode for presence or presence agent mode. **Parameters**
+Indicate the SDK uses the P2P mode for presence or presence agent mode.&#x20;
+
+**Parameters**
 
 | _mode_ | 0 - P2P mode; 1 - Presence Agent mode, default is P2P mode. |
 | ------ | ----------------------------------------------------------- |
@@ -2159,11 +2253,15 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 Since presence agent mode requires the PBX/Server support the PUBLISH, please ensure you have your and PortSIP PBX support this feature. For more details please visit: [https://www.portsip.com/portsip-pbx](https://www.portsip.com/portsip-pbx)
 
-## **Presence functions**&#x20;
+***
+
+### **Presence functions**&#x20;
 
 **Int32 PortSIP.PortSIPLib.presenceSubscribe (String **_**to**_**, String **_**subject**_**)**
 
-Send a SUBSCRIBE message for subscribing the contact's presence status. **Parameters**
+Send a SUBSCRIBE message for subscribing the contact's presence status.
+
+**Parameters**
 
 | _to_      | The target contact. It must be like sip[:contact001@sip.portsip.com.](mailto:contact001@sip.portsip.com)                                                                           |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2172,6 +2270,8 @@ Send a SUBSCRIBE message for subscribing the contact's presence status. **Parame
 **Returns**
 
 If the function succeeds, it will return value subscribeId. If the function fails, it will return a specific error code.
+
+***
 
 **Int32 PortSIP.PortSIPLib.presenceTerminateSubscribe (Int32 **_**subscribeId**_**)**
 
@@ -2185,6 +2285,8 @@ Terminate the given presence subscription.
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 **Int32 PortSIP.PortSIPLib.presenceRejectSubscribe (Int32 **_**subscribeId**_**)**
 
@@ -2203,9 +2305,13 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 If the P2P presence mode is enabled, when someone subscribe your presence status, you will receive the subscribe request in the callback, and you can use this function to accept it.
 
+***
+
 **Int32 PortSIP.PortSIPLib.presenceAcceptSubscribe (Int32 **_**subscribeId**_**)**
 
-Accept the presence SUBSCRIBE request which is received from contact. **Parameters**
+Accept the presence SUBSCRIBE request which is received from contact.&#x20;
+
+**Parameters**
 
 | _subscribeId_ | Subscription ID. When receiving a SUBSCRIBE request from contact, the event onPresenceRecvSubscribe will be triggered. The event will include the subscription ID. |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -2217,6 +2323,8 @@ If the function succeeds, it will return value 0. If the function fails, it will
 **Remarks**
 
 If the P2P presence mode is enabled, when someone subscribes your presence status, you will receive the subscription request in the callback, and you can use this function to reject it.
+
+***
 
 **Int32 PortSIP.PortSIPLib.setPresenceStatus (Int32 **_**subscribeId**_**, String **_**stateText**_**)**
 
@@ -2236,46 +2344,56 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 With P2P presence mode, when receiving a SUBSCRIBE request from contact, the event onPresenceRecvSubscribe will be triggered. The event includes the subscription ID. This
 
-65
-
 function will cause the SDK sending a NOTIFY message to update your presence status, and you must pass the correct subscribeId.
 
 With presence agent mode, this function will cause the SDK to send a PUBLISH message to update your presence status, and you must pass 0 to the "subscribeId" parameter.
 
-## **Device Manage functions.**&#x20;
+***
+
+### **Device Manage functions.**&#x20;
 
 **Int32 PortSIP.PortSIPLib.getNumOfRecordingDevices ()**
 
-Gets the count of audio devices available for audio recording. **Returns**
+Gets the count of audio devices available for audio recording.&#x20;
+
+**Returns**
 
 It will return the count of recording devices. If the function fails, it will return a specific error code less than 0.
 
+***
+
 **Int32 PortSIP.PortSIPLib.getNumOfPlayoutDevices ()**
 
-Gets the number of audio devices available for audio playout. **Returns**
+Gets the number of audio devices available for audio playout.&#x20;
+
+**Returns**
 
 It will return the count of playout devices. If the function fails, it will return a specific error code less than 0.
 
+***
+
 **Int32 PortSIP.PortSIPLib.getRecordingDeviceName (Int32 **_**deviceIndex**_**, StringBuilder **_**nameUTF8**_**, Int32 **_**nameUTF8Length**_**)**
 
-Gets the name of a specific recording device given by an index. **Parameters**
+Gets the name of a specific recording device given by an index.&#x20;
 
-| _deviceIndex_ | Device index (0, 1, 2, ..., N-1), where N is given by getNumOfRecordingDevices (). Also -1 is a valid value and will return the name of the default recording device. |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _nameUTF8_    | A character buffer to which the device name will be copied as a null-terminated string in UTF-8 format.                                                               |
+**Parameters**
 
-68
-
-| _nameUTF8Length_ | The size of nameUTF8 buffer. It cannot be less than 128. |
-| ---------------- | -------------------------------------------------------- |
+| _deviceIndex_    | Device index (0, 1, 2, ..., N-1), where N is given by getNumOfRecordingDevices (). Also -1 is a valid value and will return the name of the default recording device. |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _nameUTF8_       | A character buffer to which the device name will be copied as a null-terminated string in UTF-8 format.                                                               |
+| _nameUTF8Length_ | The size of nameUTF8 buffer. It cannot be less than 128.                                                                                                              |
 
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 **Int32 PortSIP.PortSIPLib.getPlayoutDeviceName (Int32 **_**deviceIndex**_**, StringBuilder **_**nameUTF8**_**, Int32 **_**nameUTF8Length**_**)**
 
-Get the name of a specific playout device given by an index. **Parameters**
+Get the name of a specific playout device given by an index.&#x20;
+
+**Parameters**
 
 | _deviceIndex_    |                                                                                                                                                                       |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2286,6 +2404,8 @@ Get the name of a specific playout device given by an index. **Parameters**
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 **Int32 PortSIP.PortSIPLib.setSpeakerVolume (Int32 **_**volume**_**)**
 
@@ -2300,6 +2420,8 @@ Set the speaker volume level.
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 **Int32 PortSIP.PortSIPLib.getSpeakerVolume ()**
 
 Gets the speaker volume level.
@@ -2307,6 +2429,8 @@ Gets the speaker volume level.
 **Returns**
 
 If the function succeeds, it will return the speaker volume with valid range 0 - 255. If the function fails, it will return a specific error code.
+
+***
 
 **Int32 PortSIP.PortSIPLib.setMicVolume (Int32 **_**volume**_**)**
 
@@ -2321,11 +2445,17 @@ Sets the microphone volume level.
 
 If the function succeeds, the return value is 0. If the function fails, the return value is a specific error code.
 
+***
+
 **Int32 PortSIP.PortSIPLib.getMicVolume ()**
 
-Retrieves the current microphone volume. **Returns**
+Retrieves the current microphone volume.&#x20;
+
+**Returns**
 
 If the function succeeds, it will return the microphone volume. If the function fails, it will return a specific error code.
+
+***
 
 **Int32 PortSIP.PortSIPLib.getScreenSourceCount ()**
 
@@ -2335,11 +2465,17 @@ Retrieves the current number of screen.
 
 If the function succeeds, it will return the screen number. If the function fails, it will return a specific error code.
 
+***
+
 **Int32 PortSIP.PortSIPLib.getScreenSourceTitle (Int32 **_**deviceIndex**_**, StringBuilder **_**nameUTF8**_**, Int32 **_**nameUTF8Length**_**)**
 
-Retrieves the current screen title . **Returns**
+Retrieves the current screen title .&#x20;
+
+**Returns**
 
 If the function succeeds, return value 0. If the function fails, it will return a specific error code.
+
+***
 
 **Int32 PortSIP.PortSIPLib.selectScreenSource (Int32 **_**nDeviceIndex**_**)**
 
@@ -2349,6 +2485,8 @@ Sets the Screen to share .
 
 If the function succeeds, return value 0. If the function fails, it will return a specific error code.
 
+***
+
 **Int32 PortSIP.PortSIPLib.SetScreenFrameRate (Int32 **_**nFrameRate**_**)**
 
 Sets the Screen video framerate .
@@ -2357,9 +2495,13 @@ Sets the Screen video framerate .
 
 If the function succeeds, return value 0. If the function fails, it will return a specific error code.
 
+***
+
 **Int32 PortSIP.PortSIPLib.setScreenVideoWindow (Int32 **_**sessionId**_**, IntPtr **_**screenVideoWindow**_**)**
 
-Set the window for a session that is used to display the received screen video . **Parameters**
+Set the window for a session that is used to display the received screen video .&#x20;
+
+**Parameters**
 
 | _sessionId_          | The session ID of the call.                        |
 | -------------------- | -------------------------------------------------- |
@@ -2368,6 +2510,8 @@ Set the window for a session that is used to display the received screen video .
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
+
+***
 
 **void PortSIP.PortSIPLib.audioPlayLoopbackTest (Boolean **_**enable**_**)**
 
@@ -2378,6 +2522,8 @@ Use it for the audio device loop back test.
 | _enable_ | Set to true to start audio look back test; or fase to stop. |
 | -------- | ----------------------------------------------------------- |
 
+***
+
 **Int32 PortSIP.PortSIPLib.getNumOfVideoCaptureDevices ()**
 
 Get the number of available capturing devices.
@@ -2386,9 +2532,13 @@ Get the number of available capturing devices.
 
 It will return the count of video capturing devices. If it fails, it will return a specific error code less than 0.
 
+***
+
 **Int32 PortSIP.PortSIPLib.getVideoCaptureDeviceName (Int32 **_**deviceIndex**_**, StringBuilder **_**uniqueIdUTF8**_**, Int32 **_**uniqueIdUTF8Length**_**, StringBuilder **_**deviceNameUTF8**_**, Int32 **_**deviceNameUTF8Length**_**)**
 
-Get the name of a specific video capture device given by an index. **Parameters**
+Get the name of a specific video capture device given by an index.&#x20;
+
+**Parameters**
 
 | _deviceIndex_           | Device index (0, 1, 2, ..., N-1), where N is given by getNumOfVideoCaptureDevices (). Also -1 is a valid value and will return the name of the default capturing device. |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -2401,9 +2551,13 @@ Get the name of a specific video capture device given by an index. **Parameters*
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 **Int32 PortSIP.PortSIPLib.showVideoCaptureSettingsDialogBox (String **_**uniqueIdUTF8**_**, Int32 **_**uniqueIdUTF8Length**_**, String **_**dialogTitle**_**, IntPtr **_**parentWindow**_**, Int32 **_**x**_**, Int32 **_**y**_**)**
 
-Display the capture device property dialog box for the specified capture device. **Parameters**
+Display the capture device property dialog box for the specified capture device.&#x20;
+
+**Parameters**
 
 | _uniqueIdUTF8_        | Unique identifier of the capture device.                                     |
 | --------------------- | ---------------------------------------------------------------------------- |
@@ -2417,13 +2571,17 @@ Display the capture device property dialog box for the specified capture device.
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
+***
+
 ## **SDK Callback events**
 
-## **Register events**
+### **Register events**
 
 **Int32 PortSIP.SIPCallbackEvents.onRegisterSuccess (String **_**statusText**_**, Int32 **_**statusCode**_**, StringBuilder **_**sipMessage**_**)**
 
-When successfully registered to server, this event will be triggered. **Parameters**
+When successfully registered to server, this event will be triggered.&#x20;
+
+**Parameters**
 
 | _callbackIndex_  | This is a callback index passed in when creating the SDK library.  |
 | ---------------- | ------------------------------------------------------------------ |
@@ -2441,7 +2599,7 @@ If registration to SIP server fails, this event will be triggered. **Parameters*
 | _statusCode_ | The status code.          |
 | _sipMessage_ | The SIP message received. |
 
-## **Call events**
+### **Call events**
 
 **Int32 PortSIP.SIPCallbackEvents.onInviteIncoming (Int32 **_**sessionId**_**, String **_**callerDisplayName**_**, String **_**caller**_**, String **_**calleeDisplayName**_**, String **_**callee**_**, String **_**audioCodecNames**_**, String **_**videoCodecNames**_**, Boolean **_**existsAudio**_**, Boolean **_**existsVideo**_**, StringBuilder **_**sipMessage**_**)**
 
@@ -2455,13 +2613,9 @@ When the call is coming, this event will be triggered. **Parameters**
 | _callee_             | The callee.                                                                                     |
 | _audioCodecNames_    | <p>The matched audio codecs. It's separated by "#" if there are more than one</p><p>codecs.</p> |
 | _videoCodecNames_    | The matched video codecs. It's separated by "#" if there are more than one codecs.              |
-
-75
-
-| _existsAudio_ | If it's true, it indicates that this call includes the audio. |
-| ------------- | ------------------------------------------------------------- |
-| _existsVideo_ | If it's true, it indicates that this call includes the video. |
-| _sipMessage_  | The SIP message received.                                     |
+| _existsAudio_        | If it's true, it indicates that this call includes the audio.                                   |
+| _existsVideo_        | If it's true, it indicates that this call includes the video.                                   |
+| _sipMessage_         | The SIP message received.                                                                       |
 
 **Int32 PortSIP.SIPCallbackEvents.onInviteTrying (Int32 **_**sessionId**_**)**
 
@@ -2592,7 +2746,7 @@ If the remote side un-hold the call, this event would be triggered. **Parameters
 | _existsAudio_     | If it's true, it indicates that this call includes the audio.                                   |
 | _existsVideo_     | If it's true, it indicates that this call includes the video.                                   |
 
-## **Refer events**
+### **Refer events**
 
 **Int32 PortSIP.SIPCallbackEvents.onReceivedRefer (Int32 **_**sessionId**_**, Int32 **_**referId**_**, String **_**to**_**, String **_**from**_**, StringBuilder **_**referSipMessage**_**)**
 
@@ -2659,7 +2813,7 @@ When the refer call fails, this event will be triggered. The ACTV means Active. 
 | _reason_    | The error reason.           |
 | _code_      | The error code.             |
 
-## **Signaling events**
+### **Signaling events**
 
 **Int32 PortSIP.SIPCallbackEvents.onReceivedSignaling (Int32 **_**sessionId**_**, StringBuilder **_**signaling**_**)**
 
@@ -2677,7 +2831,7 @@ This event will be triggered when a SIP message sent. **Parameters**
 | ----------- | --------------------------- |
 | _signaling_ | The SIP message sent.       |
 
-## **MWI events**
+### **MWI events**
 
 **Int32 PortSIP.SIPCallbackEvents.onWaitingVoiceMessage (String **_**messageAccount**_**, Int32 **_**urgentNewMessageCount**_**, Int32 **_**urgentOldMessageCount**_**, Int32 **_**newMessageCount**_**, Int32 **_**oldMessageCount**_**)**
 
@@ -2701,7 +2855,7 @@ If there is fax message (MWI) waiting, this event will be triggered. **Parameter
 | _newMessageCount_        | New message count.        |
 | _oldMessageCount_        | Old message count.        |
 
-## **DTMF events**
+### **DTMF events**
 
 **Int32 PortSIP.SIPCallbackEvents.onRecvDtmfTone (Int32 **_**sessionId**_**, Int32 **_**tone**_**)**
 
@@ -2774,7 +2928,7 @@ This event will be triggered when a SUBSCRIPTION is terminated or expired. **Par
 | _subscribeId_ | The ID of SUBSCRIBE request. |
 | ------------- | ---------------------------- |
 
-## **Presence events**
+### **Presence events**
 
 **Int32 PortSIP.SIPCallbackEvents.onPresenceRecvSubscribe (Int32 **_**subscribeId**_**, String **_**fromDisplayName**_**, String **_**from**_**, String **_**subject**_**)**
 
@@ -2873,7 +3027,7 @@ If the message was sent failure out of dialog, this event will be triggered. **P
 | _reason_          | The failure reason.                                                                |
 | _code_            | The failure code.                                                                  |
 
-## **Play audio and video files finished events**
+### **Play audio and video files finished events**
 
 **Int32 PortSIP.SIPCallbackEvents.onPlayFileFinished (Int32 **_**sessionId**_**, String **_**fileName**_**)**
 
@@ -2895,7 +3049,7 @@ If getStatistics function is called, this event will be triggered once receiving
 | ----------- | -------------------------------- |
 | _stat_      | RTP statistics of a json format. |
 
-## **RTP callback events**
+### **RTP callback events**
 
 **Int32 PortSIP.SIPCallbackEvents.onRTPPacketCallback (IntPtr **_**callbackObject**_**, Int32 **_**sessionId**_**, Int32 **_**mediaType**_**, Int32 **_**direction**_**, byte\[] **_**RTPPacket**_**, Int32 **_**packetSize**_**)**
 
@@ -2903,13 +3057,13 @@ If enableRtpCallback function is called to enable the RTP callback, this event w
 
 **Parameters**
 
-| _sessionId_     | The session ID of the call.                                                                                  |   |   |
-| --------------- | ------------------------------------------------------------------------------------------------------------ | - | - |
-| _mediaType_     | If the received RTP packet is audio this parameter is 0 video this parameter is 1 screen this parameter is 2 |   |   |
-| _direction_     | The RTP stream callback direction.                                                                           |   |   |
-| Type            | Description                                                                                                  |   |   |
-| DIRECTION\_SEND | Callback the send RTP stream for one channel based on the given sessionId.                                   |   |   |
-| DIRECTION\_RECV | Callback the received RTP stream for one channel based on the given sessionId.                               |   |   |
+| _sessionId_     | The session ID of the call.                                                                                  |
+| --------------- | ------------------------------------------------------------------------------------------------------------ |
+| _mediaType_     | If the received RTP packet is audio this parameter is 0 video this parameter is 1 screen this parameter is 2 |
+| _direction_     | The RTP stream callback direction.                                                                           |
+| Type            | Description                                                                                                  |
+| DIRECTION\_SEND | Callback the send RTP stream for one channel based on the given sessionId.                                   |
+| DIRECTION\_RECV | Callback the received RTP stream for one channel based on the given sessionId.                               |
 
 **Parameters**
 
@@ -2921,16 +3075,7 @@ If enableRtpCallback function is called to enable the RTP callback, this event w
 
 Don't call any SDK API functions in this event directly. If you want to call the API functions or other code which is time-consuming, you should post a message to another thread and execute SDK API functions or other code in another thread.
 
-89
-
-**Audio and video stream callback events**
-
-**Functions**
-
-* Int32 PortSIP.SIPCallbackEvents.onAudioRawCallback (IntPtr callbackObject, Int32 sessionId, Int32 callbackType, byte\[] data, Int32 dataLength, Int32 samplingFreqHz)
-* Int32 PortSIP.SIPCallbackEvents.onVideoRawCallback (IntPtr callbackObject, Int32 sessionId, Int32 callbackType, Int32 width, Int32 height, byte\[] data, Int32 dataLength)&#x20;
-
-**Detailed Description Function Documentation**&#x20;
+### **Audio and video stream callback events**
 
 **Int32 PortSIP.SIPCallbackEvents.onAudioRawCallback (IntPtr **_**callbackObject**_**, Int32 **_**sessionId**_**, Int32 **_**callbackType**_**, byte\[] **_**data**_**, Int32 **_**dataLength**_**, Int32 **_**samplingFreqHz**_**)**
 
