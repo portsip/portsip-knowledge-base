@@ -14,9 +14,9 @@ Authenticate the PBX system administrator with PortSIP PBX.
 
 **Headers**
 
-| Name         | Value                             |
-| ------------ | --------------------------------- |
-| Content-Type | application/x-www-form-urlencoded |
+| Name         | Value                               |
+| ------------ | ----------------------------------- |
+| Content-Type | `application/x-www-form-urlencoded` |
 
 **Body**
 
@@ -64,9 +64,9 @@ Authenticate the tenant user with the PortSIP PBX.
 
 **Headers**
 
-| Name         | Value                             |
-| ------------ | --------------------------------- |
-| Content-Type | application/x-www-form-urlencoded |
+| Name         | Value                               |
+| ------------ | ----------------------------------- |
+| Content-Type | `application/x-www-form-urlencoded` |
 
 **Body**
 
@@ -92,6 +92,19 @@ Authenticate the tenant user with the PortSIP PBX.
 }
 ```
 {% endtab %}
+
+{% tab title="400" %}
+```
+{
+    "errors": [
+        {
+            "code": "UNAUTHORIZED",
+            "message": "Login failed, authentication error"
+        }
+    ]
+}
+```
+{% endtab %}
 {% endtabs %}
 
 ## Refresh Access Token
@@ -102,9 +115,9 @@ Refresh the `access_token` using the `refresh_token`.
 
 **Headers**
 
-| Name         | Value                             |
-| ------------ | --------------------------------- |
-| Content-Type | application/x-www-form-urlencoded |
+| Name         | Value                               |
+| ------------ | ----------------------------------- |
+| Content-Type | `application/x-www-form-urlencoded` |
 
 **Body**
 
@@ -126,6 +139,40 @@ Refresh the `access_token` using the `refresh_token`.
     "token_type": "Bearer"
 }
 ```
+{% endtab %}
+
+{% tab title="400" %}
+```
+{
+    "errors": [
+        {
+            "code": "UNKNOWN",
+            "message": "unknown error"
+        }
+    ]
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Revoke Access Token
+
+<mark style="color:green;">`POST`</mark> `/api/login/oauth/revoke`
+
+Revoke the current access token.
+
+**Headers**
+
+| Name          | Value              |
+| ------------- | ------------------ |
+| Content-Type  | `application/json` |
+| Authorization | `Bearer <token>`   |
+
+**Response**
+
+{% tabs %}
+{% tab title="200" %}
+
 {% endtab %}
 {% endtabs %}
 
