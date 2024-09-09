@@ -15,6 +15,20 @@ You can download the PortSIP VoIP SDK along with the sample project from the Por
 
 If the SDK connects to the PortSIP PBX, there are no limitations. The trial SDK works with any third-party PBX and SIP server, but it only allows for a 2-3 minute conversation.
 
+### **What are operating systems supported?**
+
+PortSIP VoIP SDK supports development on:
+
+* **Windows 10**&#x20;
+* **Windows 11**
+* **Windows Server 2016, 2019, and 2022**&#x20;
+
+### **What are development tools supported?**
+
+*   **Microsoft Visual Studio versions 2017, 2019, and 2023 are supported**.
+
+    Ensure you have the appropriate build tools installed for your desired languages: C#, VB.NET, and VC++.
+
 ### How can I create a new project with PortSIP VoIP SDK?
 
 #### **C#/VB.NET:**
@@ -1235,7 +1249,9 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ### **Call functions**
 
-**Int32 PortSIP.PortSIPLib.call (String **_**callee**_**, Boolean **_**sendSdp**_**, Boolean **_**videoCall**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.call (String callee, Boolean sendSdp, Boolean videoCall)
+```
 
 Make a call.
 
@@ -1252,7 +1268,9 @@ If the function succeeds, it will return the session ID of the call that is grea
 
 ***
 
-**Int32 PortSIP.PortSIPLib.rejectCall (Int32 **_**sessionId**_**, int **_**code**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.rejectCall (Int32 sessionId, int code)
+```
 
 rejectCall Reject the incoming call.
 
@@ -1268,7 +1286,9 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-**Int32 PortSIP.PortSIPLib.hangUp (Int32 **_**sessionId**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.hangUp (Int32 sessionId)
+```
 
 hangUp Hang up the call.
 
@@ -1283,7 +1303,9 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-**Int32 PortSIP.PortSIPLib.answerCall (Int32 **_**sessionId**_**, Boolean **_**videoCall**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.answerCall (Int32 sessionId, Boolean videoCall)
+```
 
 answerCall Answer the incoming call.
 
@@ -1299,7 +1321,11 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-**Int32 PortSIP.PortSIPLib.updateCall (Int32 **_**sessionId**_**, bool **_**enableAudio**_**, bool **_**enableVideo**_**, bool **_**enableScreen**_**)**
+{% code overflow="wrap" %}
+```csharp
+Int32 PortSIP.PortSIPLib.updateCall (Int32 sessionId, bool enableAudio, bool enableVideo, bool enableScreen)
+```
+{% endcode %}
 
 Use the re-INVITE to update the established call. **Parameters**
 
@@ -1326,7 +1352,9 @@ updateCall(sessionId, true, false);&#x20;
 
 ***
 
-**Int32 PortSIP.PortSIPLib.hold (Int32 **_**sessionId**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.hold (Int32 sessionId)
+```
 
 To place a call on hold.
 
@@ -1341,7 +1369,9 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-**Int32 PortSIP.PortSIPLib.unHold (Int32 **_**sessionId**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.unHold (Int32 sessionId)
+```
 
 Take off hold.
 
@@ -1356,7 +1386,11 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-**Int32 PortSIP.PortSIPLib.muteSession (Int32 **_**sessionId**_**, Boolean **_**muteIncomingAudio**_**, Boolean **_**muteOutgoingAudio**_**, Boolean **_**muteIncomingVideo**_**, Boolean **_**muteOutgoingVideo**_**)**
+{% code overflow="wrap" %}
+```csharp
+Int32 PortSIP.PortSIPLib.muteSession (Int32 sessionId, Boolean muteIncomingAudio, Boolean muteOutgoingAudio, Boolean muteIncomingVideo, Boolean muteOutgoingVideo)
+```
+{% endcode %}
 
 Mute the specified session audio or video. **Parameters**
 
@@ -1373,7 +1407,9 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-**Int32 PortSIP.PortSIPLib.forwardCall (Int32 **_**sessionId**_**, String **_**forwardTo**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.forwardCall (Int32 sessionId, String forwardTo)
+```
 
 Forward call to another one when receiving the incoming call.
 
@@ -1389,7 +1425,9 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-**Int32 PortSIP.PortSIPLib.pickupBLFCall (String **_**replaceDialogId**_**, Boolean **_**videoCall**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.pickupBLFCall (String replaceDialogId, Boolean videoCall)
+```
 
 This function will be used for picking up a call based on the BLF (Busy Lamp Field) status. **Parameters**
 
@@ -1410,7 +1448,11 @@ The scenario is:
 
 ***
 
-**Int32 PortSIP.PortSIPLib.sendDtmf (Int32 **_**sessionId**_**, DTMF\_METHOD **_**dtmfMethod**_**, int **_**code**_**, int **_**dtmfDuration**_**, bool **_**playDtmfTone**_**)**
+{% code overflow="wrap" %}
+```csharp
+Int32 PortSIP.PortSIPLib.sendDtmf (Int32 sessionId, DTMF_METHOD dtmfMethod, int code, int dtmfDuration, bool playDtmfTone)
+```
+{% endcode %}
 
 Send DTMF tone. **Parameters**
 
@@ -1451,7 +1493,9 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ### **Refer functions**
 
-**Int32 PortSIP.PortSIPLib.refer (Int32 **_**sessionId**_**, String **_**referTo**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.refer (Int32 sessionId, String referTo)
+```
 
 Refer the current call to another one.
 
@@ -1473,19 +1517,22 @@ You can watch the video on YouTube at[ https://www.youtube.com/watch?v=\_2w9EGgr
 
 ***
 
-**Int32 PortSIP.PortSIPLib.attendedRefer (Int32 **_**sessionId**_**, Int32 **_**replaceSessionId**_**, String **_**referTo**_**)**
+{% code overflow="wrap" %}
+```csharp
+Int32 PortSIP.PortSIPLib.attendedRefer (Int32 sessionId, Int32 replaceSessionId, String referTo)
+```
+{% endcode %}
 
-@brief Make an attended refer.&#x20;
+**Parameters**
 
-@param sessionId The session ID of the call.
+| _sessionId_       | The session ID of the call.                                                                    |
+| ----------------- | ---------------------------------------------------------------------------------------------- |
+| replaceSessionId  | Session ID of the repferred call.                                                              |
+| _referTo_         | <p>Target of the refer, which can be either </p><p>"sip:number@sipserver.com" or "number".</p> |
 
-@param replaceSessionId Session ID of the repferred call.
+**Returns**
 
-@param referTo Target of the refer, which can be either "sip:number@sipserver.com" or "number".&#x20;
-
-@return If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
-
-@remark
+If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 Please read the sample project source code for more details, or you can watch the video on YouTube at https://www.youtube.com/watch?v=NezhIZW4lV4,
 
@@ -1493,7 +1540,11 @@ which will demonstrate the transfer.
 
 ***
 
-**Int32 PortSIP.PortSIPLib.attendedRefer2 (IntPtr **_**libSDK**_**, Int32 **_**sessionId**_**, Int32 **_**replaceSessionId**_**, String **_**replaceMethod**_**, String **_**target**_**, String **_**referTo**_**)**
+{% code overflow="wrap" %}
+```csharp
+Int32 PortSIP.PortSIPLib.attendedRefer2 (IntPtr libSDK, Int32 sessionId, Int32 replaceSessionId, String replaceMethod, String target, String referTo)
+```
+{% endcode %}
 
 Make an attended refer with specified request line and specified method embedded into the "Refer-To" header.
 
@@ -1516,7 +1567,11 @@ Please read the sample project source code for more details, or you can watch th
 
 ***
 
-**Int32 PortSIP.PortSIPLib.outOfDialogRefer (Int32 **_**replaceSessionId**_**, String **_**replaceMethod**_**, String **_**target**_**, String **_**referTo**_**)**
+{% code overflow="wrap" %}
+```csharp
+Int32 PortSIP.PortSIPLib.outOfDialogRefer (Int32 replaceSessionId, String replaceMethod, String target, String referTo)
+```
+{% endcode %}
 
 Send an out of dialog REFER to replace the specified call. **Parameters**
 
@@ -1532,7 +1587,9 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-**Int32 PortSIP.PortSIPLib.acceptRefer (Int32 **_**referId**_**, String **_**referSignalingMessage**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.acceptRefer (Int32 referId, String referSignalingMessage)
+```
 
 Accept the REFER request, and a new call will be made if called this function. The function is usually called after onReceivedRefer callback event.
 
@@ -1548,7 +1605,9 @@ If the function succeeds, it will return a session ID greater than 0 to the new 
 
 ***
 
-**Int32 PortSIP.PortSIPLib.rejectRefer (Int32 **_**referId**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.rejectRefer (Int32 referId)
+```
 
 Reject the REFER request.
 
@@ -1565,7 +1624,11 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ### **Send audio and video stream functions**&#x20;
 
-**Int32 PortSIP.PortSIPLib.enableSendPcmStreamToRemote (Int32 **_**sessionId**_**, Boolean **_**state**_**, Int32 **_**streamSamplesPerSec**_**)**
+{% code overflow="wrap" %}
+```csharp
+Int32 PortSIP.PortSIPLib.enableSendPcmStreamToRemote (Int32 sessionId, Boolean state, Int32 streamSamplesPerSec)
+```
+{% endcode %}
 
 Enable the SDK to send PCM stream data to remote side from another source instead of microphone.
 
@@ -1586,7 +1649,11 @@ This function MUST be called first to send the PCM stream data to another side.
 
 ***
 
-**Int32 PortSIP.PortSIPLib.sendPcmStreamToRemote (Int32 **_**sessionId**_**, byte\[] **_**data**_**, Int32 **_**dataLength**_**)**
+{% code overflow="wrap" %}
+```csharp
+Int32 PortSIP.PortSIPLib.sendPcmStreamToRemote (Int32 sessionId, byte[] data, Int32 dataLength)
+```
+{% endcode %}
 
 Send the audio stream in PCM format from another source instead of audio device capturing (microphone).
 
@@ -1611,7 +1678,11 @@ You can't have too much audio data at one time as we have 100ms audio buffer onl
 
 ***
 
-**Int32 PortSIP.PortSIPLib.enableSendVideoStreamToRemote (Int32 **_**sessionId**_**, Boolean **_**state**_**)**
+{% code overflow="wrap" %}
+```csharp
+Int32 PortSIP.PortSIPLib.enableSendVideoStreamToRemote (Int32 sessionId, Boolean state)
+```
+{% endcode %}
 
 Enable the SDK send video stream data to remote side from another source instead of camera. **Parameters**
 
@@ -1623,7 +1694,11 @@ Enable the SDK send video stream data to remote side from another source instead
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
-**Int32 PortSIP.PortSIPLib.sendVideoStreamToRemote (Int32 **_**sessionId**_**, byte\[] **_**data**_**, Int32 **_**dataLength**_**, Int32 **_**width**_**, Int32 **_**height**_**)**
+{% code overflow="wrap" %}
+```csharp
+Int32 PortSIP.PortSIPLib.sendVideoStreamToRemote (Int32 sessionId, byte[] data, Int32 dataLength, Int32 width, Int32 height)
+```
+{% endcode %}
 
 Send the video stream to remote side.
 
@@ -1652,7 +1727,11 @@ enableSendVideoStreamToRemote(sessionId, true); sendVideoStreamToRemote(sessionI
 
 ***
 
-**Int32 PortSIP.PortSIPLib.enableSendScreenStreamToRemote (Int32 **_**sessionId**_**, Boolean **_**state**_**)**
+{% code overflow="wrap" %}
+```csharp
+Int32 PortSIP.PortSIPLib.enableSendScreenStreamToRemote (Int32 sessionId, Boolean state)
+```
+{% endcode %}
 
 Enable the SDK send Screen stream data to remote side from selected screen source instead of camera.
 
@@ -1670,7 +1749,11 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ### **RTP packets, Audio stream and video stream callback functions**
 
-**Int32 PortSIP.PortSIPLib.enableAudioStreamCallback (Int32 **_**sessionId**_**, Boolean **_**enable**_**, DIRECTION\_MODE **_**direction**_**)**
+{% code overflow="wrap" %}
+```csharp
+Int32 PortSIP.PortSIPLib.enableAudioStreamCallback (Int32 sessionId, Boolean enable, DIRECTION_MODE direction)
+```
+{% endcode %}
 
 Enable/disable the audio stream callback.&#x20;
 
@@ -1695,7 +1778,11 @@ The onAudioRawCallback event will be triggered if the callback is enabled.
 
 ***
 
-**Int32 PortSIP.PortSIPLib.enableVideoStreamCallback (Int32 **_**sessionId**_**, DIRECTION\_MODE **_**direction**_**)**
+{% code overflow="wrap" %}
+```csharp
+Int32 PortSIP.PortSIPLib.enableVideoStreamCallback (Int32 sessionId, DIRECTION_MODE direction)
+```
+{% endcode %}
 
 Enable/disable the video stream callback.&#x20;
 
@@ -1720,7 +1807,11 @@ The onVideoRawCallback event will be triggered if the callback is enabled.
 
 ***
 
-**Int32 PortSIP.PortSIPLib.enableScreenStreamCallback (Int32 **_**sessionId**_**, DIRECTION\_MODE **_**direction**_**)**
+{% code overflow="wrap" %}
+```csharp
+Int32 PortSIP.PortSIPLib.enableScreenStreamCallback (Int32 sessionId, DIRECTION_MODE direction)
+```
+{% endcode %}
 
 Enable/disable the video stream callback.&#x20;
 
@@ -1747,7 +1838,11 @@ The onVideoRawCallback event will be triggered if the callback is enabled.
 
 ### **Record functions**
 
-**Int32 PortSIP.PortSIPLib.startRecord (Int32 **_**sessionId**_**, String **_**recordFilePath**_**, String **_**recordFileName**_**, Boolean **_**appendTimestamp**_**, Int32 **_**channels**_**, FILE\_FORMAT **_**recordFileFormat**_**, RECORD\_MODE **_**audioRecordMode**_**, RECORD\_MODE **_**videoRecordMode**_**)**
+{% code overflow="wrap" %}
+```csharp
+Int32 PortSIP.PortSIPLib.startRecord (Int32 sessionId, String recordFilePath, String recordFileName, Boolean appendTimestamp, Int32 channels, FILE_FORMAT recordFileFormat, RECORD_MODE audioRecordMode, RECORD_MODE videoRecordMode)
+```
+{% endcode %}
 
 Start recording the call.
 
@@ -1769,7 +1864,9 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-**Int32 PortSIP.PortSIPLib.stopRecord (Int32 **_**sessionId**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.stopRecord (Int32 sessionId)
+```
 
 Stop record.
 
@@ -1782,7 +1879,11 @@ Stop record.
 
 ### **Play audio and video file to remote functions**
 
-**Int32 PortSIP.PortSIPLib.startPlayingFileToRemote (Int32 **_**sessionId**_**, String **_**fileName**_**, Boolean **_**loop**_**, Int32 **_**playAudio**_**)**
+{% code overflow="wrap" %}
+```csharp
+Int32 PortSIP.PortSIPLib.startPlayingFileToRemote (Int32 sessionId, String fileName, Boolean loop, Int32 playAudio)
+```
+{% endcode %}
 
 Play a file to remote party.&#x20;
 
@@ -1800,7 +1901,9 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-**Int32 PortSIP.PortSIPLib.stopPlayingFileToRemote (Int32 **_**sessionId**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.stopPlayingFileToRemote (Int32 sessionId)
+```
 
 Stop playing file to remote party.
 
@@ -1811,7 +1914,11 @@ Stop playing file to remote party.
 
 ***
 
-**Int32 PortSIP.PortSIPLib.startPlayingFileLocally (String **_**fileUrl**_**, Boolean **_**loop**_**, IntPtr **_**playVideoWindow**_**)**
+{% code overflow="wrap" %}
+```csharp
+Int32 PortSIP.PortSIPLib.startPlayingFileLocally (String fileUrl, Boolean loop, IntPtr playVideoWindow)
+```
+{% endcode %}
 
 Play a file to remote party.&#x20;
 
@@ -1829,7 +1936,9 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-**Int32 PortSIP.PortSIPLib.stopPlayingFileLocally ()**
+```csharp
+Int32 PortSIP.PortSIPLib.stopPlayingFileLocally ()
+```
 
 Stop playing file to locally.
 
@@ -1841,7 +1950,9 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ### **Conference functions**
 
-**Int32 PortSIP.PortSIPLib.createAudioConference ()**
+```csharp
+Int32 PortSIP.PortSIPLib.createAudioConference ()
+```
 
 Create an audio conference. It will be failed if the existent conference is not ended yet.&#x20;
 
@@ -1851,7 +1962,11 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-**Int32 PortSIP.PortSIPLib.createVideoConference (IntPtr **_**conferenceVideoWindow**_**, Int32 **_**width**_**, Int32 **_**height**_**, Int32 **_**layout**_**)**
+{% code overflow="wrap" %}
+```csharp
+Int32 PortSIP.PortSIPLib.createVideoConference (IntPtr conferenceVideoWindow, Int32 width, Int32 height, Int32 layout)
+```
+{% endcode %}
 
 Create a video conference. It will be failed if the existent conference is not ended yet.&#x20;
 
@@ -1868,7 +1983,9 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-**Int32 PortSIP.PortSIPLib.setConferenceVideoWindow (IntPtr **_**videoWindow**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.setConferenceVideoWindow (IntPtr videoWindow)
+```
 
 Set the window for a conference that is used to display the received remote video image.
 
@@ -1883,7 +2000,9 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-**Int32 PortSIP.PortSIPLib.joinToConference (Int32 **_**sessionId**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.joinToConference (Int32 sessionId)
+```
 
 Join a session into existent conference. If the call is in hold, it will be un-hold automatically.&#x20;
 
@@ -1898,7 +2017,9 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-**Int32 PortSIP.PortSIPLib.removeFromConference (Int32 **_**sessionId**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.removeFromConference (Int32 sessionId)
+```
 
 Remove a session from an existent conference.
 
@@ -1915,7 +2036,11 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ### **RTP and RTCP QOS functions**
 
-**Int32 PortSIP.PortSIPLib.setAudioRtcpBandwidth (Int32 **_**sessionId**_**, Int32 **_**BitsRR**_**, Int32 **_**BitsRS**_**, Int32 **_**KBitsAS**_**)**
+{% code overflow="wrap" %}
+```csharp
+Int32 PortSIP.PortSIPLib.setAudioRtcpBandwidth (Int32 sessionId, Int32 BitsRR, Int32 BitsRS, Int32 KBitsAS)
+```
+{% endcode %}
 
 Set the audio RTCP bandwidth parameters to the RFC3556.&#x20;
 
@@ -1933,7 +2058,11 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-**Int32 PortSIP.PortSIPLib.setVideoRtcpBandwidth (Int32 **_**sessionId**_**, Int32 **_**BitsRR**_**, Int32 **_**BitsRS**_**, Int32 **_**KBitsAS**_**)**
+{% code overflow="wrap" %}
+```csharp
+Int32 PortSIP.PortSIPLib.setVideoRtcpBandwidth (Int32 sessionId, Int32 BitsRR, Int32 BitsRS, Int32 KBitsAS)
+```
+{% endcode %}
 
 Set the video RTCP bandwidth parameters as the RFC3556.&#x20;
 
@@ -1953,7 +2082,9 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ### **RTP statistics functions**
 
-**Int32 PortSIP.PortSIPLib.getStatistics (Int32 **_**sessionId**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.getStatistics (Int32 sessionId)
+```
 
 Obtain the statistics of channel. the event onStatistics will be triggered.
 
@@ -1970,7 +2101,9 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ### **Audio effect functions**
 
-**void PortSIP.PortSIPLib.enableVAD (Boolean **_**state**_**)**
+```csharp
+void PortSIP.PortSIPLib.enableVAD (Boolean state)
+```
 
 Enable/disable Voice Activity Detection (VAD).&#x20;
 
@@ -1981,7 +2114,9 @@ Enable/disable Voice Activity Detection (VAD).&#x20;
 
 ***
 
-**void PortSIP.PortSIPLib.enableAEC (Boolean **_**state**_**)**
+```csharp
+void PortSIP.PortSIPLib.enableAEC (Boolean state)
+```
 
 Enable/disable AEC (Acoustic Echo Cancellation).
 
@@ -1992,7 +2127,9 @@ Enable/disable AEC (Acoustic Echo Cancellation).
 
 ***
 
-**void PortSIP.PortSIPLib.enableCNG (Boolean **_**state**_**)**
+```csharp
+void PortSIP.PortSIPLib.enableCNG (Boolean state)
+```
 
 Enable/disable Comfort Noise Generator (CNG).&#x20;
 
@@ -2003,7 +2140,9 @@ Enable/disable Comfort Noise Generator (CNG).&#x20;
 
 ***
 
-**void PortSIP.PortSIPLib.enableAGC (Boolean **_**state**_**)**
+```csharp
+void PortSIP.PortSIPLib.enableAGC (Boolean state)
+```
 
 Enable/disable Automatic Gain Control (AGC).&#x20;
 
@@ -2014,7 +2153,9 @@ Enable/disable Automatic Gain Control (AGC).&#x20;
 
 ***
 
-**void PortSIP.PortSIPLib.enableANS (Boolean **_**state**_**)**
+```csharp
+void PortSIP.PortSIPLib.enableANS (Boolean state)
+```
 
 Enable/disable Audio Noise Suppression (ANS).&#x20;
 
@@ -2025,7 +2166,9 @@ Enable/disable Audio Noise Suppression (ANS).&#x20;
 
 ***
 
-**Int32 PortSIP.PortSIPLib.enableAudioQos (Boolean **_**state**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.enableAudioQos (Boolean state)
+```
 
 Set the DSCP (differentiated services code point) value of QoS (Quality of Service) for audio channel.
 
@@ -2040,7 +2183,9 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-**Int32 PortSIP.PortSIPLib.enableVideoQos (Boolean **_**state**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.enableVideoQos (Boolean state)
+```
 
 Set the DSCP (differentiated services code point) value of QoS (Quality of Service) for video channel.
 
@@ -2055,7 +2200,9 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-**Int32 PortSIP.PortSIPLib.setVideoMTU (Int32 **_**mtu**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.setVideoMTU (Int32 mtu)
+```
 
 Set the MTU size for video RTP packet.
 
@@ -2072,7 +2219,9 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ### **Send OPTIONS/INFO/MESSAGE functions**
 
-**Int32 PortSIP.PortSIPLib.sendOptions (String **_**to**_**, String **_**sdp**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.sendOptions (String to, String sdp)
+```
 
 Send OPTIONS message.
 
@@ -2089,7 +2238,11 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-**Int32 PortSIP.PortSIPLib.sendInfo (Int32 **_**sessionId**_**, String **_**mimeType**_**, String **_**subMimeType**_**, String **_**infoContents**_**)**
+{% code overflow="wrap" %}
+```csharp
+Int32 PortSIP.PortSIPLib.sendInfo (Int32 sessionId, String mimeType, String subMimeType, String infoContents)
+```
+{% endcode %}
 
 Send a INFO message to remote side in a call. **Parameters**
 
@@ -2105,7 +2258,9 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-**Int32 PortSIP.PortSIPLib.sendSubscription (String **_**to**_**, String **_**eventName**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.sendSubscription (String to, String eventName)
+```
 
 Send a SUBSCRIBE message to subscribe an event.
 
@@ -2127,7 +2282,9 @@ Example 2, to monitor a user/extension call status, You can use code: sendSubscr
 
 ***
 
-**Int32 PortSIP.PortSIPLib.terminateSubscription (Int32 **_**subscribeId**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.terminateSubscription (Int32 subscribeId)
+```
 
 Terminate the given subscription.&#x20;
 
@@ -2148,7 +2305,11 @@ For example, if you want stop check the MWI, use below code:
 
 ***
 
-**Int32 PortSIP.PortSIPLib.sendMessage (Int32 **_**sessionId**_**, String **_**mimeType**_**, String **_**subMimeType**_**, byte\[] **_**message**_**, Int32 **_**messageLength**_**)**
+{% code overflow="wrap" %}
+```csharp
+Int32 PortSIP.PortSIPLib.sendMessage (Int32 sessionId, String mimeType, String subMimeType, byte[] message, Int32 messageLength)
+```
+{% endcode %}
 
 Send a MESSAGE message to remote side in dialog.&#x20;
 
@@ -2177,7 +2338,11 @@ Example 2: send a binary message.
 
 ***
 
-**Int32 PortSIP.PortSIPLib.sendOutOfDialogMessage (String **_**to**_**, String **_**mimeType**_**, String **_**subMimeType**_**, Boolean **_**isSMS**_**, byte\[] **_**message**_**, Int32 **_**messageLength**_**)**
+{% code overflow="wrap" %}
+```csharp
+Int32 PortSIP.PortSIPLib.sendOutOfDialogMessage (String to, String mimeType, String subMimeType, Boolean isSMS, byte[] message, Int32 messageLength)
+```
+{% endcode %}
 
 Send an out of dialog MESSAGE message to remote side.&#x20;
 
@@ -2206,7 +2371,9 @@ Example 2: send a binary message.
 
 ***
 
-**Int32 PortSIP.PortSIPLib.setDefaultSubscriptionTime (Int32 **_**secs**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.setDefaultSubscriptionTime (Int32 secs)
+```
 
 Set the default expiration time to be used when creating a subscription.&#x20;
 
@@ -2221,7 +2388,9 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-**Int32 PortSIP.PortSIPLib.setDefaultPublicationTime (Int32 **_**secs**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.setDefaultPublicationTime (Int32 secs)
+```
 
 Set the default expiration time to be used when creating a publication.
 
@@ -2236,7 +2405,9 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-**Int32 PortSIP.PortSIPLib.setPresenceMode (Int32 **_**mode**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.setPresenceMode (Int32 mode)
+```
 
 Indicate the SDK uses the P2P mode for presence or presence agent mode.&#x20;
 
@@ -2257,7 +2428,9 @@ Since presence agent mode requires the PBX/Server support the PUBLISH, please en
 
 ### **Presence functions**&#x20;
 
-**Int32 PortSIP.PortSIPLib.presenceSubscribe (String **_**to**_**, String **_**subject**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.presenceSubscribe (String to, String subject)
+```
 
 Send a SUBSCRIBE message for subscribing the contact's presence status.
 
@@ -2273,7 +2446,9 @@ If the function succeeds, it will return value subscribeId. If the function fail
 
 ***
 
-**Int32 PortSIP.PortSIPLib.presenceTerminateSubscribe (Int32 **_**subscribeId**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.presenceTerminateSubscribe (Int32 subscribeId)
+```
 
 Terminate the given presence subscription.
 
@@ -2288,7 +2463,9 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-**Int32 PortSIP.PortSIPLib.presenceRejectSubscribe (Int32 **_**subscribeId**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.presenceRejectSubscribe (Int32 subscribeId)
+```
 
 Reject a presence SUBSCRIBE request which is received from contact.
 
@@ -2307,7 +2484,9 @@ If the P2P presence mode is enabled, when someone subscribe your presence status
 
 ***
 
-**Int32 PortSIP.PortSIPLib.presenceAcceptSubscribe (Int32 **_**subscribeId**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.presenceAcceptSubscribe (Int32 subscribeId)
+```
 
 Accept the presence SUBSCRIBE request which is received from contact.&#x20;
 
@@ -2326,7 +2505,9 @@ If the P2P presence mode is enabled, when someone subscribes your presence statu
 
 ***
 
-**Int32 PortSIP.PortSIPLib.setPresenceStatus (Int32 **_**subscribeId**_**, String **_**stateText**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.setPresenceStatus (Int32 subscribeId, String stateText)
+```
 
 Set the presence status.
 
@@ -2352,7 +2533,9 @@ With presence agent mode, this function will cause the SDK to send a PUBLISH mes
 
 ### **Device Manage functions.**&#x20;
 
-**Int32 PortSIP.PortSIPLib.getNumOfRecordingDevices ()**
+```csharp
+Int32 PortSIP.PortSIPLib.getNumOfRecordingDevices ()
+```
 
 Gets the count of audio devices available for audio recording.&#x20;
 
@@ -2362,7 +2545,9 @@ It will return the count of recording devices. If the function fails, it will re
 
 ***
 
-**Int32 PortSIP.PortSIPLib.getNumOfPlayoutDevices ()**
+```csharp
+Int32 PortSIP.PortSIPLib.getNumOfPlayoutDevices ()
+```
 
 Gets the number of audio devices available for audio playout.&#x20;
 
@@ -2372,7 +2557,11 @@ It will return the count of playout devices. If the function fails, it will retu
 
 ***
 
-**Int32 PortSIP.PortSIPLib.getRecordingDeviceName (Int32 **_**deviceIndex**_**, StringBuilder **_**nameUTF8**_**, Int32 **_**nameUTF8Length**_**)**
+{% code overflow="wrap" %}
+```csharp
+Int32 PortSIP.PortSIPLib.getRecordingDeviceName (Int32 deviceIndex, StringBuilder nameUTF8, Int32 nameUTF8Length)
+```
+{% endcode %}
 
 Gets the name of a specific recording device given by an index.&#x20;
 
@@ -2389,7 +2578,11 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-**Int32 PortSIP.PortSIPLib.getPlayoutDeviceName (Int32 **_**deviceIndex**_**, StringBuilder **_**nameUTF8**_**, Int32 **_**nameUTF8Length**_**)**
+{% code overflow="wrap" %}
+```csharp
+Int32 PortSIP.PortSIPLib.getPlayoutDeviceName (Int32 deviceIndex, StringBuilder nameUTF8, Int32 nameUTF8Length)
+```
+{% endcode %}
 
 Get the name of a specific playout device given by an index.&#x20;
 
@@ -2407,7 +2600,9 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-**Int32 PortSIP.PortSIPLib.setSpeakerVolume (Int32 **_**volume**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.setSpeakerVolume (Int32 volume)
+```
 
 Set the speaker volume level.
 
@@ -2422,7 +2617,9 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-**Int32 PortSIP.PortSIPLib.getSpeakerVolume ()**
+```csharp
+Int32 PortSIP.PortSIPLib.getSpeakerVolume ()
+```
 
 Gets the speaker volume level.
 
@@ -2432,7 +2629,9 @@ If the function succeeds, it will return the speaker volume with valid range 0 -
 
 ***
 
-**Int32 PortSIP.PortSIPLib.setMicVolume (Int32 **_**volume**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.setMicVolume (Int32 volume)
+```
 
 Sets the microphone volume level.
 
@@ -2447,7 +2646,9 @@ If the function succeeds, the return value is 0. If the function fails, the retu
 
 ***
 
-**Int32 PortSIP.PortSIPLib.getMicVolume ()**
+```csharp
+Int32 PortSIP.PortSIPLib.getMicVolume ()
+```
 
 Retrieves the current microphone volume.&#x20;
 
@@ -2457,7 +2658,9 @@ If the function succeeds, it will return the microphone volume. If the function 
 
 ***
 
-**Int32 PortSIP.PortSIPLib.getScreenSourceCount ()**
+```csharp
+Int32 PortSIP.PortSIPLib.getScreenSourceCount ()
+```
 
 Retrieves the current number of screen.
 
@@ -2467,7 +2670,11 @@ If the function succeeds, it will return the screen number. If the function fail
 
 ***
 
-**Int32 PortSIP.PortSIPLib.getScreenSourceTitle (Int32 **_**deviceIndex**_**, StringBuilder **_**nameUTF8**_**, Int32 **_**nameUTF8Length**_**)**
+{% code overflow="wrap" %}
+```csharp
+Int32 PortSIP.PortSIPLib.getScreenSourceTitle (Int32 deviceIndex, StringBuilder nameUTF8, Int32 nameUTF8Length)
+```
+{% endcode %}
 
 Retrieves the current screen title .&#x20;
 
@@ -2477,7 +2684,9 @@ If the function succeeds, return value 0. If the function fails, it will return 
 
 ***
 
-**Int32 PortSIP.PortSIPLib.selectScreenSource (Int32 **_**nDeviceIndex**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.selectScreenSource (Int32 nDeviceIndex)
+```
 
 Sets the Screen to share .
 
@@ -2487,7 +2696,9 @@ If the function succeeds, return value 0. If the function fails, it will return 
 
 ***
 
-**Int32 PortSIP.PortSIPLib.SetScreenFrameRate (Int32 **_**nFrameRate**_**)**
+```csharp
+Int32 PortSIP.PortSIPLib.SetScreenFrameRate (Int32 nFrameRate)
+```
 
 Sets the Screen video framerate .
 
@@ -2497,7 +2708,11 @@ If the function succeeds, return value 0. If the function fails, it will return 
 
 ***
 
-**Int32 PortSIP.PortSIPLib.setScreenVideoWindow (Int32 **_**sessionId**_**, IntPtr **_**screenVideoWindow**_**)**
+{% code overflow="wrap" %}
+```csharp
+Int32 PortSIP.PortSIPLib.setScreenVideoWindow (Int32 sessionId, IntPtr screenVideoWindow)
+```
+{% endcode %}
 
 Set the window for a session that is used to display the received screen video .&#x20;
 
@@ -2513,7 +2728,9 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 ***
 
-**void PortSIP.PortSIPLib.audioPlayLoopbackTest (Boolean **_**enable**_**)**
+```csharp
+void PortSIP.PortSIPLib.audioPlayLoopbackTest (Boolean enable)
+```
 
 Use it for the audio device loop back test.
 
@@ -2524,7 +2741,9 @@ Use it for the audio device loop back test.
 
 ***
 
-**Int32 PortSIP.PortSIPLib.getNumOfVideoCaptureDevices ()**
+```csharp
+Int32 PortSIP.PortSIPLib.getNumOfVideoCaptureDevices ()
+```
 
 Get the number of available capturing devices.
 
