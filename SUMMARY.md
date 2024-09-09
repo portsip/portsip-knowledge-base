@@ -511,16 +511,16 @@
   * [Authentication](development-portsip/rest-apis/authentication.md)
   * [Accessing CDRs and Recordings](development-portsip/rest-apis/accessing-cdrs-and-recordings.md)
 * [Call Control APIs](development-portsip/call-control-api.md)
-* [Mobile Push Notifications](development-portsip/mobile-push-notifications/README.md)
-  * [How Do Push Notifications Work with PortSIP PBX?](development-portsip/mobile-push-notifications/how-do-push-notifications-work-with-portsip-pbx.md)
-  * [Integrating the Push Notifications in Native iOS APP](development-portsip/mobile-push-notifications/implement-the-push-notifications-in-native-ios-app-with-portsip-pbx-12.x.md)
-  * [Integrating the Push Notifications in Android APP](development-portsip/mobile-push-notifications/implement-push-notifications-in-android-app-with-portsip-pbx-12.x.md)
 * [Messaging APIs](development-portsip/messaging-apis.md)
 * [WSI: Pub/Sub](development-portsip/going-real-time-with-portsip-pbx-pub-sub.md)
 * [Webhook Events](development-portsip/webhook-notifications/README.md)
   * [Registering a Webhook](development-portsip/webhook-notifications/registering-a-webhook.md)
   * [Receiving Events via a Webhook](development-portsip/webhook-notifications/receiving-events-via-a-webhook.md)
   * [Event Reference](development-portsip/webhook-notifications/event-reference.md)
+* [Mobile Push Notifications](development-portsip/mobile-push-notifications/README.md)
+  * [How Do Push Notifications Work with PortSIP PBX?](development-portsip/mobile-push-notifications/how-do-push-notifications-work-with-portsip-pbx.md)
+  * [Integrating the Push Notifications in Native iOS APP](development-portsip/mobile-push-notifications/implement-the-push-notifications-in-native-ios-app-with-portsip-pbx-12.x.md)
+  * [Integrating the Push Notifications in Android APP](development-portsip/mobile-push-notifications/implement-push-notifications-in-android-app-with-portsip-pbx-12.x.md)
 
 ## PBX v12.x (EOL) <a href="#pbx_v12" id="pbx_v12"></a>
 
