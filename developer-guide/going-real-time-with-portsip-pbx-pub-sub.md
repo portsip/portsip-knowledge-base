@@ -31,7 +31,7 @@ This message will be returned under the following scenarios:
     {
       "extension": "sip:101@test.io",
       "extension_id": "794493219508322304",
-      "call_status": "On Call",
+      "call_status": "ON_ACLL",
       "online": false,
       "presence" : "AWAY",
       "presence_note": "",
@@ -41,7 +41,7 @@ This message will be returned under the following scenarios:
     {
       "extension": "sip:102@test.io",
       "extension_id": "794493219718037504",
-      "call_status": "On Call",
+      "call_status": "ON_CALL",
       "online": false,
       "presence" : "AVAILABLE",
       "presence_note": "",
@@ -66,7 +66,7 @@ The message is in JSON format and includes the following fields:
     * `BUSINESS_TRIP`
     * `LUNCH`
   * `presence_note`: Contains the text of the additional presence status.
-  * `call_status`: The "**On Call**" status signifies that the extension is currently engaged in a call. The "**Ringing**" status means that the extension is currently receiving a call and is ringing. If this value is empty, it indicates that the extension is not involved in any call.
+  * `call_status`: The "**ON\_CALL**" status signifies that the extension is currently engaged in a call. The "**RINGING**" status means that the extension is currently receiving a call and is ringing. If this value is empty, it indicates that the extension is not involved in any call.
   * `online`: Indicates whether the extension is currently registered to the PBX.
   * `push_online`: This field indicates whether mobile push notifications are currently enabled for the extension. This is only valid if `online` is false.
   * `extension_id`: Represents the ID of the extension.
@@ -84,7 +84,7 @@ This message will be returned under the following scenarios:
 {
   "event_type": "extension_call",
   "extension": "sip:101@test.io",
-  "call_status": "On Call",
+  "call_status": "ON_CALL",
   "tenant_id": "792406615960584192",
   "extension_id": "792406615960584220",
   "time": "1703690276"
@@ -95,7 +95,7 @@ The message is in JSON format and includes the following fields:
 
 * `event_type`: Indicates the type of the message.
 * `extension`: Represents the SIP URI of the extension.
-* `call_status`: The "**On Call**" status signifies that the extension is currently engaged in a call. The "**Ringing**" status means that the extension is currently receiving a call and is ringing. If this value is empty, it indicates that the extension is not involved in any call.
+* `call_status`: The "**ON\_CALL**" status signifies that the extension is currently engaged in a call. The "**RINGING**" status means that the extension is currently receiving a call and is ringing. If this value is empty, it indicates that the extension is not involved in any call.
 * `tenant_id`: Represents the ID of the tenant to which the extension belongs.
 * `extension_id`: Represents the ID of the extension.
 * `time`: Represents the timestamp of this message in UNIX time.
@@ -333,7 +333,7 @@ The **`domain`** is the SIP domain of the extension, the **`password`** is the *
 
 You can also use the **`SIP extension number`** with the **`SIP password`** to do the authorization:
 
-```
+```json
 {
 "command":"auth",
 "extension_number":"101",
@@ -410,34 +410,13 @@ If we want to subscribe to CDR events only, use the below command.
 }
 ```
 
-If we want to unsubscribe from the events, use the below command.
+If we want to unsubscribe from the events, use the below command, all subscriptions will be terminated.
 
 ```json
 {
-"command" : "unsubscribe",
-"topics":
-[
-  "extension_events", 
-  "cdr_events"
-],
-"extensions":
-[
-"102",
-"103"
-]  
+"command" : "unsubscribe"
 }
 ```
-
-If we just want to unsubscribe from the CDR events, use the below command.
-
-```json
-{
-"command":"unsubscribe",
-"topics":[ "cdr_events" ] 
-}
-```
-
-If we want to subscribe to the queue status, use the below command.
 
 Note, that the extension only has permission to subscribe to the queues belonging to that extension, if the extension(subscriber) is not an agent of the queue, and also not a queue manager of the queue, the events will not push to the extension(subscriber).&#x20;
 
