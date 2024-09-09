@@ -1573,7 +1573,9 @@ Int32 PortSIP.PortSIPLib.outOfDialogRefer (Int32 replaceSessionId, String replac
 ```
 {% endcode %}
 
-Send an out of dialog REFER to replace the specified call. **Parameters**
+Send an out of dialog REFER to replace the specified call.&#x20;
+
+**Parameters**
 
 | _replaceSessionId_ | The session ID of the session which will be replaced.                                    |
 | ------------------ | ---------------------------------------------------------------------------------------- |
