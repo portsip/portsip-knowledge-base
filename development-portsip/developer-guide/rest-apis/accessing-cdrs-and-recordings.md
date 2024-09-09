@@ -4,7 +4,7 @@ This guide outlines how to leverage the PortSIP REST API to interact with Call D
 
 ## **Authentication Requirement**
 
-Before making any API requests, you must successfully [authenticate and obtain an access token](./). This token serves as a security credential to authorize your interactions with the PortSIP REST API.
+Before making any API requests, you must successfully [authenticate and obtain an access token](authentication.md). This token serves as a security credential to authorize your interactions with the PortSIP REST API.
 
 ## **Permission Restrictions**
 
