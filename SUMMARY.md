@@ -194,7 +194,7 @@
 * [Developer Guide](developer-guide/README.md)
   * [Calling APIs](development-portsip/developer-guide/calling-apis/README.md)
     * [User Manual for Windows](development-portsip/developer-guide/calling-apis/user-manual-for-windows.md)
-    * [User Manual for Android](development-portsip/developer-guide/calling-apis/user-manual-for-android.md)
+    * [User Manual for Android](development-portsip/developer-guide/calling-apis/manual-for-android.md)
   * [REST APIs](development-portsip/developer-guide/rest-apis/README.md)
     * [Version 22.0](development-portsip/developer-guide/rest-apis/version-22.0/README.md)
       * [About](development-portsip/developer-guide/rest-apis/version-22.0/about.md)

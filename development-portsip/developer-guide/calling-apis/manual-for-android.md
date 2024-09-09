@@ -1,4 +1,4 @@
-# Manual for Android
+# User Manual for Android
 
 ## Frequently Asked Questions
 
