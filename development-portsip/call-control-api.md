@@ -1,10 +1,10 @@
 # Call Control APIs
 
-This section describes the Call Control API portion of the PortSIP PBX [REST API ](../development-portsip/developer-guide/rest-apis/)and provides guidance for developers building 3rd applications. You can use this API to write agent applications that provide a variety of call-related features, from agent state management and call control to supervisor monitoring and call recording.
+This section describes the Call Control API portion of the PortSIP PBX [REST API ](rest-apis/)and provides guidance for developers building 3rd applications. You can use this API to write agent applications that provide a variety of call-related features, from agent state management and call control to supervisor monitoring and call recording.
 
 ## Authentication
 
-Before calling the REST API to make the call, and control the call, we need to authenticate with the PortSIP PBX to obtain the `access_token`. Please refer to the  [REST API](../development-portsip/developer-guide/rest-apis/).
+Before calling the REST API to make the call, and control the call, we need to authenticate with the PortSIP PBX to obtain the `access_token`. Please refer to the  [REST API](rest-apis/).
 
 ## Initiate a call directly
 

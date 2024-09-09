@@ -4,7 +4,7 @@ This guide outlines how to leverage the PortSIP REST API to interact with Call D
 
 ## **Authentication Requirement**
 
-Before making any API requests, you must successfully [authenticate and obtain an access token](./). This token serves as a security credential to authorize your interactions with the PortSIP REST API.
+Before making any API requests, you must successfully [authenticate and obtain an access token](authentication.md). This token serves as a security credential to authorize your interactions with the PortSIP REST API.
 
 ## **Permission Restrictions**
 
@@ -28,7 +28,7 @@ Retrieve the CDRs at the tenant level using the specified query parameters.
 
 **Query Options**
 
-You can specify the query options as the URL parameters to filter the CDR, more details please see [Query Options Overview](../version-22.0/about.md#query-options-overview).&#x20;
+You can specify the query options as the URL parameters to filter the CDR, more details please see [Query Options Overview](version-22.0/about.md#query-options-overview).&#x20;
 
 **Response**
 
@@ -114,7 +114,7 @@ Retrieve the call recordings at the tenant level using the specified query param
 
 **Query Options**
 
-You can specify the query options as the URL parameters to filter the CDR, more details please see [Query Options Overview](../version-22.0/about.md#query-options-overview).&#x20;
+You can specify the query options as the URL parameters to filter the CDR, more details please see [Query Options Overview](version-22.0/about.md#query-options-overview).&#x20;
 
 **Response**
 
