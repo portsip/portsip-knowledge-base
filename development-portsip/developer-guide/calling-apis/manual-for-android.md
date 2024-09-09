@@ -29,18 +29,34 @@ API-16 or later is required
     import com.portsip.PortSipSdk;
 
     ```
-5. Import the dependent class form the SDK. For example: import com.portsip.OnPortSIPEvent; import com.portsip.PortSipSdk;
+5. Import the dependent class form the SDK. For example:&#x20;
+
+{% code overflow="wrap" %}
+```
+import com.portsip.OnPortSIPEvent; 
+import com.portsip.PortSipSdk;
+```
+{% endcode %}
+
 6. Inherit the interface OnPortSIPEvent to process the callback events.
-7. Initialize SDK. For example: mPortSIPSDK = new PortSipSdk(); mPortSIPSDK.setOnPortSIPEvent(instanceofOnPortSIPEvent); mPortSIPSDK.CreateCallManager(context); mPortSIPSDK.initialize(...); For more details please refer to the Sample project source code.
+7. Initialize SDK. For example:&#x20;
+
+{% code overflow="wrap" %}
+```
+mPortSIPSDK = new PortSipSdk(); mPortSIPSDK.setOnPortSIPEvent(instanceofOnPortSIPEvent); mPortSIPSDK.CreateCallManager(context); mPortSIPSDK.initialize(...); 
+```
+{% endcode %}
+
+For more details please refer to the Sample project source code.
 
 ### How can I test the P2P call (without SIP server)?
 
 1. Download and extract the SDK sample project ZIP file into local. Compile and run the "P2PSample" project.
-2. Run the P2Psample on two devices. For example, run it on device A and device B, and IP address for A is 192.168.1.10, IP address for B is 192.168.1.11.
-3. Enter a user name and password on A. For example, enter user name 111, and password aaa (you can enter anything for the password as the SDK will ignore it). Enter a user name and password on B. For example, enter user name 222, and password aaa.
+2. Run the P2Psample on two devices. For example, run it on device A and device B, and the IP address for A is 192.168.1.10, an IP address for B is 192.168.1.11.
+3. Enter a username and password on A. For example, enter user name 111, and password aaa (you can enter anything for the password as the SDK will ignore it). Enter a username and password on B. For example, enter user name 222, and password aaa.
 4. Click the "Initialize" button on A and B. If the default port 5060 is already in use, the P2PSample will prompt "Initialize failure". In case of this, please click the "Uninitialize" button and change the local port, and click the "Initialize" button again.
 5. The log box will appear "Initialized" if the SDK is successfully initialized.
-6. To make call from A to B, enter "sip:222@192.168.1.11" and click "Dial" button; while to make call from B to A, enter "sip:111@192.168.1.10".
+6. To make a call from A to B, enter "sip:222@192.168.1.11" and click the "Dial" button; while to make call from B to A, enter "sip:111@192.168.1.10".
 
 Note: If the local sip port is changed to other port, for example, A is using local port 5080, and B is using local port 6021, to make call from A to B, please enter "sip:222@192.168.1.11:6021" and dial; while to make call from B to A, enter "sip:111@192.168.1.10:5080".
 
@@ -54,9 +70,11 @@ Note: the SDK allows to call API functions in callback events directly - except 
 
 ### Register events
 
+{% code overflow="wrap" %}
 ```java
 void com.portsip.OnPortSIPEvent.onRegisterSuccess (String  reason, int  code, String  sipMessage)
 ```
+{% endcode %}
 
 When successfully registered to server, this event will be triggered.
 
@@ -67,9 +85,11 @@ When successfully registered to server, this event will be triggered.
 | _code_       | The status code.          |
 | _sipMessage_ | The SIP message received. |
 
+{% code overflow="wrap" %}
 ```java
 void com.portsip.OnPortSIPEvent.onRegisterFailure (String  reason, int  code, String  sipMessage)
 ```
+{% endcode %}
 
 When failed to register to SIP server, this event will be triggered.
 
@@ -82,9 +102,11 @@ When failed to register to SIP server, this event will be triggered.
 
 **Call events**
 
+{% code overflow="wrap" %}
 ```java
 void com.portsip.OnPortSIPEvent.onInviteIncoming (long sessionId, String  callerDisplayName, String  caller, String  calleeDisplayName, String  callee, String  audioCodecs, String  videoCodecs, boolean  existsAudio, boolean  existsVideo, String  sipMessage)
 ```
+{% endcode %}
 
 When a call is coming, this event will be triggered.
 
@@ -113,9 +135,11 @@ If the outgoing call is being processed, this event will be triggered.
 | _sessionId_ | The session ID of the call. |
 | ----------- | --------------------------- |
 
+{% code overflow="wrap" %}
 ```java
 void com.portsip.OnPortSIPEvent.onInviteSessionProgress (long   sessionId, String  audioCodecs, String  videoCodecs, boolean  existsEarlyMedia, boolean  existsAudio, boolean  existsVideo, String  sipMessage)
 ```
+{% endcode %}
 
 Once the caller received the "183 session progress" message, this event would be triggered.
 
@@ -758,7 +782,7 @@ This event will be triggered once receiving the video packets if enableVideoStre
 
 PortSipSdk::enableVideoStreamCallback
 
-## SDK functions\*
+## SDK functions
 
 ### Initialize and register functions
 
