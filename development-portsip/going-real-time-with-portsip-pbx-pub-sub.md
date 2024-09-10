@@ -369,13 +369,14 @@ For instance, if extension 101 wishes to subscribe to extension 102, and 103 eve
 
 ```json
 {
-"command":"subscribe",
-"topics":[
- "extension_events"
-],
-"extensions":[
-"102",
-"103"] 
+   "command":"subscribe",
+   "topics":[
+      "extension_events"
+   ],
+   "extensions":[
+      "102",
+      "103"
+   ]
 }
 ```
 
@@ -383,17 +384,15 @@ If we want to subscribe to both extension events and CDR events, use the below c
 
 ```json
 {
-"command":"subscribe",
-"topics":
-[
-  "extension_events,
-  "cdr_events"
-],
-"extensions":
-[
-"102",
-"103"
-]  
+   "command":"subscribe",
+   "topics":[
+      "extension_events",
+      "cdr_events"
+   ],
+   "extensions":[
+      "102",
+      "103"
+   ]
 }
 ```
 
@@ -401,11 +400,10 @@ If we want to subscribe to CDR events only, use the below command.
 
 ```json
 {
-"command":"subscribe",
-"topics":
-[
-  "cdr_events"
-]
+   "command":"subscribe",
+   "topics":[
+      "cdr_events"
+   ]
 }
 ```
 
@@ -417,13 +415,14 @@ The admin user role of the tenant and queue manager has permission to subscribe 
 
 ```json
 {
-"command":"subscribe",
-"topics":[ "queue_events" ],
-"queues":
-[
-"8001",
-"8002"
-]  
+   "command":"subscribe",
+   "topics":[
+      "queue_events"
+   ],
+   "queues":[
+      "8001",
+      "8002"
+   ]
 }
 ```
 
@@ -431,8 +430,10 @@ Subscribe to the `queue_management_events`:
 
 ```json
 {
-"command":"subscribe",
-"topics":[ "queue_management_events" ]
+   "command":"subscribe",
+   "topics":[
+      "queue_management_events"
+   ]
 }
 ```
 
@@ -440,23 +441,27 @@ If we want to unsubscribe from the events, use the below command, all subscripti
 
 ```json
 {
-"command" : "unsubscribe",
-"topics":[ "queue_events" ],
-[
-"8001",
-"8002"
-] 
+   "command":"unsubscribe",
+   "topics":[
+      "queue_events"
+   ],
+   "queues":[
+      "8001",
+      "8002"
+   ]
 }
 ```
 
 ```json
 {
-"command" : "unsubscribe",
-"topics":[ "extension_events" ],
-[
-"101",
-"102"
-] 
+   "command":"unsubscribe",
+   "topics":[
+      "extension_events"
+   ],
+   "extensions":[
+      "101",
+      "102"
+   ]
 }
 ```
 
