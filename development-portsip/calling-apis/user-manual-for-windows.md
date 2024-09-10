@@ -4,7 +4,7 @@
 
 ### Where can I download the PortSIP VoIP SDK for testing?
 
-You can download the PortSIP VoIP SDK along with the sample project from the PortSIP Website.
+You can download the PortSIP VoIP SDK along with the sample project from the [PortSIP Website](https://www.portsip.com/download-portsip-voip-sdk/).
 
 ### How can I compile the sample project?
 
