@@ -4,6 +4,14 @@
 Please follow the [guide ](upgrading-portsip-pbx-to-new-versions.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
+## Changes for Release v16.4.3
+
+Date: Sep 10, 2024
+
+* Users can now efficiently locate IVRs within the IVR list page by utilizing the search functionality.
+* Fixed a crash issue that occurred when using a domain for the trace server host.
+* Fixed a bug affecting calls using the G.723.1 codec.
+
 ## Changes for Release v16.4.2
 
 Date: Jul 24, 2024
