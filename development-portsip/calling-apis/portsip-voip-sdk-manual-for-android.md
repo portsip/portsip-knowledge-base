@@ -1,42 +1,40 @@
 # User Manual for Android
 
-## **Where can I download the PortSIP VoIP SDK for testing?**
+## **FAQ**
+
+### **Where can I download the PortSIP VoIP SDK for testing?**
 
 You can download the PortSIP VoIP SDK and sample projects from the [PortSIP Website](https://www.portsip.com/download-portsip-voip-sdk/).
 
-## **What Android API version is required?**
+### **What Android API version is required?**
 
 The PortSIP VoIP SDK requires Android API version 16 or later.
 
-## **How can I create a new project with the PortSIP VoIP SDK?**
+### **How can I create a new project with the PortSIP VoIP SDK?**
 
 1. **Download the Sample Project and SDK:** Obtain the sample project and trial SDK from the [PortSIP Website](https://www.portsip.com/download-portsip-voip-sdk/) and extract them to a desired directory.
 2. **Create a New Project:** In Android Studio, create a new Android Application project.
 3. **Add the SDK Libraries:** Copy all files from the `libs` directory of the extracted SDK to the `libs` directory of your new application.
 4.  **Import Necessary Classes:** Import the required classes from the SDK:
 
-    Java
-
-    ```
+    ```java
     import com.portsip.OnPortSIPEvent;
     import com.portsip.PortSipSdk;
     ```
 
-    Use code with caution.
-
-## **How can I process callback events?**
+### **How can I process callback events?**
 
 1. **Implement the OnPortSIPEvent Interface:** Your class should implement the `OnPortSIPEvent` interface to handle callback events.
 2. **Override Callback Methods:** Override the necessary callback methods (e.g., `onRegistrationState`, `onCallState`) to handle specific events.
 
-## **How do I initialize the SDK?**
+### **How do I initialize the SDK?**
 
 1. **Create an Instance:** Create an instance of the `PortSipSdk` class.
 2. **Set the Event Listener:** Set the event listener using `setOnPortSIPEvent`.
 3. **Create a Call Manager:** Create a call manager using `CreateCallManager`.
 4. **Initialize the SDK:** Call the `initialize` method with appropriate parameters.
 
-## **Is the SDK thread-safe?**
+### **Is the SDK thread-safe?**
 
 Yes, the PortSIP SDK is thread-safe. You can call API functions from multiple threads without worrying about synchronization issues. However, there are exceptions: the `onAudioRawCallback`, `onVideoRawCallback`, and `onRTPPacketCallback` callbacks should not be called directly from other threads.
 

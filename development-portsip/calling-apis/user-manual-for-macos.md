@@ -4,7 +4,7 @@
 
 ### **Where can I download the PortSIP VoIP SDK for testing?**
 
-You can download the PortSIP VoIP SDK, along with sample projects, from the PortSIP website.
+You can download the PortSIP VoIP SDK, along with sample projects, from the [PortSIP Website](https://www.portsip.com/download-portsip-voip-sdk/).
 
 ### **What macOS versions are required for development?**
 
@@ -12,7 +12,7 @@ Development using the PortSIP VoIP/IMS SDK for macOS requires a Mac running macO
 
 ### **How can I create a new project with the PortSIP VoIP SDK?**
 
-1. **Download the Sample Project:** Download the sample project from the PortSIP website and extract it to a desired directory.
+1. **Download the Sample Project:** Download the sample project from tthe [PortSIP Website](https://www.portsip.com/download-portsip-voip-sdk/) and extract it to a desired directory.
 2. **Create a New Project:** In Xcode, create a new OS X Cocoa Application project.
 3. **Add the PortSIPVoIPSDK Framework:** Drag and drop the `PortSIPVoIPSDK.framework` from Finder to your project's Frameworks folder.
 4. **Copy Frameworks Files:** Under the Build Phases section of your project editor, add a "Copy Files" build phase. Specify the destination as "Frameworks" and add the `PortSIPVoIPSDK.framework` to be copied.
@@ -112,31 +112,36 @@ If the outgoing call is being processed, this event will be triggered.
 
 | _sessionId_ | The session ID of the call. |
 | ----------- | --------------------------- |
-| \`\`\`objc  |                             |
 
-* (void)onInviteSessionProgress: (long)sessionId audioCodecs: (NSString \*)audioCodecs videoCodecs: (NSString \*)videoCodecs existsEarlyMedia: (BOOL)existsEarlyMedia existsAudio: (BOOL)existsAudio existsVideo: (BOOL)existsVideo sipMessage: (NSString \*)sipMessage
+```objc
+- (void)onInviteSessionProgress:(long)sessionId
+                    audioCodecs:(NSString*)audioCodecs
+                    videoCodecs:(NSString*)videoCodecs
+               existsEarlyMedia:(BOOL)existsEarlyMedia
+                    existsAudio:(BOOL)existsAudio
+                    existsVideo:(BOOL)existsVideo
+                     sipMessage:(NSString*)sipMessage;
+```
 
-````
+Once the caller received the "183 session in progress" message, this event will be triggered.
 
-Once  the  caller  received  the  "183  session  in  progress"  message,  this  event  will  be triggered. 
+**Parameters**
 
-**Parameters** 
-
-|*sessionId*  |The session ID of the call.  |
-| - | - |
-|*audioCodecs*  |The matched audio codecs. It's separated by "#" if there are more than one codecs.  |
-|*videoCodecs*  |The matched video codecs. It's separated by "#" if there are more than one codecs.  |
-|*existsEarlyMedia*  |By setting to true, it indicates that the call has early media.  |
-|*existsAudio*  |By setting to true, it indicates that this call includes the audio.  |
-|*existsVideo*  |By setting to true, it indicates that this call includes the video.  |
-|*sipMessage*  |The SIP message received.  |
+| _sessionId_        | The session ID of the call.                                                        |
+| ------------------ | ---------------------------------------------------------------------------------- |
+| _audioCodecs_      | The matched audio codecs. It's separated by "#" if there are more than one codecs. |
+| _videoCodecs_      | The matched video codecs. It's separated by "#" if there are more than one codecs. |
+| _existsEarlyMedia_ | By setting to true, it indicates that the call has early media.                    |
+| _existsAudio_      | By setting to true, it indicates that this call includes the audio.                |
+| _existsVideo_      | By setting to true, it indicates that this call includes the video.                |
+| _sipMessage_       | The SIP message received.                                                          |
 
 ```objc
 - (void)onInviteRinging: (long)sessionId 
               statusText: (NSString *)statusText 
               statusCode: (int)statusCode 
               sipMessage: (NSString *)sipMessage 
-````
+```
 
 If the outgoing call is ringing, this event will be triggered.
 
