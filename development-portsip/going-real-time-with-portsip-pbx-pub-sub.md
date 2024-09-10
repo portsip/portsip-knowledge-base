@@ -368,7 +368,6 @@ After successfully being authenticated, the user can now subscribe to the events
 For instance, if extension 101 wishes to subscribe to extension 102, and 103 events, just send the below command to subscribe.
 
 ```json
-
 {
 "command":"subscribe",
 "topics":[
@@ -410,14 +409,6 @@ If we want to subscribe to CDR events only, use the below command.
 }
 ```
 
-If we want to unsubscribe from the events, use the below command, all subscriptions will be terminated.
-
-```json
-{
-"command" : "unsubscribe"
-}
-```
-
 Note, that the extension only has permission to subscribe to the queues belonging to that extension, if the extension(subscriber) is not an agent of the queue, and also not a queue manager of the queue, the events will not push to the extension(subscriber).&#x20;
 
 For example, if extension 101 is the agent/queue manager of queues 8001 and 8002 after 101 is subscribed to queue events, both 8001 and 8002 queue status will be pushed to extension 101.
@@ -442,6 +433,30 @@ Subscribe to the `queue_management_events`:
 {
 "command":"subscribe",
 "topics":[ "queue_management_events" ]
+}
+```
+
+If we want to unsubscribe from the events, use the below command, all subscriptions will be terminated.
+
+```json
+{
+"command" : "unsubscribe",
+"topics":[ "queue_events" ],
+[
+"8001",
+"8002"
+] 
+}
+```
+
+```json
+{
+"command" : "unsubscribe",
+"topics":[ "extension_events" ],
+[
+"101",
+"102"
+] 
 }
 ```
 
