@@ -1,80 +1,52 @@
 # User Manual for Android
 
-## Frequently Asked Questions
+## **Where can I download the PortSIP VoIP SDK for testing?**
 
-### Where can I download the PortSIP VoIP SDK for testing?
+You can download the PortSIP VoIP SDK and sample projects from the [PortSIP Website](https://www.portsip.com/download-portsip-voip-sdk/).
 
-All sample projects of the PortSIP VoIP SDK can be found and downloaded at the [PortSIP Website](https://www.portsip.com/download-portsip-voip-sdk/).
+## **What Android API version is required?**
 
-### What's Android API version are supported?
+The PortSIP VoIP SDK requires Android API version 16 or later.
 
-API-16 or later is required
+## **How can I create a new project with the PortSIP VoIP SDK?**
 
-### How can I compile the sample project?
+1. **Download the Sample Project and SDK:** Obtain the sample project and trial SDK from the [PortSIP Website](https://www.portsip.com/download-portsip-voip-sdk/) and extract them to a desired directory.
+2. **Create a New Project:** In Android Studio, create a new Android Application project.
+3. **Add the SDK Libraries:** Copy all files from the `libs` directory of the extracted SDK to the `libs` directory of your new application.
+4.  **Import Necessary Classes:** Import the required classes from the SDK:
 
-1. Download the sample project from the PortSIP website.
-2. Extract the .zip file.
-3. Open the project in Android Studio.
-4. Compile the sample project directly.
-
-### How can I create a new project with PortSIP VoIP SDK?
-
-1. Download the sample project and evaluation SDK and extract it to a specified directory.
-2. Run Android Studio and create a new Android Application Project.
-3. Copy all files from the `libs` directory under the extracted directory to the `libs` directory of your new application.
-4.  Import the dependent classes from the SDK. For example:
-
-    ```java
-    import com.portsip.OnPortSIPEvent;
-    import com.portsip.PortSipSdk;
+    Java
 
     ```
-5. Import the dependent class form the SDK. For example:&#x20;
+    import com.portsip.OnPortSIPEvent;
+    import com.portsip.PortSipSdk;
+    ```
 
-{% code overflow="wrap" %}
-```
-import com.portsip.OnPortSIPEvent; 
-import com.portsip.PortSipSdk;
-```
-{% endcode %}
+    Use code with caution.
 
-6. Inherit the interface OnPortSIPEvent to process the callback events.
-7. Initialize SDK. For example:&#x20;
+## **How can I process callback events?**
 
-{% code overflow="wrap" %}
-```
-mPortSIPSDK = new PortSipSdk(); mPortSIPSDK.setOnPortSIPEvent(instanceofOnPortSIPEvent); mPortSIPSDK.CreateCallManager(context); mPortSIPSDK.initialize(...); 
-```
-{% endcode %}
+1. **Implement the OnPortSIPEvent Interface:** Your class should implement the `OnPortSIPEvent` interface to handle callback events.
+2. **Override Callback Methods:** Override the necessary callback methods (e.g., `onRegistrationState`, `onCallState`) to handle specific events.
 
-For more details please refer to the Sample project source code.
+## **How do I initialize the SDK?**
 
-### How can I test the P2P call (without SIP server)?
+1. **Create an Instance:** Create an instance of the `PortSipSdk` class.
+2. **Set the Event Listener:** Set the event listener using `setOnPortSIPEvent`.
+3. **Create a Call Manager:** Create a call manager using `CreateCallManager`.
+4. **Initialize the SDK:** Call the `initialize` method with appropriate parameters.
 
-1. Download and extract the SDK sample project ZIP file into local. Compile and run the "P2PSample" project.
-2. Run the P2Psample on two devices. For example, run it on device A and device B, and the IP address for A is 192.168.1.10, an IP address for B is 192.168.1.11.
-3. Enter a username and password on A. For example, enter user name 111, and password aaa (you can enter anything for the password as the SDK will ignore it). Enter a username and password on B. For example, enter user name 222, and password aaa.
-4. Click the "Initialize" button on A and B. If the default port 5060 is already in use, the P2PSample will prompt "Initialize failure". In case of this, please click the "Uninitialize" button and change the local port, and click the "Initialize" button again.
-5. The log box will appear "Initialized" if the SDK is successfully initialized.
-6. To make a call from A to B, enter "sip:222@192.168.1.11" and click the "Dial" button; while to make call from B to A, enter "sip:111@192.168.1.10".
+## **Is the SDK thread-safe?**
 
-Note: If the local sip port is changed to other port, for example, A is using local port 5080, and B is using local port 6021, to make call from A to B, please enter "sip:222@192.168.1.11:6021" and dial; while to make call from B to A, enter "sip:111@192.168.1.10:5080".
-
-### Is the SDK thread safe?
-
-Yes, the SDK is thread safe. You can call any of the API functions without the need to consider the multiple threads.
-
-Note: the SDK allows to call API functions in callback events directly - except for the "onAudioRawCallback", "onVideoRawCallback", "onRTPPacketCallback" callbacks.
+Yes, the PortSIP SDK is thread-safe. You can call API functions from multiple threads without worrying about synchronization issues. However, there are exceptions: the `onAudioRawCallback`, `onVideoRawCallback`, and `onRTPPacketCallback` callbacks should not be called directly from other threads.
 
 ## SDK Callback events
 
 ### Register events
 
-{% code overflow="wrap" %}
 ```java
-void com.portsip.OnPortSIPEvent.onRegisterSuccess (String  reason, int  code, String  sipMessage)
+void onRegisterSuccess(String reason, int code,String sipMessage);
 ```
-{% endcode %}
 
 When successfully registered to server, this event will be triggered.
 
@@ -85,11 +57,9 @@ When successfully registered to server, this event will be triggered.
 | _code_       | The status code.          |
 | _sipMessage_ | The SIP message received. |
 
-{% code overflow="wrap" %}
 ```java
-void com.portsip.OnPortSIPEvent.onRegisterFailure (String  reason, int  code, String  sipMessage)
+void onRegisterFailure(String reason, int code,String sipMessage);
 ```
-{% endcode %}
 
 When failed to register to SIP server, this event will be triggered.
 
@@ -102,11 +72,18 @@ When failed to register to SIP server, this event will be triggered.
 
 **Call events**
 
-{% code overflow="wrap" %}
 ```java
-void com.portsip.OnPortSIPEvent.onInviteIncoming (long sessionId, String  callerDisplayName, String  caller, String  calleeDisplayName, String  callee, String  audioCodecs, String  videoCodecs, boolean  existsAudio, boolean  existsVideo, String  sipMessage)
+void onInviteIncoming(long sessionId,
+                      String callerDisplayName,
+                      String caller,
+                      String calleeDisplayName,
+                      String callee,
+                      String audioCodecs,
+                      String videoCodecs,
+                      boolean existsAudio,
+                      boolean existsVideo,
+                      String sipMessage);
 ```
-{% endcode %}
 
 When a call is coming, this event will be triggered.
 
@@ -125,7 +102,7 @@ When a call is coming, this event will be triggered.
 | _sipMessage_         | The SIP message received.                                                          |
 
 ```java
-void com.portsip.OnPortSIPEvent.onInviteTrying (long   sessionId)
+void onInviteTrying(long sessionId);
 ```
 
 If the outgoing call is being processed, this event will be triggered.
@@ -135,11 +112,15 @@ If the outgoing call is being processed, this event will be triggered.
 | _sessionId_ | The session ID of the call. |
 | ----------- | --------------------------- |
 
-{% code overflow="wrap" %}
 ```java
-void com.portsip.OnPortSIPEvent.onInviteSessionProgress (long   sessionId, String  audioCodecs, String  videoCodecs, boolean  existsEarlyMedia, boolean  existsAudio, boolean  existsVideo, String  sipMessage)
+void onInviteSessionProgress(long sessionId,
+                             String audioCodecs,
+                             String videoCodecs,
+                             boolean existsEarlyMedia,
+                             boolean existsAudio,
+                             boolean existsVideo,
+                             String sipMessage);
 ```
-{% endcode %}
 
 Once the caller received the "183 session progress" message, this event would be triggered.
 
@@ -155,7 +136,10 @@ Once the caller received the "183 session progress" message, this event would be
 | _sipMessage_       | The SIP message received.                                                          |
 
 ```java
-void com.portsip.OnPortSIPEvent.onInviteRinging (long   sessionId, String  statusText, int  statusCode, String  sipMessage)
+void onInviteRinging(long sessionId,
+                                String statusText,
+                                int statusCode,
+                                String sipMessage);
 ```
 
 If the outgoing call is ringing, this event will be triggered.
@@ -169,7 +153,16 @@ If the outgoing call is ringing, this event will be triggered.
 | _sipMessage_ | The SIP message received.   |
 
 ```java
-void com.portsip.OnPortSIPEvent.onInviteAnswered (long  sessionId, String  callerDisplayName, String  caller, String  calleeDisplayName, String  callee, String  audioCodecs, String  videoCodecs, boolean  existsAudio, boolean  existsVideo, String  sipMessage)
+void onInviteAnswered(long sessionId,
+                      String callerDisplayName,
+                      String caller,
+                      String calleeDisplayName,
+                      String callee,
+                      String audioCodecs,
+                      String videoCodecs,
+                      boolean existsAudio,
+                      boolean existsVideo,
+                      String sipMessage);
 ```
 
 If the remote party answered the call, this event would be triggered.
@@ -189,7 +182,13 @@ If the remote party answered the call, this event would be triggered.
 | _sipMessage_         | The SIP message received.                                                          |
 
 ```java
-void com.portsip.OnPortSIPEvent.onInviteFailure (long   sessionId, String  callerDisplayName, String  caller, String  calleeDisplayName, String  callee, String  reason, int  code, String  sipMessage)
+void onInviteFailure(long sessionId, String callerDisplayName,
+                                String caller,
+                                String calleeDisplayName,
+                                String callee,
+                                String reason,
+                                int code,
+                                String sipMessage);
 ```
 
 This event will be triggered if the outgoing or incoming call fails.
@@ -207,7 +206,14 @@ This event will be triggered if the outgoing or incoming call fails.
 | _sipMessage_         | The SIP message received.     |
 
 ```java
-void com.portsip.OnPortSIPEvent.onInviteUpdated (long  sessionId, String  audioCodecs, String  videoCodecs, String  screenCodecs, boolean  existsAudio, boolean  existsVideo, boolean  existsScreen, String  sipMessage)
+public void onInviteUpdated(long sessionId,
+                            String audioCodecs,
+                            String videoCodecs,
+                            String screenCodecs,
+                            boolean existsAudio,
+                            boolean existsVideo,
+                            boolean existsScreen,
+                            String sipMessage);
 ```
 
 This event will be triggered when remote party updates the call.
@@ -225,7 +231,7 @@ This event will be triggered when remote party updates the call.
 | _sipMessage_   | The SIP message received.                                                           |
 
 ```java
-void com.portsip.OnPortSIPEvent.onInviteConnected (long  sessionId)
+void onInviteConnected(long sessionId);
 ```
 
 This event will be triggered when UAC sent/UAS received ACK (the call is connected). Some functions (hold, updateCall etc...) can be called only after the call connected, otherwise the functions will return error.
@@ -236,7 +242,7 @@ This event will be triggered when UAC sent/UAS received ACK (the call is connect
 | ----------- | --------------------------- |
 
 ```java
-void com.portsip.OnPortSIPEvent.onInviteBeginingForward (String   forwardTo)
+void onInviteBeginingForward(String forwardTo);
 ```
 
 If the enableCallForward method is called and a call is incoming, the call will be forwarded automatically and this event will be triggered.
@@ -247,7 +253,7 @@ If the enableCallForward method is called and a call is incoming, the call will 
 | ----------- | ------------------------------------------ |
 
 ```java
-void com.portsip.OnPortSIPEvent.onInviteClosed (long  sessionId, String  sipMessage)
+void onInviteClosed(long sessionId, String sipMessage);
 ```
 
 This event is triggered once remote side ends the call.
@@ -259,7 +265,10 @@ This event is triggered once remote side ends the call.
 | _sipMessage_ | The SIP message received.   |
 
 ```java
-void com.portsip.OnPortSIPEvent.onDialogStateUpdated (String  BLFMonitoredUri, String  BLFDialogState, String  BLFDialogId, String  BLFDialogDirection)
+void onDialogStateUpdated(String BLFMonitoredUri,
+                          String BLFDialogState,
+                          String BLFDialogId,
+                          String BLFDialogDirection);
 ```
 
 If a user subscribed and his dialog status monitored, when the monitored user is holding a call or is being rang, this event will be triggered.
@@ -273,7 +282,7 @@ If a user subscribed and his dialog status monitored, when the monitored user is
 | _BLFDialogDirecti on_ | - the direction of the call |
 
 ```java
-void com.portsip.OnPortSIPEvent.onRemoteHold (long  sessionId)
+void onRemoteHold(long sessionId);
 ```
 
 If the remote side places the call on hold, this event will be triggered.
@@ -284,7 +293,11 @@ If the remote side places the call on hold, this event will be triggered.
 | ----------- | --------------------------- |
 
 ```java
-void com.portsip.OnPortSIPEvent.onRemoteUnHold (long  sessionId, String  audioCodecs, String  videoCodecs, boolean  existsAudio, boolean  existsVideo)
+void onRemoteUnHold(long sessionId,
+                               String audioCodecs,
+                               String videoCodecs,
+                               boolean existsAudio,
+                               boolean existsVideo);
 ```
 
 If the remote side un-holds the call, this event will be triggered **Parameters**
@@ -299,7 +312,11 @@ If the remote side un-holds the call, this event will be triggered **Parameters*
 ### Refer events
 
 ```java
-void com.portsip.OnPortSIPEvent.onReceivedRefer (long  sessionId, long  referId, String  to, String  from, String  referSipMessage)
+    public void onReceivedRefer(long sessionId,
+                         long referId,
+                         String to,
+                         String from,
+                         String referSipMessage);
 ```
 
 This event will be triggered once received a REFER message.
@@ -314,7 +331,7 @@ This event will be triggered once received a REFER message.
 | _referSipMessage_ | The SIP message of "REFER". Pass it to "acceptRefer" function.     |
 
 ```java
-void com.portsip.OnPortSIPEvent.onReferAccepted (long  sessionId)
+void onReferAccepted(long sessionId);
 ```
 
 This callback will be triggered once remote side calls "acceptRefer" to accept the REFER **Parameters**
@@ -323,7 +340,7 @@ This callback will be triggered once remote side calls "acceptRefer" to accept t
 | ----------- | --------------------------- |
 
 ```java
-void com.portsip.OnPortSIPEvent.onReferRejected (long  sessionId, String  reason, int  code)
+void onReferRejected(long sessionId, String reason, int code);
 ```
 
 This callback will be triggered once remote side calls "rejectRefer" to reject the REFER **Parameters**
@@ -334,7 +351,7 @@ This callback will be triggered once remote side calls "rejectRefer" to reject t
 | _code_      | Reject code.                |
 
 ```java
-void com.portsip.OnPortSIPEvent.onTransferTrying (long   sessionId)
+void onTransferTrying(long sessionId);
 ```
 
 When the refer call is being processed, this event will be triggered.
@@ -345,7 +362,7 @@ When the refer call is being processed, this event will be triggered.
 | ----------- | --------------------------- |
 
 ```java
-void com.portsip.OnPortSIPEvent.onTransferRinging (long   sessionId)
+void onTransferRinging(long sessionId);
 ```
 
 When the refer call is ringing, this event will be triggered.
@@ -356,7 +373,7 @@ When the refer call is ringing, this event will be triggered.
 | ----------- | --------------------------- |
 
 ```java
-void com.portsip.OnPortSIPEvent.onACTVTransferSuccess (long  sessionId)
+void onACTVTransferSuccess(long sessionId);
 ```
 
 When the refer call succeeds, this event will be triggered. The ACTV means Active. For example, A establishes the call with B, A transfers B to C, C accepts the refer call, and A will receive this event.
@@ -367,7 +384,7 @@ When the refer call succeeds, this event will be triggered. The ACTV means Activ
 | ----------- | --------------------------- |
 
 ```java
-void com.portsip.OnPortSIPEvent.onACTVTransferFailure (long   sessionId, String  reason, int  code)
+void onACTVTransferFailure(long sessionId, String reason, int code);
 ```
 
 When the refer call fails, this event will be triggered. The ACTV means Active. For example, A establish the call with B, A transfers B to C, C rejects this refer call, and A will receive this event.
@@ -382,7 +399,7 @@ When the refer call fails, this event will be triggered. The ACTV means Active. 
 ### Signaling events
 
 ```java
-void com.portsip.OnPortSIPEvent.onReceivedSignaling (long sessionId, String  message)
+void onReceivedSignaling(long sessionId, String message);
 ```
 
 This event will be triggered when receiving a SIP message. This event is disabled by default. To enable, use enableCallbackSignaling.
@@ -394,7 +411,7 @@ This event will be triggered when receiving a SIP message. This event is disable
 | _message_   | The received SIP message.   |
 
 ```java
-void com.portsip.OnPortSIPEvent.onSendingSignaling (long sessionId, String  message)
+void onSendingSignaling (long sessionId, String  message)
 ```
 
 This event will be triggered when sent a SIP message. This event is disabled by default. To enable, use enableCallbackSignaling.
@@ -408,7 +425,11 @@ This event will be triggered when sent a SIP message. This event is disabled by 
 ### MWI events
 
 ```java
-void com.portsip.OnPortSIPEvent.onWaitingVoiceMessage (String  messageAccount, int  urgentNewMessageCount, int  urgentOldMessageCount, int  newMessageCount, int  oldMessageCount)
+void onWaitingVoiceMessage(String messageAccount,
+                           int urgentNewMessageCount,
+                           int urgentOldMessageCount,
+                           int newMessageCount,
+                           int oldMessageCount);
 ```
 
 If there is the waiting voice message (MWI), this event will be triggered.
@@ -423,7 +444,11 @@ If there is the waiting voice message (MWI), this event will be triggered.
 | _oldMessageCount_        | Count of history messages.       |
 
 ```java
-void com.portsip.OnPortSIPEvent.onWaitingFaxMessage (String  messageAccount, int  urgentNewMessageCount, int  urgentOldMessageCount, int  newMessageCount, int  oldMessageCount)
+void onWaitingFaxMessage(String messageAccount,
+                         int urgentNewMessageCount,
+                         int urgentOldMessageCount,
+                         int newMessageCount,
+                         int oldMessageCount);
 ```
 
 If there is waiting fax message (MWI), this event will be triggered.
@@ -440,7 +465,7 @@ If there is waiting fax message (MWI), this event will be triggered.
 ### DTMF events
 
 ```java
-void com.portsip.OnPortSIPEvent.onRecvDtmfTone (long  sessionId, int  tone)
+void onRecvDtmfTone(long sessionId, int tone);
 ```
 
 This event will be triggered when receiving a DTMF tone from remote side.
@@ -472,7 +497,7 @@ This event will be triggered when receiving a DTMF tone from remote side.
 ### INFO/OPTIONS message events
 
 ```java
-void com.portsip.OnPortSIPEvent.onRecvOptions (String  optionsMessage)
+void onRecvOptions(String optionsMessage);
 ```
 
 This event will be triggered when receiving the OPTIONS message.
@@ -483,7 +508,7 @@ This event will be triggered when receiving the OPTIONS message.
 | ---------------- | -------------------------------------------------- |
 
 ```java
-void com.portsip.OnPortSIPEvent.onRecvInfo (String  infoMessage)
+void onRecvInfo(String infoMessage);
 ```
 
 This event will be triggered when receiving the INFO message.
@@ -494,7 +519,9 @@ This event will be triggered when receiving the INFO message.
 | ------------- | ----------------------------------------------- |
 
 ```java
-void com.portsip.OnPortSIPEvent.onRecvNotifyOfSubscription (long  subscribeId, String  notifyMessage, byte[]  messageData, int  messageDataLength)
+void onRecvNotifyOfSubscription(long subscribeId,String notifyMessage,
+                                byte[] messageData,
+                                int messageDataLength);
 ```
 
 This event will be triggered when receiving a NOTIFY message of the subscription.
@@ -510,7 +537,10 @@ This event will be triggered when receiving a NOTIFY message of the subscription
 ### Presence events
 
 ```java
-void com.portsip.OnPortSIPEvent.onPresenceRecvSubscribe (long  subscribeId, String  fromDisplayName, String  from, String  subject)
+void onPresenceRecvSubscribe(long subscribeId,
+                             String fromDisplayName,
+                             String from,
+                             String subject);
 ```
 
 This event will be triggered when receiving the SUBSCRIBE request from a contact.
@@ -524,7 +554,9 @@ This event will be triggered when receiving the SUBSCRIBE request from a contact
 | _subject_         | The subject of the SUBSCRIBE request.        |
 
 ```java
-void com.portsip.OnPortSIPEvent.onPresenceOnline (String  fromDisplayName, String  from, String  stateText)
+void onPresenceOnline(String fromDisplayName,
+                      String from,
+                      String stateText);
 ```
 
 When the contact is online or changes presence status, this event will be triggered.
@@ -537,7 +569,8 @@ When the contact is online or changes presence status, this event will be trigge
 | _stateText_       | The presence status text.                    |
 
 ```java
-void com.portsip.OnPortSIPEvent.onPresenceOffline (String  fromDisplayName, String  from)
+void onPresenceOffline(String fromDisplayName,
+                       String from);
 ```
 
 When the contact is offline, this event will be triggered.
@@ -549,7 +582,11 @@ When the contact is offline, this event will be triggered.
 | _from_            | The contact who sends the SUBSCRIBE request |
 
 ```java
-void com.portsip.OnPortSIPEvent.onRecvMessage (long  sessionId, String  mimeType, String  subMimeType, byte[]  messageData, int  messageDataLength)
+void onRecvMessage(long sessionId,
+                   String mimeType,
+                   String subMimeType,
+                   byte[] messageData,
+                   int messageDataLength);
 ```
 
 This event will be triggered when receiving a MESSAGE message in dialog.
@@ -564,7 +601,15 @@ This event will be triggered when receiving a MESSAGE message in dialog.
 | _messageDataLengt h_ | The length of "messageData".                                                                                                                                                                                                                                                                                                       |
 
 ```java
-void com.portsip.OnPortSIPEvent.onRecvOutOfDialogMessage (String  fromDisplayName, String  from, String  toDisplayName, String  to, String  mimeType, String  subMimeType, byte[]  messageData, int  messageDataLength, String  sipMessage)
+void onRecvOutOfDialogMessage(String fromDisplayName,
+                              String from,
+                              String toDisplayName,
+                              String to,
+                              String mimeType,
+                              String subMimeType,
+                              byte[] messageData,
+                              int messageDataLength,
+                              String sipMessage);
 ```
 
 This event will be triggered when receiving a MESSAGE message out of dialog. For example pager message.
@@ -583,7 +628,7 @@ This event will be triggered when receiving a MESSAGE message out of dialog. For
 | _sipMessage_         | The SIP message received.                                                                                                                                                                                                                                                                                                          |
 
 ```java
-void com.portsip.OnPortSIPEvent.onSendMessageSuccess (long  sessionId, long  messageId, String  sipMessage)
+void onSendMessageSuccess(long sessionId, long messageId,String sipMessage);
 ```
 
 If the message is sent successfully in dialog, this event will be triggered.
@@ -596,7 +641,11 @@ If the message is sent successfully in dialog, this event will be triggered.
 | _sipMessage_ | The SIP message received.                                               |
 
 ```java
-void com.portsip.OnPortSIPEvent.onSendMessageFailure (long sessionId, long  messageId, String  reason, int  code, String  sipMessage)
+void onSendMessageFailure(long sessionId,
+                          long messageId,
+                          String reason,
+                          int code,
+                          String sipMessage);
 ```
 
 If the message is failed to be sent out of dialog, this event will be triggered.
@@ -613,7 +662,12 @@ If the message is failed to be sent out of dialog, this event will be triggered.
 | _sipMessage_ | The SIP message received.                                               |
 
 ```java
-void com.portsip.OnPortSIPEvent.onSendOutOfDialogMessageSuccess (long  messageId, String  fromDisplayName, String  from, String  toDisplayName, String  to, String  sipMessage)
+void onSendOutOfDialogMessageSuccess( long messageId,
+                                      String fromDisplayName,
+                                      String from,
+                                      String toDisplayName,
+                                      String to,
+                                      String sipMessage);
 ```
 
 If the message is sent successfully out of dialog, this event will be triggered.
@@ -629,7 +683,15 @@ If the message is sent successfully out of dialog, this event will be triggered.
 | _sipMessage_      | The SIP message received.                                                          |
 
 ```java
-void com.portsip.OnPortSIPEvent.onSendOutOfDialogMessageFailure (long  messageId, String  fromDisplayName, String  from, String  toDisplayName, String  to, String  reason, int  code, String  sipMessage)
+void onSendOutOfDialogMessageFailure(long messageId,
+                                     String fromDisplayName,
+                                     String from,
+                                     String toDisplayName,
+                                     String to,
+                                     String reason,
+                                     int code,
+                                     String sipMessage);
+
 ```
 
 If the message failed to be sent out of dialog, this event would be triggered.
@@ -647,7 +709,7 @@ If the message failed to be sent out of dialog, this event would be triggered.
 | _sipMessage_      | The SIP message received.                                                          |
 
 ```java
-void com.portsip.OnPortSIPEvent.onSubscriptionFailure (long   subscribeId, int  statusCode)
+void onSubscriptionFailure(long subscribeId, int statusCode);
 ```
 
 This event will be triggered on sending SUBSCRIBE failure.
@@ -659,7 +721,7 @@ This event will be triggered on sending SUBSCRIBE failure.
 | _statusCode_  | The status code.             |
 
 ```java
-void com.portsip.OnPortSIPEvent.onSubscriptionTerminated (long   subscribeId)
+void onSubscriptionTerminated(long subscribeId);
 ```
 
 This event will be triggered when a SUBSCRIPTION is terminated or expired.
@@ -672,7 +734,7 @@ This event will be triggered when a SUBSCRIPTION is terminated or expired.
 ### audio device changed,Play audio and video file finished events
 
 ```java
-void com.portsip.OnPortSIPEvent.onPlayFileFinished (long sessionId, String  fileName)
+void onPlayFileFinished(long sessionId, String fileName);
 ```
 
 If called startPlayingFileToRemote function with no loop mode, this event will be triggered once the file play finished.
@@ -684,7 +746,7 @@ If called startPlayingFileToRemote function with no loop mode, this event will b
 | _fileName_  | The play file name.         |
 
 ```java
-void com.portsip.OnPortSIPEvent.onStatistics (long  sessionId, String  statistics)
+void onStatistics(long sessionId,String statistics);
 ```
 
 If called getStatistics function, this event will be triggered once the statistics get finished.
@@ -696,7 +758,7 @@ If called getStatistics function, this event will be triggered once the statisti
 | _statistics_ | The session call statistics. |
 
 ```java
-void com.portsip.OnPortSIPEvent.onAudioDeviceChanged (PortSipEnumDefine.AudioDevice  audioDevice, Set< PortSipEnumDefine.AudioDevice >  devices)
+void onAudioDeviceChanged(PortSipEnumDefine.AudioDevice audioDevice, Set<PortSipEnumDefine.AudioDevice> devices);
 ```
 
 fired When available audio devices changed or audio device currently in use changed.
@@ -708,7 +770,7 @@ fired When available audio devices changed or audio device currently in use chan
 | _devices_     | devices useable. If a wired headset is connected, it should be the only possible option. When no wired headset connected, the devices set may contain speaker, earpiece, Bluetooth devices. can be set by PortSipSdk#setAudioDevice to switch to current device. |
 
 ```java
-void com.portsip.OnPortSIPEvent.onAudioFocusChange (int   focusChange)
+void onAudioFocusChange(int focusChange);
 ```
 
 fired when the audio focus has been changed.
@@ -721,7 +783,11 @@ fired when the audio focus has been changed.
 ### RTP callback events
 
 ```java
-void com.portsip.OnPortSIPEvent.onRTPPacketCallback (long  sessionId, int  mediaType, int  enum_direction, byte[]  RTPPacket, int  packetSize)
+void onRTPPacketCallback(long sessionId,
+                         int mediaType,
+                         int enum_direction,
+                         byte[] RTPPacket, 
+                         int packetSize);
 ```
 
 If enableRtpCallback function is called to enable the RTP callback, this event will be triggered once a RTP packet is received or sent.
@@ -740,7 +806,11 @@ If enableRtpCallback function is called to enable the RTP callback, this event w
 Donot call any SDK API functions in this event directly. If you want to call the API functions or other code which is time-consuming, you should post a message to another thread and execute SDK API functions or other code in another thread.
 
 ```java
-void com.portsip.OnPortSIPEvent.onAudioRawCallback (long  sessionId, int  enum_direction, byte[]  data, int  dataLength, int  samplingFreqHz)
+void onAudioRawCallback(long sessionId,
+                        int enum_direction,
+                        byte[] data, 
+                        int dataLength,
+                        int samplingFreqHz);
 ```
 
 This event will be triggered once receiving the audio packets if called enableAudioStreamCallback function.
@@ -763,7 +833,12 @@ Don't call any SDK API functions in this event directly. If you want to call the
 PortSipSdk::enableAudioStreamCallback
 
 ```java
-void com.portsip.OnPortSIPEvent.onVideoRawCallback (long  sessionId, int  enum_direction, int  width, int  height, byte[]  data, int  dataLength)
+void onVideoRawCallback(long sessionId,
+                        int enum_direction, 
+                        int width, 
+                        int height,
+                        byte[] data, 
+                        int dataLength);
 ```
 
 This event will be triggered once receiving the video packets if enableVideoStreamCallback function is called.
@@ -782,12 +857,24 @@ This event will be triggered once receiving the video packets if enableVideoStre
 
 PortSipSdk::enableVideoStreamCallback
 
-## SDK functions
+## SDK functions\*
 
 ### Initialize and register functions
 
 ```java
-int com.portsip.PortSipSdk.initialize (int  enum_transport, String  localIP, int  localSIPPort, int  enum_LogLevel, String  LogPath, int  maxLines, String  agent, int  audioDeviceLayer, int  videoDeviceLayer, String  TLSCertificatesRootPath, String  TLSCipherList, boolean  verifyTLSCertificate, String  dnsServers)
+int initialize(int enum_transport, 
+						  String localIP, 
+						  int localSIPPort, 
+						  int enum_LogLevel,
+						  String LogPath, 
+						  int maxLines, 
+						  String agent,
+						  int audioDeviceLayer, 
+						  int videoDeviceLayer, 
+						  String TLSCertificatesRootPath,
+						  String TLSCipherList, 
+						  boolean verifyTLSCertificate, 
+						  String dnsServers)
 ```
 
 Initialize the SDK.
@@ -819,13 +906,13 @@ Initialize the SDK.
 If the function succeeds, it returns value 0. If the function fails, it will return a specific error code
 
 ```java
-void com.portsip.PortSipSdk.unInitialize ()
+void unInitialize() 
 ```
 
 Un-initialize the SDK and release resources.
 
 ```java
-int com.portsip.PortSipSdk.setInstanceId (String  instanceId)
+int setInstanceId(String instanceId)
 ```
 
 Set the instance Id, the outbound instanceId((RFC5626) ) used in contact headers.
@@ -840,7 +927,17 @@ Set the instance Id, the outbound instanceId((RFC5626) ) used in contact headers
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.setUser (String  userName, String  displayName, String  authName, String  password, String  userDomain, String  SIPServer, int  SIPServerPort, String  STUNServer, int  STUNServerPort, String  outboundServer, int  outboundServerPort)
+int setUser(String userName, 
+					   String displayName, 
+					   String authName,
+					   String password, 
+					   String userDomain, 
+					   String SIPServer, 
+					   int SIPServerPort,
+					   String STUNServer, 
+					   int STUNServerPort, 
+					   String outboundServer,
+					   int outboundServerPort)
 ```
 
 Set user account info.
@@ -865,7 +962,13 @@ Set user account info.
 If this function succeeds, it will return value 0. If it fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.registerServer (int  expires, int  retryTimes)
+void removeUser() 
+```
+
+remove user account info.
+
+```java
+int registerServer(int expires, int retryTimes)
 ```
 
 Register to SIP proxy server (login to server)
@@ -883,7 +986,7 @@ If this function succeeds, it will return value 0. If fails, it will return a sp
 If the registration to server succeeds, onRegisterSuccess will be triggered; otherwise onRegisterFailure will be triggered.
 
 ```java
-int com.portsip.PortSipSdk.refreshRegistration (int  expires)
+int refreshRegistration(int expires) 
 ```
 
 Refresh the registration manually after successfully registered.
@@ -900,7 +1003,7 @@ If this function succeeds, it will return value 0. If fails, it will return a sp
 If the registration to server succeeds, onRegisterSuccess will be triggered; otherwise onRegisterFailure will be triggered.
 
 ```java
-int com.portsip.PortSipSdk.unRegisterServer (int  waitMS)
+int unRegisterServer(int waitMS)
 ```
 
 Un-register from the SIP proxy server.
@@ -915,7 +1018,7 @@ Un-register from the SIP proxy server.
 If this function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.setDisplayName (String  displayName)
+int setDisplayName(String displayName)
 ```
 
 Set the display name of user.
@@ -930,7 +1033,7 @@ Set the display name of user.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.setLicenseKey (String  key)
+int setLicenseKey (String  key)
 ```
 
 Set the license key. It must be called before setUser function.
@@ -947,7 +1050,7 @@ If the function succeeds, it will return value 0. If the function fails, it will
 ### Audio and video codecs functions
 
 ```java
-int com.portsip.PortSipSdk.addAudioCodec (int  enum_audiocodec)
+int addAudioCodec (int  enum_audiocodec)
 ```
 
 Enable an audio codec, and it will be shown in SDP.
@@ -964,7 +1067,7 @@ Enable an audio codec, and it will be shown in SDP.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.addVideoCodec (int  enum_videocodec)
+int addVideoCodec (int  enum_videocodec)
 ```
 
 Enable a video codec, and it will be shown in SDP.
@@ -979,7 +1082,7 @@ Enable a video codec, and it will be shown in SDP.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-**boolean com.portsip.PortSipSdk.isAudioCodecEmpty ()
+**boolean isAudioCodecEmpty ()
 ```
 
 Detect if the audio codecs are enabled.
@@ -989,7 +1092,7 @@ Detect if the audio codecs are enabled.
 If no audio codec enabled, it will return value true; otherwise it returns false.
 
 ```java
-**boolean com.portsip.PortSipSdk.isVideoCodecEmpty ()
+**boolean isVideoCodecEmpty ()
 ```
 
 Detect if the video codecs are enabled.
@@ -999,7 +1102,7 @@ Detect if the video codecs are enabled.
 If no video codec enabled, it will return value true; otherwise it returns false.
 
 ```java
-int com.portsip.PortSipSdk.setAudioCodecPayloadType (int  enum_audiocodec, int  payloadType)
+int setAudioCodecPayloadType (int  enum_audiocodec, int  payloadType)
 ```
 
 Set the RTP payload type for dynamic audio codec.
@@ -1015,7 +1118,7 @@ Set the RTP payload type for dynamic audio codec.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.setVideoCodecPayloadType (int  enum_videocodec, int  payloadType)
+int setVideoCodecPayloadType (int  enum_videocodec, int  payloadType)
 ```
 
 Set the RTP payload type for dynamic video codec.
@@ -1031,19 +1134,19 @@ Set the RTP payload type for dynamic video codec.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-void com.portsip.PortSipSdk.clearAudioCodec ()
+void clearAudioCodec ()
 ```
 
 Remove all the enabled audio codecs.
 
 ```java
-void com.portsip.PortSipSdk.clearVideoCodec ()
+void clearVideoCodec ()
 ```
 
 Remove all the enabled video codecs.
 
 ```java
-int com.portsip.PortSipSdk.setAudioCodecParameter (int  enum_audiocodec, String  sdpParameter)
+int setAudioCodecParameter (int  enum_audiocodec, String  sdpParameter)
 ```
 
 Set the codec parameter for audio codec.
@@ -1070,7 +1173,7 @@ Example:
 setAudioCodecParameter(AUDIOCODEC\_AMR, "mode-set=0; octet-align=1; robust-sorting=0"!\[])
 
 ```java
-int com.portsip.PortSipSdk.setVideoCodecParameter (int  enum_videocodec, String  sdpParameter)
+int setVideoCodecParameter (int  enum_videocodec, String  sdpParameter)
 ```
 
 Set the codec parameter for video codec.
@@ -1089,12 +1192,12 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 Example:
 
-setVideoCodecParameter(PortSipEnumDefine.enum\_VIDEOCODEC\_H264, profile-level-id=420033; packetization-mode=0");
+`setVideoCodecParameter(PortSipEnumDefine.enum_VIDEOCODEC_H264, profile-level-id=420033; packetization-mode=0");`
 
 ### Additional settings functions
 
 ```java
-String com.portsip.PortSipSdk.getVersion ()
+String getVersion ()
 ```
 
 Get the version number of the current SDK.
@@ -1104,7 +1207,7 @@ Get the version number of the current SDK.
 String with version description
 
 ```java
-int com.portsip.PortSipSdk.enableRport (boolean  enable)
+int enableRport (boolean  enable)
 ```
 
 Enable/Disable rport(RFC3581).
@@ -1119,7 +1222,7 @@ Enable/Disable rport(RFC3581).
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.enableEarlyMedia (boolean  enable)
+int enableEarlyMedia (boolean  enable)
 ```
 
 Enable/disable rport(RFC3581).
@@ -1143,7 +1246,7 @@ If the function succeeds, it will return value 0. If the function fails, it will
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.enablePriorityIPv6Domain (boolean  enable)
+int enablePriorityIPv6Domain (boolean  enable)
 ```
 
 Enable/disable which allows specifying the preferred protocol when a domain supports
@@ -1160,7 +1263,7 @@ both IPV4 and IPV6 simultaneously.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.setUriUserEncoding (String  character, boolean  enable)
+int setUriUserEncoding (String  character, boolean  enable)
 ```
 
 Modifies the default URI user character needs to be escaped.
@@ -1176,22 +1279,22 @@ Modifies the default URI user character needs to be escaped.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.setReliableProvisional (int  mode)
+int setReliableProvisional (int  mode)
 ```
 
 Enable/Disable PRACK.
 
 **Parameters**
 
-| _mode_ | Modes work as follows: 0 - Never, Disable PRACK,By default the PRACK is disabled. 1 - SupportedEssential, Only send reliable provisionals if sending a body and far end supports. 2 - Supported, Always send reliable provisionals if far end supports. 3 - Required Always send reliable provisionals. |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _mode_ | <p>Modes work as follows:<br>0 - Never, Disable PRACK,By default the PRACK is disabled.<br>1 - SupportedEssential, Only send reliable provisionals if sending a body and far end supports.<br>2 - Supported, Always send reliable provisionals if far end supports.<br>3 - Required Always send reliable provisionals.</p> |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.enable3GppTags (boolean  enable)
+int enable3GppTags (boolean  enable)
 ```
 
 Enable/disable the 3Gpp tags, including "ims.icsi.mmtel" and "g.3gpp.smsip".
@@ -1206,7 +1309,7 @@ Enable/disable the 3Gpp tags, including "ims.icsi.mmtel" and "g.3gpp.smsip".
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-void com.portsip.PortSipSdk.enableCallbackSignaling (boolean   enableSending, boolean  enableReceived)
+void enableCallbackSignaling (boolean   enableSending, boolean  enableReceived)
 ```
 
 Enable/disable the callback of the SIP messages.
@@ -1218,18 +1321,18 @@ Enable/disable the callback of the SIP messages.
 | _enableReceived_ | Set as true to enable to callback the received SIP messages, or false to disable. Once enabled, the "onReceivedSignaling" event will be triggered when the SDK receives a SIP message. |
 
 ```java
-void com.portsip.PortSipSdk.setSrtpPolicy (int  enum_srtppolicy)
+void setSrtpPolicy (int  enum_srtppolicy)
 ```
 
 Set the SRTP policy.
 
 **Parameters**
 
-| _enum\_srtppolicy_ | The SRTP policy.allow: enum\_SRTPPOLICY\_NONE, enum\_SRTPPOLICY\_FORCE, enum\_SRTPPOLICY\_PREFER. |
-| ------------------ | ------------------------------------------------------------------------------------------------- |
+| _enum\_srtppolicy_ | <p>The SRTP policy.allow:<br>enum_SRTPPOLICY_NONE,<br>enum_SRTPPOLICY _FORCE,<br>enum_SRTPPOLICY_PREFER.</p> |
+| ------------------ | ------------------------------------------------------------------------------------------------------------ |
 
 ```java
-int com.portsip.PortSipSdk.setRtpPortRange (int  minimumRtpPort, int  maximumRtpPort)
+int setRtpPortRange (int  minimumRtpPort, int  maximumRtpPort)
 ```
 
 This function allows to set the RTP port range for audio and video streaming.
@@ -1249,7 +1352,7 @@ If the function succeeds, it will return value 0. If the function fails, it will
 The port range ((max - min) / maxCallLines) should be greater than 4.
 
 ```java
-int com.portsip.PortSipSdk.enableCallForward (boolean  forBusyOnly, String   forwardTo)
+int enableCallForward (boolean  forBusyOnly, String   forwardTo)
 ```
 
 Enable call forwarding.
@@ -1265,7 +1368,7 @@ Enable call forwarding.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.disableCallForward ()
+int disableCallForward ()
 ```
 
 Disable the call forwarding. The SDK will not forward any incoming call when this function is called.
@@ -1275,7 +1378,7 @@ Disable the call forwarding. The SDK will not forward any incoming call when thi
 If the function succeeds, it will not return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.enableSessionTimer (int  timerSeconds)
+int enableSessionTimer (int  timerSeconds)
 ```
 
 This function allows to periodically refresh Session Initiation Protocol (SIP) sessions by
@@ -1296,13 +1399,13 @@ If the function succeeds, it will return value 0. If the function fails, it will
 The repeated INVITE requests, or re-INVITEs, are sent during an active call log to allow user agents (UA) or proxies to determine the status of a SIP session. Without this keep-alive mechanism, proxies that remember incoming and outgoing requests (stateful proxies) may continue to retain call state in vain. If a UA fails to send a BYE message at the end of a session, or if the BYE message is lost due to network problems, a stateful proxy will not know that the session has ended. The re-INVITES ensure that active sessions stay active and completed sessions are terminated.
 
 ```java
-void com.portsip.PortSipSdk.disableSessionTimer ()
+void disableSessionTimer ()
 ```
 
 Disable the session timer.
 
 ```java
-void com.portsip.PortSipSdk.setDoNotDisturb (boolean  state)
+void setDoNotDisturb (boolean  state)
 ```
 
 Enable/disable the "Do not disturb" status.
@@ -1313,7 +1416,7 @@ Enable/disable the "Do not disturb" status.
 | ------- | ------------------------------------------------------------- |
 
 ```java
-void com.portsip.PortSipSdk.enableAutoCheckMwi (boolean  state)
+void enableAutoCheckMwi (boolean  state)
 ```
 
 Enable/disable the "Auto Check MWI" status.
@@ -1324,7 +1427,7 @@ Enable/disable the "Auto Check MWI" status.
 | ------- | ----------------------------------------------------------- |
 
 ```java
-int com.portsip.PortSipSdk.setRtpKeepAlive (boolean  state, int  keepAlivePayloadType, int  deltaTransmitTimeMS)
+int setRtpKeepAlive (boolean  state, int  keepAlivePayloadType, int  deltaTransmitTimeMS)
 ```
 
 Enable or disable to send RTP keep-alive packet when the call is ongoing.
@@ -1341,7 +1444,7 @@ Enable or disable to send RTP keep-alive packet when the call is ongoing.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.setKeepAliveTime (int  keepAliveTime)
+int setKeepAliveTime (int  keepAliveTime)
 ```
 
 Enable or disable to send SIP keep-alive packet.
@@ -1356,7 +1459,7 @@ Enable or disable to send SIP keep-alive packet.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.setAudioSamples (int  ptime, int  maxptime)
+int setAudioSamples (int  ptime, int  maxptime)
 ```
 
 Set the audio capture sample, which will be present in the SDP of INVITE and 200 OK message as "ptime and "maxptime" attribute.
@@ -1372,7 +1475,7 @@ Set the audio capture sample, which will be present in the SDP of INVITE and 200
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.addSupportedMimeType (String  methodName, String  mimeType, String  subMimeType)
+int addSupportedMimeType (String  methodName, String  mimeType, String  subMimeType)
 ```
 
 Set the SDK to receive SIP messages that include special mime type.
@@ -1401,7 +1504,7 @@ In default, PortSIP VoIP SDK supports media types (mime types) included in the b
 
 The SDK allows to receive SIP messages that include above mime types. Now if remote side send an INFO SIP message with its "Content-Type" header value "text/plain", SDK will reject this INFO message, because "text/plain" of INFO message is not included in the default type list. How should we enable the SDK to receive SIP INFO messages that include "text/plain" mime type? The answer is addSupportedMimyType:
 
-addSupportedMimeType("INFO", "text", "plain");
+`addSupportedMimeType("INFO", "text", "plain");`
 
 If the user wishes to receive the NOTIFY message with "application/media\_control+xml", it should be set as below:
 
@@ -1412,7 +1515,7 @@ For more details about the mime type, please visit: [http://www.iana.org/assignm
 ### Access SIP message header functions
 
 ```java
-String com.portsip.PortSipSdk.getSipMessageHeaderValue (String  sipMessage, String  headerName)
+String getSipMessageHeaderValue (String  sipMessage, String  headerName)
 ```
 
 Access the SIP header of SIP message.
@@ -1428,7 +1531,11 @@ Access the SIP header of SIP message.
 String. The SIP header of SIP message.
 
 ```java
-long com.portsip.PortSipSdk.addSipMessageHeader (long  sessionId, String  methodName, int  msgType, String  headerName, String  headerValue)
+long addSipMessageHeader(long sessionId, 
+									       String methodName, 
+									       int msgType, 
+									       String headerName,
+									       String headerValue)
 ```
 
 Add the SIP Message header into the specified outgoing SIP message.
@@ -1447,7 +1554,7 @@ Add the SIP Message header into the specified outgoing SIP message.
 If the function succeeds, it will return the addedSipMessageId , which is greater than 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.removeAddedSipMessageHeader (long  addedSipMessageId)
+int removeAddedSipMessageHeader (long  addedSipMessageId)
 ```
 
 Remove the headers (custom header) added by addSipMessageHeader.
@@ -1462,7 +1569,7 @@ Remove the headers (custom header) added by addSipMessageHeader.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-void com.portsip.PortSipSdk.clearAddedSipMessageHeaders ()
+void clearAddedSipMessageHeaders ()
 ```
 
 Clear the added extension headers (custom headers)
@@ -1480,7 +1587,11 @@ clearAddedSipMessageHeaders();
 If this function is called, the added extension headers will no longer appear in outgoing SIP message.
 
 ```java
-long com.portsip.PortSipSdk.modifySipMessageHeader (long  sessionId, String  methodName, int  msgType, String  headerName, String  headerValue)
+long modifySipMessageHeader(long sessionId, 
+									          String methodName, 
+									          int msgType,
+									          String headerName, 
+									          String headerValue)
 ```
 
 Modify the special SIP header value for every outgoing SIP message.
@@ -1505,7 +1616,7 @@ Example: modify "Expires" header and "User-Agent" header value for every outgoin
 modifySipMessageHeader(-1,"ALL",3, "Expires", "1000"); modifySipMessageHeader(-1,"ALL",3, "User-Agent", "MyTest Softphone 1.0");
 
 ```java
-int com.portsip.PortSipSdk.removeModifiedSipMessageHeader (long  modifiedSipMessageId)
+int removeModifiedSipMessageHeader (long  modifiedSipMessageId)
 ```
 
 Remove the headers (custom header) added by modifiedSipMessageId.
@@ -1520,14 +1631,14 @@ Remove the headers (custom header) added by modifiedSipMessageId.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-void com.portsip.PortSipSdk.clearModifiedSipMessageHeaders ()
+void clearModifiedSipMessageHeaders ()
 ```
 
 Clear the modify headers value. Once cleared, it will no longer modify every outgoing SIP message header values.
 
 **Remarks** Example: modify two headers value for every outgoing SIP message and then clear it:
 
-```
+```java
   modifySipMessageHeader(-1,"ALL",3, "Expires", "1000"); 
   modifySipMessageHeader(-1,"ALL",3, "User-Agent", "MyTest Softphone 1.0");   
   cleaModifyHeaders();
@@ -1538,7 +1649,7 @@ Clear the modify headers value. Once cleared, it will no longer modify every out
 ### Audio and video functions
 
 ```java
-int com.portsip.PortSipSdk.setVideoDeviceId (int  deviceId)
+int setVideoDeviceId (int  deviceId)
 ```
 
 Set the video device that will be used for video call. **Parameters**
@@ -1551,7 +1662,7 @@ Set the video device that will be used for video call. **Parameters**
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.setVideoOrientation (int  rotation)
+int setVideoOrientation (int  rotation)
 ```
 
 Setting the video Device Orientation.
@@ -1566,7 +1677,7 @@ Setting the video Device Orientation.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.enableVideoHardwareCodec (boolean  enableHWEncoder, boolean  enableHWDecoder)
+int enableVideoHardwareCodec (boolean  enableHWEncoder, boolean  enableHWDecoder)
 ```
 
 Set enable/disable video Hardware codec.
@@ -1580,7 +1691,7 @@ Set enable/disable video Hardware codec.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.setVideoResolution (int  width, int  height)
+int setVideoResolution (int  width, int  height)
 ```
 
 Set the video capturing resolution.
@@ -1596,7 +1707,7 @@ Set the video capturing resolution.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.setAudioBitrate (long  sessionId, int  enum_audiocodec, int  bitrateKbps)
+int setAudioBitrate (long  sessionId, int  enum_audiocodec, int  bitrateKbps)
 ```
 
 Set the audio bitrate. **Parameters**
@@ -1611,7 +1722,7 @@ Set the audio bitrate. **Parameters**
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.setVideoBitrate (long  sessionId, int  bitrateKbps)
+int setVideoBitrate (long  sessionId, int  bitrateKbps)
 ```
 
 Set the video bitrate.
@@ -1627,7 +1738,7 @@ Set the video bitrate.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.setVideoFrameRate (long  sessionId, int  frameRate)
+int setVideoFrameRate (long  sessionId, int  frameRate)
 ```
 
 Set the video frame rate. Usually you do not need to call this function to set the frame rate since the SDK uses default frame rate.
@@ -1643,7 +1754,7 @@ Set the video frame rate. Usually you do not need to call this function to set t
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.sendVideo (long  sessionId, boolean  send)
+int sendVideo (long  sessionId, boolean  send)
 ```
 
 Send the video to remote side.
@@ -1659,7 +1770,7 @@ Send the video to remote side.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.setRemoteVideoWindow (long  sessionId, PortSIPVideoRenderer  renderer)
+int setRemoteVideoWindow (long  sessionId, PortSIPVideoRenderer  renderer)
 ```
 
 Set the window for a session that is used for displaying the received remote video image.
@@ -1675,7 +1786,7 @@ Set the window for a session that is used for displaying the received remote vid
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.setRemoteScreenWindow (long  sessionId, PortSIPVideoRenderer  renderer)
+int setRemoteScreenWindow (long  sessionId, PortSIPVideoRenderer  renderer)
 ```
 
 Set the window for a session that is used for displaying the received remote screen image.
@@ -1691,7 +1802,7 @@ Set the window for a session that is used for displaying the received remote scr
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-void com.portsip.PortSipSdk.displayLocalVideo (boolean   state, boolean  mirror, PortSIPVideoRenderer  renderer)
+void displayLocalVideo (boolean   state, boolean  mirror, PortSIPVideoRenderer  renderer)
 ```
 
 Start/stop displaying the local video image.
@@ -1704,7 +1815,7 @@ Start/stop displaying the local video image.
 | _renderer_ | SurfaceView a SurfaceView for displaying local video image from camera. |
 
 ```java
-int com.portsip.PortSipSdk.setVideoNackStatus (boolean  state)
+int setVideoNackStatus (boolean  state)
 ```
 
 Enable/disable the NACK feature (rfc6642) which helps to improve the video quality.
@@ -1719,7 +1830,7 @@ Enable/disable the NACK feature (rfc6642) which helps to improve the video quali
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.setChannelOutputVolumeScaling (long  sessionId, int  scaling)
+int setChannelOutputVolumeScaling (long  sessionId, int  scaling)
 ```
 
 Set a volume |scaling| to be applied to the outgoing signal of a specific audio channel.
@@ -1735,7 +1846,7 @@ Set a volume |scaling| to be applied to the outgoing signal of a specific audio 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.setChannelInputVolumeScaling (long  sessionId, int  scaling)
+int setChannelInputVolumeScaling (long  sessionId, int  scaling)
 ```
 
 Set a volume |scaling| to be applied to the microphone signal of a specific audio channel.
@@ -1751,7 +1862,7 @@ Set a volume |scaling| to be applied to the microphone signal of a specific audi
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-void com.portsip.PortSipSdk.enableAudioManager (boolean   state)
+void enableAudioManager (boolean   state)
 ```
 
 enable/disable sdk audio manager,when enable sdk will auto manager audio device input/output. if the state is enabled, the onAudioDeviceChanged event will be triggered when available audio devices changed or audio device currently in use changed .
@@ -1762,7 +1873,7 @@ enable/disable sdk audio manager,when enable sdk will auto manager audio device 
 | ------- | ----------------------------------------------------------- |
 
 ```java
-Set<PortSipEnumDefine.AudioDevice> com.portsip.PortSipSdk.getAudioDevices ()
+Set<PortSipEnumDefine.AudioDevice> getAudioDevices ()
 ```
 
 Get current set of available/selectable audio devices.
@@ -1772,7 +1883,7 @@ Get current set of available/selectable audio devices.
 Current set of available/selectable audio devices.
 
 ```java
-int com.portsip.PortSipSdk.setAudioDevice (PortSipEnumDefine.AudioDevice  defaultDevice)
+int setAudioDevice (PortSipEnumDefine.AudioDevice  defaultDevice)
 ```
 
 Set the audio device that will used for audio call. For Android and iOS, switch between earphone and Loudspeaker allowed.
@@ -1789,7 +1900,7 @@ If the function succeeds, it will return value 0. If the function fails, it will
 ### Call functions
 
 ```java
-long com.portsip.PortSipSdk.call (String  callee, boolean  sendSdp, boolean  videoCall)
+long call (String  callee, boolean  sendSdp, boolean  videoCall)
 ```
 
 Make a call
@@ -1808,7 +1919,7 @@ If the function succeeds, it will return the session ID of the call, which is gr
 Note: the function success just means the outgoing call is processing, you need to detect the call final state in onInviteTrying, onInviteRinging, onInviteFailure callback events.
 
 ```java
-int com.portsip.PortSipSdk.rejectCall (long  sessionId, int  code)
+int rejectCall (long  sessionId, int  code)
 ```
 
 rejectCall Reject the incoming call.
@@ -1824,7 +1935,7 @@ rejectCall Reject the incoming call.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.hangUp (long  sessionId)
+int hangUp (long  sessionId)
 ```
 
 hangUp Hang up the call.
@@ -1839,7 +1950,7 @@ hangUp Hang up the call.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.answerCall (long  sessionId, boolean  videoCall)
+int answerCall (long  sessionId, boolean  videoCall)
 ```
 
 answerCall Answer the incoming call.
@@ -1855,7 +1966,7 @@ answerCall Answer the incoming call.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.updateCall (long  sessionId, boolean  enableAudio, boolean  enableVideo)
+int updateCall (long  sessionId, boolean  enableAudio, boolean  enableVideo)
 ```
 
 updateCall Use the re-INVITE to update the established call.
@@ -1884,7 +1995,7 @@ Example 2: Remove video stream from the current conversation.\
 updateCall(sessionId, true, false);
 
 ```java
-int com.portsip.PortSipSdk.hold (long  sessionId)
+int hold (long  sessionId)
 ```
 
 To place a call on hold.
@@ -1899,7 +2010,7 @@ To place a call on hold.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.unHold (long  sessionId)
+int unHold (long  sessionId)
 ```
 
 Take off hold.
@@ -1914,7 +2025,11 @@ Take off hold.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.muteSession (long  sessionId, boolean  muteIncomingAudio, boolean  muteOutgoingAudio, boolean  muteIncomingVideo, boolean  muteOutgoingVideo)
+int muteSession(long sessionId, 
+						    boolean muteIncomingAudio,
+						    boolean muteOutgoingAudio, 
+						    boolean muteIncomingVideo,
+						    boolean muteOutgoingVideo) 
 ```
 
 Mute the specified audio or video session.
@@ -1933,7 +2048,7 @@ Mute the specified audio or video session.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.forwardCall (long  sessionId, String   forwardTo)
+int forwardCall (long  sessionId, String   forwardTo)
 ```
 
 Forward call to another one when receiving the incoming call.
@@ -1949,7 +2064,7 @@ Forward call to another one when receiving the incoming call.
 If the function succeeds, it will return value 0. If the function fails, it will return value a specific error code.
 
 ```java
-long com.portsip.PortSipSdk.pickupBLFCall (String  replaceDialogId, boolean  videoCall)
+long pickupBLFCall (String  replaceDialogId, boolean  videoCall)
 ```
 
 This function will be used for picking up a call based on the BLF (Busy Lamp Field) status.
@@ -1970,7 +2085,11 @@ The scenario is:
 2. When 100 holds a call or 100 is ringing, onDialogStateUpdated callback will be triggered, and 101 will receive this callback. Now 101 can use pickupBLFCall function to pick the call rather than 100 to talk with caller.
 
 ```java
-int com.portsip.PortSipSdk.sendDtmf (long  sessionId, int  enum_dtmfMethod, int  code, int  dtmfDuration, boolean  playDtmfTone)
+int sendDtmf (long  sessionId, 
+              int  enum_dtmfMethod, 
+              int  code, 
+              int  dtmfDuration, 
+              boolean  playDtmfTone)
 ```
 
 Send DTMF tone.
@@ -2013,7 +2132,7 @@ If the function succeeds, it will return value 0. If the function fails, it will
 ### Refer functions
 
 ```java
-int com.portsip.PortSipSdk.refer (long  sessionId, String  referTo)
+int refer (long  sessionId, String  referTo)
 ```
 
 Transfer the current call to another callee.
@@ -2037,7 +2156,7 @@ You can refer to the video on Youtube at:
 [https://www.youtube.com/watch?v=\_2w9EGgr3FY,](https://www.youtube.com/watch?v=\_2w9EGgr3FY) which will demonstrate how to complete the transfer.
 
 ```java
-int com.portsip.PortSipSdk.attendedRefer (long  sessionId, long  replaceSessionId, String  referTo)
+int attendedRefer (long  sessionId, long  replaceSessionId, String  referTo)
 ```
 
 Make an attended refer. **Parameters**
@@ -2060,7 +2179,11 @@ Please read the sample project source code to get more details, or you can refer
 Note: Please use Windows Media Player to play the AVI file, which demonstrates how to complete the transfer.
 
 ```java
-int com.portsip.PortSipSdk.attendedRefer2 (long  sessionId, long  replaceSessionId, String  replaceMethod, String  target, String  referTo)
+int attendedRefer2(long sessionId, 
+							     long replaceSessionId, 
+							     String replaceMethod,
+							     String target,
+							     String referTo)
 ```
 
 Make an attended refer.
@@ -2079,7 +2202,7 @@ Make an attended refer.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.outOfDialogRefer (long  replaceSessionId, String  replaceMethod, String  target, String  referTo)
+int outOfDialogRefer (long  replaceSessionId, String  replaceMethod, String  target, String  referTo)
 ```
 
 Make an attended refer.
@@ -2097,7 +2220,7 @@ Make an attended refer.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-long com.portsip.PortSipSdk.acceptRefer (long  referId, String  referSignaling)
+long acceptRefer (long  referId, String  referSignaling)
 ```
 
 By accepting the REFER request, a new call will be made if this function is called. The
@@ -2115,7 +2238,7 @@ function is usually called after onReceivedRefer callback event.
 If the function succeeds, it will return a session ID greater than 0 to the new call for REFER; otherwise it will return a specific error code less than 0;
 
 ```java
-int com.portsip.PortSipSdk.rejectRefer (long  referId)
+int rejectRefer (long  referId)
 ```
 
 Reject the REFER request.
@@ -2132,7 +2255,7 @@ If the function succeeds, it will return value 0. If the function fails, it will
 ### Send audio and video stream functions
 
 ```java
-int com.portsip.PortSipSdk.enableSendPcmStreamToRemote (long  sessionId, boolean  state, int  streamSamplesPerSec)
+int enableSendPcmStreamToRemote (long  sessionId, boolean  state, int  streamSamplesPerSec)
 ```
 
 Enable the SDK send PCM stream data to remote side from another source instead of microphone. This function MUST be called first to send the PCM stream data to another
@@ -2151,7 +2274,7 @@ side.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.sendPcmStreamToRemote (long  sessionId, byte[]  data, int  dataLength)
+int sendPcmStreamToRemote (long  sessionId, byte[]  data, int  dataLength)
 ```
 
 Send the audio stream in PCM format from another source instead of audio device
@@ -2173,12 +2296,15 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 Usually we should use it like below:
 
-enableSendPcmStreamToRemote(sessionId, true, 16000); sendPcmStreamToRemote(sessionId, data, dataSize);
+```java
+enableSendPcmStreamToRemote(sessionId, true, 16000); 
+sendPcmStreamToRemote(sessionId, data, dataSize); 
+```
 
 You can't have too much audio data at one time as we have 100ms audio buffer only. Once you put too much, data will be lost. It is recommended to send 20ms audio data every 20ms.
 
 ```java
-int com.portsip.PortSipSdk.enableSendVideoStreamToRemote (long  sessionId, boolean  state)
+int enableSendVideoStreamToRemote (long  sessionId, boolean  state)
 ```
 
 Enable the SDK to send video stream data to remote side from another source instead of camera.
@@ -2196,7 +2322,7 @@ This function MUST be called first to send the video stream data to another side
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.sendVideoStreamToRemote (long  sessionId, byte[]  data, int  dataLength, int  width, int  height)
+int sendVideoStreamToRemote (long  sessionId, byte[]  data, int  dataLength, int  width, int  height)
 ```
 
 Send the video stream in i420 from another source instead of video device capturing (camera).
@@ -2219,7 +2345,7 @@ If the function succeeds, it will return value is 0. If the function fails, it w
 ### RTP packets, Audio stream and video stream callback
 
 ```java
-long com.portsip.PortSipSdk.enableRtpCallback (long  sessionId, int  mediaType, int  directionMode)
+long enableRtpCallback (long  sessionId, int  mediaType, int  directionMode)
 ```
 
 Set the RTP callbacks to allow access to the sent and received RTP packets.
@@ -2236,7 +2362,7 @@ Set the RTP callbacks to allow access to the sent and received RTP packets.
 If the function succeeds, it will return value is 0. If the function fails, it will return a specific error code.
 
 ```java
-void com.portsip.PortSipSdk.enableAudioStreamCallback (long  sessionId, boolean  enable, int  enum_direction)
+void enableAudioStreamCallback (long  sessionId, boolean  enable, int  enum_direction)
 ```
 
 Enable/disable the audio stream callback. The onAudioRawCallback event will be triggered if the callback is enabled.
@@ -2250,7 +2376,7 @@ Enable/disable the audio stream callback. The onAudioRawCallback event will be t
 | ENUM\_DIRECTION\_RECV ENUM\_DIRECTION\_SEND\_RECV. |                                                                                                       |
 
 ```java
-void com.portsip.PortSipSdk.enableVideoStreamCallback (long  sessionId, int  enum_direction)
+void enableVideoStreamCallback (long  sessionId, int  enum_direction)
 ```
 
 Enable/disable the video stream callback, the onVideoRawCallback event will be triggered if the callback is enabled.
@@ -2265,7 +2391,14 @@ Enable/disable the video stream callback, the onVideoRawCallback event will be t
 **Record functions**
 
 ```java
-int com.portsip.PortSipSdk.startRecord (long  sessionId, String  recordFilePath, String  recordFileName, boolean  appendTimeStamp, int  audioChannels, int  enum_fileFormat, int  enum_audioRecordMode, int  enum_videoRecordMode)
+int startRecord(long sessionId, 
+						    String recordFilePath,
+						    String recordFileName, 
+						    boolean appendTimeStamp,
+						    int audioChannels,
+						    int enum_fileFormat,
+						    int enum_audioRecordMode,
+						    int enum_videoRecordMode)
 ```
 
 Start recording the call.
@@ -2287,7 +2420,7 @@ Start recording the call.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.stopRecord (long  sessionId)
+int stopRecord (long  sessionId)
 ```
 
 Stop recording.
@@ -2304,7 +2437,7 @@ If the function succeeds, it will return value 0. If the function fails, it will
 ### Play audio and video file and RTMP/RTSP stream functions
 
 ```java
-int com.portsip.PortSipSdk.startPlayingFileToRemote (long  sessionId, String  fileUrl, boolean  loop, int  playAudio)
+int startPlayingFileToRemote (long  sessionId, String  fileUrl, boolean  loop, int  playAudio)
 ```
 
 Play an local file or RTSP/RTMP stream to remote party.
@@ -2322,7 +2455,7 @@ Play an local file or RTSP/RTMP stream to remote party.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.stopPlayingFileToRemote (long  sessionId)
+int stopPlayingFileToRemote (long  sessionId)
 ```
 
 Stop play file to remote side.
@@ -2337,7 +2470,7 @@ Stop play file to remote side.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.startPlayingFileLocally (String  fileUrl, boolean  loop, PortSIPVideoRenderer  renderer)
+int startPlayingFileLocally (String  fileUrl, boolean  loop, PortSIPVideoRenderer  renderer)
 ```
 
 Play an local file or RTSP/RTMP stream.
@@ -2354,7 +2487,7 @@ Play an local file or RTSP/RTMP stream.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.stopPlayingFileLocally ()
+int stopPlayingFileLocally ()
 ```
 
 Stop play file locally.
@@ -2364,7 +2497,7 @@ Stop play file locally.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-void com.portsip.PortSipSdk.audioPlayLoopbackTest (boolean  enable)
+void audioPlayLoopbackTest (boolean  enable)
 ```
 
 Used for testing loopback for the audio device.
@@ -2377,7 +2510,7 @@ Used for testing loopback for the audio device.
 ### Conference functions
 
 ```java
-int com.portsip.PortSipSdk.createAudioConference ()
+int createAudioConference ()
 ```
 
 Create an audio conference. It will fail if the existing conference is not ended yet. **Returns**
@@ -2385,31 +2518,34 @@ Create an audio conference. It will fail if the existing conference is not ended
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.createVideoConference (PortSIPVideoRenderer  conferenceVideoWindow, int  videoWidth int  videoHeight, int  layout)
+int createVideoConference(PortSIPVideoRenderer conferenceVideoWindow,
+									 int videoWidth, 
+									 int videoHeight, 
+									 int layout)
 ```
 
 Create a video conference. It will fail if the existing conference is not ended yet.
 
 **Parameters**
 
-| _conferenceVideoW indow_ | SurfaceView The window used for displaying the conference video.                                                                                                                                            |
-| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _videoWidth_             | Width of conference video resolution                                                                                                                                                                        |
-| _videoHeight_            | Height of conference video resolution                                                                                                                                                                       |
-| _layout_                 | Conference Video layout, default is 0 - Adaptive. 0 - Adaptive(1,3,5,6) 1 - Only Local Video 2 - 2 video,PIP 3 - 2 video, Left and right 4 - 2 video, Up and Down 5 - 3 video 6 - 4 split video 7 - 5 video |
+| _conferenceVideoW indow_ | SurfaceView The window used for displaying the conference video.                                                                                                                                                                           |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| _videoWidth_             | Width of conference video resolution                                                                                                                                                                                                       |
+| _videoHeight_            | Height of conference video resolution                                                                                                                                                                                                      |
+| _layout_                 | <p>Conference Video layout, default is 0 - Adaptive.<br>0 - Adaptive(1,3,5,6)<br>1 - Only Local Video<br>2 - 2 video,PIP<br>3 - 2 video, Left and right<br>4 - 2 video, Up and Down<br>5 - 3 video<br>6 - 4 split video<br>7 - 5 video</p> |
 
 **Returns**
 
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-void com.portsip.PortSipSdk.destroyConference ()
+void destroyConference ()
 ```
 
 End the exist conference.
 
 ```java
-int com.portsip.PortSipSdk.setConferenceVideoWindow (PortSIPVideoRenderer  conferenceVideoWindow)
+int setConferenceVideoWindow (PortSIPVideoRenderer  conferenceVideoWindow)
 ```
 
 Set the window for a conference that is used for displaying the received remote video
@@ -2426,7 +2562,7 @@ image.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.joinToConference (long  sessionId)
+int joinToConference (long  sessionId)
 ```
 
 Join a session into existing conference. If the call is in hold, it will be un-hold
@@ -2443,7 +2579,7 @@ automatically.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.removeFromConference (long  sessionId)
+int removeFromConference (long  sessionId)
 ```
 
 Remove a session from an existing conference.
@@ -2460,7 +2596,7 @@ If the function succeeds, it will return value 0. If the function fails, it will
 ### RTP and RTCP QOS functions
 
 ```java
-int com.portsip.PortSipSdk.setAudioRtcpBandwidth (long  sessionId, int  BitsRR, int  BitsRS, int  KBitsAS)
+int setAudioRtcpBandwidth (long  sessionId, int  BitsRR, int  BitsRS, int  KBitsAS)
 ```
 
 Set the audio RTCP bandwidth parameters as RFC3556.
@@ -2478,7 +2614,7 @@ Set the audio RTCP bandwidth parameters as RFC3556.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.setVideoRtcpBandwidth (long  sessionId, int  BitsRR, int  BitsRS, int  KBitsAS)
+int setVideoRtcpBandwidth (long  sessionId, int  BitsRR, int  BitsRS, int  KBitsAS)
 ```
 
 Set the video RTCP bandwidth parameters as the RFC3556.
@@ -2496,7 +2632,7 @@ Set the video RTCP bandwidth parameters as the RFC3556.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.enableAudioQos (boolean  state)
+int enableAudioQos (boolean  state)
 ```
 
 Set the DSCP (differentiated services code point) value of QoS (Quality of Service) for audio channel.
@@ -2511,7 +2647,7 @@ Set the DSCP (differentiated services code point) value of QoS (Quality of Servi
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.enableVideoQos (boolean  state)
+int enableVideoQos (boolean  state)
 ```
 
 Set the DSCP(differentiated services code point) value of QoS(Quality of Service) for video channel.
@@ -2526,7 +2662,7 @@ Set the DSCP(differentiated services code point) value of QoS(Quality of Service
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.setVideoMTU (int  mtu)
+int setVideoMTU (int  mtu)
 ```
 
 Set the MTU size for video RTP packet.
@@ -2543,7 +2679,7 @@ If the function succeeds, the return value is 0. If the function fails, the retu
 ## RTP statistics functions
 
 ```java
-int com.portsip.PortSipSdk.getStatistics (long  sessionId)
+int getStatistics (long  sessionId)
 ```
 
 Obtain the statistics of channel. the event onStatistics will be triggered.
@@ -2560,7 +2696,7 @@ If the function succeeds, it will return value is 0. If the function fails, it w
 ### Audio effect functions
 
 ```java
-void com.portsip.PortSipSdk.enableVAD (boolean  state)
+void enableVAD (boolean  state)
 ```
 
 Enable/disable Voice Activity Detection(VAD).
@@ -2571,7 +2707,7 @@ Enable/disable Voice Activity Detection(VAD).
 | ------- | ----------------------------------------------- |
 
 ```java
-void com.portsip.PortSipSdk.enableAEC (boolean  state)
+void enableAEC (boolean  state)
 ```
 
 Enable/disable AEC (Acoustic Echo Cancellation).
@@ -2582,7 +2718,7 @@ Enable/disable AEC (Acoustic Echo Cancellation).
 | ------- | ----------------------------------------------- |
 
 ```java
-void com.portsip.PortSipSdk.enableCNG (boolean  state)
+void enableCNG (boolean  state)
 ```
 
 Enable/disable Comfort Noise Generator(CNG).
@@ -2593,7 +2729,7 @@ Enable/disable Comfort Noise Generator(CNG).
 | ------- | ----------------------------------------------- |
 
 ```java
-void com.portsip.PortSipSdk.enableAGC (boolean  state)
+void enableAGC (boolean  state)
 ```
 
 Enable/disable Automatic Gain Control(AGC).
@@ -2604,7 +2740,7 @@ Enable/disable Automatic Gain Control(AGC).
 | ------- | ----------------------------------------------- |
 
 ```java
-void com.portsip.PortSipSdk.enableANS (boolean  state)
+void enableANS (boolean  state)
 ```
 
 Enable/disable Audio Noise Suppression(ANS).
@@ -2617,7 +2753,7 @@ Enable/disable Audio Noise Suppression(ANS).
 ### Send OPTIONS/INFO/MESSAGE functions
 
 ```java
-int com.portsip.PortSipSdk.sendOptions (String  to, String  sdp)
+int sendOptions (String  to, String  sdp)
 ```
 
 Send OPTIONS message.
@@ -2633,7 +2769,7 @@ Send OPTIONS message.
 If the function succeeds, it will return value 0. If the function fails, it will return value a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.sendInfo (long  sessionId, String  mimeType, String  subMimeType, String  infoContents)
+int sendInfo (long  sessionId, String  mimeType, String  subMimeType, String  infoContents)
 ```
 
 Send a INFO message to remote side in dialog.
@@ -2651,7 +2787,11 @@ Send a INFO message to remote side in dialog.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-long com.portsip.PortSipSdk.sendMessage (long  sessionId, String  mimeType, String  subMimeType, byte[]  message, int  messageLength)
+long sendMessage(long sessionId, 
+							   String mimeType,
+							   String subMimeType, 
+							   byte[] message, 
+							   int messageLength)
 ```
 
 Send a MESSAGE message to remote side in dialog.
@@ -2680,7 +2820,7 @@ Example 2: Send a binary message.
 sendMessage(sessionId, "application", "vnd.3gpp.sms", binData, binDataSize);
 
 ```java
-long com.portsip.PortSipSdk.sendOutOfDialogMessage (String  to, String  mimeType, String  subMimeType, boolean  isSMS, byte[]  message, int  messageLength)
+long sendOutOfDialogMessage (String  to, String  mimeType, String  subMimeType, boolean  isSMS, byte[]  message, int  messageLength)
 ```
 
 Send a out of dialog MESSAGE message to remote side.
@@ -2710,7 +2850,7 @@ Example 2: Send a binary message.
 sendOutOfDialogMessage("sip:user1@sip.portsip.com","application", "vnd.3gpp.sms", binData, binDataSize);
 
 ```java
-long com.portsip.PortSipSdk.setPresenceMode (int  mode)
+long setPresenceMode (int  mode)
 ```
 
 Indicate the SDK uses the P2P mode for presence or presence agent mode.
@@ -2729,7 +2869,7 @@ If the function succeeds, it will return value 0. If the function fails, it will
 Since presence agent mode requires the PBX/Server support the PUBLISH, please ensure you have your server and PortSIP PBX support this feature. For more details please visit: [https://www.portsip.com/portsip-pbx](https://www.portsip.com/portsip-pbx)
 
 ```java
-long com.portsip.PortSipSdk.setDefaultSubscriptionTime (int  secs)
+long setDefaultSubscriptionTime (int  secs)
 ```
 
 Set the default expiration time to be used when creating a subscription.
@@ -2744,7 +2884,7 @@ Set the default expiration time to be used when creating a subscription.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-long com.portsip.PortSipSdk.setDefaultPublicationTime (int  secs)
+long setDefaultPublicationTime (int  secs)
 ```
 
 Set the default expiration time to be used when creating a publication.
@@ -2759,7 +2899,7 @@ Set the default expiration time to be used when creating a publication.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-long com.portsip.PortSipSdk.presenceSubscribe (String  contact, String  subject)
+long presenceSubscribe (String  contact, String  subject)
 ```
 
 Send a SUBSCRIBE message for presence to a contact.
@@ -2775,7 +2915,7 @@ Send a SUBSCRIBE message for presence to a contact.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.presenceTerminateSubscribe (long   subscribeId)
+int presenceTerminateSubscribe (long   subscribeId)
 ```
 
 Terminate the given presence subscription.
@@ -2790,7 +2930,7 @@ Terminate the given presence subscription.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.presenceAcceptSubscribe (long   subscribeId)
+int presenceAcceptSubscribe (long   subscribeId)
 ```
 
 Accept the presence SUBSCRIBE request which received from contact.
@@ -2805,7 +2945,7 @@ Accept the presence SUBSCRIBE request which received from contact.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.presenceRejectSubscribe (long   subscribeId)
+int presenceRejectSubscribe (long   subscribeId)
 ```
 
 Reject a presence SUBSCRIBE request received from contact.
@@ -2820,7 +2960,7 @@ Reject a presence SUBSCRIBE request received from contact.
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-int com.portsip.PortSipSdk.setPresenceStatus (long   subscribeId, String  statusText)
+int setPresenceStatus (long   subscribeId, String  statusText)
 ```
 
 Send a NOTIFY message to contact to notify that presence status is online/offline/changed.
@@ -2836,7 +2976,7 @@ Send a NOTIFY message to contact to notify that presence status is online/offlin
 If the function succeeds, it will return value 0. If the function fails, it will return a specific error code.
 
 ```java
-long com.portsip.PortSipSdk.sendSubscription (String  to, String  eventName)
+long sendSubscription (String  to, String  eventName)
 ```
 
 Send a SUBSCRIBE message to subscribe an event.
@@ -2858,7 +2998,7 @@ Example 1, below code indicates that user/extension 101 is subscribed to MWI (Me
 Example 2, to monitor a user/extension call status, You can use code: sendSubscription(mSipLib, "100", "dialog"); Extension 100 refers to the user/extension to be monitored. Once being monitored, when extension 100 hold a call or is ringing, the onDialogStateUpdated callback will be triggered.
 
 ```java
-int com.portsip.PortSipSdk.terminateSubscription (long   subscribeId)
+int terminateSubscription (long   subscribeId)
 ```
 
 Terminate the given subscription.
