@@ -37,7 +37,7 @@ Please follow the below steps:
    * **Sender ID**: You can leave it as empty.
    * **API Key**: Paste your copied Voxtelesys API Key here.
 
-<figure><img src="../../.gitbook/assets/questblue-fig16.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/voxtelesys-fig28.png" alt=""><figcaption></figcaption></figure>
 
 3. Click **OK** to be brought to the SMS/MMS list page. You can select that SMS configuration, then press the **Copy Webhook** button to copy the Webhook URL. Or Double-click the SMS configuration to edit the SMS configuration, in the details copy the Webhook URL.
 
