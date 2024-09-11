@@ -6,6 +6,6 @@ Whether you’re a Cloud PBX provider looking to operate UCaaS or a Cloud Commun
 
 Here are some of our key products:
 
-* PortSIP PBX
+* [PortSIP PBX](https://www.portsip.com/portsip-pbx/)
 * PortSIP ONE App
-* PortSIP VoIP SDK
+* [PortSIP VoIP SDK](https://www.portsip.com/portsip-voip-sdk/)
