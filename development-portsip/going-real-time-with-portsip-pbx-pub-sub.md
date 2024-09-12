@@ -1,12 +1,12 @@
 # WSI: Pub/Sub
 
-PortSIP PBX provides the Pub/Sub mechanism which is based on the WebSocket (PortSIP WSI). The user is able to create the WebSocket in any programming language to subscribe to the PBX events, once the subscribed events occur, PortSIP PBX will push the event message to the subscriber automatically, the message is in the JSON format.
+PortSIP PBX offers a Pub/Sub mechanism using WebSocket (PortSIP WSI). This allows users to subscribe to PBX events in any programming language. When subscribed events occur, PortSIP PBX automatically pushes event messages to subscribers in JSON format.
 
 Support version: v16.0 or higher
 
 ## Service Port
 
-The PortSIP PBX/UCaaS provides WSI on port **8885** over **WSS**, the server must be allowed this port on the firewall for TCP, which requires WSS(TLS).
+The PortSIP PBX/UCaaS provides WSI on port **8887** over **WSS**, the server must be allowed this port on the firewall for TCP, which requires WSS(TLS).
 
 ## **Topics and Message Type**
 
