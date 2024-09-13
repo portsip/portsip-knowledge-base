@@ -12,6 +12,27 @@ The PortSIP PBX/UCaaS provides WSI on port **8887** over **WSS**, the server mus
 
 PortSIP PBX provides the below topics and keys for the Pub/Sub.
 
+### extension\_management\_events
+
+Tenant Administrators and Queue Managers can subscribe to the `extension_management_events` topic. Once subscribed, they'll receive real-time notifications whenever an extension is added, updated, or deleted. The following message keys are included:
+
+* `event_type`**:** Indicates the specific event:
+  * &#x20;`extension_created`
+  * &#x20;`extension_updated`&#x20;
+  * `extension_destroyed`
+* `extension_number`**:** The unique identifier for the extension.
+* `extension_id`**:** The internal ID of the extension.
+* `tenant_id`**:** The ID of the tenant associated with the extension.
+
+```json
+{
+  "event_type": "extension_created",
+  "extension_number": "1001",
+  "extension_id": "823634238409396",
+  "tenant_id": "883634229655633920"
+}
+```
+
 ### extension\_events
 
 All extension-related event messages will be published under `extension_events`. The following are the various message keys:
@@ -461,6 +482,28 @@ If we want to unsubscribe from the events, use the below command, all subscripti
    "extensions":[
       "101",
       "102"
+   ]
+}
+```
+
+Tenant Administrators and Queue Managers can subscribe to the `extension_management_events` topic using the following JSON request:
+
+```json
+{
+   "command":"subscribe",
+   "topics":[
+      "extension_management_events"
+   ]
+}
+```
+
+To unsubscribe from the topic, send the following request:
+
+```json
+{
+   "command":"unsubscribe",
+   "topics":[
+      "extension_management_events"
    ]
 }
 ```
