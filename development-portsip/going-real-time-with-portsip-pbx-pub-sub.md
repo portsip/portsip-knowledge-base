@@ -33,6 +33,18 @@ Tenant Administrators and Queue Managers can subscribe to the `extension_managem
 }
 ```
 
+The `extension_updated` event includes a `enabled` key that indicates the current status of the extension, which can be either `true` or `false`.
+
+```json
+{
+  "event_type": "extension_created",
+  "extension_number": "1001",
+  "extension_id": "823634238409396",
+  "tenant_id": "883634229655633920"
+  "enabled" : true
+}
+```
+
 ### extension\_events
 
 All extension-related event messages will be published under `extension_events`. The following are the various message keys:
