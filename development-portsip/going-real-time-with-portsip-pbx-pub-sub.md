@@ -37,7 +37,7 @@ The `extension_updated` event includes a `enabled` key that indicates the curren
 
 ```json
 {
-  "event_type": "extension_created",
+  "event_type": "extension_updated",
   "extension_number": "1001",
   "extension_id": "823634238409396",
   "tenant_id": "883634229655633920"
