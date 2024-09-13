@@ -8,6 +8,15 @@ Support version: v16.0 or higher
 
 The PortSIP PBX/UCaaS provides WSI on port **8887** over **WSS**, the server must be allowed this port on the firewall for TCP, which requires WSS(TLS).
 
+## Server URL
+
+The WSI Server URL varies between PortSIP PBX versions:
+
+* **v22.0 or higher**: `wss://pbx.portsip.com:8887/wsi`
+* **v16.x**: `wss://pbx.portsip.com:8885`
+
+The WebSocket client application needs to connect to the appropriate URL. Please replace `pbx.portsip.com` it with your actual PBX domain.
+
 ## **Topics and Message Type**
 
 PortSIP PBX provides the below topics and keys for the Pub/Sub.
@@ -347,20 +356,27 @@ Below are the message keys.
 }
 ```
 
-## **Subscribe and Unsubscribe**
+## **Authentication**
 
-In order to subscribe to the events, a user needs to establish a session by opening a WebSocket connection to the listening port (8887) of the PortSIP PBX with authentication credentials. This requires a previously established user account on the PortSIP PBX. The user account can be an extension or a tenant.
+Once connected to the WSI server, use the following JSON message to authenticate:
 
-### Server URL
+### **PBX System Administrator Authentication**
 
-The WSI Server URL varies between PortSIP PBX versions:
+```json
+{
+"command":"auth",
+"username":"admin",
+"password":"A1s2d3f4",
+}
+```
 
-* **v22.0 or higher**: `wss://pbx.portsip.com:8887/wsi`
-* **v16.x**: `wss://pbx.portsip.com:8885`
+The system administrator can currently subscribe only to extension management events. To subscribe to other events, a Tenant Admin or Queue Manager is required.
 
-The WebSocket client application needs to connect to the appropriate URL. Please replace `pbx.portsip.com` with your actual PBX domain.
+### Tenant Admin Authentication
 
-After successfully connecting to the WSI server, you can use the following JSON message for authorization:
+Tenant administrators can authenticate using either username/password or extension number/extension password.
+
+#### Authenticate with Username
 
 ```json
 {
@@ -373,7 +389,9 @@ After successfully connecting to the WSI server, you can use the following JSON 
 
 The **`domain`** is the SIP domain of the extension, the **`password`** is the **`user password`** of extension.
 
-You can also use the **`SIP extension number`** with the **`SIP password`** to do the authorization:
+#### Authenticate with Extension Number
+
+You can authenticate using the SIP extension number and its corresponding password as well.
 
 ```json
 {
@@ -384,7 +402,7 @@ You can also use the **`SIP extension number`** with the **`SIP password`** to d
 }
 ```
 
-If there is no error, the response is as below:
+If there is no error, the response is as follows:
 
 ```json
 {
@@ -405,9 +423,13 @@ Otherwise, the response includes errors as below:
 }
 ```
 
-After successfully being authenticated, the user can now subscribe to the events.
+## **Subscribe and Unsubscribe**
 
-For instance, if extension 101 wishes to subscribe to extension 102, and 103 events, just send the below command to subscribe.
+After successful authentication, the user can subscribe to events.
+
+### Subscribe to the Extension Event
+
+To subscribe to events for specific extensions, send the following command:
 
 ```json
 {
@@ -422,23 +444,9 @@ For instance, if extension 101 wishes to subscribe to extension 102, and 103 eve
 }
 ```
 
-If we want to subscribe to both extension events and CDR events, use the below command.
+### Subscribe to CDR Event
 
-```json
-{
-   "command":"subscribe",
-   "topics":[
-      "extension_events",
-      "cdr_events"
-   ],
-   "extensions":[
-      "102",
-      "103"
-   ]
-}
-```
-
-If we want to subscribe to CDR events only, use the below command.
+To subscribe to Call Detail Record (CDR) events, send the following command:
 
 ```json
 {
@@ -449,11 +457,18 @@ If we want to subscribe to CDR events only, use the below command.
 }
 ```
 
-Note, that the extension only has permission to subscribe to the queues belonging to that extension, if the extension(subscriber) is not an agent of the queue, and also not a queue manager of the queue, the events will not push to the extension(subscriber).&#x20;
+### Subscribe Queue Event
 
-For example, if extension 101 is the agent/queue manager of queues 8001 and 8002 after 101 is subscribed to queue events, both 8001 and 8002 queue status will be pushed to extension 101.
+#### **Subscription Limitations**
 
-The admin user role of the tenant and queue manager has permission to subscribe to any queues.
+* **Extension-Specific Subscriptions:** Extensions can only subscribe to queues that they belong to or manage. If an extension is not an agent or queue manager of a queue, it cannot subscribe to that queue's events.
+* **Tenant Admin and Queue Manager Permissions:** Tenant Admin and Queue Manager users have the permission to subscribe to any queue wiin a tenant.
+
+**Example:**
+
+**Example:**
+
+If extension 101 is an agent or queue manager of queues 8001 and 8002, and it subscribes to queue events using the following command:
 
 ```json
 {
@@ -468,7 +483,9 @@ The admin user role of the tenant and queue manager has permission to subscribe 
 }
 ```
 
-Subscribe to the `queue_management_events`:
+### Subscribe to Queue Management Event
+
+Tenant Admin and Queue Manager users can subscribe to the `queue_management_events` event.
 
 ```json
 {
@@ -479,7 +496,33 @@ Subscribe to the `queue_management_events`:
 }
 ```
 
-If we want to unsubscribe from the events, use the below command, all subscriptions will be terminated.
+### Subscribe to Extension Management Event
+
+PBX System Administrators and Tenant Administrators can subscribe to extension management events using the following JSON command:
+
+```json
+{
+   "command":"subscribe",
+   "topics":[
+      "extension_management_events"
+   ]
+}
+```
+
+To unsubscribe from a topic, send the following request:
+
+```json
+{
+   "command":"unsubscribe",
+   "topics":[
+      "extension_management_events"
+   ]
+}
+```
+
+### Unsubscribe
+
+To unsubscribe from all events, send the following command:
 
 ```json
 {
@@ -503,28 +546,6 @@ If we want to unsubscribe from the events, use the below command, all subscripti
    "extensions":[
       "101",
       "102"
-   ]
-}
-```
-
-PBX System Administrators, Tenant Administrators can subscribe to the `extension_management_events` topic using the following JSON request:
-
-```json
-{
-   "command":"subscribe",
-   "topics":[
-      "extension_management_events"
-   ]
-}
-```
-
-To unsubscribe from the topic, send the following request:
-
-```json
-{
-   "command":"unsubscribe",
-   "topics":[
-      "extension_management_events"
    ]
 }
 ```
