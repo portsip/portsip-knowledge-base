@@ -35,6 +35,8 @@ The following message keys are included:
   * &#x20;`extension_updated`&#x20;
   * `extension_destroyed`
 * `extension_number`**:** The extension number.
+* `disp_name`: The display name of the extension.
+* `email`: The email of the extension.
 * `extension_id`**:** The ID of the extension.
 * `tenant_id`**:** The ID of the tenant associated with the extension.
 
