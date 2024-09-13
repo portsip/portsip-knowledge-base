@@ -14,7 +14,12 @@ PortSIP PBX provides the below topics and keys for the Pub/Sub.
 
 ### extension\_management\_events
 
-Tenant Administrators and Queue Managers can subscribe to the `extension_management_events` topic. Once subscribed, they'll receive real-time notifications whenever an extension is added, updated, or deleted. The following message keys are included:
+PBX System Administrators and Tenant Administrators can subscribe to the `extension_management_events` topic. Once subscribed, they'll receive real-time notifications whenever an extension is added, updated, or deleted.:
+
+* System Administrator: Receive the extension management events of all tenants.
+* Tenant Administrator: Receive the extension management events of the tenant.
+
+The following message keys are included:
 
 * `event_type`**:** Indicates the specific event:
   * &#x20;`extension_created`
@@ -28,6 +33,8 @@ Tenant Administrators and Queue Managers can subscribe to the `extension_managem
 {
   "event_type": "extension_created",
   "extension_number": "1001",
+  "disp_name": "Jason Wek",
+  "email": "test@test.com",
   "extension_id": "823634238409396",
   "tenant_id": "883634229655633920"
 }
@@ -39,6 +46,8 @@ The `extension_updated` event includes a `enabled` key that indicates the curren
 {
   "event_type": "extension_updated",
   "extension_number": "1001",
+  "disp_name": "Jason Wek",
+  "email": "test@test.com",
   "extension_id": "823634238409396",
   "tenant_id": "883634229655633920"
   "enabled" : true
@@ -498,7 +507,7 @@ If we want to unsubscribe from the events, use the below command, all subscripti
 }
 ```
 
-Tenant Administrators and Queue Managers can subscribe to the `extension_management_events` topic using the following JSON request:
+PBX System Administrators, Tenant Administrators can subscribe to the `extension_management_events` topic using the following JSON request:
 
 ```json
 {
