@@ -20,8 +20,8 @@ Tenant Administrators and Queue Managers can subscribe to the `extension_managem
   * &#x20;`extension_created`
   * &#x20;`extension_updated`&#x20;
   * `extension_destroyed`
-* `extension_number`**:** The unique identifier for the extension.
-* `extension_id`**:** The internal ID of the extension.
+* `extension_number`**:** The extension number.
+* `extension_id`**:** The ID of the extension.
 * `tenant_id`**:** The ID of the tenant associated with the extension.
 
 ```json
