@@ -14,7 +14,7 @@ Use the GET method to initiate a call directly. This API does not require an `ac
 
 **Example**
 
-<pre class="language-url"><code class="lang-url"><strong>/api/sessions/directly?extension_number=1001&#x26;password=A1s2d3f4&#x26;caller=1001&#x26;callee=1002&#x26;domain=test.io&#x26;send_sdp=true
+<pre class="language-url" data-overflow="wrap"><code class="lang-url"><strong>/api/sessions/directly?extension_number=1001&#x26;password=A1s2d3f4&#x26;caller=1001&#x26;callee=1002&#x26;domain=test.io&#x26;send_sdp=true
 </strong></code></pre>
 
 **URL Parameters**
