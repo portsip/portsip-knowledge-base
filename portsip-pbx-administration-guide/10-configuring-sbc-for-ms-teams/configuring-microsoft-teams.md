@@ -19,14 +19,26 @@
 
 ### 2 Create your domain in your Office 365 tenant
 
-* Use your browser log in to your Office 365 admin account and create your domain. In the `Microsoft 365 admin center`, go to `Setup`, then press the `View` button for the `Get your custom domain set up`, then the `Manage` button. Add a domain there.
-* Choose a domain name (e.g. `portsip.cc`) that you own. Since it will be verified by Microsoft for example by having you paste a value in the TXT value field of your DNS or signing in to the account where you got the domain etc. It is important that you own the domain and can perform the verification process. Once that is done, the domain will be created and you can add users to it.&#x20;
+* Log in to your Office 365 admin account and create your domain. In the `Microsoft 365 admin center`, go to `Setup`, then press the `View` button for the `Get your custom domain set up`, then the `Manage` button. Add a domain there.
+* Choose a domain name (e.g. `portsip.cc`) that you own.&#x20;
+
+{% hint style="warning" %}
+Since it will be verified by Microsoft for example by having you paste a value in the TXT value field of your DNS or signing in to the account where you got the domain etc. It is important that you own the domain and can perform the verification process. Once that is done, the domain will be created and you can add users to it.&#x20;
+{% endhint %}
 
 <figure><img src="../../.gitbook/assets/teams3.png" alt=""><figcaption></figcaption></figure>
 
 ### 3 Create users in that domain
 
-Now you can create users under the domain you just created in step 1 above. Again, in `Microsoft 365 admin center`, go `Active users` under `Users` and `Add a user`. Give the first and last name of the user (say "Thomas Oliveri") and under the username give a unique name that will be his/her email, but make sure to choose the domain you created above for the domain part of the username (portsip.cc in this example) and not any other `*.onmicrosoft.com`. That way the user will reside in the domain you just created in step 1 above (in this example say: thomas@portsip.cc).
+Now you can create users under the domain you just created in step 1 above.&#x20;
+
+Again, in `Microsoft 365 admin center`, go `Active users` under `Users` and `Add a user`. Give the first and last name of the user (say "Thomas Oliveri") and under the username give a unique name that will be his/her email.
+
+{% hint style="warning" %}
+Make sure to choose the domain you created above for the domain part of the username (portsip.cc in this example) and not any other `*.onmicrosoft.com`.&#x20;
+{% endhint %}
+
+That way the user will reside in the domain you just created in step 1 above (in this example say: thomas@portsip.cc).
 
 <figure><img src="../../.gitbook/assets/teams_users_list.png" alt=""><figcaption></figcaption></figure>
 
@@ -39,7 +51,7 @@ Now you can create users under the domain you just created in step 1 above. Agai
       $userCredential = Get-Credential
       Connect-MicrosoftTeams -Credential $userCredential
     ```
-* In the Windows PowerShell Credential Request dialog box, type your administrator account name and password, and then select OK. Just the portion `Connect using a Skype for Business Online administrator account name and password` should be enough unless you want to do more.
+* In the **Windows PowerShell Credential Request dialog box**, type your administrator account name and password, and then press **OK**. Just the portion `Connect using a Skype for Business Online administrator account name and password` should be enough unless you want to do more.
 *   If you get the error `cannot be loaded because running scripts is disabled on this system` then run the following command to adjust the permission:
 
     ```shell
@@ -50,7 +62,7 @@ Now you can create users under the domain you just created in step 1 above. Agai
 
 ### 5 Create a PSTN gateway that will connect to the SBC
 
-Make sure it is the right one and connected to the right account as you did in the steps above. To confirm the steps were done correctly use the command:
+* Make sure it is the right one and connected to the right account as you did in the steps above. To confirm the steps were done correctly use the command:
 
 ```shell
 Get-Command *onlinePSTNGateway*
@@ -60,17 +72,21 @@ Your command will return the four functions shown here that will let you manage 
 
 <figure><img src="../../.gitbook/assets/teams5.png" alt=""><figcaption></figcaption></figure>
 
-Using PowerShell, create a PSTN gateway that will connect to the PortSIP SBC using the FQDN of the domain, for example: `sbc.ortsip.cc`. Note, you must have a valid certificate for the domain `sbc.portsip.cc`. or a wildcard certificate for `portsip.cc`.
-
-The domain portion of this FQDN must match the domain registered in your tenant as in the step `Create users in that domain` above (e.g. it can be: sbc.portsip.cc, since the domain you created was portsip.cc). It is also important that there is an Office 365 user in that domain (as you did in steps above, a user in portsip.cc) and an assigned E3 or E5 license. If not, you will receive an error: Can not use the `sbc.portsip.cc` domain as it is not configured for this tenant.
-
-This FQDN (say sbc.portsip.cc) must resolve to a reachable IP of the PortSIP SBC. Also, this FQDN (sbc.portsip.cc in this example) must be a SIP domain in PortSIP PBX. You must make sure that a DNS A record is made for that domain (e.g. sbc.portsip.cc) that will reach the PortSIP SBC. Also, a valid certificate must be added to the PortSIP SBC for this domain.
+* Using PowerShell, create a PSTN gateway that will connect to the PortSIP SBC using the FQDN of the domain, for example: `sbc.ortsip.cc`. Note, you must have a valid certificate for the domain `sbc.portsip.cc`. or a wildcard certificate for `portsip.cc`.
+* The domain portion of this FQDN must match the domain registered in your tenant as in the step `Create users in that domain` above (e.g. it can be: sbc.portsip.cc, since the domain you created was portsip.cc).&#x20;
+* It is also important that there is an Office 365 user in that domain (as you did in steps above, a user in portsip.cc) and an assigned E3 or E5 license. If not, you will receive an error: Can not use the `sbc.portsip.cc` domain as it is not configured for this tenant.
+* This FQDN (say sbc.portsip.cc) must resolve to a reachable IP of the PortSIP SBC, the Teams Direct Routing will route the calls to PortSIP SBC by this FQDN:
+  * This FQDN (sbc.portsip.cc in this example) must be a SIP domain in PortSIP PBX.&#x20;
+  * You must make sure that a DNS A record is made for that domain (e.g. sbc.portsip.cc) that will reach the PortSIP SBC.&#x20;
+  * A valid certificate must be added to the PortSIP SBC for this domain.
 
 **PowerShell command example to create the PSTN gateway:**
 
+{% code overflow="wrap" %}
 ```shell
 New-CsOnlinePSTNGateway -Identity sbc.portsip.cc -Enabled $true -SipSignalingPort 5067 -MaxConcurrentSessions 1000
 ```
+{% endcode %}
 
 {% hint style="danger" %}
 That port 5067 in the above commands refers to the PortSIP PBX(SBC) TLS port; by default, the PortSIP PBX(SBC) creates TLS transport on port 5067 for Teams; if you changed the TLS default port for Teams in the PortSIP PBX(SBC), please replace the 5067 by the new TLS port in the above commands.
@@ -86,7 +102,7 @@ Get-CsOnlinePSTNGateway -Identity sbc.portsip.cc
 
 ### 6 Enable the user for direct routing service
 
-Direct Routing requires the user to be homed on Skype for Business Online. You can check this by looking at the RegistrarPool parameter. It needs to have a value in the infra.lync.com domain.
+* Direct Routing requires the user to be homed on Skype for Business Online. You can check this by looking at the RegistrarPool parameter. It needs to have a value in the infra.lync.com domain.
 
 **PowerShell command**
 
@@ -100,9 +116,9 @@ For our example:
 Get-CsOnlineUser -Identity "thomas@portsip.cc" | fl RegistrarPool
 ```
 
-Using PowerShell, enable the user for direct routing service by configuring the phone number and enabling enterprise voice and voicemail for the user.
-
-Using PowerShell, enable the user for direct routing service by configuring the phone number and enabling enterprise voice and voicemail for the user. Notice, that is a 4-digit number for our example, but it could be a full E.164 number. For this example, we want to use the users as extensions (and here 1001 is the extension for this user) which can connect and can be connected as an extension between TEAMS and PortSIP PBX. PSTN or SIP trunk inbound and outbound calls can be handled by the PortSIP PBX trunk just like any PBX and users on TEAMS can act as extensions of the PBX. But you can easily use other setups and scenarios and assign the full E.164 numbers (with country code) to the users.
+* Using PowerShell, enable the user for direct routing service by configuring the phone number and enabling enterprise voice and voicemail for the user.
+* Using PowerShell, enable the user for direct routing service by configuring the phone number and enabling enterprise voice and voicemail for the user. Notice, that is a 4-digit number for our example, but it could be a full E.164 number. For this example, we want to use the users as extensions (and here 1001 is the extension for this user) which can connect and can be connected as an extension between TEAMS and PortSIP PBX.&#x20;
+* PSTN or SIP trunk inbound and outbound calls can be handled by the PortSIP PBX trunk just like any PBX and users on TEAMS can act as extensions of the PBX. But you can easily use other setups and scenarios and assign the full E.164 numbers (with country code) to the users.
 
 ```shell
 Set-CsPhoneNumberAssignment -Identity thomas@portsip.cc -PhoneNumber +1001 -PhoneNumberType DirectRouting
