@@ -19,14 +19,11 @@ The WebSocket client application needs to connect to the appropriate URL. Please
 
 ## **Topics and Message Type**
 
-PortSIP PBX provides the below topics and keys for the Pub/Sub.
+PortSIP PBX provides the topics and keys for the Pub/Sub below.
 
-### extension\_management\_events
+### global\_extension\_management\_events
 
-PBX System Administrators and Tenant Administrators can subscribe to the `extension_management_events` topic. Once subscribed, they'll receive real-time notifications whenever an extension is added, updated, or deleted.:
-
-* System Administrator: Receive the extension management events of all tenants.
-* Tenant Administrator: Receive the extension management events of the tenant.
+PBX System Administrators can subscribe to the `global_extension_management_events` topic. Once subscribed, they'll receive real-time notifications whenever an extension is added, updated, or deleted.
 
 The following message keys are included:
 
@@ -39,6 +36,8 @@ The following message keys are included:
 * `email`: The email of the extension.
 * `extension_id`**:** The ID of the extension.
 * `tenant_id`**:** The ID of the tenant associated with the extension.
+* `username`: The username of the extension.
+* `department`: The department of the extension; If it's not set, this key might not exist in the response JSON.
 
 ```json
 {
@@ -47,23 +46,14 @@ The following message keys are included:
   "disp_name": "Jason Wek",
   "email": "test@test.com",
   "extension_id": "823634238409396",
-  "tenant_id": "883634229655633920"
-}
+  "tenant_id": "883634229655633920",
+  "username": "testuser1",
+  "username": "testuser1",
+  "enabled": true
+  }
 ```
 
-The `extension_updated` event includes a `enabled` key that indicates the current status of the extension, which can be either `true` or `false`.
-
-```json
-{
-  "event_type": "extension_updated",
-  "extension_number": "1001",
-  "disp_name": "Jason Wek",
-  "email": "test@test.com",
-  "extension_id": "823634238409396",
-  "tenant_id": "883634229655633920"
-  "enabled" : true
-}
-```
+The `extension_updated` event includes the same information as the `extnesion_created` event.
 
 ### extension\_events
 
