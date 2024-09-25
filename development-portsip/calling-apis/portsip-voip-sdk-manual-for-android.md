@@ -803,6 +803,8 @@ If enableRtpCallback function is called to enable the RTP callback, this event w
 
 Donot call any SDK API functions in this event directly. If you want to call the API functions or other code which is time-consuming, you should post a message to another thread and execute SDK API functions or other code in another thread.
 
+### Audio and video stream callback events
+
 ```java
 void onAudioRawCallback(long sessionId,
                         int enum_direction,
@@ -855,7 +857,7 @@ This event will be triggered once receiving the video packets if enableVideoStre
 
 PortSipSdk::enableVideoStreamCallback
 
-## SDK functions\*
+## SDK functions
 
 ### Initialize and register functions
 
