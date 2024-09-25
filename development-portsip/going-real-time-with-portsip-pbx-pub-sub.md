@@ -451,13 +451,13 @@ To subscribe to events for specific extensions, send the following command:
 
 ### Subscribe to Global Extension Event
 
-To PBX administrators can subscribe to this event by specifying the tenant ID.
+The PBX administrators can subscribe to this event by specifying the tenant IDs as a JSON array.
 
 ```json
 {
    "command":"subscribe",
    "topics":[
-      "extension_events"
+      "global_extension_events"
    ],
    "tenants":[
       "23435",
