@@ -449,6 +449,23 @@ To subscribe to events for specific extensions, send the following command:
 }
 ```
 
+### Subscribe to Global Extension Event
+
+To PBX administrators can subscribe to this event by specifying the tenant ID.
+
+```json
+{
+   "command":"subscribe",
+   "topics":[
+      "extension_events"
+   ],
+   "tenants":[
+      "23435",
+      "74235345"
+   ]
+}
+```
+
 ### Subscribe to Global Extension Management Event
 
 PBX System Administrators can subscribe to extension management events by specifying the tenant IDs as a JSON array.
