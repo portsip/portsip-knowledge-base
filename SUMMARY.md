@@ -49,6 +49,8 @@
     * [Configuring Wavix Digest Trunk](portsip-pbx/configuring-sip-trunks/wavix-sip-trunk/configuring-wavix-digest-trunk.md)
     * [Configuring Outbound & Inbound Calls](portsip-pbx/configuring-sip-trunks/wavix-sip-trunk/configuring-outbound-and-inbound-calls.md)
     * [Wavix SMS Integration](portsip-pbx/configuring-sip-trunks/wavix-sip-trunk/wavix-sms-integration.md)
+  * [Gamma SIP Trunk](portsip-pbx/configuring-sip-trunks/wavix-sip-trunk-1/README.md)
+    * [Configuring Gamma Trunk Parameters](portsip-pbx/configuring-sip-trunks/wavix-sip-trunk-1/purchase-a-did-on-wavix-platform.md)
 * [PortSIP PBX Administration Guide](portsip-pbx/portsip-pbx-administration-guide/README.md)
   * [Overview](portsip-pbx/portsip-pbx-administration-guide/overview.md)
   * [PortSIP PBX Features](portsip-pbx/portsip-pbx-administration-guide/portsip-pbx-features.md)
