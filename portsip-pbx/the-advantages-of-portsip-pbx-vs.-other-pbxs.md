@@ -17,7 +17,7 @@ PortSIP PBX provides a real multi-tenant PBX. Unlike other PBXs that require a s
 
 <figure><img src="../.gitbook/assets/portsip-multi-tenant.png" alt=""><figcaption></figcaption></figure>
 
-As shown in the screenshot above, the system administrator (service provider) or [dealers ](../portsip-pbx-administration-guide/22-dealers.md)(distributor, sub-distributor, reseller) can view and manage all tenants in the web portal. The following actions are available:
+As shown in the screenshot above, the system administrator (service provider) or [dealers ](portsip-pbx-administration-guide/22-dealers.md)(distributor, sub-distributor, reseller) can view and manage all tenants in the web portal. The following actions are available:
 
 * **Add**. Create a new tenant.
 * **Manage**. Switch to the tenant administrator to manage the extensions, call routings, etc.
@@ -45,7 +45,7 @@ Building your brand is never easy, but PortSIP can help you get there. Our rebra
 
 You can focus on the marketing, sales, and billing of your services, and we'll take care of the rest!
 
-Please refer to the article [Rebranding PortSIP PBX, SBC](../portsip-pbx-administration-guide/rebranding-portsip-pbx-sbc.md) for more details.
+Please refer to the article [Rebranding PortSIP PBX, SBC](portsip-pbx-administration-guide/rebranding-portsip-pbx-sbc.md) for more details.
 
 ## A Scalable Communications Platform
 
@@ -72,13 +72,13 @@ For instance, for the call park feature, as per traditional PBX design, the PBX 
 
 Assume each tenant creates 5 park spots, then for a cloud PBX with 1k tenants, there will need to be 5K park spots (extensions) created for the tenants. As mentioned above, these spots are actually PBX extensions. The registration and subscription of these spots will consume massive CPU, memory, and bandwidth resources and reduce cloud PBX performance. This is unacceptable for service providers. It’s hard to imagine if tenants need to create more park spots!
 
-PortSIP pays attention to each feature for multi-tenancy. In order to avoid the problems of traditional PBXs, PortSIP has designed the call parking feature in a unique way that is easy to use and more friendly. It also has good performance and uses fewer resources. You can find more details in this article: [Call Parking](../portsip-pbx-administration-guide/14-call-parking/).
+PortSIP pays attention to each feature for multi-tenancy. In order to avoid the problems of traditional PBXs, PortSIP has designed the call parking feature in a unique way that is easy to use and more friendly. It also has good performance and uses fewer resources. You can find more details in this article: [Call Parking](portsip-pbx-administration-guide/14-call-parking/).
 
 ## Seamless Migration from BroadSoft
 
 PortSIP PBX also offers [rich features](../pbx\_v12/tutorials/portsip-pbx-features.md) that are different from other PBX, most of the features are like the Broadsoft, for example, the Feature Access Codes (dial codes).
 
-These PortSIP PBX feature access codes are mostly the same as Broadsoft and allow users to work more easily. Each tenant can customize its own feature access code to meet their user experience needs. You can find more details in this article: [Feature Access Codes](../portsip-pbx-administration-guide/23-feature-access-codes.md).
+These PortSIP PBX feature access codes are mostly the same as Broadsoft and allow users to work more easily. Each tenant can customize its own feature access code to meet their user experience needs. You can find more details in this article: [Feature Access Codes](portsip-pbx-administration-guide/23-feature-access-codes.md).
 
 ## Modern Unified Collaboration Solution
 
@@ -106,7 +106,7 @@ As shown in the below screenshot, extension 102 is registered from a PortSIP UC 
 
 <figure><img src="../.gitbook/assets/extension_status_2.png" alt=""><figcaption></figcaption></figure>
 
-You can find more details in the article: [User Management](../portsip-pbx-administration-guide/5-user-management/).
+You can find more details in the article: [User Management](portsip-pbx-administration-guide/5-user-management/).
 
 ## CDR and Recording
 
@@ -122,13 +122,13 @@ For example, if a call comes from the SIP trunk and arrives at the PBX, then is 
 
 ## Storing Into AWS S3
 
-With PortSIP PBX, you can write your Video Recordings and Compositions to your own AWS (Amazon Web Services) S3 bucket, rather than a local disk. This guide explains how you can set up your own account or project to use this capability. For more details please read this article: [Storing into AWS S3](../portsip-pbx-administration-guide/storing-into-aws-s3.md).
+With PortSIP PBX, you can write your Video Recordings and Compositions to your own AWS (Amazon Web Services) S3 bucket, rather than a local disk. This guide explains how you can set up your own account or project to use this capability. For more details please read this article: [Storing into AWS S3](portsip-pbx-administration-guide/storing-into-aws-s3.md).
 
 ## Privacy
 
 PortSIP PBX also takes care of the privacy of the recording. Due to privacy and security concerns in some countries, the law stipulates that when a call is made between two external numbers, it should not be recorded.
 
-Consider the following scenario: The client calls the contact center from the trunk and the agent answers. The call is starting to be recorded, and after a while of conversation, the agent transfers the client’s call to another landline/mobile phone number, the call is now between two PSTN phone numbers. At this point, the PBX should stop the call recording automatically. PortSIP provides an option for this feature, please read the details in this article: [Automatically stop recording if the call between two external numbers](../portsip-pbx-administration-guide/20-cdr-and-call-recordings/#automatically-stop-recording-if-the-call-between-two-external-numbers).
+Consider the following scenario: The client calls the contact center from the trunk and the agent answers. The call is starting to be recorded, and after a while of conversation, the agent transfers the client’s call to another landline/mobile phone number, the call is now between two PSTN phone numbers. At this point, the PBX should stop the call recording automatically. PortSIP provides an option for this feature, please read the details in this article: [Automatically stop recording if the call between two external numbers](portsip-pbx-administration-guide/20-cdr-and-call-recordings/#automatically-stop-recording-if-the-call-between-two-external-numbers).
 
 ## Trunk Management
 
@@ -144,11 +144,11 @@ PortSIP PBX supports all requirements for service providers to meet their busine
 
 <figure><img src="../.gitbook/assets/portsip_tenant_trunk.png" alt="" width="375"><figcaption></figcaption></figure>
 
-For more details, please read the article [Trunk Management.](../portsip-pbx-administration-guide/7-trunk-management/)
+For more details, please read the article [Trunk Management.](portsip-pbx-administration-guide/7-trunk-management/)
 
 ## Webhook
 
-PortSIP PBX supports sending the CDR and extension call events to a pre-configured webhook by the tenant admin. This allows the client to integrate the PBX with any third-party system. The webhook is in JSON format. For more details, please read this article: [Push CDR to Webhook](../portsip-pbx-administration-guide/20-cdr-and-call-recordings/#push-cdr-to-webhook).
+PortSIP PBX supports sending the CDR and extension call events to a pre-configured webhook by the tenant admin. This allows the client to integrate the PBX with any third-party system. The webhook is in JSON format. For more details, please read this article: [Push CDR to Webhook](portsip-pbx-administration-guide/20-cdr-and-call-recordings/#push-cdr-to-webhook).
 
 ## Pub/Sub
 
@@ -168,20 +168,20 @@ PortSIP PBX offers a great feature called **Dealers** for the above scenario tha
 
 ## Flexibility Office Hours and Holidays
 
-PortSIP PBX offers flexible office hours and holiday schedules for tenants located in different countries around the world to meet their local usage. For more details, please read the article: [Office Hours and Holiday Schedule](../portsip-pbx-administration-guide/office-hours-and-holiday-schedule/).
+PortSIP PBX offers flexible office hours and holiday schedules for tenants located in different countries around the world to meet their local usage. For more details, please read the article: [Office Hours and Holiday Schedule](portsip-pbx-administration-guide/office-hours-and-holiday-schedule/).
 
 ## Free SBC
 
 PortSIP PBX offers a free SBC to support WebRTC and Microsoft Teams Direct Routing. The SBC can be deployed as a cluster to support large calls:
 
-* [Configuring SBC for WebRTC](../portsip-pbx-administration-guide/9-configuring-sbc-for-webrtc.md)
-* [Configuring SBC for MS Teams](../portsip-pbx-administration-guide/10-configuring-sbc-for-ms-teams/)
+* [Configuring SBC for WebRTC](portsip-pbx-administration-guide/9-configuring-sbc-for-webrtc.md)
+* [Configuring SBC for MS Teams](portsip-pbx-administration-guide/10-configuring-sbc-for-ms-teams/)
 
 ## Microsoft 365 Integration
 
 PortSIP PBX seamlessly integrates business communications into your cloud work environment, transforming Microsoft 365 into an enterprise-grade communications hub with a powerful and easy-to-use interface that is simple for end-users to deploy and IT to manage.
 
-For more details, please read this article: [Microsoft 365 Integration](../portsip-pbx-administration-guide/microsoft-365-integration.md).
+For more details, please read this article: [Microsoft 365 Integration](portsip-pbx-administration-guide/microsoft-365-integration.md).
 
 ## Open REST API
 

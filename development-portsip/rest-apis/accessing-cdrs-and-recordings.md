@@ -28,7 +28,7 @@ Retrieve the CDRs at the tenant level using the specified query parameters.
 
 **Query Options**
 
-You can specify the query options as the URL parameters to filter the CDR, more details please see [Query Options Overview](version-22.0/about.md#query-options-overview).&#x20;
+You can specify the query options as the URL parameters to filter the CDR, more details please see [Query Options Overview](broken-reference).&#x20;
 
 **Response**
 
@@ -114,7 +114,7 @@ Retrieve the call recordings at the tenant level using the specified query param
 
 **Query Options**
 
-You can specify the query options as the URL parameters to filter the CDR, more details please see [Query Options Overview](version-22.0/about.md#query-options-overview).&#x20;
+You can specify the query options as the URL parameters to filter the CDR, more details please see [Query Options Overview](broken-reference).&#x20;
 
 **Response**
 

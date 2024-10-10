@@ -1,5 +1,5 @@
 # Audit logs
 
-{% swagger src="../../../../../.gitbook/assets/openapi_v22.0.0.json" path="/audit_logs" method="get" %}
-[openapi_v22.0.0.json](../../../../../.gitbook/assets/openapi_v22.0.0.json)
+{% swagger src="../../../../.gitbook/assets/openapi (1).json" path="/audit_logs" method="get" %}
+[openapi (1).json](<../../../../.gitbook/assets/openapi (1).json>)
 {% endswagger %}

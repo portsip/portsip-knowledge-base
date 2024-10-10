@@ -1,9 +1,9 @@
 # Moh server
 
-{% swagger src="../../../../../../.gitbook/assets/openapi_v22.0.0.json" path="/moh_server" method="get" %}
-[openapi_v22.0.0.json](../../../../../../.gitbook/assets/openapi_v22.0.0.json)
+{% swagger src="../../../../../.gitbook/assets/openapi (1).json" path="/moh_server" method="get" %}
+[openapi (1).json](<../../../../../.gitbook/assets/openapi (1).json>)
 {% endswagger %}
 
-{% swagger src="../../../../../../.gitbook/assets/openapi_v22.0.0.json" path="/moh_server" method="post" %}
-[openapi_v22.0.0.json](../../../../../../.gitbook/assets/openapi_v22.0.0.json)
+{% swagger src="../../../../../.gitbook/assets/openapi (1).json" path="/moh_server" method="post" %}
+[openapi (1).json](<../../../../../.gitbook/assets/openapi (1).json>)
 {% endswagger %}
