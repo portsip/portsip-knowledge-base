@@ -100,6 +100,10 @@ After successfully creating the PBX docker instance, you can use the below comma
 
 First, you will need to at the `/opt/portsip` folder, then you can use the following commands to manage the PortSIP PBX docker instance.
 
+```sh
+cd /opt/portsip
+```
+
 ### Show the PBX Docker instance status.
 
 ```
