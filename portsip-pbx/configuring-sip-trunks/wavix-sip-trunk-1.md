@@ -6,7 +6,7 @@ Configuring the [Gamma SIP trunk](https://gammagroup.co/products/sip-trunking-ca
 
 1. **Sign Up and Purchase**: Create an account with [Gamma ](https://gammagroup.co/products/sip-trunking-call-management/)and purchase your DID numbers.
 2. **Configure the Gamma Trunk**: Follow the instructions in the [Configuring the SIP Trunk](../portsip-pbx-administration-guide/7-trunk-management/configuring-sip-trunk.md) guide to set up the Gamma trunk. Note that the Gamma trunk is classified as an IP-Based Trunk.
-3. **Set Up Inbound Rules**: After successfully adding the Gamma trunk as an **IP-Based Trunk** in PortSIP, you can create inbound rules to route incoming calls from Gamma.
+3. **Set Up Inbound Rules**: After successfully adding the Gamma trunk as an **IP-Based Trunk** in PortSIP, you can [create inbound rules](../portsip-pbx-administration-guide/8-call-route-management/configuring-inbound-rule.md) to route incoming calls from Gamma.
 
 For outbound calls, Gamma requires specific configurations. Ensure to review the settings carefully.
 
@@ -44,5 +44,5 @@ Gamma trunks require the CLI presentation (outbound caller ID) to be in E164 for
 
 ## Create Outbound Rules
 
-Now, you can create the outbound rules for the Gamma trunk to make outbound calls.
+Now, you can [create the outbound rules](../portsip-pbx-administration-guide/8-call-route-management/configuring-outbound-rule.md) for the Gamma trunk to make outbound calls.
 
