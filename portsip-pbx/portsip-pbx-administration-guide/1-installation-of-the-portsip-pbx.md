@@ -96,37 +96,39 @@ Now you can use`https://66.175.221.120:8887` to access the PBX Web portal; the d
 
 After successfully creating the PBX docker instance, you can use the below commands to manage it.
 
-#### Show the PBX Docker instance status.
+## Managing PortSIP PBX Docker Instance
+
+First, you will need to at the `/opt/portsip` folder, then you can use the following commands to manage the PortSIP PBX docker instance.
+
+### Show the PBX Docker instance status.
 
 ```
 /bin/sh pbx_ctl.sh status
 ```
 
-#### Start the PBX Docker instance.
+### Start the PBX Docker instance.
 
 ```bash
 /bin/sh pbx_ctl.sh start
 ```
 
-#### Stop the PBX Docker instance.
+### Stop the PBX Docker instance.
 
 ```bash
 /bin/sh pbx_ctl.sh stop
 ```
 
-#### Restart the PBX Docker instance.
+### Restart the PBX Docker instance.
 
 ```bash
 /bin/sh pbx_ctl.sh restart
 ```
 
-#### Delete the PBX Docker instance.
+### Delete the PBX Docker instance.
 
 ```bash
 /bin/sh pbx_ctl.sh rm
 ```
-
-
 
 ## Installing PortSIP PBX on Windows
 
@@ -159,8 +161,6 @@ Tasks that MUST be completed before installing PortSIP PBX
 {% hint style="danger" %}
 If the PBX runs on a cloud platform such as AWS and the cloud platform has its own firewall, you **must** also open the ports on the cloud platform's firewall.
 {% endhint %}
-
-
 
 ### **Step 1 Installing a fresh PortSIP PBX for Windows**
 
@@ -217,7 +217,7 @@ sudo firewall-cmd --permanent --add-service=portsip-pbx
 sudo firewall-cmd --reload
 ```
 
-The below commands are used to check currently opened ports for PortSIP PBX.
+The commands below are used to check the ports that are currently opened for PortSIP PBX.
 
 ```
 firewall-cmd --info-service=portsip-pbx
@@ -227,15 +227,13 @@ firewall-cmd --info-service=portsip-pbx
 If the PBX runs on a cloud platform such as AWS and the cloud platform has its firewall or security rules, you **must** also open the ports on the cloud platform's firewall.
 {% endhint %}
 
-
-
 ## Uninstall PortSIP PBX
 
-Please use the below steps to uninstall the PortSIP PBX for Linux.
+Please follow the steps below to uninstall the PortSIP PBX for Linux.
 
 ### Uninstall the PBX
 
-Stop and delete the PBX Docker instances.
+Use the following commands to stop and delete the PBX Docker instances  Note, that the PBX data will not lost with the uninstall of the PortSIP PBX.
 
 ```bash
 cd /opt/portsip
@@ -243,7 +241,13 @@ cd /opt/portsip
 /bin/sh pbx_ctl.sh rm
 ```
 
-The below commands will delete the PBX data; please be careful.
+### Delete the PBX Data
+
+If you want to delete the PBX data, please perform the below commands.
+
+{% hint style="danger" %}
+The following commands will DELETE all your PBX data from the server that can't recover, please be careful.
+{% endhint %}
 
 ```sh
 cd /var/lib/portsip
@@ -252,3 +256,4 @@ rm -rf postgresql
 ```
 
 For the PBX Windows installation, just uninstall it from the Windows Control Panel.
+
