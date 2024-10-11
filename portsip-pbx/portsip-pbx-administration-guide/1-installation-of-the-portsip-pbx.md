@@ -104,31 +104,31 @@ First, you will need to at the `/opt/portsip` folder, then you can use the follo
 cd /opt/portsip
 ```
 
-### Show the PBX Docker instance status.
+### Show the PBX Docker Instance Status
 
 ```
 /bin/sh pbx_ctl.sh status
 ```
 
-### Start the PBX Docker instance.
+### Start the PBX Docker Instance
 
 ```bash
 /bin/sh pbx_ctl.sh start
 ```
 
-### Stop the PBX Docker instance.
+### Stop the PBX Docker Instance
 
 ```bash
 /bin/sh pbx_ctl.sh stop
 ```
 
-### Restart the PBX Docker instance.
+### Restart the PBX Docker Instance
 
 ```bash
 /bin/sh pbx_ctl.sh restart
 ```
 
-### Delete the PBX Docker instance.
+### Delete the PBX Docker Instance
 
 ```bash
 /bin/sh pbx_ctl.sh rm
