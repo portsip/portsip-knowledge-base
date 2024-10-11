@@ -2,11 +2,11 @@
 
 ## Downloading PortSIP PBX
 
-The latest free edition of [PortSIP PBX](https://www.portsip.com/portsip-pbx/) can always be found and downloaded at [PortSIP Website](https://www.portsip.com/download-portsip-pbx/). It’s available for both 64-bit Windows and Linux, but not for the 32-bit version.
+You can always find and download the latest free edition of [PortSIP PBX](https://www.portsip.com/portsip-pbx/) on the [PortSIP website](https://www.portsip.com/download-portsip-pbx/). The software is compatible with both 64-bit Windows and Linux operating systems. Please note that a 32-bit version is not available.
 
-The free edition of PortSIP PBX offers a maximum of 3 simultaneous calls and 10 extension registrations. If you require more simultaneous calls/extensions, please refer to the [PortSIP PBX Pricing](https://www.portsip.com/portsip-pbx-pricing/) page to get more details.
+The free edition supports up to 3 simultaneous calls and allows for 10 extension registrations. If you need additional capacity for more simultaneous calls or extensions, please visit the [PortSIP PBX Pricing](https://www.portsip.com/portsip-pbx-pricing/) page for further details.
 
-You will get the installer after the download is completed.
+Once the download is complete, you will receive the installer file.
 
 ## Installing PortSIP PBX on Linux
 
