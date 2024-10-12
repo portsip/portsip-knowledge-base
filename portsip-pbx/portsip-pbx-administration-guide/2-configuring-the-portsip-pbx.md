@@ -1,34 +1,31 @@
 # 2 Configuring the PortSIP PBX
 
-After the PortSIP PBX has been installed successfully, use your browser to access the web portal at [https://66.175.221.120:8887](https://66.175.221.120:8887). If the browser displays the SSL certificate warning, simply ignore it and proceed, you will see the login page likes the below screenshot.
+Once the PortSIP PBX is successfully installed, you can access the web portal by opening your browser and navigating to [**https://66.175.221.120:8887**](https://66.175.221.120:8887). If your browser displays an SSL certificate warning, you may safely ignore it and proceed. You will then be directed to the login page, as shown in the screenshot below.
 
 <figure><img src="../../.gitbook/assets/login-1.png" alt="" width="321"><figcaption></figcaption></figure>
 
-Please click the "**Sign in as the administrator or dealer**" to navigate to the administrator login page likes the below screenshot, enter **admin** for both the username and password to sign in the web portal.
+Click on **"Sign in as the administrator or dealer"** to navigate to the administrator login page, as shown in the screenshot below. Enter **admin** as both the username and password to log in to the web portal.
 
 <figure><img src="../../.gitbook/assets/login-2.png" alt="" width="320"><figcaption></figcaption></figure>
 
 {% hint style="danger" %}
-Please change the default password of admin after you logged in.
+Please change the default password of the admin after you log in.
 {% endhint %}
 
-After successfully logged in to the PBX Web Portal, the PBX dashboard page should look like the one in the screenshot below.
+After successfully logging in to the PBX Web Portal, the dashboard will appear as shown in the screenshot below.
 
 <figure><img src="../../.gitbook/assets/pbx_admin_portal.png" alt=""><figcaption></figcaption></figure>
 
 ## Setup Wizard
 
-If you have not completed the setup wizard yet, it will appear automatically after you sign in to the web portal. To make the PBX work, some settings must be configured.
+If the setup wizard has not been completed, it will launch automatically upon logging into the web portal. Some settings are required to get the PBX operational.
 
-### Step 1: Network Environment
+### **Step 1: Network Environment**
 
-If the PBX server has a **static** public IP address, enter it for "**Public IPv4**". If the PBX server does not have a static public IP, do not enter "**Public IPv4**".
-
-The private IPv4 address must be entered, if your server is without the private IP, please enter the public IP instead.&#x20;
-
-The public IP and private must be reachable by your SIP client. The IP address entered here is the SIP server IP address for PBX. It is required when a SIP client or IP phone registers to PortSIP PBX should be configured as the "**Outbound Proxy Server**".
-
-If the PBX is located on the cloud, both the "**Private IPv4**" and  "**Public IPv4**" should be entered here. If located in LAN, just enter the "**Private IPv4**" only.
+* If the PBX server has a static public IP address, enter it in the **Public IPv4** field. If the server does not have a static public IP, leave the **Public IPv4** field blank.
+* You must enter the private IPv4 address. If the server does not have a private IP, use the public IP address instead.
+* The IP addresses must be accessible by your SIP client, as the IP address entered here will serve as the SIP server IP for the PBX. This address is essential when a SIP client or IP phone registers to PortSIP PBX and should be configured as the **Outbound Proxy Server**.
+* If the PBX is deployed in the cloud, both **Private IPv4** and **Public IPv4** must be entered. If the PBX is on a LAN, only the **Private IPv4** should be entered.
 
 {% hint style="info" %}
 The loopback interface (127.0.0.1) is unacceptable for the private IP. Only the static IP for the LAN where the PBX is located is allowed (do not use DHCP dynamic IP).&#x20;
@@ -36,54 +33,56 @@ The loopback interface (127.0.0.1) is unacceptable for the private IP. Only the 
 
 <figure><img src="../../.gitbook/assets/setup_wizard_1.png" alt=""><figcaption></figcaption></figure>
 
-### Step 2: Certificate File
+### Step 2: SSL Certificate
 
-In order to support TLS transport for SIP, and provide HTTPS access for the Web Portal and REST API, we must have a trusted SSL certificate and upload it to PBX in this step.
+To enable TLS transport for SIP and secure HTTPS access to the Web Portal and REST API, a trusted SSL certificate must be uploaded to the PBX during this step.
 
-You will need to have a web domain, for example, purchase a domain from a domain provider such as Godaddy, and resolve the domain to your PBX IP.
+* You'll need to have a web domain. For example, you can purchase a domain from a provider like GoDaddy and point it to your PBX IP address.
+* Additionally, you must purchase a trusted SSL certificate for this domain to avoid browser warnings. Recommended certificate providers include Digicert, GeoTrust, GoDaddy, or others.
+* If you do not have a domain or SSL certificate, you can simply use the PBX IP address as the **Web Domain** and proceed with the default certificate. However, note that PortSIP PBX uses a self-signed certificate by default, which will cause most browsers to block the connection and display a security warning.
 
-You will also need to purchase a trusted SSL certificate for this domain to avoid the browser warning. The certificate provider Digicert, GeoTrust, Godaddy, or other certificate providers are recommended.&#x20;
-
-If you don't have the domain or certificate, you can simply enter the PBX IP as the Web Domain, and accept the default certificate here. **By default, the PortSIP PBX uses a self-signed certificate**, which will cause the browser to block the connection and pop-up the warning information.
-
-Please follow up this guide for purchase the SSL certificate: [Preparing TLS Certificates for TLS/HTTPS/WebRTC](certificates-for-tls-https-webrtc/).
+Please follow up on this guide for purchasing the SSL certificate: [Preparing TLS Certificates for TLS/HTTPS/WebRTC](certificates-for-tls-https-webrtc/).
 
 You have two certificate files.
 
 * portsip.key
 * portsip.pem
 
-Enter `uc.portsip.cc` in the Web Domain field; open the `portsip.pem` file in Windows Notepad and copy all contents to the "**Certificate File**" field; and copy the contents of the `portsip.key` file to the "**Private Key File**" field.&#x20;
+To configure the certificates:
+
+1. In the **Web Domain** field, enter **uc.portsip.cc**.
+2. Open the **portsip.pem** file in a text editor like Windows Notepad, and copy its entire contents into the **Certificate File** field.
+3. Similarly, open the **portsip.key** file, and copy its entire contents into the **Private Key File** field.
 
 <figure><img src="../../.gitbook/assets/setup_wizard_2.png" alt=""><figcaption></figcaption></figure>
 
 ### Step 3: Transport Protocol
 
-You can set the transport layer protocol for SIP signaling by clicking the **Add** button. By default, the transport ports are:
+You can configure the transport layer protocol for SIP signaling by clicking the **Add** button. The default transport ports are:
 
-* UDP: 5060
-* TCP: 5063
-* TLS: 5061
+* **UDP:** 5060
+* **TCP:** 5063
+* **TLS:** 5061
 
-You can feel free to change the default port to a new port that you prefer, but the port should not be used by other applications.
+You are free to change these default ports to any preferred port, but ensure that the new port is not already in use by other applications.
 
 {% hint style="danger" %}
-Once a new transport has been added, you have to change the firewall rule to allow the transport port. The IP Phone client app will connect to the PBX via transport and port.
+After adding a new transport protocol, be sure to update your firewall rules to allow traffic on the newly assigned transport port. The IP Phone client app will use this transport and port to connect to the PBX.
 {% endhint %}
 
 <figure><img src="../../.gitbook/assets/setup_wizard_3.png" alt=""><figcaption></figcaption></figure>
 
 ### Step 4: System Notifications
 
-To enable email notifications with PortSIP PBX for sending some system alert messages, the SMTP details must be configured.
+To enable email notifications in PortSIP PBX for system alerts, you must configure the SMTP settings.
 
 **Google**
 
-If you are using the Google SMTP server, please make sure that you have “**less secure**” enabled for your Gmail account. Please refer to the below links for more details:&#x20;
+If you’re using Google’s SMTP server, ensure that **less secure apps** is enabled for your Gmail account. For more details, refer to Google's documentation:
 
 [Less secure apps & your Google Account ](https://support.google.com/accounts/answer/6010255?hl=en)
 
-You also need to select SSL or TLS security protocol if you’re using Google SMTP Server.
+Additionally, you’ll need to select either SSL or TLS as the security protocol for the Google SMTP server. Use the following settings:
 
 * SMTP Server: smtp.gmail.com
 * Port: 587
@@ -94,7 +93,7 @@ You also need to select SSL or TLS security protocol if you’re using Google SM
 
 **Microsoft 365**
 
-If you are using the Microsoft 365 SMTP server, you also need to select SSL or TLS security protocol if you’re using Microsoft 365 SMTP Server.
+If you’re using the Microsoft 365 SMTP server, SSL or TLS must also be selected as the security protocol. Use the following settings:
 
 * SMTP Server: smtp.office365.com
 * Port: 587
@@ -103,11 +102,11 @@ If you are using the Microsoft 365 SMTP server, you also need to select SSL or T
 * Sender Email: The sender's email address
 * Use TLS: ON
 
-Once the PBX occurs some critical event, the alert email will be sent to "**Recipients**".
+Once a critical event occurs in the PBX, alert emails will be sent to the specified **Recipients**.
 
-## Reboot to Make the Certificate Take Effect
+## **Reboot to Apply the Certificate**
 
-If you uploaded the trusted certificate rather than the self-signed certificate in [Step 2: Certificate File](2-configuring-the-portsip-pbx.md#step-2-certificate-file), please use the below commands to restart the PBX to make the certificate take effect.
+If you uploaded a trusted certificate in  [Step 2: Certificate File](2-configuring-the-portsip-pbx.md#step-2-certificate-file) (instead of the default self-signed certificate), you need to restart the PBX to apply the certificate. Use the following commands to reboot the PBX:
 
 ```
 cd /opt/portsip
