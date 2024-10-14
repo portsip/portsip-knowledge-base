@@ -57,7 +57,6 @@ Please follow the below steps:
 <figure><img src="../../../.gitbook/assets/voxtelesys-fig23.png" alt="" width="563"><figcaption></figcaption></figure>
 
 5. Navigate to the menu **Phone Numbers > Numbers**, and click the pencil icon to edit the number which you want to receive the SMS, in the popup windows, fill in the following information:
-   * **\`Profile Name**: PortSIP SMS
    * **SMS Enabled:** Check this option
    * **Service Trunk**: SMS | Fax2Email
    * **Messaging Application**: PortSIP SMS

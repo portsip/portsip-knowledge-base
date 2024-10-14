@@ -1,68 +1,67 @@
 # The Advantages of PortSIP PBX vs. Other PBXs
 
-The realm of communication technology is expanding at a breakneck pace, with contemporary cloud-based unified communication systems becoming the go-to choice for businesses of all sizes. As traditional phone systems are being utilized less and less, businesses are looking for more efficient communication solutions. With the scalability and flexibility offered by modern unified communication systems, it’s easy to see its significant advantages for those who have adjusted to remote and hybrid work models.
+The realm of communication technology is rapidly expanding, with modern cloud-based unified communication systems becoming the preferred choice for businesses of all sizes. As traditional phone systems are utilized less and less, organizations are seeking more efficient and versatile communication solutions. The scalability and flexibility offered by contemporary unified communication platforms present significant advantages, especially for those who have adapted to remote and hybrid work models.
 
-Between PortSIP PBX vs other PBXs for a business unified communications solution, what would you choose?
+Between PortSIP PBX and other PBXs as a business unified communications solution, which would you choose?
 
-## Real Multi-Tenant PBX Designed for Cloud Age
+## PortSIP PBX: A True Multi-Tenant Solution Built for the Cloud Era
 
-Many vendors claim to provide multi-tenant PBXs, but most of their architecture is **pseudo-multi-tenant**. Typically, they need to install a new PBX instance for each tenant and then manage these instances through a centralized web portal. End-users are unaware of this, but for service providers, this is a significant issue:
+While many vendors claim to offer multi-tenant PBX systems, most rely on a pseudo-multi-tenant architecture. Typically, they require setting up a separate PBX instance for each tenant and managing these instances through a centralized web portal. While end-users may not notice, service providers face significant challenges with this approach:
 
-* They need to maintain massive PBX instances.
-* They waste server hardware resources.
+* They must maintain a large number of PBX instances.
+* They waste valuable server hardware resources.
 
-For example, if a service provider has 1000 clients, each client is a tenant and needs to set up a PBX instance. Assume each tenant has about 10–50 extensions, and then the server resources and maintenance work are unimaginable!
+For instance, if a service provider has 1,000 clients, with each client being treated as a separate tenant, each would require its own PBX instance. With tenants typically having between 10 and 50 extensions, the demand on server resources and the maintenance workload becomes overwhelming.
 
-PortSIP PBX provides a real multi-tenant PBX. Unlike other PBXs that require a separate PBX instance for each tenant, PortSIP PBX allows service providers to set up one instance and create thousands of tenants in that PBX instance. Each tenant can have its settings and extension numbers and is invisible to other tenants, the tenant just feels he has a whole PBX. This is an excellent feature that can save hardware resources and reduce maintenance work.
+PortSIP PBX offers a genuine multi-tenant solution. Unlike other PBXs that require individual PBX instances per tenant, PortSIP PBX enables service providers to deploy a single instance that can support thousands of tenants. Each tenant has its own configuration and extensions, completely isolated from other tenants, making each one feel as though they have their own dedicated PBX system. This architecture significantly reduces the use of hardware resources and minimizes the effort needed for maintenance, delivering exceptional efficiency for service providers.
 
 <figure><img src="../.gitbook/assets/portsip-multi-tenant.png" alt=""><figcaption></figcaption></figure>
 
-As shown in the screenshot above, the system administrator (service provider) or [dealers ](portsip-pbx-administration-guide/22-dealers.md)(distributor, sub-distributor, reseller) can view and manage all tenants in the web portal. The following actions are available:
+As shown in the screenshot, system administrators (service providers) or dealers (distributors, sub-distributors, resellers) can easily view and manage all tenants through the web portal. The following management actions are available:
 
-* **Add**. Create a new tenant.
-* **Manage**. Switch to the tenant administrator to manage the extensions, call routings, etc.
-* **Edit**. Change the settings of the tenant. For example, limit the capability of that tenant.
-* **Disable**. Disable the tenant temporarily. All settings and data will be preserved and can be enabled again at any time.
-* **Delete**. Delete the tenant from the PBX. All data of that tenant will be erased and can’t be recovered.
+* **Add**: Create a new tenant.
+* **Manage**: Switch to the tenant’s administrator interface to manage extensions, call routing, and other configurations.
+* **Edit**: Modify the tenant’s settings, such as adjusting capabilities or feature access.
+* **Disable**: Temporarily disable a tenant. All settings and data are preserved and can be reactivated at any time.
+* **Delete**: Permanently remove a tenant from the PBX. All data associated with the tenant is erased and cannot be recovered.
 
-This is what modern multi-tenant PBX architecture is designed for in the cloud age. PortSIP has done an excellent job with this, and our clients are enjoying it a lot.
+This modern multi-tenant PBX architecture is designed for the cloud era, offering flexibility and ease of management. PortSIP has executed this concept exceptionally well, and our clients are reaping the benefits of its streamlined operations and resource efficiency.
 
-## Full White-label Solution
+## **Full White-Label Solution**
 
-White-label solutions refer to products or services that are created by one company for the purpose of being sold by another company under that company’s own unique branding.
+A white-label solution refers to a product or service created by one company, which is then sold by another company under its own branding. Building a strong brand identity can be challenging, but PortSIP makes it easier with a fully customizable white-label PBX and cloud PBX service.
 
-Building your brand is never easy, but PortSIP can help you get there. Our rebranding feature allows you to fully private label your PBX and cloud PBX service and make it your own, including the following elements:
+With PortSIP’s rebranding feature, you can fully private label your PBX, making it uniquely yours by customizing the following elements:
 
-* Theme
-* Product Name&#x20;
-* Company Name&#x20;
-* Website Link&#x20;
-* Logo Favicon&#x20;
-* User Agent string of PortSIP PBX and SBC&#x20;
-* WebRTC, Windows, and Mobile Apps&#x20;
-* IP Phone Templates&#x20;
-* Notification Email Templates
+* **Theme**
+* **Product Name**
+* **Company Name**
+* **Website Link**
+* **Logo and Favicon**
+* **User Agent String** of PortSIP PBX and SBC
+* **WebRTC, Windows, and Mobile Apps**
+* **IP Phone Templates**
+* **Notification Email Templates**
 
-You can focus on the marketing, sales, and billing of your services, and we'll take care of the rest!
+This gives you the freedom to focus on marketing, sales, and billing while PortSIP takes care of the technology. For more detailed instructions, please refer to the article on [Rebranding PortSIP PBX, SBC](portsip-pbx-administration-guide/rebranding-portsip-pbx-sbc.md).
 
-Please refer to the article [Rebranding PortSIP PBX, SBC](portsip-pbx-administration-guide/rebranding-portsip-pbx-sbc.md) for more details.
+## **A Scalable Communications Platform**
 
-## A Scalable Communications Platform
+In a cloud multi-tenant PBX environment, the service provider hosts the PBX in the cloud and delivers calling services to users. Unlike single-tenant PBXs typically used by SMBs, cloud PBXs must manage massive numbers of tenants and simultaneous calls. Ensuring performance and reliability is crucial for the PBX vendor.
 
-For cloud multi-tenant PBXs, the service provider hosts the PBX in the cloud and provides the calling service to users. Unlike single-tenant PBXs for SMBs, this means massive tenants and simultaneous calls are handled by the cloud PBX. The PBX vendor must take care of the performance.
+PortSIP PBX is specifically designed for the cloud age, offering exceptional performance and scalability. It can easily manage a large volume of extensions (users) and simultaneous calls. For larger deployments, PortSIP PBX can scale by extending the following server components within a cluster:
 
-PortSIP PBX is designed for the cloud age and offers high performance. It can handle massive extensions (users) and simultaneous calls. For large-size deployments, the PBX can extend the below servers for the cluster:
+* **Queue Server**
+* **Meeting Server**
+* **IVR Server**
+* **Media Server**
+* **IM Server**
 
-* Queue Server
-* Meeting Server
-* IVR Server
-* Media server
-
-With the extended servers cluster, the PBX Call Manager server only needs to process signaling. Utilizing multiple threads and cache technologies enables a PortSIP PBX instance to handle up to 100K users and 20K simultaneous calls. This is an impressive feat that meets most service providers’ scenarios.
+By utilizing this server cluster architecture, the PBX Call Manager server is only responsible for processing signaling. This design, coupled with multi-threading and advanced caching technologies, allows a single PortSIP PBX instance to support up to 100,000 users and 20,000 simultaneous calls. This impressive capability ensures that PortSIP PBX can meet the demands of even the largest service providers.
 
 <figure><img src="../.gitbook/assets/portsip-media-server-ext.png" alt=""><figcaption></figcaption></figure>
 
-As shown in the screenshot above, we disabled the **default media server** in the PBX server and extended three media servers in order to handle heavy calls.
+As shown in the screenshot, we disabled the default media server in the PBX server and extended three additional media servers to efficiently manage a higher volume of calls. This configuration allows the system to handle heavy call loads while maintaining optimal performance and call quality, ensuring the PBX remains scalable and robust even under significant demand.
 
 ## Designed for High Performance
 
@@ -74,51 +73,54 @@ Assume each tenant creates 5 park spots, then for a cloud PBX with 1k tenants, t
 
 PortSIP pays attention to each feature for multi-tenancy. In order to avoid the problems of traditional PBXs, PortSIP has designed the call parking feature in a unique way that is easy to use and more friendly. It also has good performance and uses fewer resources. You can find more details in this article: [Call Parking](portsip-pbx-administration-guide/14-call-parking/).
 
-## Seamless Migration from BroadSoft
+## **Seamless Migration from BroadSoft**
 
-PortSIP PBX also offers [rich features](../pbx\_v12/tutorials/portsip-pbx-features.md) that are different from other PBX, most of the features are like the Broadsoft, for example, the Feature Access Codes (dial codes).
+PortSIP PBX offers a rich set of features that distinguish it from other PBX solutions, many of which are similar to BroadSoft, such as Feature Access Codes (dial codes). This similarity ensures a smooth transition for users familiar with BroadSoft systems.
 
-These PortSIP PBX feature access codes are mostly the same as Broadsoft and allow users to work more easily. Each tenant can customize its own feature access code to meet their user experience needs. You can find more details in this article: [Feature Access Codes](portsip-pbx-administration-guide/23-feature-access-codes.md).
+PortSIP PBX's feature access codes closely mirror those of BroadSoft, allowing users to adapt quickly and work more efficiently. Additionally, each tenant can customize their own feature access codes to align with their specific user experience requirements. This flexibility enhances the overall user experience and simplifies the migration process for organizations transitioning from BroadSoft.
 
-## Modern Unified Collaboration Solution
+For more information, please refer to the article on [Feature Access Codes](portsip-pbx-administration-guide/23-feature-access-codes.md).
 
-PortSIP PBX also offers a free comprehensive collaboration and communication solution for hybrid work, enabling inclusive experiences for everyone while protecting your data with industry-leading security. It provides calling, messaging, meetings, and sharing in a unified experience across web, desktop, and mobile apps.
+## **Modern Unified Collaboration Solution**
 
-All the ways to connect:
+PortSIP PBX offers a comprehensive and free collaboration and communication solution tailored for hybrid work environments, enabling inclusive and seamless experiences for all users while safeguarding your data with industry-leading security. It unifies calling, messaging, meetings, and sharing across web, desktop, and mobile apps, providing a truly integrated user experience.
 
-* Audio and Video Calling
-* Audio and Video Meetings
-* Messaging
-* Audio Messaging
-* Video Messaging
-* Screen Sharing
-* File Sharing
+**PortSIP PBX offers multiple ways to connect, including:**
+
+* **Audio and Video Calling**
+* **Audio and Video Meetings**
+* **Messaging**
+* **Group Chat**
+* **SMS and WhatsApp Integration**
+* **Presence**
+* **Audio Messaging**
+* **Video Messaging**
+* **Screen Sharing**
+* **File Sharing**
+
+This unified platform ensures that businesses can efficiently communicate and collaborate, regardless of location, while maintaining secure and flexible connectivity options for their teams.
 
 ## Effortless User Management
 
-The tenant administrator can manage users easily through the user list in the PBX web portal, where all extension statuses are listed and indicate whether they are **online/offline/on call/push notification enabled/automatic callback enabled/DND enabled**.
+Tenant administrators can effortlessly manage users through the intuitive user list available in the PBX web portal. The user list provides real-time information on all extensions, displaying their current status—whether they are online, offline, on a call, push notification enabled, automatic callback enabled, or Do Not Disturb (DND) enabled. This clear visibility allows administrators to efficiently monitor and manage user activity with ease.
 
 <figure><img src="../.gitbook/assets/extension_status_1.png" alt=""><figcaption></figcaption></figure>
 
-You can click on the search icon to check an online extension's device details.
-
-As shown in the below screenshot, extension 102 is registered from a PortSIP UC client (IP is 192.168.0.22, the port is 5960 over the UDP transport), and the Yealink T53 IP Phone (IP is 192.168.0.36, the port is 5060 over the UDP transport).
+You can click on the search icon to view the device details of any online extension. As shown in the screenshot below, extension 102 is registered from both a PortSIP UC client (IP address: 192.168.0.22, port: 5960 using UDP transport) and a Yealink T53 IP phone (IP address: 192.168.0.36, port: 5060 using UDP transport). This detailed view allows administrators to easily monitor the devices connected to each extension.
 
 <figure><img src="../.gitbook/assets/extension_status_2.png" alt=""><figcaption></figcaption></figure>
 
-You can find more details in the article: [User Management](portsip-pbx-administration-guide/5-user-management/).
+For more information, please refer to the article on [User Management](portsip-pbx-administration-guide/5-user-management/).
 
-## CDR and Recording
+## **CDR and Recording**
 
-The call recording can be started automatically once the call is established. It can also be started in the middle of a call and can be paused/resumed during the call.
+PortSIP PBX offers advanced call recording features, enabling recordings to start automatically once a call is established. Additionally, recordings can be initiated in the middle of a call and paused or resumed as needed. The PBX supports both audio and video recording, with files saved in MP3 or MP4 formats, making it easy to play the recordings directly in a browser.
 
-PortSIP PBX supports both audio and video recording and can record calls in MP3 or MP4 format, which makes it easy to play them in the browser.
+A key advantage of PortSIP PBX is that the Call Detail Record (CDR) is linked with the recording file, allowing for easy download and playback within a browser. What sets PortSIP’s CDR apart from other PBX systems is its ability to consolidate call flow details into a single record, even if the call is rerouted or forwarded multiple times. This comprehensive CDR makes tracking complex call flows straightforward.
 
-The CDR is linked with the recording file, which can be downloaded and played in a browser.&#x20;
+For example, if a call originates from a SIP trunk, is routed to the PBX, then to an IVR system, and subsequently forwarded to a queue by the user pressing DTMF, where an agent finally answers, all relevant details (such as callee number, callee IP address, port, and timestamps) are captured and recorded in one CDR.
 
-The PortSIP CDR feature is different from other PBXs in that if a call is rerouted and forwarded multiple times during the call, the PBX will tie all call targets in one CDR. This makes it easy to track the call flow.
-
-For example, if a call comes from the SIP trunk and arrives at the PBX, then is routed to the IVR and re-routed to the queue by the user pressing DTMF, and an agent of the queue answers that call, all this information(callee number, callee IP address, and port) and timestamp are recorded in the CDR. For more details, please read this article: [CDR and Call Recording](the-advantages-of-portsip-pbx-vs.-other-pbxs.md#cdr-and-recording).
+For further information, please refer to the article on [CDR and Call Recording](the-advantages-of-portsip-pbx-vs.-other-pbxs.md#cdr-and-recording).
 
 ## Storing Into AWS S3
 
