@@ -4,11 +4,11 @@
 
 The PortSIP PBX is usually SMBsdeployed for SMB which users less than 100K,  the hardware specifications are listed below.
 
-### **Up to 100 simultaneous calls**
+### **Up to 300 simultaneous calls**
 
-<table data-header-hidden><thead><tr><th width="400">HARDWARE</th><th>REQUIREMENTS</th></tr></thead><tbody><tr><td>HARDWARE</td><td>REQUIREMENTS</td></tr><tr><td>CPU Family</td><td>Intel i5 (Gen.8) or higher</td></tr><tr><td>vCPUs</td><td>4</td></tr><tr><td>vCPUs with Recording</td><td>4</td></tr><tr><td>Memory</td><td>4 GB</td></tr><tr><td>HDD</td><td>100 GB</td></tr><tr><td>HDD with Recording</td><td>200 GB or higher</td></tr><tr><td>Virtualized</td><td>YES</td></tr><tr><td>Multi-tenant</td><td>YES</td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th width="400">HARDWARE</th><th>REQUIREMENTS</th></tr></thead><tbody><tr><td>HARDWARE</td><td>REQUIREMENTS</td></tr><tr><td>CPU Family</td><td>Intel i5 (Gen.8) or higher</td></tr><tr><td>vCPUs</td><td>4</td></tr><tr><td>vCPUs with Recording</td><td>6</td></tr><tr><td>Memory</td><td>4 GB</td></tr><tr><td>HDD</td><td>100 GB</td></tr><tr><td>HDD with Recording</td><td>200 GB or higher</td></tr><tr><td>Virtualized</td><td>YES</td></tr><tr><td>Multi-tenant</td><td>YES</td></tr></tbody></table>
 
-### **Up to 200 simultaneous calls**
+### **Up to 600 simultaneous calls**
 
 | HARDWARE             | REQUIREMENTS               |
 | -------------------- | -------------------------- |
@@ -21,7 +21,7 @@ The PortSIP PBX is usually SMBsdeployed for SMB which users less than 100K,  the
 | Virtualized          | YES                        |
 | Multi-tenant         | YES                        |
 
-### **Up to 500 simultaneous calls**
+### **Up to 800 simultaneous calls**
 
 | HARDWARE             | REQUIREMENTS               |
 | -------------------- | -------------------------- |
