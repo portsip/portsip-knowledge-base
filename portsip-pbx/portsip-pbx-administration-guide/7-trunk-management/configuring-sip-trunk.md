@@ -1,154 +1,189 @@
 # Configuring SIP Trunk
 
-VoIP service providers host phone lines and replace traditional telco lines to provide the trunk service. Providers can assign local numbers in one or more cities or countries and route these to you. In most cases, they also support number porting.
+## **Introduction**
 
-Service providers are able to offer better call rates because they may have an international network or have negotiated better rates. Therefore, using VoIP providers can reduce call costs.
+VoIP service providers replace traditional telecom lines by hosting phone lines and delivering trunk services. These providers can assign local numbers in various cities or countries and route calls to your system, often supporting number porting as well. VoIP providers typically offer better call rates, leveraging international networks or favorable rate negotiations to reduce overall call costs.
 
-PortSIP PBX supports these trunk types.
+PortSIP PBX supports several types of trunks:
 
-* **Register Based Trunk**: this trunk requires the PBX to register with the trunk by using an authentication ID and password. **System Admin** can configure a **Register Based** trunk and assign it to tenants, as well as assign a DID Pool to each tenant. The tenants share this trunk but have different DID number pools. **Tenant Admin** can also configure a **Register Based** trunk, however, this trunk cannot be shared with other tenants, and its hostname and authentication ID cannot be the same as those of other trunks.
-* **Accept Register Trunk**: The trunk registers to PBX with the predefined authentication ID and password. **System Admin** can configure an **Accept Register** trunk and assign it to tenants, as well as assign a DID Pool to each tenant. **Tenant Admin** can also configure an **Accept Register** trunk, however, this trunk cannot be shared with other tenants, and its hostname and authentication ID cannot be the same as those of other trunks.
-* **IP Based Trunk**: IP Based trunk does not generally require the PBX to register with the trunk. The IP address of the PBX needs to be configured on the trunk side so that it knows where calls to your number should be routed. The **IP based** trunk can only be configured by **System Admin**, and an IP-based trunk can only be added once. If the **System Admin** wishes to allow more than one tenant to use this trunk, the **System Admin** can assign this trunk to the tenants and assign each tenant a DID Pool.
-* **Microsoft Teams**: Set up Microsoft Teams Direct Routing as a trunk in the PortSIP PBX. This Teams trunk can only be configured by the **Tenant Admin** and cannot be shared with other tenants.
+1. **Register-Based Trunk**\
+   A Register-Based Trunk requires the PBX to register with the trunk provider using an authentication ID and password. The System Admin can configure this type of trunk and assign it to multiple tenants, with each tenant receiving a unique DID pool. Tenant Admins can also set up Register-Based Trunks; however, these trunks cannot be shared with other tenants. To avoid conflicts, the hostname and authentication ID must be unique.
+2. **Accept Register Trunk**\
+   With an Accept Register Trunk, the trunk registers with the PBX using a predefined authentication ID and password. The System Admin can configure this trunk and assign it to tenants, with each tenant receiving its own DID pool. Like Register-Based Trunks, Tenant Admins can also configure Accept Register Trunks, but these cannot be shared across tenants, and the hostname and authentication ID must remain unique.
+3. **IP-Based Trunk**\
+   An IP-Based Trunk does not require registration with the trunk provider. Instead, the provider configures the PBX’s IP address on their end to route calls correctly. Only the System Admin can configure this trunk, and it can only be added once per provider. If multiple tenants need access, the System Admin assigns the trunk to the tenants and allocates unique DID pools for each.
+4. **Microsoft Teams**\
+   PortSIP PBX supports Microsoft Teams Direct Routing as a trunk. This trunk type can only be configured by the Tenant Admin and cannot be shared with other tenants.
+5. **WhatsApp**\
+   PortSIP PBX also supports WhatsApp as a trunk, allowing users to send and receive messages via WhatsApp. This trunk type can only be set up by the Tenant Admin and cannot be shared with other tenants.
 
-The **Tenant Admin** has the ability to view all trunks that the **System Admin** allocated to him and create the inbound/outbound rule on its basis, but he cannot change such trunks.
+## Tenant Admin Permissions
 
-## Configuring Trunk
+The Tenant Admin has access to view all trunks assigned by the System Admin and can create both inbound and outbound rules based on those trunks. However, the Tenant Admin cannot modify the settings of any trunk that was not created by them.
 
-First, you need to have an account with a VoIP/SIP trunk service provider. PortSIP PBX supports most of the popular SIP-based VoIP service/SIP trunk providers.
+The Tenant Admin can modify the settings of any trunk that they have added themselves.
 
-After you get the account from the VoIP service/SIP trunk provider, you will need to configure the account in PortSIP PBX.
+## **Configuring a Trunk**
+
+To begin, ensure that you have an account with a VoIP or SIP trunk service provider. PortSIP PBX supports most popular SIP-based VoIP and SIP trunk providers.
+
+Once you have obtained an account from your VoIP/SIP trunk provider, you can configure the account in PortSIP PBX.
 
 <figure><img src="../../../.gitbook/assets/turnk_1.png" alt=""><figcaption></figcaption></figure>
 
-### **DID Pool Concept**
+## **DID Pool Concept**
 
-Since the PortSIP PBX is a multi-tenant PBX, if more than one tenant set up the trunk from the same trunk provider in the PBX, and sets the same DID number for the inbound rule, when a call is arriving at the PBX, the PBX does not know which tenant should route the call to; and when an extension of a tenant makes the call to the trunk, set the outbound caller ID which belongs to another tenant, will cause problems there.
+Since PortSIP PBX is a multi-tenant system, if multiple tenants set up trunks from the same provider and use the same DID number for their inbound rules, the PBX would not know which tenant to route the incoming call to. Similarly, if an extension from one tenant uses an outbound caller ID that belongs to another tenant, it could cause conflicts.
 
-To avoid the problems above, PortSIP PBX introduced the DID pool concept, the **DID pool** is the **DID numbers**.
+To prevent these issues, PortSIP PBX introduced the concept of a **DID pool**, which is a designated range of DID numbers assigned to each tenant.
 
-Once a tenant was assigned with the trunk by the **System Admin**, the **System Admin** must set up a DID pool for that tenant, the DID pool number cannot overlap with other tenants' DID pools. When a tenant creates the inbound rule based on this assigned trunk, the tenant can only use the DID number from the DID pool.
+When the System Admin assigns a trunk to a tenant, they must configure a DID pool for that tenant. The DID numbers in this pool cannot overlap with other tenants’ DID pools. When a tenant creates an inbound rule for the assigned trunk, they can only use DID numbers from their specific DID pool.
 
-If a **Tenant Admin** adds a trunk for himself, a DID pool must be specified for that trunk. When creating the inbound rule for this tenant based on this trunk after it was added, the DID number used must be in this DID pool range. The DID pool number cannot overlap with the same trunk provider.
+If a Tenant Admin adds a trunk independently, they must also specify a DID pool for that trunk. When creating inbound rules based on this trunk, the tenant must use DID numbers from their designated pool. Overlapping DID pools with the same trunk provider will cause conflicts.
 
-Tenant A, for example, adds a trunk of the **trunk provider XYZ** and sets the DID Pool to 1000-2000; Tenant B also adds a trunk of the same **trunk provider XYZ** and sets the DID Pool to 2000-3000; This will fail because the DID Pool number of the same trunk is overlapping; when a call to number 2000 is incoming, the PBX does not know which tenant should route the call to.
+For example:
 
-The DID pool allows a single number or range, as shown below.
+* Tenant A adds a trunk from provider XYZ and sets the DID pool to **1000-2000**.
+* Tenant B adds a trunk from the same provider XYZ and sets the DID pool to **2000-3000**.
 
-* 1000-2000
-* 282556000-282556900
-* 101;203;300-450
+This setup would fail because the DID pools overlap. When an incoming call is directed to **2000**, the PBX would not know which tenant to route the call to.
+
+The DID pool can consist of individual numbers or a range of numbers, as shown below:
+
+* **1000-2000**
+* **282556000-282556900**
+* **101; 203; 300-450**
 
 {% hint style="info" %}
-The DID number and DID number range cannot begin with "**+"**, "**0"**, or "**00"** when setting into the DID Pool for a tenant; if your DID number or DID number range begins with "**+"**, "**0"**, or "**00"**, please remove it before entering.
+When configuring the DID Pool for a tenant, the DID number or range cannot begin with "+", "0", or "00". If your DID number or range starts with any of these, please remove the prefix before entering it into the system.
 {% endhint %}
 
-### **Add the Trunk by System Admin**
+## **Add the Trunk by System Admin**
 
-1. Select **Call Manager > Trunks** menu, and click the arrow button to choose the trunk type that you will need to add.
-2. **Enter a friendly name for this trunk**, and fill in the **Host Domain or IP**, **Port**, **Outbound Proxy Server**, and **Outbound Proxy Server port** fields as the details that you received from your trunk service provider.
-3. **Transport**. The transport used for the PBX communicates with the trunk, you should consult your trunk provider and choose the appropriate transport, that currently supports UDP, TCP, and TLS. The transport must be added in PBX before adding the trunk. For example, if your provider requires the TCP, you should add the TCP transport in PBX, please refer to the section [Transport Management](https://support.portsip.com/portsip-pbx-user-guide/portsip-pbx-administration-guide-v16.x/6-transport-management).
-4. **Associated IPs of the trunk**. For some trunk providers, it may send the INVITE message to PBX from multiple IPs rather than from the **Host Domain or IP** only. You need to click the **Add** button and enter each IP here to add the associated IP.
+To add a trunk, follow these steps:
 
-If the trunk type is **Register based**, click the **Next** button to fill in the username/Authentication name, password, and register time as the account details that you get from the trunk provider.
+1. Navigate to **Call Manager > Trunks**, then click the arrow button to select the type of trunk you need to add.
+2. Enter a friendly name for the trunk and fill in the **Host Domain or IP**, **Port**, **Outbound Proxy Server**, and **Outbound Proxy Server Port** fields using the details provided by your trunk service provider.
+3. **Transport**:\
+   Choose the appropriate transport protocol (UDP, TCP, or TLS) that the PBX will use to communicate with the trunk. Consult your trunk provider for the correct transport protocol. The transport must already be configured in the PBX before adding the trunk. For example, if your provider requires TCP, ensure that TCP is added to the PBX beforehand. For instructions, refer to the section on [**Transport Management**](../6-transport-management.md).
+4. **Associated IPs of the Trunk**:\
+   Some trunk providers may send INVITE messages to the PBX from multiple IP addresses, rather than from a single Host Domain or IP. If this applies, click the **Add** button to enter each associated IP.
+5. If the trunk type is **Register-Based**, click **Next** and enter the **Username/Authentication Name**, **Password**, and **Register Time**, using the account details provided by your trunk provider.
 
-Click the **Next** button to set up more parameters.
+Click **Next** to configure additional parameters:
 
-1. **Use the private IP address to communicate with this trunk**: Enable this option if the PBX uses the private IP address for the trunk connection, otherwise, disable it then the PBX will use the public IP address to connect this trunk.
-2. **Rewrite the host IP of Via header by the PBX server public IP when sending the request to the trunk**: if this option is enabled and the PBX has a public IP, the PBX will change the host IP of the **Via** header by the PBX public IP when sending SIP message to the trunk. Unless the trunk provider is required, keep this option as the default setting.
-3. **Verify the port when receiving SIP messages from the trunk**: when the PBX receives a SIP message from the trunk and tries to recognize the trunk by matching the IP and port. The port will be ignored if this option is turned off.  This value was suggested leaving it as the default.
-4. **This trunk only accepts a single Via SIP header**: if this option is turned on, the PBX will just keep a single Via header when sending a SIP message to the trunk.
-5. **Send OPTIONS message for keep alive**: when enabled, the PBX sends keep-alive messages (SIP OPTIONS) to the trunk to determine its connectivity status (offline or online). The PBX marks this trunk offline if it does not receive the 200 OK of the OPTIONS.
-6. **Send OPTIONS message interval(seconds)**: how often messages are sent and when a destination is considered unavailable. The default is 360 seconds.
+* **Use the private IP address to communicate with this trunk**:\
+  Enable this option if the PBX will use a private IP address for trunk connections. If disabled, the PBX will use its public IP address to connect to the trunk.
+* **Rewrite the host IP of the Via header using the PBX server’s public IP when sending requests to the trunk**:\
+  If enabled, and the PBX has a public IP address, it will replace the host IP in the Via header with the PBX’s public IP when sending SIP messages to the trunk. Unless required by the trunk provider, it is recommended to leave this option at its default setting.
+* **Verify the port when receiving SIP messages from the trunk**:\
+  This option allows the PBX to match incoming SIP messages from the trunk by both IP and port. If disabled, the port will be ignored during this process. It is recommended to leave this option at its default setting.
+* **This trunk only accepts a single Via SIP header**:\
+  When enabled, the PBX will retain only a single Via header when sending SIP messages to the trunk.
+* **Send OPTIONS message for keep-alive**:\
+  When enabled, the PBX will send SIP OPTIONS messages to the trunk to monitor its connectivity status (whether it's online or offline). If no **200 OK** response is received from the trunk, the PBX will mark it as offline.
+* **Send OPTIONS message interval (seconds)**:\
+  Defines how frequently SIP OPTIONS messages are sent to check trunk availability and when the destination is considered unreachable. The default interval is 360 seconds.
 
-Click the **Next** button to set up more parameters.
+Click **Next** to configure additional parameters:
 
-Since the trunk is added by the **System Admin**, the **System Admin** will need to choose one or more tenants to allow them access to this trunk.
+Since the trunk is added by the System Admin, the System Admin must select one or more tenants to grant them access to this trunk.
 
-Once a tenant is assigned the trunk, must set up the DID pool for the tenant, the DID pool number cannot overlap if assigned a trunk for multiple tenants.
+Once a tenant is assigned to the trunk, a **DID pool** must be configured for that tenant. The DID pool numbers must be unique and cannot overlap when assigning the same trunk to multiple tenants.
 
-When the tenant creates the inbound rule based on this assigned trunk, the tenant can only use the DID number from the DID pool.
+When a tenant creates an inbound rule based on the assigned trunk, they can only use DID numbers from their designated DID pool.
 
-For more details please refer to [DID Pool](configuring-sip-trunk.md#did-pool).
+For more information, please refer to the section on [**DID Pool**](configuring-sip-trunk.md#did-pool-concept).
 
 <figure><img src="../../../.gitbook/assets/trunk_did_pool.png" alt=""><figcaption></figcaption></figure>
 
-### **Add the Trunk by Tenant Admin**
+## **Add the Trunk by Tenant Admin**
 
-When a **Tenant Admin** logs into the Web Portal, he has the ability to create trunks for this tenant. The **Tenant Admin** can only add the trunk types listed below.
+When a Tenant Admin logs into the Web Portal, they have the ability to create trunks for their tenant. However, the Tenant Admin can only add the following trunk types:
 
-* **Register Based**: PBX registers to the trunk
-* **Accept Register**: The trunk register to PBX
-* **Microsoft Teams**: The Microsoft Teams Direct Routing
+* **Register-Based**: PBX registers with the trunk.
+* **Accept Register**: The trunk registers with the PBX.
+* **Microsoft Teams**: Microsoft Teams Direct Routing.
+* **WhatsApp**: The WhatsApp messageing service.
 
-The **IP Based** trunk can only be added by the **System Admin**.
+Note: The **IP-Based** trunk can only be added by the System Admin.
 
-1. Select **Call Manager > Trunks** menu, and click the arrow button to choose the trunk type that you will need to add.
-2. **Enter a friendly name for this trunk**.
-3. **DID Pool**: A DID pool must be specified for the tenant. When creating the inbound rule for this tenant based on this trunk, the DID number used in the inbound rule must be in the DID pool range. For more details, please refer to [DID Pool](configuring-sip-trunk.md#did-pool).
-4. Fill in the **Host Domain or IP**, **Port**, **Outbound Proxy Server**, and **Outbound Proxy Server port** fields as the details you received from the trunk service provider.
-5. **Transport**. The transport used for the PBX communicates with the trunk, you should consult your trunk provider and choose the appropriate transport, that currently supports UDP, TCP, and TLS. The transport must be added in PBX before adding the trunk. For example, if your provider requires the TCP, you should add the TCP transport in PBX, please refer to the section [Transport Management](https://support.portsip.com/portsip-pbx-user-guide/portsip-pbx-administration-guide-v16.x/6-transport-management).
-6. **Associated IPs of the trunk**. For some trunk providers, it may send the INVITE message to PBX from multiple IPs rather than from the **Host Domain or IP** only. You need to click the **Add** button and enter each IP here to add the associated IP.
+To add a trunk, follow these steps:
 
-If the trunk type is  **Register Based**, click the **Next** button to fill in the username/Authentication name, password, and Reregister time as the account details that you get from the trunk provider.
+1. Navigate to **Call Manager > Trunks**, and click the arrow button to select the trunk type you wish to add.
+2. Enter a friendly name for the trunk.
+3. **DID Pool**: A DID pool must be specified for the tenant. When creating an inbound rule for the tenant based on this trunk, the DID number used in the inbound rule must fall within the specified DID pool range. For more details, refer to the **DID Pool** section.
+4. Fill in the **Host Domain or IP**, **Port**, **Outbound Proxy Server**, and **Outbound Proxy Server Port** fields with the details provided by your trunk service provider.
+5. **Transport**: Choose the appropriate transport protocol (UDP, TCP, or TLS) for communication between the PBX and the trunk. Consult your trunk provider for the correct transport. The transport protocol must already be added in the PBX before adding the trunk. For example, if your provider requires TCP, ensure that TCP is added in the PBX. Refer to the **Transport Management** section for more details.
+6. **Associated IPs of the Trunk**: Some trunk providers may send INVITE messages from multiple IP addresses rather than just the Host Domain or IP. Click the **Add** button to enter each associated IP.
+7. If the trunk type is **Register-Based**, click **Next** and enter the **Username/Authentication Name**, **Password**, and **Re-register Time**, as provided by your trunk provider.
 
-Click the **Next** button to set up more parameters.
+Click **Next** to configure additional parameters:
 
-1. **Use the private IP address to communicate with this trunk**: Enable this option if the PBX uses the private IP address for the trunk connection, otherwise, disable it then the PBX will use the public IP address to connect this trunk.
-2. **Rewrite the host IP of Via header by the PBX server public IP when sending the request to the trunk**: if this option is enabled and the PBX has a public IP, the PBX will change the host IP of the Via header by the PBX public IP when sending SIP message to the trunk. Unless the trunk provider is required, keep this option as the default setting.&#x20;
-3. **Verify the port when receiving SIP messages from the trunk**: when the PBX receives a SIP message from the trunk and tries to recognize the trunk by matching the IP and port. The port will be ignored if this option is turned off. This value was suggested leaving it as the default.&#x20;
-4. **This trunk only accepts a single Via SIP heade**r: if this option is turned on, the PBX will just keep a single Via header when sending a SIP message to the trunk.
-5. **Send OPTIONS message for keep alive**: when enabled, the PBX sends keep-alive messages (SIP OPTIONS) to the trunk to determine its connectivity status (offline or online). The PBX marks this trunk offline if not receive the 200 OK of the OPTIONS.&#x20;
-6. **Send OPTIONS message interval(seconds)**: how often messages are sent and when a destination is considered unavailable. The default is 360 seconds
+* **Use the private IP address to communicate with this trunk**:\
+  Enable this option if the PBX will use a private IP address for the trunk connection. Otherwise, disable it, and the PBX will use its public IP address for the connection.
+* **Rewrite the host IP of the Via header with the PBX server’s public IP when sending requests to the trunk**:\
+  If this option is enabled and the PBX has a public IP, it will replace the host IP in the Via header with the PBX’s public IP when sending SIP messages to the trunk. Unless required by the trunk provider, it is recommended to leave this option at its default setting.
+* **Verify the port when receiving SIP messages from the trunk**:\
+  When the PBX receives a SIP message, it will match both the IP and port to recognize the trunk. If this option is disabled, the port will be ignored. It is recommended to leave this option at its default setting.
+* **This trunk only accepts a single Via SIP header**:\
+  Enable this option if the trunk requires the PBX to include only a single Via header in outgoing SIP messages.
+* **Send OPTIONS message for keep-alive**:\
+  When enabled, the PBX will send SIP OPTIONS messages to the trunk to monitor its connectivity status (online or offline). If no **200 OK** response is received, the PBX will mark the trunk as offline.
+* **Send OPTIONS message interval (seconds)**:\
+  This setting determines how often SIP OPTIONS messages are sent to check trunk availability. The default interval is 360 seconds.
 
-### **Configure E1/T1 Gateway Register to PortSIP PBX**
+## **Configure E1/T1 Gateway Registration to PortSIP PBX**
 
-Consider we deployed the PortSIP PBX on a cloud platform such as AWS, AZURE, GCE, and wish to configure the E1/T1 gateway which is located in local LAN as a trunk for the PortSIP PBX, but the E1/T1 without static public IP, we can't configure the **Authentication mode** to **IP Based** and **Register Based.**
+In scenarios where PortSIP PBX is deployed on a cloud platform like AWS, Azure, or GCE, and you need to configure an E1/T1 gateway located on a local LAN as a trunk for PortSIP PBX, but the E1/T1 gateway lacks a static public IP, you cannot use IP-Based or Register-Based authentication modes.
 
-For this scenario, we can configure that E1/T1 is registering to the cloud PortSIP PBX from the local LAN, and then the E1/T1 can act as the Trunk works with PortSIP PBX for make & receive calls.
+For this scenario, you can configure the E1/T1 gateway to register from the local LAN to the cloud-hosted PortSIP PBX. This allows the E1/T1 gateway to function as a trunk for making and receiving calls with PortSIP PBX.
 
-Please follow the below steps to config the E1/T1 register to the cloud PortSIP PBX.
+To configure the E1/T1 gateway to register with the cloud-hosted PortSIP PBX, follow these steps:
 
-1. Select **Call Manager > Trunks**, click the arrow button, and choose **Accept Register**.
-2. Enter a friendly name for this trunk.
-3. DID Pool: A DID pool must be specified for the trunk. When creating the inbound rule for this tenant based on this trunk after it was added, the DID number used must be in this DID pool range. For more details please refer to DID Pool&#x20;
-4. Enter a domain for the **Host Domain or IP Address**, this domain doesn't require an existing domain, you can enter any domain here, for example, **portspitrunk1.io**.&#x20;
+1. Navigate to **Call Manager > Trunks**, click the arrow button, and choose **Accept Register**.
+2. Enter a friendly name for the trunk.
+3. **DID Pool**: A DID pool must be specified for the trunk. When creating inbound rules based on this trunk, the DID numbers used must fall within the specified DID pool range. For more details, refer to the **DID Pool** section.
+4. Enter a domain for the **Host Domain or IP Address**. This does not need to be a real domain, so you can use any domain, such as **portspitrunk1.io**.
 
 {% hint style="danger" %}
 Ensure this domain does not equal any tenant's SIP domain.
 {% endhint %}
 
-Click the **Next** button to set up more parameters.
+Click **Next** to configure additional parameters:
 
-1. For the **Authorization Name**, you can enter any number here, for example, "**123456**", the E1/T1 gateway will use this for the authorization when it registers to PortSIP PBX.
-2. For the password, you can enter any password here, the E1/T1 gateway will use this for the authorization when it registers to PortSIP PBX.
-3. Other settings are the same as in the previous section for configuring the **IP Based** and **Register Based** Trunk.
-4. After successfully adding the trunk, now you can configure the E1/T1 gateway to let it register to the cloud PortSIP PBX.&#x20;
+* For the **Authorization Name**, you can enter any identifier, such as "123456". The E1/T1 gateway will use this for authorization when registering with PortSIP PBX.
+* For the **Password**, enter any password. The E1/T1 gateway will use this password for authorization when registering to PortSIP PBX.
 
-#### Configure the E1/T1 Gateway
+The remaining settings are the same as those used for configuring IP-Based and Register-Based Trunks.
 
-1. In the E1/T1 settings, enter the trunk **Host Domain or IP Address** (in this case **portsiptrunk1.io**) that you configured in the previous steps for the E1/T1 **SIP Server/Domain** field.
-2. For the E1/T1 **Outbound Proxy Server** field, input the cloud PBX public static IP address.
-3. Specify the PortSIP PBX transport port for the E1/T1 **Outbound Proxy Server port** field.
-4. &#x20;Enter the trunk **Authorization name** and **Password** that you configured earlier for the **username/auth ID/auth name** and **password** fields of your E1/T1. This will allow the E1/T1 gateway to register with the cloud PortSIP PBX.
+Once the trunk has been successfully added, you can proceed to configure the E1/T1 gateway to register with the cloud-hosted PortSIP PBX.
 
-## Outbound Parameters and Inbound Parameters
+### **Configure the E1/T1 Gateway**
 
-After completing the setup for the trunk, you could also go to **Call Manager > Trunks** select a trunk, and click the **Edit** button to change the Inbound/Outbound Parameters for the trunk.
+1. In the E1/T1 settings, enter the **trunk Host Domain or IP Address** (e.g., **portsiptrunk1.io**) in the **SIP Server/Domain** field. This should match the domain you configured in the previous steps.
+2. For the **Outbound Proxy Server** field, input the cloud PBX’s public static IP address.
+3. In the **Outbound Proxy Server Port** field, specify the PortSIP PBX transport port.
+4. Enter the **Authorization Name** and **Password** you configured earlier into the **Username/Auth ID/Auth Name** and **Password** fields of the E1/T1 gateway.
 
-* On the **Outbound Parameters** page, you could set some rules to make changes for headers of INVITE messages to be sent to the trunk. For example, the **user** part of the **From** SIP header could be set to the **Outbound Caller ID** of the extension who made the call. You can set up the **Outbound caller ID** of the extension on the **General** page of the user settings, see section [5.2 General](https://support.portsip.com/portsip-pbx-user-guide/portsip-pbx-administration-guide-v16.x/5-extension-management#5.2-general).
-* On the **Inbound Parameters** page,  the user could set rules to make changes to the field values of SIP messages for incoming calls from the trunk.
+This will allow the E1/T1 gateway to successfully register with the cloud-hosted PortSIP PBX.
 
-For more details, please read this topic: [Handle Outbound Calls Through SIP Trunk](handle-outbound-calls-through-sip-trunk.md).
+## **Outbound Parameters and Inbound Parameters**
+
+Once the trunk setup is complete, you can further customize the configuration by navigating to **Call Manager > Trunks**, selecting the trunk, and clicking the **Edit** button to modify the **Inbound/Outbound Parameters**.
+
+* On the **Outbound Parameters** page, you can set rules to modify the headers of INVITE messages sent to the trunk. For example, you can configure the user part of the **From SIP** header to reflect the Outbound Caller ID of the extension that initiated the call. To configure the Outbound Caller ID for an extension, go to the **General** page of the user settings. For more details, refer to [**Users**](../5-user-management/users.md).
+* On the **Inbound Parameters** page, you can set rules to modify the field values in SIP messages for incoming calls from the trunk.
+
+For further details, please refer to the topic [**Handle Outbound Calls Through SIP Trunk**](handle-outbound-calls-through-sip-trunk.md).
 
 {% hint style="danger" %}
 Both inbound and outbound parameters are advanced options. It’s recommended to use default values.
 {% endhint %}
 
-## Deleting Trunk
+## Deleting a Trunk
 
-The trunk cannot be deleted if there are still inbound or outbound rules based on it.
+A trunk cannot be deleted if there are any inbound or outbound rules associated with it. To delete a trunk, you must first either change the trunk in the inbound and outbound rules to another trunk or delete those rules entirely.
 
-* If you want to delete a trunk, you must change the trunk in the inbound and outbound rules to another trunk.
-* Before deleting a trunk, simply delete the inbound and outbound rules that were created based on that trunk.
+Before deleting a trunk, ensure that you remove or modify all inbound and outbound rules that were created based on that trunk.
 
