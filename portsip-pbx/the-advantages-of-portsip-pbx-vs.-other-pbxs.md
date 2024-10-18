@@ -102,11 +102,11 @@ This unified platform ensures that businesses can efficiently communicate and co
 
 ## Effortless User Management
 
-Tenant administrators can effortlessly manage users through the intuitive user list available in the PBX web portal. The user list provides real-time information on all extensions, displaying their current status—whether they are online, offline, on a call, push notification enabled, automatic callback enabled, or Do Not Disturb (DND) enabled. This clear visibility allows administrators to efficiently monitor and manage user activity with ease.
+Tenant administrators can easily manage users through the intuitive user list within the PBX web portal. This list provides real-time updates on all extensions, showing their current status—whether online, offline, on a call, push notifications enabled, automatic callback enabled, or Do Not Disturb (DND) enabled. With this clear visibility, administrators can efficiently monitor and manage user activity with minimal effort.
 
 <figure><img src="../.gitbook/assets/extension_status_1.png" alt=""><figcaption></figcaption></figure>
 
-You can click on the search icon to view the device details of any online extension. As shown in the screenshot below, extension 102 is registered from both a PortSIP UC client (IP address: 192.168.0.22, port: 5960 using UDP transport) and a Yealink T53 IP phone (IP address: 192.168.0.36, port: 5060 using UDP transport). This detailed view allows administrators to easily monitor the devices connected to each extension.
+You can click the search icon to view the device details for any online extension. In the example shown below, extension 103 is registered from both the PortSIP ONE app (IP address: 192.168.2.217, port: 5090 using UDP transport) and a Fanvil V65 IP phone (IP address: 192.168.2.36, port: 5060 using UDP transport). This detailed view enables administrators to easily monitor the devices connected to each extension.
 
 <figure><img src="../.gitbook/assets/extension_status_2.png" alt=""><figcaption></figcaption></figure>
 
