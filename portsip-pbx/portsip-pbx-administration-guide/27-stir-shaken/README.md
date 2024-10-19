@@ -22,8 +22,8 @@ STIR is used to enhance the SIP protocol to provide a mechanism for service prov
 
 We are pleased to announce that PortSIP has officially launched **PortSIP PBX v22.0** with a complete implementation of **STIR/SHAKEN** for two key reasons:
 
-1. Our clients no longer need to pay for expensive STIR/SHAKEN subscription services for their business.
-2. Our clients' data stays secure, without being routed through third-party service provider networks.
+* Our clients no longer need to pay for expensive STIR/SHAKEN subscription services for their business.
+* Our clients' data stays secure, without being routed through third-party service provider networks.
 
 However, it is important to note that each of our partners must still obtain a **STIR/SHAKEN** **certificate**.
 
