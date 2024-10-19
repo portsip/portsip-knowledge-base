@@ -53,8 +53,10 @@ This feature applies only to the inbound calls received from this trunk.
 
 If a call is received from the SIP trunk with the following **PAI header**:
 
-`P-Asserted-Identity: <sip:+15617500080;verstat=TN-Validation-Passed>`\
-`P-Attestation-Indicator: B`
+```
+P-Asserted-Identity: <sip:+15617500080;verstat=TN-Validation-Passed>
+P-Attestation-Indicator: B
+```
 
 Please note that the additional header check is included for **STIR/SHAKEN**. The **P-Asserted-Identity** can contain one of the following values: **'TN-Validation-Passed'**, **'TN-Validation-Failed'**, or **'No-TN-Validation'**. The attestation level is specified in a separate header, such as **P-Attestation-Indicator: B**.
 
@@ -62,8 +64,11 @@ Please note that the additional header check is included for **STIR/SHAKEN**. Th
 
 If a user selects **'TN-Validation-Failed-B'** and **'No-TN-Validation'** as values in the **Drop Calls with Verification Status** field, the call will be dropped, since it matches **'TN-Validation-Passed'** with **'B'** as the attestation level.
 
-However, if no attestation indicator is provided, the PBX expects an exact match between the **verstat** value in the **PAI header** and the value specified in the **Drop Calls with Verification Status** field. For example:\
-`P-Asserted-Identity: <sip:+15617500080;verstat=TN-Validation-Passed-B>`.
+However, if no attestation indicator is provided, the PBX expects an exact match between the **verstat** value in the **PAI header** and the value specified in the **Drop Calls with Verification Status** field. For example:
+
+```
+P-Asserted-Identity: <sip:+15617500080;verstat=TN-Validation-Passed-B>
+```
 
 ## Signing Outbound Calls on a Trunk
 
