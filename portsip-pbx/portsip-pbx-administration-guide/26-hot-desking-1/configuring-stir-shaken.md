@@ -58,7 +58,7 @@ If a call is received from the SIP trunk with the following **PAI header**:
 
 Please note that the additional header check is included for **STIR/SHAKEN**. The **P-Asserted-Identity** can contain one of the following values: **'TN-Validation-Passed'**, **'TN-Validation-Failed'**, or **'No-TN-Validation'**. The attestation level is specified in a separate header, such as **P-Attestation-Indicator: B**.
 
-#### **Scenario**
+### **Scenario**
 
 If a user selects **'TN-Validation-Failed-B'** and **'No-TN-Validation'** as values in the **Drop Calls with Verification Status** field, the call will be dropped, since it matches **'TN-Validation-Passed'** with **'B'** as the attestation level.
 
