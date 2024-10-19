@@ -107,6 +107,8 @@ You can upload the STIR/SHAKEN certificate either at the System Administrator le
 3. Similarly, open your STIR/SHAKEN private key file using Windows Notepad, and copy and paste the contents into the **Private Key** field.
 4. Click **OK** to save your changes.
 
+<figure><img src="../../../.gitbook/assets/stir-shaken-3.png" alt=""><figcaption></figcaption></figure>
+
 ### Enabling STIR/SHAKEN Call Signing on a Trunk
 
 To enable the STIR/SHAKEN signature on a specific trunk, follow these steps:
