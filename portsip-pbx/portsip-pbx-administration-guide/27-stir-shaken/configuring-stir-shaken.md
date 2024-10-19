@@ -82,11 +82,11 @@ To sign outbound calls on a trunk, you must follow the process of obtaining your
 To implement STIR/SHAKEN, follow these steps:
 
 1. **Obtain an FCC 499 ID**\
-   Apply for and receive an FCC 499-A Filer ID, which is necessary for companies providing telecom services in the U.S.
+   Apply for and receive an [FCC 499-A Filer ID](https://apps.fcc.gov/cores/userLogin.do), which is necessary for companies providing telecom services in the U.S.
 2. **Get an Operating Company Number (OCN)**\
-   An OCN is a 4-character identifier assigned to telecom companies in North America. You’ll need this to proceed with certification.
+   An [OCN is a 4-character identifier](https://www.neca.org/) assigned to telecom companies in North America. You’ll need this to proceed with certification.
 3. **Acquire Your iConnectiv Token**\
-   iConnectiv is the designated policy administrator for the STIR/SHAKEN framework. Obtain your token through their portal.
+   [iConnectiv ](https://authenticate.iconectiv.com/)is the designated policy administrator for the STIR/SHAKEN framework. Obtain your token through their portal.
 4. **Partner with a Certificate Authority (CA)**\
    Collaborate with a trusted Certificate Authority (CA) to issue your STIR/SHAKEN certificate, enabling you to sign and authenticate your outbound calls.
 
