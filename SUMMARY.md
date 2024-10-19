@@ -85,6 +85,7 @@
   * [25 Meetings](portsip-pbx/portsip-pbx-administration-guide/25-meetings/README.md)
     * [Joining a Meeting with the Invite Link](portsip-pbx/portsip-pbx-administration-guide/25-meetings/joining-a-meeting-with-the-invite-link.md)
   * [26 Hot Desking](portsip-pbx/portsip-pbx-administration-guide/26-hot-desking.md)
+  * [27 STIR/SHAKEN](portsip-pbx/portsip-pbx-administration-guide/26-hot-desking-1.md)
   * [Office Hours and Holiday Schedule](portsip-pbx/portsip-pbx-administration-guide/office-hours-and-holiday-schedule/README.md)
     * [Configuring Office Hours and Holiday Schedule](portsip-pbx/portsip-pbx-administration-guide/office-hours-and-holiday-schedule/configuring-office-hours-and-holiday-schedule.md)
     * [Routing Calls Based on Office Hours and Holidays](portsip-pbx/portsip-pbx-administration-guide/office-hours-and-holiday-schedule/routing-calls-based-on-office-hours-and-holidays.md)
