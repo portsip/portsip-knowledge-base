@@ -279,6 +279,7 @@ If you uploaded a trusted SSL certificate in **Step 2: SSL Certificate** (instea
 ```sh
 cd /opt/portsip
 sudo /bin/sh pbx_ctl.sh restart
+sudo /bin/sh im_ctl.sh restart
 ```
 
 Now the PortSIP PBX is successfully installed.
