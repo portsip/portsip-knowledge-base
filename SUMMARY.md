@@ -11,7 +11,7 @@
   * [Overview](portsip-pbx/portsip-pbx-administration-guide/overview.md)
   * [PortSIP PBX Features](portsip-pbx/portsip-pbx-administration-guide/portsip-pbx-features.md)
   * [PortSIP Security Features](portsip-pbx/portsip-pbx-administration-guide/portsip-security-feature.md)
-  * [Upgrading PortSIP PBX to New Versions](portsip-pbx/portsip-pbx-administration-guide/upgrading-portsip-pbx-to-new-versions.md)
+  * [Upgrading PortSIP PBX v16.x to New Versions](portsip-pbx/portsip-pbx-administration-guide/upgrading-portsip-pbx-to-new-versions.md)
   * [Summary of Changes](portsip-pbx/portsip-pbx-administration-guide/summary-of-changes.md)
   * [Before Started](portsip-pbx/portsip-pbx-administration-guide/before-started.md)
   * [1 Installation of the PortSIP PBX](portsip-pbx/portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx.md)
