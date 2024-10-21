@@ -70,7 +70,7 @@ Please read the [Supported Linux OS](https://support.portsip.com/portsip-pbx-use
 
 ### Install PortSIP PBX and SBC
 
-Assume the PBX has been installed as the [Installation of the PortSIP PBX](1-installation-of-the-portsip-pbx.md).
+Assume the PBX has been installed as the [Installation of the PortSIP PBX](installation-of-the-portsip-pbx-beta.md).
 
 To install the SBC, please follow the below steps:
 
@@ -183,7 +183,7 @@ Please read the [Supported Linux OS](https://support.portsip.com/portsip-pbx-use
 
 ### Install PortSIP PBX and SBC
 
-Assume the PBX has been installed as the [1 Installation of the PortSIP PBX](1-installation-of-the-portsip-pbx.md).
+Assume the PBX has been installed as the [1 Installation of the PortSIP PBX](installation-of-the-portsip-pbx-beta.md).
 
 #### Install PortSIP SBC for Linux
 
