@@ -138,7 +138,7 @@ After successfully logging into the PBX Web Portal, the dashboard will appear as
 
 <figure><img src="../../.gitbook/assets/portsip-pbx-v22-home.png" alt=""><figcaption></figcaption></figure>
 
-With the new installation, the PBX will pop up the setup wizard to guide you to complete the mandatory settings.
+With a new installation, the PBX will launch a setup wizard to guide you through completing the mandatory settings.
 
 ### 1. Network Environment
 
