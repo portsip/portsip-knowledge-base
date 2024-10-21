@@ -65,7 +65,7 @@ sudo rm -rf *.sh
 
 {% code overflow="wrap" %}
 ```bash
-sudo curl \ 
+sudo curl \
 https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/install_docker.sh \
 -o install_docker.sh
 ```
@@ -73,7 +73,7 @@ https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/install_do
 
 {% code overflow="wrap" %}
 ```bash
-sudo curl \ 
+sudo curl \
 https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/pbx_ctl.sh \
 -o pbx_ctl.sh
 ```
@@ -81,8 +81,8 @@ https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/pbx_ctl.sh
 
 {% code overflow="wrap" %}
 ```sh
-sudo curl \ 
-https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/im.sh \ 
+sudo curl \
+https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/im.sh \
 -o im_ctl.sh
 ```
 {% endcode %}
@@ -91,9 +91,8 @@ https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/im.sh \
 
 Execute the below command to install the `Docker-Compose` environment. If you get the prompt likes`*** cloud.cfg (Y/I/N/O/D/Z) [default=N] ?`, enter the **Y** and then press the **Enter** button.
 
-```shell
-/bin/sh install_docker.sh
-```
+<pre class="language-shell"><code class="lang-shell"><strong>sudo /bin/sh install_docker.sh
+</strong></code></pre>
 
 ## Step 3: Create and Run the PortSIP PBX Docker Container Instance
 
@@ -104,7 +103,7 @@ If your PBX server has a public IP, you must use it in the below command for the
 {% endhint %}
 
 ```shell
-/bin/sh pbx_ctl.sh \
+sudo /bin/sh pbx_ctl.sh \
 run -p /var/lib/portsip \
 -a 66.175.221.120 \
 -i portsip/pbx:22.0.30.1258-beta
@@ -267,7 +266,7 @@ cd /opt/portsip
 
 {% code overflow="wrap" %}
 ```sh
-sudo /bin/sh im_ctl.sh run -p /var/lib/portsip/ -i portsip/pbx:22.0.30.1258-beta \ 
+sudo /bin/sh im_ctl.sh run -p /var/lib/portsip/ -i portsip/pbx:22.0.30.1258-beta \
 -t MJC4NZBLYTGTZTJJNS0ZMWZHLWIXZDCTZJLLMDEWZJHKZTAY
 ```
 {% endcode %}
