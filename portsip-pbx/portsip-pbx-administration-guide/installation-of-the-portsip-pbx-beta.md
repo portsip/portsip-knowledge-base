@@ -82,7 +82,7 @@ https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/pbx_ctl.sh
 {% code overflow="wrap" %}
 ```sh
 sudo curl \
-https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/im.sh \
+https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/im_ctl.sh \
 -o im_ctl.sh
 ```
 {% endcode %}
