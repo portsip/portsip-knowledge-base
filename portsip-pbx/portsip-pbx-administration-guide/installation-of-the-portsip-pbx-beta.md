@@ -49,43 +49,19 @@ If the PBX runs on a cloud platform such as AWS and the cloud platform has its o
 All commands must be executed in the **`/opt/portsip`** directory.
 {% endhint %}
 
-Perform the below commands to download the installation scripts.
+Perform the below commands to download the installation scripts and initialize the environment:
+
+{% code overflow="wrap" %}
+```shell
+sudo curl \
+https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/init.sh  \
+-o  init.sh
+```
+{% endcode %}
 
 ```shell
-sudo mkdir -p /opt/portsip
+sudo /bin/sh init.sh
 ```
-
-```shell
-cd /opt/portsip
-```
-
-```sh
-sudo rm -rf *.sh
-```
-
-{% code overflow="wrap" %}
-```bash
-sudo curl \
-https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/install_docker.sh \
--o install_docker.sh
-```
-{% endcode %}
-
-{% code overflow="wrap" %}
-```bash
-sudo curl \
-https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/pbx_ctl.sh \
--o pbx_ctl.sh
-```
-{% endcode %}
-
-{% code overflow="wrap" %}
-```sh
-sudo curl \
-https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/im_ctl.sh \
--o im_ctl.sh
-```
-{% endcode %}
 
 ## Step 2: Setup the Docker Environment
 
