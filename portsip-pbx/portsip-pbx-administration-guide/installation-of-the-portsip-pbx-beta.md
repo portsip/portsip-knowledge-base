@@ -67,6 +67,10 @@ sudo /bin/sh init.sh
 
 Execute the below command to install the `Docker-Compose` environment. If you get the prompt likes`*** cloud.cfg (Y/I/N/O/D/Z) [default=N] ?`, enter the **Y** and then press the **Enter** button.
 
+```sh
+cd /opt/portsip
+```
+
 <pre class="language-shell"><code class="lang-shell"><strong>sudo /bin/sh install_docker.sh
 </strong></code></pre>
 
