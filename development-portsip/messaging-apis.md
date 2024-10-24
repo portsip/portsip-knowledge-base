@@ -722,7 +722,7 @@ The following message will be sent to all users who have subscribed to the group
 }
 ```
 
-### Left from a Group
+### Leave from a Group
 
 Users can unsubscribe from a group by sending a `{leave}` message. This is the opposite function of the `{sub}` message. The `{leave}` message supports two options:
 
@@ -731,8 +731,8 @@ Users can unsubscribe from a group by sending a `{leave}` message. This is the o
 
 The server will respond to a `{leave}` message with a `{ctrl}` packet.
 
-* **Leave without unsubscribing** (`unsub=false`) only affects the current session.
-* **Unsubscribe and leave** (`unsub=true`) affects all sessions for that user.
+* **Leave without unsubscribing** (`unsub=false`) only affects the current WebSocket session. You will still receive messages if you establish a new WebSocket session with the IM server, and if the user is connected to the IM server from another app, they will also continue receiving messages.
+* **Unsubscribe and leave** (`unsub=true`) affects all sessions for that user. The user will no longer receive messages from this group across any session unless he subscribes to this group topic again.
 
 ```python
 uuid4 = uuid.uuid4()
