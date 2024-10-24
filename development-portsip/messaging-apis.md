@@ -722,7 +722,7 @@ The following message will be sent to all users who have subscribed to the group
 }
 ```
 
-### Leave from a Group
+### Leave From a Group
 
 Users can unsubscribe from a group by sending a `{leave}` message. This is the opposite function of the `{sub}` message. The `{leave}` message supports two options:
 
