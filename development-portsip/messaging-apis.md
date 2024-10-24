@@ -762,19 +762,141 @@ The response will look like the following if succeeds:
 }
 ```
 
+### Remove a Member from the Group
 
+The group administrator can remove a member from the group by sending the following message:
 
+```python
+uuid4 = uuid.uuid4()
+message = {
+    "del": {
+        "id": str(uuid4),
+        "topic": "grpf0NlkdDEQHs",
+        "user": "usr804252613548777777",
+        "what": "sub"
+    }
+}
+await websocket.send(json.dumps(message))
+response = await websocket.recv()
+logger.debug("del usr804252613548777777 from grpf0NlkdDEQHs response : " + response)
 
+```
 
+The response will look like the following if succeeds:
 
+```json
+{
+    "ctrl": {
+        "id": "b154ccc9-4ac8-4a71-bf74-288771d818e5",
+        "topic": "grpf0NlkdDEQHs",
+        "code": 200,
+        "text": "ok",
+        "ts": "2024-10-24T07:35:51.253545Z"
+    }
+}
+```
 
+### Remove a Member from the Group
 
+The group administrator can delete a group by sending the following message:
 
+```python
+uuid4 = uuid.uuid4()
+message = {
+    "del": {
+        "id": str(uuid4),
+        "topic": "grpf0NlkdDEQHs",
+        "what": "topic"
+    }
+}
+await websocket.send(json.dumps(message))
+response = await websocket.recv()
+logger.debug("del grpf0NlkdDEQHs response : " + response)
 
+```
 
+The response will look like the following if succeeds:
 
+```json
+{
+    "ctrl": {
+        "id": "b154ccc9-4ac8-4a71-bf74-288771d818e5",
+        "topic": "grpf0NlkdDEQHs",
+        "code": 200,
+        "text": "ok",
+        "ts": "2024-10-24T07:35:51.253545Z"
+    }
+}
+```
 
+### Uploading a File to the IM Server
 
+To send a file in a chat, you first need to upload the file to the IM server using an HTTP POST form request to `https://pbx.portsip.com:8887/im/file`. An example code is provided below:
+
+```python
+//uuid4 = uuid.uuid4()
+filename = str(uuid4)
+with open(TEMP_DIR + '/'+ filename, 'w') as f:
+    f.write(str(uuid4) * REPEAT_SIZE)
+
+form = FormData()  
+form.add_field('id', str(uuid4))  
+form.add_field('file', open(TEMP_DIR + '/'+ filename, 'rb'), filename=filename)  
+
+header = {  
+    'Authorization': 'token ' + token
+}  
+try:
+    if 'https' in upload_url:
+        async with aiohttp.ClientSession(connector=TCPConnector(ssl=False)) as session:  
+            async with session.post(upload_url, data=form, headers=header) as response:  
+                if response.status == 200:  
+                    text = await response.text()  
+                    logger.debug(text)
+                    count_upload()
+                else:
+                    text = await response.text()   
+                    logger.error("http  post error status :" +  str(response.status) + " response : " + text)
+    else:
+        async with aiohttp.ClientSession() as session:  
+            async with session.post(upload_url, data=form, headers=header) as response:  
+                if response.status == 200:  
+                    text = await response.text()  
+                    logger.debug(text)
+                    count_upload()
+                else:
+                    text = await response.text()   
+                    logger.error("http  post error status :" +  str(response.status) + " response : " + text)
+except aiohttp.ClientError as e:
+    logger.error("http post error : " + str(e))
+    continue
+os.remove(TEMP_DIR + '/'+ filename)
+await asyncio.sleep(UPLOAD_SLEEP)  
+```
+
+The response will look like the following if succeeds:
+
+```json
+{
+    "ctrl": {
+        "id": "93db2d24-6663-4071-a373-586b184be576",
+        "params": {
+            "url": "NDW4_NYseeH20iuC3rih_wAAwItyRIMM"
+        },
+        "code": 200,
+        "text": "ok",
+        "ts": "2024-10-24T01:13:54.464796Z"
+    }
+}
+```
+
+`["ctrl"]["params"]["url"]` is the file download URL. The sender can send this URL in a message to the recipient. After receiving the message, the recipient can download the file and display it in the chat according to the file type.
+
+### Download the Chat File
+
+Once a user receives a message containing the file URL, they can assemble the URL as shown below and download the file using an HTTP GET request.
+
+[https://pbx.portsip.com:8887/im/file/NDW4\_NYseeH20iuC3rih\_wAAwItyRIMM](https://pbx.portsip.com:8887/im/file/NDW4\_NYseeH20iuC3rih\_wAAwItyRIMM)
 
 
 
