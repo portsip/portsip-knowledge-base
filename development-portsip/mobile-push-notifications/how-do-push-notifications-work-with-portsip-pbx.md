@@ -40,9 +40,11 @@ The same process applies to Instant Messaging.
 
 The example of the "**X-Push**" header in the REGISTER message.
 
+{% code overflow="wrap" %}
 ```
 X-Push:device-os=ios;device-uid=fe1b7bef1b4dc68dbfcd18143c8c06c122a25658c7f1d381c33fa626c9ed;allow-call-push=false;allow-message-push=false;app-id=com.portsip.portgo
 ```
+{% endcode %}
 
 
 
