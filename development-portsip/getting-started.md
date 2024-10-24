@@ -2,11 +2,16 @@
 
 ## Revolutionize Communications
 
-Welcome to the PortSIP Developer page. With our powerful APIs, you can unlock the amazing capabilities of the PortSIP PBX to build feature-rich applications. PortSIP’s APIs are easy to use and provide context-relevant information that enhances workflows for PortSIP users.
+Welcome to the PortSIP Developer page.&#x20;
 
-PortSIP offers a comprehensive set of tools and services to build, deploy, and manage custom integrations using PortSIP APIs. With this platform, developers can create out-of-the-box integrations with PortSIP PBX to add powerful communication capabilities to business applications. The PortSIP PBX enables multi-modal communication, captures communication logs, automates key business processes, streamlines user provisioning, and leverages valuable business insights. Example use cases include:
+With our powerful APIs, you can unlock the amazing capabilities of the PortSIP PBX to build feature-rich applications. PortSIP’s APIs are easy to use and provide context-relevant information that enhances workflows for PortSIP users.
+
+PortSIP offers a comprehensive set of tools and services to build, deploy, and manage custom integrations using PortSIP APIs. With this platform, developers can create out-of-the-box integrations with PortSIP PBX to add powerful communication capabilities to business applications. The PortSIP PBX enables multi-modal communication, captures communication logs, automates key business processes, streamlines user provisioning, and leverages valuable business insights.&#x20;
+
+Example use cases include:
 
 * **Cloud PBX and UCaaS Providers**: Use an integrated app to seamlessly enhance user workflows.
+* **CPaaS Providers**: Launch the CPaaS business in a minute.
 * **Medical Businesses**: Seamlessly consolidate call recordings into patient management systems.
 * **Sales Teams**: Integrate voice calling into CRM systems to enable sales reps to make 30 more minutes of calls per day.
 * **Home Repair Dispatch**: Integrate SMS to send text alerts to field repairmen for location-specific repairs.
@@ -26,6 +31,7 @@ The PortSIP PBX provides a suite of tools and services, including a free edition
 * Build custom apps for audio, video calls, instant messaging, and group chats.
 * Retrieve call logs and create dashboards.
 * Integrate CRM systems (e.g., RingOut, incoming call pop-ups).
-* Send and receive SMS messages.
+* Send and receive SMS, and WhatsApp messages.
 
 Leverage the PortSIP PBX solution to seamlessly launch and manage your  UCaas and CPaaS business in no time.
+
