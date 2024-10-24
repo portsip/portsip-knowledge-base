@@ -2,35 +2,47 @@
 
 ## Overview
 
-The PortSIP Instant Messaging (IM) service is designed to route and store messages (both peer-to-peer and group-based), following the publish-subscribe model. The service consists of sessions, users, and topics.
+The PortSIP Instant Messaging (IM) service facilitates the routing and storage of messages for both peer-to-peer and group communications, utilizing a publish-subscribe model. The core components of this service include sessions, users, and topics.
 
-* **Sessions**: Represent WebSocket connections between client applications and the server.
-* **Users**: Refer to PBX users(extensions) who connect to the service via sessions.
-* **Topics**: Named communication channels used to route content between sessions. Both peer-to-peer and group communications are unified under the concept of topics.
+* **Sessions**: These are WebSocket connections established between client applications and the server.
+* **Users**: PBX users (extensions) who connect to the IM service through active sessions.
+* **Topics**: Named communication channels that route content between sessions. Both peer-to-peer and group messaging operate within the framework of topics.
 
-Within the IM service, both users and topics have unique identifiers.
+Each user and topic within the IM service is assigned a unique identifier for seamless communication and message management.
 
 ## Client Behavior
 
-* **Connection and Authentication**: Clients, such as mobile apps or web applications, connect to the IM service via WebSocket to establish a session. All operations require successful client authentication. Clients authenticate their sessions by sending a {login} message. A single user can have multiple active sessions (supporting multi-device login).
-* **Message Exchange**: Once authenticated, users can send and receive messages with other users through topics (P2P or group).
-* **Topic Types**:
-  * `me`: A special topic for receiving notifications for other topics. Every user has a me topic.
-  * `emc`: Used for receiving and sending external messages like SMS and WhatsApp. For example, if user A’s user ID is 123456, once they subscribe to `emc123456`, they will receive messages when contacts send SMS/WhatsApp messages to them.
-  * `P2P`: A direct communication channel between two users. Each participant subscribes to the other user’s ID as the topic ID. For example, if user A’s user ID is 123456, other users can subscribe to the `usr123456` topic.
-  * `Group`: A communication channel for multiple users. Group topics must be explicitly created.
-* **Message Operations:**
-  * Users subscribe to topics using `{sub}` messages. Once subscribed, they can publish messages to the topic using `{pub}` messages. The server then pushes `{data}` messages to the subscribers of that topic.
-  * Users can query or modify topic information by using `{get}` and `{set}` messages.
-  * When a topic is changed (e.g., updating description, user joining/leaving), the subscribers will receive `{pres}` messages.
-  * Presence: When a user subscribes to their own me topic, the server will push a `{pres}` message to the subscribers who have subscribed to this user’s P2P topic, informing them that the user is online.
+### Connection and Authentication
 
-## Notes
+Clients, such as mobile, desktop apps, or web applications, connect to the IM service via WebSocket to establish a session. All operations require successful client authentication. Clients authenticate their sessions by sending a `{login}` message. Each user can have multiple active sessions, supporting multi-device login.
 
-* Timestamps are always represented as strings in RFC 3339 format, with millisecond precision and the timezone always set to UTC, e.g., 2015-10-06T18:07:29.841Z.
-* Base64 encoding is Base64 URL encoding with padding characters removed, as per RFC 4648.
-* In `{data}` messages, the server-defined message ID (seq field) is a decimal number starting from 1, incrementing by 1 for each message, ensuring uniqueness within each topic.
-* To associate request messages with response messages, each message sent from the client to the server must define a unique request ID. The server will not parse this ID and will return it to the client as-is.
+### Message Exchange
+
+After authentication, users can send and receive messages with other users through various topic types, whether in peer-to-peer (P2P) or group settings.
+
+#### **Topic Types**
+
+* **me**: A special topic used to receive notifications related to other topics. Each user has their own `me` topic.
+* **emc**: This topic handles the sending and receiving of external messages, such as SMS and WhatsApp. For instance, if user A's ID is `123456`, they can subscribe to `emc123456` to receive messages when contacts send them SMS/WhatsApp messages to him.
+* **P2P**: A direct communication channel between two users. Each user subscribes to the other’s user ID as the topic ID. For example, other users can subscribe to the `usr123456` topic to communicate directly with user A, in case 123456 is the user ID of A.
+* **Group**: A communication channel for multiple users. Group topics must be explicitly created by a user.
+
+#### Message Operations
+
+* Users subscribe to topics by sending `{sub}` messages. Once subscribed, they can publish messages to a topic using `{pub}` messages. The server will then push `{data}` messages to all subscribers of that topic.
+* Users can query or modify topic information using `{get}` and `{set}` messages.
+* When topic information changes (e.g., updates in description, or users joining/leaving), subscribers will receive `{pres}` (presence) messages.
+
+#### Presence
+
+When a user subscribes to their own `me` topic, the server will send a `{pres}` message to all subscribers of that user’s P2P topic, notifying them that the user is online.
+
+### Notes
+
+* **Timestamps**: All timestamps are represented as strings in RFC 3339 format, with millisecond precision, and the timezone set to UTC. For example: `2015-10-06T18:07:29.841Z`.
+* **Base64 Encoding**: The service uses Base64 URL encoding without padding, following RFC 4648.
+* **Message IDs**: In `{data}` messages, the server-defined message ID (`seq` field) is a decimal number starting from 1, incrementing with each message to ensure uniqueness within each topic.
+* **Request-Response Association**: Each message sent by a client to the server must include a unique request ID. The server will return this ID as-is in the response, but it will not interpret or modify it, then client app can easy to match the response with request.
 
 ## WebSocket
 
@@ -40,187 +52,177 @@ Clients connect to the server via WebSocket. When establishing the connection, t
 
 ## Users
 
-Users refer to PBX users, who are both producers and consumers of messages.
+In the PortSIP IM service, `users` refer to PBX users (extensions) who act as both producers and consumers of messages.
 
-* **Authentication**: After successfully establishing a WebSocket connection, the client application sends a `{login}` message to authenticate the user.
-* **User ID**: Each user is assigned a unique ID. The user ID format is a string composed of a fixed prefix usr followed by the PBX user’s ID number, for example, `usr804252613548703744`.
-* A user can maintain multiple session connections with the server simultaneously.
-* Logging out is not supported by design. If the application needs to switch the user, it should close the current WebSocket connction and open a new connection and authenticate it with the new user’s credentials.
+* **Authentication**: After successfully establishing a WebSocket connection, the client application authenticates the user by sending a `{login}` message.
+* **User ID**: Each user is assigned a unique ID, which likes `804252613548703744.`
+* **Multiple Sessions**: A user can maintain multiple concurrent session connections with the server, allowing for multi-device support.
+* **Logout Behavior**: The IM service does not support explicit logout by design. If the application needs to switch users, it must close the existing WebSocket connection and establish a new connection with the new user's credentials.
 
 ## Login
 
-Users initiate a `{login}` message request through a session, and the server performs authentication.
-
-The response to any login attempt is a `{ctrl}` message containing either a `200` code for success or a `4xx` error code for failure.
+Users initiate a `{login}` message request through an active session, prompting the server to perform authentication.\
+Upon processing the login request, the server responds with a `{ctrl}` message. A successful authentication returns a 200 status code, while a failed attempt results in a 4xx error code.
 
 ## Access Control
 
-Access control manages user access to topics through **Access Control Lists** (ACLs), assigning permissions individually to each subscriber within a topic.
+Access control in the PortSIP IM service is managed through Access Control Lists (ACLs), which assign individual permissions to each subscriber within a topic. Access control is primarily applied to group topics, with limited functionality for `me` and P2P topics, such as managing status notifications or restricting P2P conversations.
 
-Access control is primarily used for **group** topics. Its availability for `me` and P2P topics is limited to managing status notifications and preventing users from initiating or continuing P2P conversations.
+### Permission Structure
 
-User access to topics is defined by two sets of permissions: the permissions the user wants (`want`), and the permissions granted to the user by the topic manager (`given`).
+User access to topics is governed by two sets of permissions:
 
-Each permission is represented by a bit in a bitmap. It can either be present or absent. Actual access rights are determined by the bitwise AND of the wanted and given permissions. Permissions are communicated in messages as a set of ASCII characters, where the presence of a character indicates a set of permission bits:
+* **Wanted**: The permissions the user requests.
+* **Given**: The permissions granted by the topic manager.
 
-* No Access: `N`, not a permission itself, but an explicit indication of cleared/unset permissions. It typically means default permissions should not be applied.
-* Join: `J`, permission to subscribe to the topic.
-* Read: `R`, permission to receive messages (`{data}` messages).
-* Write: `W`, permission to send messages (`{pub}` messages).
-* Presence: `P`, permission to receive status updates (`{pres}` messages).
-* Approve: `A`, permission to approve requests to join the topic, remove, and ban members; users with this permission are topic administrators.
-* Share: `S`, permission to invite others to join the topic.
-* Delete: `D`, permission to hard delete messages; only the topic owner can completely delete the topic.
-* Owner: `O`, the user is the topic owner; owners can assign any other permissions to any topic member, change the topic description, and delete the topic. A topic can have only one owner; some topics may have no owner.
+Permissions are represented as bits within a bitmap and can either be present or absent. The actual access rights are determined by performing a bitwise AND operation between the _wanted_ and _given_ permissions. These permissions are communicated as a set of ASCII characters, where each character corresponds to specific permission bits:
 
-When users subscribe to a topic or start chatting with other users, access permissions are either explicitly set or assigned by default (`defacs`). Permissions can be modified by sending a `{set}` message.
+* **No Access (N)**: Not a permission itself but an explicit indication that no permissions are set. This typically means default permissions should not apply.
+* **Join (J)**: Permission to subscribe to the topic.
+* **Read (R)**: Permission to receive `{data}` messages (i.e., read messages).
+* **Write (W)**: Permission to send `{pub}` messages (i.e., publish messages).
+* **Presence (P)**: Permission to receive `{pres}` messages (i.e., status updates).
+* **Approve (A)**: Permission to approve requests to join the topic, remove members, or ban users. This permission designates topic administrators.
+* **Share (S)**: Permission to invite others to join the topic.
+* **Delete (D)**: Permission to hard delete messages. Only the topic owner can fully delete a topic.
+* **Owner (O)**: The user is the topic owner, with the ability to assign any other permissions to members, change the topic description, or delete the topic. Each topic can have only one owner, though some topics may have no designated owner.
 
-Clients can set permissions in `{sub}` and `{set}` messages. If permissions are missing or set to an empty string (not `N`!), the server will use the previously assigned default permissions (`defacs`). If no default permissions are found, authenticated users in group topics will receive `JRWPS` access, and authenticated users in P2P topics will receive `JRWPA`.
+When users subscribe to a topic or initiate conversations, access permissions are either explicitly set or assigned by default (`defacs`). These permissions can be modified via the `{set}` message.
 
-Default access permissions are defined for a class of users: authenticated users. The value of default access permissions will be used as the `given` permissions for all new subscribers.
+### Setting Permissions
 
-The default access permissions for a topic are established at the time of topic creation via `{sub.desc.defacs}`, and the owner can modify them by sending a `{set}` message.
+Clients can define permissions in both `{sub}` and `{set}` messages. If permissions are omitted or set to an empty string (excluding `N!`), the server will apply the previously assigned default permissions (`defacs`). If no default permissions exist, authenticated users in group topics will be granted **JRWPS** access, while those in P2P topics will receive **JRWPA** access.
 
-The default access permissions for all users are `JRWPA`, and users can modify them by sending a `{set}` message to the `me` topic.
+### **Default Access Permissions**
+
+Default access permissions are configured for a class of users (authenticated users). These defaults are applied as the _given_ permissions for all new subscribers. Default permissions for a topic are set during topic creation via the `{sub.desc.defacs}` field and can be updated by the topic owner through a `{set}` message.
+
+The global default access permissions for all users are **JRWPA**. Users can modify their personal default permissions by sending a `{set}` message to their `me` topic.
 
 ## Topics
 
-Topics are communication channels between users (P2P, group).
+Topics are communication channels between users (P2P, group, and external message channels such as SMS, Whatsapp).
 
 {% hint style="info" %}
-Clients must actively subscribe to a topic to send and receive messages, as well as receive notifications about topic status changes.
+Clients must actively subscribe to a topic in order to send and receive messages, as well as to receive notifications about any changes in the topic's status.
 {% endhint %}
 
-Topic attributes can be queried using the `{get what="desc"}` message.
+### Topic Attributes
 
-Common attributes:
+Topic attributes can be queried using the `{get what="desc"}` message. Common attributes include:
 
-* `created`: Timestamp indicating when the topic was created.
-* `updated`: Timestamp indicating the last update to `trusted`, `public`, or `private`.
-* `touched`: String representing the timestamp of the latest received message.
-* `defacs`: String representing the default access mode.
-* `auth`: String representing the default access mode for authenticated users.
-* `anon`: String representing the default access mode for anonymous users (currently not used).
-* `seq`: Numeric value representing the current latest message ID for the topic.
-* `trusted`: JSON object representing authentication attributes (currently not used). It can be read by anyone but only changed by administrators.
-* `public`: JSON object representing public attributes. Anyone who can subscribe to the topic can receive `public` data.
+* **created**: Timestamp indicating when the topic was created.
+* **updated**: Timestamp of the last update to trusted, public, or private attributes.
+* **touched**: String representing the timestamp of the most recent message received.
+* **defacs**: String representing the default access mode.
+* **auth**: String representing the default access mode for authenticated users.
+* **anon**: String representing the default access mode for anonymous users (currently unused).
+* **seq**: Numeric value representing the current latest message ID for the topic.
+* **trusted**: JSON object representing authentication attributes (currently unused). Readable by anyone, but only administrators can modify it.
+* **public**: JSON object representing public attributes. Any user with subscription access can view public data.
 
-User-related attributes:
+#### User-related Attributes
 
-* `acs`: Describes the current access permissions for a given user.
-* `want`: The access permissions requested by the user.
-* `given`: The access permissions granted to the user.
-* `private`: The user’s private attributes.
+* **acs**: Describes the current access permissions for a given user.
+* **want**: The access permissions the user requests.
+* **given**: The access permissions granted to the user.
+* **private**: The user's private attributes.
 
-Topics typically have subscribers. One of the subscribers can be designated as the topic owner with full access permissions (`O` access).
+Typically, topics have multiple subscribers, and one subscriber can be designated as the topic owner with full access permissions (O access).\
+The subscriber list can be queried using the `{get what="sub"}` message, with the list returned in the `sub` section of the `{meta}` message.
 
-The subscriber list can be queried using the `{get what="sub"}` message, and the subscriber list is returned in the `sub` section of the `{meta}` message.
+### **me Topic**
 
-### `me` Topic
+Each user has a unique `me` topic, which is used for receiving presence status notifications and updates about the status of other subscribed topics.
 
-Every user has a `me` topic. It is used for receiving presence status notifications and notifications about the status of subscribed topics.
+* The `me` topic has no owner and cannot be deleted or unsubscribed from.
+* Users can leave the `me` topic, halting related communications and signaling that the user is offline (though the user may still be logged in and interacting with other topics).
+* Joining or leaving the `me` topic triggers `{pres}` status updates, sent to the user and all subscribers with P permissions in P2P topics.
+* The `me` topic is read-only, and `{pub}` messages sent to it will be rejected.
+* Queries using `{get what="sub"}` on the `me` topic return the list of topics the user is subscribed to, not subscriptions to the `me` topic itself.
+* Specific status-related fields for `me` topics include:
+  * **recv**: The message ID (seq) that the current user reports as received.
+  * **read**: The message ID (seq) that the current user reports as read.
+  * **seen**: For P2P subscriptions, reports the timestamp and User Agent of the user's last presence.
+  * **when**: The timestamp of the user’s last online status.
 
-The `me` topic has no owner, and it cannot be deleted or unsubscribed from.
+Messages sent to `me` using `{get what="data"}` are rejected.
 
-Users can `leave` the `me` topic, which will stop all related communications and indicate that the user is offline (although the user may still be logged in and continue using other topics).
+#### Subscribing to the me Topic
 
-Joining or leaving the `me` topic generates `{pres}` status updates, which are sent to the given user and all users with `P` permissions in P2P topics.
+After successful client authentication, users must actively subscribe to their `me` topic. Subscriptions are initiated by sending a `{sub}` message, and the server responds with a `{ctrl}` message.
 
-The `me` topic is read-only, and `{pub}` messages sent to `me` are rejected.
+### **emc Topic (External Message Channel)**
 
-Messages sent to `me` with `{get what="sub"}` are different from any other topic because they return the list of topics the current user is subscribed to, which is not the expected subscription to `me`.
+The `emc` topic is used for sending and receiving external messages (SMS, MMS). The format for `emc` topics is: `emc[user ID, ring group ID, queue ID]`.
 
-* `recv`: The message ID (`seq` value) that the current user reports as received.
-* `read`: The message ID (`seq` value) that the current user reports as read.
-* `seen`: For P2P subscriptions, reports the timestamp and `User Agent` of the user’s last presence.
-* `when`: The timestamp of the user’s last online status.
-
-Messages sent to `me` with `{get what="data"}` are rejected.
-
-After successful client authentication, the `me` topic must be actively subscribed to.
-
-### **Subscribing to the `me` Topic**
-
-Clients initiate a subscription by sending a `sub` message, and the server responds with a `ctrl` message.
-
-#### `emc` Topic (External Message Channel)
-
-* The `emc` topic is used for sending or receiving external messages (SMS, MMS). The topic name format is: “`emc`\[user id, ring group id, queue id]”.
-
-After a client successfully logs in, they must subscribe to the `emc[current user id]` topic. If the current user is an agent in a queue or ring group (associated with EMC), they also need to subscribe to these topics: `emc[ring group id, queue id]`.
-
-When the PBX  receives an external message, it sends a notification to the IM service, which then determines the target topic and broadcasts the message.
-
-Users can `leave` the `emc` topic, which will stop all external message sending and receiving.
-
-Clients send `{pub}` messages to the `emc` topic, and the server forwards the message content to the PBX’s message queue. The message is also forwarded to other sessions of the same user (multi-device synchronization).
-
-All operations within the `emc` topic are the same as those in group topics.
+* After login, clients must subscribe to the `emc[current user ID]` topic. If the user is an agent in a queue or ring group (associated with `emc`), they should also subscribe to `emc[ring group ID, queue ID]`.
+* When the PBX receives an external message, it notifies the IM service, which determines the target topic and broadcasts the message.
+* Users can leave the `emc` topic, which will stop all external message transmission and reception.
+* Clients send `{pub}` messages to the `emc` topic, and the server forwards the content to the PBX’s message queue. The message is also synchronized across the user's other sessions (multi-device synchronization).
+* All operations within the `emc` topic follow the same behavior as in group topics.
 
 ### P2P Topics
 
-P2P topics represent a communication channel between two users and do not have an owner.
+P2P topics represent a direct communication channel between two users and do not have a designated owner. Each participant views the other user’s ID as the P2P topic ID. For example, if the two users are `usr804252613548703744` and `usr804252613548777777`, user 1 will see the topic ID as `usr804252613548777777`, while user 2 will see it as `usr804252613548703744`.
 
-The topic IDs for the two participating users are different, with each user viewing the other user’s ID as the P2P topic ID. For example, if the two users in the topic are `usr804252613548703744` and `usr804252613548777777`, the first user will see the topic ID as `usr804252613548777777`, and the second user will see the topic ID as `usr804252613548703744`.
+* **Public Parameter**: The public parameter in a P2P topic is user-specific. For instance, in a P2P topic between user A and user B, user A’s public data will be visible to user B, and vice versa. When a user updates their public data, all P2P topics involving that user will reflect the update.
+* **Private Parameter**: Like other topic types, the private parameter in a P2P topic is defined individually by each participant.
 
-The `public` parameter of a P2P topic depends on the user. For example, a P2P topic between user A and user B will show user A’s `public` to user B, and vice versa. If a user updates their `public`, all P2P topics involving that user will automatically update to reflect the new `public`.
+#### Creating a P2P Topic
 
-Like any other topic type, the `private` parameter of a P2P topic is defined individually by each participant.
+A P2P topic is automatically created when one user subscribes to another user's ID. The topic ID corresponds to the other user’s ID. For example, user `usr804252613548703744` can create a P2P topic with user `usr804252613548777777` by sending `{sub topic="usr804252613548777777"}`.
 
-### **Creating a P2P Topic**
+* The server responds with a `{ctrl}` message containing the topic ID, as described above.
+* The target user will receive a `{pres}` message on their `me` topic, which includes access permissions.
+* To engage in the conversation or receive notifications, the other user must actively subscribe to the P2P topic.
 
-A P2P topic is automatically created when one user subscribes to the other user, with the topic ID being the same as the other user’s ID. For example, user `usr804252613548703744` can establish a P2P topic with user `usr804252613548777777` by sending `{sub topic="usr804252613548777777"}`. The server will respond with a `{ctrl}` message containing the newly created topic ID, as described above. The target user will receive a `{pres}` message on their `me` topic, which includes access permissions. The other user must actively initiate a subscription to receive messages or notifications from this P2P topic.
+#### Subscribing to a P2P Topic
 
-### **Subscribing to a P2P Topic**
-
-Clients initiate a subscription using the `{sub topic="usr804252613548777777" what="desc data"}` message, and the server will respond with a `{ctrl}` message.
+Clients subscribe to a P2P topic by sending the `{sub topic="usr804252613548777777" what="desc data"}` message. The server will respond with a `{ctrl}` message confirming the subscription.
 
 ### Group Topics
 
-Group topics represent communication channels among multiple users.
+Group topics are communication channels designed for multiple users. The topic ID format is a string consisting of the fixed prefix `grp` followed by 11 pseudo-random characters.
 
-The topic ID format is a string composed of a fixed `grp` prefix followed by 11 pseudo-random characters.
+* **Subscriber Limit**: The number of subscribers is limited and controlled by the `im.max_subscriber_count` configuration in the settings file, with a default limit of 1,000 subscribers.
+* **Access Permissions**: Each subscriber’s access permissions in a group topic are managed individually.
+* **Ownership**: Ownership of a group topic can be transferred to another user using a `{set}` message. However, there must always be one designated owner of the topic.
 
-A limited number of subscribers are supported, controlled by the `im.max_subscriber_count` configuration in the configuration file, with a default of 1000. Access permissions for each subscriber in a group topic are managed individually.
+#### Creating a Group Topic
 
-Ownership can be transferred to another user via a `{set}` message, but there must always be one user designated as the owner of the topic.
+A new group topic is created by sending a `{sub}` message with the topic field set to the string `"new"` (any additional characters following `"new"` are ignored, e.g., `new` or `newAbC123` are treated the same).
 
-### **Creating a Group Topic**
+* The server will respond with a `{ctrl}` message containing the newly generated topic ID. For example, `{sub topic="new"}` might return `{ctrl topic="grpmiKBkQVXnm3P"}`.
+* If the topic creation fails, an error message will be reported on the original topic (`new` or `newAbC123`).
+* The user who initiates the topic creation automatically becomes the topic owner.
 
-A topic is created by sending a `{sub}` message with the `topic` field set to the string `new` (it can be followed by any characters, e.g., `new` or `newAbC123` are equivalent). The server will respond with a `{ctrl}` message containing the newly created topic ID, e.g., `{sub topic="new"}` will respond with `{ctrl topic="grpmiKBkQVXnm3P"}`.
+#### Subscribing to a Group Topic
 
-If the topic creation fails, an error will be reported on the original `topic`, i.e., `new` or `newAbC123`.
+Clients can subscribe to a group topic by sending a `{sub topic="grp***" what="desc sub data"}` message. The server will then respond with a `{ctrl}` message confirming the subscription.
 
-The user who creates the topic becomes the topic owner.
+#### Leaving a Group Topic
 
-### **Subscribing to a Group Topic**
-
-Clients initiate a subscription using the `{sub topic="grp***" what="desc sub data"}` message, and the server will respond with a `{ctrl}` message.
-
-!Subscribing to a Group Topic
-
-### Leaving a Group Topic
-
-Clients can leave a group topic by sending a `{leave}` message or be removed by an administrator sending a `{del}` message.
+Clients can leave a group topic by sending a `{leave}` message, or they may be removed by an administrator via a `{del}` message.
 
 ## Server-Issued Message IDs
 
-Server-issued message IDs (`seq` field) provide support for clients to cache `{data}` messages.
+The server assigns message IDs (`seq` field) to support clients in caching `{data}` messages.
 
-* Clients can obtain the latest message ID within a topic by sending a `{get what="desc"}` message.
-* If the returned ID is greater than the last message ID received by the client, the client considers the topic to have unread messages and their count.
-* Clients can retrieve these messages using the `{get what="data"}` message.
-* Clients can also use message IDs to paginate through historical messages (offline messages).
+* **Retrieving the Latest Message ID**: Clients can request the latest message ID for a topic by sending a `{get what="desc"}` message.
+  * If the returned message ID is higher than the last message ID received by the client, the client will recognize that there are unread messages in the topic and can determine their count.
+* **Retrieving Unread Messages**: Clients can retrieve unread messages by sending a `{get what="data"}` message.
+* **Paginating Through Historical Messages**: Message IDs can also be used by clients to paginate through historical (offline) messages for a topic.
 
-### User Agent and Presence Notifications
+## User Agent and Presence Notifications
 
-For the same user, when one or more sessions are attached to the `me` topic, the user will be reported as online (`pres` message).
+When one or more sessions are connected to a user's `me` topic, the user is reported as online through a `{pres}` message.
 
 ## Trusted, Public, and Private Attributes
 
-Topics and subscriptions have `Trusted`, `Public`, and `Private` fields.
+Both topics and subscriptions contain **Trusted**, **Public**, and **Private** fields.
 
-The server does not validate these fields; client software uses the same format.
+* The server does not validate or enforce these fields; instead, they are managed and interpreted by the client software using a consistent format.
 
 ### Trusted (Not Currently Used)
 
@@ -251,34 +253,35 @@ Private attributes are formatted as a set of key-value pairs.
 
 ## Messages
 
-All messages are text in UTF-8 encoding and JSON format.
+All messages are in UTF-8 encoding and formatted as JSON.
 
-All client-to-server messages may have an `id` field, known as the request ID. It is set by the client to acknowledge receipt and processing of the message by the server. The request ID is a unique string within the session, formatted as a UUID string (format: “00000000-0000-0000-0000-000000000000”, 36 characters long). When the server replies to the client message, it returns the request ID unchanged.
-
-The server requires strictly valid JSON, including double quotes around field names.
-
-For messages that update data, such as the `private` or `public` fields in `{set}` messages, use a string with a single Unicode DEL character "␡" (`\u2421`) to clear the data. Sending `"public": null` will not clear the field, but sending `"public": "␡"` will.
-
-The server will silently ignore any unrecognized fields.
+* **Request ID**: All client-to-server messages may include an `id` field, referred to as the request ID. This ID is set by the client to track the receipt and processing of messages by the server. The request ID must be a unique string within the session, formatted as a UUID string (e.g., `"00000000-0000-0000-0000-000000000000"`, 36 characters long). When the server replies to the client message, it returns the request ID unchanged.
+* **Strict JSON Compliance**: The server requires strictly valid JSON format, including double quotes around field names.
+* **Clearing Fields**: To update fields such as `private` or `public` in `{set}` messages, use a string containing a single Unicode DEL character `"␡"` (`\u2421`) to clear data. Sending `"public": null` will not clear the field, but sending `"public": "␡"` will.
+* **Unrecognized Fields**: Any unrecognized fields in the message will be silently ignored by the server.
 
 ### Content Format
 
-The `content` field in `{pub}` and `{data}` messages supports the following formats:
+The `content` field in `{pub}` and `{data}` messages support the following formats:
 
-* Plain text
-* Rich text (Drafty)
+* **Plain text**
 
-If rich text messages are used, the message header must be set to `"head": {"mime": "text/x-drafty"}`.
+All messages can be sent as plain text. If you need to include formatting information for rich text, you can describe the formats using JSON, HTML, or XML, based on your preference. The specific format should be negotiated between the communicating applications. The receiving application is responsible for parsing the format information and then displaying the message as either rich text or plain text.
 
 ### Message Storage
 
-The server stores the content of `pub` messages (`head` and `content` fields).
+The server stores the content of `{pub}` messages, including both the `head` and `content` fields.
 
 ### Message Routing
 
-After receiving and storing a `pub` message, the server distributes it to other sessions within the topic via `data` messages (message distribution, multi-device synchronization, etc.).
+After receiving and storing a `{pub}` message, the server distributes it to all other active sessions within the topic via `{data}` messages, ensuring message distribution and multi-device synchronization.
 
 The specific process is as follows:
+
+1. **Receive and Store**: The server receives the `{pub}` message and stores the `head` and `content` fields.
+2. **Message Distribution**: The server identifies all active sessions subscribed to the topic.
+3. **Multi-Device Synchronization**: The server sends `{data}` messages to all relevant sessions, ensuring that users receive the message across multiple devices if they have more than one session active.
+4. **Notification**: Depending on access permissions and topic settings, users may also receive additional notifications such as presence updates.
 
 
 
