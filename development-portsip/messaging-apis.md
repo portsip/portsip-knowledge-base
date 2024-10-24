@@ -283,6 +283,233 @@ The specific process is as follows:
 3. **Multi-Device Synchronization**: The server sends `{data}` messages to all relevant sessions, ensuring that users receive the message across multiple devices if they have more than one session active.
 4. **Notification**: Depending on access permissions and topic settings, users may also receive additional notifications such as presence updates.
 
+<figure><img src="../.gitbook/assets/portsip-im-msg-routing.png" alt=""><figcaption></figcaption></figure>
+
+## Examples
+
+In this section, we will provide examples in Python to demonstrate how the client application interacts with the PortSIP PBX IM service. For these examples, we assume the PBX server is hosted at `https://pbx.portsip.com:8887`.
+
+### Connecting IM Server
+
+The client application needs to use WebSocket to connect to the URL `wss://pbx.portsip.com:8887/im`.
+
+```python
+ssl_context = ssl.create_default_context()  
+ssl_context.check_hostname = False  
+ssl_context.verify_mode = ssl.CERT_NONE
+websocket = await websockets.connect(uri, ssl = ssl_context)
+```
+
+### Authentication
+
+Once the connection to the IM server is successfully established, the client must authenticate with the server in order to send and receive messages.
+
+#### Obtain Access Token
+
+The IM service authenticates the client application using the PortSIP PBX access token. Please follow the instructions in the article "[PortSIP PBX REST API Authentication](rest-apis/authentication.md)" to obtain the token.
+
+#### Authenticate with IM Service using the Access Token
+
+Once the access token is obtained, you can authenticate with the IM service by sending the `login` command to the server.
+
+```python
+auth = str(user) + "@" + domain + ":" + access_token
+secret = base64.b64encode(auth.encode())
+uuid4 = uuid.uuid4()
+message = {
+    "login": {
+    "id": str(uuid4),
+    "scheme": "access_token",
+    "secret": secret.decode()
+    }
+}
+await websocket.send(json.dumps(message))
+response = await websocket.recv()
+logger.debug("client_auth  response : " + response)
+ret = json.loads(response)
+if ret["ctrl"]["code"] == 200 :
+    return ret["ctrl"]["params"]["user"]
+else :
+    logger.error("client_auth [" + str(user) + "] retcode not 200  response : " + response) 
+return ""
+```
+
+If authentication is successful, the server will respond as shown below.
+
+{% code overflow="wrap" %}
+```json
+{
+    "ctrl": {
+        "id": "fef15fa2-3e27-49ec-9286-50279d67cde3",
+        "params": {
+            "authlvl": "auth",
+            "token": "AAAAhnJBgwwAAAAvbEGDDB7R+mgUAAAAAQAC9wKOmcHTClrJc8wtV5MD7AIx0LTN5iy5E901p+EBgg==",
+            "user": "usr804252613548777777"
+        },
+        "code": 200,
+        "text": "ok",
+        "ts": "2024-10-24T01:06:38.924626Z"
+    }
+}
+```
+{% endcode %}
+
+* `["ctrl"]["params"]["user"]`: Represents the user ID.
+* `["ctrl"]["params"]["token"]`: Represents the user's authentication token, which can be used for verifying permissions in future HTTP file uploads to the IM server.
+
+### Subscribe to P2P Topic
+
+P2P topics represent a communication channel between two users, and these topics do not have an owner.
+
+The topic IDs for the two participating users are different. Each user views the other user’s ID as the P2P topic ID. For example, if the two users in the topic are `usr804252613548703744` and `usr804252613548777777`, the first user will see the topic ID as `usr804252613548777777`, while the second user will see the topic ID as `usr804252613548703744`.
+
+```python
+uuid4 = uuid.uuid4()
+message = {
+    "sub": {
+        "id": str(uuid4),
+        "topic": "usr804252613548703744"
+    }
+}
+await websocket.send(json.dumps(message))
+response = await websocket.recv()
+logger.debug("p2p_sub_message to : usr804252613548703744 response : " + response)
+```
+
+### Sending Message to P2P Topic
+
+You can send a message to a P2P topic for another user using the following code snippet. The `["pub"]["id"]` is a UUID that the client application must generate. The server will return this ID in its response, allowing the client to track the message by this ID.
+
+```python
+uuid4 = uuid.uuid4()
+message = {
+    "pub": {
+        "id": str(uuid4),
+        "topic": "usr804252613548703744",
+        "noecho": False,
+        "content": "test test test"
+    }
+}
+try:
+    await websocket.send(json.dumps(message))
+    response = await websocket.recv()
+except ConnectionClosedError as e:
+    logger.error("Connection closed unexpectedly : " + str(e))
+    break
+logger.debug("pub_message to : usr804252613548703744 response : " + response)
+ret = json.loads(response)
+if 'ctrl' in ret and ret["ctrl"]["code"] >= 300:
+    logger.error("pub_message  retcode error  response : " + response)
+```
+
+### Get the Topics I Have Subscribed To
+
+You can use the following code to retrieve the topics you have subscribed to.
+
+```python
+uuid4 = uuid.uuid4()
+message = {
+    "get": {
+        "sub": {
+            "ims": "2024-01-03T07:38:56.304Z"
+         },
+        "id": str(uuid4),
+        "topic": "usr804252613548703744",
+        "what": "sub"
+    }
+}
+await websocket.send(json.dumps(message))
+response = await websocket.recv()
+logger.debug("p2p_sub_message to : usr804252613548703744 response : " + response)
+ 
+```
+
+The response will look like the following:
+
+```json
+{
+    "meta": {
+        "id": "362c603e-4343-40a6-ab32-4e4248171d89",
+        "topic": "usr804252613548703744",
+        "ts": "2024-10-24T01:34:48.960092Z",
+        "sub": [
+            {
+                "updated": "2024-10-24T01:04:20.272656Z",
+                "acs": {
+                    "want": "JRWPA",
+                    "given": "JRWPAS",
+                    "mode": "JRWPA"
+                },
+                "user": "usr804252613548703744"
+            },
+            {
+                "updated": "2024-10-24T01:30:49.077521Z",
+                "acs": {
+                    "want": "JRWPA",
+                    "given": "JRWPA",
+                    "mode": "JRWPA"
+                },
+                "read": 367,
+                "recv": 367,
+                "user": "usr804252613548777777"
+            }
+        ]
+    }
+}
+```
+
+### Query Topic Details
+
+You can use the following message `{get what="desc"}` to query the details of a topic. For example, group-related information can be found within the details of a group topic.
+
+```
+uuid4 = uuid.uuid4()
+message = {
+    "get": {
+        "desc": {
+            "ims": "2024-01-03T07:38:56.304Z"
+         },
+        "id": str(uuid4),
+        "topic": "usr804252613548703744",
+        "what": "desc"
+    }
+}
+await websocket.send(json.dumps(message))
+response = await websocket.recv()
+logger.debug("p2p_sub_message to : usr804252613548703744 response : " + response)
+```
+
+The response will look like the following:
+
+```json
+{
+    "meta": {
+        "id": "926c7203-0ff7-4241-b9d2-0b46a5e625c6",
+        "topic": "usr804252613548703744",
+        "ts": "2024-10-24T01:30:45.144013Z",
+        "desc": {
+            "created": "2024-10-24T01:04:20.286287Z",
+            "updated": "2024-10-24T01:26:51.198007Z",
+            "touched": "2024-10-24T01:26:51.197597Z",
+            "acs": {
+                "want": "JRWPA",
+                "given": "JRWPA",
+                "mode": "JRWPA"
+            },
+            "seq": 305,
+            "read": 305,
+            "recv": 305
+        }
+    }
+}
+```
+
+
+
+
+
+
+
 
 
 
