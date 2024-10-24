@@ -402,6 +402,39 @@ if 'ctrl' in ret and ret["ctrl"]["code"] >= 300:
     logger.error("pub_message  retcode error  response : " + response)
 ```
 
+The response will look like the following:
+
+```json
+{
+    "ctrl": {
+        "id": "99c5075a-cf52-493c-8572-9e30437a02ce",
+        "topic": "usr804252613548703744",
+        "params": {
+            "seq": 377
+        },
+        "code": 202,
+        "text": "accepted",
+        "ts": "2024-10-24T08:24:41.913558Z"
+    }
+}
+
+```
+
+The user with the ID `804252613548777777` will receive the message as shown below:
+
+```json
+{
+    "data": {
+        "topic": "usr804252613548703744",
+        "from": "usr804252613548777777",
+        "ts": "2024-10-24T08:24:41.913558Z",
+        "seq": 377,
+        "content": "test test test",
+        "reqid": "99c5075a-cf52-493c-8572-9e30437a02ce"
+    }
+}
+```
+
 ### Get the Topics I Have Subscribed To
 
 You can use the following code to retrieve the topics you have subscribed to.
@@ -503,6 +536,237 @@ The response will look like the following:
     }
 }
 ```
+
+### Obtain Historical Messages
+
+By using the `["meta"]["desc"]["seq"]` field returned from the `{get what="desc"}` message, you can retrieve the number of messages in the subscribed topic. You can then use `{get what="data"}` to fetch historical messages.
+
+```python
+uuid4 = uuid.uuid4()
+message = {
+    "get": {
+        "data": {
+            "before": 10000,
+            "limit": 1000,
+            "since": 0
+        },
+        "id": str(uuid4),
+        "topic": "usr804252613548703744",
+        "what": "data"
+    }
+}
+try:
+    await websocket.send(json.dumps(message))
+    response = await websocket.recv()
+except ConnectionClosedError as e:
+    logger.error("Connection closed unexpectedly : " + str(e))
+    break
+logger.debug("sub_message to usr804252613548703744 response : " + response)
+ret = json.loads(response)
+if 'ctrl' in ret and ret["ctrl"]["code"] >= 300:
+    logger.error("sub_message  retcode error  response : " + response)
+while IS_RUNNING:
+    try:
+        message = await asyncio.wait_for(websocket.recv(), timeout=SENDER_SLEEP)
+        logger.debug("sub_message  : " + message)
+        ret = json.loads(message)
+        if 'ctrl' in ret and ret["ctrl"]["code"] >= 300:
+            logger.error("sub_message  retcode error  response : " + message)
+        if 'data' in ret:
+            //recived msg
+    except asyncio.TimeoutError:
+        break
+    except ConnectionClosedError as e:
+        logger.error("Connection closed unexpectedly : " + str(e))
+        break
+
+```
+
+### Creating a Group Chat
+
+You can use the following message to create a group chat.
+
+```python
+uuid4 = uuid.uuid4()
+message = {
+    "sub": {
+        "id": str(uuid4),
+        "topic": "new"
+    }
+}
+await websocket.send(json.dumps(message))
+response = await websocket.recv()
+logger.debug("group_create  response : " + response)
+ret = json.loads(response)
+if ret["ctrl"]["code"] == 200 :
+    return ret["ctrl"]["topic"]
+else :
+    logger.error("group_create retcode not 200  response : " + response) 
+return ""
+```
+
+The response will look like the following, the `["ctrl"]["topic"]` represents the group topic. Then other users can subscribe to group messages by sending `{sub topic="grpf0NlkdDEQHs"}`.
+
+```json
+{
+    "ctrl": {
+        "id": "06679cbc-b1d8-4821-a71f-44c1229e350e",
+        "topic": "grpf0NlkdDEQHs",
+        "params": {
+            "acs": {
+                "want": "JRWPASDO",
+                "given": "JRWPASDO",
+                "mode": "JRWPASDO"
+            },
+            "tmpname": "new"
+        },
+        "code": 200,
+        "text": "ok",
+        "ts": "2024-10-24T01:12:11.153147Z"
+    }
+}
+
+```
+
+### Join a Group
+
+The user can send the following message to subscribe to the group topic, allowing them to join the group and send or receive messages within the group.
+
+```
+uuid4 = uuid.uuid4()
+message = {
+    "sub": {
+        "id": str(uuid4),
+        "topic": "grpf0NlkdDEQHs"
+    }
+}
+await websocket.send(json.dumps(message))
+response = await websocket.recv()
+logger.debug("sub to : grpf0NlkdDEQHs response : " + response)
+```
+
+The response will look like the following:
+
+```json
+{
+    "ctrl": {
+        "id": "9c1c98b5-5123-41be-a6b9-2fe03877b946",
+        "topic": "grpf0NlkdDEQHs",
+        "params": {
+            "seq": 1
+        },
+        "code": 202,
+        "text": "accepted",
+        "ts": "2024-10-24T07:04:01.052963Z"
+    }
+}
+
+```
+
+### Sending a Message to a Group
+
+You can use the following code to send a message to a group.
+
+```python
+uuid4 = uuid.uuid4()
+message = {
+    "pub": {
+        "id": str(uuid4),
+        "topic": "grpf0NlkdDEQHs",
+        "noecho": False,
+        "content": "test test test"
+    }
+}
+try:
+    await websocket.send(json.dumps(message))
+    response = await websocket.recv()
+except ConnectionClosedError as e:
+    logger.error("Connection closed unexpectedly : " + str(e))
+    break
+logger.debug("pub_message to : grpf0NlkdDEQHs response : " + response)
+ret = json.loads(response)
+if 'ctrl' in ret and ret["ctrl"]["code"] >= 300:
+    logger.error("pub_message  retcode error  response : " + response)
+
+```
+
+The response will look like the following if succeeds:
+
+```json
+{
+    "ctrl": {
+        "id": "c1dd7a45-93db-4af9-870d-10643222b7e7",
+        "topic": "grpf0NlkdDEQHs",
+        "params": {
+            "seq": 2
+        },
+        "code": 202,
+        "text": "accepted",
+        "ts": "2024-10-24T07:04:01.120034Z"
+    }
+}
+```
+
+The following message will be sent to all users who have subscribed to the group topic.
+
+```json
+{
+    "data": {
+        "topic": "grpf0NlkdDEQHs",
+        "from": "usr901636310534455296",
+        "ts": "2024-10-24T07:04:01.120034Z",
+        "seq": 2,
+        "content": "test test test",
+        "reqid": "c1dd7a45-93db-4af9-870d-10643222b7e7"
+    }
+}
+```
+
+### Left from a Group
+
+Users can unsubscribe from a group by sending a `{leave}` message. This is the opposite function of the `{sub}` message. The `{leave}` message supports two options:
+
+* **Leave without unsubscribing** (`unsub=false`)
+* **Unsubscribe and leave** (`unsub=true`)
+
+The server will respond to a `{leave}` message with a `{ctrl}` packet.
+
+* **Leave without unsubscribing** (`unsub=false`) only affects the current session.
+* **Unsubscribe and leave** (`unsub=true`) affects all sessions for that user.
+
+```python
+uuid4 = uuid.uuid4()
+message = {
+    "leave": {
+        "id": str(uuid4),
+        "topic": "grpf0NlkdDEQHs"
+        "unsub": True 
+    }
+}
+await websocket.send(json.dumps(message))
+response = await websocket.recv()
+logger.debug("leave to : grpf0NlkdDEQHs response : " + response)
+```
+
+The response will look like the following if succeeds:
+
+```json
+{
+    "ctrl": {
+        "id": "b154ccc9-4ac8-4a71-bf74-288771d818e5",
+        "topic": "grp5XUxk__lpVY",
+        "code": 200,
+        "text": "ok",
+        "ts": "2024-10-24T07:35:51.253545Z"
+    }
+}
+```
+
+
+
+
+
+
 
 
 
