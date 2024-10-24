@@ -1,10 +1,10 @@
 # Calling APIs
 
-PortSIP VoIP SDK is a modern SIP client framework for developing audio and video calling applications. The SIP SDK is available for all leading operating systems, enabling a fast time-to-market on all platforms, including iOS, Android, macOS, Windows, and WebRTC.&#x20;
+PortSIP VoIP SDK is a modern SIP client framework designed for building audio and video calling applications. It is available across all major operating systems, ensuring fast time-to-market for platforms such as iOS, Android, macOS, Windows, and WebRTC.
 
-The SDK is designed for developing audio, video, and IM apps, supporting sharing screen, sending files, pictures, voice, and video messages, and accelerating and simplifying the development.
+The SDK supports the development of applications featuring audio, video, and instant messaging (IM), with capabilities for screen sharing, file transfers, and sending pictures, voice, and video messages. This accelerates and simplifies the development process for Unified Communications solutions.
 
-A lot of famous companies trust and use PortSIP VoIP SDK, including but not limited to:
+Many renowned companies trust and use the PortSIP VoIP SDK, including but not limited to:
 
 * Siemens
 * T-Mobile
@@ -19,11 +19,11 @@ A lot of famous companies trust and use PortSIP VoIP SDK, including but not limi
 * Fujitsu
 * Dialogic
 
-With the PortSIP PBX license, you get the PortSIP VoIP SDK **absolutely free**. Our SDK is **ready-to-use** and ensures the **shortest time-to-market**, empowering you to deliver your Unified Communications solutions in a **cost-effective, all-in-one package**.
+When you purchase a PortSIP PBX license, you receive the PortSIP VoIP SDK at no additional cost. The SDK is ready-to-use, ensuring the shortest time-to-market and empowering you to deliver Unified Communications solutions in a cost-effective, all-in-one package.
 
-## **Obtain SDK**
+## Obtain the SDK
 
-You can download the PortSIP VoIP SDK from the [PortSIP Website.](https://www.portsip.com/download-portsip-voip-sdk/) The SDK includes sample projects for various operating systems that demonstrate its usage.
+You can download the PortSIP VoIP SDK from the [PortSIP website](https://www.portsip.com/download-portsip-voip-sdk/). The SDK package includes sample projects for various operating systems, demonstrating its functionality.
 
-You can receive technical support by [submitting a ticket to PortSIP](https://portsip.atlassian.net/servicedesk/customer/portals).
+For technical support, you can [submit a ticket to PortSIP](https://portsip.atlassian.net/servicedesk/customer/portals).
 
