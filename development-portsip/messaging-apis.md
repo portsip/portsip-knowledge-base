@@ -796,7 +796,7 @@ The response will look like the following if succeeds:
 }
 ```
 
-### Remove a Member from the Group
+### Delete a Group
 
 The group administrator can delete a group by sending the following message:
 
@@ -827,6 +827,119 @@ The response will look like the following if succeeds:
         "ts": "2024-10-24T07:35:51.253545Z"
     }
 }
+```
+
+### Update Group Information
+
+The group administrator can update the group information by sending the following message. The information structure is defined in the [**Public** **attributes**](messaging-apis.md#public) of the group topic.
+
+```python
+uuid4 = uuid.uuid4()
+message =  {
+    "set": {
+    "id":str(uuid4),
+        "topic":"grpf0NlkdDEQHs",
+        "desc": {
+            "public": {
+                "fn": "My group"
+            }
+        }
+    }
+}
+await websocket.send(json.dumps(message))
+response = await websocket.recv()
+logger.debug("group_set_test  response : " + response)
+while True:
+    try:
+        message = await asyncio.wait_for(websocket.recv(), timeout=SENDER_SLEEP)
+        logger.debug("group_set_test  response : " + message)
+    except asyncio.TimeoutError:
+        break
+    except ConnectionClosedError as e:
+        logger.error("Connection closed unexpectedly : " + str(e))
+        break
+
+```
+
+The response will look like the following if succeeds:
+
+```json
+{
+  "ctrl": {
+    "id": "83da454f-dad7-4bf0-b6d2-e32e104be8f3",
+    "topic": "grpf0NlkdDEQHs",
+    "code": 200,
+    "text": "ok",
+    "ts": "2024-10-25T03:53:20.337069Z"
+  }
+}
+```
+
+### Transfer Group Ownership
+
+The group administrator can transfer ownership of the group to another user by sending the following message. In this example, `usr804252613548777777` indicates that the group ownership will be transferred to the user with the ID `804252613548777777`.
+
+```python
+uuid4 = uuid.uuid4()
+message = {
+    "set":{
+        "id":str(uuid4),
+        "topic":"grpf0NlkdDEQHs",
+        "sub":{
+            "mode":"JRWPASDO",
+            "user":"usr804252613548777777"
+        }
+    }
+}
+await websocket.send(json.dumps(message))
+response = await websocket.recv()
+logger.debug("group_transfer_test  response : " + response)
+while True:
+    try:
+        message = await asyncio.wait_for(websocket.recv(), timeout=SENDER_SLEEP)
+        logger.debug("group_transfer_test  response : " + message)
+    except asyncio.TimeoutError:
+        break
+    except ConnectionClosedError as e:
+        logger.error("Connection closed unexpectedly : " + str(e))
+        break
+
+```
+
+The responses will look like the following if succeed:
+
+```json
+{
+    "pres": {
+        "topic": "grpf0NlkdDEQHs",
+        "what": "acs",
+        "dacs": {
+            "want": "-ADO",
+            "given": "-ADO"
+        }
+	}
+}
+```
+
+```python
+{
+  "ctrl": {
+    "id": "5a98cfad-e9e7-4ac4-a2fa-915d3bd72f81",
+    "topic": "grpf0NlkdDEQHs",
+    "params": {
+      "acs": {
+        "want": "JRWPASDO",
+        "given": "JRWPASDO",
+        "mode": "JRWPASDO"
+      },
+      "user": "usr804252613548777777"
+    },
+    "code": 200,
+    "text": "ok",
+    "ts": "2024-10-25T03:40:52.35514Z"
+  }
+}
+
 ```
 
 ### Uploading a File to the IM Server
