@@ -4,29 +4,43 @@ Speed Dial 8 allows you to set up to eight frequently dialed or hard-to remember
 
 This single-digit code(2-9) is referred to as a speed code. The user can associate a phone number including 911 emergency and 611 for customer service.&#x20;
 
-There are two methods by which a user can program speed codes, through the Personal web portal or by dialing a feature access code.
+There are two methods by which a user can program speed codes, through the web portal or by dialing a feature access code.
 
-Assume we need to program the speed dial code **5** for the phone number **12345678**.
+## Configuring Speed Dial 8 in the Web Portal
 
-## **Program Option 1**
+You can configure Speed Dial 8 in the PortSIP PBX Web Portal through the following steps:
 
-1. Log into PortSIP PBX Web portal.
-2. Edit the user profile.
-3. Click the **Speed Dial 8** tab and click the **Add** button.
-4. Select the **5** from the code list, and enter the phone number **12345678** and the description in the corresponding boxes.
-5. Click **OK** to save the settings.
+1. **For Tenant Admins**:
+   * Log in to the Web Portal as a tenant administrator.
+   * Navigate to **Call Manager > Users**, select the desired extension, and click the **Speed Dial 8** tab to set up speed dialing options.
+2. **For Extension Users**:
+   * Log in to the Web Portal as an extension user.
+   * Go to the **Profile** menu, then click the **Speed Dial 8** tab to configure your speed dialing settings.
 
-## **Program Option 2**
+<figure><img src="../../../.gitbook/assets/speed-dial-8.png" alt=""><figcaption></figcaption></figure>
 
-1. From the phone dial **\*74512345678**.
-2. The PBX will play the voice prompts to tell you whether the operation is a success or not.
+## Configuring Speed Dial 8 Using Feature Access Codes (FAC)
 
-To use it from the phone, simply dial a single digit in case is **5**, and the PBX will call the number **1234568**.
+You can also set up Speed Dial 8 by dialing the Feature Access Code (FAC) directly from your phone or app.
 
-## Modify the Speed Dial Code Settings
+### Setting Up a Speed Dial Code
 
-Dialing **\*7450033125** from your phone will overwrite the previous speed dial settings for code **5** and set the new settings to **0033125**.
+To program speed dial code **5** for the phone number **12345678**:
 
-## Delete the Speed Dial Code
+1. From your phone, dial `*74512345678`.
+2. Follow the voice prompts provided by the PBX, which will confirm if the setup was successful.
 
-Dialing **\*745\*** will delete the speed dial code **5** settings.
+Once configured, you can use the speed dial by simply dialing the single digit **5** on your phone, and the PBX will automatically call **12345678**.
+
+### Modifying Speed Dial Code Settings
+
+To update the number assigned to an existing speed dial code:
+
+* Dial `*7450033125`. This command will replace the previous number for code 5 with the new number **0033125**.
+
+### Deleting a Speed Dial Code
+
+To delete the settings for speed dial code 5:
+
+* Dial `*745*` to clear the stored number for code 5.
+
