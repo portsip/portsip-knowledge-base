@@ -13,7 +13,7 @@
   * [PortSIP Security Features](portsip-pbx/portsip-pbx-administration-guide/portsip-security-feature.md)
   * [Upgrading PortSIP PBX to New Versions](portsip-pbx/portsip-pbx-administration-guide/upgrading-portsip-pbx-to-new-versions/README.md)
     * [Upgrading to the Latest v22.x Release](portsip-pbx/portsip-pbx-administration-guide/upgrading-portsip-pbx-to-new-versions/upgrading-portsip-pbx-to-v22.x.md)
-    * [Upgrading to the Latest v16.x Release](portsip-pbx/portsip-pbx-administration-guide/upgrading-portsip-pbx-to-new-versions/upgrading-portsip-pbx-to-v16.x.md)
+    * [Upgrading to the Latest v16.x Release](portsip-pbx/portsip-pbx-administration-guide/upgrading-portsip-pbx-to-new-versions.md)
   * [Summary of Changes](portsip-pbx/portsip-pbx-administration-guide/summary-of-changes.md)
   * [Before Started](portsip-pbx/portsip-pbx-administration-guide/before-started.md)
   * [Installation of the PortSIP PBX Beta Version](portsip-pbx/portsip-pbx-administration-guide/installation-of-the-portsip-pbx-beta.md)

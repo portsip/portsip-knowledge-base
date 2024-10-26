@@ -7,5 +7,5 @@ You can seamlessly upgrade to new versions from your current installation by fol
 Please refer to the following guide to upgrade your current installation.
 
 * [Upgrading to the latest v22.x Release](upgrading-portsip-pbx-to-v22.x.md)
-* [Upgrading to the latest v16.x Release](upgrading-portsip-pbx-to-v16.x.md)
+* [Upgrading to the latest v16.x Release](../upgrading-portsip-pbx-to-new-versions.md)
 
