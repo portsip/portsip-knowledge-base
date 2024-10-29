@@ -106,7 +106,7 @@ Tenant administrators can easily manage users through the intuitive user list wi
 
 <figure><img src="../.gitbook/assets/extension_status_1.png" alt=""><figcaption></figcaption></figure>
 
-You can click the search icon to view the device details for any online extension. In the example shown below,
+You can click the search icon to view the device details for any online extension. In the example shown below:
 
 * Fanvil v65 registered to PBX from 192.168.2.36 on port 5060 via UDP
 * Snom registered to PBX from 192.168.2.48 on port 35278 via UDP
