@@ -106,9 +106,17 @@ Tenant administrators can easily manage users through the intuitive user list wi
 
 <figure><img src="../.gitbook/assets/extension_status_1.png" alt=""><figcaption></figcaption></figure>
 
-You can click the search icon to view the device details for any online extension. In the example shown below, extension 103 is registered from both the PortSIP ONE app (IP address: 192.168.2.217, port: 5090 using UDP transport) and a Fanvil V65 IP phone (IP address: 192.168.2.36, port: 5060 using UDP transport). This detailed view enables administrators to easily monitor the devices connected to each extension.
+You can click the search icon to view the device details for any online extension. In the example shown below,
 
-<figure><img src="../.gitbook/assets/extension_status_2.png" alt=""><figcaption></figcaption></figure>
+* Fanvil v65 registered to PBX from 192.168.2.36 on port 5060 via UDP
+* Snom registered to PBX from 192.168.2.48 on port 35278 via UDP
+* Grandstream registered to PBX from 192.168.2.107 on port 44862 via UDP
+* Yealink T42U registered to PBX from 192.168.2.14 on port 5060 via UDP
+* PortSIP ONE app register to PBX from 192.168.2.71 via UDP&#x20;
+
+This detailed view enables administrators to easily monitor the devices connected to each extension.
+
+<figure><img src="../.gitbook/assets/phone-ua-list.png" alt=""><figcaption></figcaption></figure>
 
 For more information, please refer to the article on [User Management](portsip-pbx-administration-guide/5-user-management/).
 
