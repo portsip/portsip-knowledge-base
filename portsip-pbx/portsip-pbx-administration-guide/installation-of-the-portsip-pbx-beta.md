@@ -156,7 +156,7 @@ You will need two certificate files:
 * **portsip.key**
 * **portsip.pem**
 
-**Configuring the Certificates:**
+#### Configuring the Certificates
 
 1. In the **Web Domain** field, enter **uc.portsip.cc**.
 2. Open the **portsip.pem** file in a text editor (such as Windows Notepad), and copy the entire contents into the **Certificate File** field.
@@ -184,7 +184,11 @@ After adding a new transport protocol, be sure to update your firewall rules to 
 
 To enable email notifications in PortSIP PBX for system alerts, you must configure the SMTP settings. Once a critical event occurs in the PBX, alert emails will be sent to the specified **Recipients**.
 
-**Google**
+#### Generic
+
+For other generic SMTP providers that is not Google or Microsoft, please set up it as per the provider's instructions.
+
+#### Google
 
 If you’re using Google’s SMTP server, ensure that **less secure apps** is enabled for your Gmail account. For more details, refer to Google's documentation:
 
@@ -199,7 +203,7 @@ Additionally, you’ll need to select either SSL or TLS as the security protocol
 * Sender Email: The sender's email address
 * Use TLS: ON
 
-**Microsoft 365**
+#### Microsoft 365
 
 If you’re using the Microsoft 365 SMTP server, SSL or TLS must also be selected as the security protocol. Use the following settings:
 
