@@ -86,7 +86,7 @@ If your PBX server has a public IP, you must use it in the below command for the
 sudo /bin/sh pbx_ctl.sh \
 run -p /var/lib/portsip \
 -a 66.175.221.120 \
--i portsip/pbx:22.0.31.1278-beta
+-i portsip/pbx:22.0.32.1300-beta
 ```
 
 * **-p**: Specifies the path for storing PBX data.
@@ -250,7 +250,7 @@ cd /opt/portsip
 
 {% code overflow="wrap" %}
 ```sh
-sudo /bin/sh im_ctl.sh run -p /var/lib/portsip/ -i portsip/pbx:22.0.31.1278-beta \
+sudo /bin/sh im_ctl.sh run -p /var/lib/portsip/ -i portsip/pbx:22.0.32.1300-beta \
 -t MJC4NZBLYTGTZTJJNS0ZMWZHLWIXZDCTZJLLMDEWZJHKZTAY
 ```
 {% endcode %}
