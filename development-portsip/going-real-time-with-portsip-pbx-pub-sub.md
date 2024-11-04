@@ -364,9 +364,9 @@ Once connected to the WSI server, use the following JSON message to authenticate
 
 The system administrator can currently subscribe only to extension management events. To subscribe to other events, a Tenant Admin or Queue Manager is required.
 
-### Tenant Admin Authentication
+### Tenant User Authentication
 
-Tenant administrators can authenticate using either username/password or extension number/extension password.
+Tenant administrators, users(extensions) can authenticate using either username/password or extension number/extension password.
 
 #### Authenticate with Username
 
