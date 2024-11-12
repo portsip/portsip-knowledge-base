@@ -15,7 +15,7 @@ A server can only deploy one type of PortSIP server at a time. For instance, it'
 
 ## Setup the PortSIP PBX
 
-Before configuring the cluster servers, please ensure that you have completed the PBX installation and configuration on the **Main Server** by following the guide for [Installation of PortSIP PBX](../portsip-pbx-administration-guide/portsip-pbx-beta-testing/) and [Configuring the PortSIP PBX](../portsip-pbx-administration-guide/2-configuring-the-portsip-pbx.md).
+Before configuring the cluster servers, please ensure that you have completed the PBX installation and configuration on the **Main Server** by following the guide for [Installation of the PortSIP PBX](../portsip-pbx-administration-guide/portsip-pbx-beta-testing/installation-of-the-portsip-pbx-beta.md) to install it(**no need to install the IM Server)**.
 
 ## Configure the Firewall
 
@@ -28,6 +28,7 @@ firewall-cmd --permanent --zone=trusted --add-source=192.168.1.21
 firewall-cmd --permanent --zone=trusted --add-source=192.168.1.22
 firewall-cmd --permanent --zone=trusted --add-source=192.168.1.23
 firewall-cmd --permanent --zone=trusted --add-source=192.168.1.24
+firewall-cmd --permanent --zone=trusted --add-source=192.168.1.25
 firewall-cmd --reload
 ```
 
@@ -45,7 +46,7 @@ trusted (active)
   target: ACCEPT
   icmp-block-inversion: no
   interfaces: 
-  sources: 192.168.1.21 192.168.1.22 192.168.1.23 192.168.1.24
+  sources: 192.168.1.21 192.168.1.22 192.168.1.23 192.168.1.24 192.168.1.25
   services: 
   ports: 
   protocols: 
@@ -76,7 +77,7 @@ To prevent the PBX from limiting the cluster servers' request rate, we need to a
 
 To do this, please follow the below steps:
 
-1. Sign in the PBX web portal as the System Administrator
+1. Sign in to the PBX web portal as the System Administrator
 2. Select the menu **IP Blacklist** > **Add**.&#x20;
 3. Enter the cluster server IP as shown in the screenshot below and choose a long **expiration date.**
 4. Repeat the above steps for each cluster server.
@@ -92,6 +93,8 @@ To add the cluster servers in the web portal, sign in to the PBX Web portal as t
 The PortSIP PBX installation comes with default media, queue, meeting, and IVR servers. We recommend disabling these default servers so that the **Main Server** only handles SIP signaling, allowing it to support more users and calls.&#x20;
 
 To do this, please select the **Servers** menu, expand each server type(media servers, queue servers, meeting servers, IVR servers), and turn off the default server as the below screenshot shows up.
+
+**Note:** The IM Server is no need to disabled.
 
 <figure><img src="../../.gitbook/assets/disable-default-media-server.png" alt=""><figcaption></figcaption></figure>
 
@@ -246,6 +249,61 @@ You can repeat the above steps to set up more IVR servers. Just make sure to use
 {% hint style="danger" %}
 If you set up multiple IVR servers, they must not use the same server name or IP address. Especially, you must ensure that the server name specified in the commands matches the one entered on the web portal.
 {% endhint %}
+
+### Install IM Server
+
+Currently, the IM server does not support being installed as a cluster, but an IM server is installed separately with a powerful CPU and memory that can support a maximum of 50K users online.
+
+Please follow the below steps to install the IM server on the server which IP is 192.168.1.25.
+
+**1. Generate Token for the IM Server**
+
+1. Log in as the **System Administrator** to the PortSIP PBX Web portal.
+2. Navigate to **Servers > IM Servers**.
+3. Select the default server and click the **Generate Token** button.
+4. Copy the generated token.
+
+<figure><img src="../../.gitbook/assets/portsip-pbx-v22-im-token.png" alt=""><figcaption></figcaption></figure>
+
+### Create and Run Instant Messaging Docker Instance
+
+Follow these steps to create the IM service Docker instance:
+
+1. Navigate to the **/opt/portsip** directory by running the following command:
+
+```sh
+cd /opt/portsip
+```
+
+2. Use the command below to create the Instant Messaging service Docker instance. Replace the placeholders with your actual values:
+
+* **-p**: Specifies the path for storing the IM service data.
+* **-a**: Specifies the IP address of the server.
+* **-i**: Specifies the PBX Docker image version.
+* **-t**: Specifies the token generated in the previous step.
+
+{% code overflow="wrap" %}
+```sh
+sudo /bin/sh im_ctl.sh run -p /var/lib/portsip/ -i portsip/pbx:22.0.33.1354-beta \
+-t MJC4NZBLYTGTZTJJNS0ZMWZHLWIXZDCTZJLLMDEWZJHKZTAY
+```
+{% endcode %}
+
+## Step 6: Reboot to Apply the Certificate
+
+If you uploaded a trusted SSL certificate in **Step 2: SSL Certificate** (instead of using the default self-signed certificate), you need to restart the PBX to apply the changes. Use the following commands to reboot the PBX:
+
+```sh
+cd /opt/portsip
+sudo /bin/sh pbx_ctl.sh restart
+sudo /bin/sh im_ctl.sh restart
+```
+
+Now the PortSIP PBX is successfully installed.
+
+
+
+
 
 ## Restarting Servers
 
