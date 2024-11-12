@@ -48,12 +48,12 @@ mkdir -p /opt/portsip
 cd /opt/portsip
 ```
 
-```
+```sh
 curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/install_docker.sh \
 -o install_docker.sh
 ```
 
-<pre><code><strong>curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/cluster_ctl.sh \
+<pre class="language-sh"><code class="lang-sh"><strong>curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/cluster_ctl.sh \
 </strong>-o cluster_ctl.sh
 </code></pre>
 
