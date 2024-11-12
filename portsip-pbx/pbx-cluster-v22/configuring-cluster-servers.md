@@ -21,6 +21,10 @@ Before configuring the cluster servers, please ensure that you have completed th
 Note: In this step, just need to install the PBX only, is no need to install the IM server at this stage, as it will be installed later in this guide.
 {% endhint %}
 
+{% hint style="warning" %}
+All commands must be executed in the **`/opt/portsip`** directory.
+{% endhint %}
+
 ## Configure the Firewall
 
 It is necessary to create firewall rules on the **Main Server** that allow the cluster servers to access the PBX server (**Main Server**).&#x20;
@@ -271,37 +275,16 @@ To install the IM server on a server with the IP address **192.168.1.25**, pleas
 
 #### Create and Run Instant Messaging Docker Instance
 
-Follow these steps to create the IM service Docker instance in the server which has the IP **192.168.1.25**.
+Use the following command to create the Instant Messaging (IM) service Docker instance in the server which has the IP **192.168.1.25**. Replace each parameter with your actual values:
 
-1. Use the following command to create the folder:&#x20;
-
-```sh
-sudo curl \
-https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/init.sh  \
--o  init.sh
-```
-
-```sh
-sudo /bin/sh init.sh
-```
-
-```sh
-cd /opt/portsip
-```
-
-```sh
-sudo /bin/sh install_docker.sh
-```
-
-3. Use the following command to create the Instant Messaging (IM) service Docker instance. Replace each parameter with your actual values:
-   * **-E**: Specifies that the IM server is installed in extended mode (required).
-   * **-p**: Specifies the path for storing IM service data (required).
-   * **-a**: Specifies the private IP address of this IM server. If this parameter is omitted, the **-A** parameter must be specified.
-   * **-A**: Specifies the public IP address of this IM server. If this parameter is omitted, the **-a** parameter must be specified.
-   * **-i**: Specifies the PBX Docker image version (required).
-   * **-x**: Indicates the main PBX server's IP address (typically the private IP of the main PBX server) (required).
-   * **-t**: Provides the token generated and copied in the previous step (required).
-   * **-f**: Specifies the path for storing files sent in chats. This path must differ from the one specified with **-p**. If omitted, chat files will be stored in the path specified by **-p**.
+* **-E**: Specifies that the IM server is installed in extended mode (required).
+* **-p**: Specifies the path for storing IM service data (required).
+* **-a**: Specifies the private IP address of this IM server. If this parameter is omitted, the **-A** parameter must be specified.
+* **-A**: Specifies the public IP address of this IM server. If this parameter is omitted, the **-a** parameter must be specified.
+* **-i**: Specifies the PBX Docker image version (required).
+* **-x**: Indicates the main PBX server's IP address (typically the private IP of the main PBX server) (required).
+* **-t**: Provides the token generated and copied in the previous step (required).
+* **-f**: Specifies the path for storing files sent in chats. This path must differ from the one specified with **-p**. If omitted, chat files will be stored in the path specified by **-p**.
 
 {% code overflow="wrap" %}
 ```sh

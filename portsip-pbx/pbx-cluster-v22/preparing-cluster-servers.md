@@ -32,36 +32,27 @@ Tasks that MUST be completed before installing cluster servers.
 * Do not install TeamViewer, VPN, or similar software on the host machine.
 * The server must not be installed as a DNS or DHCP server.
 
-## **Download the  Installation Scripts**
+## **Setup the Docker Environment**
 
-{% hint style="info" %}
-All commands must be executed in the **`/opt/portsip`** directory.
-{% endhint %}
-
-Execute the below commands to download the installation scripts.
+**On each server**, execute the below commands to download the installation scripts:
 
 ```shell
-mkdir -p /opt/portsip
+sudo curl \
+https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/init.sh  \
+-o  init.sh
 ```
 
 ```sh
-cd /opt/portsip
+sudo /bin/sh init.sh
 ```
-
-```sh
-curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/install_docker.sh \
--o install_docker.sh
-```
-
-<pre class="language-sh"><code class="lang-sh"><strong>curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/cluster_ctl.sh \
-</strong>-o cluster_ctl.sh
-</code></pre>
-
-## **Setup the Docker Environment**
 
 Execute the below command to install the `Docker-Compose` environment. If you get the prompt likes`*** cloud.cfg (Y/I/N/O/D/Z) [default=N] ?`, enter the **Y,** and then press the **Enter** button.
 
 ```shell
-/bin/sh install_docker.sh
+cd /opt/portsip
+```
+
+```sh
+sudo /bin/sh install_docker.sh
 ```
 
