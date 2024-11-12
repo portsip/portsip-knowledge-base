@@ -107,6 +107,32 @@ It’s crucial to keep your cluster servers updated in line with the latest Port
 
 Whenever a new version of PortSIP PBX is released, it’s essential to upgrade your installed cluster servers as well. Follow the steps below to ensure a successful upgrade.
 
+### Upgrading the Main PBX Server
+
+1. Remove the current running PBX Main server by the commands on the server 192.168.1.20:
+
+```sh
+cd /opt/portsip
+/bin/sh pbx_ctl.sh stop
+/bin/sh pbx_ctl.sh rm
+```
+
+2. Install the latest version of the PBX server. Follow the instructions provided in the[ Installation of the PortSIP PBX](../portsip-pbx-administration-guide/portsip-pbx-beta-testing/installation-of-the-portsip-im-server.md) guide to complete this step with the latest version.
+
+### Upgrading the IM Server
+
+1. Remove the current running server by the commands:
+
+```sh
+cd /opt/portsip
+/bin/sh im_ctl.sh stop
+/bin/sh im_ctl.sh rm
+```
+
+2. Install the latest version of the IM server. Follow the instructions provided in the [Installing the IM Server](configuring-cluster-servers.md#installing-the-im-server) guide to complete this step with the latest version.
+
+### Upgrading Cluster Servers
+
 We use the **media server** as an example, you will need to replace the media server with other servers as your actual environment.
 
 1. Remove the current running server by the commands:
@@ -117,5 +143,5 @@ cd /opt/portsip
 /bin/sh cluster_ctl.sh rm -s media-server-only
 ```
 
-2. Install the latest version of the server. Follow the instructions provided in the [Install Media server](../pbx-cluster/configuring-cluster-servers.md#install-media-server) guide to complete this step.
+2. Install the latest version of the server. Follow the instructions provided in the [Install Media server](../pbx-cluster/configuring-cluster-servers.md#install-media-server) guide to complete this step with the latest version.
 
