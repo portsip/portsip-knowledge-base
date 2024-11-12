@@ -276,13 +276,21 @@ Follow these steps to create the IM service Docker instance in the server which 
 1. Use the following command to create the folder:&#x20;
 
 ```sh
-sudo mkdir /opt/portsip
+sudo curl \
+https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/init.sh  \
+-o  init.sh
 ```
 
-2. Navigate to the **/opt/portsip** directory by running the following command:
+```sh
+sudo /bin/sh init.sh
+```
 
 ```sh
 cd /opt/portsip
+```
+
+```sh
+sudo /bin/sh install_docker.sh
 ```
 
 3. Use the following command to create the Instant Messaging (IM) service Docker instance. Replace each parameter with your actual values:
