@@ -17,37 +17,36 @@ In the commands, use the parameter **-s** to specify the service name, PortSIP P
 
 ```sh
 cd /opt/portsip
-/bin/sh cluster_ctl.sh start -s media-server-only
+sudo /bin/sh cluster_ctl.sh start -s media-server-only
 ```
 
 You can replace the **media-server-only** with another service name such as mentioned above.
 
 ### Restart Server
 
-```sh
-cd /opt/portsip
-/bin/sh cluster_ctl.sh restart -s media-server-only
-```
+<pre class="language-sh"><code class="lang-sh">cd /opt/portsip
+<strong>sudo /bin/sh cluster_ctl.sh restart -s media-server-only
+</strong></code></pre>
 
 ### Check Status
 
 ```sh
 cd /opt/portsip
-/bin/sh cluster_ctl.sh status -s media-server-only
+sudo /bin/sh cluster_ctl.sh status -s media-server-only
 ```
 
 ### Stop Server
 
 ```sh
 cd /opt/portsip
-/bin/sh cluster_ctl.sh stop -s media-server-only
+sudo /bin/sh cluster_ctl.sh stop -s media-server-only
 ```
 
 ### Remove Server
 
 ```sh
 cd /opt/portsip
-/bin/sh cluster_ctl.sh rm -s media-server-only
+sudo /bin/sh cluster_ctl.sh rm -s media-server-only
 ```
 
 ## Managing IM Server
@@ -91,7 +90,7 @@ sudo /bin/sh im_ctl.sh rm
 
 As the scale of your business expands, you may need to add more servers to the existing cluster.&#x20;
 
-To do this, simply follow the topics on [Preparing Cluster Servers](../pbx-cluster/preparing-cluster-servers.md) and [Configuring Cluster Servers](../pbx-cluster/configuring-cluster-servers.md) to add servers. Then, restart the resource load balancer and all cluster servers - there is no need to restart the PBX server.&#x20;
+To do this, simply follow the topics on [Preparing Cluster Servers](preparing-cluster-servers.md) and [Configuring Cluster Servers](configuring-cluster-servers.md) to add servers. Then, restart the resource load balancer and all cluster servers - there is no need to restart the PBX server.&#x20;
 
 {% hint style="info" %}
 Currently, the IM server does not support cluster installations; it can be deployed as a standalone server. It can support up to 50,000 online users with a powerful CPU and memory(16 cores, 16GB). So there is no support to add more IM servers.
@@ -113,8 +112,8 @@ Whenever a new version of PortSIP PBX is released, it’s essential to upgrade y
 
 ```sh
 cd /opt/portsip
-/bin/sh pbx_ctl.sh stop
-/bin/sh pbx_ctl.sh rm
+sudo /bin/sh pbx_ctl.sh stop
+sudo /bin/sh pbx_ctl.sh rm
 ```
 
 2. Install the latest version of the PBX server. Follow the instructions provided in the[ Installation of the PortSIP PBX](../portsip-pbx-administration-guide/portsip-pbx-beta-testing/installation-of-the-portsip-im-server.md) guide to complete this step with the latest version.
@@ -125,8 +124,8 @@ cd /opt/portsip
 
 ```sh
 cd /opt/portsip
-/bin/sh im_ctl.sh stop
-/bin/sh im_ctl.sh rm
+sudo /bin/sh im_ctl.sh stop
+sudo /bin/sh im_ctl.sh rm
 ```
 
 2. Install the latest version of the IM server. Follow the instructions provided in the [Installing the IM Server](configuring-cluster-servers.md#installing-the-im-server) guide to complete this step with the latest version.
@@ -137,10 +136,10 @@ We use the **media server** as an example, you will need to replace the media se
 
 1. Remove the current running server by the commands:
 
-```
+```sh
 cd /opt/portsip
-/bin/sh cluster_ctl.sh stop -s media-server-only
-/bin/sh cluster_ctl.sh rm -s media-server-only
+sudo /bin/sh cluster_ctl.sh stop -s media-server-only
+sudo /bin/sh cluster_ctl.sh rm -s media-server-only
 ```
 
 2. Install the latest version of the server. Follow the instructions provided in the [Install Media server](../pbx-cluster/configuring-cluster-servers.md#install-media-server) guide to complete this step with the latest version.
