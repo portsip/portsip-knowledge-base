@@ -1,6 +1,8 @@
-# The Future of Unified Communications: Powered by UCaaS
+# UCaaS is Unified Communications as a Service
 
-[UCaaS(Unified Communications as a Service) ](https://www.uctoday.com/collaboration/what-is-unified-communications/)has gained significant popularity in today’s cloud age. PortSIP provides a software-based, multi-tenant [PBX solution](https://www.portsip.com/portsip-pbx), enabling service providers to host their own UCaaS business.
+Unified Communications as a Service (UCaaS) brings together apps and services like call, chat, video, and audio conferencing into one cloud-based platform.
+
+PortSIP provides a software-based, multi-tenant [PBX solution](https://www.portsip.com/portsip-pbx), enabling service providers to host their own UCaaS business.
 
 ## What's t the UCaaS(Unified Communications as a Service)?
 
