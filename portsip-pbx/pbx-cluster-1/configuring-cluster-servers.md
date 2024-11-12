@@ -122,7 +122,7 @@ cd /opt/portsip
 run -p /var/lib/portsip \
 -a 192.168.1.21 \
 -x 192.168.1.20 \
--i portsip/pbx:16 \
+-i portsip/pbx:22.0.33.1354-beta \
 -s media-server-only \
 -n media-server-1
 ```
@@ -164,7 +164,7 @@ cd /opt/portsip
 run -p /var/lib/portsip \
 -a 192.168.1.22 \
 -x 192.168.1.20 \
--i portsip/pbx:16 \
+-i portsip/pbx:22.0.33.1354-beta \
 -s queue-server-only \
 -n queue-server-1
 ```
@@ -200,7 +200,7 @@ cd /opt/portsip
 run -p /var/lib/portsip \
 -a 192.168.1.23 \
 -x 192.168.1.20 \
--i portsip/pbx:16 \
+-i portsip/pbx:22.0.33.1354-beta \
 -s meeting-server-only \
 -n meeting-server-1
 ```
@@ -236,7 +236,7 @@ cd /opt/portsip
 run -p /var/lib/portsip \
 -a 192.168.1.24 \
 -x 192.168.1.20 \
--i portsip/pbx:16 \
+-i portsip/pbx:22.0.33.1354-beta \
 -s vr-server-only \
 -n vr-server-1
 ```
