@@ -260,15 +260,16 @@ Currently, the IM server does not support cluster installations; it can be deplo
 
 To install the IM server on a server with the IP address **192.168.1.25**, please follow these steps:
 
-1. **Generate a Token for the IM Server**
-   * Log in to the PortSIP PBX Web portal as the System Administrator.
-   * Go to **Servers > IM Servers**.
-   * Select the default server and click **Generate Token**.
-   * Copy the generated token for later use.
+#### Generate a Token for the IM Server
+
+* Log in to the PortSIP PBX Web portal as the System Administrator.
+* Go to **Servers > IM Servers**.
+* Select the default server and click **Generate Token**.
+* Copy the generated token for later use.
 
 <figure><img src="../../.gitbook/assets/portsip-pbx-v22-im-token.png" alt=""><figcaption></figcaption></figure>
 
-#### 2. Create and Run Instant Messaging Docker Instance
+#### Create and Run Instant Messaging Docker Instance
 
 Follow these steps to create the IM service Docker instance in the server which has the IP **192.168.1.25**.
 
