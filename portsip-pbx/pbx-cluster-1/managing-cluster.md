@@ -1,6 +1,6 @@
 # Managing Cluster
 
-After successfully setup the PortSIP PBX cluster, you can manage it in an easy way.
+After successfully setting up the PortSIP PBX cluster, you can manage it easily.
 
 ## Managing Servers
 
@@ -15,7 +15,7 @@ In the commands, use the parameter **-s** to specify the service name, PortSIP P
 
 ### Start Server
 
-```
+```sh
 cd /opt/portsip
 /bin/sh cluster_ctl.sh start -s media-server-only
 ```
@@ -24,30 +24,67 @@ You can replace the **media-server-only** with another service name such as ment
 
 ### Restart Server
 
-```
+```sh
 cd /opt/portsip
 /bin/sh cluster_ctl.sh restart -s media-server-only
 ```
 
 ### Check Status
 
-```
+```sh
 cd /opt/portsip
 /bin/sh cluster_ctl.sh status -s media-server-only
 ```
 
 ### Stop Server
 
-```
+```sh
 cd /opt/portsip
 /bin/sh cluster_ctl.sh stop -s media-server-only
 ```
 
 ### Remove Server
 
-```
+```sh
 cd /opt/portsip
 /bin/sh cluster_ctl.sh rm -s media-server-only
+```
+
+## Managing IM Server
+
+### Start Server
+
+```sh
+cd /opt/portsip
+sudo /bin/sh im_ctl.sh start
+```
+
+### Restart Server
+
+```sh
+cd /opt/portsip
+sudo /bin/sh im_ctl.sh restart
+```
+
+### Stop Server
+
+```sh
+cd /opt/portsip
+sudo /bin/sh im_ctl.sh stop
+```
+
+### Check Status
+
+```sh
+cd /opt/portsip
+sudo /bin/sh im_ctl.sh status
+```
+
+### Remove Server
+
+```sh
+cd /opt/portsip
+sudo /bin/sh im_ctl.sh rm
 ```
 
 ## Adding Servers
@@ -55,6 +92,10 @@ cd /opt/portsip
 As the scale of your business expands, you may need to add more servers to the existing cluster.&#x20;
 
 To do this, simply follow the topics on [Preparing Cluster Servers](../pbx-cluster/preparing-cluster-servers.md) and [Configuring Cluster Servers](../pbx-cluster/configuring-cluster-servers.md) to add servers. Then, restart the resource load balancer and all cluster servers - there is no need to restart the PBX server.&#x20;
+
+{% hint style="info" %}
+Currently, the IM server does not support cluster installations; it can be deployed as a standalone server. It can support up to 50,000 online users with a powerful CPU and memory(16 cores, 16GB). So there is no support to add more IM servers.
+{% endhint %}
 
 Please note that restarting the resource load balancer and servers will affect the calling service, so it is recommended to do this during the middle night.
 
