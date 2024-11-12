@@ -31,25 +31,25 @@ It is necessary to create firewall rules on the **Main Server** that allow the c
 
 To configure these firewall rules, please perform the following commands on the PBX server (**Main Server**).
 
-```
-firewall-cmd --permanent --zone=trusted --add-source=192.168.1.21
-firewall-cmd --permanent --zone=trusted --add-source=192.168.1.22
-firewall-cmd --permanent --zone=trusted --add-source=192.168.1.23
-firewall-cmd --permanent --zone=trusted --add-source=192.168.1.24
-firewall-cmd --permanent --zone=trusted --add-source=192.168.1.25
-firewall-cmd --reload
+```sh
+sudo firewall-cmd --permanent --zone=trusted --add-source=192.168.1.21
+sudo firewall-cmd --permanent --zone=trusted --add-source=192.168.1.22
+sudo firewall-cmd --permanent --zone=trusted --add-source=192.168.1.23
+sudo firewall-cmd --permanent --zone=trusted --add-source=192.168.1.24
+sudo firewall-cmd --permanent --zone=trusted --add-source=192.168.1.25
+sudo firewall-cmd --reload
 ```
 
 To verify that the rule has been created correctly, you can use the following command:
 
-```
-firewall-cmd --zone=trusted --list-all
+```sh
+sudo firewall-cmd --zone=trusted --list-all
 ```
 
 The correct output should be like below:
 
-```
-[root@localhost ~]# firewall-cmd --zone=trusted --list-all
+```sh
+[ubuntu@localhost ~]$ sudo firewall-cmd --zone=trusted --list-all
 trusted (active)
   target: ACCEPT
   icmp-block-inversion: no
@@ -68,9 +68,9 @@ trusted (active)
 
 To allow the entire C class address to access the PBX server (**Main Server**), you can use the following commands:
 
-```
-firewall-cmd --permanent --zone=trusted --add-source=192.168.1.0/24  
-firewall-cmd --reload
+```sh
+sudo firewall-cmd --permanent --zone=trusted --add-source=192.168.1.0/24  
+sudo firewall-cmd --reload
 ```
 
 In the future, if you add more servers to the existing cluster, you will need to create firewall rules to allow those servers’ IP addresses to access the PBX server (**Main Server**), just like the rules mentioned above.
@@ -127,9 +127,9 @@ To install the media server, execute the following commands and pay close attent
 * `-s media-server-only`: This indicates that only the media server should be installed.
 * `-n media-server-1`: This specifies the name of the media server, which must be the same as the name entered on the PBX Web portal in the previous step.
 
-```
+```sh
 cd /opt/portsip
-/bin/sh cluster_ctl.sh \
+sudo /bin/sh cluster_ctl.sh \
 run -p /var/lib/portsip \
 -a 192.168.1.21 \
 -x 192.168.1.20 \
@@ -171,7 +171,7 @@ Make sure you have followed the guide for [Preparing Cluster Servers](../pbx-clu
 
 ```sh
 cd /opt/portsip
-/bin/sh cluster_ctl.sh \
+sudo /bin/sh cluster_ctl.sh \
 run -p /var/lib/portsip \
 -a 192.168.1.22 \
 -x 192.168.1.20 \
@@ -205,9 +205,9 @@ Make sure you have followed the guide for [Preparing Cluster Servers](../pbx-clu
 * `-s meeting-server-only`: This indicates that only the meeting server should be installed.
 * `-n meeting-server-1`: This specifies the name of the meeting server, which must be the same as the name entered on the PBX Web portal in the previous step.
 
-```
+```sh
 cd /opt/portsip
-/bin/sh cluster_ctl.sh \
+sudo /bin/sh cluster_ctl.sh \
 run -p /var/lib/portsip \
 -a 192.168.1.23 \
 -x 192.168.1.20 \
@@ -241,9 +241,9 @@ To install the IVR server, execute the following commands and pay close attentio
 * `-s vr-server-only`: This indicates that only the meeting server should be installed.
 * `-n vr-server-1`: This specifies the name of the IVR server, which must be the same as the name entered on the PBX Web portal in the previous step.
 
-```
+```sh
 cd /opt/portsip
-/bin/sh cluster_ctl.sh \
+sudo /bin/sh cluster_ctl.sh \
 run -p /var/lib/portsip \
 -a 192.168.1.24 \
 -x 192.168.1.20 \
@@ -319,45 +319,45 @@ sudo /bin/sh im_ctl.sh restart
 
 Perform the following command on the PBX Server (**Main Server**) to restart the resource load balancer.
 
-```
+```sh
 cd /opt/portsip
-/bin/sh pbx_ctl.sh restart -s loadbalancer
+sudo /bin/sh pbx_ctl.sh restart -s loadbalancer
 ```
 
 ### Restart Media Servers
 
 Go to each media server, and perform the below commands to restart the server.
 
-```
+```sh
 cd /opt/portsip
-/bin/sh cluster_ctl.sh restart -s media-server-only
+sudo /bin/sh cluster_ctl.sh restart -s media-server-only
 ```
 
 ### Restart Queue Servers
 
 Go to each queue server, and perform the below commands to restart the server.
 
-```
+```sh
 cd /opt/portsip
-/bin/sh cluster_ctl.sh restart -s queue-server-only
+sudo /bin/sh cluster_ctl.sh restart -s queue-server-only
 ```
 
 ### Restart Meeting Servers
 
 Go to each meeting server, and perform the below commands to restart the server.
 
-```
+```sh
 cd /opt/portsip
-/bin/sh cluster_ctl.sh restart -s meeting-server-only
+sudo /bin/sh cluster_ctl.sh restart -s meeting-server-only
 ```
 
 ### Restart IVR Servers
 
 Go to each IVR server, and perform the below commands to restart the server.
 
-```
+```sh
 cd /opt/portsip
-/bin/sh cluster_ctl.sh restart -s vr-server-only
+sudo /bin/sh cluster_ctl.sh restart -s vr-server-only
 ```
 
 Now all cluster servers have been successfully up, you can check their status on the PBX Web Portal by going to the **Servers** menu,  if everything has been set up correctly, the server status will be displayed as "**Online**".
@@ -380,11 +380,10 @@ We use the media server as an example, you will need to replace the media server
 
 1. Remove the current running server by the commands:
 
-```
-cd /opt/portsip
-/bin/sh cluster_ctl.sh stop -s media-server-only
-/bin/sh cluster_ctl.sh rm -s media-server-only
-```
+<pre class="language-sh"><code class="lang-sh">cd /opt/portsip
+<strong>sudo /bin/sh cluster_ctl.sh stop -s media-server-only
+</strong>sudo /bin/sh cluster_ctl.sh rm -s media-server-only
+</code></pre>
 
 2. Install the latest version of the server. Follow the instructions provided in the [Add Cluster Servers](../pbx-cluster/configuring-cluster-servers.md#add-the-cluster-servers) guide to complete this step.
 
