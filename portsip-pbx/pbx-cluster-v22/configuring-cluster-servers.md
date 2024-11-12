@@ -303,16 +303,11 @@ After completing adding the cluster servers, now go to restart the servers to ma
 
 ### Restart the Main PBX server
 
+Perform the following command on the PBX Server (**Main Server**) to restart the service.
+
 ```sh
 cd /opt/portsip
 sudo /bin/sh pbx_ctl.sh restart
-```
-
-### Restart the IM Server
-
-```sh
-cd /opt/portsip
-sudo /bin/sh im_ctl.sh restart
 ```
 
 ### Restart the Resource Load Balancer
@@ -326,7 +321,7 @@ sudo /bin/sh pbx_ctl.sh restart -s loadbalancer
 
 ### Restart Media Servers
 
-Go to each media server, and perform the below commands to restart the server.
+Go to each media server, and perform the below commands to restart the service.
 
 ```sh
 cd /opt/portsip
@@ -335,7 +330,7 @@ sudo /bin/sh cluster_ctl.sh restart -s media-server-only
 
 ### Restart Queue Servers
 
-Go to each queue server, and perform the below commands to restart the server.
+Go to each queue server, and perform the below commands to restart the service.
 
 ```sh
 cd /opt/portsip
@@ -344,7 +339,7 @@ sudo /bin/sh cluster_ctl.sh restart -s queue-server-only
 
 ### Restart Meeting Servers
 
-Go to each meeting server, and perform the below commands to restart the server.
+Go to each meeting server, and perform the below commands to restart the service.
 
 ```sh
 cd /opt/portsip
@@ -353,7 +348,7 @@ sudo /bin/sh cluster_ctl.sh restart -s meeting-server-only
 
 ### Restart IVR Servers
 
-Go to each IVR server, and perform the below commands to restart the server.
+Go to each IVR server, and perform the below commands to restart the service.
 
 ```sh
 cd /opt/portsip
@@ -361,6 +356,15 @@ sudo /bin/sh cluster_ctl.sh restart -s vr-server-only
 ```
 
 Now all cluster servers have been successfully up, you can check their status on the PBX Web Portal by going to the **Servers** menu,  if everything has been set up correctly, the server status will be displayed as "**Online**".
+
+### Restart the IM Server
+
+Go to the IM server, and perform the below commands to restart the service (**please ensure the Main PBX service is started**).
+
+```sh
+cd /opt/portsip
+sudo /bin/sh im_ctl.sh restart
+```
 
 ## Upgrading Servers
 
