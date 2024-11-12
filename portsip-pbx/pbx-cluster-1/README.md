@@ -4,6 +4,10 @@
 This topic is only applicable to the PortSIP PBX v22.x and later versions.
 {% endhint %}
 
+{% hint style="danger" %}
+PortSIP PBX version 22.x is currently in its beta phase and is not recommended for production environments.
+{% endhint %}
+
 This topic describes how to deploy the PortSIP PBX with cluster support for up to 1M+ users, \~50,000 online users(registered users/signed-in users), and \~10,000 simultaneous calls, support more meetings, and IVR, queue calls.
 
 This article includes the following topics:

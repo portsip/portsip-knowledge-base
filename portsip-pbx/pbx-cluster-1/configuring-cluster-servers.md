@@ -165,7 +165,7 @@ Make sure you have followed the guide for [Preparing Cluster Servers](../pbx-clu
 * `-s queue-server-only`: This indicates that only the queue server should be installed.
 * `-n queue-server-1`: This specifies the name of the queue server, which must be the same as the name entered on the PBX Web portal in the previous step.
 
-```
+```sh
 cd /opt/portsip
 /bin/sh cluster_ctl.sh \
 run -p /var/lib/portsip \
@@ -316,6 +316,13 @@ cd /opt/portsip
 sudo /bin/sh pbx_ctl.sh restart
 ```
 
+### Restart the IM Server
+
+```sh
+cd /opt/portsip
+sudo /bin/sh im_ctl.sh restart
+```
+
 ### Restart the Resource Load Balancer
 
 Perform the following command on the PBX Server (**Main Server**) to restart the resource load balancer.
@@ -372,6 +379,12 @@ It’s crucial to keep your cluster servers updated in line with the latest Port
 Whenever a new version of PortSIP PBX is released, it’s essential to upgrade your installed cluster servers as well. Follow the steps below to ensure a successful upgrade.
 
 We use the media server as an example, you will need to replace the media server with other servers as your actual environment.
+
+### Upgrade the Main PBX Server
+
+### Upgrade the IM Server
+
+### Upgrade Other Servers
 
 1. Remove the current running server by the commands:
 
