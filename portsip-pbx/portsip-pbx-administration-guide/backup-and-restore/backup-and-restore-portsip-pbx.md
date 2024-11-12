@@ -52,7 +52,7 @@ After successfully backing up the data, save it safely.
 
 ### **Windows**&#x20;
 
-When [installing PortSIP PBX for Windows](../installation-of-the-portsip-pbx-beta.md#step-1-installing-a-fresh-portsip-pbx-for-windows), in step 1, there is an option that allows you to choose the **parent** folder for storing the PBX data.&#x20;
+When [installing PortSIP PBX for Windows](../installation-of-the-portsip-pbx-beta/#step-1-installing-a-fresh-portsip-pbx-for-windows), in step 1, there is an option that allows you to choose the **parent** folder for storing the PBX data.&#x20;
 
 To back up the data, copy this folder to another server or an external disk. By default, if you didn’t specify otherwise, the **parent** folder is `C:\ProgramData\PortSIP`.&#x20;
 
