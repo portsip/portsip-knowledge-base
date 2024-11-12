@@ -15,13 +15,17 @@ A server can only deploy one type of PortSIP server at a time. For instance, it'
 
 ## Setup the PortSIP PBX
 
-Before configuring the cluster servers, please ensure that you have completed the PBX installation and configuration on the **Main Server** by following the guide for [Installation of the PortSIP PBX](../portsip-pbx-administration-guide/portsip-pbx-beta-testing/installation-of-the-portsip-pbx-beta.md) to install it(**no need to install the IM Server)**.
+Before configuring the cluster servers, please ensure that you have completed the PBX installation and configuration on the **Main Server** by following the guide for [Installation of the PortSIP PBX](../portsip-pbx-administration-guide/portsip-pbx-beta-testing/installation-of-the-portsip-pbx-beta.md) to install it.
+
+{% hint style="danger" %}
+Note: In this step, just need to install the PBX only, is no need to install the IM server at this stage, as it will be installed later in this guide.
+{% endhint %}
 
 ## Configure the Firewall
 
 It is necessary to create firewall rules on the **Main Server** that allow the cluster servers to access the PBX server (**Main Server**).&#x20;
 
-To configure these firewall rules, please perform the following commands on PBX server (**Main Server**).
+To configure these firewall rules, please perform the following commands on the PBX server (**Main Server**).
 
 ```
 firewall-cmd --permanent --zone=trusted --add-source=192.168.1.21
@@ -250,64 +254,67 @@ You can repeat the above steps to set up more IVR servers. Just make sure to use
 If you set up multiple IVR servers, they must not use the same server name or IP address. Especially, you must ensure that the server name specified in the commands matches the one entered on the web portal.
 {% endhint %}
 
-### Install IM Server
+### Installing the IM Server
 
-Currently, the IM server does not support being installed as a cluster, but an IM server is installed separately with a powerful CPU and memory that can support a maximum of 50K users online.
+Currently, the IM server does not support cluster installations; it can be deployed as a standalone server. It can support up to 50,000 online users with a powerful CPU and memory(16 cores, 16GB).
 
-Please follow the below steps to install the IM server on the server which IP is 192.168.1.25.
+To install the IM server on a server with the IP address **192.168.1.25**, please follow these steps:
 
-**1. Generate Token for the IM Server**
-
-1. Log in as the **System Administrator** to the PortSIP PBX Web portal.
-2. Navigate to **Servers > IM Servers**.
-3. Select the default server and click the **Generate Token** button.
-4. Copy the generated token.
+1. **Generate a Token for the IM Server**
+   * Log in to the PortSIP PBX Web portal as the System Administrator.
+   * Go to **Servers > IM Servers**.
+   * Select the default server and click **Generate Token**.
+   * Copy the generated token for later use.
 
 <figure><img src="../../.gitbook/assets/portsip-pbx-v22-im-token.png" alt=""><figcaption></figcaption></figure>
 
-### Create and Run Instant Messaging Docker Instance
+#### 2. Create and Run Instant Messaging Docker Instance
 
-Follow these steps to create the IM service Docker instance:
+Follow these steps to create the IM service Docker instance in the server which has the IP **192.168.1.25**.
 
-1. Navigate to the **/opt/portsip** directory by running the following command:
+1. Use the following command to create the folder:&#x20;
+
+```sh
+sudo mkdir /opt/portsip
+```
+
+2. Navigate to the **/opt/portsip** directory by running the following command:
 
 ```sh
 cd /opt/portsip
 ```
 
-2. Use the command below to create the Instant Messaging service Docker instance. Replace the placeholders with your actual values:
-
-* **-p**: Specifies the path for storing the IM service data.
-* **-a**: Specifies the IP address of the server.
-* **-i**: Specifies the PBX Docker image version.
-* **-t**: Specifies the token generated in the previous step.
+3. Use the following command to create the Instant Messaging (IM) service Docker instance. Replace each parameter with your actual values:
+   * **-E**: Specifies that the IM server is installed in extended mode (required).
+   * **-p**: Specifies the path for storing IM service data (required).
+   * **-a**: Specifies the private IP address of this IM server. If this parameter is omitted, the **-A** parameter must be specified.
+   * **-A**: Specifies the public IP address of this IM server. If this parameter is omitted, the **-a** parameter must be specified.
+   * **-i**: Specifies the PBX Docker image version (required).
+   * **-x**: Indicates the main PBX server's IP address (typically the private IP of the main PBX server) (required).
+   * **-t**: Provides the token generated and copied in the previous step (required).
+   * **-f**: Specifies the path for storing files sent in chats. This path must differ from the one specified with **-p**. If omitted, chat files will be stored in the path specified by **-p**.
 
 {% code overflow="wrap" %}
 ```sh
-sudo /bin/sh im_ctl.sh run -p /var/lib/portsip/ -i portsip/pbx:22.0.33.1354-beta \
+sudo /bin/sh im_ctl.sh run -E \
+-p /var/lib/portsip/ \
+-a 192.168.1.25 \
+-i portsip/pbx:22.0.33.1354-beta \
+-x 192.168.1.20 \
 -t MJC4NZBLYTGTZTJJNS0ZMWZHLWIXZDCTZJLLMDEWZJHKZTAY
 ```
 {% endcode %}
 
-## Step 6: Reboot to Apply the Certificate
+## Restarting Servers
 
-If you uploaded a trusted SSL certificate in **Step 2: SSL Certificate** (instead of using the default self-signed certificate), you need to restart the PBX to apply the changes. Use the following commands to reboot the PBX:
+After completing adding the cluster servers, now go to restart the servers to make them up.
+
+### Restart the Main PBX server
 
 ```sh
 cd /opt/portsip
 sudo /bin/sh pbx_ctl.sh restart
-sudo /bin/sh im_ctl.sh restart
 ```
-
-Now the PortSIP PBX is successfully installed.
-
-
-
-
-
-## Restarting Servers
-
-After completing adding the cluster servers, now go to restart the servers to make them up.
 
 ### Restart the Resource Load Balancer
 
