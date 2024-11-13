@@ -32,8 +32,10 @@ For customers requiring enhanced reliability, the **HA architecture** provides h
 <figure><img src="../../.gitbook/assets/pbx_ha_cluster_diagram_v22.png" alt=""><figcaption></figcaption></figure>
 
 * **Call Manager Server**\
-  In this architecture, three Call Manager servers are deployed with high availability (HA) support. A **Virtual IP** is exposed for access by other server components, client apps, and IP phones. This setup provides seamless SIP signaling management and guarantees continuous service in case of server failure.\
-  Further details can be found in the PortSIP PBX High Availability Architecture documentation.
+  In this architecture, three Call Manager servers are deployed with high availability (HA) support. A **Virtual IP** is exposed for access by other server components, client apps, and IP phones. This setup provides seamless SIP signaling management and guarantees continuous service in case of server failure. \
+  The diagram below provides detailed information about the **Call Manager HA** component, as referenced in the above **PortSIP PBX** **HA Cluster** diagram.&#x20;
+
+Further details can be found in the [PortSIP PBX High Availability Architecture](../high-availability/high-availability-for-on-premise/portsip-pbx-high-availability.md) documentation.
 
 <figure><img src="../../.gitbook/assets/ha_callmanager.png" alt=""><figcaption></figcaption></figure>
 
