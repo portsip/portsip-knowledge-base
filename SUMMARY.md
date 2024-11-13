@@ -166,7 +166,6 @@
   * [Preparing Cluster Servers](portsip-pbx/pbx-cluster-v22/preparing-cluster-servers.md)
   * [Configuring Cluster Servers](portsip-pbx/pbx-cluster-v22/configuring-cluster-servers.md)
   * [Managing Cluster](portsip-pbx/pbx-cluster-v22/managing-cluster.md)
-  * [Configuring Cluster Servers for High Availability](portsip-pbx/pbx-cluster-v22/configuring-cluster-servers-for-portsip-pbx-ha.md)
 * [High Availability](portsip-pbx/high-availability/README.md)
   * [High Availability for On-Premise](portsip-pbx/high-availability/high-availability-for-on-premise/README.md)
     * [PortSIP PBX High Availability Architecture](portsip-pbx/high-availability/high-availability-for-on-premise/portsip-pbx-high-availability.md)
