@@ -39,6 +39,10 @@ First, ensure you have completed this setup: QuestBlue SMS Integration.
 
 Now, register the PortSIP ONE app to the PBX using extension 1001. Once registered, any SMS sent to the number _**+12172074422**_ will be received by extension 1001 directly in the PortSIP ONE app.
 
+{% hint style="info" %}
+With the above inbound rule, calls to the DID +12172074422 will also be routed to extension 1001.
+{% endhint %}
+
 ### Sending Outbound SMS
 
 Using the PortSIP ONE app, you can send outbound SMS messages through PortSIP PBX.
