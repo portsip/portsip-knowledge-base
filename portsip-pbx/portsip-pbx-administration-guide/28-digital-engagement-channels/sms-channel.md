@@ -45,7 +45,35 @@ With the above inbound rule, calls to the DID +12172074422 will also be routed t
 
 ### Sending Outbound SMS
 
-Using the PortSIP ONE app, you can send outbound SMS messages through PortSIP PBX.
+With the PortSIP ONE app, you can send outbound SMS messages through PortSIP PBX. If you have registered a Sender ID with your trunk provider and wish to enable the extension to send outbound SMS displaying this Sender ID, make sure to specify the Sender ID in the SMS settings in the PortSIP PBX web portal, as shown below. For the Sender ID, please refer to: [The Alphanumeric Sender ID.](https://www.twilio.com/docs/glossary/what-alphanumeric-sender-id) More details please consult to your SMS provider.
+
+<figure><img src="../../../.gitbook/assets/sms_sender_id.png" alt=""><figcaption></figcaption></figure>
+
+#### Granting SMS Permissions to an Extension
+
+By default, extensions are not permitted to send SMS. To enable an extension to send outbound SMS, the tenant administrator must grant permission. Follow these steps to allow SMS for an extension:
+
+1. Sign in to the PortSIP PBX web portal.
+2. Navigate to **Call Manager > Users**, double-click the desired extension, and go to the **Extension** tab.
+3. Under the **Send SMS/MMS** option, select **Allow** or **Allow Send SMS with Sender ID**.
+
+#### Configuring Outbound Caller ID for SMS
+
+In the **Outbound Caller ID** section, you can set up the outbound Caller ID for the extension:
+
+1. Click the **Add** button.
+2. Select the configured SIP trunk for SMS sending.
+3. Enter a descriptive label in the **Description** field.
+4. Enter a DID number from the trunk’s DID pool range.
+5. Save your settings.
+
+Refer to the screenshot below for further guidance.
+
+<figure><img src="../../../.gitbook/assets/extension_sms_sender_id.png" alt=""><figcaption></figcaption></figure>
+
+#### Sending an SMS Directly to a Number
+
+#### Sending an SMS to a Contact
 
 
 
