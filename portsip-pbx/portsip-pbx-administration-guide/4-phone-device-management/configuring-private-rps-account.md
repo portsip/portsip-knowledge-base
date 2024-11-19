@@ -41,3 +41,25 @@ username = xxxx
 password = xxxx
 ```
 
+3.  **Restarting the Service**
+
+    To apply the changes, you need to restart the service. Follow the instructions below based on your operating system:
+
+    #### **For Linux**
+
+    1.  Open a terminal and navigate to the PortSIP directory:
+
+        ```bash
+        cd /opt/portsip
+        ```
+    2.  Restart the provisioning service with the following command:
+
+        ```bash
+        sudo /sh/bin/pbx_ctl.sh restart -s portsip.provision
+        ```
+
+    #### **For Windows**
+
+    1. Open the **Windows Services Manager**.
+    2. Locate the service named **PortSIP Auto Provisioning**.
+    3. Restart the service by right-clicking on it and selecting **Restart**.

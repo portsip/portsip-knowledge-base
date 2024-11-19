@@ -36,6 +36,7 @@
     * [Provisioning Cisco 79xx IP Phones](portsip-pbx/portsip-pbx-administration-guide/4-phone-device-management/provisioning-cisco-79xx-ip-phones.md)
     * [Provision Yealink DECT IP Phones](portsip-pbx/portsip-pbx-administration-guide/4-phone-device-management/provision-yealink-dect-ip-phones.md)
     * [Provision SNOM DECT IP Phones](portsip-pbx/portsip-pbx-administration-guide/4-phone-device-management/provision-snom-dect-ip-phones.md)
+    * [Configuring Private RPS Account](portsip-pbx/portsip-pbx-administration-guide/4-phone-device-management/configuring-private-rps-account.md)
   * [5 User Management](portsip-pbx/portsip-pbx-administration-guide/5-user-management/README.md)
     * [Users](portsip-pbx/portsip-pbx-administration-guide/5-user-management/users.md)
     * [How to Configure the Endpoints?](portsip-pbx/portsip-pbx-administration-guide/5-user-management/how-to-configure-the-endpoints.md)
@@ -204,7 +205,6 @@
   * [Migrate from legacy FCM APIs to HTTP v1 for Android Push Notifications](portsip-pbx/faq/migrate-from-legacy-fcm-apis-to-http-v1-for-android-push-notifications.md)
   * [PortSIP SDK License Agreement](portsip-pbx/faq/portsip-sdk-license-agreement.md)
   * [PortSIP Software End-User License Agreement](portsip-pbx/faq/portsip-software-end-user-license-agreement.md)
-  * [Configuring Private RPS Account](portsip-pbx/faq/configuring-private-rps-account.md)
 
 ## DEVELOPING WITH PORTSIP <a href="#development-portsip" id="development-portsip"></a>
 
