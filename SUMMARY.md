@@ -204,6 +204,7 @@
   * [Migrate from legacy FCM APIs to HTTP v1 for Android Push Notifications](portsip-pbx/faq/migrate-from-legacy-fcm-apis-to-http-v1-for-android-push-notifications.md)
   * [PortSIP SDK License Agreement](portsip-pbx/faq/portsip-sdk-license-agreement.md)
   * [PortSIP Software End-User License Agreement](portsip-pbx/faq/portsip-software-end-user-license-agreement.md)
+  * [Configuring Private RPS Account](portsip-pbx/faq/configuring-private-rps-account.md)
 
 ## DEVELOPING WITH PORTSIP <a href="#development-portsip" id="development-portsip"></a>
 
