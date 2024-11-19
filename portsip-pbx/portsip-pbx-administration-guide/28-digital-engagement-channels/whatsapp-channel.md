@@ -6,11 +6,11 @@ With over 2 billion monthly users, WhatsApp stands as one of the most popular co
 
 To integrate WhatsApp Business with PortSIP PBX, ensure the following requirements are met:
 
-1. **WhatsApp Business Platform Account**:
+1. **WhatsApp Business Platform Account**
    * You must have a WhatsApp Business Platform account set up with an associated phone number.
    * The phone number must not be registered with any other WhatsApp account, whether on a device or virtually.
    * If you wish to use a number already linked to an existing WhatsApp account, you must first delete the account. [Read more here](https://faq.whatsapp.com/605464643328528/?locale=en\_US).
-2. **Inbound Messaging Only**:
+2. **Inbound Messaging Only**
    * WhatsApp integration with PortSIP PBX supports responding to inbound messages only.
    * A WhatsApp user must initiate the conversation by sending you a message.
    * Once a message is received, you have a 24-hour window to respond.
@@ -123,15 +123,18 @@ To enable PortSIP PBX to receive inbound WhatsApp messages, follow these steps:
 
 <figure><img src="../../../.gitbook/assets/whatsapp_portsip7.png" alt=""><figcaption></figcaption></figure>
 
-4. Now you can send a WhatsApp message to your business phone number to verify the integration.
+## Creating an Inbound Rule for WhatsApp
 
+1. Sign in to the PortSIP PBX web portal.
+2. Navigate to **Call Manager > Inbound Rules** and click the **Add** button.
+3. Complete the inbound rule setup as follows:
+   * Enter a descriptive name for the rule.
+   * Select the **WhatsApp** trunk you configured in the previous steps.
+   * In the **DID/DDI Number or Number Range** field, enter the DID number that you configured while configuring the WhatsApp trunk-in fact it's the phone number associated with your WhatsApp account.
+   * Set the destination to extension **1001**. You can also set the destination extension as a ring group number or queue number as well.
+4. Click **OK** to save your changes.
 
+<figure><img src="../../../.gitbook/assets/whatsapp_portsip8.png" alt=""><figcaption></figcaption></figure>
 
-
-
-
-
-
-
-
+Now you can send a WhatsApp message to your business phone number to verify the integration.
 
