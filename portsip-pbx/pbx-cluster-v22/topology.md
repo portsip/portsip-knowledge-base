@@ -1,10 +1,10 @@
 # Topology
 
-Usually, for a PBX, if there are many simultaneous calls, meetings, queue calls, or IVR calls, the PBX will consume massive hardware resources such as CPU, Memory, and bandwidth, therefore, we need to deploy the PBX as a cluster to handle this scenario.
+Typically, PBX systems face significant hardware demands—including CPU, memory, and bandwidth—when managing a high volume of simultaneous calls, meetings, queue calls, and IVR interactions. To handle these scenarios effectively, PBX systems often require deployment in a clustered architecture.
 
-PortSIP makes it easy to do so by allowing a central Call Manager server to process only the SIP signaling while media servers, meeting servers, queue servers, and IVR servers are deployed as a cluster to handle media, recording, ACD, and other call processing tasks.
+PortSIP streamlines this process by leveraging a centralized Call Manager server dedicated exclusively to SIP signaling, while specialized media servers, meeting servers, queue servers, Instant Messaging servers, and IVR servers operate as a cluster. This distributed architecture efficiently manages media, recording, ACD, messaging, and other call processing tasks, ensuring optimal resource utilization and effortless scalability.
 
-The below topology of the PortSIP PBX Cluster can support up to 1M+ users, \~50,000 online users(registered users/signed-in users), and \~10,000 simultaneous calls. If you are a large service provider that needs to handle more than 50,000 online users, please consider our [PortSIP UCaaS](../portsip-ucaas.md) solution.
+The PortSIP PBX Cluster topology is built to support over 1 million users, approximately 50,000 concurrent online users (registered or signed-in), and up to 10,000 simultaneous calls. For service providers requiring the capacity to serve more than 50,000 concurrent users, we recommend exploring our advanced PortSIP UCaaS solution for unmatched scalability and performance.
 
 ## Cluster Architecture Overview
 
