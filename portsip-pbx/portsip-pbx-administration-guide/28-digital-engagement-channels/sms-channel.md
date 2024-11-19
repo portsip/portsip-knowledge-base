@@ -71,9 +71,31 @@ Refer to the screenshot below for further guidance.
 
 <figure><img src="../../../.gitbook/assets/extension_sms_sender_id.png" alt=""><figcaption></figcaption></figure>
 
-#### Sending an SMS Directly to a Number
-
 #### Sending an SMS to a Contact
 
+To send an SMS to a contact using the PortSIP ONE app:
 
+1. **Open Contacts**: In the PortSIP ONE app, go to the **Contacts** menu, select a contact, and click the SMS icon to open the SMS chat UI.
+
+<figure><img src="../../../.gitbook/assets/portsip_pbx_sms1.png" alt=""><figcaption></figcaption></figure>
+
+2. **Send SMS**: Type your message as you would in a regular chat. You can also select the destination number and the sender's number to display to the recipient.
+
+<figure><img src="../../../.gitbook/assets/portsip_pbx_sms2.png" alt=""><figcaption></figcaption></figure>
+
+#### Sending an SMS Directly to a Phone Number
+
+To send an SMS directly to a contact's phone number using the PortSIP ONE app, follow these steps:
+
+1. Click the **+** button at the top of the PortSIP ONE app and select **Send a Message**.
+2. In the pop-up window:
+   * You can choose an extension (to send an IM) or an existing contact to send the SMS.
+   * To send an SMS directly to a number, simply enter the phone number in the provided field.
+3. Click the green message icon to open the SMS chat interface.
+
+<figure><img src="../../../.gitbook/assets/portsip_pbx_sms3.png" alt=""><figcaption></figcaption></figure>
+
+4. **Send SMS**:
+   * Type your message in the chat window, just as you would in a regular chat.
+   * You can also select the destination phone number and specify the sender's number that will appear to the recipient.
 
