@@ -18,5 +18,3 @@ PortSIP PBX integrates with leading [SMS providers ](../../configuring-sip-trunk
 
 PortSIP’s WhatsApp integration enables you to automate responses to frequently asked questions, provide answers to common queries, and manage even complex workflows through the customer’s WhatsApp client. For sessions requiring live assistance, you can effortlessly route customers to the appropriate agent using the Dialpad Digital Engagement interface.
 
-With WhatsApp, you have access to emojis, images, file sharing, and location sharing, enriching your interactions and enhancing customer satisfaction.
-
