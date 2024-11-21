@@ -32,7 +32,11 @@ In order to be able to register and operate the trunk in your PortSIP PBX, you w
 
 * Password: The trunk password can be found in the email you received from VoIP.ms during the registration process. You can also change the password by navigating to the menu **Main Menu > Account Settings > Security**.
 * DID numbers: The DID numbers can be seen by navigating to the menu **DID Numbers > Manage DID(s).**
-* Registrar: Go to the menu **Main Menu > Account Settings > Default DID Routing**. From here make a note of the selected server. In this example, the server is **sanjose2.voip.ms**.
+* Registrar: Go to the menu **Main Menu > Account Settings > Default DID Routing**. From here, make a note of the selected server. In this example, the server is **sanjose2.voip.ms**.
+
+{% hint style="warning" %}
+For connections from overseas please try one of the international servers instead like [sydney1.voip.ms](http://sydney1.voip.ms/) as connections to VoIP.ms USA and Canada servers often block IPs outside north America.
+{% endhint %}
 
 <figure><img src="../../../.gitbook/assets/voip.ms-fig5.png" alt=""><figcaption></figcaption></figure>
 
