@@ -9,7 +9,7 @@ Once your phone is plugged in and online, it retrieves the configuration URL fro
 ## Working Principle
 
 * The process begins when the **PBX service provider** places an order with the I**P Phone seller**. The seller then dispatches the IP Phone to the **end users** via courier services like DHL/FEDEX, and also sends the Phone MAC addresses to the **PBX service provider**.
-* The **PBX service provider** then creates multiple users and configures the IP Phones with the MAC addresses by importing a CSV file, making the process straightforward and efficient. The PBX then writes these Phones' MAC addresses and configuration file URLs into the IP Phone vendor’s RPS server.
+* The **PBX service provider** then creates multiple users and configures the IP Phones with the MAC addresses by importing a CSV file, making the process straightforward and efficient. The PBX then writes these Phones' MAC addresses and configuration file URLs into the IP Phone vendor’s RPS server automatically.
 * When the **end users** receive the IP Phone and connect it to the internet, the phone will automatically reach out to the vendor’s RPS server to retrieve the configuration file URL. It will then download the configuration file from PortSIP PBX and register itself to the PortSIP PBX automatically. This way, all users and phones are provisioned seamlessly!
 
 To use the zero-touch feature and get your IP phones up and running with minimal effort, follow the below instructions.
