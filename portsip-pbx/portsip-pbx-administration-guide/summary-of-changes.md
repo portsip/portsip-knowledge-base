@@ -4,6 +4,19 @@
 Please follow the [guide ](upgrading-portsip-pbx-to-new-versions.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
+## Changes for Release v16.4.4
+
+Date: Nov 25, 2024
+
+* Fixed an issue where the call direction was incorrect when calls were initiated via the REST API.
+* Resolved a bug where blacklisted numbers set to "permanent" were not properly affected.
+* Addressed an issue causing no voice when a call launched via the REST API failed on the first trunk route but succeeded on the second.
+* Fixed a bug where outbound caller IDs outside the trunk DID pool were still used during calls.
+* Resolved an issue where outbound caller IDs were not recorded in CDRs for calls initiated via the REST API to trunks.
+* Removed trunk information from CDRs for calls between internal extensions.
+* Fixed a queue bug where the last agent did not receive calls in queue "ring simultaneously" mode when all agents were available.
+* Resolved an issue in version 16.4.3 where the PBX used an incorrect IP address in the call SDP when making calls to trunks over the internet in a High Availability (HA) setup.
+
 ## Changes for Release v16.4.3
 
 Date: Sep 10, 2024
