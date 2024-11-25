@@ -206,10 +206,11 @@
   * [PortSIP SDK License Agreement](portsip-pbx/faq/portsip-sdk-license-agreement.md)
   * [PortSIP Software End-User License Agreement](portsip-pbx/faq/portsip-software-end-user-license-agreement.md)
 
-## PortSIP ONE Apps Guides
+## Apps Guides
 
-* [PortSIP ONE Desktop App](portsip-one-apps-guides/portsip-one-desktop-app.md)
-* [PortSIP ONE Mobile App](portsip-one-apps-guides/portsip-one-mobile-app.md)
+* [PortSIP ONE App](apps-guides/portsip-one-app/README.md)
+  * [PortSIP ONE Mobile App](apps-guides/portsip-one-app/portsip-one-mobile-app.md)
+  * [PortSIP ONE Desktop App](apps-guides/portsip-one-app/portsip-one-desktop-app.md)
 
 ## DEVELOPING WITH PORTSIP <a href="#development-portsip" id="development-portsip"></a>
 
