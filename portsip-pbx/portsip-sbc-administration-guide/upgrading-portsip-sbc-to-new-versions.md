@@ -3,7 +3,7 @@
 This guide is for upgrading your current PortSIP SBC **v10.x** installation to the latest version. Please follow the steps below to upgrade.
 
 {% hint style="warning" %}
-Please ensure that your current PortSIP SBC installation is version **10.x** versions**.**
+Please ensure that your current PortSIP SBC installation is version **10.x** version&#x73;**.**
 {% endhint %}
 
 ## Open Firewall Rule for Port 10443

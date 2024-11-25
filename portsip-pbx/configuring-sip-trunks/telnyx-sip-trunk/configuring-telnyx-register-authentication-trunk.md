@@ -18,7 +18,7 @@ To create a new SIP trunk on the Telnyx platform:
 <figure><img src="../../../.gitbook/assets/telnyx-fig10.png" alt=""><figcaption></figcaption></figure>
 
 4. Press **Create,** and the page will bring up to the edit Connection details page
-5. In the future, you can click **Check Registrations Status** to check if your PortSIP PBX is registered to the Telnyx trunk**.**
+5. In the future, you can click **Check Registrations Status** to check if your PortSIP PBX is registered to the Telnyx trun&#x6B;**.**
 
 <figure><img src="../../../.gitbook/assets/telnyx-fig11.png" alt=""><figcaption></figcaption></figure>
 

@@ -65,7 +65,7 @@ Remember, assigning users to specific handsets can help manage calls more effect
 
 ## Auto Provision Handsets by RPS
 
-If your PBX installation is in the cloud and you have turned on the **Save to RPS** to configure the DECT phone in the above steps**,** the DECT Phone will download the configuration file and provision handsets, the handsets of this DECT Phone station will register to the PortSIP PBX automatically.
+If your PBX installation is in the cloud and you have turned on the **Save to RPS** to configure the DECT phone in the above step&#x73;**,** the DECT Phone will download the configuration file and provision handsets, the handsets of this DECT Phone station will register to the PortSIP PBX automatically.
 
 ## Provision Handsets Manually
 

@@ -28,7 +28,7 @@ Apple provides us with a framework called PushKit to support using this VoIP pus
 In case you don’t have an app (and consequently an App ID), you need to create one.\
 First, login to your [Apple developer account](https://developer.apple.com/account/) and access **Certificates, Identifier & Profiles**:
 
-![](../../.gitbook/assets/ios\_push\_step1.png)
+![](../../.gitbook/assets/ios_push_step1.png)
 
 Next, go to **Identifiers** and click on the **+** button.
 
@@ -60,7 +60,7 @@ On the next page you need to select the VoIP Services Certificate:
 
 
 
-![](<../../.gitbook/assets/ios\_push\_step5 (1).png>)
+![](<../../.gitbook/assets/ios_push_step5 (1).png>)
 
 After this you need to select the App ID for which you’re creating this VoIP certificate:
 
@@ -141,9 +141,9 @@ On the project’s **Signing & Capabilities** tab, add “**Push Notifications**
 Open AppDelegate.m and add the _import PushKit and UserNotifications_ statement at the top of it.
 
 > _#import \<PushKit/PushKit.h>_\
-> _#import \<UserNotifications/UserNotifications.h>_\
-> _@interfaceAppDelegate()PKPushRegistryDelegate,UNUserNotificationCenterDelegate>_\
-> _@end_
+> &#xNAN;_#import \<UserNotifications/UserNotifications.h>_\
+> &#xNAN;_@interfaceAppDelegate()PKPushRegistryDelegate,UNUserNotificationCenterDelegate>_\
+> &#xNAN;_@end_
 
 Next, in the _didFinishLaunchingWithOptions_ part of the application function make sure you register for notifications like this:
 
@@ -472,7 +472,7 @@ Now sign in PortSIP PBX 12.0 Management Console, select menu “**Settings**” 
 
 Click “**Add New App**” button, you will see below screen:
 
-![](<../../.gitbook/assets/ios\_push\_stepq15 (1).png>)
+![](<../../.gitbook/assets/ios_push_stepq15 (1).png>)
 
 **Please set the following items:**
 

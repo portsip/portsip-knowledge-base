@@ -54,7 +54,7 @@ You can also invite an extension or the mobile phone/landline phone user to join
 
 Once a meeting is created, select the menu **Advanced Services > Meeting** to list available meetings. You can now choose a meeting and manage it.
 
-* **Edit:** click the Edit button that allows you to change the meeting settings**.**
+* **Edit:** click the Edit button that allows you to change the meeting setting&#x73;**.**
 * **Manage**: click the **Manage** button to manage the meeting and participants, see next section.
 * **Delete**: End and delete the meeting.
 

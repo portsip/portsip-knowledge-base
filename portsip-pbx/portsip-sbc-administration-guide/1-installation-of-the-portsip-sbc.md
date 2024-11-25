@@ -21,7 +21,7 @@ It only supports 64-bit OS.
 
 Tasks that MUST be completed before installing PortSIP SBC.
 
-* If the Linux on which SBC will be installed is located on a LAN, assign a**`static LAN IP address`**to the SBC server; if it's on a public network, assign a**`static private IP address`** and a **`static public IP address`** to the SBC server.
+* If the Linux on which SBC will be installed is located on a LAN, assign &#x61;**`static LAN IP address`**&#x74;o the SBC server; if it's on a public network, assign &#x61;**`static private IP address`** and a **`static public IP address`** to the SBC server.
 * Install all available updates and service packs before installing PortSIP SBC.
 * Ensure that all power-saving options for your system and network adapters are disabled (by setting the system to High Performance).
 * Do not install TeamViewer, VPN, or other similar software on the host machine.
@@ -129,7 +129,7 @@ It only supports 64-bit OS.
 
 Tasks that MUST be completed before installing PortSIP SBC.
 
-* If the Windows PC / server on which SBC will be installed is located in LAN,assign a**`static LAN IP address`**to the SBC server; if it's on a public network, assign a**`static private IP address`** and a **`static public IP address`** to the SBC server.
+* If the Windows PC / server on which SBC will be installed is located in LAN,assign &#x61;**`static LAN IP address`**&#x74;o the SBC server; if it's on a public network, assign &#x61;**`static private IP address`** and a **`static public IP address`** to the SBC server.
 * Install all available Windows updates & service packs before installing PortSIP SBC. The reboot after installing Windows updates may reveal additional updates. Pay particular attention to installing all updates for Microsoft .Net before running the PortSIP PBX installation.
 * Anti-virus Software should not scan the following directories to avoid complications and write access delays: `C:\Program Files\PortSIP`; `C:\Programdata\PortSIP`
 * Do not install VPN, TeamViewer software on your PortSIP SBC Server

@@ -29,22 +29,22 @@ Apple provides a framework called PushKit to support the VoIP push feature. Howe
 
 If you don’t have an app (and consequently an App ID), you need to create one. First, log in to your  [Apple developer account](https://developer.apple.com/account/) and access **Certificates, Identifiers & Profiles**:
 
-![](../../../.gitbook/assets/ios\_push\_step1.png)
+![](../../.gitbook/assets/ios_push_step1.png)
 
 Next, go to **Identifiers** and click on the **+** button.
 
-![](../../../.gitbook/assets/17-1400x674.png)
+![](../../.gitbook/assets/17-1400x674.png)
 
 Two important fields to fill out here are:
 
 * **App ID Description**: A brief description of your app.
 * **Bundle ID**: This will most likely be something like `com.yourdomain.yourappname`.
 
-![](<../../../.gitbook/assets/32-1400x470 (1).png>)
+![](<../../.gitbook/assets/32-1400x470 (1).png>)
 
 Select **Push Notifications:**
 
-![](../../../.gitbook/assets/35-1400x97.png)
+![](../../.gitbook/assets/35-1400x97.png)
 
 Although not shown in the screenshots above, I used `com.portsip.portsipvoipdemo` as the Bundle ID. This will be important in the next step.
 
@@ -52,23 +52,23 @@ Although not shown in the screenshots above, I used `com.portsip.portsipvoipdemo
 
 Click on the **All** button in the Certificates section on the left-hand side, then click the **+** button:
 
-![](<../../../.gitbook/assets/34-1400x704 (1).png>)
+![](<../../.gitbook/assets/34-1400x704 (1).png>)
 
 On the next page, you need to select the **VoIP Services Certificate**:
 
-![](<../../../.gitbook/assets/ios\_push\_step5 (1).png>)
+![](<../../.gitbook/assets/ios_push_step5 (1).png>)
 
 After this, you need to select the **App ID** for which you’re creating this VoIP certificate:
 
-![](<../../../.gitbook/assets/18-1400x373 (1).png>)
+![](<../../.gitbook/assets/18-1400x373 (1).png>)
 
 Next, you’ll be presented with instructions to choose a **CSR (Certificate Signing Request) file**:
 
-![](../../../.gitbook/assets/19-1400x378.png)
+![](../../.gitbook/assets/19-1400x378.png)
 
 Once the file is created, you’ll select it for upload on the next screen. If everything goes well, you’ll be given the certificate, which you need to download:
 
-![](../../../.gitbook/assets/20-1400x388.png)
+![](../../.gitbook/assets/20-1400x388.png)
 
 After downloading the certificate, open it. This should launch the Keychain Access application. You should now see the certificate under the **My Certificates** section.
 
@@ -76,27 +76,27 @@ After downloading the certificate, open it. This should launch the Keychain Acce
 
 Click on the **All** button in the Certificates section of the left navigation tree, then click the **+** button:
 
-![](../../../.gitbook/assets/34-1400x704.png)
+![](../../.gitbook/assets/34-1400x704.png)
 
 On the next page, you need to select the **Apple Push Notification service SSL (Sandbox & Production)**:
 
-![](../../../.gitbook/assets/21.png)
+![](../../.gitbook/assets/21.png)
 
 After this, you need to select the **App ID** for which you’re creating this Apple Push Notification certificate:
 
-![](../../../.gitbook/assets/18-1400x373.png)
+![](../../.gitbook/assets/18-1400x373.png)
 
 Next, you’ll be presented with instructions to choose CSR (Certificate Signing Request) file:
 
-![](../../../.gitbook/assets/19-1400x378.png)
+![](../../.gitbook/assets/19-1400x378.png)
 
 Once the file is created, you’ll select it for upload on the next screen. If everything goes well, you’ll be given the certificate, which you need to download.
 
-![](../../../.gitbook/assets/24-1400x397.png)
+![](../../.gitbook/assets/24-1400x397.png)
 
 After you download the certificate, open it. This should launch the Keychain Access application. You should now see the certificate under the **My Certificates** section.
 
-![](../../../.gitbook/assets/26-1400x639.png)
+![](../../.gitbook/assets/26-1400x639.png)
 
 ## **6. Adding PUSH Support to the Project**
 
@@ -104,22 +104,22 @@ The push notification feature has been implemented in our latest SIPSample, whic
 
 Take special care when setting the **Product Name** as the **Bundle Identifier** is set automatically from it. Ensure that this matches the Bundle Identifier set in the previous steps.
 
-![](../../../.gitbook/assets/27.png)
+![](../../.gitbook/assets/27.png)
 
 ## **7. Setting the Appropriate Capabilities**
 
 On the project’s **Signing & Capabilities** tab, add **Push Notifications** and **Background Modes**. Ensure that the **Audio, AirPlay, and Picture in Picture**, **Voice over IP**, and **Remote notifications** options are enabled.
 
-![](../../../.gitbook/assets/30.png)
+![](../../.gitbook/assets/30.png)
 
 ## **8. Adding the Code**
 
 Open `AppDelegate.m` and add the `import PushKit` and `import UserNotifications` statements at the top of the file.
 
 > _#import \<PushKit/PushKit.h>_\
-> _#import \<UserNotifications/UserNotifications.h>_\
-> _@interfaceAppDelegate()PKPushRegistryDelegate,UNUserNotificationCenterDelegate>_\
-> _@end_
+> &#xNAN;_#import \<UserNotifications/UserNotifications.h>_\
+> &#xNAN;_@interfaceAppDelegate()PKPushRegistryDelegate,UNUserNotificationCenterDelegate>_\
+> &#xNAN;_@end_
 
 Next, in the `didFinishLaunchingWithOptions` part of the application function, make sure you register for notifications like this:
 
@@ -334,7 +334,7 @@ The VoIP certificate file that we’ve downloaded and added to the KeyChain need
 
 First, open the KeyChain app on your Mac and export the VoIP Services certificate (right-click and select **Export**):
 
-![](../../../.gitbook/assets/31-1400x627.png)
+![](../../.gitbook/assets/31-1400x627.png)
 
 You will get a `YOUR_CERT.p12` (e.g., `voip_push.p12`) file. Now, export the Apple Push Services certificate file.
 
@@ -446,7 +446,7 @@ If you prefer a UI, you can download **Knuff**, the debug application for Apple 
 
 Now, sign in to the PortSIP PBX Web portal. Navigate to **Advanced > Mobile Push** and click the **Add** button. You will see the following screen:
 
-<figure><img src="../../../.gitbook/assets/portsip-pbx-add-app-push.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/portsip-pbx-add-app-push.png" alt=""><figcaption></figcaption></figure>
 
 Please set the following items:
 

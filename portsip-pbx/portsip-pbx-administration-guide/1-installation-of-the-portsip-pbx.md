@@ -26,7 +26,7 @@ The PortSIP PBX requires at least 2 cores, 4G memory, and 30GB HDD.
 Tasks that MUST be completed before installing PortSIP PBX
 
 * **Ensure the server date-time is synced correctly**.
-* If the Linux on which PBX will be installed is located on a LAN, assign a**`static private IP address`**to the PBX server; if it's on a public network, assign a**`static public IP address`** and a **`static private IP`** to the PBX server.&#x20;
+* If the Linux on which PBX will be installed is located on a LAN, assign &#x61;**`static private IP address`**&#x74;o the PBX server; if it's on a public network, assign &#x61;**`static public IP address`** and a **`static private IP`** to the PBX server.&#x20;
 * Install all available updates and service packs before installing PortSIP PBX.
 * Do not install PostgreSQL on your PortSIP PBX Server.
 * Ensure that all power-saving options for your system and network adapters are disabled (by setting the system to High-Performance mode).
@@ -148,7 +148,7 @@ It only supports 64-bit OS.
 Tasks that MUST be completed before installing PortSIP PBX
 
 * **Ensure server date-time is synced correctly.**
-* If the Windows PC / server on which PBX will be installed is located in LAN, assign a **`static LAN private IP address`**for the server; if it's in a public network, assign a **`static public IP address`**  and a **`static private IP address`** for the server.
+* If the Windows PC / server on which PBX will be installed is located in LAN, assign a **`static LAN private IP address`**&#x66;or the server; if it's in a public network, assign a **`static public IP address`**  and a **`static private IP address`** for the server.
 * Install all available Windows updates & service packs before installing PortSIP PBX. The reboot after installing Windows updates may reveal additional updates. Pay particular attention to installing all updates for Microsoft .Net before running the PortSIP PBX installation.
 * Anti-virus Software should not scan the following directories to avoid complications and write access delays: `C:\Program Files\PortSIP`; `C:\Programdata\PortSIP`
 * Do not install VPN and TeamViewer software on your PortSIP PBX Server

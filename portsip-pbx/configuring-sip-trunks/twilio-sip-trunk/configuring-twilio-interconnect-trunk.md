@@ -121,7 +121,7 @@ Please follow the below steps:
 
 <figure><img src="../../../.gitbook/assets/twilio-fig18.png" alt=""><figcaption></figcaption></figure>
 
-5. Click the **Next** button, and enter the ID and Password that we had defined in the Twilio Credential List for the **SIP trunk authentication name** and **password** fields**.**
+5. Click the **Next** button, and enter the ID and Password that we had defined in the Twilio Credential List for the **SIP trunk authentication name** and **password** field&#x73;**.**
 
 <figure><img src="../../../.gitbook/assets/twilio-fig12.png" alt=""><figcaption></figcaption></figure>
 

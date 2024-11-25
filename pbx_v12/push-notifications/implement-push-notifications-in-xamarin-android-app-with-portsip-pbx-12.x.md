@@ -22,7 +22,7 @@ You will need to set the project name and country. For example, I will call my p
 
 
 
-![](<../../.gitbook/assets/android\_push\_step1 (1).png>)
+![](<../../.gitbook/assets/android_push_step1 (1).png>)
 
 Select "**Add Firebase to your Android app**".\
 Set a package name for your app. I only set my package name and omit the SHA-1 because I don't use Firebase for my app's authentication.
@@ -72,8 +72,8 @@ When you install **Xamarin.Firebase.Messaging**, all of the necessary dependenci
 Next, edit **MainActivity.cs** and add the following using statements:
 
 > _using Firebase.Messaging;_\
-> _using Firebase.Iid;_\
-> _using Android.Util;_
+> &#xNAN;_&#x75;sing Firebase.Iid;_\
+> &#xNAN;_&#x75;sing Android.Util;_
 
 The first two statements make types in the **Xamarin.Firebase.Messaging** NuGet package available to **PortSip.Android.Test** code. **Android.Util** adds logging functionality that will be used to observe transactions with FMS.
 

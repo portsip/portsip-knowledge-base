@@ -53,7 +53,7 @@ In the "**Add SIP Headers**" section, you can enter the SIP header name and valu
 Based on the above settings, if someone makes a call to the PBX, the PBX will add the following SIP headers to the SIP message when sending an INVITE to the called party:
 
 * Add the SIP header "**X-Server-Name**" with the value "**PBX01**" for all calls.
-* Add the SIP header "X**-Data-Center**" with the value "**US**" if the call is to a SIP trunk.
+* Add the SIP header "&#x58;**-Data-Center**" with the value "**US**" if the call is to a SIP trunk.
 
 ## 3 Mainipulate Known SIP Headers
 

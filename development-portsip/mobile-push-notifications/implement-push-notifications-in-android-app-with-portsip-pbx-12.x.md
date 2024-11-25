@@ -19,12 +19,12 @@ Since PortSIP PBX uses Google Firebase to send push notifications, we need to co
 1. Add a new project to the Firebase console.
 2. Set the project name and country. For example, you can name your project `SIPSamplePush`.
 
-![](<../../../.gitbook/assets/android\_push\_step1 (2).png>)
+![](<../../.gitbook/assets/android_push_step1 (2).png>)
 
 3. Select **Add Firebase to your Android app**.
 4. Set a package name for your app. You can omit the SHA-1 if you don’t use Firebase for your app’s authentication.
 
-![](../../../.gitbook/assets/android\_push\_step2.png)
+![](../../.gitbook/assets/android_push_step2.png)
 
 5. Click the **REGISTER APP** button to download `google-services.json`. This is an important file, and you will need to place it into your app.
 
@@ -38,7 +38,7 @@ Please note that the Android package name is also referred to as the **App ID**.
 2. **Replace the `google-services.json` File**: Navigate to the `SIPSample` folder and replace the existing `google-services.json` file with the one you just downloaded.
 3. **Load the Google Services Plugin**: The Google services plugin for Gradle will automatically load the new `google-services.json` file.
 
-![](../../../.gitbook/assets/android\_push\_step3.png)
+![](../../.gitbook/assets/android_push_step3.png)
 
 ## 5. Configuring Gradle Files
 
@@ -54,7 +54,7 @@ classpath 'com.google.gms:google-services:3.1.0' // Add this line
 }
 ```
 
-![](../../../.gitbook/assets/android\_push\_step4.png)
+![](../../.gitbook/assets/android_push_step4.png)
 
 * **Update the App-Level `build.gradle`**: Open the `build.gradle` file located in your `project/SIPSample` folder and add the below line at the end of the file.
 
@@ -76,7 +76,7 @@ compile 'com.google.firebase:firebase-messaging:20.0.0'
 * **Update Google Play Services**: If your project uses any functions from `com.google.android.gms:play-services` (e.g., GPS location), you need to update their versions as well. As of writing this tutorial, version `20.0.0` works well. If you encounter compilation problems, check for the correct version number.
 
 > _compile 'com.google.android.gms:play-services-auth:20.0.0'_\
-> _compile 'com.google.android.gms:play-services-identity:20.0.0'_
+> &#xNAN;_&#x63;ompile 'com.google.android.gms:play-services-identity:20.0.0'_
 
 * &#x20;**Add `applicationId` to `defaultConfig` Section**: In the `defaultConfig` section of your `build.gradle` file, add the `applicationId`:
 
@@ -87,7 +87,7 @@ applicationId "com.portsip.sipsamplepush" // this is the id that your app has
 } }
 ```
 
-![](../../../.gitbook/assets/android\_push\_step5.png)
+![](../../.gitbook/assets/android_push_step5.png)
 
 ## 6. Adding Services to Your App
 
@@ -145,7 +145,7 @@ To verify that your setup works, follow these steps to send a test message to yo
 3. **Select Your App**: Choose the app you want to send the message to.
 4. **Send the Message**: Click **SEND MESSAGE** to dispatch the notification.
 
-![](../../../.gitbook/assets/android\_push\_step6.png)
+![](../../.gitbook/assets/android_push_step6.png)
 
 Now, you should receive a push notification on your Android mobile. If your app is running in the background, you will see it in the mobile’s notification center. Otherwise, you can see it in your Android Monitor log (ensure you have code to log incoming messages) like this:
 
@@ -234,11 +234,11 @@ mSipSdk.refreshRegistration(0);
 
 1. **Access Project Settings**: In the Firebase console, click the **Settings** button and choose the **Project Settings** menu.
 
-![](../../../.gitbook/assets/android\_push\_step7.png)
+![](../../.gitbook/assets/android_push_step7.png)
 
 2. **Navigate to Cloud Messaging**: In the **Settings** tab, click the **Cloud Messaging** tab. You will see the **Server key** and **Sender I**D. Please note them down.
 
-![](../../../.gitbook/assets/android\_push\_step8.png)
+![](../../.gitbook/assets/android_push_step8.png)
 
 ## 11. Configuring PortSIP PBX
 
@@ -246,7 +246,7 @@ mSipSdk.refreshRegistration(0);
 2. **Navigate to Mobile PUSH Settings**: Select the menu **Settings > Mobile push notifications**.
 3. **Add a New App**: Click the **Add New App** button. You will see the following screen:
 
-<figure><img src="../../../.gitbook/assets/portsip-pbx-add-app-push.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/portsip-pbx-add-app-push.png" alt=""><figcaption></figcaption></figure>
 
 Please set the following items:
 

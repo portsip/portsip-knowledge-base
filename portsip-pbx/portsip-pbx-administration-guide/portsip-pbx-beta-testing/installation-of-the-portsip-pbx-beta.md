@@ -29,7 +29,7 @@ Tasks that MUST be completed before installing PortSIP PBX
 
 * **Ensure the server date-time is synced correctly**.
 * Use the `sudo` to perform the installation is recommended.
-* If the Linux on which PBX will be installed is located on a LAN, assign a**`static private IP address`**to the PBX server; if it's on a public network, assign a**`static public IP address`** and a **`static private IP`** to the PBX server.&#x20;
+* If the Linux on which PBX will be installed is located on a LAN, assign &#x61;**`static private IP address`**&#x74;o the PBX server; if it's on a public network, assign &#x61;**`static public IP address`** and a **`static private IP`** to the PBX server.&#x20;
 * Install all available updates and service packs before installing PortSIP PBX.
 * Do not install **PostgreSQL** on your PortSIP PBX Server.
 * Ensure that all power-saving options for your system and network adapters are disabled (by setting the system to High-Performance mode).

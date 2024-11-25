@@ -116,7 +116,7 @@ Execute the following command to install the Docker-Compose environment. If you 
 
 ### **3. Restoring a PortSIP SBC**
 
-First, copy the backup data to the PortSIP SBC server. You can use the default folder, such as `/var/lib/portsip` as the **parent** folder**,** then the SBC data folder is  `/var/lib/portsip/sbc`  **,** or another folder of your choice.
+First, copy the backup data to the PortSIP SBC server. You can use the default folder, such as `/var/lib/portsip` as the **parent** folde&#x72;**,** then the SBC data folder is  `/var/lib/portsip/sbc`  **,** or another folder of your choice.
 
 For example:
 

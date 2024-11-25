@@ -20,12 +20,12 @@ Since PortSIP PBX uses the Google Firebase to send PUSH notifications, we need t
 Add a new project to [Firebase console](https://firebase.google.com/).\
 You will need to set the project name and country. For example, I will call my project **SIPSamplePush**.
 
-![](<../../.gitbook/assets/android\_push\_step1 (2).png>)
+![](<../../.gitbook/assets/android_push_step1 (2).png>)
 
 Select "**Add Firebase to your Android app**".\
 Set a package name for your app. I only set my package name and omit the SHA-1 because I don't use Firebase for my app's authentication.
 
-![](../../.gitbook/assets/android\_push\_step2.png)
+![](../../.gitbook/assets/android_push_step2.png)
 
 Click the **REGISTER APP** button here to download **google-services.json**. This is an important file and you will need to put it into your app.
 
@@ -36,7 +36,7 @@ Click the **REGISTER APP** button here to download **google-services.json**. Thi
 Now please download the [PortSIP VoIP SDK Sample project](https://www.portsip.com/downloads/sdk/AndroidSample.zip) and open it (PUSH SIPSample project) with Android Studio.\
 Replace _google-services.json_ in **SIPSample** folder. The Google services plugin for Gradle will load the _google-services.json_ file you just downloaded.
 
-![](../../.gitbook/assets/android\_push\_step3.png)
+![](../../.gitbook/assets/android_push_step3.png)
 
 ### **5. Configure Gradle files**
 
@@ -53,7 +53,7 @@ classpath 'com.google.gms:google-services:3.1.0' // Add this line
 }
 ```
 
-![](../../.gitbook/assets/android\_push\_step4.png)
+![](../../.gitbook/assets/android_push_step4.png)
 
 (2) Update the app-level build.gradle (the one in your project/SIPSample)
 
@@ -84,7 +84,7 @@ compile 'com.google.firebase:firebase-messaging:20.0.0'
 If you add Firebase into an existing project that uses any function of gms:play-services, such as GPS location, you have to update their versions as well. Upon writing this tutorial, 20.0.0 works well. If you get compilation problems, you need to check to find out the correct version number.
 
 > _compile 'com.google.android.gms:play-services-auth:20.0.0'_\
-> _compile 'com.google.android.gms:play-services-identity:20.0.0'_
+> &#xNAN;_&#x63;ompile 'com.google.android.gms:play-services-identity:20.0.0'_
 
 #### **d. Add applicationId to defaultConfig section:**
 
@@ -95,7 +95,7 @@ applicationId "com.portsip.sipsamplepush" // this is the id that your app has
 } }
 ```
 
-![](../../.gitbook/assets/android\_push\_step5.png)
+![](../../.gitbook/assets/android_push_step5.png)
 
 ### **6. Add services to app**
 
@@ -152,11 +152,11 @@ To see if the setup works, run a test by sending a test message to your own mobi
 
 In the Firebase console, write down your message and choose an app. Click "**SEND MESSAGE**".
 
-![](../../.gitbook/assets/android\_push\_step6.png)
+![](../../.gitbook/assets/android_push_step6.png)
 
 
 
-Now you should get a PUSH notification on your Android mobile. If your app is running in the background, you will get it on the mobile's notification center; otherwise**，** you can see it in your Android Monitor log (we have to put a code to log incoming messages) like this.
+Now you should get a PUSH notification on your Android mobile. If your app is running in the background, you will get it on the mobile's notification center; otherwis&#x65;**，** you can see it in your Android Monitor log (we have to put a code to log incoming messages) like this.
 
 If the setup is successful, you should get a notification on your mobile. Sometimes, it may take a couple of minutes for the message to be sent and received, so just be patient and wait for a little while.
 
@@ -241,11 +241,11 @@ mSipSdk.refreshRegistration(0);
 
 
 
-![](../../.gitbook/assets/android\_push\_step7.png)
+![](../../.gitbook/assets/android_push_step7.png)
 
 (2). In the “**Settings**” tab, click “**Cloud Messaging**” tab. You will see the “**Server key**” and “**Sender ID**”, please note it down.
 
-![](../../.gitbook/assets/android\_push\_step8.png)
+![](../../.gitbook/assets/android_push_step8.png)
 
 
 
@@ -257,7 +257,7 @@ Click “**Add New App**” button, you will see below screen:
 
 
 
-![](<../../.gitbook/assets/ios\_push\_stepq15 (3).png>)
+![](<../../.gitbook/assets/ios_push_stepq15 (3).png>)
 
 **Please set the following items:**
 
