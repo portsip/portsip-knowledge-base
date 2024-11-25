@@ -431,5 +431,12 @@ Please contact PortSIP support to obtain the **\<PortSIP PBX new version image>*
 
 Perform the below command only on the **pbx01.**
 
-<pre><code><strong>cd /opt/portsip-pbx-ha-guide/ &#x26;&#x26; /bin/bash update.sh &#x3C;PortSIP PBX new version image>
+<pre class="language-sh"><code class="lang-sh"><strong>cd /opt/portsip-pbx-ha-guide/ &#x26;&#x26; /bin/bash update.sh &#x3C;PortSIP PBX new version image>
 </strong></code></pre>
+
+For example:
+
+```sh
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash update.sh portsip/pbx:16.4.4.2814-release
+```
+
