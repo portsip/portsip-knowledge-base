@@ -206,6 +206,11 @@
   * [PortSIP SDK License Agreement](portsip-pbx/faq/portsip-sdk-license-agreement.md)
   * [PortSIP Software End-User License Agreement](portsip-pbx/faq/portsip-software-end-user-license-agreement.md)
 
+## PortSIP ONE Apps Guides
+
+* [PortSIP ONE Desktop App](portsip-one-apps-guides/portsip-one-desktop-app.md)
+* [PortSIP ONE Mobile App](portsip-one-apps-guides/portsip-one-mobile-app.md)
+
 ## DEVELOPING WITH PORTSIP <a href="#development-portsip" id="development-portsip"></a>
 
 * [Getting Started](development-portsip/getting-started.md)
@@ -549,11 +554,6 @@
   * [How Do Push Notifications Work with PortSIP PBX?](development-portsip/mobile-push-notifications/how-do-push-notifications-work-with-portsip-pbx.md)
   * [Integrating the Push Notifications in Native iOS APP](development-portsip/mobile-push-notifications/implement-the-push-notifications-in-native-ios-app-with-portsip-pbx-12.x.md)
   * [Integrating the Push Notifications in Android APP](development-portsip/mobile-push-notifications/implement-push-notifications-in-android-app-with-portsip-pbx-12.x.md)
-
-## PortSIP ONE Apps Guides
-
-* [PortSIP ONE Desktop App](portsip-one-apps-guides/portsip-one-desktop-app.md)
-* [PortSIP ONE Mobile App](portsip-one-apps-guides/portsip-one-mobile-app.md)
 
 ## PBX v12.x (EOL) <a href="#pbx_v12" id="pbx_v12"></a>
 
