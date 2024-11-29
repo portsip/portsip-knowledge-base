@@ -9,13 +9,6 @@ You have two options for deploying the PortSIP IM Server:
 1. **Same server as PortSIP PBX**: If you have a smaller number of users, you can install the IM Service on the same server as your PortSIP PBX. This setup is simpler but may not provide optimal performance for larger user bases.
 2. **Separate server**: For better performance, especially when dealing with a large number of users who require chat and file-sharing capabilities, it is recommended to install the IM Server on a separate, more powerful server.
 
-## **Supported Linux OS** <a href="#supported-linux-os" id="supported-linux-os"></a>
-
-It only supports 64-bit OS.
-
-* Ubuntu 22.04, 24.04
-* Debian 11.x, 12.x
-
 ## Install IM Service on the Same Server as PortSIP PBX
 
 Follow these steps to install the IM server on the same server as PortSIP PBX.
@@ -57,7 +50,7 @@ If everything is set up correctly, the PBX web portal will display the IM server
 
 <figure><img src="../../../.gitbook/assets/im_address.png" alt=""><figcaption></figcaption></figure>
 
-The Instant Messaging (IM) server has been successfully installed. We can now proceed with the next steps in the PortSIP PBX installation process.
+The Instant Messaging (IM) server has been successfully installed. We can now proceed with the next steps in the [PortSIP PBX installation step 6](../1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.md#step-6-reboot-to-apply-the-certificate).
 
 ## Install IM Service on a Separate Server
 
@@ -67,6 +60,13 @@ For optimal performance, it’s recommended to install the IM service on a separ
 * **Memory**: 16 GB
 * **Disk**: High I/O performance required (SSD recommended, at least 256 GB)
 * **Network Bandwidth**: 1000 Mbps or higher, particularly if handling high volumes of messages and file sharing.
+
+### **Supported Linux OS** <a href="#supported-linux-os" id="supported-linux-os"></a>
+
+It only supports 64-bit OS.
+
+* Ubuntu 22.04, 24.04
+* Debian 11.x, 12.x
 
 ### Step 1: **Preparing the Linux server for Installation**
 
