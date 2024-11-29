@@ -258,7 +258,7 @@ You can repeat the above steps to set up more IVR servers. Just make sure to use
 If you set up multiple IVR servers, they must not use the same server name or IP address. Especially, you must ensure that the server name specified in the commands matches the one entered on the web portal.
 {% endhint %}
 
-### Installing the IM Server
+### Installing IM Server
 
 Currently, the IM server does not support cluster installations; it can be deployed as a standalone server. It can support up to 50,000 online users with a powerful CPU and memory(16 cores, 16GB).
 

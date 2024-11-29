@@ -206,7 +206,7 @@ For the Microsoft 365 SMTP server, there are already preconfigured parameters; y
 
 Starting with version 22.0, PortSIP PBX introduces an Instant Messaging (IM) service, offering modern features such as group chat. The IM service requires a separate installation step, as in some cases, you may want to deploy it on a separate server for optimal performance.
 
-If you want to install the IM server with the PBX server on the same server, please follow the article [Installation of the PortSIP IM Server](installation-of-the-portsip-im-server.md) to install the PortSIP IM Server for the PBX.
+If you want to install the IM server with the PBX server on the same server, please follow the article [Installation of the PortSIP IM Server](../portsip-pbx-beta-testing/installation-of-the-portsip-im-server.md) to install the PortSIP IM Server for the PBX.
 
 If you want to install the IM server on a separate server, please follow this guide: [Configuring Cluster Servers](../../pbx-cluster-v22/configuring-cluster-servers.md#installing-the-im-server).&#x20;
 

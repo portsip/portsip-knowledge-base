@@ -18,7 +18,7 @@
     * [Installation of the PortSIP PBX](portsip-pbx/portsip-pbx-administration-guide/portsip-pbx-beta-testing/installation-of-the-portsip-pbx-beta.md)
   * [1 Installation of the PortSIP PBX](portsip-pbx/portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx.md)
     * [Installation of PortSIP PBX v22.x](portsip-pbx/portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.md)
-    * [Installation of the PortSIP IM Server](portsip-pbx/portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-the-portsip-im-server.md)
+    * [Installation of the PortSIP IM Server](portsip-pbx/portsip-pbx-administration-guide/portsip-pbx-beta-testing/installation-of-the-portsip-im-server.md)
     * [Installation of PortSIP PBX v16.x](portsip-pbx/portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v16.md)
     * [Upgrade to the Latest v22.x Release](portsip-pbx/portsip-pbx-administration-guide/upgrading-portsip-pbx-to-new-versions/upgrading-portsip-pbx-to-v22.x.md)
     * [Upgrade to the Latest v16.x Release](portsip-pbx/portsip-pbx-administration-guide/upgrading-portsip-pbx-to-new-versions.md)
