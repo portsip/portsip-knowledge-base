@@ -178,7 +178,7 @@ You are free to change these default ports to any preferred value, but ensure th
 After adding a new transport protocol, be sure to update your firewall rules to allow traffic on the newly assigned transport port. The IP Phone client app will use this transport and port to connect to the PBX.
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/setup_wizard_3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/setup_wizard_3.png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### 4. System Notifications
 
@@ -210,7 +210,7 @@ Please follow the article [Installation of the PortSIP IM Server](../portsip-pbx
 
 ### Step 6: Reboot to Apply the Certificate
 
-If you uploaded a trusted SSL certificate in **Step 2: SSL Certificate** (instead of using the default self-signed certificate), you need to restart the PBX to apply the changes. Use the following commands to reboot the PBX:
+Once completed step 5, if you uploaded a trusted SSL certificate in **Step 2: SSL Certificate** (instead of using the default self-signed certificate), you need to restart the PBX to apply the changes. Use the following commands to reboot the PBX:
 
 ```sh
 cd /opt/portsip
@@ -218,7 +218,7 @@ sudo /bin/sh pbx_ctl.sh restart
 sudo /bin/sh im_ctl.sh restart
 ```
 
-Now the PortSIP PBX is successfully installed.
+Now the PortSIP PBX is successfully installed, you can use [https://uc.portsip.cc:8887](https://uc.portsip.cc:8887) to access the PortSIP PBX web portal.
 
 ## Installing PortSIP PBX on Windows
 
@@ -365,4 +365,5 @@ Go to Windows service manager, right-click the **PortSIP Instant Message Server*
 
 If you uploaded a trusted SSL certificate in **Step 2: SSL Certificate** (instead of using the default self-signed certificate), you need to restart the PBX to apply the change - just restart the Windows directly.
 
-Now the PortSIP PBX is successfully installed.
+Now the PortSIP PBX is successfully installed, you can use [https://uc.portsip.cc:8887](https://uc.portsip.cc:8887) to access the PortSIP PBX web portal.
+

@@ -2,7 +2,7 @@
 
 The installation of the IM Server is a separate step, required only when PortSIP PBX is installed on a Linux server.
 
-Before proceeding with this guide, ensure that you have already completed the [Installation of the PortSIP PBX v22.x](../1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.md).
+Before proceeding with this guide, ensure that you have already completed **steps 1–4** of the [Installation of the PortSIP PBX v22.x](../1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.md).
 
 You have two options for deploying the PortSIP IM Server:
 
@@ -41,7 +41,7 @@ cd /opt/portsip
 
 {% code overflow="wrap" %}
 ```sh
-sudo /bin/sh im_ctl.sh run -p /var/lib/portsip/ -i portsip/pbx:22.0.33.1354-beta \
+sudo /bin/sh im_ctl.sh run -p /var/lib/portsip/ -i portsip/pbx:22 \
 -t OWMWYWJKZJYTMWM2NI0ZNZJMLWJJZDKTMGVMZDYXNZU1NWI1
 ```
 {% endcode %}
