@@ -217,9 +217,19 @@ For the Microsoft 365 SMTP server, there are already preconfigured parameters; y
 
 Starting with version 22.0, PortSIP PBX introduces an Instant Messaging (IM) service, offering modern features such as group chat. The IM service requires a separate installation step, as in some cases, you may want to deploy it on a separate server for optimal performance.
 
-If you want to install the IM server with the PBX server on the same server, please follow the article [Installation of the PortSIP IM Server](../portsip-pbx-beta-testing/installation-of-the-portsip-im-server.md) to install the PortSIP IM Server for the PBX.
+Please follow the article [Installation of the PortSIP IM Server](../portsip-pbx-beta-testing/installation-of-the-portsip-im-server.md) to install the PortSIP IM Server for the PBX.
 
-If you want to install the IM server on a separate server, please follow this guide: [Configuring Cluster Servers](../../pbx-cluster-v22/configuring-cluster-servers.md#installing-im-server).&#x20;
+### Step 6: Reboot to Apply the Certificate
+
+If you uploaded a trusted SSL certificate in **Step 2: SSL Certificate** (instead of using the default self-signed certificate), you need to restart the PBX to apply the changes. Use the following commands to reboot the PBX:
+
+```sh
+cd /opt/portsip
+sudo /bin/sh pbx_ctl.sh restart
+sudo /bin/sh im_ctl.sh restart
+```
+
+Now the PortSIP PBX is successfully installed.
 
 ## Installing PortSIP PBX on Windows
 
@@ -360,7 +370,14 @@ Follow these steps to configure the IM server:
 
 <figure><img src="../../../.gitbook/assets/portsip-pbx-v22-im-token.png" alt=""><figcaption></figcaption></figure>
 
-4. Go to Windows service manager, right-click the **PortSIP Instant Message Server** service, and choose R**estart** to restart this service.
+2. Restart the IM Service
+
+Go to Windows service manager, right-click the **PortSIP Instant Message Server** service, and choose R**estart** to restart this service.
 
 <figure><img src="../../../.gitbook/assets/portsip_pbx_im_win_service.png" alt=""><figcaption></figcaption></figure>
 
+### Step 4: Reboot to Apply the Certificate
+
+If you uploaded a trusted SSL certificate in **Step 2: SSL Certificate** (instead of using the default self-signed certificate), you need to restart the PBX to apply the change - just restart the Windows directly.
+
+Now the PortSIP PBX is successfully installed.
