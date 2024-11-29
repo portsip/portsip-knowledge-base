@@ -208,5 +208,5 @@ Starting with version 22.0, PortSIP PBX introduces an Instant Messaging (IM) ser
 
 If you want to install the IM server with the PBX server on the same server, please follow the article [Installation of the PortSIP IM Server](../portsip-pbx-beta-testing/installation-of-the-portsip-im-server.md) to install the PortSIP IM Server for the PBX.
 
-If you want to install the IM server on a separate server, please follow this guide: [Configuring Cluster Servers](../../pbx-cluster-v22/configuring-cluster-servers.md#installing-the-im-server).&#x20;
+If you want to install the IM server on a separate server, please follow this guide: [Configuring Cluster Servers](../../pbx-cluster-v22/configuring-cluster-servers.md#installing-im-server).&#x20;
 
