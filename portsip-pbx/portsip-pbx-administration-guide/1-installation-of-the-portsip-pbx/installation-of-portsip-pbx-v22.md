@@ -74,7 +74,7 @@ cd /opt/portsip
 <pre class="language-shell"><code class="lang-shell"><strong>sudo /bin/sh install_docker.sh
 </strong></code></pre>
 
-### Step 3: Create and Run PBX Docker
+### Step 3: Create and Run PBX Docker Instance
 
 The following command is used to create and run the PBX on a server with the public IP address **66.175.221.120**. If you are running the PBX on a local area network (LAN) without a public IP address, simply replace **66.175.221.120** with the PBX server’s private LAN IP address.
 
@@ -206,6 +206,7 @@ For the Microsoft 365 SMTP server, there are already preconfigured parameters; y
 
 Starting with version 22.0, PortSIP PBX introduces an Instant Messaging (IM) service, offering modern features such as group chat. The IM service requires a separate installation step, as in some cases, you may want to deploy it on a separate server for optimal performance.
 
-If you want to install the IM server with the PBX server on the same server, please follow the article [Installation of the PortSIP IM Server](../portsip-pbx-beta-testing/installation-of-the-portsip-im-server.md) to install the PortSIP IM Server for the PBX.
+If you want to install the IM server with the PBX server on the same server, please follow the article [Installation of the PortSIP IM Server](installation-of-the-portsip-im-server.md) to install the PortSIP IM Server for the PBX.
 
-If you want to install the IM server on a separate server, please follow this guide: [Configuring Cluster Servers](../../pbx-cluster-v22/configuring-cluster-servers.md).&#x20;
+If you want to install the IM server on a separate server, please follow this guide: [Configuring Cluster Servers](../../pbx-cluster-v22/configuring-cluster-servers.md#installing-the-im-server).&#x20;
+

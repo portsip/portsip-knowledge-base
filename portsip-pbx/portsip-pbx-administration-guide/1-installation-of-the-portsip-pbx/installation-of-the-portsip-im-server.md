@@ -1,6 +1,6 @@
 # Installation of the PortSIP IM Server
 
-This article is for installing the PortSIP IM Server for the PortSIP PBX, please ensure you have completed the step of [Installation of the PortSIP PBX v22.0 beta](installation-of-the-portsip-pbx-beta.md).
+This article is for installing the PortSIP IM Server for the PortSIP PBX, please ensure you have completed the step of [Installation of the PortSIP PBX v22.0 beta](../portsip-pbx-beta-testing/installation-of-the-portsip-pbx-beta.md).
 
 ## Install Instant Messaging Service
 
