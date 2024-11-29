@@ -133,7 +133,7 @@ sudo /bin/sh cluster_ctl.sh \
 run -p /var/lib/portsip \
 -a 192.168.1.21 \
 -x 192.168.1.20 \
--i portsip/pbx:22.0.33.1354-beta \
+-i portsip/pbx:22 \
 -s media-server-only \
 -n media-server-1
 ```
@@ -175,7 +175,7 @@ sudo /bin/sh cluster_ctl.sh \
 run -p /var/lib/portsip \
 -a 192.168.1.22 \
 -x 192.168.1.20 \
--i portsip/pbx:22.0.33.1354-beta \
+-i portsip/pbx:22 \
 -s queue-server-only \
 -n queue-server-1
 ```
@@ -211,7 +211,7 @@ sudo /bin/sh cluster_ctl.sh \
 run -p /var/lib/portsip \
 -a 192.168.1.23 \
 -x 192.168.1.20 \
--i portsip/pbx:22.0.33.1354-beta \
+-i portsip/pbx:22 \
 -s meeting-server-only \
 -n meeting-server-1
 ```
@@ -247,7 +247,7 @@ sudo /bin/sh cluster_ctl.sh \
 run -p /var/lib/portsip \
 -a 192.168.1.24 \
 -x 192.168.1.20 \
--i portsip/pbx:22.0.33.1354-beta \
+-i portsip/pbx:22 \
 -s vr-server-only \
 -n vr-server-1
 ```
@@ -291,7 +291,7 @@ Use the following command to create the Instant Messaging (IM) service Docker in
 sudo /bin/sh im_ctl.sh run -E \
 -p /var/lib/portsip/ \
 -a 192.168.1.25 \
--i portsip/pbx:22.0.33.1354-beta \
+-i portsip/pbx:22 \
 -x 192.168.1.20 \
 -t MJC4NZBLYTGTZTJJNS0ZMWZHLWIXZDCTZJLLMDEWZJHKZTAY
 ```
