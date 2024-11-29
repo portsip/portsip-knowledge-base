@@ -6,8 +6,6 @@ The PortSIP PBX v22.0 is planned to be released on Dec 3, 2024. Currently, the u
 
 This guide provides step-by-step instructions for upgrading your current PortSIP PBX v16.x or v22.x installation to the latest v22.x release.
 
-This guide provides step-by-step instructions for upgrading your current PortSIP PBX v16.x or v22.x installation to the latest v22.x release.
-
 ## Prerequisites for Upgrading from v16.x
 
 * If your current installation is PortSIP PBX v16.x, you must first upgrade to the latest version within v16.x (v16.4.4) before proceeding to v22.x.

@@ -1,7 +1,7 @@
 # PortSIP PBX v12.x is EOL
 
 {% hint style="info" %}
-The PortSIP PBX v12.x is EOL, please install the [v16.x](../portsip-pbx/portsip-pbx-administration-guide/portsip-pbx-beta-testing/).
+The PortSIP PBX v12.x is EOL, please install the [v16.x](broken-reference).
 {% endhint %}
 
 ## PortSIP PBX High Availability
@@ -10,7 +10,7 @@ Make a high-availability cluster using three PortSIP PBX servers. PortSIP PBX ca
 
 **Figure 1-1**   PortSIP PBX HA Architecture
 
-![](../.gitbook/assets/pbx\_ha\_diagram.png)
+![](../.gitbook/assets/pbx_ha_diagram.png)
 
 
 
