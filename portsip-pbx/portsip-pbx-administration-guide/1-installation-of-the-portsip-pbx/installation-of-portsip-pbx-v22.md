@@ -1,35 +1,26 @@
-# Installation of the PortSIP PBX
-
-## Important Notes Before You Begin
-
-* **Beta Stage:** Version 22.0 is currently in its beta phase. It is not recommended for use in a production environment.
-* **Operating System Compatibility:** The beta version is only available for Linux. We recommend using Debian 11/12 or Ubuntu 22.04/24.04.
-* **Fresh Installation Required:** Since this is a beta release, it cannot be seamlessly upgraded from the current v16.x installation. You will need to perform a fresh installation on a new server.
-* **No Backward Compatibility:** Beta versions do not support backward compatibility. This means that if you want to install a new beta version, you will need to uninstall and delete the previous beta version.
-* **Future Upgrades:** Once the v22.0 is officially released, it will support seamless upgrades from v16.x installations.
+# Installation of PortSIP PBX v22.x
 
 {% hint style="danger" %}
-The beta version is intended for testing purposes only and should not be used in a production environment. We do not guarantee the stability of features or the integrity of data in this beta release.
+The PortSIP PBX v22.0 has not been released, please don't install it at this moment.
 {% endhint %}
 
-## Supported Linux OS
+## Upgrading
 
-The PortSIP PBX only supports the following 64-bit Linux OS:
+This guide is just for installing a fresh PortSIP PBX version 22.x.
 
-* Ubuntu 22.04, 24.04
-* Debian 11.x, 12.x
+If you currently installed the PortSIP PBX v16.x, please follow the article [Upgrade to Latest v22.x Release](upgrade-portsip-pbx-to-v22.x.md) to upgrade to the v22.x release.
 
 ## Minimal Hardware Requirements
 
-The PortSIP PBX requires a minimum of 2 CPU cores, 4GB of memory, and 30GB of storage. With this configuration, and without enabling call recording, the system can support up to 1,000 online users and handle 300–400 simultaneous calls.
+The PortSIP PBX requires a minimum of 2 CPU cores, 4GB of memory, and 50GB of disk storage. With this configuration, the PBX can support up to 1,000 online users and handle 500 simultaneous calls.
 
-## Preparing the Linux Host Machine for Installation
+## Preparing the Server for Installation
 
 Tasks that MUST be completed before installing PortSIP PBX
 
 * **Ensure the server date-time is synced correctly**.
 * Use the `sudo` to perform the installation is recommended.
-* If the Linux on which PBX will be installed is located on a LAN, assign &#x61;**`static private IP address`**&#x74;o the PBX server; if it's on a public network, assign &#x61;**`static public IP address`** and a **`static private IP`** to the PBX server.&#x20;
+* If the server on which PBX will be installed is located on a LAN, assign &#x61;**`static private IP address`**&#x74;o the PBX server; if it's on a public network, assign &#x61;**`static public IP address`** and a **`static private IP`** to the PBX server.&#x20;
 * Install all available updates and service packs before installing PortSIP PBX.
 * Do not install **PostgreSQL** on your PortSIP PBX Server.
 * Ensure that all power-saving options for your system and network adapters are disabled (by setting the system to High-Performance mode).
@@ -43,7 +34,16 @@ Tasks that MUST be completed before installing PortSIP PBX
 If the PBX runs on a cloud platform such as AWS and the cloud platform has its own firewall, you **must** also open the ports on the cloud platform's firewall.
 {% endhint %}
 
-## Step 1: Download the  Installation Scripts
+## Installing PortSIP PBX on Linux
+
+### Supported Linux OS
+
+The PortSIP PBX only supports the following 64-bit Linux OS:
+
+* Ubuntu 22.04, 24.04
+* Debian 11.x, 12.x
+
+### Step 1: Download the  Installation Scripts
 
 {% hint style="warning" %}
 All commands must be executed in the **`/opt/portsip`** directory.
@@ -63,7 +63,7 @@ https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/init.sh  \
 sudo /bin/sh init.sh
 ```
 
-## Step 2: Setup the Docker Environment
+### Step 2: Setup the Docker Environment
 
 Execute the below command to install the `Docker-Compose` environment. If you get the prompt likes`*** cloud.cfg (Y/I/N/O/D/Z) [default=N] ?`, enter the **Y** and then press the **Enter** button.
 
@@ -74,7 +74,7 @@ cd /opt/portsip
 <pre class="language-shell"><code class="lang-shell"><strong>sudo /bin/sh install_docker.sh
 </strong></code></pre>
 
-## Step 3: Create and Run the PortSIP PBX Docker Container Instance
+### Step 3: Create and Run the PortSIP PBX Docker Container Instance
 
 The following command is used to create and run the PBX on a server with the public IP address **66.175.221.120**. If you are running the PBX on a local area network (LAN) without a public IP address, simply replace **66.175.221.120** with the PBX server’s private LAN IP address.
 
@@ -99,7 +99,7 @@ After successfully installing the PortSIP PBX beta version, you can access the P
 
 The default system administrator username and password are both **admin**.
 
-## Step 4: Configure the PortSIP PBX
+### Step 4: Configure the PortSIP PBX
 
 Once the PortSIP PBX is successfully installed, you can access the web portal by opening your browser and navigating to [**https://66.175.221.120:8887**](https://66.175.221.120:8887). If your browser displays an SSL certificate warning, you can safely ignore it and continue. You will then be directed to the login page, as shown in the screenshot below.
 
@@ -119,7 +119,7 @@ After successfully logging into the PBX Web Portal, the dashboard will appear as
 
 With a new installation, the PBX will launch a setup wizard to guide you through completing the mandatory settings.
 
-### 1. Network Environment
+#### 1. Network Environment
 
 * **Public IPv4 Address:**\
   If the PBX server has a static public IP address, enter it in the **Public IPv4** field. If the server does not have a static public IP, leave this field blank.
@@ -139,7 +139,7 @@ The loopback interface (127.0.0.1) is unacceptable for the private IP. Only the 
 
 <figure><img src="../../../.gitbook/assets/setup_wizard_1.png" alt=""><figcaption></figcaption></figure>
 
-### 2. SSL Certificate
+#### 2. SSL Certificate
 
 To enable **TLS** transport for SIP and secure **HTTPS** access to the Web Portal and REST API, a trusted SSL certificate must be uploaded during this step.
 
@@ -164,7 +164,7 @@ You will need two certificate files:
 
 <figure><img src="../../../.gitbook/assets/setup_wizard_2.png" alt=""><figcaption></figcaption></figure>
 
-### 3. Transport Protocol
+#### 3. Transport Protocol
 
 You can configure the transport layer protocol for SIP signaling by clicking the **Add** button. The default transport ports are as follows:
 
@@ -180,13 +180,15 @@ After adding a new transport protocol, be sure to update your firewall rules to 
 
 <figure><img src="../../../.gitbook/assets/setup_wizard_3.png" alt=""><figcaption></figcaption></figure>
 
-### 4. System Notifications
+#### 4. System Notifications
 
 To enable email notifications in PortSIP PBX for system alerts, you must configure the SMTP settings. Once a critical event occurs in the PBX, alert emails will be sent to the specified **Recipients**.
 
+<figure><img src="../../../.gitbook/assets/smtp.png" alt="" width="563"><figcaption></figcaption></figure>
+
 #### Generic
 
-For other generic SMTP providers that is not Google or Microsoft, please set up it as per the provider's instructions.
+For other generic SMTP providers that are not Google or Microsoft, please set it up as per the provider's instructions.
 
 #### Google
 
@@ -194,32 +196,16 @@ If you’re using Google’s SMTP server, ensure that **less secure apps** is en
 
 [Less secure apps & your Google Account ](https://support.google.com/accounts/answer/6010255?hl=en)
 
-Additionally, you’ll need to select either SSL or TLS as the security protocol for the Google SMTP server. Use the following settings:
-
-* SMTP Server: smtp.gmail.com
-* Port: 587
-* Username: The username of the SMTP server
-* Password: Your password
-* Sender Email: The sender's email address
-* Use TLS: ON
+For the Google SMTP server, there are already preconfigured parameters; you will just need to enter your credentials and other personal information.
 
 #### Microsoft 365
 
-If you’re using the Microsoft 365 SMTP server, SSL or TLS must also be selected as the security protocol. Use the following settings:
+For the Microsoft 365 SMTP server, there are already preconfigured parameters; you will just need to enter your credentials and other personal information.
 
-* SMTP Server: smtp.office365.com
-* Port: 587
-* Username: The username of the SMTP server
-* Password: Your password
-* Sender Email: The sender's email address
-* Use TLS: ON
-
-<figure><img src="../../../.gitbook/assets/smtp.png" alt="" width="563"><figcaption></figcaption></figure>
-
-## Step 5: Install Instant Messaging Service
+### Step 5: Install Instant Messaging Service
 
 Starting with version 22.0, PortSIP PBX introduces an Instant Messaging (IM) service, offering modern features such as group chat. The IM service requires a separate installation step, as in some cases, you may want to deploy it on a separate server for optimal performance.
 
-If you want to install the IM server with the PBX server on the same server,  please follow the article [Installation of the PortSIP IM Server](installation-of-the-portsip-im-server.md) to install the PortSIP IM Server for the PBX.
+If you want to install the IM server with the PBX server on the same server, please follow the article [Installation of the PortSIP IM Server](../portsip-pbx-beta-testing/installation-of-the-portsip-im-server.md) to install the PortSIP IM Server for the PBX.
 
 If you want to install the IM server on a separate server, please follow this guide: [Configuring Cluster Servers](../../pbx-cluster-v22/configuring-cluster-servers.md).&#x20;
