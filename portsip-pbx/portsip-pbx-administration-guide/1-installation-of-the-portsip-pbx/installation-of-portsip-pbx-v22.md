@@ -31,7 +31,7 @@ The PortSIP PBX requires a minimum of 2 CPU cores, 4GB of memory, and 50GB of di
 Tasks that MUST be completed before installing PortSIP PBX
 
 * **Ensure the server date-time is synced correctly**.
-* Use the `sudo` to perform the installation is recommended.
+* For the Linux, use the `sudo` to perform the installation is recommended. For Windows, it requirest the Administrator user.
 * If the server on which PBX will be installed is located on a LAN, assign &#x61;**`static private IP address`**&#x74;o the PBX server; if it's on a public network, assign &#x61;**`static public IP address`** and a **`static private IP`** to the PBX server.&#x20;
 * Install all available updates and service packs before installing PortSIP PBX.
 * Do not install **PostgreSQL** on your PortSIP PBX Server.
@@ -48,11 +48,6 @@ If the PBX runs on a cloud platform such as AWS and the cloud platform has its o
 {% endhint %}
 
 ## Installing PortSIP PBX on Linux
-
-The PortSIP PBX only supports the following 64-bit Linux OS:
-
-* Ubuntu 22.04, 24.04
-* Debian 11.x, 12.x
 
 ### Step 1: Download Installation Scripts
 
@@ -97,14 +92,12 @@ If your PBX server has a public IP, you must use it in the below command for the
 sudo /bin/sh pbx_ctl.sh \
 run -p /var/lib/portsip \
 -a 66.175.221.120 \
--i portsip/pbx:22.0.33.1354-beta
+-i portsip/pbx:22
 ```
 
 * **-p**: Specifies the path for storing PBX data.
 * **-a**: Specifies the PBX server's IP address.
 * **-i**: Specifies the PBX Docker image version.
-
-In the example above, **22.0.33.1354-beta** refers to the beta version you want to install. You can check for the latest beta version on the [Docker Hub](https://hub.docker.com/r/portsip/pbx/tags) page.
 
 After successfully installing the PortSIP PBX beta version, you can access the PBX Web portal by visiting: [**https://66.175.221.120:8887**](https://66.175.221.120:8887)
 
@@ -124,11 +117,7 @@ Click on **"Sign in as the administrator or dealer"** to navigate to the adminis
 Please change the default password of the admin after you log in.
 {% endhint %}
 
-After successfully logging into the PBX Web Portal, the dashboard will appear as shown in the screenshot below.
-
-<figure><img src="../../../.gitbook/assets/portsip-pbx-v22-home.png" alt=""><figcaption></figcaption></figure>
-
-With a new installation, the PBX will launch a setup wizard to guide you through completing the mandatory settings.
+After successfully logging into the PBX Web Portal, with a new installation, the PBX will launch a setup wizard to guide you through completing the mandatory settings.
 
 #### 1. Network Environment
 
@@ -148,7 +137,7 @@ These IP addresses must be accessible to your SIP clients, as the IP entered her
 The loopback interface (127.0.0.1) is unacceptable for the private IP. Only the static IP for the LAN where the PBX is located is allowed (do not use DHCP dynamic IP).&#x20;
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/setup_wizard_1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/setup_wizard_ip_address_v22.png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### 2. SSL Certificate
 
@@ -267,11 +256,7 @@ Click on **"Sign in as the administrator or dealer"** to navigate to the adminis
 Please change the default password of the admin after you log in.
 {% endhint %}
 
-After successfully logging into the PBX Web Portal, the dashboard will appear as shown in the screenshot below.
-
-<figure><img src="../../../.gitbook/assets/portsip-pbx-v22-home.png" alt=""><figcaption></figcaption></figure>
-
-With a new installation, the PBX will launch a setup wizard to guide you through completing the mandatory settings.
+After successfully logging into the PBX Web Portal, with a new installation, the PBX will launch a setup wizard to guide you through completing the mandatory settings.
 
 #### 1. Network Environment
 
@@ -291,7 +276,7 @@ These IP addresses must be accessible to your SIP clients, as the IP entered her
 The loopback interface (127.0.0.1) is unacceptable for the private IP. Only the static IP for the LAN where the PBX is located is allowed (do not use DHCP dynamic IP).&#x20;
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/setup_wizard_1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/setup_wizard_ip_address_v22.png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### 2. SSL Certificate
 
@@ -368,7 +353,7 @@ Follow these steps to configure the IM server:
 2. Navigate to **Servers > IM Servers**.
 3. Select the default server and click the **Generate Token** button.
 
-<figure><img src="../../../.gitbook/assets/portsip-pbx-v22-im-token.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/im_server_update_address_new_token.png" alt=""><figcaption></figcaption></figure>
 
 2. Restart the IM Service
 
