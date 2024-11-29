@@ -178,7 +178,7 @@ PortSIP PBX services will automatically start after successful installation (and
 The following two folders must not be the same when selecting the PBX folders during installation!
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/portsip_pbx_installer_windows.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/portsip_pbx_installer_windows.png" alt=""><figcaption></figcaption></figure>
 
 ## **Configuring Firewall Rules**
 

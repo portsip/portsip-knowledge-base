@@ -4,15 +4,15 @@ This guide provides step-by-step instructions for upgrading your current PortSIP
 
 ## Important
 
-> This guide is specifically for upgrades within the **v16.x** series. If you need to upgrade from v16.x to v22.x, please refer to the [Upgrading to the Latest v22.x Release](upgrading-portsip-pbx-to-new-versions/upgrading-portsip-pbx-to-v22.x.md).
+> This guide is specifically for upgrades within the **v16.x** series. If you need to upgrade from v16.x to v22.x, please refer to the [Upgrading to the Latest v22.x Release](../installation-of-portsip-pbx-v22/upgrade-portsip-pbx-to-v22.x.md).
 
-If you installed the PortSIP SBC, please follow this article to [upgrade the PortSIP SBC](../portsip-sbc-administration-guide/upgrading-portsip-sbc-to-new-versions.md).
+If you installed the PortSIP SBC, please follow this article to [upgrade the PortSIP SBC](../../../portsip-sbc-administration-guide/upgrading-portsip-sbc-to-new-versions.md).
 
 ## **Upgrading PBX for Linux**
 
 We recommend backing up your PBX data. The data file path is usually `/var/lib/portsip`. You can also back up the entire VM server or take a snapshot of the VM server.
 
-Please follow the article [Backup and Restore: An Essential Guide](backup-and-restore/).
+Please follow the article [Backup and Restore: An Essential Guide](../../backup-and-restore/).
 
 {% hint style="warning" %}
 All commands must be executed in the **`/opt/portsip`** directory.
@@ -49,7 +49,7 @@ docker image list
 
 You will get a similar result shown in the below screenshot.
 
-<figure><img src="../../.gitbook/assets/docker_image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/docker_image.png" alt=""><figcaption></figcaption></figure>
 
 #### Delete the PBX Docker Images
 
@@ -114,11 +114,11 @@ Your PBX has now been successfully upgraded to the latest version.
 It’s crucial to keep your cluster servers updated in line with the latest PortSIP PBX releases. This ensures that all features function as expected and that your system maintains optimal performance and security.
 {% endhint %}
 
-If you have set up your PBX as a cluster following [this guide](../pbx-cluster/), it’s mandatory to upgrade those servers whenever the PBX is updated. Please refer to the article [Managing Cluster](../pbx-cluster/managing-cluster.md#upgrading-servers) for the upgrade process.
+If you have set up your PBX as a cluster following [this guide](../../../pbx-cluster/), it’s mandatory to upgrade those servers whenever the PBX is updated. Please refer to the article [Managing Cluster](../../../pbx-cluster/managing-cluster.md#upgrading-servers) for the upgrade process.
 
 ## Upgrading PBX for Windows
 
-1. We suggest backing up your PBX data. The data file path is usually `c:\programdata\portsip`. You can follow the article [Backup and Restore: An Essential Guide](backup-and-restore/).
+1. We suggest backing up your PBX data. The data file path is usually `c:\programdata\portsip`. You can follow the article [Backup and Restore: An Essential Guide](../../backup-and-restore/).
 2. Download the latest installer from the [PortSIP website](https://www.portsip.com/download-portsip-pbx/).&#x20;
 3. Double-click the installer to install it and the upgrade will be performed automatically.
 

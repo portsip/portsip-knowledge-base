@@ -1,6 +1,6 @@
 # Installation of the PortSIP IM Server
 
-This article is for installing the PortSIP IM Server for the PortSIP PBX, please ensure you have completed the step of [Installation of the PortSIP PBX v22.0 beta](../../portsip-pbx-beta-testing/installation-of-the-portsip-pbx-beta.md).
+This article is for installing the PortSIP IM Server for the PortSIP PBX, please ensure you have completed the step of [Installation of the PortSIP PBX v22.0 beta](installation-of-the-portsip-pbx-beta.md).
 
 ## Install Instant Messaging Service
 
@@ -13,7 +13,7 @@ Follow these steps to install the IM server:
 3. Select the default server and click the **Generate Token** button.
 4. Copy the generated token.
 
-<figure><img src="../../../../.gitbook/assets/portsip-pbx-v22-im-token.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/portsip-pbx-v22-im-token.png" alt=""><figcaption></figcaption></figure>
 
 ### Create and Run Instant Messaging Docker Instance
 
