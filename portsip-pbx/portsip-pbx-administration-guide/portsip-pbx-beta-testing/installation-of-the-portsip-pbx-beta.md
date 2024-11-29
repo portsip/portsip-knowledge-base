@@ -214,7 +214,7 @@ If you’re using the Microsoft 365 SMTP server, SSL or TLS must also be selecte
 * Sender Email: The sender's email address
 * Use TLS: ON
 
-<figure><img src="../../../.gitbook/assets/smtp.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/system-notifications-smtp.png" alt="" width="563"><figcaption></figcaption></figure>
 
 ## Step 5: Install Instant Messaging Service
 

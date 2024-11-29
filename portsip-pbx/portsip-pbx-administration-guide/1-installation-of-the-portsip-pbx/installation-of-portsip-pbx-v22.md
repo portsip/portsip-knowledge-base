@@ -8,7 +8,7 @@ The PortSIP PBX v22.0 has not been released, please don't install it at this mom
 
 This guide is just for installing a fresh PortSIP PBX version 22.x.
 
-If you currently installed the PortSIP PBX v16.x, please follow the article [Upgrade to Latest v22.x Release](upgrade-portsip-pbx-to-v22.x.md) to upgrade to the v22.x release.
+If you currently installed the PortSIP PBX v16.x, please follow the article [Upgrade to Latest v22.x Release](../upgrading-portsip-pbx-to-new-versions/upgrading-portsip-pbx-to-v22.x.md) to upgrade to the v22.x release.
 
 ## Minimal Hardware Requirements
 
@@ -43,7 +43,7 @@ The PortSIP PBX only supports the following 64-bit Linux OS:
 * Ubuntu 22.04, 24.04
 * Debian 11.x, 12.x
 
-### Step 1: Download the  Installation Scripts
+### Step 1: Download Installation Scripts
 
 {% hint style="warning" %}
 All commands must be executed in the **`/opt/portsip`** directory.
@@ -63,7 +63,7 @@ https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/init.sh  \
 sudo /bin/sh init.sh
 ```
 
-### Step 2: Setup the Docker Environment
+### Step 2: Setup Docker Environment
 
 Execute the below command to install the `Docker-Compose` environment. If you get the prompt likes`*** cloud.cfg (Y/I/N/O/D/Z) [default=N] ?`, enter the **Y** and then press the **Enter** button.
 
@@ -74,7 +74,7 @@ cd /opt/portsip
 <pre class="language-shell"><code class="lang-shell"><strong>sudo /bin/sh install_docker.sh
 </strong></code></pre>
 
-### Step 3: Create and Run the PortSIP PBX Docker Container Instance
+### Step 3: Create and Run PBX Docker
 
 The following command is used to create and run the PBX on a server with the public IP address **66.175.221.120**. If you are running the PBX on a local area network (LAN) without a public IP address, simply replace **66.175.221.120** with the PBX server’s private LAN IP address.
 
@@ -184,7 +184,7 @@ After adding a new transport protocol, be sure to update your firewall rules to 
 
 To enable email notifications in PortSIP PBX for system alerts, you must configure the SMTP settings. Once a critical event occurs in the PBX, alert emails will be sent to the specified **Recipients**.
 
-<figure><img src="../../../.gitbook/assets/smtp.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/system-notifications-smtp.png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### Generic
 

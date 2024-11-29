@@ -1,7 +1,7 @@
 # Summary of Changes
 
 {% hint style="info" %}
-Please follow the [guide ](1-installation-of-the-portsip-pbx/upgrade-portsip-pbx-to-v16.x.md)to upgrading your PBX to the latest version.
+Please follow the [guide ](upgrading-portsip-pbx-to-new-versions.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
 ## Changes for Release v16.4.4
