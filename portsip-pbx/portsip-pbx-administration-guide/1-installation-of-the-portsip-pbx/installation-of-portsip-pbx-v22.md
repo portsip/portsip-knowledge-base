@@ -95,9 +95,24 @@ run -p /var/lib/portsip \
 -i portsip/pbx:22
 ```
 
+In the above command, we can specify the following parameters.
+
 * **-p**: Specifies the path for storing PBX data.
 * **-a**: Specifies the PBX server's IP address.
 * **-i**: Specifies the PBX Docker image version.
+* **-f:** Specifies the path for storing the recording files, it's optional.
+
+The **-f** parameter is optional and allows you to specify a separate path for storing recording files. If this parameter is not specified, the recording files will be stored in the path defined by the **-p** parameter.
+
+For example, if you mount a device or map an external NAS device to **`/pbx/recordings`** and want to store the recording files there, you can create and run the PBX Docker instance using the following command:
+
+```sh
+sudo /bin/sh pbx_ctl.sh \
+run -p /var/lib/portsip \
+-a 66.175.221.120 \
+-i portsip/pbx:22
+-f /pbx/recordings
+```
 
 After successfully installing the PortSIP PBX beta version, you can access the PBX Web portal by visiting: [**https://66.175.221.120:8887**](https://66.175.221.120:8887)
 
