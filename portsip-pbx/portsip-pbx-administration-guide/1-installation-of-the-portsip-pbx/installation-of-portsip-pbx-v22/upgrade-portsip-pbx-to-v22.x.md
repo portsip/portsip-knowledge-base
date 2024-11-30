@@ -206,7 +206,7 @@ You will get a similar result, as shown in the screenshot below.
 
 <figure><img src="../../../../.gitbook/assets/portsip_sbc_v22_docker_image.png" alt=""><figcaption></figcaption></figure>
 
-You can use the following command to delete Docker images using the first 4 digits of the IMAGE ID for **SBC**, in this case, it's bc66.
+You can use the following command to delete Docker images using the first 4 digits of the IMAGE ID for **SBC**, in this case, it's **bc66**.
 
 ```
 docker image rm bc66
@@ -222,7 +222,7 @@ rm sbc_ctl.sh
 
 ### Remove the Separate IM Service Installation
 
-{% hint style="danger" %}
+{% hint style="warning" %}
 If you installed the IM service with PBX on the same server, please ignore this section.&#x20;
 {% endhint %}
 
