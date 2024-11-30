@@ -1,6 +1,6 @@
 # Configuring the Endpoints with PortSIP PBX
 
-After successfully [configuring the PortSIP PBX](../portsip-pbx-administration-guide/2-configuring-the-portsip-pbx.md) and [SBC](../portsip-pbx-administration-guide/9-configuring-sbc-for-webrtc.md), and [creating the tenants](../portsip-pbx-administration-guide/3-tenant-management.md) and [extensions](../portsip-pbx-administration-guide/5-user-management/), you can now register the endpoints (WebRTC, mobile app, Windows Desktop app, IP Phone, and any SIP-based device) to the PBX. This will allow you to make and receive calls.
+After successfully [configuring the PortSIP PBX](../portsip-pbx-administration-guide/2-configuring-the-portsip-pbx.md) and [SBC](../portsip-pbx-administration-guide/9-configuring-portsip-sbc/), and [creating the tenants](../portsip-pbx-administration-guide/3-tenant-management.md) and [extensions](../portsip-pbx-administration-guide/5-user-management/), you can now register the endpoints (WebRTC, mobile app, Windows Desktop app, IP Phone, and any SIP-based device) to the PBX. This will allow you to make and receive calls.
 
 In this article, we assume the following configurations:
 
@@ -62,7 +62,7 @@ Click the settings icon for advanced settings. Then, enter the values for the Ou
 
 ### WebRTC App
 
-After successfully [configuring the PortSIP PBX](../portsip-pbx-administration-guide/2-configuring-the-portsip-pbx.md) and [SBC](../portsip-pbx-administration-guide/9-configuring-sbc-for-webrtc.md), and [creating the tenants](../portsip-pbx-administration-guide/3-tenant-management.md) and [extensions](../portsip-pbx-administration-guide/5-user-management/) in the PBX, you can launch the WebRTC client app by opening the link [https://uc.portsip.cc:8883/webrtc](https://uc.portsip.cc:10443/webrtc) to launch WebRTC client app, or click the WebRTC menu from the SBC web portal.
+After successfully [configuring the PortSIP PBX](../portsip-pbx-administration-guide/2-configuring-the-portsip-pbx.md) and [SBC](../portsip-pbx-administration-guide/9-configuring-portsip-sbc/), and [creating the tenants](../portsip-pbx-administration-guide/3-tenant-management.md) and [extensions](../portsip-pbx-administration-guide/5-user-management/) in the PBX, you can launch the WebRTC client app by opening the link [https://uc.portsip.cc:8883/webrtc](https://uc.portsip.cc:10443/webrtc) to launch WebRTC client app, or click the WebRTC menu from the SBC web portal.
 
 <figure><img src="../../.gitbook/assets/portsip_webrtc_client1.png" alt="" width="375"><figcaption></figcaption></figure>
 

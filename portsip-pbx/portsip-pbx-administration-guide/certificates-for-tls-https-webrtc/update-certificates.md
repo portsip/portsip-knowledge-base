@@ -8,7 +8,7 @@ Before updating the certificates for the PBX and SBC, please make sure that you 
 
 [Configuring the PortSIP PBX](../2-configuring-the-portsip-pbx.md).
 
-[Configuring SBC for WebRTC](../9-configuring-sbc-for-webrtc.md).
+[Configuring SBC for WebRTC](../9-configuring-portsip-sbc/).
 
 After completing the [Preparing TLS Certificates](preparing-tls-certificates.md) step, you will have the `portsip.pem` and `portsip.key` files. You can use these files to update the certificates for the PortSIP PBX and PortSIP SBC.
 

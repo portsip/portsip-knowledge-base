@@ -36,7 +36,7 @@ Please purchase a wildcardTLS certificate for the domain **sbc.com**.
 
 ## Configuring the SBC
 
-Please follow the instructions in the [Configuring SBC for WebRTC](9-configuring-sbc-for-webrtc.md) topic to set up each SBC server. However, pay attention to the following points:
+Please follow the instructions in the [Configuring SBC for WebRTC](9-configuring-portsip-sbc/) topic to set up each SBC server. However, pay attention to the following points:
 
 * When adding certificates to the SBC, set the TLS domain to **sbc.com** and enable the **This is SBC Web Domain Certificate** option.
 * When setting up the Web Domain for an SBC, enter **sbc.com** as the **Web Domain**.

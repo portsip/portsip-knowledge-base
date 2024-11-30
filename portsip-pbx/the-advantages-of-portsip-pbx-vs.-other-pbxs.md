@@ -184,7 +184,7 @@ PortSIP PBX offers flexible office hours and holiday schedules for tenants locat
 
 PortSIP PBX offers a free SBC to support WebRTC and Microsoft Teams Direct Routing. The SBC can be deployed as a cluster to support large calls:
 
-* [Configuring SBC for WebRTC](portsip-pbx-administration-guide/9-configuring-sbc-for-webrtc.md)
+* [Configuring SBC for WebRTC](portsip-pbx-administration-guide/9-configuring-portsip-sbc/)
 * [Configuring SBC for MS Teams](portsip-pbx-administration-guide/10-configuring-sbc-for-ms-teams/)
 
 ## Microsoft 365 Integration
