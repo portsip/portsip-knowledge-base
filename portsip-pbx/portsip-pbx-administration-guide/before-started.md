@@ -7,7 +7,7 @@ Deploying PortSIP PBX in a Linux environment requires planning and knowledge of 
 You should also have knowledge of the following Linux infrastructures and popular Linux distributions:
 
 * Debian 11.x, 12.x (64-bit)
-* Ubuntu 20.04, 22.04, or 24.04 (64-bit)
+* Ubuntu 22.04, or 24.04 (64-bit)
 * Docker 20.10 or higher.
 * IPv4/IPv6
 * Systemd
@@ -15,11 +15,11 @@ You should also have knowledge of the following Linux infrastructures and popula
 * Firewalld
 * HTTP
 
-This document assumes that the Linux OS is already deployed and administrators of PortSIP PBX have been granted **root permission** to Linux.
+This document assumes that the Linux OS has already been installed and that administrators of PortSIP PBX have been granted root permission to use Linux.
 
 ## Remove the PBX v12.x Installation
 
-{% hint style="info" %}
+{% hint style="danger" %}
 Please ignore this section if you haven't installed the PortSIP PBX v12.x version.
 {% endhint %}
 
@@ -50,8 +50,8 @@ Deploying PortSIP PBX in a Windows environment requires planning and knowledge o
 
 A Windows desktop or Windows server OS:
 
-* Windows 10/11 (64-bit)
-* Windows Server 2016/2019/2020/2022
+* Windows 10 1903/19H1 or higher, Windows 11
+* Windows Server 2022
 * IPv4/IPv6
 * Windows firewall
 
@@ -86,6 +86,8 @@ To build a high-availability communication solution to help clients reduce cost 
 
 * Maximum simultaneous calls needed for PBX
 * Maximum online users needed for PBX
+* Maximum users to chat and sharing files in chat
+* Maximum chat groups
 * Recordings for calls
 * Recording audio only or both audio and video
 * Maximum online users for audio/video conferences on PBX

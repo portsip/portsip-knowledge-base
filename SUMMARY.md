@@ -9,7 +9,6 @@
 * [UCaaS is Unified Communications as a Service](portsip-pbx/ucaas-is-unified-communications-as-a-service.md)
 * [PortSIP PBX Administration Guide](portsip-pbx/portsip-pbx-administration-guide/README.md)
   * [Overview](portsip-pbx/portsip-pbx-administration-guide/overview.md)
-  * [PortSIP PBX Features](portsip-pbx/portsip-pbx-administration-guide/portsip-pbx-features.md)
   * [PortSIP Security Features](portsip-pbx/portsip-pbx-administration-guide/portsip-security-feature.md)
   * [Summary of Changes](portsip-pbx/portsip-pbx-administration-guide/summary-of-changes.md)
   * [Before Started](portsip-pbx/portsip-pbx-administration-guide/before-started.md)

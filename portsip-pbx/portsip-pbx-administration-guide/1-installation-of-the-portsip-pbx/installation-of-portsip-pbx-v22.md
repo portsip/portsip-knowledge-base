@@ -23,7 +23,7 @@ The PortSIP PBX requires a minimum of 2 CPU cores, 4GB of memory, and 50GB of di
 
 ### Windows
 
-* Windows 11
+* Windows 10 1903/19H1 or higher, Windows 11
 * Windows Server 2022 or higher
 
 ## Preparing the Server for Installation
@@ -31,7 +31,7 @@ The PortSIP PBX requires a minimum of 2 CPU cores, 4GB of memory, and 50GB of di
 Tasks that MUST be completed before installing PortSIP PBX
 
 * **Ensure the server date-time is synced correctly**.
-* For the Linux, use the `sudo` to perform the installation is recommended. For Windows, it requirest the Administrator user.
+* For the Linux, use the `sudo` to perform the installation is recommended. For Windows, it requires the Administrator user.
 * If the server on which PBX will be installed is located on a LAN, assign &#x61;**`static private IP address`**&#x74;o the PBX server; if it's on a public network, assign &#x61;**`static public IP address`** and a **`static private IP`** to the PBX server.&#x20;
 * Install all available updates and service packs before installing PortSIP PBX.
 * Do not install **PostgreSQL** on your PortSIP PBX Server.
