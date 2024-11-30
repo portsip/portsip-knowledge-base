@@ -52,7 +52,7 @@
   * [9 Configuring PortSIP SBC](portsip-pbx/portsip-pbx-administration-guide/9-configuring-sbc-for-webrtc.md)
     * [Topology](portsip-pbx/portsip-pbx-administration-guide/9-configuring-portsip-sbc/portsip-sbc-topology.md)
     * [Installing PortSIP SBC v11.x](portsip-pbx/portsip-pbx-administration-guide/9-configuring-portsip-sbc/installing-sbc-v11/README.md)
-      * [Configuring PortSIP SBC for WebRTC](portsip-pbx/portsip-pbx-administration-guide/9-configuring-portsip-sbc/installing-sbc-v11/configuring-sbc-for-webrtc.md)
+      * [Configuring PortSIP SBC for WebRTC](portsip-pbx/portsip-pbx-administration-guide/9-configuring-portsip-sbc/installing-sbc-v11/configuring-sbc-v11-for-webrtc.md)
     * [Configuring SBC for WebRTC](portsip-pbx/portsip-pbx-administration-guide/9-configuring-portsip-sbc/9-configuring-sbc-for-webrtc.md)
   * [10 Configuring SBC for MS Teams](portsip-pbx/portsip-pbx-administration-guide/10-configuring-sbc-for-ms-teams/README.md)
     * [Architecture](portsip-pbx/portsip-pbx-administration-guide/10-configuring-sbc-for-ms-teams/architecture.md)
