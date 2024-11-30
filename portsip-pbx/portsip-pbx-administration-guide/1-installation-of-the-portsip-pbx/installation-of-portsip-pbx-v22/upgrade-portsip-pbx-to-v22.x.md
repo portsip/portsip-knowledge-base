@@ -173,6 +173,7 @@ docker image rm 527b d0ad
 rm install_pbx_docker.sh
 rm install_docker.sh
 rm pbx_ctl.sh
+rm im_ctl.sh
 rm init.sh
 ```
 
@@ -182,7 +183,7 @@ rm init.sh
 All commands must be executed in the **`/opt/portsip`** directory.
 {% endhint %}
 
-If you installed the PortSIP SBC 10.x with the PortSIP PBX v16.x, please follow the below steps to remove it.
+If you installed the PortSIP SBC 11.x with the PortSIP PBX 22.x, please follow the below steps to remove it.
 
 #### 1: Stop SBC docker instances <a href="#step-1-stop-pbx-docker-instance" id="step-1-stop-pbx-docker-instance"></a>
 
@@ -227,12 +228,70 @@ rm install_docker.sh
 rm sbc_ctl.sh
 ```
 
+### Remove the Separate IM Service Installation
+
+{% hint style="danger" %}
+If you installed the IM service with PBX on the same server, please ignore this section.&#x20;
+{% endhint %}
+
+If you have an IM service installed on a separate server, follow the steps below to remove it.
+
+{% hint style="warning" %}
+All commands must be executed in the **`/opt/portsip`** directory.
+{% endhint %}
+
+First, use SSH to connect to the separate IM server.&#x20;
+
+The IM service is hosted within the PBX Docker instance and image, so it will appear as **PBX** in the following steps.
+
+#### 1: Stop IM docker instances <a href="#step-1-stop-pbx-docker-instance" id="step-1-stop-pbx-docker-instance"></a>
+
+Perform the following commands as root to stop the current IM Docker instance:
+
+```sh
+cd /opt/portsip
+sudo /bin/sh im_ctl.sh stop
+```
+
+#### 2: Delete the IM docker instances <a href="#step-2-delete-the-pbx-docker-instance" id="step-2-delete-the-pbx-docker-instance"></a>
+
+Perform the following command to delete the IM Docker instance:
+
+```sh
+sudo /bin/sh im_ctl.sh rm
+```
+
+#### 3: Delete the IM docker images <a href="#step-3-list-the-pbx-docker-images" id="step-3-list-the-pbx-docker-images"></a>
+
+Perform the following command to list the IM Docker images:
+
+```sh
+docker image list
+```
+
+You will get a similar result, as shown in the screenshot below.
+
+<figure><img src="../../../../.gitbook/assets/portsip_pbx_v22_im_docker_image.png" alt=""><figcaption></figcaption></figure>
+
+You can use the following command to delete Docker images using the first 4 digits of the IMAGE ID for **PBX** and **Postgresql**,  in this case, they are **03bd** and **d0ad**.
+
+```sh
+docker image rm 03b5 d0ad 
+```
+
+#### 4: Delete the scripts <a href="#step-4-delete-the-pbx-scripts" id="step-4-delete-the-pbx-scripts"></a>
+
+```sh
+rm install_pbx_docker.sh
+rm install_docker.sh
+rm pbx_ctl.sh
+rm im_ctl.sh
+rm init.sh
+```
+
 ## Upgrade to the Latest PortSIP PBX v22.x
 
-To upgrade to the latest PortSIP PBX v22.x, simply follow the same steps as if you were installing a fresh PortSIP PBX v22.x. The installer will automatically handle the data upgrade process.
+To upgrade to the latest version of PortSIP PBX v22.x, simply follow the same steps as for a fresh installation. The installer will automatically manage the data upgrade process.
 
-\
-For detailed instructions on installing a new PortSIP PBX v22.x and completing the upgrade, please refer to the [**Installation of PortSIP PBX v22.x** ](../installation-of-portsip-pbx-v22.md)guide.
-
-
+For detailed instructions on installing the new PortSIP PBX v22.x and Instant Messaging (IM) service, as well as completing the upgrade, please refer to the [**Installation of PortSIP PBX v22.x** ](../installation-of-portsip-pbx-v22.md)Guide.
 
