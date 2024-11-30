@@ -168,6 +168,7 @@ docker image rm 527b d0ad
 rm install_pbx_docker.sh
 rm install_docker.sh
 rm pbx_ctl.sh
+rm init.sh
 ```
 
 ### Remove the current SBC installation
@@ -221,7 +222,12 @@ rm install_docker.sh
 rm sbc_ctl.sh
 ```
 
+## Upgrade to the Latest PortSIP PBX v22.x
 
+To upgrade to the latest PortSIP PBX v22.x, simply follow the same steps as if you were installing a fresh PortSIP PBX v22.x. The installer will automatically handle the data upgrade process.
+
+\
+For detailed instructions on installing a new PortSIP PBX v22.x and completing the upgrade, please refer to the [**Installation of PortSIP PBX v22.x** ](../installation-of-portsip-pbx-v22.md)guide.
 
 
 
