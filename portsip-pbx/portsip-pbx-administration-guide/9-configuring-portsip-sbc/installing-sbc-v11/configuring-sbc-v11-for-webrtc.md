@@ -1,6 +1,6 @@
 # Configuring PortSIP SBC for WebRTC
 
-After successfully installing the PortSIP SBC following the [Installation of PortSIP SBC v11.x](./) guide, you can now configure the SBC for the WebRTC feature.
+After successfully installing the PortSIP SBC following the guide, you can now configure the SBC for the WebRTC feature.
 
 ## Configure PortSIP SBC on the Same Server as PortSIP PBX
 
