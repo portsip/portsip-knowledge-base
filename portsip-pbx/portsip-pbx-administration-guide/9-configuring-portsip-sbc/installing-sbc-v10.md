@@ -1,4 +1,4 @@
-# Installing PortSIP SBC v11.x
+# Installing PortSIP SBC v10.x
 
 {% hint style="danger" %}
 The PortSIP SBC v11.0 has not been released, please don't install it at this moment.
@@ -40,7 +40,7 @@ All commands must be executed in the **`/opt/portsip`** directory.
 
 ## Prerequisites
 
-Assume that you have successfully installed the PortSIP PBX following the instructions in the [Installation of the PortSIP PBX](../../1-installation-of-the-portsip-pbx.md) guide.
+Assume that you have successfully installed the PortSIP PBX following the instructions in the [Installation of the PortSIP PBX](../1-installation-of-the-portsip-pbx.md) guide.
 
 ## Install the PortSIP SBC and PBX on the Same Server
 
@@ -51,18 +51,23 @@ For this example, assume the following server configuration:
 * **Private IP**: 192.168.1.72
 * **Public IP**: 66.175.221.120
 * The domain **uc.portsip.cc** is resolved to the public IP address **66.175.221.120**.
-* A trusted SSL certificate(not self-signed) is installed for the domain **uc.portsip.cc**. Please follow the article [Certificates for TLS/HTTPS/WebRTC](../../certificates-for-tls-https-webrtc/) to prepare the certificates.
+* A trusted SSL certificate(not self-signed) is installed for the domain **uc.portsip.cc**. Please follow the article [Certificates for TLS/HTTPS/WebRTC](../certificates-for-tls-https-webrtc/) to prepare the certificates.
 
 ### Install PortSIP SBC for Linux
 
 To install the SBC, please perform the below commands:
 
 ```shell
-cd /opt/portsip
+sudo cd /opt/portsip
+```
+
+```bash
+sudo curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v16.x/new/sbc_ctl.sh \
+-o sbc_ctl.sh
 ```
 
 ```shell
-sudo /bin/sh sbc_ctl.sh run -p /var/lib/portsip -i portsip/sbc:11
+sudo /bin/sh sbc_ctl.sh run -p /var/lib/portsip -i portsip/sbc:10
 ```
 
 ### Install PortSIP SBC for Windows
@@ -80,40 +85,37 @@ Assuming the following server configuration for installation:
 * **SBC Server (Public IP)**: 66.175.221.120
 * The domain **sbc.portsip.cc** is resolved to the SBC server's public IP, **66.175.221.120**.
 * The domain **uc.portsip.cc** is resolved to the PBX server's private IP, **192.168.1.72**. (Note: This step is not necessary for the SBC deployment.)
-* A trusted **Wildcard SSL certificate**(not self-signed) is installed for the domain **portsip.cc**. Please follow the article [Certificates for TLS/HTTPS/WebRTC](../../certificates-for-tls-https-webrtc/) to prepare the certificates.
+* A trusted **Wildcard SSL certificate**(not self-signed) is installed for the domain **portsip.cc**. Please follow the article [Certificates for TLS/HTTPS/WebRTC](../certificates-for-tls-https-webrtc/) to prepare the certificates.
 
 ### Install PortSIP SBC for Linux
 
 Please follow the below steps to install the PortSIP SBC on that separate server.
 
-```sh
+```shell
+mkdir -p /opt/portsip
 cd /opt/portsip
 ```
 
-```sh
-sudo curl \
-https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/init.sh  \
--o  init.sh
+```bash
+curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v16.x/new/install_docker.sh \
+-o install_docker.sh
 ```
 
-```sh
-sudo /bin/sh init.sh
+```bash
+curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v16.x/new/sbc_ctl.sh \
+-o sbc_ctl.sh
 ```
 
-Execute the below command to install the `Docker-Compose` environment. If you get the prompt likes`*** cloud.cfg (Y/I/N/O/D/Z) [default=N] ?`, enter the **Y** and then press the **Enter** button.
+Execute the below command to install the `Docker-Compose` environment.  If get the prompt like`*** cloud.cfg (Y/I/N/O/D/Z) [default=N] ?`, enter the **Y** and then press the **Enter** button.
 
-```sh
-cd /opt/portsip
-```
-
-```sh
+```bash
 sudo /bin/sh install_docker.sh
 ```
 
 Now, execute the following command to create and run the PortSIP SBC Docker instance.
 
 ```sh
-sudo /bin/sh sbc_ctl.sh run -p /var/lib/portsip -i portsip/sbc:11
+sudo /bin/sh sbc_ctl.sh run -p /var/lib/portsip -i portsip/sbc:10
 ```
 
 ### Install PortSIP SBC for Windows
