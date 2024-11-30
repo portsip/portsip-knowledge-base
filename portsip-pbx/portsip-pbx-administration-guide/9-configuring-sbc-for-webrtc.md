@@ -2,9 +2,9 @@
 
 The PortSIP SBC can function as a component of the PortSIP PBX, providing WebRTC services and enabling Microsoft Teams Direct Routing. It offers flexibility and scalability, allowing you to support a large number of WebRTC customers.
 
-Before getting started, please review the section  "[What's an SBC?](../../faq/what-is-the-sbc.md)" for a detailed overview. The SBC concept is typically illustrated in the diagram below.
+Before getting started, please review the section  "[What's an SBC?](../faq/what-is-the-sbc.md)" for a detailed overview. The SBC concept is typically illustrated in the diagram below.
 
-<figure><img src="../../../.gitbook/assets/sbc_arch.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/sbc_arch.png" alt=""><figcaption></figcaption></figure>
 
 ## Deployment Scenarios
 
@@ -17,7 +17,7 @@ This example demonstrates how to configure the SBC for interworking between an I
 * **Nomadic Internet Users**: Accessing the system remotely
 * **Microsoft Teams**: Integrated into the system
 
-<figure><img src="../../../.gitbook/assets/enterprise_pbx_sbc1.drawio.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/enterprise_pbx_sbc1.drawio.png" alt=""><figcaption></figcaption></figure>
 
 **SBC Logical Network Interface Connections:**
 
@@ -32,7 +32,7 @@ In this topology, the SBC has a single physical network interface that supports 
 
 The PortSIP SBC can also be deployed with two physical network interfaces.
 
-<figure><img src="../../../.gitbook/assets/enterprise_pbx_sbc.drawio.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/enterprise_pbx_sbc.drawio.png" alt=""><figcaption></figcaption></figure>
 
 **SBC Logical Network Interface Connections:**
 
@@ -48,7 +48,7 @@ The PortSIP SBC can also be deployed with two physical network interfaces.
 
 This example illustrates how to configure the PortSIP SBC for interworking between LAN-based IP phones, apps, WebRTC clients, and a hosted cloud IP PBX. The scenario includes the following topology:
 
-<figure><img src="../../../.gitbook/assets/hosted_pbx_sbc.drawio.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/hosted_pbx_sbc.drawio.png" alt=""><figcaption></figcaption></figure>
 
 **SBC Logical Network Interface Connections:**
 
@@ -69,7 +69,7 @@ Assume we want to deploy the PortSIP PBX and SBC on the following server configu
 * The domain `uc.portsip.cc`has been resolved to the public IP of **66.175.221.120**.
 * A trusted SSL certificate for the domain `uc.portsip.cc`
 
-Please read the [Supported Linux OS](https://support.portsip.com/portsip-pbx-user-guide/portsip-pbx-administration-guide-v16.x/1-installation-of-the-portsip-pbx#supported-linux-os), [Preparing the Linux Host Machine for Installation](https://support.portsip.com/portsip-pbx-user-guide/portsip-pbx-administration-guide-v16.x/1-installation-of-the-portsip-pbx#preparing-the-linux-host-machine-for-installation), and [Certificates for TLS/HTTPS/WebRTC](../certificates-for-tls-https-webrtc/) carefully.
+Please read the [Supported Linux OS](https://support.portsip.com/portsip-pbx-user-guide/portsip-pbx-administration-guide-v16.x/1-installation-of-the-portsip-pbx#supported-linux-os), [Preparing the Linux Host Machine for Installation](https://support.portsip.com/portsip-pbx-user-guide/portsip-pbx-administration-guide-v16.x/1-installation-of-the-portsip-pbx#preparing-the-linux-host-machine-for-installation), and [Certificates for TLS/HTTPS/WebRTC](certificates-for-tls-https-webrtc/) carefully.
 
 ### Install PortSIP PBX and SBC
 
@@ -123,7 +123,7 @@ You can download the PortSIP SBC installer at [PortSIP Website](https://www.port
 
 ### Configure the PortSIP SBC
 
-1. Prepare the SSL certificate as the guide [TLS Certificates for TLS/HTTPS/WebRTC](../certificates-for-tls-https-webrtc/).
+1. Prepare the SSL certificate as the guide [TLS Certificates for TLS/HTTPS/WebRTC](certificates-for-tls-https-webrtc/).
 2. Go to [https://uc.portsip.cc:8883](https://uc.portsip.io:8883) in the browser and log in using the credentials`admin/admin`. If the browser displays the SSL certificate warning, ignore the warning and continue processing.
 3. Choose **Settings > TLS Certificates** from the menu, click **Add** button, and enter "**SBC Host Name**" for the **Description** field as an example; enter`uc.portsip.cc` for the **TLS Domain**. Open the **portsip.pem** file in Windows Notepad and copy the contents into the **Certificate Context** field. Copy and paste the contents of the **portsip.key** file into the **Private Key Context** field, and turn on the option **This is SBC Web Domain Certificate**. Click the **OK** button to save the certificates.
 4. Select **Settings > Network** from the menu, then fill in the field **Web Domain** with `uc.portsip.cc`, **Private IPv4** with`192.168.1.72`, and Public IPv4 with `66.175.221.120`. By default, the **Create default transports automatically** option is turned on, and the SBC will create the default transports after successfully setting up the SBC IP address. We suggest keeping this turned on to create the default transports.
@@ -150,9 +150,9 @@ You can download the PortSIP SBC installer at [PortSIP Website](https://www.port
     * Add the **TLS** transport for the SBC to communicate with Microsoft Teams as in the below screenshot, please choose the **SBC public IP** for the **Network Interface**.
     * Add a **UDP** transport for the SBC to provide the normal SIP service as in the below screenshot, please choose the **SBC public IP** for the **Network Interface**.
 
-<figure><img src="../../../.gitbook/assets/sbc_transports_1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/sbc_transports_1.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/sbc_transports_2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/sbc_transports_2.png" alt=""><figcaption></figcaption></figure>
 
 &#x20;12\. If you created your own transport in **step 11** rather than using the default transport, please open the ports of your transport on the firewall with the below commands. For example, if you create a **UDP** transport on port **5066**, **TCP** transport on port **5069**, **TLS** transport on port **5067**, and **WSS** transport on port **5065**, please execute the below commands.
 
@@ -182,7 +182,7 @@ Assuming we want to install the PortSIP PBX and SBC with the following configura
 * The domain `uc.portsip.cc` has been resolved to the PBX server **192.168.1.72**, this step is not necessary.
 * A trusted **Wildcard SSL certificate** for the domain `portsip.cc`
 
-Please read the [Supported Linux OS](https://support.portsip.com/portsip-pbx-user-guide/portsip-pbx-administration-guide-v16.x/1-installation-of-the-portsip-pbx#supported-linux-os), [Preparing the Linux Host Machine for Installation](https://support.portsip.com/portsip-pbx-user-guide/portsip-pbx-administration-guide-v16.x/1-installation-of-the-portsip-pbx#preparing-the-linux-host-machine-for-installation), and [TLS Certificates for TLS/HTTPS/WebRTC](../certificates-for-tls-https-webrtc/) carefully.
+Please read the [Supported Linux OS](https://support.portsip.com/portsip-pbx-user-guide/portsip-pbx-administration-guide-v16.x/1-installation-of-the-portsip-pbx#supported-linux-os), [Preparing the Linux Host Machine for Installation](https://support.portsip.com/portsip-pbx-user-guide/portsip-pbx-administration-guide-v16.x/1-installation-of-the-portsip-pbx#preparing-the-linux-host-machine-for-installation), and [TLS Certificates for TLS/HTTPS/WebRTC](certificates-for-tls-https-webrtc/) carefully.
 
 ### Install PortSIP PBX and SBC
 
@@ -236,7 +236,7 @@ You can download the PortSIP SBC installer at [PortSIP Website](https://www.port
 
 ### Configure the PortSIP SBC
 
-1. Prepare a **wildcard SSL certificate** as the guide [Preparing SSL Certificates for TLS/HTTPS/WebRTC](../certificates-for-tls-https-webrtc/).
+1. Prepare a **wildcard SSL certificate** as the guide [Preparing SSL Certificates for TLS/HTTPS/WebRTC](certificates-for-tls-https-webrtc/).
 2. Go to [https://sbc.portsip.cc:8883](https://sbc.portsip.io:8883) in the browser and log in using the credentials`admin/admin`. If the browser displays the SSL certificate warning, ignore the warning and continue processing.
 3. Choose **Settings > TLS Certificates** from the menu, click the **Add** button, and type "**SBC Host Name"** for the **Description** field as an example; enter `portsip.cc` for the **TLS Domain**. Open the **portsip.pem** file in Windows Notepad and copy the contents into the **Certificate Context** field. Copy and paste the contents of the **portsip.key** file into the **Private Key Context** field, and turn on the option **This is SBC Web Domain Certificate**. Click the **OK** button to save the certificates.
 4. Select **Settings > Network** from the menu, then fill in the field **Web Domain** with `portsip.cc`, **Private IPv4** with`192.168.1.73`, and Public IPv4 with `66.175.221.120`. By default, the **Create default transports automatically** option is turned on, and the SBC will create the default transports after successfully setting up the SBC IP address.&#x20;
@@ -263,9 +263,9 @@ You can download the PortSIP SBC installer at [PortSIP Website](https://www.port
     * Add the **TCP** transport for SBC to communicate with the PBX, please refer to the below screenshot, and choose the **SBC private IP** for the **Network Interface**;&#x20;
 11. Choose **Settings > Transports** from the menu. The SBC requires adding three types of transport here. One is for the WebRTC clients, one for Microsoft Teams, and one for the SBC to communicate with the PBX. After the above **step 4** is completed with the **Create default transports automatically** option on, the SBC will create the default transport automatically. **These default transports aren't recommended to be changed.**
 
-<figure><img src="../../../.gitbook/assets/sbc_transports_1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/sbc_transports_1.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/sbc_transports_2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/sbc_transports_2.png" alt=""><figcaption></figcaption></figure>
 
 12. &#x20;If you created your own transport in **step 9** rather than using the default transport, please open the ports of your transport on the firewall with the below commands. For example, if you create a **UDP** transport on port **5066**, **TCP** transport on port **5069**, **TLS** transport on port **5067**, and **WSS** transport on port **5065**, please execute the below commands.&#x20;
 
@@ -317,7 +317,7 @@ To prevent the PBX from limiting the request rate, we need to add the SBC IP to 
 
 To do this, sign in as the System Administrator and select the menu **IP Blacklist** > **Add**. Then enter the SBC IP as shown in the screenshot below and choose a long **expiration date.**
 
-<figure><img src="../../../.gitbook/assets/sbc_whitelist.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/sbc_whitelist.png" alt=""><figcaption></figcaption></figure>
 
 ### Check opened firewall ports
 

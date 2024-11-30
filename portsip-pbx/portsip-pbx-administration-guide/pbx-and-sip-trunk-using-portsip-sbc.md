@@ -25,7 +25,7 @@ Please follow the below topics to install and configure the PBX:
 
 Please follow the below topics to install and configure the SBC:
 
-* [Configuring SBC for WebRTC](9-configuring-portsip-sbc/)
+* [Configuring SBC for WebRTC](9-configuring-sbc-for-webrtc.md)
 
 ## 4 Adding SIP trunk to the PortSIP PBX
 
