@@ -14,6 +14,10 @@ Please follow the article [Backup and Restore: An Essential Guide](https://suppo
 Rest assured, if all steps are followed correctly, your PBX data will remain intact throughout the upgrade process.
 {% endhint %}
 
+{% hint style="warning" %}
+All commands must be executed in the **`/opt/portsip`** directory.
+{% endhint %}
+
 ## Prerequisites for Upgrading from v16.x
 
 If your current installation is running a version lower than v16.4.4, please first follow the [**Upgrading to the Latest v16.x Release**](../installation-of-portsip-pbx-v16/upgrade-portsip-pbx-to-v16.x.md) guide to complete the upgrade to v16.4.4.
@@ -21,10 +25,6 @@ If your current installation is running a version lower than v16.4.4, please fir
 Once your PBX is upgraded to the latest v16.x, follow the steps below to remove the v16.x installation.
 
 ### Remove the current PBX installation
-
-{% hint style="warning" %}
-All commands must be executed in the **`/opt/portsip`** directory.
-{% endhint %}
 
 #### 1: Stop PBX docker instances <a href="#step-1-stop-pbx-docker-instance" id="step-1-stop-pbx-docker-instance"></a>
 
@@ -72,10 +72,6 @@ rm pbx_ctl.sh
 ```
 
 ### Remove the current SBC installation
-
-{% hint style="warning" %}
-All commands must be executed in the **`/opt/portsip`** directory.
-{% endhint %}
 
 If you installed **PortSIP SBC 10.x** with PortSIP PBX v16.x, you will also need to upgrade to **v11.x** for compatibility with PortSIP PBX v22.x.&#x20;
 
@@ -132,10 +128,6 @@ If your current installation is already PortSIP PBX v22.x and you need to upgrad
 
 ### Remove the current PBX installation
 
-{% hint style="warning" %}
-All commands must be executed in the **`/opt/portsip`** directory.
-{% endhint %}
-
 #### 1: Stop PBX docker instances <a href="#step-1-stop-pbx-docker-instance" id="step-1-stop-pbx-docker-instance"></a>
 
 Perform the following commands as root to stop the current PBX Docker instance:
@@ -182,10 +174,6 @@ rm init.sh
 ```
 
 ### Remove the current SBC installation
-
-{% hint style="warning" %}
-All commands must be executed in the **`/opt/portsip`** directory.
-{% endhint %}
 
 If you installed the PortSIP SBC 11.x with the PortSIP PBX 22.x, please follow the below steps to remove it.
 
@@ -239,10 +227,6 @@ If you installed the IM service with PBX on the same server, please ignore this 
 {% endhint %}
 
 If you have an IM service installed on a separate server, follow the steps below to remove it.
-
-{% hint style="warning" %}
-All commands must be executed in the **`/opt/portsip`** directory.
-{% endhint %}
 
 First, use SSH to connect to the separate IM server.&#x20;
 
