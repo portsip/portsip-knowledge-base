@@ -151,6 +151,32 @@ To do this, please follow the below steps:
 
 ### **Step 5: Create and Run Instant Messaging Docker Instance**
 
+{% hint style="warning" %}
+All commands must be executed in the **`/opt/portsip`** directory.
+{% endhint %}
+
+Perform the below commands to download the installation scripts and initialize the environment:
+
+```sh
+sudo curl \
+https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/init.sh  \
+-o  init.sh
+```
+
+```sh
+sudo /bin/sh init.sh
+```
+
+Execute the below command to install the `Docker-Compose` environment. If you get the prompt likes`*** cloud.cfg (Y/I/N/O/D/Z) [default=N] ?`, enter the **Y** and then press the **Enter** button.
+
+```sh
+cd /opt/portsip
+```
+
+```sh
+sudo /bin/sh install_docker.sh
+```
+
 Use the following command to create the Instant Messaging (IM) service Docker instance on the IM server (IP **192.168.1.25)**. Replace each parameter with your actual values:
 
 * **-E**: Specifies that the IM server is installed in extended mode (required).
