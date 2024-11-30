@@ -74,6 +74,10 @@ sudo /bin/sh sbc_ctl.sh run -p /var/lib/portsip -i portsip/sbc:10
 
 You can download the PortSIP SBC installer at [PortSIP Website](https://www.portsip.com/download-portsip-sbc/), just double click the installer and follow the instructions to install it.
 
+### Configuring PortSIP SBC
+
+Now follow the guide [Configure PortSIP SBC on the Same Server as PortSIP PBX](installing-sbc-v11/configuring-sbc-v11-for-webrtc.md#configure-portsip-sbc-on-the-same-server-as-portsip-pbx) to complete the SBC configuration.
+
 ## Install the PortSIP SBC on a Separate Server
 
 Typically, the PortSIP SBC is deployed on a separate server from the PortSIP PBX. In this configuration, the SBC acts as a front-end component, while the PBX remains transparent to the end users.
@@ -121,4 +125,8 @@ sudo /bin/sh sbc_ctl.sh run -p /var/lib/portsip -i portsip/sbc:10
 ### Install PortSIP SBC for Windows
 
 You can download the PortSIP SBC installer from the [PortSIP Website](https://www.portsip.com/download-portsip-sbc/). Simply double-click the installer and follow the on-screen instructions to complete the installation.
+
+### Configuring PortSIP SBC
+
+Now follow the guide [Configure PortSIP SBC on a Separate Server](installing-sbc-v11/configuring-sbc-v11-for-webrtc.md#configure-portsip-sbc-on-a-separate-server) to complete the SBC configuration.
 

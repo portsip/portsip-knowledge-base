@@ -40,7 +40,7 @@ All commands must be executed in the **`/opt/portsip`** directory.
 
 ## Prerequisites
 
-Assume that you have successfully installed the PortSIP PBX following the instructions in the [Installation of the PortSIP PBX](../1-installation-of-the-portsip-pbx.md) guide.
+Assume that you have successfully installed the PortSIP PBX following the instructions in the [Installation of the PortSIP PBX](../../1-installation-of-the-portsip-pbx.md) guide.
 
 ## Install the PortSIP SBC and PBX on the Same Server
 
@@ -51,7 +51,7 @@ For this example, assume the following server configuration:
 * **Private IP**: 192.168.1.72
 * **Public IP**: 66.175.221.120
 * The domain **uc.portsip.cc** is resolved to the public IP address **66.175.221.120**.
-* A trusted SSL certificate(not self-signed) is installed for the domain **uc.portsip.cc**. Please follow the article [Certificates for TLS/HTTPS/WebRTC](../certificates-for-tls-https-webrtc/) to prepare the certificates.
+* A trusted SSL certificate(not self-signed) is installed for the domain **uc.portsip.cc**. Please follow the article [Certificates for TLS/HTTPS/WebRTC](../../certificates-for-tls-https-webrtc/) to prepare the certificates.
 
 ### Install PortSIP SBC for Linux
 
@@ -69,6 +69,10 @@ sudo /bin/sh sbc_ctl.sh run -p /var/lib/portsip -i portsip/sbc:11
 
 You can download the PortSIP SBC installer at [PortSIP Website](https://www.portsip.com/download-portsip-sbc/), just double click the installer and follow the instructions to install it.
 
+### Configuring PortSIP SBC
+
+Now follow the guide [Configure PortSIP SBC on the Same Server as PortSIP PBX](configuring-sbc-v11-for-webrtc.md#configure-portsip-sbc-on-the-same-server-as-portsip-pbx) to complete the SBC configuration.
+
 ## Install the PortSIP SBC on a Separate Server
 
 Typically, the PortSIP SBC is deployed on a separate server from the PortSIP PBX. In this configuration, the SBC acts as a front-end component, while the PBX remains transparent to the end users.
@@ -80,7 +84,7 @@ Assuming the following server configuration for installation:
 * **SBC Server (Public IP)**: 66.175.221.120
 * The domain **sbc.portsip.cc** is resolved to the SBC server's public IP, **66.175.221.120**.
 * The domain **uc.portsip.cc** is resolved to the PBX server's private IP, **192.168.1.72**. (Note: This step is not necessary for the SBC deployment.)
-* A trusted **Wildcard SSL certificate**(not self-signed) is installed for the domain **portsip.cc**. Please follow the article [Certificates for TLS/HTTPS/WebRTC](../certificates-for-tls-https-webrtc/) to prepare the certificates.
+* A trusted **Wildcard SSL certificate**(not self-signed) is installed for the domain **portsip.cc**. Please follow the article [Certificates for TLS/HTTPS/WebRTC](../../certificates-for-tls-https-webrtc/) to prepare the certificates.
 
 ### Install PortSIP SBC for Linux
 
@@ -119,4 +123,10 @@ sudo /bin/sh sbc_ctl.sh run -p /var/lib/portsip -i portsip/sbc:11
 ### Install PortSIP SBC for Windows
 
 You can download the PortSIP SBC installer from the [PortSIP Website](https://www.portsip.com/download-portsip-sbc/). Simply double-click the installer and follow the on-screen instructions to complete the installation.
+
+### Configuring PortSIP SBC
+
+Now follow the guide [Configure PortSIP SBC on a Separate Server](configuring-sbc-v11-for-webrtc.md#configure-portsip-sbc-on-a-separate-server) to complete the SBC configuration.
+
+
 

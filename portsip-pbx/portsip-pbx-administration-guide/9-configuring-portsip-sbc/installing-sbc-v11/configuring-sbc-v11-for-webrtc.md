@@ -1,12 +1,12 @@
 # Configuring PortSIP SBC for WebRTC
 
-After successfully installing the PortSIP SBC following the [Installation of PortSIP SBC v11.x](installing-sbc-v11.md) guide, you can now configure the SBC for the WebRTC feature.
+After successfully installing the PortSIP SBC following the [Installation of PortSIP SBC v11.x](./) guide, you can now configure the SBC for the WebRTC feature.
 
 ## Configure PortSIP SBC on the Same Server as PortSIP PBX
 
 If you installed the PortSIP SBC on the _**same server as the PortSIP PBX**_, please follow the below steps to configure it.
 
-1. Prepare the SSL certificate as outlined in the guide for [TLS Certificates for TLS/HTTPS/WebRTC](../certificates-for-tls-https-webrtc/), You will have the `portsip.pem`  `portsip.key` files.
+1. Prepare the SSL certificate as outlined in the guide for [TLS Certificates for TLS/HTTPS/WebRTC](../../certificates-for-tls-https-webrtc/), You will have the `portsip.pem`  `portsip.key` files.
 2. Open `https://66.175.221.120:8883` in the browser and log in using the credentials `admin/admin`. Just ignore the browser SSL certificate warning and continue processing.
 3.  Choose **Settings > TLS Certificates** from the menu, click the **Add** button:
 
@@ -53,7 +53,7 @@ If you installed the PortSIP SBC on the _**same server as the PortSIP PBX**_, pl
 
 If you installed the PortSIP SBC on _**a separate server from the PortSIP PBX**_, please follow the below steps to configure it.
 
-1. Prepare the SSL certificate as outlined in the guide for [TLS Certificates for TLS/HTTPS/WebRTC](../certificates-for-tls-https-webrtc/), You will have the `portsip.pem`  `portsip.key` files.
+1. Prepare the SSL certificate as outlined in the guide for [TLS Certificates for TLS/HTTPS/WebRTC](../../certificates-for-tls-https-webrtc/), You will have the `portsip.pem`  `portsip.key` files.
 2. Open `https://66.175.221.120:8883` in the browser and log in using the credentials `admin/admin`. Just ignore the browser SSL certificate warning and continue processing.
 3.  Choose **Settings > TLS Certificates** from the menu, click the **Add** button:
 
@@ -105,9 +105,9 @@ To prevent the PBX from limiting the request rate, you need to add the SBC IP ad
 3. Enter the SBC IP address, as shown in the screenshot below.
 4. Set a long expiration date for the entry to ensure it remains valid for an extended period.
 
-<figure><img src="../../../.gitbook/assets/sbc_whitelist.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/sbc_whitelist.png" alt=""><figcaption></figcaption></figure>
 
-### Check opened firewall ports
+## Check opened firewall ports
 
 The below commands are used to check currently opened ports for PortSIP SBC.
 
