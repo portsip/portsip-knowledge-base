@@ -4,6 +4,10 @@
 The PortSIP SBC v11.0 has not been released, please don't install it at this moment.
 {% endhint %}
 
+{% hint style="warning" %}
+If your PortSIP PBX is running v22.x, you will need to install PortSIP SBC v11.x to use the latest WebRTC app.
+{% endhint %}
+
 Before proceeding, please review the following sections carefully:
 
 ## Supported OS
@@ -18,7 +22,7 @@ Before proceeding, please review the following sections carefully:
 Tasks that MUST be completed before installing PortSIP PBX
 
 * **Ensure the server date-time is synced correctly**.
-* For the Linux, use the `sudo` to perform the installation is recommended. For Windows, it requires the Administrator user.
+* For Linux, using the `sudo` to perform the installation is recommended. For Windows, it requires the Administrator user.
 * If the server on which SBC will be installed is located on a LAN, assign &#x61;**`static private IP address`**&#x74;o the PBX server; if it's on a public network, assign &#x61;**`static public IP address`** and a **`static private IP`** to the PBX server.
 * Install all available updates and service packs before installing PortSIP SBC.
 * Do not install **PostgreSQL** on your PortSIP SBC Server.
