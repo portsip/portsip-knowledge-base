@@ -10,6 +10,10 @@ This guide provides step-by-step instructions for upgrading your current PortSIP
 
 Please follow the article [Backup and Restore: An Essential Guide](https://support.portsip.com/portsip-pbx/portsip-pbx-administration-guide/backup-and-restore) to back up the PBX and SBC.
 
+{% hint style="info" %}
+Rest assured, if all steps are followed correctly, your PBX data will remain intact throughout the upgrade process.
+{% endhint %}
+
 ## Prerequisites for Upgrading from v16.x
 
 If your current installation is running a version lower than v16.4.4, please first follow the [**Upgrading to the Latest v16.x Release**](../installation-of-portsip-pbx-v16/upgrade-portsip-pbx-to-v16.x.md) guide to complete the upgrade to v16.4.4.
