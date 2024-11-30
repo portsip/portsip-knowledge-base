@@ -12,10 +12,9 @@ Please follow the article [Backup and Restore: An Essential Guide](https://suppo
 
 ## Prerequisites for Upgrading from v16.x
 
-* If your current installation is PortSIP PBX v16.x, you must first upgrade to the latest version within v16.x (v16.4.4) before proceeding to v22.x.
-* Upgrades to v22.x are only supported from v16.4.4. If your installation is a version lower than v16.4.4, please follow the [**Upgrading to the Latest v16.x Release**](../installation-of-portsip-pbx-v16/upgrade-portsip-pbx-to-v16.x.md) to complete the necessary upgrade to v16.4.4 first.
+Since upgrades to v22.x are only supported from v16.4.4, if your current installation is running a version lower than v16.4.4, please first follow the [**Upgrading to the Latest v16.x Release**](../installation-of-portsip-pbx-v16/upgrade-portsip-pbx-to-v16.x.md) guide to complete the upgrade to v16.4.4.
 
-Once your PBX is upgraded to the latest v16.x, please follow the below steps to remove the v16.x installation.
+Once your PBX is upgraded to the latest v16.x, follow the steps below to remove the v16.x installation.
 
 ### Remove the current PBX installation
 
@@ -25,7 +24,7 @@ All commands must be executed in the **`/opt/portsip`** directory.
 
 #### 1: Stop PBX docker instances <a href="#step-1-stop-pbx-docker-instance" id="step-1-stop-pbx-docker-instance"></a>
 
-Perform the following commands as root to stop the current PBX Docker instance:
+Perform the following commands to stop the PBX Docker instance:
 
 ```sh
 cd /opt/portsip
@@ -52,13 +51,15 @@ You will get a similar result, as shown in the screenshot below.
 
 <figure><img src="../../../../.gitbook/assets/docker_image.png" alt=""><figcaption></figcaption></figure>
 
-You can use the following command to delete Docker images using the first 4 digits of the IMAGE ID for **PBX** and **Postgresql**, in this case, is **03b8** and **d569**.
+You can use the following command to delete Docker images using the first 4 digits of the IMAGE ID for **PBX** and **Postgresql**, in this case, it's **03b8** and **d569**.
 
 ```
 docker image rm 03b8 d569 
 ```
 
 #### 4: Delete the scripts <a href="#step-4-delete-the-pbx-scripts" id="step-4-delete-the-pbx-scripts"></a>
+
+Use the below commands to delete the current scripts.
 
 ```sh
 rm install_pbx_docker.sh
@@ -72,11 +73,13 @@ rm pbx_ctl.sh
 All commands must be executed in the **`/opt/portsip`** directory.
 {% endhint %}
 
-If you installed the PortSIP SBC 10.x with the PortSIP PBX v16.x, please follow the below steps to remove it.
+If you installed **PortSIP SBC 10.x** with PortSIP PBX v16.x, you will also need to upgrade to **v11.x** for compatibility with PortSIP PBX v22.x.&#x20;
+
+Please follow the steps below to remove the current installation.
 
 #### 1: Stop SBC docker instances <a href="#step-1-stop-pbx-docker-instance" id="step-1-stop-pbx-docker-instance"></a>
 
-Perform the following commands as root to stop the current SBC Docker instance:
+Perform the following commands to stop the SBC Docker instance:
 
 ```sh
 cd /opt/portsip
@@ -111,6 +114,8 @@ sudo docker image rm 9f51
 
 #### 4: Delete the scripts <a href="#step-4-delete-the-pbx-scripts" id="step-4-delete-the-pbx-scripts"></a>
 
+Use the below commands to delete the current scripts.
+
 ```sh
 rm install_pbx_docker.sh
 rm install_docker.sh
@@ -119,7 +124,7 @@ rm sbc_ctl.sh
 
 ## Prerequisites for Upgrading within v22.x
 
-If your current installation is already PortSIP PBX v22.x and you need to upgrade to the latest v22.x, please follow the below steps to remove the current v22.x installation.
+If your current installation is already PortSIP PBX v22.x and you need to upgrade to the latest v22.x version, please follow the steps below to remove the existing v22.x installation.
 
 ### Remove the current PBX installation
 
