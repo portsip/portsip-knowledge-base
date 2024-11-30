@@ -9,6 +9,10 @@ You have two options for deploying the PortSIP IM Server:
 1. **Same server as PortSIP PBX**: If you have a smaller number of users, you can install the IM Service on the same server as your PortSIP PBX. This setup is simpler but may not provide optimal performance for larger user bases.
 2. **Separate server**: For better performance, especially when dealing with a large number of users who require chat and file-sharing capabilities, it is recommended to install the IM Server on a separate, more powerful server.
 
+{% hint style="warning" %}
+All commands must be executed in the **`/opt/portsip`** directory.
+{% endhint %}
+
 ## Install IM Service on the Same Server as PortSIP PBX
 
 Follow these steps to install the IM server on the same server as PortSIP PBX.
