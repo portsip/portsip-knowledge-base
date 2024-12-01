@@ -1,7 +1,7 @@
 # Summary of Changes
 
 {% hint style="info" %}
-Please follow the [guide ](upgrading-portsip-sbc-to-new-versions.md)to upgrading your PortSIP SBC to the latest version.
+Please follow the [guide ](broken-reference)to upgrading your PortSIP SBC to the latest version.
 {% endhint %}
 
 ## Changes for Release v10.1.2

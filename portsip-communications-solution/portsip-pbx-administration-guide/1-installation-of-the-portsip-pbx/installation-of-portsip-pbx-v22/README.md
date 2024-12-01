@@ -388,3 +388,79 @@ If you uploaded a trusted SSL certificate in **Step 2: SSL Certificate** (instea
 
 Now the PortSIP PBX is successfully installed, you can use [https://uc.portsip.cc:8887](https://uc.portsip.cc:8887) to access the PortSIP PBX web portal.
 
+## Managing PortSIP PBX Docker Instance
+
+First, you will need to at the `/opt/portsip` folder, then you can use the following commands to manage the PortSIP PBX docker instance.
+
+```sh
+cd /opt/portsip
+```
+
+### Show the PBX Docker Instance Status
+
+<pre class="language-sh"><code class="lang-sh"><strong>sudo /bin/sh pbx_ctl.sh status
+</strong></code></pre>
+
+### Start the PBX Docker Instance
+
+```bash
+sudo /bin/sh pbx_ctl.sh start
+```
+
+### Stop the PBX Docker Instance
+
+```bash
+sudo /bin/sh pbx_ctl.sh stop
+```
+
+### Restart the PBX Docker Instance
+
+```bash
+sudo /bin/sh pbx_ctl.sh restart
+```
+
+### Delete the PBX Docker Instance
+
+This command will not delete the data of the PBX.
+
+<pre class="language-bash"><code class="lang-bash"><strong>sudo /bin/sh pbx_ctl.sh rm
+</strong></code></pre>
+
+## Managing PortSIP IM Service Docker Instance
+
+First, you will need to at the `/opt/portsip` folder, then you can use the following commands to manage the PortSIP IM Service docker instance.
+
+```sh
+cd /opt/portsip
+```
+
+### Show the IM Service Docker Instance Status
+
+<pre class="language-sh"><code class="lang-sh"><strong>sudo /bin/sh im_ctl.sh status
+</strong></code></pre>
+
+### Start the IM ServiceDocker Instance
+
+```bash
+sudo /bin/sh im_ctl.sh start
+```
+
+### Stop the IM ServiceDocker Instance
+
+```bash
+sudo /bin/sh im_ctl.sh stop
+```
+
+### Restart the IM ServiceDocker Instance
+
+```bash
+sudo /bin/sh im_ctl.sh restart
+```
+
+### Delete the IM ServiceDocker Instance
+
+This command will not delete the data of the PBX.
+
+<pre class="language-bash"><code class="lang-bash"><strong>sudo /bin/sh im_ctl.sh rm
+</strong></code></pre>
+

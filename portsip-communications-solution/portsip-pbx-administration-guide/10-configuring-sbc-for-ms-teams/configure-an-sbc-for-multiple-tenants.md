@@ -30,11 +30,11 @@ Now, create three tenants and set their respective SIP domains to **sbc1.custome
 
 ## 3 Configuring the PortSIP SBC
 
-Please install the PortSIP SBC by following the guide [Installation of the PortSIP SBC](../../portsip-sbc-administration-guide/1-installation-of-the-portsip-sbc.md).&#x20;
+Please install the PortSIP SBC by following the guide [Installation of the PortSIP SBC](broken-reference).&#x20;
 
 To configure the PortSIP SBC for multiple tenants, please follow the [guide ](configuring-sbc-and-pbx.md)and pay attention to the following points:
 
-* When [adding the TLS certificate](../../portsip-sbc-administration-guide/2-configure-the-portsip-sbc.md#2.1-tls-certificates), enter **customers.adatum.biz** as the TLS domain and select the option **This is an SBC Web Domain Certificate.** Then, copy and paste the wildcard certificate of the domain **\*.customers.adatum.biz** to add the TLS certificate.
+* When [adding the TLS certificate](broken-reference), enter **customers.adatum.biz** as the TLS domain and select the option **This is an SBC Web Domain Certificate.** Then, copy and paste the wildcard certificate of the domain **\*.customers.adatum.biz** to add the TLS certificate.
 * When [adding the Teams Base Domain](configuring-sbc-and-pbx.md#1-add-teams-base-domain), enter **customers.adatum.biz** as the Teams Base Domain.
 * From the menu, select **Settings > Network** and enter **customers.adatum.biz** in the **Web Domain** field.
 

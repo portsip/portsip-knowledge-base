@@ -20,7 +20,7 @@ Remember, it’s always a good idea to test the restore process periodically to 
 
 ### **Linux**&#x20;
 
-When [installing PortSIP PBX for Linux](../../portsip-sbc-administration-guide/1-installation-of-the-portsip-sbc.md#step-3-create-and-run-the-portsip-sbc-docker-container-instance), in step 3, you typically use the following command to create the PortSIP PBX Docker instance:
+When [installing PortSIP PBX for Linux](broken-reference), in step 3, you typically use the following command to create the PortSIP PBX Docker instance:
 
 ```shell
 /bin/sh pbx_ctl.sh \
