@@ -208,10 +208,10 @@ You will get a similar result, as shown in the screenshot below.
 
 <figure><img src="../../../../.gitbook/assets/portsip_sbc_v22_docker_image.png" alt=""><figcaption></figcaption></figure>
 
-You can use the following command to delete Docker images by specifying the first 4 digits of the IMAGE ID for **SBC**. In this case, the IMAGE ID is **bc66** for **SBC**:
+You can use the following command to delete Docker images by specifying the first 4 digits of the IMAGE ID for **SBC**. In this case, the IMAGE ID is **b6cc** for **SBC**:
 
 ```
-docker image rm bc66
+docker image rm b6cc
 ```
 
 #### 4: Delete the scripts <a href="#step-4-delete-the-pbx-scripts" id="step-4-delete-the-pbx-scripts"></a>
