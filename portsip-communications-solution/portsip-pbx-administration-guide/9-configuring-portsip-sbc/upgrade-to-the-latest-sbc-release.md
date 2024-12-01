@@ -114,41 +114,15 @@ rm init.sh
 
 You are now ready to upgrade to the latest version of PortSIP PBX v11.x.
 
+## Upgrade to the Latest PortSIP SBC v11.x <a href="#upgrade-to-the-latest-portsip-pbx-v22.x" id="upgrade-to-the-latest-portsip-pbx-v22.x"></a>
 
+After removing the current installation, proceed with the [Installation of PortSIP SBC v11.x](installation-portsip-sbc-v11.x.md), simply follow the same steps as for a fresh installation, and the installer will automatically manage the data upgrade process.&#x20;
 
-
-
-###
-
-Your SBC has now been successfully upgraded to the latest version.
-
-### Update PBX token after upgrading
-
-{% hint style="danger" %}
-If your PBX is upgraded to v16.1, you must upgrade your SBC to v10.0.6, since in the v16.1.0, the PBX token is changed.
-{% endhint %}
-
-After successfully upgrading to PBX v16.1.0 and SBC v10.0.6, please follow the following steps to update the PBX token.
-
-1. Sign in to the PBX web portal [https:/your-pbx-domain:8887](https://https/your-pbx-domain:8887) as System Administrator, and click the menu **Advanced > SBC**. Even if a token already exists, click the **Generate** button to generate a new token for the SBC's access. Click the **Copy** button to copy the token.
-2. Sign in to the PortSIP SBC Web Portal at [https://uc.portsip.cc:8883](https://https/your-sbc-domain:8887). Select the menu **Settings > PBX**. Delete the current **PBX Access Token** and then paste the copied token into the **PBX Access Token** field to replace the current PBX Access Token, then click the OK button to save it.
-
-
+Your SBC is now successfully upgraded to the latest version.
 
 ## Upgrading SBC for Windows
 
 1. We suggest backing up your SBC data. The data file path is usually `c:\programdata\portsip`. You can follow the article [Backup and Restore: An Essential Guide](../backup-and-restore/).&#x20;
 2. Download the latest installer from the [PortSIP website](https://www.portsip.com/download-portsip-sbc).&#x20;
-3. Double-click the installer to install it and the upgrade will be performed automatically.
-
-### Update PBX token after upgrading
-
-{% hint style="danger" %}
-If your PBX is upgraded to v16.1, you must upgrade your SBC to v10.0.6, since in the v16.1.0, the PBX token is changed.
-{% endhint %}
-
-After successfully upgrading to PBX v16.1.0 and SBC v10.0.6, please follow the following steps to update the PBX token.
-
-1. Sign in to the PBX web portal [https:/your-pbx-domain:8887](https://https/your-pbx-domain:8887) as System Administrator, and click the menu **Advanced > SBC**. Even if a token already exists, click the **Generate** button to generate a new token for the SBC's access. Click the **Copy** button to copy the token.
-2. Sign in to the PortSIP SBC Web Portal at [https://uc.portsip.cc:8883](https://https/your-sbc-domain:8887). From the menu, select **Settings > PBX**. Delete the current **PBX Access Token** and then paste the copied token into the **PBX Access Token** field to replace the current PBX Access Token, then click the OK button to save it.
+3. Double-click the installer to begin the installation process, and the upgrade will be performed automatically.
 
