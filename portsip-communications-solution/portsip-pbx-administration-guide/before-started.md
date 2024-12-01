@@ -59,7 +59,7 @@ This document assumes that the Windows OS has already been deployed and administ
 
 ## Remove the PBX v12.x Installation
 
-{% hint style="info" %}
+{% hint style="danger" %}
 Please ignore this section if you haven't installed the PortSIP PBX v12.x version.
 {% endhint %}
 
@@ -80,13 +80,13 @@ To build a high-availability communication solution to help clients reduce cost 
 * Amazon AWS
 * Google Could
 * Digital Ocean
-* ALI Cloud
+* Linode
 
 ## System Performance Depends On the Following Key Factors
 
 * Maximum simultaneous calls needed for PBX
 * Maximum online users needed for PBX
-* Maximum users to chat and sharing files in chat
+* Maximum users to chat and share files in chat
 * Maximum chat groups
 * Recordings for calls
 * Recording audio only or both audio and video
@@ -99,8 +99,8 @@ Depending on the key features listed above, PortSIP PBX is able to run on PCs an
 
 ## Other Requirements
 
-* Latest Firefox, Google Chrome, Edge browser
-* Microsoft .NET Framework version 4.5 or higher
+* Latest Firefox, Google Chrome, and Edge browser
+* Microsoft.NET Framework version 4.5 or higher
 * Knowledge of Linux and Linux Internet administration
 * Knowledge of Windows and Windows Internet administration
 * A constant Internet connection to stun4.l.google.com on port 19302
@@ -119,9 +119,9 @@ The FQDN you are using must be resolved correctly on the server with PortSIP PBX
 
 ## Prepare the TLS certificate
 
-When there is a need for additional security of the SIP traffic, the Transport Layer Security (TLS) is used to secure the device's SIP signaling connections. In TLS protocol, the data is encrypted and protected. TLS communication requires the certificate to authenticate the recipient of the secured data.
+When there is a need for additional security of the SIP traffic, Transport Layer Security (TLS) is used to secure the device's SIP signaling connections. In TLS protocol, the data is encrypted and protected. TLS communication requires the certificate to authenticate the recipient of the secured data.
 
-PortSIP PBX and SBC use certificates to deliver secured SIP traffic and services and support WebRTC and Microsoft Teams Direct Routing. In addition, certificates are used to provide secure access to the device, and Web (HTTPS) sessions.
+PortSIP PBX and SBC use certificates to deliver secured SIP traffic and services and support WebRTC and Microsoft Teams Direct Routing. In addition, certificates are used to provide secure access to the device and Web (HTTPS) sessions.
 
 Please read [this topic](certificates-for-tls-https-webrtc/) to prepare a trusted SSL certificate.
 
@@ -132,3 +132,4 @@ Please read [this topic](certificates-for-tls-https-webrtc/) to prepare a truste
 [Submit a request](https://portsip.zendesk.com/hc/en-us/requests/new)
 
 [Email support](mailto:support@portsip.com)
+
