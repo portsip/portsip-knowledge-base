@@ -1,6 +1,6 @@
-# Installation of the PortSIP IM Server
+# Installation of PortSIP IM Server
 
-The installation of the IM Server is a separate step, required only when PortSIP PBX is installed on a Linux server.
+The installation of the IM Server is a separate step, required only when PortSIP PBX is installed on a **Linux server**.
 
 Before proceeding with this guide, ensure that you have already completed **steps 1–4** of the [Installation of the PortSIP PBX v22.x](./).
 
@@ -74,26 +74,26 @@ It only supports 64-bit OS.
 
 For this setup, we assume:
 
-* The PortSIP PBX is installed on a server, which has the static private IP address 192.168.1.20
-* The Instant Messaging (IM) service on a server with a static IP address of **192.168.1.25**.
+* The PortSIP PBX is installed on a server, which has the static private IP address **192.168.1.20.**
+* The Instant Messaging (IM) service will be installed on a server with a static IP address of **192.168.1.25**.
 
 ### Step 1: **Preparing the Linux server for Installation**
 
 Tasks that MUST be completed before installing cluster servers.
 
 * **Ensure the server date-time is synced correctly**.
-* If the Linux server is on a LAN, assign a **Static Private IP** address, in this case **192.168.1.25**.
+* If the Linux server is on a LAN, assign a **static private IP** address, in this case, **192.168.1.25**.
 * Install all available updates and service packs before installing the cluster server.
-* Do not install PostgreSQL on the Server.
+* Do not install PostgreSQL on the server.
 * Ensure that all power-saving options for your system and network adapters are disabled (by setting the system to High-Performance mode).
 * Do not install TeamViewer, VPN, or similar software on the host machine.
 * The server must not be installed as a DNS or DHCP server.
 
 ### Step 2: Configure the Firewall on the PBX Server <a href="#configure-the-firewall" id="configure-the-firewall"></a>
 
-To allow the separate Instant Messaging (IM) server (IP: **192.168.1.25**) to access the PBX server (IP: **192.168.1.20**), it is necessary to create appropriate firewall rules on the PBX server.
+To allow the separate Instant Messaging server (IP: **192.168.1.25**) to access the PBX server (IP: **192.168.1.20**), it is necessary to create appropriate firewall rules on the PBX server.
 
-Please execute the following commands on the PBX server (IP: **192.168.1.20**) to configure these firewall rules.
+Please execute the following commands on the **PBX server** (IP: **192.168.1.20**) to configure these firewall rules.
 
 ```sh
 sudo firewall-cmd --permanent --zone=trusted --add-source=192.168.1.25
@@ -128,11 +128,9 @@ trusted (active)
 
 ### Step 3: Configuring the IP Address Whitelist <a href="#configuring-the-ip-address-whitelist" id="configuring-the-ip-address-whitelist"></a>
 
-This step is mandatory; without it, the service will not work.
+This step is mandatory; the service will not function without it.&#x20;
 
-To prevent the PBX from limiting the IM servers' request rate, we need to add the IM servers' IPs to the whitelist in the PBX.
-
-To do this, please follow the below steps:
+To prevent the PBX from restricting the request rate to the IM servers, you must add the IM servers' IP addresses to the PBX whitelist. Follow the steps below to complete this process:
 
 1. Sign in to the PBX web portal as the System Administrator
 2. Select the menu **IP Blacklist** > **Add**.
@@ -186,7 +184,7 @@ Use the following command to create the Instant Messaging (IM) service Docker in
 * **-i**: Specifies the PBX Docker image version (required).
 * **-x**: Indicates the main PBX server's IP address (typically the private IP of the main PBX server) (required).
 * **-t**: Provides the token generated and copied in the previous step (required).
-* **-f**: Specifies the path for storing files sent in chats. This path must differ from the one specified with **-p**. If omitted, chat files will be stored in the path specified by **-p**.
+* **-f**: Specifies the path for storing files sent in chats(optional). This path must differ from the one specified with **-p**. If this parameter is omitted, chat files will be stored in the path specified by **-p.**
 
 ```sh
 sudo /bin/sh im_ctl.sh run -E \
@@ -197,7 +195,7 @@ sudo /bin/sh im_ctl.sh run -E \
 -t OWMWYWJKZJYTMWM2NI0ZNZJMLWJJZDKTMGVMZDYXNZU1NWI1
 ```
 
-Perform the below commands to restart the service (**please ensure the Main PBX service is started**).
+Perform the below commands to restart the IM service (**please ensure the PBX service on another server is started**).
 
 ```sh
 cd /opt/portsip

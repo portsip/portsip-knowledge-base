@@ -14,7 +14,7 @@
   * [Before Started](portsip-communications-solution/portsip-pbx-administration-guide/before-started.md)
   * [1 Installation of the PortSIP PBX](portsip-communications-solution/portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/README.md)
     * [Installation of PortSIP PBX v22.x](portsip-communications-solution/portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/README.md)
-      * [Installation of the PortSIP IM Server](portsip-communications-solution/portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/installation-of-the-portsip-im-server.md)
+      * [Installation of PortSIP IM Server](portsip-communications-solution/portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/installation-of-the-portsip-im-server.md)
       * [Upgrade to the Latest v22.x Release](portsip-communications-solution/portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/upgrade-portsip-pbx-to-v22.x.md)
     * [Installation of PortSIP PBX v16.x](portsip-communications-solution/portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v16/README.md)
       * [Upgrade to the Latest v16.x Release](portsip-communications-solution/portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v16/upgrade-portsip-pbx-to-v16.x.md)

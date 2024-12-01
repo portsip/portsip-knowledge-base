@@ -22,7 +22,7 @@ All commands must be executed in the **`/opt/portsip`** directory.
 
 If your current installation is running a version lower than v16.4.4, please first follow the [**Upgrading to the Latest v16.x Release**](../installation-of-portsip-pbx-v16/upgrade-portsip-pbx-to-v16.x.md) guide to complete the upgrade to v16.4.4.
 
-Once your PBX is upgraded to the latest v16.x, follow the steps below to remove the v16.x installation.
+Once your PBX is upgraded to the latest v16.x, follow the steps below to remove the v16.x installation before upgrading.
 
 ### Remove the current PBX installation
 
@@ -55,9 +55,9 @@ You will get a similar result, as shown in the screenshot below.
 
 <figure><img src="../../../../.gitbook/assets/docker_image.png" alt=""><figcaption></figcaption></figure>
 
-You can use the following command to delete Docker images using the first 4 digits of the IMAGE ID for **PBX** and **Postgresql**, in this case, it's **03b8** and **d569**.
+You can use the following command to delete Docker images by specifying the first 4 digits of the IMAGE ID for **PBX** and **Postgresql**. In this case, the IMAGE IDs are **03b8** for **PBX** and **d569** for **Postgresql**:
 
-```
+```sh
 docker image rm 03b8 d569 
 ```
 
@@ -106,7 +106,7 @@ You will get a similar result, as shown in the screenshot below.
 
 <figure><img src="../../../../.gitbook/assets/sbc_docker.png" alt=""><figcaption></figcaption></figure>
 
-You can use the following command to delete Docker images using the first 4 digits of the IMAGE ID for **SBC**, in this case, it is **9f51**.
+You can use the following command to delete Docker images by specifying the first 4 digits of the IMAGE ID for **SBC**. In this case, the IMAGE ID is **9f51** for **SBC**:
 
 ```sh
 sudo docker image rm 9f51
@@ -121,6 +121,8 @@ rm install_pbx_docker.sh
 rm install_docker.sh
 rm sbc_ctl.sh
 ```
+
+You are now ready to upgrade to the latest version of PortSIP PBX v22.x.
 
 ## Prerequisites for Upgrading within v22.x
 
@@ -157,7 +159,7 @@ You will get a similar result, as shown in the screenshot below.
 
 <figure><img src="../../../../.gitbook/assets/portsip_pbx_v22_docker_image.png" alt=""><figcaption></figcaption></figure>
 
-You can use the following command to delete Docker images using the first 4 digits of the IMAGE ID for **PBX** and **Postgresql**, in this case, they are **527b** and **d0ad**.
+You can use the following command to delete Docker images by specifying the first 4 digits of the IMAGE ID for **PBX** and **Postgresql**. In this case, the IMAGE IDs are **527b** for **PBX** and **d0ad** for **Postgresql**:
 
 ```sh
 docker image rm 527b d0ad 
@@ -206,7 +208,7 @@ You will get a similar result, as shown in the screenshot below.
 
 <figure><img src="../../../../.gitbook/assets/portsip_sbc_v22_docker_image.png" alt=""><figcaption></figcaption></figure>
 
-You can use the following command to delete Docker images using the first 4 digits of the IMAGE ID for **SBC**, in this case, it's **bc66**.
+You can use the following command to delete Docker images by specifying the first 4 digits of the IMAGE ID for **SBC**. In this case, the IMAGE ID is **bc66** for **SBC**:
 
 ```
 docker image rm bc66
@@ -261,7 +263,7 @@ You will get a similar result, as shown in the screenshot below.
 
 <figure><img src="../../../../.gitbook/assets/portsip_pbx_v22_im_docker_image.png" alt=""><figcaption></figcaption></figure>
 
-You can use the following command to delete Docker images using the first 4 digits of the IMAGE ID for **PBX** and **Postgresql**,  in this case, they are **03bd** and **d0ad**.
+You can use the following command to delete Docker images by specifying the first 4 digits of the IMAGE ID for **PBX** and **Postgresql**. In this case, the IMAGE IDs are **03b5** for **PBX** and **d0ad** for **Postgresql**:
 
 ```sh
 docker image rm 03b5 d0ad 
@@ -279,7 +281,9 @@ rm init.sh
 
 ## Upgrade to the Latest PortSIP PBX v22.x
 
-To upgrade to the latest version of PortSIP PBX v22.x, simply follow the same steps as for a fresh installation. The installer will automatically manage the data upgrade process.
+To upgrade to the latest version of PortSIP PBX v22.x, simply follow the same steps as for a fresh installation. The installer will automatically handle the data upgrade process.
 
-For detailed instructions on installing the new PortSIP PBX v22.x and Instant Messaging (IM) service, as well as completing the upgrade, please refer to the [**Installation of PortSIP PBX v22.x** ](./)Guide.
+After removing the current installation, you can now proceed with the installation of PortSIP PBX v22.x and the Instant Messaging (IM) service.&#x20;
+
+For detailed instructions and to complete the upgrade, please refer to the [**Installation of PortSIP PBX v22.x** ](./)Guide.
 
