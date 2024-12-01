@@ -390,7 +390,7 @@ Now the PortSIP PBX is successfully installed, you can use [https://uc.portsip.c
 
 ## Managing PortSIP PBX Docker Instance
 
-First, you will need to at the `/opt/portsip` folder, then you can use the following commands to manage the PortSIP PBX docker instance.
+After successfully installed the PortSIP PBX, then you can use the following commands to manage the PortSIP PBX docker instance.
 
 ```sh
 cd /opt/portsip
