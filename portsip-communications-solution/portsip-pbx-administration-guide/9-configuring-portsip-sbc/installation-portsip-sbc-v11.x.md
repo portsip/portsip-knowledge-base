@@ -124,17 +124,17 @@ Now, execute the following command to create and run the PortSIP SBC Docker inst
 sudo /bin/sh sbc_ctl.sh run -p /var/lib/portsip -i portsip/sbc:11
 ```
 
-## Install PortSIP SBC for Windows
+### Install PortSIP SBC for Windows
 
 You can download the PortSIP SBC installer from the [PortSIP Website](https://www.portsip.com/download-portsip-sbc/). Simply double-click the installer and follow the on-screen instructions to complete the installation.
 
-## Configuring PortSIP SBC
+### Configuring PortSIP SBC
 
 Now follow the guide [Configure PortSIP SBC on a Separate Server](configuring-sbc-for-webrtc.md#configure-portsip-sbc-on-a-separate-server) to complete the SBC configuration.
 
 ## Managing PortSIP SBC Docker Instance
 
-After successfully installed the SBC, you can use the following commands to manage the PortSIP SBC docker instance.
+After successfully installing the SBC, you can use the following commands to manage the PortSIP SBC docker instance.
 
 ```sh
 cd /opt/portsip

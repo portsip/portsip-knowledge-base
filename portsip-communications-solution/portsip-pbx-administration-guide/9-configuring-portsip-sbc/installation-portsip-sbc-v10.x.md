@@ -1,4 +1,4 @@
-# Installing PortSIP SBC v10.x
+# Installation PortSIP SBC v10.x
 
 {% hint style="danger" %}
 The PortSIP SBC v11.0 has not been released, please don't install it at this moment.
@@ -133,4 +133,44 @@ You can download the PortSIP SBC installer from the [PortSIP Website](https://ww
 ### Configuring PortSIP SBC
 
 Now follow the guide [Configure PortSIP SBC on a Separate Server](configuring-sbc-for-webrtc.md#configure-portsip-sbc-on-a-separate-server) to complete the SBC configuration.
+
+## Managing PortSIP SBC Docker Instance
+
+After successfully installing the SBC, you can use the following commands to manage the PortSIP SBC docker instance.
+
+```sh
+cd /opt/portsip
+```
+
+### Show the SBC Docker Instance Status
+
+<pre class="language-sh"><code class="lang-sh"><strong>sudo /bin/sh sbc_ctl.sh status
+</strong></code></pre>
+
+### Start the SBC Docker Instance
+
+```bash
+sudo /bin/sh sbc_ctl.sh start
+```
+
+### Stop the SBC Docker Instance
+
+```bash
+sudo /bin/sh sbc_ctl.sh stop
+```
+
+### Restart the SBC Docker Instance
+
+```bash
+sudo /bin/sh sbc_ctl.sh restart
+```
+
+### Delete the SBC Docker Instance
+
+This command will not delete the data of the SBC.
+
+<pre class="language-bash"><code class="lang-bash"><strong>sudo /bin/sh sbc_ctl.sh rm
+</strong></code></pre>
+
+
 
