@@ -122,6 +122,8 @@ Your SBC is now successfully upgraded to the latest version.
 
 ## Upgrading SBC for Windows
 
+If you installed the PortSIP SBC for Windows, please follow the below steps to proceed with the upgrade.
+
 1. We suggest backing up your SBC data. The data file path is usually `c:\programdata\portsip`. You can follow the article [Backup and Restore: An Essential Guide](../backup-and-restore/).&#x20;
 2. Download the latest installer from the [PortSIP website](https://www.portsip.com/download-portsip-sbc).&#x20;
 3. Double-click the installer to begin the installation process, and the upgrade will be performed automatically.
