@@ -1,11 +1,11 @@
-# Installing PortSIP SBC v10.x
+# Installing PortSIP SBC v11.x
 
 {% hint style="danger" %}
 The PortSIP SBC v11.0 has not been released, please don't install it at this moment.
 {% endhint %}
 
 {% hint style="warning" %}
-If your PortSIP PBX has already been upgraded to version 22.x, you will also need to upgrade your PortSIP SBC from version 10.x to version 11.x in order to use the latest WebRTC app.
+If your PortSIP PBX is running v22.x, you will need to install PortSIP SBC v11.x to use the latest WebRTC app.
 {% endhint %}
 
 Before proceeding, please review the following sections carefully:
@@ -22,7 +22,7 @@ Before proceeding, please review the following sections carefully:
 Tasks that MUST be completed before installing PortSIP PBX
 
 * **Ensure the server date-time is synced correctly**.
-* For the Linux, use the `sudo` to perform the installation is recommended. For Windows, it requires the Administrator user.
+* For Linux, using the `sudo` to perform the installation is recommended. For Windows, it requires the Administrator user.
 * If the server on which SBC will be installed is located on a LAN, assign &#x61;**`static private IP address`**&#x74;o the PBX server; if it's on a public network, assign &#x61;**`static public IP address`** and a **`static private IP`** to the PBX server.
 * Install all available updates and service packs before installing PortSIP SBC.
 * Do not install **PostgreSQL** on your PortSIP SBC Server.
@@ -44,7 +44,7 @@ All commands must be executed in the **`/opt/portsip`** directory.
 
 ## Prerequisites
 
-Assume that you have successfully installed the PortSIP PBX following the instructions in the [Installation of the PortSIP PBX](../1-installation-of-the-portsip-pbx.md) guide.
+Assume that you have successfully installed the PortSIP PBX following the instructions in the [Installation of the PortSIP PBX](../1-installation-of-the-portsip-pbx/) guide.
 
 ## Install the PortSIP SBC and PBX on the Same Server
 
@@ -62,16 +62,11 @@ For this example, assume the following server configuration:
 To install the SBC, please perform the below commands:
 
 ```shell
-sudo cd /opt/portsip
-```
-
-```bash
-sudo curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v16.x/new/sbc_ctl.sh \
--o sbc_ctl.sh
+cd /opt/portsip
 ```
 
 ```shell
-sudo /bin/sh sbc_ctl.sh run -p /var/lib/portsip -i portsip/sbc:10
+sudo /bin/sh sbc_ctl.sh run -p /var/lib/portsip -i portsip/sbc:11
 ```
 
 ### Install PortSIP SBC for Windows
@@ -80,7 +75,7 @@ You can download the PortSIP SBC installer at [PortSIP Website](https://www.port
 
 ### Configuring PortSIP SBC
 
-Now follow the guide [Configure PortSIP SBC on the Same Server as PortSIP PBX](installing-sbc-v11/configuring-sbc-v11-for-webrtc.md#configure-portsip-sbc-on-the-same-server-as-portsip-pbx) to complete the SBC configuration.
+Now follow the guide [Configure PortSIP SBC on the Same Server as PortSIP PBX](configuring-sbc-for-webrtc.md#configure-portsip-sbc-on-the-same-server-as-portsip-pbx) to complete the SBC configuration.
 
 ## Install the PortSIP SBC on a Separate Server
 
@@ -99,31 +94,34 @@ Assuming the following server configuration for installation:
 
 Please follow the below steps to install the PortSIP SBC on that separate server.
 
-```shell
-mkdir -p /opt/portsip
+```sh
 cd /opt/portsip
 ```
 
-```bash
-curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v16.x/new/install_docker.sh \
--o install_docker.sh
+```sh
+sudo curl \
+https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/init.sh  \
+-o  init.sh
 ```
 
-```bash
-curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v16.x/new/sbc_ctl.sh \
--o sbc_ctl.sh
+```sh
+sudo /bin/sh init.sh
 ```
 
-Execute the below command to install the `Docker-Compose` environment.  If get the prompt like`*** cloud.cfg (Y/I/N/O/D/Z) [default=N] ?`, enter the **Y** and then press the **Enter** button.
+Execute the below command to install the `Docker-Compose` environment. If you get the prompt likes`*** cloud.cfg (Y/I/N/O/D/Z) [default=N] ?`, enter the **Y** and then press the **Enter** button.
 
-```bash
+```sh
+cd /opt/portsip
+```
+
+```sh
 sudo /bin/sh install_docker.sh
 ```
 
 Now, execute the following command to create and run the PortSIP SBC Docker instance.
 
 ```sh
-sudo /bin/sh sbc_ctl.sh run -p /var/lib/portsip -i portsip/sbc:10
+sudo /bin/sh sbc_ctl.sh run -p /var/lib/portsip -i portsip/sbc:11
 ```
 
 ### Install PortSIP SBC for Windows
@@ -132,5 +130,7 @@ You can download the PortSIP SBC installer from the [PortSIP Website](https://ww
 
 ### Configuring PortSIP SBC
 
-Now follow the guide [Configure PortSIP SBC on a Separate Server](installing-sbc-v11/configuring-sbc-v11-for-webrtc.md#configure-portsip-sbc-on-a-separate-server) to complete the SBC configuration.
+Now follow the guide [Configure PortSIP SBC on a Separate Server](configuring-sbc-for-webrtc.md#configure-portsip-sbc-on-a-separate-server) to complete the SBC configuration.
+
+
 

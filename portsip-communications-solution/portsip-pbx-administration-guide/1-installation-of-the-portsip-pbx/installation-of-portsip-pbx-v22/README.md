@@ -8,7 +8,7 @@ The PortSIP PBX v22.0 has not been released, please don't install it at this mom
 
 This guide is just for installing a fresh PortSIP PBX version 22.x.
 
-If you currently installed the PortSIP PBX v16.x, please follow the article [Upgrade to Latest v22.x Release](installation-of-portsip-pbx-v22/upgrade-portsip-pbx-to-v22.x.md) to upgrade to the v22.x release.
+If you currently installed the PortSIP PBX v16.x, please follow the article [Upgrade to Latest v22.x Release](upgrade-portsip-pbx-to-v22.x.md) to upgrade to the v22.x release.
 
 ## Minimal Hardware Requirements
 
@@ -122,11 +122,11 @@ The default system administrator username and password are both **admin**.
 
 Once the PortSIP PBX is successfully installed, you can access the web portal by opening your browser and navigating to [**https://66.175.221.120:8887**](https://66.175.221.120:8887). If your browser displays an SSL certificate warning, you can safely ignore it and continue. You will then be directed to the login page, as shown in the screenshot below.
 
-<figure><img src="../../../.gitbook/assets/login-1.png" alt="" width="321"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/login-1.png" alt="" width="321"><figcaption></figcaption></figure>
 
 Click on **"Sign in as the administrator or dealer"** to navigate to the administrator login page, as shown in the screenshot below. Enter **admin** as both the username and password to log in to the web portal.
 
-<figure><img src="../../../.gitbook/assets/login-2.png" alt="" width="320"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/login-2.png" alt="" width="320"><figcaption></figcaption></figure>
 
 {% hint style="danger" %}
 Please change the default password of the admin after you log in.
@@ -152,7 +152,7 @@ These IP addresses must be accessible to your SIP clients, as the IP entered her
 The loopback interface (127.0.0.1) is unacceptable for the private IP. Only the static IP for the LAN where the PBX is located is allowed (do not use DHCP dynamic IP).&#x20;
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/setup_wizard_ip_address_v22.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/setup_wizard_ip_address_v22.png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### 2. SSL Certificate
 
@@ -164,7 +164,7 @@ To enable **TLS** transport for SIP and secure **HTTPS** access to the Web Porta
   A trusted SSL certificate is necessary to avoid browser warnings. Recommended certificate providers include **DigiCert**, **GeoTrust**, **GoDaddy**, and others.
   * If you do not have a domain or SSL certificate, you can use your PBX’s IP address as the **Web Domain** and proceed with the default certificate. However, please note that PortSIP PBX uses a self-signed certificate by default, which will trigger most browsers to block the connection and display a security warning.
 * **Certificate Providers:**\
-  To purchase an SSL certificate, follow the guide: [Preparing TLS Certificates for TLS/HTTPS/WebRTC](../certificates-for-tls-https-webrtc/).
+  To purchase an SSL certificate, follow the guide: [Preparing TLS Certificates for TLS/HTTPS/WebRTC](../../certificates-for-tls-https-webrtc/).
 
 You will need two certificate files:
 
@@ -177,7 +177,7 @@ You will need two certificate files:
 2. Open the **portsip.pem** file in a text editor (such as Windows Notepad), and copy the entire contents into the **Certificate File** field.
 3. Similarly, open the **portsip.key** file, and copy its entire contents into the **Private Key File** field.
 
-<figure><img src="../../../.gitbook/assets/setup_wizard_2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/setup_wizard_2.png" alt=""><figcaption></figcaption></figure>
 
 #### 3. Transport Protocol
 
@@ -193,13 +193,13 @@ You are free to change these default ports to any preferred value, but ensure th
 After adding a new transport protocol, be sure to update your firewall rules to allow traffic on the newly assigned transport port. The IP Phone client app will use this transport and port to connect to the PBX.
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/setup_wizard_3.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/setup_wizard_3.png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### 4. System Notifications
 
 To enable email notifications in PortSIP PBX for system alerts, you must configure the SMTP settings. Once a critical event occurs in the PBX, alert emails will be sent to the specified **Recipients**.
 
-<figure><img src="../../../.gitbook/assets/system-notifications-smtp.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/system-notifications-smtp.png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### Generic
 
@@ -221,7 +221,7 @@ For the Microsoft 365 SMTP server, there are already preconfigured parameters; y
 
 Starting with version 22.0, PortSIP PBX introduces an Instant Messaging (IM) service, offering modern features such as group chat. The IM service requires a separate installation step, as in some cases, you may want to deploy it on a separate server for optimal performance.
 
-Please follow the article [Installation of the PortSIP IM Server](../portsip-pbx-beta-testing/installation-of-the-portsip-im-server.md) to install the PortSIP IM Server for the PBX.
+Please follow the article [Installation of the PortSIP IM Server](installation-of-the-portsip-im-server.md) to install the PortSIP IM Server for the PBX.
 
 ### Step 6: Reboot to Apply the Certificate
 
@@ -251,7 +251,7 @@ Assume we installed the PortSIP PBX on the server the IP address is **66.175.221
 The following two folders must not be the same when selecting the PBX folders during installation!
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/portsip_pbx_installer_windows.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/portsip_pbx_installer_windows.png" alt=""><figcaption></figcaption></figure>
 
 After successfully installing the PortSIP PBX beta version, you can access the PBX Web portal by visiting: [**https://66.175.221.120:8887**](https://66.175.221.120:8887)
 
@@ -261,11 +261,11 @@ The default system administrator username and password are both **admin**.
 
 Once the PortSIP PBX is successfully installed, you can access the web portal by opening your browser and navigating to [**https://66.175.221.120:8887**](https://66.175.221.120:8887). If your browser displays an SSL certificate warning, you can safely ignore it and continue. You will then be directed to the login page, as shown in the screenshot below.
 
-<figure><img src="../../../.gitbook/assets/login-1.png" alt="" width="321"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/login-1.png" alt="" width="321"><figcaption></figcaption></figure>
 
 Click on **"Sign in as the administrator or dealer"** to navigate to the administrator login page, as shown in the screenshot below. Enter **admin** as both the username and password to log in to the web portal.
 
-<figure><img src="../../../.gitbook/assets/login-2.png" alt="" width="320"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/login-2.png" alt="" width="320"><figcaption></figcaption></figure>
 
 {% hint style="danger" %}
 Please change the default password of the admin after you log in.
@@ -291,7 +291,7 @@ These IP addresses must be accessible to your SIP clients, as the IP entered her
 The loopback interface (127.0.0.1) is unacceptable for the private IP. Only the static IP for the LAN where the PBX is located is allowed (do not use DHCP dynamic IP).&#x20;
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/setup_wizard_ip_address_v22.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/setup_wizard_ip_address_v22.png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### 2. SSL Certificate
 
@@ -303,7 +303,7 @@ To enable **TLS** transport for SIP and secure **HTTPS** access to the Web Porta
   A trusted SSL certificate is necessary to avoid browser warnings. Recommended certificate providers include **DigiCert**, **GeoTrust**, **GoDaddy**, and others.
   * If you do not have a domain or SSL certificate, you can use your PBX’s IP address as the **Web Domain** and proceed with the default certificate. However, please note that PortSIP PBX uses a self-signed certificate by default, which will trigger most browsers to block the connection and display a security warning.
 * **Certificate Providers:**\
-  To purchase an SSL certificate, follow the guide: [Preparing TLS Certificates for TLS/HTTPS/WebRTC](../certificates-for-tls-https-webrtc/).
+  To purchase an SSL certificate, follow the guide: [Preparing TLS Certificates for TLS/HTTPS/WebRTC](../../certificates-for-tls-https-webrtc/).
 
 You will need two certificate files:
 
@@ -316,7 +316,7 @@ You will need two certificate files:
 2. Open the **portsip.pem** file in a text editor (such as Windows Notepad), and copy the entire contents into the **Certificate File** field.
 3. Similarly, open the **portsip.key** file, and copy its entire contents into the **Private Key File** field.
 
-<figure><img src="../../../.gitbook/assets/setup_wizard_2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/setup_wizard_2.png" alt=""><figcaption></figcaption></figure>
 
 #### 3. Transport Protocol
 
@@ -332,13 +332,13 @@ You are free to change these default ports to any preferred value, but ensure th
 After adding a new transport protocol, be sure to update your firewall rules to allow traffic on the newly assigned transport port. The IP Phone client app will use this transport and port to connect to the PBX.
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/setup_wizard_3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/setup_wizard_3.png" alt=""><figcaption></figcaption></figure>
 
 #### 4. System Notifications
 
 To enable email notifications in PortSIP PBX for system alerts, you must configure the SMTP settings. Once a critical event occurs in the PBX, alert emails will be sent to the specified **Recipients**.
 
-<figure><img src="../../../.gitbook/assets/system-notifications-smtp.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/system-notifications-smtp.png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### Generic
 
@@ -368,13 +368,13 @@ Follow these steps to configure the IM server:
 2. Navigate to **Servers > IM Servers**.
 3. Select the default server and click the **Generate Token** button.
 
-<figure><img src="../../../.gitbook/assets/im_server_update_address_new_token.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/im_server_update_address_new_token.png" alt=""><figcaption></figcaption></figure>
 
 2. Restart the IM Service
 
 Go to Windows service manager, right-click the **PortSIP Instant Message Server** service, and choose R**estart** to restart this service.
 
-<figure><img src="../../../.gitbook/assets/portsip_pbx_im_win_service.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/portsip_pbx_im_win_service.png" alt=""><figcaption></figcaption></figure>
 
 ### Step 4: Reboot to Apply the Certificate
 
