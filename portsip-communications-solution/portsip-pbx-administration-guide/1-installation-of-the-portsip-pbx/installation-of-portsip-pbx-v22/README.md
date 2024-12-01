@@ -12,7 +12,7 @@ If you currently installed the PortSIP PBX v16.x, please follow the article [Upg
 
 ## Minimal Hardware Requirements
 
-The PortSIP PBX requires a minimum of 2 CPU cores, 4GB of memory, and 50GB of disk storage. With this configuration, the PBX can support up to 1,000 online users and handle 500 simultaneous calls.
+The PortSIP PBX requires a minimum of 2 CPU cores, 4 GB of memory, and 50 GB of disk storage. With this configuration, the PBX can support up to 1,000 online users and handle 500 simultaneous calls.
 
 ## Supported OS
 
@@ -32,7 +32,7 @@ Tasks that MUST be completed before installing PortSIP PBX
 
 * **Ensure the server date-time is synced correctly**.
 * For the Linux, use the `sudo` to perform the installation is recommended. For Windows, it requires the Administrator user.
-* If the server on which PBX will be installed is located on a LAN, assign &#x61;**`static private IP address`**&#x74;o the PBX server; if it's on a public network, assign &#x61;**`static public IP address`** and a **`static private IP`** to the PBX server.&#x20;
+* If the server on which PBX will be installed is located on a LAN, assign a _**static private IP address**_ to the PBX server; if it's on a public network, assign a _**static public IP address**_ and a _**static private IP**_ to the PBX server.&#x20;
 * Install all available updates and service packs before installing PortSIP PBX.
 * Do not install **PostgreSQL** on your PortSIP PBX Server.
 * Ensure that all power-saving options for your system and network adapters are disabled (by setting the system to High-Performance mode).
@@ -44,7 +44,7 @@ Tasks that MUST be completed before installing PortSIP PBX
 * If installed on Windows, ensure the **`Windows Firewall`** service has been started.
 
 {% hint style="danger" %}
-If the PBX runs on a cloud platform such as AWS and the cloud platform has its own firewall, you **must** also open the ports on the cloud platform's firewall.
+If the PBX runs on a cloud platform such as AWS and the cloud platform has its firewall, you **must** also open the ports on the cloud platform's firewall as well.
 {% endhint %}
 
 ## Installing PortSIP PBX on Linux
@@ -82,10 +82,12 @@ cd /opt/portsip
 
 ### Step 3: Create and Run PBX Docker Instance
 
-The following command is used to create and run the PBX on a server with the public IP address **66.175.221.120**. If you are running the PBX on a local area network (LAN) without a public IP address, simply replace **66.175.221.120** with the PBX server’s private LAN IP address.
+The following command is used to create and run the PBX on a server with the public IP address **66.175.221.120**.&#x20;
+
+If you are running the PBX on a local area network (LAN) without a public IP address, simply replace **66.175.221.120** with the PBX server’s private LAN IP address.
 
 {% hint style="danger" %}
-If your PBX server has a public IP, you must use it in the below command for the `-a` parameter. If not, the PBX won’t work with the internet trunk.
+If your PBX server has a public IP, you must use it in the below command for the `-a` parameter. If not, the PBX won’t work with the internet trunk and internet users.
 {% endhint %}
 
 ```shell
@@ -104,7 +106,7 @@ In the above command, we can specify the following parameters.
 
 The **-f** parameter is optional and allows you to specify a separate path for storing recording files. If this parameter is not specified, the recording files will be stored in the path defined by the **-p** parameter.
 
-For example, if you mount a device or map an external NAS device to **`/pbx/recordings`** and want to store the recording files there, you can create and run the PBX Docker instance using the following command:
+For example, if you mount a device or an external NAS device to **`/pbx/recordings`** and want to store the recording files there, you can create and run the PBX Docker instance using the following command:
 
 ```sh
 sudo /bin/sh pbx_ctl.sh \
@@ -114,7 +116,7 @@ run -p /var/lib/portsip \
 -f /pbx/recordings
 ```
 
-After successfully installing the PortSIP PBX beta version, you can access the PBX Web portal by visiting: [**https://66.175.221.120:8887**](https://66.175.221.120:8887)
+After successfully installing the PortSIP PBX, you can access the PBX web portal by visiting: [**https://66.175.221.120:8887**](https://66.175.221.120:8887)
 
 The default system administrator username and password are both **admin**.
 
@@ -132,23 +134,23 @@ Click on **"Sign in as the administrator or dealer"** to navigate to the adminis
 Please change the default password of the admin after you log in.
 {% endhint %}
 
-After successfully logging into the PBX Web Portal, with a new installation, the PBX will launch a setup wizard to guide you through completing the mandatory settings.
+After successfully logging into the PBX Web Portal, with a new installation, the PBX will launch a setup wizard automatically to guide you through completing the mandatory settings.
 
 #### 1. Network Environment
 
-* **Public IPv4 Address:**\
-  If the PBX server has a static public IP address, enter it in the **Public IPv4** field. If the server does not have a static public IP, leave this field blank.
-* **Private IPv4 Address:**\
+* **Private IPv4 Address**\
   You must enter the server's private IPv4 address. If the server does not have a private IP, use the public IP address instead.
+* **Public IPv4 Address**\
+  If the PBX server has a static public IP address, enter it in the **Public IPv4** field. If the server does not have a static public IP, leave this field blank.
 
-These IP addresses must be accessible to your SIP clients, as the IP entered here will function as the SIP server IP for the PBX. This is crucial when a SIP client or IP phone registers to PortSIP PBX, and should be configured as the **Outbound Proxy Server**.
+These IP addresses must be accessible to your SIP clients, as the IP entered here will function as the SIP server IP address for the PBX. This is crucial when a SIP client or IP phone registers to PortSIP PBX, and should be configured as the **Outbound Proxy Server**.
 
 * **Cloud Deployment:**\
   If the PBX is deployed in the cloud, both **Private IPv4** and **Public IPv4** addresses must be entered.
 * **LAN Deployment:**\
   If the PBX is on a local network (LAN), only the **Private IPv4** address is required.
 
-{% hint style="info" %}
+{% hint style="danger" %}
 The loopback interface (127.0.0.1) is unacceptable for the private IP. Only the static IP for the LAN where the PBX is located is allowed (do not use DHCP dynamic IP).&#x20;
 {% endhint %}
 
@@ -162,16 +164,18 @@ To enable **TLS** transport for SIP and secure **HTTPS** access to the Web Porta
   You will need a web domain. For example, you can purchase a domain from providers like GoDaddy and point it to your PBX’s IP address.
 * **SSL Certificate:**\
   A trusted SSL certificate is necessary to avoid browser warnings. Recommended certificate providers include **DigiCert**, **GeoTrust**, **GoDaddy**, and others.
-  * If you do not have a domain or SSL certificate, you can use your PBX’s IP address as the **Web Domain** and proceed with the default certificate. However, please note that PortSIP PBX uses a self-signed certificate by default, which will trigger most browsers to block the connection and display a security warning.
+  * If you do not have a domain or SSL certificate, you can use your PBX’s IP address as the **Web Domain** and proceed with the default certificate. However, please note that PortSIP PBX uses a self-signed certificate by default, which will trigger browsers to block the connection and display a security warning.
 * **Certificate Providers:**\
   To purchase an SSL certificate, follow the guide: [Preparing TLS Certificates for TLS/HTTPS/WebRTC](../../certificates-for-tls-https-webrtc/).
 
-You will need two certificate files:
+You will have two certificate files if complete the steps in the guide: [Preparing TLS Certificates for TLS/HTTPS/WebRTC](../../certificates-for-tls-https-webrtc/).
 
 * **portsip.key**
 * **portsip.pem**
 
 #### Configuring the Certificates
+
+In this guide, we assuming use the domain **uc.portsip.cc** for the PBX web domain.
 
 1. In the **Web Domain** field, enter **uc.portsip.cc**.
 2. Open the **portsip.pem** file in a text editor (such as Windows Notepad), and copy the entire contents into the **Certificate File** field.
@@ -187,10 +191,10 @@ You can configure the transport layer protocol for SIP signaling by clicking the
 * **TCP**: 5063
 * **TLS**: 5061
 
-You are free to change these default ports to any preferred value, but ensure that the new port is not already in use by other applications.
+You are free to change these default ports to any preferred value but ensure that the new port is not already in use by other applications.
 
 {% hint style="danger" %}
-After adding a new transport protocol, be sure to update your firewall rules to allow traffic on the newly assigned transport port. The IP Phone client app will use this transport and port to connect to the PBX.
+After adding a new transport protocol, be sure to update your firewall rules to allow traffic on the newly assigned transport port. The IP Phone and client app will use this transport and port to connect to the PBX.
 {% endhint %}
 
 <figure><img src="../../../../.gitbook/assets/setup_wizard_3.png" alt="" width="563"><figcaption></figcaption></figure>
@@ -219,13 +223,13 @@ For the Microsoft 365 SMTP server, there are already preconfigured parameters; y
 
 ### Step 5: Install Instant Messaging Service
 
-Starting with version 22.0, PortSIP PBX introduces an Instant Messaging (IM) service, offering modern features such as group chat. The IM service requires a separate installation step, as in some cases, you may want to deploy it on a separate server for optimal performance.
+Starting with version 22.0, PortSIP PBX introduces an Instant Messaging (IM) service, offering modern features such as group chat. The IM service requires a separate installation step, as in some cases, you may also want to deploy it on a separate server for optimal performance.
 
 Please follow the article [Installation of the PortSIP IM Server](installation-of-the-portsip-im-server.md) to install the PortSIP IM Server for the PBX.
 
 ### Step 6: Reboot to Apply the Certificate
 
-Once completed step 5, if you uploaded a trusted SSL certificate in **Step 2: SSL Certificate** (instead of using the default self-signed certificate), you need to restart the PBX to apply the changes. Use the following commands to reboot the PBX:
+Once completed Step 5, if you uploaded a trusted SSL certificate in **Step 2: SSL Certificate** instead of using the default self-signed certificate, you need to restart the PBX to apply the changes. Use the following commands to reboot the PBX:
 
 ```sh
 cd /opt/portsip
@@ -275,10 +279,10 @@ After successfully logging into the PBX Web Portal, with a new installation, the
 
 #### 1. Network Environment
 
-* **Public IPv4 Address:**\
-  If the PBX server has a static public IP address, enter it in the **Public IPv4** field. If the server does not have a static public IP, leave this field blank.
-* **Private IPv4 Address:**\
+* **Private IPv4 Address**\
   You must enter the server's private IPv4 address. If the server does not have a private IP, use the public IP address instead.
+* **Public IPv4 Address**\
+  If the PBX server has a static public IP address, enter it in the **Public IPv4** field. If the server does not have a static public IP, leave this field blank.
 
 These IP addresses must be accessible to your SIP clients, as the IP entered here will function as the SIP server IP for the PBX. This is crucial when a SIP client or IP phone registers to PortSIP PBX, and should be configured as the **Outbound Proxy Server**.
 
@@ -287,7 +291,7 @@ These IP addresses must be accessible to your SIP clients, as the IP entered her
 * **LAN Deployment:**\
   If the PBX is on a local network (LAN), only the **Private IPv4** address is required.
 
-{% hint style="info" %}
+{% hint style="danger" %}
 The loopback interface (127.0.0.1) is unacceptable for the private IP. Only the static IP for the LAN where the PBX is located is allowed (do not use DHCP dynamic IP).&#x20;
 {% endhint %}
 
@@ -305,12 +309,14 @@ To enable **TLS** transport for SIP and secure **HTTPS** access to the Web Porta
 * **Certificate Providers:**\
   To purchase an SSL certificate, follow the guide: [Preparing TLS Certificates for TLS/HTTPS/WebRTC](../../certificates-for-tls-https-webrtc/).
 
-You will need two certificate files:
+You will have two certificate files if complete the steps in the guide: [Preparing TLS Certificates for TLS/HTTPS/WebRTC](../../certificates-for-tls-https-webrtc/).
 
 * **portsip.key**
 * **portsip.pem**
 
 #### Configuring the Certificates
+
+In this guide, we assuming use the domain **uc.portsip.cc** for the PBX web domain.
 
 1. In the **Web Domain** field, enter **uc.portsip.cc**.
 2. Open the **portsip.pem** file in a text editor (such as Windows Notepad), and copy the entire contents into the **Certificate File** field.
@@ -326,10 +332,10 @@ You can configure the transport layer protocol for SIP signaling by clicking the
 * **TCP**: 5063
 * **TLS**: 5061
 
-You are free to change these default ports to any preferred value, but ensure that the new port is not already in use by other applications.
+You are free to change these default ports to any preferred value but ensure that the new port is not already in use by other applications.
 
 {% hint style="danger" %}
-After adding a new transport protocol, be sure to update your firewall rules to allow traffic on the newly assigned transport port. The IP Phone client app will use this transport and port to connect to the PBX.
+After adding a new transport protocol, be sure to update your firewall rules to allow traffic on the newly assigned transport port. The IP Phone and client app will use this transport and port to connect to the PBX.
 {% endhint %}
 
 <figure><img src="../../../../.gitbook/assets/setup_wizard_3.png" alt=""><figcaption></figcaption></figure>
@@ -362,7 +368,7 @@ Starting with version 22.0, PortSIP PBX introduces an Instant Messaging (IM) ser
 
 Follow these steps to configure the IM server:
 
-**1. Generate Token for the IM Server**
+**Generate Token for the IM Server**
 
 1. Log in as the **System Administrator** to the PortSIP PBX Web portal.
 2. Navigate to **Servers > IM Servers**.
@@ -370,7 +376,7 @@ Follow these steps to configure the IM server:
 
 <figure><img src="../../../../.gitbook/assets/im_server_update_address_new_token.png" alt=""><figcaption></figcaption></figure>
 
-2. Restart the IM Service
+**Restart the IM Service**
 
 Go to Windows service manager, right-click the **PortSIP Instant Message Server** service, and choose R**estart** to restart this service.
 
