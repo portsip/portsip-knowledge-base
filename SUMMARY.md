@@ -551,8 +551,8 @@
   * [Event Reference](development-portsip/webhook-notifications/event-reference.md)
 * [Mobile Push Notifications](development-portsip/mobile-push-notifications/README.md)
   * [How Do Push Notifications Work with PortSIP PBX?](development-portsip/mobile-push-notifications/how-do-push-notifications-work-with-portsip-pbx.md)
-  * [Integrating the Push Notifications in Native iOS APP](development-portsip/mobile-push-notifications/implement-the-push-notifications-in-native-ios-app-with-portsip-pbx-12.x.md)
-  * [Integrating the Push Notifications in Android APP](development-portsip/mobile-push-notifications/implement-push-notifications-in-android-app-with-portsip-pbx-12.x.md)
+  * [Integrating the Push Notifications in Native iOS APP](development-portsip/mobile-push-notifications/implement-the-push-notifications-in-native-ios-app-with-portsip-pbx.md)
+  * [Integrating the Push Notifications in Android APP](development-portsip/mobile-push-notifications/implement-push-notifications-in-android-app-with-portsip-pbx.md)
 
 ## PBX v12.x (EOL) <a href="#pbx_v12" id="pbx_v12"></a>
 
