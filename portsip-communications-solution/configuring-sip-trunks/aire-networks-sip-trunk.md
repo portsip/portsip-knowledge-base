@@ -4,7 +4,7 @@
 
 Configuring the Aire Networks SIP trunk into your PortSIP PBX is straightforward. Please follow the steps below:
 
-## Sign Up and Purchase:&#x20;
+## Sign Up and Purchase
 
 You will need to contact Aire Networks to purchase the account and receive the credentials. Typically you will have the following details:
 
