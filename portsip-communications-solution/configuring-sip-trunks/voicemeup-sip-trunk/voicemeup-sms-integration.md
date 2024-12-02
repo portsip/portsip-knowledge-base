@@ -102,9 +102,12 @@ Follow these steps to configure SMS in the PortSIP PBX Web Portal:
 3. In the **Available Options** section, ensure the **SMS/MMS** option is enabled.
 4. Paste the Webhook URL you copied from the PortSIP PBX configuration into the **Callback URL** field.
 
-<figure><img src="../../../.gitbook/assets/voicemeuo_trunk_9.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/voicemeuo_trunk_9 (1).png" alt=""><figcaption></figcaption></figure>
 
 5. In the next section, navigate to the **SMS/MMS Options** tab. Enable the **SMS/MMS for this DID** option, and paste the Webhook URL you copied from the PortSIP PBX configuration into the **Callback URL (Webhook)** field.
+
+<figure><img src="../../../.gitbook/assets/voicemeuo_trunk_10.png" alt=""><figcaption></figcaption></figure>
+
 6. Click the **Save** button to apply your changes.
 
 Congratulations! You have successfully configured SMS integration with VoiceMeUp.
