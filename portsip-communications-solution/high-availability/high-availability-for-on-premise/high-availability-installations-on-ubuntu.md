@@ -308,7 +308,7 @@ ssh -t pbx03 "sudo reboot"
 #### Restart pbx02
 
 ```
-ssh -t pbx03 "sudo reboot"
+ssh -t pbx02 "sudo reboot"
 ```
 
 #### Restart pbx01
