@@ -63,12 +63,15 @@ When configuring the DID Pool for a tenant, the DID number or range cannot begin
 To add a trunk, follow these steps:
 
 1. Navigate to **Call Manager > Trunks**, then click the arrow button to select the type of trunk you need to add.
-2. Enter a friendly name for the trunk and fill in the **Host Domain or IP**, **Port**, **Outbound Proxy Server**, and **Outbound Proxy Server Port** fields using the details provided by your trunk service provider.
-3. **Transport**:\
+2. Enter a friendly name for the trunk.
+3. Choose the trunk brand from the Brand combo box, if your trunk is preconfigured there, please follow the [Configuring SIP Trunks](../../configuring-sip-trunks/) guide to cofigure it.
+4. If your trunk is not preconfigured, Please choose the **Generic** for the brand field and follow the below steps.
+5. and fill in the **Host Domain or IP**, **Port**, **Outbound Proxy Server**, and **Outbound Proxy Server Port** fields using the details provided by your trunk service provider.
+6. **Transport**:\
    Choose the appropriate transport protocol (UDP, TCP, or TLS) that the PBX will use to communicate with the trunk. Consult your trunk provider for the correct transport protocol. The transport must already be configured in the PBX before adding the trunk. For example, if your provider requires TCP, ensure that TCP is added to the PBX beforehand. For instructions, refer to the section on [**Transport Management**](../6-transport-management.md).
-4. **Associated IPs of the Trunk**:\
+7. **Associated IPs of the Trunk**:\
    Some trunk providers may send INVITE messages to the PBX from multiple IP addresses, rather than from a single Host Domain or IP. If this applies, click the **Add** button to enter each associated IP.
-5. If the trunk type is **Register-Based**, click **Next** and enter the **Username/Authentication Name**, **Password**, and **Register Time**, using the account details provided by your trunk provider.
+8. If the trunk type is **Register-Based**, click **Next** and enter the **Username/Authentication Name**, **Password**, and **Register Time**, using the account details provided by your trunk provider.
 
 Click **Next** to configure additional parameters:
 
@@ -104,7 +107,7 @@ When a Tenant Admin logs into the Web Portal, they have the ability to create tr
 * **Register-Based**: PBX registers with the trunk.
 * **Accept Register**: The trunk registers with the PBX.
 * **Microsoft Teams**: Microsoft Teams Direct Routing.
-* **WhatsApp**: The WhatsApp messageing service.
+* **WhatsApp**: The WhatsApp messaging service.
 
 Note: The **IP-Based** trunk can only be added by the System Admin.
 
@@ -112,11 +115,13 @@ To add a trunk, follow these steps:
 
 1. Navigate to **Call Manager > Trunks**, and click the arrow button to select the trunk type you wish to add.
 2. Enter a friendly name for the trunk.
-3. **DID Pool**: A DID pool must be specified for the tenant. When creating an inbound rule for the tenant based on this trunk, the DID number used in the inbound rule must fall within the specified DID pool range. For more details, refer to the **DID Pool** section.
-4. Fill in the **Host Domain or IP**, **Port**, **Outbound Proxy Server**, and **Outbound Proxy Server Port** fields with the details provided by your trunk service provider.
-5. **Transport**: Choose the appropriate transport protocol (UDP, TCP, or TLS) for communication between the PBX and the trunk. Consult your trunk provider for the correct transport. The transport protocol must already be added in the PBX before adding the trunk. For example, if your provider requires TCP, ensure that TCP is added in the PBX. Refer to the **Transport Management** section for more details.
-6. **Associated IPs of the Trunk**: Some trunk providers may send INVITE messages from multiple IP addresses rather than just the Host Domain or IP. Click the **Add** button to enter each associated IP.
-7. If the trunk type is **Register-Based**, click **Next** and enter the **Username/Authentication Name**, **Password**, and **Re-register Time**, as provided by your trunk provider.
+3. Choose the trunk brand from the Brand combo box, if your trunk is preconfigured there, please follow the [Configuring SIP Trunks](../../configuring-sip-trunks/) guide to configure it.
+4. If your trunk is not preconfigured, Please choose the **Generic** for the brand field and follow the below steps.
+5. **DID Pool**: A DID pool must be specified for the tenant. When creating an inbound rule for the tenant based on this trunk, the DID number used in the inbound rule must fall within the specified DID pool range. For more details, refer to the **DID Pool** section.
+6. Fill in the **Host Domain or IP**, **Port**, **Outbound Proxy Server**, and **Outbound Proxy Server Port** fields with the details provided by your trunk service provider.
+7. **Transport**: Choose the appropriate transport protocol (UDP, TCP, or TLS) for communication between the PBX and the trunk. Consult your trunk provider for the correct transport. The transport protocol must already be added in the PBX before adding the trunk. For example, if your provider requires TCP, ensure that TCP is added in the PBX. Refer to the **Transport Management** section for more details.
+8. **Associated IPs of the Trunk**: Some trunk providers may send INVITE messages from multiple IP addresses rather than just the Host Domain or IP. Click the **Add** button to enter each associated IP.
+9. If the trunk type is **Register-Based**, click **Next** and enter the **Username/Authentication Name**, **Password**, and **Re-register Time**, as provided by your trunk provider.
 
 Click **Next** to configure additional parameters:
 
