@@ -162,7 +162,7 @@
     * [Wavix SMS Integration](portsip-communications-solution/configuring-sip-trunks/wavix-sip-trunk/wavix-sms-integration.md)
   * [Gamma SIP Trunk](portsip-communications-solution/configuring-sip-trunks/gamma-sip-trunk.md)
   * [Aire Networks SIP Trunk](portsip-communications-solution/configuring-sip-trunks/aire-networks-sip-trunk.md)
-  * [VoiceMeUp SIP Trunk](portsip-communications-solution/configuring-sip-trunks/voicemeup-sip-trunk/README.md)
+  * [VoiceMeUp SIP Trunk](portsip-communications-solution/configuring-sip-trunks/voicemeup-sip-trunk.md)
     * [Configuring VoiceMeUp Trunk](portsip-communications-solution/configuring-sip-trunks/voicemeup-sip-trunk/configuring-voicemeup-trunk.md)
     * [VoiceMeUp SMS Integration](portsip-communications-solution/configuring-sip-trunks/voicemeup-sip-trunk/voicemeup-sms-integration.md)
 * [PBX Cluster(v16.x)](portsip-communications-solution/pbx-cluster/README.md)

@@ -16,6 +16,6 @@ PortSIP PBX integrated the VoiceMeUp SIP trunking for calls and SMS/MMS that all
 
 This article includes the following topics:
 
-* Configuring VoiceMeUp Trunk
-* VoiceMeUp SMS Integration
+* [Configuring VoiceMeUp Trunk](voicemeup-sip-trunk/configuring-voicemeup-trunk.md)
+* [VoiceMeUp SMS Integration](voicemeup-sip-trunk/voicemeup-sms-integration.md)
 
