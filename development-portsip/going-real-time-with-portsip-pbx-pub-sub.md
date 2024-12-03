@@ -421,13 +421,30 @@ After successful authentication, the user can subscribe to events.
 
 ### Subscribe to CDR Event
 
-To subscribe to Call Detail Record (CDR) events, send the following command:
+To subscribe to **Call Detail Record (CDR)** events, send the following command. Once subscribed, all CDRs for the tenant the subscriber belongs to will be pushed to the subscriber. Only the **Tenant Administrator** has permission to subscribe.
 
 ```json
 {
    "command":"subscribe",
    "topics":[
       "cdr_events"
+   ]
+}
+```
+
+### Subscribe to Global CDR Event
+
+The **System Administrator** can subscribe to the global **CDR** event to receive CDR events from multiple tenants. To subscribe to the global CDR event for specific tenants, send the following command:
+
+```sh
+{
+   "command":"subscribe",
+   "topics":[
+      "global_cdr_events"
+   ],
+  "tenants":[
+      "23435",
+      "74235345"
    ]
 }
 ```
