@@ -1,8 +1,8 @@
-# Provision Yealink DECT IP Phones
+# Provision Fanvil DECT IP Phones
 
-From the v22.0 version, PortSIP supports the Fanvil DECT IP Phones.
+From the v16.2 version, PortSIP supports the Yealink DECT IP Phones.
 
-## Supported Fanvil DECT IP Phone Models
+## Supported Yealink DECT IP Phone Models
 
 This guide applies to the following models:
 
@@ -11,7 +11,7 @@ This guide applies to the following models:
 * W80B/DM
 * W90B/DM
 
-## Factory Reset the Fanvil DECT System <a href="#h.7dibl1nchwtg" id="h.7dibl1nchwtg"></a>
+## Factory Reset the Yealink DECT System <a href="#h.7dibl1nchwtg" id="h.7dibl1nchwtg"></a>
 
 1. Hold the device button for at least 20 seconds.
 2. Release the button.
@@ -101,7 +101,7 @@ Please ignore this step if the device is not W80 and W90.
 
 1. Open your web browser and input the device's IP address to access its interface.&#x20;
 2. Navigate to the **Handset & Account** menu and select the **Handset Registration** page.&#x20;
-3. You will see a list of all the user extensions that you assigned in the previous step [**Assign Users to the Handsets**](provision-yealink-dect-ip-phones.md#h.ipuczchjqkl4). Click the **edit** icon next to each extension to make changes.
+3. You will see a list of all the user extensions that you assigned in the previous step [**Assign Users to the Handsets**](provision-fanvil-dect-ip-phones.md#h.ipuczchjqkl4). Click the **edit** icon next to each extension to make changes.
 
 <figure><img src="../../../.gitbook/assets/yealink-dect-9.png" alt=""><figcaption></figcaption></figure>
 

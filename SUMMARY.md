@@ -32,6 +32,7 @@
     * [Provision Phone Using DHCP Option 66](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/provision-phone-using-dhcp-option-66.md)
     * [Provision Phone Using TFTP](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/provision-phone-using-tftp.md)
     * [Provisioning Cisco 79xx IP Phones](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/provisioning-cisco-79xx-ip-phones.md)
+    * [Provision Fanvil DECT IP Phones](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/provision-fanvil-dect-ip-phones.md)
     * [Provision Yealink DECT IP Phones](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/provision-yealink-dect-ip-phones.md)
     * [Provision SNOM DECT IP Phones](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/provision-snom-dect-ip-phones.md)
     * [Configuring Private RPS Account](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/configuring-private-rps-account.md)
