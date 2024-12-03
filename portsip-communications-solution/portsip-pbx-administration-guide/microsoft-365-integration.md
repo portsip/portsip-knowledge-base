@@ -79,6 +79,12 @@ Currently, PortSIP PBX supports **Global Azure cloud** and **Microsoft Azure ope
 
 <figure><img src="../../.gitbook/assets/sync_options.png" alt=""><figcaption></figcaption></figure>
 
+{% hint style="danger" %}
+If both the first name and last name fields are empty for a Microsoft 365 user, but the email address is not, the user will not be synchronized with PortSIP PBX. This limitation is imposed by Microsoft 365.
+{% endhint %}
+
+<figure><img src="../../.gitbook/assets/sync_ms365.png" alt=""><figcaption></figcaption></figure>
+
 
 
 ## Configuring API Permissions <a href="#h.vxxjg34xby16" id="h.vxxjg34xby16"></a>
