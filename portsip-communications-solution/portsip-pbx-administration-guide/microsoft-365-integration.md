@@ -19,16 +19,19 @@ The PortSIP PBX integrates with Microsoft 365 to provide the following features:
 
 ### Configure the App ID for the Tenant
 
-The tenant needs to be configured AZURE or Microsoft 365 account to allow synchronization with PortSIP PBX.&#x20;
+To enable synchronization between PortSIP PBX and your Azure or Microsoft 365 account, follow these steps:
 
-1. Sign in to your [Azure or Microsoft 365 account](https://portal.azure.com/).
-2. Click the **Microsoft Entra ID** icon, select the left menu **App registrations,** and click **New application.**
-3. Enter a friend name for the Name for example: **PBX Server-side**.
-4. Supported account types: choose Accounts in this organizational directory only (PortSIP Solutions, Inc. only - Single tenant)
-5. Sign in to the PortSIP PBX web portal as the Tenant Administrator (or switch to the tenant scope from the PBX System Administrator).
-6. Select the menu **Advanced > Microsoft 365 Integration,** and **c**opy the **Redirect URI.**
+1. Sign in to your Azure or Microsoft 365 account.
+2. Navigate to Microsoft Entra ID:
+   * Click the **Microsoft Entra ID** icon.
+   * In the left-hand menu, select **App registrations**.
+   * Click **New registration** to create a new application.
+3. Enter a name for the application: For example: **PBX Server-side**.
+4. Configure supported account types: Choose **Accounts in this organizational directory only** (Single tenant: PortSIP Solutions, Inc. only).
+5. Sign in to the PortSIP PBX web portal: Log in as the **Tenant Administrator**, or switch to the tenant scope if you are logged in as a **PBX System Administrator**.
+6. Copy the Redirect UR&#x49;**:** From the **Advanced > Microsoft 365 Integration** menu, copy the **Redirect URI**. There may be two Redirect URIs if you configured the PortSIP SBC; please copy them both.
 
-<figure><img src="../../.gitbook/assets/ms365-pbx-uri.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ms365_callback_v22_1.png" alt=""><figcaption></figcaption></figure>
 
 7. Paste the redirect URI to MS 365 and save.
 
@@ -42,13 +45,13 @@ The tenant needs to be configured AZURE or Microsoft 365 account to allow synchr
 
 <figure><img src="../../.gitbook/assets/ms365-pbx-client-id-1.png" alt=""><figcaption></figcaption></figure>
 
-10. If you have installed and configured the PortSIP SBC with the PBX, please obtain the SBC base domain from the PBX System Administrator. Then, create an SBC Redirect URI in the format `https://sbc_domain:8883/ms365/redirect`, replacing "sbc\_domain" with your actual SBC domain. Next, navigate to the **App registrations** menu and select the application you configured in **Step 7**.  Now click on the **Authentication** menu, then click **Add URI**. Paste the SBC Redirect URI here and save your changes. In the future, if your PBX web domain or SBC web domain is changed, you need to update them in Microsoft 365 as well.
+10. If you have installed and configured the PortSIP SBC with the PBX, please obtain the SBC base domain from the PBX System Administrator. Then, create an SBC Redirect URI in the format `https://sbc_domain:10443/ms365/redirect`, replacing "sbc\_domain" with your actual SBC domain. Next, navigate to the **App registrations** menu and select the application you configured in **Step 7**.  Now click on the **Authentication** menu, then click **Add URI**. Paste the SBC Redirect URI here and save your changes. In the future, if your PBX web domain or SBC web domain is changed, you need to update them in Microsoft 365 as well.
 
 <figure><img src="../../.gitbook/assets/sbc_redirect_uri.png" alt=""><figcaption></figcaption></figure>
 
 ### Generate Key Pair
 
-Now generate the certificate public key for Microsoft 365 (go to PortSIP PBX Web portal menu  **Advanced > Microsoft 365 Integration**).
+Now generate the certificate public key for Microsoft 365 (go to the PortSIP PBX Web portal menu **Advanced > Microsoft 365 Integration**).
 
 1. Click the button **Generate New Key Pair**, and download the **public\_key.pem** file.
 
