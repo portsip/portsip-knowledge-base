@@ -45,6 +45,10 @@ This option allows you to control when the virtual attendant will start searchin
 
 The virtual attendant will wait until the caller’s digit sequence matches an existing account. Once a match is found, the virtual attendant will initiate a call to that extension. This mechanism is beneficial when accounts of varying lengths are used. However, it might be frustrating for callers who enter a non-existing number, as the virtual attendant will never start the search.
 
+{% hint style="warning" %}
+If the caller presses the DTMF tones that do not match the single pre-configured DTMF tone, it will not to triggered the failure rule.
+{% endhint %}
+
 ### **Office Hours**
 
 Define the office hours for this DTMF input by clicking the **Office Hours** button, you have two options:
