@@ -57,9 +57,6 @@ Next, you'll need to assign users to the handsets. Here's how you can do it:
 
 1. Click on the **Users** tab.
 2. For each handset, select the users you want to assign.
-3. If you want to restrict a user to a specific handset, enter the handset’s IPUI/IPEI in the provided field. If you don’t want to impose any restrictions, leave this field empty.
-
-Remember, assigning users to specific handsets can help manage calls more effectively. However, be sure to double-check the IPUI/IPEI to avoid any mix-ups.&#x20;
 
 <figure><img src="../../../.gitbook/assets/yealink-dect-4.png" alt=""><figcaption></figcaption></figure>
 

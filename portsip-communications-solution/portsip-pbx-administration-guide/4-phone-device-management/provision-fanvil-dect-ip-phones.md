@@ -56,9 +56,6 @@ Next, you'll need to assign users to the handsets. Here's how you can do it:
 
 1. Click on the **Users** tab.
 2. For each handset, select the users you want to assign.
-3. If you want to restrict a user to a specific handset, enter the handset’s IPUI/IPEI in the provided field. If you don’t want to impose any restrictions, leave this field empty.
-
-Remember, assigning users to specific handsets can help manage calls more effectively. However, be sure to double-check the IPUI/IPEI to avoid any mix-ups.
 
 Next, you'll need to assign users to the handsets. Here's how you can do it:
 
@@ -88,9 +85,9 @@ If your PBX installation is on-premise without internet access or you turned off
    * In the menu, go to **Handset > Maintenance**, then click **Add**.
 2. **Enter Handset Details:**
    * Input the **IPUI** of the handset and assign a friendly name.
-   * Select the corresponding extension number for the handset.
+   * Select the corresponding extension number for the handset and click the confirm.
 3. **Ensure Consistent Country and Region Settings:**
-   * The country and region selected for the controller must match the settings of the base station. Once the selection is made, the system will restart.
+   * The country and region selected for the handset(W601D) must match the settings of the base station. Once the selection is made, the system will restart.
 4. **Connect to the Base Station:**
    * Navigate to **Menu > Networks > Available Networks**.
    * Click **Scan** to search for available networks, then connect to the specified base station.
