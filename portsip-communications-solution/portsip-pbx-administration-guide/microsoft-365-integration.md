@@ -33,21 +33,30 @@ To enable synchronization between PortSIP PBX and your Azure or Microsoft 365 ac
 
 <figure><img src="../../.gitbook/assets/ms365_callback_v22_1.png" alt=""><figcaption></figcaption></figure>
 
-7. Paste the redirect URI to MS 365 and save.
+7. Paste the Redirect URI into Microsoft 365 and save. If you have two Redirect URIs, paste one first; the second URI will be added later.
 
-<figure><img src="../../.gitbook/assets/ms365-pbx-uri-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ms365_registration_1.png" alt=""><figcaption></figcaption></figure>
 
 8. Copy the **Application (client) ID** and **Directory (tenant) ID** from Microsoft 365.
 
-<figure><img src="../../.gitbook/assets/ms365-pbx-client-id.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ms365_registration_2.png" alt=""><figcaption></figcaption></figure>
 
 9. Please remember to save the **Directory (tenant) ID** for later use. You just need to copy and paste the **Application (client) ID** into the PBX as in the below screenshot for now.
 
-<figure><img src="../../.gitbook/assets/ms365-pbx-client-id-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ms365_registration_3.png" alt=""><figcaption></figcaption></figure>
 
-10. If you have installed and configured the PortSIP SBC with the PBX, please obtain the SBC base domain from the PBX System Administrator. Then, create an SBC Redirect URI in the format `https://sbc_domain:10443/ms365/redirect`, replacing "sbc\_domain" with your actual SBC domain. Next, navigate to the **App registrations** menu and select the application you configured in **Step 7**.  Now click on the **Authentication** menu, then click **Add URI**. Paste the SBC Redirect URI here and save your changes. In the future, if your PBX web domain or SBC web domain is changed, you need to update them in Microsoft 365 as well.
+10. If you have installed and configured the PortSIP SBC with the PBX, you will have two Redirect URIs in the PBX web portal. The first URI was added in the previous step.
 
-<figure><img src="../../.gitbook/assets/sbc_redirect_uri.png" alt=""><figcaption></figcaption></figure>
+    Next, follow these steps to add the second URI:
+
+    1. **Navigate to the App registrations menu** in your Azure or Microsoft 365 account.
+    2. **Select the application** you configured in **Step 7**.
+    3. **Click on the Authentication menu**, then select **Add URI**.
+    4. **Paste the second Redirect URI** and save your changes.
+
+    **Important:** If your PBX web domain or SBC web domain changes in the future, make sure to update the Redirect URIs in Microsoft 365 accordingly.
+
+<figure><img src="../../.gitbook/assets/ms365_registration_4.png" alt=""><figcaption></figcaption></figure>
 
 ### Generate Key Pair
 
@@ -125,7 +134,7 @@ Once Microsoft 365 is successfully integrated, a Microsoft icon will appear on b
 
 ### Configuring Contact Synchronization <a href="#h.pwuvv0v8qcyq" id="h.pwuvv0v8qcyq"></a>
 
-You can have personal 365 contacts synced to the PortSIP PBX user's personal contacts. This is a one-way synchronization: Contacts need to be managed and updated from Microsoft 365. You can do the same for Microsoft 365 shared mailbox contacts and synchronous these to the PortSIP PBX company contacts. All contacts in [“Well-Known Folders”](https://learn.microsoft.com/en-us/dotnet/api/microsoft.exchange.webservices.data.wellknownfoldername?view=exchange-ews-api) (Default) folders will be synced.
+You can have personal 365 contacts synced to the PortSIP PBX user's personal contacts. This is a one-way synchronization: Contacts need to be managed and updated from Microsoft 365. You can do the same for Microsoft 365 shared mailbox contacts and synchronize these with the PortSIP PBX company contacts. All contacts in [“Well-Known Folders”](https://learn.microsoft.com/en-us/dotnet/api/microsoft.exchange.webservices.data.wellknownfoldername?view=exchange-ews-api) (Default) folders will be synced.
 
 <figure><img src="../../.gitbook/assets/portsip_ms365_6.png" alt=""><figcaption></figcaption></figure>
 
