@@ -30,6 +30,10 @@ Since **PortSIP PBX v22.x HA** only supports **Ubuntu 24.04**, you must rebuild 
 * **Step 1**: Destroy the current three servers running **Ubuntu 20.04** and rebuild them with **Ubuntu 24.04**.
 * **Step 2**: Install PortSIP PBX v22.x HA following the [**High Availability Installation on AWS**](high-availability-installations-on-aws.md) guide. During the installation, ensure you mount the **EBS** volume that was used with v16.x.
 
+{% hint style="warning" %}
+You must mount the **EBS** volume used by the previous **v16.x PBX** to the new EC2 server to enable data upgrading.
+{% endhint %}
+
 The PortSIP PBX application will automatically upgrade the data during the startup process.
 
 ## Upgrading PortSIP PBX v22.x HA to the Latest Version
