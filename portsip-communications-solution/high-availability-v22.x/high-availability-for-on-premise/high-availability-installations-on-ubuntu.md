@@ -151,7 +151,11 @@ Keep it as the default settings.
 
 ### Storage configuration <a href="#storageconfiguration-mo-ren" id="storageconfiguration-mo-ren"></a>
 
-Keep it as the default setting, the **/dev/sdb** should be **unused** state.
+Keep it as the default setting, the **/dev/sdb** should be **unused** state.&#x20;
+
+{% hint style="danger" %}
+The `/dev/sdb` disk must remain uninitialized and in an **unused** state; otherwise, the installation will fail.
+{% endhint %}
 
 <figure><img src="../../../.gitbook/assets/ubuntu-ha-15.png" alt=""><figcaption></figcaption></figure>
 

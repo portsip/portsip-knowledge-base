@@ -153,6 +153,10 @@ Keep it as the default settings.
 
 Keep it as the default setting, the **/dev/sdb** should be **unused** state.
 
+{% hint style="danger" %}
+The `/dev/sdb` disk must remain uninitialized and in an **unused** state; otherwise, the installation will fail.
+{% endhint %}
+
 <figure><img src="../../../.gitbook/assets/ubuntu-ha-15.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/ubuntu-ha-16.png" alt=""><figcaption></figcaption></figure>

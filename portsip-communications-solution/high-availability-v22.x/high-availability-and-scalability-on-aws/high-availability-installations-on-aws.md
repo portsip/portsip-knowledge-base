@@ -4,7 +4,7 @@ This guide provides instructions on how to deploy PortSIP PBX HA on the AWS EC2 
 
 ## Prerequisites
 
-* **Operating System**: Ubuntu 20.04 LTS 64-bit is required.&#x20;
+* **Operating System**: Ubuntu **24.04** LTS 64-bit is required.&#x20;
 * **AWS EC2 Instances**: You will need three AWS EC2 instances. In this guide, the terms **EC2 server**, **PBX server**, and **node** are used interchangeably, all referring to an AWS EC2 instance.
 * **Instance Specifications**: Each EC2 instance should have a minimum of 4 vCPUs and 4GB of memory.
 * **Public IP Assignment**: Ensure to select the **Assign a public IP automatically** option when creating each EC2 instance.
@@ -162,10 +162,8 @@ Configure the security group when creating all HA EC2 instances.
 
 Please follow the below steps to create the EC instance.
 
-* In the Section **Application and OS Images (Amazon Machine Image)**, please choose the AMI **Ubuntu Server 20.04 LTS (HVM), SSD Volume Type**.
-* In the section **Instance type**,  please choose the instance type **t2.medium** or other instance types.&#x20;
-
-
+* In the Section **Application and OS Images (Amazon Machine Image)**, please choose the AMI **Ubuntu Server 24.04 LTS (HVM), SSD Volume Type**.
+* In the section **Instance type**,  please choose the instance type **t3.medium** or other instance types.&#x20;
 
 {% hint style="info" %}
 You should choose the appropriate instance type for your business usage.
@@ -291,7 +289,7 @@ You’ll need to upload the `aws-portsip-pbx-ha.pem` file to the `/home/ubuntu/.
 
 Perform the below command on the node **ip-172-31-16-133** only.
 
-```
+```sh
 chmod 400 /home/ubuntu/.ssh/aws-portsip-pbx-ha.pem
 ```
 
@@ -301,9 +299,9 @@ chmod 400 /home/ubuntu/.ssh/aws-portsip-pbx-ha.pem
 
 The following command should only be executed on the EC2 **ip-172-31-16-133**.
 
-```
-cd /opt/ && sudo wget -N https://www.portsip.com/downloads/ha/v16/portsip-pbx-ha-on-aws-guide-16.tar.gz \
- && sudo tar xf portsip-pbx-ha-on-aws-guide-16.tar.gz
+```sh
+cd /opt/ && sudo wget -N https://www.portsip.com/downloads/ha/v22/portsip-pbx-ha-on-aws-guide-22.tar.gz \
+ && sudo tar xf portsip-pbx-ha-on-aws-guide-22.tar.gz
 ```
 
 ### Set variables
@@ -314,7 +312,7 @@ Please prepare the value for the below Variables.
 
 The following command should only be executed on the EC2 **ip-172-31-16-133**.
 
-```
+```sh
 cd /opt/portsip-pbx-ha-guide && sudo bash -c 'cat > ./res/vars.yml' << EOF
 pbx01_instance_id: i-08807c762627239b8
 pbx02_instance_id: i-03411641c37513049
@@ -323,7 +321,7 @@ private_vip_address: 172.31.16.130
 eip_address: 54.151.30.9
 eip_allocation_id: eipalloc-02c7cf64a5cd449cf
 ebs_volume_id: vol-0e06e1e9da3c49b67
-pbx_image: portsip/pbx:16.4.2.2771-release
+pbx_image: portsip/pbx:22
 ssh_private_key_file: /home/ubuntu/.ssh/aws-portsip-pbx-ha.pem
 EOF
 ```
@@ -332,8 +330,8 @@ EOF
 
 The following command should only be executed on the EC2 **ip-172-31-16-133**.
 
-```
-cd /opt/portsip-pbx-ha-guide/ && /bin/bash install_dependencies.sh
+```sh
+cd /opt/portsip-pbx-ha-guide/ && cd /bin/bash install_dependencies.sh
 ```
 
 ### Deploying PBX HA
@@ -342,8 +340,8 @@ Perform the below command on the node **ip-172-31-16-133** only.&#x20;
 
 The execution may take a long time, so patience is required. Please do not interrupt, restart, or shut down while the process is in progress.
 
-```
-cd /opt/portsip-pbx-ha-guide/ && /bin/bash deploy_pbx.sh
+```sh
+cd /opt/portsip-pbx-ha-guide/ && sudo /bin/bash deploy_pbx.sh
 ```
 
 Once the resource configuration is complete, you can access your PBX by opening [https://54.151.30.9:8887](https://54.151.30.9:8887/) in a web browser. All future PBX management, configuration, and access will be done through the Elastic IP 54.151.30.9.
@@ -448,7 +446,7 @@ Before upgrading, you can create a snapshot of the EBS. This allows you to roll 
 
 Perform the below command only on the EC2 instance **ip-172-31-16-133.**
 
-```
+```sh
 cd /opt/ && rm -rf portsip-pbx-ha-on-aws-guide-16.tar.gz \
 && sudo wget -N https://www.portsip.com/downloads/ha/v16/portsip-pbx-ha-on-aws-guide-16.tar.gz \
 && sudo tar xf portsip-pbx-ha-on-aws-guide-16.tar.gz
