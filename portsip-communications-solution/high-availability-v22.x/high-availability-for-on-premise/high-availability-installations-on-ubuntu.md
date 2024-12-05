@@ -334,6 +334,10 @@ When you sign into the PBX Web portal, the setup wizard will automatically pop u
 
 Once successfully completed the Setup Wizard, select the menu **Advanced > Settings > Advanced**, select the **Enable Call Recovery** option, and confirm by clicking on the **OK** button.
 
+## Installing PortSIP IM Service
+
+You are now ready to install the **PortSIP IM Service**. Please refer to the guide [**Installation of PortSIP IM Server**](../../portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/installation-of-the-portsip-im-server.md) for detailed steps to complete the installation.
+
 ## Managing PBX HA
 
 Once you successfully configured the PortSIP PBX HA as per the above steps, you can use the following commands to manage the PBX HA.
