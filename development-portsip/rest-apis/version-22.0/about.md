@@ -143,7 +143,7 @@ PortSIP PBX API calls return HTTP status codes. Some API calls also return JSON 
 
 Actionable failure conditions, covered in detail in their relevant sections, are reported as part of 4xx responses in a JSON response body. One or more errors will be returned in the following format:
 
-```JSON
+```json
 {
   "errors": [
     {
@@ -194,13 +194,13 @@ The process for synchronizing personal contacts is as follows:
 
 Initially, request a sync token for contacts:
 
-```SHELL
+```shell
 curl -X POST 'https://HOSTNAME:PORT/api/user/contacts/sync_tokens'
 ```
 
 This would return something like the following:
 
-```JSON
+```json
 {
   "token": "001"
 }
@@ -210,13 +210,13 @@ This would return something like the following:
 
 After a sync token has been obtained, the client can request all changes since the token was issued. This is done with a request that may look like this:
 
-```SHELL
+```shell
 curl -X POST 'https://HOSTNAME:PORT/api/user/contacts/sync_tokens/001'
 ```
 
 This would return something like the following:
 
-```JSON
+```json
 {
   "token": "002",
   "items": [
