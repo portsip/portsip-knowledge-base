@@ -209,7 +209,7 @@ After the server reboot, use the "**pbx**" user credentials created during insta
 
 Perform the following commands at all three nodes: **pbx01**, **pbx02**, **pbx03**. Note: you need to replace the IP and hostname in the following command with your actual IP and hostname.
 
-```
+```sh
 sudo bash -c 'cat >> /etc/hosts' << EOF
 192.168.1.131 pbx01
 192.168.1.132 pbx02
@@ -225,7 +225,7 @@ In this guide, "**pbx01**", "**pbx02**", and "**pbx03**" are the mean for node 1
 
 Perform the below command only on the **pbx01**:
 
-```
+```sh
 ssh-keygen -t rsa
 ```
 
@@ -241,16 +241,15 @@ The following commands provided below should only be executed on the node "**pbx
 If you are prompted to choose an option (**yes/no**), please enter **yes**.
 {% endhint %}
 
-```
-ssh-copy-id -i ~/.ssh/id_rsa.pub pbx01
+<pre class="language-sh"><code class="lang-sh"><strong>sudo ssh-copy-id -i ~/.ssh/id_rsa.pub pbx01
+</strong></code></pre>
+
+```sh
+sudo ssh-copy-id -i ~/.ssh/id_rsa.pub pbx02
 ```
 
-```
-ssh-copy-id -i ~/.ssh/id_rsa.pub pbx02
-```
-
-```
-ssh-copy-id -i ~/.ssh/id_rsa.pub pbx03
+```sh
+sudo ssh-copy-id -i ~/.ssh/id_rsa.pub pbx03
 ```
 
 ## Configuring PortSIP PBX HA
@@ -260,13 +259,13 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub pbx03
 The following command should only be executed on the node "**pbx01**".
 
 ```sh
-cd /opt/ && sudo wget -N https://www.portsip.com/downloads/ha/v22/portsip-pbx-ha-guide-16-online.tar.gz \ 
+cd /opt/ && sudo wget -N https://www.portsip.com/downloads/ha/v22/portsip-pbx-ha-guide-22-online.tar.gz \ 
 && sudo tar xf portsip-pbx-ha-guide-22-online.tar.gz
 ```
 
 ### Set variables
 
-Please prepare the value for the below Variables.
+Please prepare the value for the below variables.
 
 <table data-header-hidden><thead><tr><th width="206">Name</th><th width="120.33333333333326">Type</th><th>Description</th></tr></thead><tbody><tr><td>Name</td><td>Type</td><td>Description</td></tr><tr><td>pbx01_hostname</td><td>string</td><td>The hostname of node 1, in this case is pbx01</td></tr><tr><td>pbx02_hostname</td><td>string</td><td>The hostname of node 2, in this case is pbx02</td></tr><tr><td>pbx03_hostname</td><td>string</td><td>The hostname of node 3, in this case is pbx03</td></tr><tr><td>pbx01_private_ip</td><td>string</td><td>The private <strong>static</strong> IP of node 1, in this case is 192.168.1.131</td></tr><tr><td>pbx02_private_ip</td><td>string</td><td>The private <strong>static</strong> IP of node 2, in this case is 192.168.1.132</td></tr><tr><td>pbx03_private_ip</td><td>string</td><td>The private <strong>static</strong> IP of node 3, in this case is 192.168.1.133</td></tr><tr><td>vip</td><td>string</td><td>The virtual IP in this case is 192.168.1.130</td></tr><tr><td>pbx_image</td><td>string</td><td>PortSIP PBX docker image in this case is <strong>portsip/pbx:22</strong></td></tr><tr><td>pbx_datapath_disk</td><td>string</td><td>The disk volume for PBX data store in this case is /dev/sdb</td></tr><tr><td>pbx_datapath_size</td><td>string</td><td>The disk volume size for PBX data store，in this case is 36G(If set as full 40G maybe report error);<br>For example if the disk volume size is 500G , suggest set as 490G.</td></tr></tbody></table>
 
@@ -292,7 +291,7 @@ EOF
 The following command is only executed on the node **pbx01**.&#x20;
 
 ```sh
-cd /opt/portsip-pbx-ha-guide/ && /bin/bash install_dependencies.sh
+cd /opt/portsip-pbx-ha-guide/ && sudo /bin/bash install_dependencies.sh
 ```
 
 ### Reboot Servers
@@ -301,28 +300,28 @@ The following commands are only executed on the node **pbx01** (Note, the pbx01 
 
 #### Restart pbx03
 
-```
-ssh -t pbx03 "sudo reboot"
+```sh
+sudo ssh -t pbx03 "sudo reboot"
 ```
 
 #### Restart pbx02
 
-```
-ssh -t pbx02 "sudo reboot"
+```sh
+sudo ssh -t pbx02 "sudo reboot"
 ```
 
 #### Restart pbx01
 
-```
-ssh -t pbx01 "sudo reboot"
+```sh
+sudo ssh -t pbx01 "sudo reboot"
 ```
 
 ### Initialize Resources
 
 Only execute the following command on the node **pbx01**, the execution may take some time, so patience is required. Please do not interrupt, restart, or shut down while the process is in progress.
 
-```
-cd /opt/portsip-pbx-ha-guide/ && /bin/sh deploy_pbx.sh
+```sh
+cd /opt/portsip-pbx-ha-guide/ && sudo /bin/sh deploy_pbx.sh
 ```
 
 Once the resource configuration is complete, you can access your PBX by opening https://192.168.1.130:8887 in a web browser. All future PBX management, configuration, and access will be done through the virtual IP 192.168.1.130.
@@ -343,8 +342,8 @@ All commands should be performed only on the **pbx01.**
 
 ### View PBX HA Status
 
-```
-cd /opt/portsip-pbx-ha-guide && /bin/bash ha_ctl.sh status
+```sh
+cd /opt/portsip-pbx-ha-guide && sudo /bin/bash ha_ctl.sh status
 ```
 
 The following output indicates that the PBX HA is working properly.
@@ -364,8 +363,8 @@ The following output indicates that the PBX HA is working properly.
 
 Use the below command to restart the PBX.
 
-```
-cd /opt/portsip-pbx-ha-guide && /bin/bash ha_ctl.sh restart -s pbx
+```sh
+cd /opt/portsip-pbx-ha-guide && sudo /bin/bash ha_ctl.sh restart -s pbx
 ```
 
 The following output indicates that the PBX is successfully restarted.
