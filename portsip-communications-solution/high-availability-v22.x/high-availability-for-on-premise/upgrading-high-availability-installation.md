@@ -97,7 +97,7 @@ Perform the below command only on the **pbx01.**
   && sudo tar xf portsip-pbx-ha-guide-22-online.tar.gz
 ```
 
-## **2. Update**
+### **2. Update**
 
 Use the new version image of PortSIP PBX to update the PBX.
 

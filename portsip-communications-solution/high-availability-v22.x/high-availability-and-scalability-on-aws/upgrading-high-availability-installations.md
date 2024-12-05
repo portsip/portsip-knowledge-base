@@ -40,7 +40,7 @@ The PortSIP PBX application will automatically upgrade the data during the start
 
 If you are currently running the PortSIP PBX v22.x HA, please follow the below steps to upgrade it to the latest version.
 
-### Download and Update Resources
+### 1. Download and Update Resources
 
 Perform the below command only on the EC2 instance **ip-172-31-16-133.**
 
@@ -50,7 +50,7 @@ cd /opt/ && rm -rf portsip-pbx-ha-on-aws-guide-22.tar.gz \
 && sudo tar xf portsip-pbx-ha-on-aws-guide-22.tar.gz
 ```
 
-### **Update PBX**
+### **2. Update PBX**
 
 Use the new version image of PortSIP PBX to update the PBX.
 
