@@ -47,9 +47,9 @@ Ensure you have backed up the current PBX data directory (`/var/lib/portsip`) as
 Since PortSIP PBX v22.x HA only supports **Ubuntu 24.04**, you must rebuild the three PBX node servers. Choose one of the following methods:
 
 * **Method 1**:\
-  Prepare three new servers running Ubuntu 24.04. These servers must have the **same specifications**, **IP addresses**, and **hostnames** as the current three servers running v16.x. Install PortSIP PBX v22.x HA following the steps outlined in the [**High Availability Installation on Ubuntu**](../../high-availability-v16.x/high-availability-for-on-premise/high-availability-installations-on-ubuntu.md) guide.
+  Prepare three new servers running Ubuntu 24.04. These servers must have the **same specifications**, **IP addresses**, and **hostnames** as the current three servers running v16.x. Install PortSIP PBX v22.x HA following the steps outlined in the [**High Availability Installation on Ubuntu**](./) guide.
 * **Method 2**:\
-  Destroy and then completely rebuild the current three servers running Ubuntu 20.04 by reinstalling them with Ubuntu 24.04. Then, install PortSIP PBX v22.x HA following the  [**High Availability Installation on Ubuntu**](../../high-availability-v16.x/high-availability-for-on-premise/high-availability-installations-on-ubuntu.md) guide.
+  Destroy and then completely rebuild the current three servers running Ubuntu 20.04 by reinstalling them with Ubuntu 24.04. Then, install PortSIP PBX v22.x HA following the [**High Availability Installation on Ubuntu**](./) guide.
 
 Choose the method that best suits your requirements to install the new PortSIP PBX v22.x HA.
 
@@ -94,7 +94,7 @@ Perform the below command only on the **pbx01.**
 ```sh
   cd /opt && rm -rf portsip-pbx-ha-guide-22-online.tar.gz && \
   sudo wget -N https://www.portsip.com/downloads/ha/v22/portsip-pbx-ha-guide-22-online.tar.gz \
-  && sudo tar xf portsip-pbx-ha-guide-16-online.tar.gz
+  && sudo tar xf portsip-pbx-ha-guide-22-online.tar.gz
 ```
 
 ## **2. Update**
