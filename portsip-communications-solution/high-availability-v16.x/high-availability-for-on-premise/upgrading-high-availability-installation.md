@@ -1,8 +1,10 @@
-# Updating High Availability Installation
+# Upgrading High Availability Installation
 
 {% hint style="info" %}
 Before upgrading the PBX HA, please consult with PortSIP support to ensure the versions are compatible.
 {% endhint %}
+
+Please follow the below steps to upgrade your current PBX HA.
 
 ## Back up data
 

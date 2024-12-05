@@ -35,7 +35,7 @@ We used **192.168.1.130** as the VIP (Virtual IP).
 
 The PortSIP PBX HA for Ubuntu supports the following versions:
 
-* &#x20;Ubuntu 20.04
+* &#x20;Ubuntu 24.04
 
 ## **Architecture**
 
@@ -83,7 +83,7 @@ Please keep in mind that the username "**pbx**" used in this guide is just an ex
 The steps in this section guide you through the process of installing and configuring the Ubuntu operating system on all **three node servers**.
 {% endhint %}
 
-In this article, we installed the **Ubuntu 20.04**.
+In this article, we installed the **Ubuntu 24.04**.
 
 ### Select language
 
@@ -259,20 +259,20 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub pbx03
 
 The following command should only be executed on the node "**pbx01**".
 
-```
-cd /opt/ && sudo wget -N https://www.portsip.com/downloads/ha/v16/portsip-pbx-ha-guide-16-online.tar.gz \ 
-&& sudo tar xf portsip-pbx-ha-guide-16-online.tar.gz
+```sh
+cd /opt/ && sudo wget -N https://www.portsip.com/downloads/ha/v22/portsip-pbx-ha-guide-16-online.tar.gz \ 
+&& sudo tar xf portsip-pbx-ha-guide-22-online.tar.gz
 ```
 
 ### Set variables
 
 Please prepare the value for the below Variables.
 
-<table data-header-hidden><thead><tr><th width="206">Name</th><th width="120.33333333333326">Type</th><th>Description</th></tr></thead><tbody><tr><td>Name</td><td>Type</td><td>Description</td></tr><tr><td>pbx01_hostname</td><td>string</td><td>The hostname of node 1, in this case is pbx01</td></tr><tr><td>pbx02_hostname</td><td>string</td><td>The hostname of node 2, in this case is pbx02</td></tr><tr><td>pbx03_hostname</td><td>string</td><td>The hostname of node 3, in this case is pbx03</td></tr><tr><td>pbx01_private_ip</td><td>string</td><td>The private <strong>static</strong> IP of node 1, in this case is 192.168.1.131</td></tr><tr><td>pbx02_private_ip</td><td>string</td><td>The private <strong>static</strong> IP of node 2, in this case is 192.168.1.132</td></tr><tr><td>pbx03_private_ip</td><td>string</td><td>The private <strong>static</strong> IP of node 3, in this case is 192.168.1.133</td></tr><tr><td>vip</td><td>string</td><td>The virtual IP in this case is 192.168.1.130</td></tr><tr><td>pbx_image</td><td>string</td><td>PortSIP PBX docker image in this case is portsip/pbx:16.4.2.2771-release</td></tr><tr><td>pbx_datapath_disk</td><td>string</td><td>The disk volume for PBX data store in this case is /dev/sdb</td></tr><tr><td>pbx_datapath_size</td><td>string</td><td>The disk volume size for PBX data store，in this case is 36G(If set as full 40G maybe report error);<br>For example if the disk volume size is 500G , suggest set as 490G.</td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th width="206">Name</th><th width="120.33333333333326">Type</th><th>Description</th></tr></thead><tbody><tr><td>Name</td><td>Type</td><td>Description</td></tr><tr><td>pbx01_hostname</td><td>string</td><td>The hostname of node 1, in this case is pbx01</td></tr><tr><td>pbx02_hostname</td><td>string</td><td>The hostname of node 2, in this case is pbx02</td></tr><tr><td>pbx03_hostname</td><td>string</td><td>The hostname of node 3, in this case is pbx03</td></tr><tr><td>pbx01_private_ip</td><td>string</td><td>The private <strong>static</strong> IP of node 1, in this case is 192.168.1.131</td></tr><tr><td>pbx02_private_ip</td><td>string</td><td>The private <strong>static</strong> IP of node 2, in this case is 192.168.1.132</td></tr><tr><td>pbx03_private_ip</td><td>string</td><td>The private <strong>static</strong> IP of node 3, in this case is 192.168.1.133</td></tr><tr><td>vip</td><td>string</td><td>The virtual IP in this case is 192.168.1.130</td></tr><tr><td>pbx_image</td><td>string</td><td>PortSIP PBX docker image in this case is <strong>portsip/pbx:22</strong></td></tr><tr><td>pbx_datapath_disk</td><td>string</td><td>The disk volume for PBX data store in this case is /dev/sdb</td></tr><tr><td>pbx_datapath_size</td><td>string</td><td>The disk volume size for PBX data store，in this case is 36G(If set as full 40G maybe report error);<br>For example if the disk volume size is 500G , suggest set as 490G.</td></tr></tbody></table>
 
 The following command is only executed on the node **pbx01**.&#x20;
 
-```
+```sh
 cd /opt/portsip-pbx-ha-guide && sudo bash -c 'cat > ./res/vars.yml' << EOF
 pbx01_hostname: pbx01
 pbx02_hostname: pbx02
@@ -281,7 +281,7 @@ pbx01_private_ip: 192.168.1.131
 pbx02_private_ip: 192.168.1.132
 pbx03_private_ip: 192.168.1.133
 vip: 192.168.1.130
-pbx_image: portsip/pbx:16.4.2.2771-release
+pbx_image: portsip/pbx:22
 pbx_datapath_disk: /dev/sdb
 pbx_datapath_size: 36G
 EOF
@@ -291,7 +291,7 @@ EOF
 
 The following command is only executed on the node **pbx01**.&#x20;
 
-```
+```sh
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash install_dependencies.sh
 ```
 
@@ -377,66 +377,5 @@ resource 'pbx' is not running on any node
 enable resource pbx
 ```
 
-## Upgrade the PBX HA
 
-{% hint style="info" %}
-Before upgrading the PBX HA, please consult with PortSIP support to ensure the versions are compatible.
-{% endhint %}
-
-### Back up data
-
-Before upgrading, please back up the PBX data.
-
-1. Stop the PBX service
-
-Perform the below command only on the **pbx01.**
-
-```
-cd /opt/portsip-pbx-ha-guide && /bin/bash ha_ctl.sh stop -s pbx
-```
-
-2. Check the current master node
-
-Perform the below command only on the **pbx01.**
-
-```
-cd /opt/portsip-pbx-ha-guide && /bin/bash ha_ctl.sh master
-```
-
-For example, the below output indicates the current master node is **pbx01**.&#x20;
-
-<figure><img src="../../../.gitbook/assets/ubuntu-ha-27.png" alt=""><figcaption></figcaption></figure>
-
-3. Back up data
-
-Login to the current master node, and back up the PBX data directory: `/var/lib/portsip`
-
-### Download and update resources
-
-Perform the below command only on the **pbx01.**
-
-```
-  cd /opt && rm -rf portsip-pbx-ha-guide-16-online.tar.gz && \
-  sudo wget -N https://www.portsip.com/downloads/ha/v16/portsip-pbx-ha-guide-16-online.tar.gz \
-  && sudo tar xf portsip-pbx-ha-guide-16-online.tar.gz
-```
-
-### **Update**
-
-Use the new version image of PortSIP PBX to update the PBX.
-
-{% hint style="danger" %}
-Please contact PortSIP support to obtain the **\<PortSIP PBX new version image>** before upgrading.
-{% endhint %}
-
-Perform the below command only on the **pbx01.**
-
-<pre class="language-sh"><code class="lang-sh"><strong>cd /opt/portsip-pbx-ha-guide/ &#x26;&#x26; /bin/bash update.sh &#x3C;PortSIP PBX new version image>
-</strong></code></pre>
-
-For example:
-
-```sh
-cd /opt/portsip-pbx-ha-guide/ && /bin/bash update.sh portsip/pbx:16.4.4.2814-release
-```
 
