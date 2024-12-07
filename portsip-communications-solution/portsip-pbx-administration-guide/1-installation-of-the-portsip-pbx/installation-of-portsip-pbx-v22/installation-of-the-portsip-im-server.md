@@ -184,11 +184,23 @@ Use the following command to create the Instant Messaging (IM) service Docker in
 * **-i**: Specifies the PBX Docker image version (required).
 * **-x**: Indicates the main PBX server's IP address (typically the private IP of the main PBX server) (required).
 * **-t**: Provides the token generated and copied in the previous step (required).
-* **-f**: Specifies the path for storing files sent in chats(optional). This path must differ from the one specified with **-p**. If this parameter is omitted, chat files will be stored in the path specified by **-p.**
+* **-f**: Specifies the path for storing files sent in chats (optional). This path **must differ** from the one specified with **-p**. If this parameter is omitted, chat files will be stored in the path specified by **-p.**
 
 ```sh
 sudo /bin/sh im_ctl.sh run -E \
 -p /var/lib/portsip/ \
+-a 192.168.1.25 \
+-i portsip/pbx:22 \
+-x 192.168.1.20 \
+-t OWMWYWJKZJYTMWM2NI0ZNZJMLWJJZDKTMGVMZDYXNZU1NWI1
+```
+
+For example, if you want to store the chat files to the path `/chat/files`, please ensure this path is already existing, then use the below command (please pay attention to the **-f** parameter.) to create the Instant Messaging (IM) service Docker instance on the IM server (IP **192.168.1.25)**. Replace each parameter with your actual values:
+
+```sh
+sudo /bin/sh im_ctl.sh run -E \
+-p /var/lib/portsip/ \
+-f /chat/files/ \
 -a 192.168.1.25 \
 -i portsip/pbx:22 \
 -x 192.168.1.20 \
