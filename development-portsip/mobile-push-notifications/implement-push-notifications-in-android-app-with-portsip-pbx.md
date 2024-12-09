@@ -1,4 +1,4 @@
-# Integrating the Push Notifications in Android APP
+![image](https://github.com/user-attachments/assets/8d03f565-86ce-44e9-9440-398fac821245)![image](https://github.com/user-attachments/assets/e7b9fd36-7b70-4d0f-a33e-612042d15310)# Integrating the Push Notifications in Android APP
 
 This guide provides step-by-step instructions on how to create an Android app using the PortSIP VoIP SDK to receive VoIP push notifications sent from PortSIP PBX.
 
@@ -17,14 +17,23 @@ Since PortSIP PBX uses Google Firebase to send push notifications, we need to co
 ## 3. Creating an App ID
 
 1. Add a new project to the Firebase console.
-2. Set the project name and country. For example, you can name your project `SIPSamplePush`.
+2. Set the project name and country. For example, you can name your project `SIPSample`.
 
-![](<../../.gitbook/assets/android_push_step1 (2).png>)
+![](<../../.gitbook/assets/android_push_v22_step1.png>)
+![](<../../.gitbook/assets/android_push_v22_step2.png>)
 
-3. Select **Add Firebase to your Android app**.
-4. Set a package name for your app. You can omit the SHA-1 if you don’t use Firebase for your app’s authentication.
+3. Select the SIPSample Project
+![](<../../.gitbook/assets/android_push_v22_step3.png>)
 
-![](../../.gitbook/assets/android_push_step2.png)
+4. Select “Project settings”
+![](<../../.gitbook/assets/android_push_v22_step4.png>)
+
+5. Select “Android platform”
+![](<../../.gitbook/assets/android_push_v22_step5.png>)
+
+6. Set a package name for your app. I only set my package name and omit the SHA-1 because I do not use Firebase for my app's authentication.
+
+![](<../../.gitbook/assets/android_push_v22_step6.png>)
 
 5. Click the **REGISTER APP** button to download `google-services.json`. This is an important file, and you will need to place it into your app.
 
@@ -83,7 +92,7 @@ compile 'com.google.firebase:firebase-messaging:20.0.0'
 ```
 android {
 defaultConfig {
-applicationId "com.portsip.sipsamplepush" // this is the id that your app has
+applicationId "com.portsip.SIPSample" // this is the id that your app has
 } }
 ```
 
@@ -140,14 +149,26 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 To verify that your setup works, follow these steps to send a test message to your mobile device:
 
-1. **Run a Test**: Open the Firebase console.
-2. **Compose Your Message**: Write down your message in the console.
-3. **Select Your App**: Choose the app you want to send the message to.
-4. **Send the Message**: Click **SEND MESSAGE** to dispatch the notification.
+1. Install and run the app on the target device. 
 
-![](../../.gitbook/assets/android_push_step6.png)
+2. Make sure the app is in the background on the device.
 
-Now, you should receive a push notification on your Android mobile. If your app is running in the background, you will see it in the mobile’s notification center. Otherwise, you can see it in your Android Monitor log (ensure you have code to log incoming messages) like this:
+3. In the Firebase console, open the Messaging page.
+
+4. If this is your first message, select Create your first campaign.
+
+   a. Select Firebase Notification messages and select Create.
+5. Otherwise, on the Campaigns tab, select New campaign and then Notifications.
+
+6. Enter the message text. All other fields are optional.
+
+7. Select Send test message from the right pane.
+
+8. In the field labeled Add an FCM registration token, enter the registration token you obtained in a previous section of this guide.
+
+9. Select Test.
+
+After you select Test, you should receive a push notification on your Android mobile. If your app is running in the background, you will see it in the mobile’s notification center. Otherwise, you can see it in your Android Monitor log (ensure you have code to log incoming messages) like this:
 
 ```
 Log.d(TAG, "Notification Message Body: " + remoteMessage.getNotification().getBody());
@@ -176,7 +197,7 @@ public class MyService extends Service implements OnPortSIPEvent
 	public static final String ACTION_TOKENREFRESH = "token_refresh";
 	public static final String DEVICE_TOKEN = "deviceToken";
 	public PortSipSdk mSipSdk;
-	String appid=”com.portsip.sipsamplepush”;
+	String appid=”com.portsip.SIPSample”;
 	//you app id
 	@Override
 	public void onCreate() {
@@ -232,13 +253,17 @@ mSipSdk.refreshRegistration(0);
 
 ## 10. Getting Server Key and Sender ID
 
-1. **Access Project Settings**: In the Firebase console, click the **Settings** button and choose the **Project Settings** menu.
+1. **Access Project Settings**: In the Firebase console, click the **Settings** button and choose the **Project Settings** -> **Cloud Messaging** -> **Mange Service Accounts**.
+![](<../../.gitbook/assets/android_push_v22_step8.png>)
 
-![](../../.gitbook/assets/android_push_step7.png)
+2. **Srvice Accounts**: click the **Manage keys**. 
+![](<../../.gitbook/assets/android_push_v22_step9.png>)
 
-2. **Navigate to Cloud Messaging**: In the **Settings** tab, click the **Cloud Messaging** tab. You will see the **Server key** and **Sender I**D. Please note them down.
+3. **Create new key**
+![](<../../.gitbook/assets/android_push_v22_step10.png>)
 
-![](../../.gitbook/assets/android_push_step8.png)
+Choose Key type “JSON”, and click “CREATE”, you will get a JSON file, e.g: sipsample-c3789-c6a094e0e0e2.json 
+![](<../../.gitbook/assets/android_push_v22_step11.png>)
 
 ## 11. Configuring PortSIP PBX
 
