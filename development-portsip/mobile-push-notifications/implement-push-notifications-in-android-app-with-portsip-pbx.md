@@ -20,15 +20,19 @@ Since PortSIP PBX uses Google Firebase to send push notifications, we need to co
 2. Set the project name and country. For example, you can name your project `SIPSample`.
 
 ![](<../../.gitbook/assets/android_push_v22_step1.png>)
+
 ![](<../../.gitbook/assets/android_push_v22_step2.png>)
 
 3. Select the SIPSample Project
+
 ![](<../../.gitbook/assets/android_push_v22_step3.jpg>)
 
 4. Select “Project settings”
+
 ![](<../../.gitbook/assets/android_push_v22_step4.jpg>)
 
 5. Select “Android platform”
+
 ![](<../../.gitbook/assets/android_push_v22_step5.jpg>)
 
 6. Set a package name for your app. I only set my package name and omit the SHA-1 because I do not use Firebase for my app's authentication.
@@ -254,15 +258,19 @@ mSipSdk.refreshRegistration(0);
 ## 10. Getting Server Key and Sender ID
 
 1. **Access Project Settings**: In the Firebase console, click the **Settings** button and choose the **Project Settings** -> **Cloud Messaging** -> **Mange Service Accounts**.
+
 ![](<../../.gitbook/assets/android_push_v22_step8.jpg>)
 
 2. **Srvice Accounts**: click the **Manage keys**. 
+
 ![](<../../.gitbook/assets/android_push_v22_step9.jpg>)
 
 3. **Create new key**
+
 ![](<../../.gitbook/assets/android_push_v22_step10.jpg>)
 
 Choose Key type “JSON”, and click “CREATE”, you will get a JSON file, e.g: sipsample-c3789-c6a094e0e0e2.json 
+
 ![](<../../.gitbook/assets/android_push_v22_step11.png>)
 
 ## 11. Configuring PortSIP PBX
