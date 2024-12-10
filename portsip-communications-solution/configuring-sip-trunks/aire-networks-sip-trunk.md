@@ -18,12 +18,12 @@ To add a trunk, follow these steps:
 
 1. Navigate to **Call Manager > Trunks**, then click the arrow button to select the Register Based Trunk to add.
 2. Enter a friendly name for the trunk.
-3. From the **Brand** combo box, choose **Aire Networks**, keep the default settings, and click the OK button.
+3. From the **Brand** combo box, choose **Aire Networks**, keep the default settings.
 
 <figure><img src="../../.gitbook/assets/air_network_trunk_1.png" alt=""><figcaption></figcaption></figure>
 
-4. Click the **Next** button, enter _**any string**_ for the **Username/Authentication Name** and password, and click the **Next** button and keep all the default settings.
-5. If you are using the **System Admin** to add this trunk, in the last step for the **Tenants**, please select one or more tenants to grant them access to this trunk so they can use the Aire Networks Trunk to send the SMS.
+4. Click the **Next** button, enter _**any string**_ for the **Username/Authentication Name** and **password**, and click the **Next** button and keep all the default settings.
+5. If you are using the **System Admin** to add this trunk, in the last step for the **Tenants**, please select one or more tenants to grant them access to this trunk so they can use the Aire Networks Trunk to send the SMS.&#x20;
 
 <figure><img src="../../.gitbook/assets/air_network_trunk_2.png" alt=""><figcaption></figcaption></figure>
 
@@ -49,7 +49,7 @@ By default, extensions are not permitted to send SMS. To enable an extension to 
 
 1. Sign in to the PortSIP PBX web portal.
 2. Navigate to **Call Manager > Users**, double-click the desired extension, and go to the **Extension** tab.
-3. Under the **Send SMS/MMS** option, select **Allow** or **Allow Send SMS with Sender ID**.
+3. Under the **Send SMS/MMS** option, since AireNetworks SMS always sends the SMS by Sender ID, you must choose **Allow Send SMS with Sender ID**.&#x20;
 
 Refer to the screenshot below for further guidance.
 
