@@ -1,9 +1,5 @@
 # Installation PortSIP SBC v11.x
 
-{% hint style="danger" %}
-The PortSIP SBC v11.0 has not been released, please don't install it at this moment.
-{% endhint %}
-
 {% hint style="warning" %}
 If your PortSIP PBX is running v22.x, you will need to install PortSIP SBC v11.x to use the latest WebRTC app.
 {% endhint %}

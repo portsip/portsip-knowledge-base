@@ -1,9 +1,5 @@
 # Upgrade to the Latest v22.x Release
 
-{% hint style="danger" %}
-The PortSIP PBX v22.0 hasn't been released yet, the upgrade is unavailable.
-{% endhint %}
-
 This guide provides step-by-step instructions for upgrading your current PortSIP PBX v16.x or v22.x installation to the latest v22.x release.
 
 ## Back-Up

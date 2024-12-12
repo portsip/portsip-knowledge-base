@@ -1,9 +1,5 @@
 # Installation of PortSIP PBX v22.x
 
-{% hint style="danger" %}
-The PortSIP PBX v22.0 has not been released, please don't install it at this moment.
-{% endhint %}
-
 ## Upgrading
 
 This guide is just for installing a fresh PortSIP PBX version 22.x.
