@@ -4,6 +4,141 @@
 Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/upgrade-portsip-pbx-to-v22.x.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
+## Changes for Release v22.0.0
+
+Date: Dec 12, 2024
+
+* Optimized performance: 2 cores, 4GB memory for up to 1,000 online users, supports \~500 simultaneous calls
+* PortSIP ONE app: Available for WebRTC, Windows, iOS, and Android (macOS support coming soon)
+* SSO login: Support for Microsoft 365 accounts across WebRTC, Windows, iOS, and Android apps
+* Messaging features: Group chat, offline messaging, sync messages across devices, support for SMS and WhatsApp messaging
+* Call management: Optimized for blind and attended call transfers, Call Flip and Call Park features within the app, Call Park notifications for easy retrieval, Visual voicemail in the app
+* Customization options: Themes and emoji support, customizable caller ID for calls and SMS, manage personal and company contacts, easy import of contacts
+* Synchronization across devices and apps: Sync presence and custom status, sync DND status across apps and IP phones, auto-sync extension users and CDR across apps
+* VoIP trunk and SMS API integrations: Pre-configured trunks for Vonage, QuestBlue, VoIP.ms, Voxtelesys, Wavix, Twilio, Telnyx, Aire Networks, VoiceMeUp
+* Phone support: Support for FANVIL DECT Phones (MODE and V66 models), SNOM phones, Yealink W73B DECT Phones, auto-provisioning for Grandstream GXP2604, HTEK phones
+* Security and routing enhancements: STIR/SHAKEN support for enhanced call security, call routing based on extension presence status
+* Administrative features: Tenant admins can manage Speed Dial 8 and Speed Dial 100 settings
+* Operating system support: Linux (Debian 11/12, Ubuntu 22.04/24.04), Windows (10 1903/19H1 or higher, Windows Server 2022 or higher)
+* Language support: Japanese language support
+* WSI Pub/Sub integration: Provides **global\_\*** event notifications for system integration
+
+### REST API Changes
+
+* Removed `/api/login/by_extension`.
+* Removed `/api/tenants/:id/dealer`.
+* Removed `/api/tokens`.
+* Removed `/api/tokens/by_extension`.
+* Removed `/api/tokens/refresh`.
+* Removed `/api/tokens/destroy`.
+* Removed `/api/user/chats/sessions`.
+* Removed `/api/user/chats/sessions/:id/messages`.
+* Removed `/api/user/chats/sessions/:id/messages/set_read`.
+* Removed `/api/user/contacts/version`.
+* Removed `/api/call_queues/:id/agents/:agent_number/login`.
+* Removed `/api/call_queues/:id/agents/:agent_number/logout`.
+* Removed `/api/call_queue_blacklist_prompts/:level`.
+* Removed `/api/contacts/version`.
+* Removed `/api/contact_groups`.
+* Removed `/api/contact_groups/:id`.
+* Removed `/api/contact_groups/:id/destroy`.
+* Removed `/api/contact_groups/:id/contacts`.
+* Removed `/api/contact_groups/:id/contacts/:contact_id`.
+* Removed `/api/contact_groups/:id/contacts/:contact_id/destroy`.
+* Removed `/api/files/:id/metadata`.
+* Removed `/api/files/:id/data`.
+* Removed `/api/files/uploads`.
+* Removed `/api/files/uploads/:id/append`.
+* Removed `/api/files/uploads/:id/complete`.
+* Removed `/api/files/uploads/:id/status`.
+* Removed `/api/files/uploads/:id/destroy`.
+* Added `/api/user/presence` to manage the presence status of extension users.
+* Added `/api/tenants/:id/dealers`, `/api/tenants/:id/dealers/:dealer_id`, `/api/tenants/:id/dealers/:dealer_id/destroy` to manage tenant-dealer relationships.
+* Added `/api/im`, `/api/im/token`, `/api/im/token/destroy` to manage IM service-related features.
+* Added `/api/sms`, `/api/sms/:id`, `/api/sms/:id/destroy` to manage SMS service-related features.
+* Added `/api/whatsapp`, `/api/whatsapp/:id`, `/api/whatsapp/:id/destroy` to manage WhatsApp service-related features.
+* Added `/api/user/cdrs/sync_tokens`, `/api/user/cdrs/sync_tokens/:token/diff` to sync extension user CDRs.
+* Added `/api/user/meetings/:id/status`, `/api/user/meetings/:id/start`, `/api/user/meetings/:id/stop` to manage extension user meetings.
+* Added `/api/user/contacts/:id/favorite`, `/api/user/contacts/:id/unfavorite` to manage personal contacts' favorites for extension users.
+* Added `/api/user/contacts/sync_tokens`, `/user/contacts/sync_tokens/:token/diff` to sync personal contacts for extension users.
+* Added `/api/user/business_contacts/:id/favorite`, `/api/user/business_contacts/:id/unfavorite` to manage business contacts' favorites for extension users.
+* Added `/api/user/business_contacts/sync_tokens`, `/user/business_contacts/sync_tokens/:token/diff` to sync business contacts for extension users.
+* Added `/api/user/extension_contacts/:id/favorite`, `/user/extension_contacts/:id/unfavorite` to manage extension contacts' favorites for extension users.
+* Added `/api/user/extension_contacts/sync_tokens`, `/user/extension_contacts/sync_tokens/:token/diff` to sync extension contacts for extension users.
+* Added `/api/user/outbound_caller_ids` to retrieve all outbound caller IDs for extension users.
+* Added `/api/user/ring_groups` to retrieve all ring groups associated with extension users.
+* Added `/api/users/:id/ms365_binding`, `/users/:id/ms365_binding/destroy` to bind and unbind extension users to Microsoft 365 integration.
+* Added `/api/users/:id/speed_dial_8`, `/users/:id/speed_dial_8/:dial_id`, `/users/:id/speed_dial_8/:dial_id/destroy` to manage Speed Dial 8 for specific extension users.
+* Added `/api/users/:id/speed_dial_100`, `/users/:id/speed_dial_100/:dial_id`, `/users/:id/speed_dial_100/:dial_id/destroy` to manage Speed Dial 100 for specific extension users.
+* Renamed `/api/user/meetings/:id/members` to `/user/meetings/:id/participants`.
+* Renamed `/api/user/meetings/:id/members/layout` to `/user/meetings/:id/participants/layout`.
+* Renamed `/api/user/meetings/:id/members/:extension_number` to `/user/meetings/:id/participants/:participant_id`.
+* Renamed `/api/user/meetings/:id/members/:extension_number/invite` to `/user/meetings/:id/participants/invite`.
+* Renamed `/api/user/meetings/:id/members/:extension_number/mute` to `/user/meetings/:id/participants/:participant_id/mute`.
+* Renamed `/api/user/meetings/:id/members/:extension_number/unmute` to `/user/meetings/:id/participants/:participant_id/unmute`.
+* Renamed `/api/user/meetings/:id/members/:extension_number/chairman` to `/user/meetings/:id/participants/:participant_id/chairman`.
+* Renamed `/api/user/meetings/:id/members/:extension_number/order` to `/user/meetings/:id/participants/:participant_id/position`.
+* Renamed `/api/user/meetings/:id/members/:extension_number/destroy` to `/user/meetings/:id/participants/:participant_id/destroy`.
+* Renamed `/api/conference_rooms/:id/members` to `/api/conference_rooms/:id/participants`.
+* Renamed `/api/conference_rooms/:id/members/layout` to `/api/conference_rooms/:id/participants/layout`.
+* Renamed `/api/conference_rooms/:id/members/:extension_number` to `/api/conference_rooms/:id/participants/:participant_id`.
+* Renamed `/api/conference_rooms/:id/members/:extension_number/invite` to `/api/conference_rooms/:id/participants/invite`.
+* Renamed `/api/conference_rooms/:id/members/:extension_number/mute` to `/api/conference_rooms/:id/participants/:participant_id/mute`.
+* Renamed `/api/conference_rooms/:id/members/:extension_number/unmute` to `/api/conference_rooms/:id/participants/:participant_id/unmute`.
+* Renamed `/api/conference_rooms/:id/members/:extension_number/chairman` to `/api/conference_rooms/:id/participants/:participant_id/chairman`.
+* Renamed `/api/conference_rooms/:id/members/:extension_number/order` to `/api/conference_rooms/:id/participants/:participant_id/position`.
+* Renamed `/api/conference_rooms/:id/members/:extension_number/destroy` to `/api/conference_rooms/:id/participants/:participant_id/destroy`.
+* Renamed `/api/tariffs` to `/call_rates`.
+* Renamed `/api/tariffs/:id` to `/call_rates/:id`.
+* Renamed `/api/tariffs/:id/destroy` to `/call_rates/:id/destroy`.
+* Renamed `/api/tariffs/export` to `/call_rates/export`.
+* Modified `/api/admin/notification`: Added `auth`, `enable_starttls_auto` to configure SMTP authentication methods.
+* Modified `/api/admin/settings`: Added properties `user_equal_required_for_auth_name`, `stir_shaken_cert`, `stir_shaken_key`; Modified property: `session_timer_duration` (default value changed to 3600).
+* Modified `/api/call_park` (GET method): Removed property `prompt_file_id`.
+* Modified `call_queue_blacklist_prompts` (GET method): Removed properties `level1_prompt_file_id`, `level2_prompt_file_id`.
+* Modified `/api/call_queues`: Added properties `enable_paid`, `enable_prid`, `extension_number_as_to_header`.
+* Modified `/api/call_queues/:id` (GET method): Removed properties `moh_prompt_file_id`, `intro_prompt_file_id`.
+* Modified `/api/cdrs`: Added properties `service_number`, `user_data`.
+* Modified `/api/cdrs/:id`: Added property `service_number`.
+* Modified `completed_call_reports`: Removed property `file_id`.
+* Modified `completed_call_reports`: Added property `file_url`.
+* Modified `/api/conference_rooms`: Added properties `internal_invitees`, `external_invitees`.
+* Modified `/conference_rooms/:id/recordings`: Removed property `file_id`.
+* Modified `/conference_rooms/:id/recordings`: Added property `duration`.
+* Modified `/api/contacts`: Removed property `pager`; Added properties `title`, `notes`.
+* Modified `/api/dealers`: Added property `tenant_full_access`.
+* Modified `/api/dect_phones`: Added property `region`.
+* Modified `/api/hotdesking`: Added properties `external_ringtone`, `serial_number`.
+* Modified `/api/media_servers`: Added property `custom_options`.
+* Modified `/api/moh_server/musics`: Removed property `file_id`.
+* Modified `/api/ms365` (GET method): Added property `sbc_redirect_uri`.
+* Modified `/api/providers`: Added properties `enabled`, `brand`, `registration`, `stir_shaken_signature_required`; Modified properties: `inbound_parameters` (Added sub-properties: `enable_stir_shaken_validation`, `pai_header_parameter_name`, `drop_calls_with_verification_status`, `pass_api_header_to_uad`), `outbound_variable_user` (Added value: `OUTBOUND_CALLER_ID_AND_ORIGINATOR_CALLER_ID`), `outbound_variable_host` (Added value: `SIP_DOMAIN`), `status` (Removed values: `REGISTERED`, `UNREGISTERED`; Added values: `ONLINE`, `OFFLINE`).
+* Modified `/api/ring_groups`: Added properties `enable_paid`, `enable_prid`, `extension_number_as_to_header`.
+* Modified `/api/shared_voicemails/:id/greetings` (GET method): Removed properties `file_id`, `filename`.
+* Modified `/api/shared_voicemails/:id/voicemails`: Added property `duration`.
+* Modified `/api/tenants`: Removed properties `enable_concurrent_login`, `enable_queue_blacklist_first_level`, `enable_queue_blacklist_second_level`, `avatar`, `avatar_file_id`; Added properties `enable_billing`, `enable_feature_billing`, `enable_feature_call_statistics`, `enable_feature_contact_center`, `enable_feature_message_channels`, `enable_feature_microsoft_teams`, `enable_feature_trunks`, `enable_feature_whats_app`, `im_disk_quota`, `extension_im_disk_quota`, `stir_shaken_cert`, `stir_shaken_key`; Modified properties: `contact_match_type` (default value changed to `MATCH_EXACTLY`), `contact_update_interval` (default value changed to 720).
+* Modified `/api/tenant@notification`: Added properties `auth`, `enable_starttls_auto`.
+* Modified `/api/tenants`: Removed properties `enable_concurrent_login`, `enable_queue_blacklist_first_level`, `enable_queue_blacklist_second_level`, `deleted_at`, `avatar`, `avatar_file_id`; Added properties `enable_billing`, `enable_feature_billing`, `enable_feature_call_statistics`, `enable_feature_contact_center`, `enable_feature_message_channels`, `enable_feature_microsoft_teams`, `enable_feature_trunks`, `enable_feature_whats_app`, `im_disk_quota`, `extension_im_disk_quota`, `stir_shaken_cert`, `stir_shaken_key`; Modified properties: `contact_match_type` (default value changed to `MATCH_EXACTLY`), `contact_update_interval` (default value changed to 720).
+* Modified `/api/tenants/switch`: When status is 200 OK, no longer returns a new token.
+* Modified `/api/test_email`: Added properties `auth`, `enable_starttls_auto`.
+* Modified `/api/user`: Removed properties `twitter`, `facebook`, `linkedin`, `instagram`, `avatar`, `avatar_file_id`, `online_no_answer_forward_rule`, `online_busy_forward_rule`; Added properties `address`, `department`, `sms`, `available_office_hours_forward_rule`, `available_non_office_hours_forward_rule`, `available_no_answer_forward_rule`, `busy_office_hours_forward_rule`, `busy_non_office_hours_forward_rule`, `busy_no_answer_forward_rule`, `dnd_office_hours_forward_rule`, `dnd_non_office_hours_forward_rule`, `away_office_hours_forward_rule`, `away_non_office_hours_forward_rule`, `lunch_office_hours_forward_rule`, `lunch_non_office_hours_forward_rule`, `trip_office_hours_forward_rule`, `trip_non_office_hours_forward_rule`.
+* Modified `/api/user/cdrs`: Added properties `service_number`, `user_data`.
+* Modified `/api/user/cdrs/:id`: Added property `service_number`.
+* Modified `/api/user/contacts`: Removed property `pager`; Added properties `title`, `notes`.
+* Modified `/api/user/greetings`: Removed properties `file_id`, `filename`.
+* Modified `/api/user/meetings` (POST method): Removed properties `extension_number`, `capacity`, `close_on_chairman_exit`, `close_on_endtime`; Added properties `internal_invitees`, `external_invitees`; Modified property: `timezone` (required).
+* Modified `/api/user/phones`: Added properties `external_ringtone`, `serial_number`, `door_password1`, `door_password2`.
+* Modified `/api/user/recordings`: Removed properties `file_id`, `filename`; Added property `duration`.
+* Modified `/api/users`: Removed properties `twitter`, `facebook`, `linkedin`, `instagram`, `avatar`, `avatar_file_id`, `online_no_answer_forward_rule`, `online_busy_forward_rule`; Added properties `address`, `department`, `sms`, `available_office_hours_forward_rule`, `available_non_office_hours_forward_rule`, `available_no_answer_forward_rule`, `busy_office_hours_forward_rule`, `busy_non_office_hours_forward_rule`, `busy_no_answer_forward_rule`, `dnd_office_hours_forward_rule`, `dnd_non_office_hours_forward_rule`, `away_office_hours_forward_rule`, `away_non_office_hours_forward_rule`, `lunch_office_hours_forward_rule`, `lunch_non_office_hours_forward_rule`, `trip_office_hours_forward_rule`, `trip_non_office_hours_forward_rule`; Modified property: `display_name` (required).
+* Modified `/api/users/:id/greetings`: Removed properties `file_id`, `filename`.
+* Modified `/api/users/:id/phones`: Added properties `external_ringtone`, `serial_number`, `door_password1`, `door_password2`.
+* Modified `/api/voicemails`: Removed properties `file_id`, `filename`; Added property `duration`.
+* Modified `/api/default_email_templates`: Modified property `name` (Added `TRUNK_CONNECTED`, `TRUNK_DISCONNECTED`).
+* Modified `/api/custom_email_templates`: Modified property `name` (Added `TRUNK_CONNECTED`, `TRUNK_DISCONNECTED`).
+* Modified `/api/feature_access_codes`: Modified property `code` (Added `CALL_FLIP`, `CALL_TRANSFER`, `CLEAR_PUSH`, `RESET_CALLS`).
+* Modified password property: Minimum length restriction changed to 6 (previously 8).
+* Modified outbound\_caller\_ids property: Added sub-property `description`.
+
 ## Changes for Release v16.4.4
 
 Date: Nov 25, 2024
