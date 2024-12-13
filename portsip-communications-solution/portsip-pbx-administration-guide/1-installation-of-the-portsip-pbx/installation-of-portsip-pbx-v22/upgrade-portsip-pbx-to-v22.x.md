@@ -120,8 +120,12 @@ rm sbc_ctl.sh
 
 You are now ready to upgrade to the latest version of PortSIP PBX v22.x.
 
+## Important: Upgrading from v16.x to v22.x
+
+If you have installed the **new** PortSIP PBX v22.x or performed an upgrade **within the v22.x** series, **please skip this section**.
+
 {% hint style="danger" %}
-After upgrading from v16.x to v22.x, please complete the following steps.
+If you are upgrading from v16.x to v22.x, please complete the following steps.
 {% endhint %}
 
 * **Re-generate User QR Codes:**
@@ -292,4 +296,6 @@ To upgrade to the latest version of PortSIP PBX v22.x, simply follow the same st
 After removing the current installation, you can now proceed with the installation of PortSIP PBX v22.x and the Instant Messaging (IM) service.&#x20;
 
 For detailed instructions and to complete the upgrade, please refer to the [**Installation of PortSIP PBX v22.x** ](./)Guide.
+
+You are now ready to upgrade to the latest version of PortSIP PBX v22.x.
 
