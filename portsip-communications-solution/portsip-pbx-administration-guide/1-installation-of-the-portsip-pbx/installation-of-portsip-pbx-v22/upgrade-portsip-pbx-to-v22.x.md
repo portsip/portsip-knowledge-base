@@ -120,6 +120,16 @@ rm sbc_ctl.sh
 
 You are now ready to upgrade to the latest version of PortSIP PBX v22.x.
 
+{% hint style="danger" %}
+After upgrading from v16.x to v22.x, please complete the following steps.
+{% endhint %}
+
+* **Re-generate User QR Codes:**
+  * Go to **Call Manager > Users** and click the **Send All Welcome Email** button. The PBX will then re-generate QR codes for all users, allowing the PortSIP ONE app to sign in successfully.
+* **Reconfigure Microsoft 365 Integration:** If you have configured Microsoft 365 integration on v16.x, follow the [**Microsoft 365 Integration Guide**](../../microsoft-365-integration.md) to configure it again:&#x20;
+  * Remove all previously configured callback URIs in Microsoft 365.
+  * Add the two new callback URIs as described in the guide.
+
 ## Prerequisites for Upgrading within v22.x
 
 If your current installation is already PortSIP PBX v22.x and you need to upgrade to the latest v22.x version, please follow the steps below to remove the existing v22.x installation.
