@@ -108,9 +108,15 @@ For example, if you mount a device or an external NAS device to **`/pbx/recordin
 sudo /bin/sh pbx_ctl.sh \
 run -p /var/lib/portsip \
 -a 66.175.221.120 \
--i portsip/pbx:22
+-i portsip/pbx:22 \
 -f /pbx/recordings
 ```
+
+{% hint style="danger" %}
+If you are upgrading from v16.x to v22.x and specify the `-f` parameter, or if you did not specify the `-f` parameter in earlier v22.x versions but chose to do so during the upgrade, please be aware that all previously recorded files and uploaded prompt files will no longer be accessible. Exercise caution when using this parameter!
+{% endhint %}
+
+
 
 After successfully installing the PortSIP PBX, you can access the PBX web portal by visiting: [**https://66.175.221.120:8887**](https://66.175.221.120:8887)
 
