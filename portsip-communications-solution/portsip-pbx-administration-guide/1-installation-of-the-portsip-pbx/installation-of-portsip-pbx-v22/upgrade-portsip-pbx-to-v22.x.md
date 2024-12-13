@@ -120,9 +120,7 @@ rm sbc_ctl.sh
 
 You are now ready to upgrade to the latest version of PortSIP PBX v22.x.
 
-## Important: Upgrading from v16.x to v22.x
-
-If you have installed the **new** PortSIP PBX v22.x or performed an upgrade **within the v22.x** series, **please skip this section**.
+### Important: Upgrading from v16.x to v22.x
 
 {% hint style="danger" %}
 If you are upgrading from v16.x to v22.x, please complete the following steps.
@@ -133,6 +131,8 @@ If you are upgrading from v16.x to v22.x, please complete the following steps.
 * **Reconfigure Microsoft 365 Integration:** If you have configured Microsoft 365 integration on v16.x, follow the [**Microsoft 365 Integration Guide**](../../microsoft-365-integration.md) to configure it again:&#x20;
   * Remove all previously configured callback URIs in Microsoft 365.
   * Add the two new callback URIs as described in the guide.
+* **Must log in to** the PBX web portal as a tenant administrator for each tenant and navigate to **Advanced > Contacts**. Select any contact, make an edit, and click **OK**. This action will prompt the PBX to generate an XML phone book for your IP phones, allowing them to download it successfully.
+* Since SMTP server configurations have changed in v22.0, your previous settings will now be recognized as a generic email provider. Please review your configuration and update it if necessary.
 
 ## Prerequisites for Upgrading within v22.x
 
