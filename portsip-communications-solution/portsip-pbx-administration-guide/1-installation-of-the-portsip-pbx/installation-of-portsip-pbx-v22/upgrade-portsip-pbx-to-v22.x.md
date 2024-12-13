@@ -123,7 +123,7 @@ You are now ready to upgrade to the latest version of PortSIP PBX v22.x.
 ### Important: Upgrading from v16.x to v22.x
 
 {% hint style="danger" %}
-If you are upgrading from v16.x to v22.x, please complete the following steps.
+If you are upgrading from v16.x to v22.x, please follow these steps after your upgrade is complete.
 {% endhint %}
 
 * **Re-generate User QR Codes:**
