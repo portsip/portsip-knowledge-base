@@ -43,6 +43,10 @@ If you make changes to the PBX IP or the above two options, you will need to ref
 
 ## Manually register the client app to the PBX
 
+{% hint style="warning" %}
+This section is only applicable to the PortSIP Softphone v6.1x, it's not for the PortSIP ONE app.
+{% endhint %}
+
 You can fill in the user details in the client app manually to register the app to the PortSIP PBX.
 
 ### Desktop App
