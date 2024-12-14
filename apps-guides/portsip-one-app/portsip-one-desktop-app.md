@@ -1,8 +1,12 @@
 # PortSIP ONE Desktop App
 
-## Downloading PortSIP ONE for Windows Desktop
+{% hint style="info" %}
+The PortSIP ONE app is compatible only with PortSIP PBX version 22.0 or higher. It does **not** support PortSIP PBX version 16.x.
+{% endhint %}
 
 To download the latest version of PortSIP ONE for Windows desktop, visit the [PortSIP website](https://www.portsip.com/download-portsip-one/). The application is provided as an MSI installer. Simply double-click the downloaded file to start the installation process.
+
+This guide applies to both **PortSIP ONE for Windows** and **PortSIP ONE WebRTC**.
 
 ## Logging into the PortSIP ONE App via QR Code
 
@@ -38,15 +42,49 @@ The PortSIP ONE app makes logging in effortless by using a QR code. On the PortS
 
 <figure><img src="../../.gitbook/assets/portsip-one-desktop-qrcode.png" alt=""><figcaption></figcaption></figure>
 
+## Logging into the PortSIP ONE App Manually
 
+You can manually input user details in the PortSIP ONE app to log in to the PortSIP PBX. In this example, we assume the following configurations:
 
+* The PortSIP PBX and SBC are installed on a server with:
+  * **Public IP:** `66.175.221.120`
+  * **Private IP:** `192.168.1.72`
+* The PBX web domain **`uc.portsip.cc`** resolves to the PBX server’s public IP: `66.175.221.120`.
+* The PBX is configured with the following transport protocols in the SBC:
+  * UDP on port `5060`
+  * TLS on port `5061`
+  * TCP on port `5063`
+  * WSS on port `5065`
+* A tenant has been created with the SIP domain set as **`test.io`**.
 
+Based on these configurations, after signing in to the PBX as the system administrator, you will see a page similar to the screenshot below.
 
+<figure><img src="../../.gitbook/assets/portsip-pbx-info.png" alt=""><figcaption></figcaption></figure>
 
+### 1. Entering the Server Information
 
+At the PortSIP ONE login window, provide the following details:
 
+* **SIP Domain**: Enter the tenant's SIP domain. For this example, the SIP domain is **`test.io`**.
+* **Server Address**: Enter the PBX server's IP address or web domain:
+  * If logging in from the internet, use the public IP (**`66.175.221.12`**`0`).
+  * If logging in from a LAN, use the private IP (**`192.168.1.72`**).
+  * Alternatively, you can enter the web domain (**`uc.portsip.cc`**) instead of the IP address.
 
+<figure><img src="../../.gitbook/assets/portsip-one-login1.png" alt=""><figcaption></figcaption></figure>
 
+Click **Next** after entering this information. If the details are correct, the next window will prompt you to enter user credentials.
+
+### Entering User Information
+
+In the user information window, provide the following:
+
+* **Username**: Enter the username of the extension user. Note that this is **not the extension number**, but the designated username.
+* **Password**: Enter the password for the extension user. This is **not the extension password**, but the user’s account password.
+
+<figure><img src="../../.gitbook/assets/portsip-one-login2.png" alt=""><figcaption></figcaption></figure>
+
+Click the **Sign In** button to complete the login process. The PortSIP ONE app will successfully log in to the PortSIP PBX.
 
 
 
