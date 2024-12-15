@@ -112,7 +112,7 @@ Upon signing in, click the **Calls** tab to navigate to the Calls page. The page
 
 <figure><img src="../../.gitbook/assets/portsip-one-desktop-place-call-2.png" alt=""><figcaption></figcaption></figure>
 
-### **Placing a call from the Contacts menu:**
+### **Placing a call from the Contacts menu**
 
 1. Click **Contacts** in the left menu.
 2. You can filter contacts by **Users**, **Company Contacts**, or **Personal Contacts**.
@@ -120,7 +120,7 @@ Upon signing in, click the **Calls** tab to navigate to the Calls page. The page
 
 <figure><img src="../../.gitbook/assets/portsip-one-desktop-place-call-3.png" alt=""><figcaption></figcaption></figure>
 
-### **Ending a call:**
+### **Ending a call**
 
 * Press the **Leave** button located at the bottom-right corner to end the current call.
 * Alternatively, press the **End** button located at the top-right corner to terminate the active call.
@@ -149,7 +149,7 @@ You can also transfer the call to a receptionist by the number via the **Dial Pa
 2. Enter a valid extension or phone number.
 3. Click the **Dial** button. The transfer will be completed.
 
-### **Attended transferring a call:**
+### **Attended transferring a call**
 
 An **Attended Transfer** occurs when you announce the call to the recipient before transferring it. To perform an attended transfer while on a call:
 
@@ -164,26 +164,56 @@ An **Attended Transfer** occurs when you announce the call to the recipient befo
 
 <figure><img src="../../.gitbook/assets/portsip-one-desktop-transfer-call-3.png" alt=""><figcaption></figcaption></figure>
 
-### **Transferring a Call to Voicemail**
+### **Transferring a call to voicemail**
 
 A **Direct-to-Voicemail Transfer** is used when you wish to transfer a call directly to another user’s voicemail. To perform a transfer to voicemail while on an active call:
 
 1. Click the **Transfer** button.
 2. Select **Transfer to Voicemail**.
-3. From the **Contact Panel**, select the recipient to whom you wish to transfer the call and click the **Transfer** button.
+3. From the **Contact Panel**, select the recipient to whom you wish to transfer the call to click on it.
 4. The call will be transferred directly to their voicemail.
 
 <figure><img src="../../.gitbook/assets/portsip-one-desktop-transfer-call-4.png" alt=""><figcaption></figcaption></figure>
 
+### **Direct parking a call**
 
+To park a call to an extension while on an active call:
 
+1. Click the **Transfer** button.
+2. Select **Park**.
+3. From the **Contact Panel**, select the recipient to whom you wish to park the call and click on their name.
 
+The call will be parked on that extension.
 
+### **Group parking a call**
 
+If the user is a member of a park group, they can park a call to the group, allowing group members to retrieve the parked call.
 
+To park a call to the group while on an active call:
 
+1. Click the **Transfer** button.
+2. Select **Group Park**.
 
+The call will be parked to the group if the user is a member of a park group.
 
+### **Retrieving a parked call**
+
+Once a call is parked to an extension user or a park group, the extension user or group members will receive a notification. As shown in the screenshot below, the **Call HUB** icon on the top title bar will start blinking.
+
+1. Click the **HUD** icon. The parked call will appear in the list.
+2. Click the **Retrieve** button to easily retrieve the call.
+
+<figure><img src="../../.gitbook/assets/portsip-one-desktop-call-retrieve.png" alt=""><figcaption></figcaption></figure>
+
+### **Call Flip**
+
+**Call Flip** allows you to quickly transfer an active call from PortSIP ONE to another endpoint, such as PortSIP ONE mobile or an IP phone. To perform a Call Flip while on an active call:
+
+1. Click the **Transfer** button.
+2. Select **Flip**.
+3. Your other devices (e.g., PortSIP ONE mobile or IP phone) will ring. Simply answer the call on the other device.
+
+<figure><img src="../../.gitbook/assets/portsip-one-desktop-call-flip.png" alt=""><figcaption></figcaption></figure>
 
 
 
