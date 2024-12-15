@@ -8,11 +8,11 @@ To download the latest version of PortSIP ONE for Windows desktop, visit the [Po
 
 This guide applies to both **PortSIP ONE for Windows** and **PortSIP ONE WebRTC**.
 
-## Logging into the PortSIP ONE App via QR Code
+## Logging into the PortSIP ONE app via QR code
 
 The PortSIP ONE app makes logging in effortless by using a QR code. Please follow the below steps to process.
 
-### 1. Obtaining a QR Code
+### 1. Obtaining a QR code
 
 If the SMTP server has been configured in PortSIP PBX by the tenant manager, the PBX will automatically email the account information and QR code to the extension user upon successful extension creation.
 
@@ -29,20 +29,20 @@ As a tenant manager, you can also manually access and manage QR codes by followi
 
 Within the **Extension** tab of a user’s settings, there are two QR code configuration options:
 
-1. **Preferred Transport for QR Code:**
+1. **Preferred transport for QR code:**
    * This dropdown menu lets you specify the preferred transport protocol (e.g., TCP, UDP) for the QR code. When scanning the QR code to register with the PBX, the PortSIP ONE app will prioritize this setting.
-2. **Generate a QR Code with the Network Interface Below:**
+2. **Generate a QR Code with the network interface below:**
    * Use this option to designate the Outbound Proxy Server for the PortSIP ONE app when scanning the QR code to log in to the PBX.
 
 **Important Note:** If you modify the PBX IP address or adjust either of the above options, you must refresh the QR code by clicking on it to ensure the updated configuration is applied.
 
-### 2. Logging into the PortSIP ONE App
+### 2. Logging into the PortSIP ONE app
 
 The PortSIP ONE app makes logging in effortless by using a QR code. On the PortSIP ONE login window, click the QR code icon located at the bottom-right corner. Select the QR code option, and then scan the QR code provided by the PBX. The app will log in automatically.
 
 <figure><img src="../../.gitbook/assets/portsip-one-desktop-qrcode.png" alt=""><figcaption></figcaption></figure>
 
-## Logging into the PortSIP ONE App Manually
+## Logging into the PortSIP ONE app manually
 
 You can manually input user details in the PortSIP ONE app to log in to the PortSIP PBX. In this example, we assume the following configurations:
 
@@ -61,7 +61,7 @@ Based on these configurations, after signing in to the PBX as the system adminis
 
 <figure><img src="../../.gitbook/assets/portsip-pbx-info.png" alt=""><figcaption></figcaption></figure>
 
-### 1. Entering the Server Information
+### 1. Entering the server information
 
 At the PortSIP ONE login window, provide the following details:
 
@@ -75,7 +75,7 @@ At the PortSIP ONE login window, provide the following details:
 
 Click **Next** after entering this information. If the details are correct, the next window will prompt you to enter user credentials.
 
-### Entering User Information
+### Entering user information
 
 In the user information window, provide the following:
 
@@ -85,6 +85,48 @@ In the user information window, provide the following:
 <figure><img src="../../.gitbook/assets/portsip-one-login2.png" alt=""><figcaption></figcaption></figure>
 
 Click the **Sign In** button to complete the login process. The PortSIP ONE app will successfully log in to the PortSIP PBX.
+
+## How to place calls <a href="#id-2" id="id-2"></a>
+
+Upon signing in, click the **Calls** tab to navigate to the Calls page. The page is divided into two distinct sections:
+
+1. **Call Log Window**: This section displays all incoming, outgoing, and missed calls.
+2. **Caller Information Section**: This section shows detailed information for the selected caller. The data displayed will update based on the caller you choose.
+
+<figure><img src="../../.gitbook/assets/portsip-one-desktop-place-call.png" alt=""><figcaption></figcaption></figure>
+
+### **Placing a call from the calls page**
+
+1. Click the **New Call** button. The dial pad will appear.
+2. Enter a valid extension or a phone number.
+3. Click the **Call** button. The call will be initiated and displayed at the top of the dashboard screen.
+
+<figure><img src="../../.gitbook/assets/portsip-one-desktop-place-call-1.png" alt=""><figcaption></figcaption></figure>
+
+### **Placing a call from contacts**
+
+1. Click the **New Call** button to open the dial pad window.
+2. Next, click the **Contacts** icon. The dial pad will disappear and be replaced by your contact list.
+3. You can either search for a contact using the search field or scroll through the list.
+4. Once you locate the contact, hover over their name and click the blue phone icon to initiate the call.
+
+<figure><img src="../../.gitbook/assets/portsip-one-desktop-place-call-2.png" alt=""><figcaption></figcaption></figure>
+
+### **Placing a Call from the Contacts Menu:**
+
+1. Click **Contacts** in the left menu.
+2. You can filter contacts by **Users**, **Company Contacts**, or **Personal Contacts**.
+3. On the user/contact information page, you can easily place a call by selecting the extension or phone number.
+
+<figure><img src="../../.gitbook/assets/portsip-one-desktop-place-call-3.png" alt=""><figcaption></figcaption></figure>
+
+
+
+
+
+
+
+
 
 
 
