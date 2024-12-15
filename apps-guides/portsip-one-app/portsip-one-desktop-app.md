@@ -112,13 +112,70 @@ Upon signing in, click the **Calls** tab to navigate to the Calls page. The page
 
 <figure><img src="../../.gitbook/assets/portsip-one-desktop-place-call-2.png" alt=""><figcaption></figcaption></figure>
 
-### **Placing a Call from the Contacts Menu:**
+### **Placing a call from the Contacts menu:**
 
 1. Click **Contacts** in the left menu.
 2. You can filter contacts by **Users**, **Company Contacts**, or **Personal Contacts**.
 3. On the user/contact information page, you can easily place a call by selecting the extension or phone number.
 
 <figure><img src="../../.gitbook/assets/portsip-one-desktop-place-call-3.png" alt=""><figcaption></figcaption></figure>
+
+### **Ending a call:**
+
+* Press the **Leave** button located at the bottom-right corner to end the current call.
+* Alternatively, press the **End** button located at the top-right corner to terminate the active call.
+
+<figure><img src="../../.gitbook/assets/portsip-one-desktop-end-call-1.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/portsip-one-desktop-end-call-2.png" alt=""><figcaption></figcaption></figure>
+
+### **Blind transferring a call**
+
+A **Blind Transfer** occurs when you transfer a call to another person without announcing it first. To perform a blind transfer while on an active call:
+
+1. Click the **Transfer** button.
+2. Select **Blind Transfer**.
+
+<figure><img src="../../.gitbook/assets/portsip-one-desktop-transfer-call.png" alt=""><figcaption></figcaption></figure>
+
+3. From the **Contact Panel**, select the recipient to whom you wish to transfer the call.
+4. Click the extension. The call will be successfully transferred
+
+<figure><img src="../../.gitbook/assets/portsip-one-desktop-transfer-call-1.png" alt=""><figcaption></figcaption></figure>
+
+You can also transfer the call to a receptionist by the number via the **Dial Pad**. From the **Contact Panel** window:
+
+1. Click the **Dial Pad** icon.
+2. Enter a valid extension or phone number.
+3. Click the **Dial** button. The transfer will be completed.
+
+### **Attended transferring a call:**
+
+An **Attended Transfer** occurs when you announce the call to the recipient before transferring it. To perform an attended transfer while on a call:
+
+1. Click the **Transfer** button.
+2. Select **Attended Transfer**.
+
+<figure><img src="../../.gitbook/assets/portsip-one-desktop-transfer-call-2.png" alt=""><figcaption></figcaption></figure>
+
+3. From the **Contact Panel**, select the recipient to whom you wish to transfer the call.
+4. Click on that recipient.
+5. Once the party answers, announce the call and click the blinking **Transfer Now** button. The call will then be transferred.
+
+<figure><img src="../../.gitbook/assets/portsip-one-desktop-transfer-call-3.png" alt=""><figcaption></figcaption></figure>
+
+### **Transferring a Call to Voicemail**
+
+A **Direct-to-Voicemail Transfer** is used when you wish to transfer a call directly to another user’s voicemail. To perform a transfer to voicemail while on an active call:
+
+1. Click the **Transfer** button.
+2. Select **Transfer to Voicemail**.
+3. From the **Contact Panel**, select the recipient to whom you wish to transfer the call and click the **Transfer** button.
+4. The call will be transferred directly to their voicemail.
+
+<figure><img src="../../.gitbook/assets/portsip-one-desktop-transfer-call-4.png" alt=""><figcaption></figcaption></figure>
+
+
 
 
 
