@@ -6,8 +6,6 @@ This guide provides step-by-step instructions for upgrading your current PortSIP
 
 > This guide is specifically for upgrades within the **v16.x** series. If you need to upgrade from v16.x to v22.x, please refer to the [Upgrading to the Latest v22.x Release](../installation-of-portsip-pbx-v22/upgrade-portsip-pbx-to-v22.x.md).
 
-If you installed the PortSIP SBC, please follow this article to [upgrade the PortSIP SBC](broken-reference).
-
 ## **Upgrading PBX for Linux**
 
 We recommend backing up your PBX data. The data file path is usually `/var/lib/portsip`. You can also back up the entire VM server or take a snapshot of the VM server.
