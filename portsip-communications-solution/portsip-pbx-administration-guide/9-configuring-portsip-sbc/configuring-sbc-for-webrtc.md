@@ -81,7 +81,7 @@ If you installed the PortSIP SBC on _**a separate server from the PortSIP PBX**_
 7.  Execute the following commands to restart the PBX server:
 
     1. `cd /opt/portsip`
-    2. ⁣`sudo /bin/shsh sbc_ctl.sh restart`&#x20;
+    2. ⁣`sudo /bin/sh sbc_ctl.sh restart`&#x20;
 
     If the server is Windows, simply restart the server directly.
 8. Sign in to the PBX web portal at `https://uc.portsip.cc:8887`&#x20;
