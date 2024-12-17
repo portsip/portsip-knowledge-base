@@ -20,6 +20,10 @@ If your current installation is running a version lower than v16.4.4, please fir
 
 Once your PBX is upgraded to the latest v16.x, follow the steps below to remove the v16.x installation before upgrading.
 
+{% hint style="danger" %}
+After you upgraded the PortSIP PBX from v16.x to v22.x, the old PortSIP Softphone app can't use with v22.x, you must use the new [PortSIP ONE](https://www.portsip.com/portsip-one) app with the PortSIP PBX v22.x and higher.
+{% endhint %}
+
 ### Remove the current PBX installation
 
 #### 1: Stop PBX docker instances <a href="#step-1-stop-pbx-docker-instance" id="step-1-stop-pbx-docker-instance"></a>
