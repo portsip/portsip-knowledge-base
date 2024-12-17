@@ -39,7 +39,6 @@ cd /opt/portsip
 2. Use the command below to create the Instant Messaging service Docker instance. Replace the placeholders with your actual values:
 
 * **-p**: Specifies the path for storing the IM service data.
-* **-a**: Specifies the IP address of the server.
 * **-i**: Specifies the PBX Docker image version.
 * **-t**: Specifies the token generated in the previous step.
 
