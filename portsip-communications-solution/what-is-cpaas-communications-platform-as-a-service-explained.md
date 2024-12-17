@@ -2,7 +2,7 @@
 
 Communications Platform as a Service (CPaaS) is a cloud-based model that allows businesses to seamlessly integrate advanced communication features into their existing applications. By leveraging communication APIs (Application Programming Interfaces), CPaaS enables companies to easily incorporate functionalities such as voice, video, messaging, SMS, and data.
 
-<figure><img src="../.gitbook/assets/cpaas.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://www.portsip.com/wp-content/uploads/2023/12/portsip-fanvil.jpg" alt=""><figcaption></figcaption></figure>
 
 In today's highly competitive market, businesses are constantly seeking innovative ways to boost customer engagement and stay ahead of the curve. CPaaS is a game-changing technology that transforms how businesses communicate, offering a more streamlined process and delivering a superior customer experience.
 

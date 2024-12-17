@@ -2,6 +2,8 @@
 
 Cloud PBX has gained significant popularity in today’s cloud age, it's empowering service providers to establish and manage their own Cloud PBX business. Enjoy voice, video, messaging, and video meetings— all on your business phone and app.
 
+<figure><img src="../.gitbook/assets/portsip-yealink.jpg" alt=""><figcaption></figcaption></figure>
+
 ## What is Cloud PBX (Private Branch Exchange)?
 
 Cloud PBX (Cloud-based Private Branch Exchange) is a virtual PBX system rooted in the internet, which uses a cloud-based service to control and manage calls to and from a business and delivers advanced calling features and unified communications using Voice over Internet Protocol (VoIP) technology.

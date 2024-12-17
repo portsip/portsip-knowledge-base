@@ -4,6 +4,8 @@ The realm of communication technology is rapidly expanding, with modern cloud-ba
 
 Between PortSIP PBX and other PBXs as a business unified communications solution, which would you choose?
 
+<figure><img src="https://www.portsip.com/wp-content/uploads/2024/12/portsip-one-all-5.png" alt=""><figcaption></figcaption></figure>
+
 ## PortSIP PBX: A True Multi-Tenant Solution Built for the Cloud Era
 
 While many vendors claim to offer multi-tenant PBX systems, most rely on a pseudo-multi-tenant architecture. Typically, they require setting up a separate PBX instance for each tenant and managing these instances through a centralized web portal. While end-users may not notice, service providers face significant challenges with this approach:
