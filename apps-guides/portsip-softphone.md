@@ -8,7 +8,7 @@ If you are using the PortSIP PBX v22.0 or higher, please follow the guide [Apps 
 
 ## Configuring the PortSIP Softphone App
 
-
+This article is for configuring the legacy PortSIP Softphone with PortSIP PBX v16.x.
 
 In this article, we assume the following configurations:
 
@@ -98,22 +98,4 @@ Click the **Advanced** icon for advanced settings. Then, enter the values for th
 * **Transport**. Choose the transport that you prefer to register the client app to PortSIP PBX. For example, TCP. Note that if you change the transport here, you must enter the **corresponding port** for the **Outbound Proxy Server Port**.
 
 <figure><img src="../.gitbook/assets/portsip_iphone_2.png" alt="" width="351"><figcaption></figcaption></figure>
-
-## Auto Provision the IP Phone to PBX
-
-For popular IP Phones such as Fanvil, Yelaink, SNOM, GrandStream, DinStar, ALE, and Htek, they can be auto-provisioned to register to the PortSIP PBX without the need to configure the IP Phone manually. For more details please read this article: [Phone Device Management](../portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/).
-
-## Manually Register the IP Phone to PBX
-
-You can also enter the SIP user extension details on the IP Phone web portal to register the IP Phone or other SIP-based device/app.
-
-### Example of Fanvil IP Phone
-
-<figure><img src="../.gitbook/assets/fanvil_phone_sip1.png" alt="" width="563"><figcaption></figcaption></figure>
-
-### Example of Yealink IP Phone
-
-<figure><img src="../.gitbook/assets/yealink_phone_sip1.png" alt="" width="563"><figcaption></figcaption></figure>
-
-For other SIP-based apps and IP Phones, you can configure them similarly to the above description.
 
