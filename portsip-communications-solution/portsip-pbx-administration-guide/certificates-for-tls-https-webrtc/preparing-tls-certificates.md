@@ -6,7 +6,12 @@ Please take the steps listed below to get trusted certificates.
 2. Add an A record in the Domain DNS zone, and resolve the Domain to your PBX IP, for example: point the `uc.portsip.cc` to PBX server IP.
 3. If your SBC is deployed separately from the PBX server, add an A record DNS record and resolve to the SBC server IP, for example, point `sbc.portsip.cc` point to the SBC server IP.
 4. Purchase a TLS certificate from the trust certificate provider for your domain, for example, [Digicert](https://www.digicert.com/), [Thawte](https://www.thawte.com/), [GeoTrust](https://www.geotrust.com/); If your SBC is deployed separately from the PBX server, you must purchase the **`Wildcard Certificate`**.
-5. Generate the CSR file and private key file according to the certificate provider’s guide, and keep the files. Please **don't set the password when generating the private key file**; usually, you will have two files: the `certificate` and the `private key`. **Note**: Please choose the certificate type for Nginx.
+5. Generate the CSR file and private key file according to the certificate provider’s guide, and keep the files. Please **don't set the password when generating the private key file**; usually, you will have two files: the `certificate` and the `private key`.&#x20;
+
+{% hint style="warning" %}
+**Note**: Please choose the certificate type for Nginx.
+{% endhint %}
+
 6. Rename the private key file as `portsip.key`.&#x20;
 7.  Submit the CRS file to the certificate provider, and download the certificate files after your certificates are approved. This step will end up with two files: `Intermediate CA certificate` and `TLS certificate` . Assume the file names are:
 
