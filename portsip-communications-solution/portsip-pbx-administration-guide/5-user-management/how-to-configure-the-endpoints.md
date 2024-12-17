@@ -2,6 +2,14 @@
 
 After successfully [configuring the PortSIP PBX](../2-configuring-the-portsip-pbx.md) and [SBC](../9-configuring-portsip-sbc/), and [creating the tenants](../3-tenant-management.md) and [extensions](./), you can now register the endpoints (WebRTC, mobile app, Windows Desktop app, IP Phone, and any SIP-based device) to the PBX. This will allow you to make and receive calls.
 
+## Configuring the PortSIP ONE App
+
+If you are using the PortSIP PBX v22.0 or higher, please follow the guide [Apps Guides](../../../apps-guides/portsip-one-app/) to configure it.
+
+## Configuring the PortSIP Softphone App
+
+
+
 In this article, we assume the following configurations:
 
 * The PortSIP PBX and SBC are installed on a server with a public IP of **66.175.221.120** and a private IP of **192.168.1.72**.

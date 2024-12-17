@@ -204,7 +204,6 @@
   * [Troubleshooting Call Issues](portsip-communications-solution/faq/troubleshooting-call-issues.md)
   * [What is the Multi-Tenant PBX?](portsip-communications-solution/faq/what-is-the-multi-tenant-pbx.md)
   * [Is the PortSIP PBX built on Asterisk, FreeSwitch?](portsip-communications-solution/faq/is-the-portsip-pbx-built-on-asterisk-freeswitch.md)
-  * [Configuring the Endpoints with PortSIP PBX](portsip-communications-solution/faq/configuring-the-endpoints-with-portsip-pbx.md)
   * [What is the SBC?](portsip-communications-solution/faq/what-is-the-sbc.md)
   * [What is the PBX? Features, Benefits](portsip-communications-solution/faq/what-is-the-pbx-features-benefits.md)
   * [Simplifying Unified Communications with WebRTC and SIP](portsip-communications-solution/faq/simplifying-unified-communications-with-webrtc-and-sip.md)
@@ -227,6 +226,7 @@
 * [PortSIP ONE App](apps-guides/portsip-one-app/README.md)
   * [PortSIP ONE Mobile App](apps-guides/portsip-one-app/portsip-one-mobile-app.md)
   * [PortSIP ONE Desktop App](apps-guides/portsip-one-app/portsip-one-desktop-app.md)
+* [PortSIP Softphone](apps-guides/portsip-softphone.md)
 
 ## DEVELOPING WITH PORTSIP <a href="#development-portsip" id="development-portsip"></a>
 
