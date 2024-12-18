@@ -12,9 +12,9 @@ Only users who are either **Tenant Administrators** or **Queue Managers** have p
 
 Please follow the below steps to access the Wallboard:
 
-* Sign in as a Tenant Administrator or Queue Manager to the PortSIP PBX web portal
-* Navigate to the **Contact Center** menu, then click on **Wallboards.** A new login page will then appear.&#x20;
-* Just enter the user name (not extension number), user password (not extension password), and tenant SIP domain to sign in.
+1. Sign in to the PortSIP PBX web portal as a Tenant Administrator or Queue Manager.
+2. Navigate to the menu **Contact Center** **>** **Wallboards.** A new login page will then appear.&#x20;
+3. Just enter the user name (not extension number), user password (not extension password), and tenant SIP domain to sign in.
 
 ## Supervisor Dashboard
 
