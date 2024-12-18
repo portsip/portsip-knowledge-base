@@ -255,15 +255,15 @@ The following commands provided below should only be executed on the node "**pbx
 If you are prompted to choose an option (**yes/no**), please enter **yes**.
 {% endhint %}
 
-<pre class="language-sh"><code class="lang-sh"><strong>sudo ssh-copy-id -i ~/.ssh/id_rsa.pub pbx01
+<pre class="language-sh"><code class="lang-sh"><strong>ssh-copy-id -i ~/.ssh/id_rsa.pub pbx01
 </strong></code></pre>
 
 ```sh
-sudo ssh-copy-id -i ~/.ssh/id_rsa.pub pbx02
+ssh-copy-id -i ~/.ssh/id_rsa.pub pbx02
 ```
 
 ```sh
-sudo ssh-copy-id -i ~/.ssh/id_rsa.pub pbx03
+ssh-copy-id -i ~/.ssh/id_rsa.pub pbx03
 ```
 
 ## Configuring PortSIP PBX HA
@@ -315,19 +315,19 @@ The following commands are only executed on the node **pbx01** (Note, the pbx01 
 #### Restart pbx03
 
 ```sh
-sudo ssh -t pbx03 "sudo reboot"
+ssh -t pbx03 "sudo reboot"
 ```
 
 #### Restart pbx02
 
 ```sh
-sudo ssh -t pbx02 "sudo reboot"
+ssh -t pbx02 "sudo reboot"
 ```
 
 #### Restart pbx01
 
 ```sh
-sudo ssh -t pbx01 "sudo reboot"
+ssh -t pbx01 "sudo reboot"
 ```
 
 ### Initialize Resources
