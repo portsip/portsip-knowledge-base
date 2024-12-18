@@ -119,9 +119,10 @@ If the **mode** is set to "**GLOBAL"**, it means that the user's office hours wi
 
 * **anonymous\_outbound\_calls**: This indicates whether to enable the anonymous call or not for the user. **TRUE** for enabled and **FALSE** for disabled.
 * **delivery\_outbound\_cid**: This indicates whether to rewrite the user part of the **From** header by the outbound caller ID in the SIP INVITE message or not when the user makes a call to the trunk. **TRUE** for enabled and **FALSE** for disabled.
+* **sms:** This indicates the permission for sending SMS and WhatsApp messages, it can be **DISABLE**, **ALLOW\_WITH\_SENDER\_ID**,  **ALLOW**. It's only applicable to the PBX v22.0 and higher.
 * **voicemail\_prompt**: This specifies the voicemail prompt language. It’s BCP 47 Language Tags (The Internet Best Current Practices (BCP) for language tags), for example, **en-US**.
 * **enable\_voicemail\_pin**: This indicates whether to verify the voicemail PIN or not when the user accesses his voicemail by dialing FAC. **TRUE** for enabled and **FALSE** for disabled.
-* **voicemail\_pin**: This sets the voicemail PIN. This is a mandatory field and must be numeric and meet the voicemail passwordd policy.
+* **voicemail\_pin**: This sets the voicemail PIN. This is a mandatory field and must be numeric and meet the voicemail password policy.
 * **voicemail\_play\_datetime**: This indicates whether to play the date and time or not when the user accesses his voicemail. **TRUE** for enabled and **FALSE** for disabled.
 * **enable\_voicemail\_notify**: This indicates whether to send an email notification to the user’s email or not if a new voicemail is generated. **TRUE** for enabled and **FALSE** for disabled.
 * **online\_no\_answer\_forward\_rule**: This specifies the forward rule if the user is online but does not answer the call at a certain time. It’s a JSON object that includes the following keys:
@@ -217,7 +218,53 @@ For example, if the user is offline outside of office hours, the new call that c
   * **rps**: This indicates whether to store the auto-provisioning URL into the IP Phone vendor’s RPS server or not. Set to `true` will be stored in the RPS and `false` will not.
   * **https**: This indicates whether to generate the auto-provisioning URL with the HTTPS scheme or not. Set to `true` the URL will be HTTPS and `false` will be HTTP.
 
+**For the v22.x:**
+
+```json
+[
+  {
+    "mac": "0c:38:3e:63:fe:e8",
+    "rps": true,
+    "https": false,
+    "model": "V62 Pro",
+    "codecs": [
+      "PCMU",
+      "PCMA",
+      "G729",
+      "G722"
+    ],
+    "vendor": "Fanvil",
+    "filename": "fanvil.ph.xml",
+    "language": "English",
+    "password": "63FEE8",
+    "powerled": "Both (Voicemail and Missed calls)",
+    "ringtone": "Default",
+    "timezone": "GMT+8 China(Beijing)",
+    "transfer": "BLIND",
+    "backlight": "30 seconds",
+    "interface": "WEB_DOMAIN",
+    "pc_port_id": 254,
+    "date_format": "15 JAN MON",
+    "enable_lldp": false,
+    "screensaver": "",
+    "time_format": "24-hour clock",
+    "wan_port_id": 256,
+    "serial_number": "",
+    "door_password1": "",
+    "door_password2": "",
+    "queue_ringtone": "Ring 1",
+    "pc_port_priority": 0,
+    "wan_port_priority": 0,
+    "enable_vlan_pc_port": false,
+    "preferred_transport": "UDP",
+    "enable_vlan_wan_port": false
+  }
+]
 ```
+
+**For the v16.x:**
+
+```json
 [{
 	"mac": "cc:5e:f8:41:b7:95",
 	"filename": "yealinkT3x.ph.xml",
@@ -251,7 +298,10 @@ For example, if the user is offline outside of office hours, the new call that c
 
 ## Sample CSV File
 
-We provide a [sample CSV file](https://www.portsip.com/provision/portsip\_bulk\_users.csv) for bulk importing and auto-provisioning four users.
+We provide a sample CSV file for bulk importing and auto-provisioning four users.
+
+* For v22.x: [Sample CSV file](https://www.portsip.com/provision/portsip_bulk_users_v22.csv)
+* For v16.x: [Sample CSV file](https://www.portsip.com/provision/portsip_bulk_users.csv)
 
 After you download that sample CSV file, you can sign in to the PortSIP PBX web port, in the menu **Call Manager > Users**, click the **Import** button, and select the sample CSV file to import the users, the users will be successfully created with provisioning information.
 
