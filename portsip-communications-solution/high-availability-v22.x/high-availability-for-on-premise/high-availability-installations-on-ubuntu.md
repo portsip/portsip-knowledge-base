@@ -31,8 +31,6 @@ The `/dev/sdb` disk volume must remain uninitialized and in an **unused** state,
 
 ### Network
 
-### Network
-
 In this article, we deploy the HA on three servers that have the following IP addresses:
 
 * 192.168.1.131
