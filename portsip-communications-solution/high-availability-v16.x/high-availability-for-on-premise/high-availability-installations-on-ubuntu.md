@@ -22,7 +22,7 @@ Deploying the HA requires having two disk volumes. In this example, the hard dis
 You are free to decide the disk size, but the size must be the same for all servers.
 
 {% hint style="danger" %}
-For the three node servers, the must have the same disk volumes, and the size must be ssame!
+For the three node servers, they must have the same disk volumes, and the size must be the same!
 {% endhint %}
 
 {% hint style="danger" %}
