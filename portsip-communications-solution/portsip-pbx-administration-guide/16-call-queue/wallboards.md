@@ -6,11 +6,15 @@ Wallboards can broadcast information on a large screen for a team of people.
 
 ## Permissions
 
-Only users who are either Tenant Administrators or Queue Managers have permission to sign in to the Wallboards.
+Only users who are either **Tenant Administrators** or **Queue Managers** have permission to sign in to the Wallboards.
 
-Once a Tenant Administrator or Queue Manager has signed in to the PortSIP PBX web portal, select the **Contact Center** menu, then click on **Wallboards.** A new login page will then appear.
+## Access Wallboard
 
-Just enter the user name (not extension number), user password (not extension password), and tenant SIP domain to sign in.
+Please follow the below steps to access the Wallboard:
+
+* Sign in as a Tenant Administrator or Queue Manager to the PortSIP PBX web portal
+* Navigate to the **Contact Center** menu, then click on **Wallboards.** A new login page will then appear.&#x20;
+* Just enter the user name (not extension number), user password (not extension password), and tenant SIP domain to sign in.
 
 ## Supervisor Dashboard
 
