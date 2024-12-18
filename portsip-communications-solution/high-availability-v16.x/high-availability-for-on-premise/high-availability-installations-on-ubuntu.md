@@ -26,7 +26,7 @@ For the three node servers, the must have the same disk volumes, and the size mu
 {% endhint %}
 
 {% hint style="danger" %}
-The `/dev/sdb` disk must remain uninitialized and in an **unused** state, don't initialize it; otherwise, the installation will fail.
+The `/dev/sdb` disk volume must remain uninitialized and in an **unused** state, don't initialize it; otherwise, the installation will fail.
 {% endhint %}
 
 ### Network

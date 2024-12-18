@@ -21,6 +21,16 @@ Deploying the HA requires having two disk volumes. In this example, the hard dis
 
 You are free to decide the disk size, but the size must be the same for all servers.
 
+{% hint style="danger" %}
+For the three node servers, the must have the same disk volumes, and the size must be ssame!
+{% endhint %}
+
+{% hint style="danger" %}
+The `/dev/sdb` disk volume must remain uninitialized and in an **unused** state, don't initialize it; otherwise, the installation will fail.
+{% endhint %}
+
+### Network
+
 ### Network
 
 In this article, we deploy the HA on three servers that have the following IP addresses:
