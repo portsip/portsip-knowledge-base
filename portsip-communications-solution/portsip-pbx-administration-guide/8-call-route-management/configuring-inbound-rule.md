@@ -145,5 +145,5 @@ You can also configure the DID number as a single number, rather than a range, f
 
 In addition to office hours and holidays, PortSIP PBX allows you to route inbound calls based on specific criteria such as year, month, day, weekday, and time. This enables more granular control over call routing, ensuring that calls are directed to the appropriate destinations based on various temporal factors.
 
-For more detailed information, please refer to the topic [**Advanced Routing for Inbound Rules**](configuring-inbound-rule.md#advanced-routing).
+For more detailed information, please refer to the topic [**Advanced Routing for Inbound Rules**](../office-hours-and-holiday-schedule/routing-calls-based-on-office-hours-and-holidays.md#advanced-routing-for-inbound-rule).
 
