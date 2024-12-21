@@ -215,5 +215,36 @@ Once a call is parked to an extension user or a park group, the extension user o
 
 <figure><img src="../../.gitbook/assets/portsip-one-desktop-call-flip.png" alt=""><figcaption></figcaption></figure>
 
+## How to access your voicemail
+
+To access your voicemails, click on the **Voicemails** tab. The page is divided into two sections:
+
+1. **Voicemail Window**: This area displays your voicemails, typically organized in chronological order (by date).
+2. **Voicemail Details**: Located to the right of the voicemail window, this section provides detailed information about each voicemail.
+
+<figure><img src="../../.gitbook/assets/portsip-one-vm.png" alt=""><figcaption></figcaption></figure>
+
+### **Listening to a voicemail**
+
+1. **Select the Voicemail Message**: In the **Voicemail Window**, click on the desired message. The message details will appear on the right side of the screen.
+2. **Play the Voicemail**: Click the **Play** button to listen to the selected message.
+
+### **Downloading a voicemail message**
+
+1. **Download the Message**: In the **Voicemail Details** section, click the **Download** icon button.
+2. **Save the File**: Choose the desired location on your computer to save the `.wav` file and confirm the download.
+
+### **Deleting a voicemail message**
+
+1. In the **Voicemail Window**, locate the voicemail message you wish to delete.
+2. Click on the **...** (ellipsis) button located at the upper right corner of the message to open the options menu.
+3. From the dropdown menu, select **Delete**.
+4. **Confirm Deletion**: A confirmation prompt will appear to verify your intention to delete the selected voicemail.
+5. Click **Delete** to confirm. The message will be permanently removed from your voicemail section.
+
+
+
+
+
 
 
