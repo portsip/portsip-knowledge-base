@@ -342,7 +342,7 @@ To access your team messages, follow these steps:
    * **Messaging List Window**: This is where your team messages are displayed. Messages are usually sorted by date and recipient in chronological order.
    * **Message Details Area**: On the right, you’ll find the message details section, which updates based on the selected team message. Here, you can view more information about the selected message.
 
-
+<figure><img src="../../.gitbook/assets/portsip-one-message.png" alt=""><figcaption></figcaption></figure>
 
 
 
