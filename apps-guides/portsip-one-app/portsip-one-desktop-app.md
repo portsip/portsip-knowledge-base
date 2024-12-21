@@ -242,6 +242,95 @@ To access your voicemails, click on the **Voicemails** tab. The page is divided 
 4. **Confirm Deletion**: A confirmation prompt will appear to verify your intention to delete the selected voicemail.
 5. Click **Delete** to confirm. The message will be permanently removed from your voicemail section.
 
+## **Accessing Your Contacts**
+
+To access your contact directory, follow these steps:
+
+1. **Navigate to the Contacts Tab**: Click on the **Contacts** tab located in the main navigation menu.
+2. **Understand the Contacts Page Layout**:
+   * **Contact List Window**:
+     * Located on the left side of the page.
+     * Provides access to both your **Company Extension Users**, **Company Contacts List**, and **Personal Contact.**
+     * Allows you to browse, search, and manage your contacts efficiently.
+   * **Contact Information Area**:
+     * Situated to the right of the Contact List Window.
+     * Displays detailed information about the selected contact.
+     * Updates dynamically based on the contact you choose, showing relevant details and available actions.
+   * **Synchronous:** The PortSIP ONE app synchronizes your contacts—including extension users, company contacts, and personal contacts—periodically. When you make changes to an extension user or contact, these updates are automatically propagated to all instances of the app. Please note that synchronization is not instantaneous; it may take a short while for the updated information to appear across all devices.
+
+<figure><img src="../../.gitbook/assets/portsip-contacts.png" alt=""><figcaption></figcaption></figure>
+
+### **Adding a New Contact**
+
+To add a new contact to your directory, follow these steps:
+
+1. Navigate to the **Contacts** tab. Click on the **New Contact** button to open the contact creation window.
+2. **Enter Contact Information:** In the **Add Contact** window, fill in the necessary details in the appropriate fields.
+3. If you are a tenant administrator with the necessary permissions to access Company Contacts, you have the option to save a new contact to either **Company Contacts** or **Personal Contacts**. This allows you to manage contacts effectively based on their intended usage and accessibility.
+4. **Save the Contact:** After entering all required information, click the **Save** button.
+
+Your new contact will now appear in the **My Contacts** table.
+
+<figure><img src="../../.gitbook/assets/portsip-contacts-1.png" alt=""><figcaption></figcaption></figure>
+
+### **Deleting a Contact**
+
+To delete a contact, follow these steps:
+
+1. Click on the **Contacts** tab located in the main navigation menu.
+   * Select the **Company Contacts** or **Personal Contact** sub-tab to view your contact list.
+2. **Select the Contact to Delete:** Locate the contact you wish to remove, and click on the contact to highlight it.
+3. **Initiate Deletion:** Click on the **...** (ellipsis) button once the mouse over the contact, or click on the **...** (ellipsis) button located at the upper right corner of the contact information.
+4. From the dropdown menu, select **Delete**.
+5. **Confirm Deletion**
+   * A verification prompt will appear to confirm your intention to delete the contact.
+   * Click **Delete** to permanently remove the contact.
+
+<figure><img src="../../.gitbook/assets/portsip-contacts-2.png" alt=""><figcaption></figcaption></figure>
+
+### **Bulk Deleting Contacts**
+
+To efficiently remove multiple contacts at once, follow these steps:
+
+1. **Access the Contacts Sub-Tab**
+   * Navigate to the **Contacts** tab in the main navigation menu.
+   * Select either the **Company Contacts** or **Personal Contacts** sub-tab, depending on where the contacts you wish to delete are located.
+2. **Initiate Bulk Deletion**
+   * Locate the **...** (ellipsis) button situated next to the search box within the selected sub-tab.
+   * Click on the **Ellipsis** button to open additional options.
+
+<figure><img src="../../.gitbook/assets/portsip-contacts-4.png" alt=""><figcaption></figcaption></figure>
+
+3. **Select Contacts to Delete**
+   1. **Delete All Contacts**:
+      1. To remove all contacts within the selected sub-tab, check the **Select All** checkbox.
+   2. **Delete All Contacts:**
+      1. To delete specific contacts, individually click on each contact you wish to remove to select them.
+4. **Confirm Deletion**
+   * Click on the **Trash** icon button to initiate the deletion process.
+   * A verification prompt will appear to confirm your intention to delete the selected contacts.
+   * Click **Delete** to permanently remove the chosen contacts from your directory.
+
+<figure><img src="../../.gitbook/assets/portsip-contacts-5.png" alt=""><figcaption></figcaption></figure>
+
+### **Adding a User/Contact to Favorites**
+
+To quickly access your most frequently used contacts, you can mark them as favorites. Follow these steps to add a contact to your **Favorites** list:
+
+1. Click on the **Contacts** tab located in the main navigation menu.
+   * Select the **Users** or **Company Contacts** or **Personal Contact** sub-tab to view your contact list.
+2. **Select the Contact:** Locate the contact you wish to favor, and click on the contact to highlight it.
+3. Click on the **...** (ellipsis) button once the mouse over the contact, or click on the **...** (ellipsis) button located at the upper right corner of the contact information.
+4. From the dropdown menu, select **Favorites**.
+5. Once clicked, a **solid yellow star (⭐)** will appear next to the contact to confirm that the contact has been successfully added to your **Favorites** list.
+6. **Unfavorite a Contact:** To remove a contact from your **Favorites**, follow the same steps. The yellow star will disappear, indicating that the contact is no longer in your favorites.
+
+<figure><img src="../../.gitbook/assets/portsip-contacts-6.png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="info" %}
+Both the extension users and contacts can be favorited.
+{% endhint %}
+
 
 
 
