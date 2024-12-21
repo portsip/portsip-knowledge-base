@@ -328,10 +328,19 @@ To quickly access your most frequently used contacts, you can mark them as favor
 <figure><img src="../../.gitbook/assets/portsip-contacts-6.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-Both the extension users and contacts can be favorited.
+Both the extension users and contacts can be favored.
 {% endhint %}
 
+## How to access team messages: <a href="#id-6" id="id-6"></a>
 
+PortSIP allows seamless communication within your team through internal extension user chat. If the contact you're messaging isn't an extension user, messages will be sent via SMS, MMS, or a WhatsApp channel, ensuring you're always connected.
+
+To access your team messages, follow these steps:
+
+1. **Navigate to the Messaging Tab:** Click on the **Messaging** tab in the main navigation menu.
+2. **Understand the Messaging Interface:** The page is divided into two sections:
+   * **Messaging List Window**: This is where your team messages are displayed. Messages are usually sorted by date and recipient in chronological order.
+   * **Message Details Area**: On the right, you’ll find the message details section, which updates based on the selected team message. Here, you can view more information about the selected message.
 
 
 
