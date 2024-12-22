@@ -242,7 +242,7 @@ To access your voicemails, click on the **Voicemails** tab. The page is divided 
 4. **Confirm Deletion**: A confirmation prompt will appear to verify your intention to delete the selected voicemail.
 5. Click **Delete** to confirm. The message will be permanently removed from your voicemail section.
 
-## **Accessing Your Contacts**
+## **Accessing your contacts**
 
 To access your contact directory, follow these steps:
 
@@ -260,7 +260,7 @@ To access your contact directory, follow these steps:
 
 <figure><img src="../../.gitbook/assets/portsip-contacts.png" alt=""><figcaption></figcaption></figure>
 
-### **Adding a New Contact**
+### **Adding a new contact**
 
 To add a new contact to your directory, follow these steps:
 
@@ -273,57 +273,57 @@ Your new contact will now appear in the **My Contacts** table.
 
 <figure><img src="../../.gitbook/assets/portsip-contacts-1.png" alt=""><figcaption></figcaption></figure>
 
-### **Deleting a Contact**
+### **Deleting a contact**
 
 To delete a contact, follow these steps:
 
 1. Click on the **Contacts** tab located in the main navigation menu.
    * Select the **Company Contacts** or **Personal Contact** sub-tab to view your contact list.
-2. **Select the Contact to Delete:** Locate the contact you wish to remove, and click on the contact to highlight it.
-3. **Initiate Deletion:** Click on the **...** (ellipsis) button once the mouse over the contact, or click on the **...** (ellipsis) button located at the upper right corner of the contact information.
+2. **Select the contact to delete:** Locate the contact you wish to remove, and click on the contact to highlight it.
+3. **Initiate deletion:** Click on the **...** (ellipsis) button once the mouse over the contact, or click on the **...** (ellipsis) button located at the upper right corner of the contact information.
 4. From the dropdown menu, select **Delete**.
-5. **Confirm Deletion**
+5. **Confirm deletion**
    * A verification prompt will appear to confirm your intention to delete the contact.
    * Click **Delete** to permanently remove the contact.
 
 <figure><img src="../../.gitbook/assets/portsip-contacts-2.png" alt=""><figcaption></figcaption></figure>
 
-### **Bulk Deleting Contacts**
+### **Bulk deleting contacts**
 
 To efficiently remove multiple contacts at once, follow these steps:
 
-1. **Access the Contacts Sub-Tab**
+1. **Access the contacts Sub-Tab**
    * Navigate to the **Contacts** tab in the main navigation menu.
    * Select either the **Company Contacts** or **Personal Contacts** sub-tab, depending on where the contacts you wish to delete are located.
-2. **Initiate Bulk Deletion**
+2. **Initiate bulk deletion**
    * Locate the **...** (ellipsis) button situated next to the search box within the selected sub-tab.
    * Click on the **Ellipsis** button to open additional options.
 
 <figure><img src="../../.gitbook/assets/portsip-contacts-4.png" alt=""><figcaption></figcaption></figure>
 
-3. **Select Contacts to Delete**
-   1. **Delete All Contacts**:
+3. **Select contacts to delete**
+   1. **Delete all contacts**:
       1. To remove all contacts within the selected sub-tab, check the **Select All** checkbox.
-   2. **Delete All Contacts:**
+   2. **Delete all contacts:**
       1. To delete specific contacts, individually click on each contact you wish to remove to select them.
-4. **Confirm Deletion**
+4. **Confirm deletion**
    * Click on the **Trash** icon button to initiate the deletion process.
    * A verification prompt will appear to confirm your intention to delete the selected contacts.
    * Click **Delete** to permanently remove the chosen contacts from your directory.
 
 <figure><img src="../../.gitbook/assets/portsip-contacts-5.png" alt=""><figcaption></figcaption></figure>
 
-### **Adding a User/Contact to Favorites**
+### **Adding a user/contact to favorites**
 
 To quickly access your most frequently used contacts, you can mark them as favorites. Follow these steps to add a contact to your **Favorites** list:
 
 1. Click on the **Contacts** tab located in the main navigation menu.
    * Select the **Users** or **Company Contacts** or **Personal Contact** sub-tab to view your contact list.
-2. **Select the Contact:** Locate the contact you wish to favor, and click on the contact to highlight it.
+2. **Select the contact:** Locate the contact you wish to favor, and click on the contact to highlight it.
 3. Click on the **...** (ellipsis) button once the mouse over the contact, or click on the **...** (ellipsis) button located at the upper right corner of the contact information.
 4. From the dropdown menu, select **Favorites**.
 5. Once clicked, a **solid yellow star (⭐)** will appear next to the contact to confirm that the contact has been successfully added to your **Favorites** list.
-6. **Unfavorite a Contact:** To remove a contact from your **Favorites**, follow the same steps. The yellow star will disappear, indicating that the contact is no longer in your favorites.
+6. **Unfavorite a contact:** To remove a contact from your **Favorites**, follow the same steps. The yellow star will disappear, indicating that the contact is no longer in your favorites.
 
 <figure><img src="../../.gitbook/assets/portsip-contacts-6.png" alt=""><figcaption></figcaption></figure>
 
@@ -348,7 +348,7 @@ To access your team messages, follow these steps:
 
 There are **three ways** to send a new team message:
 
-**1. From the Contacts Menu:**
+**1. From the contacts menu:**
 
 * Navigate to the **Contacts** menu and select the desired extension user.
 * In the right-hand window, you will see the user's information.
@@ -356,13 +356,13 @@ There are **three ways** to send a new team message:
 
 <figure><img src="../../.gitbook/assets/portsip-one-message-1.png" alt=""><figcaption></figcaption></figure>
 
-**2. From the Messaging Menu:**
+**2. From the messaging menu:**
 
 * Navigate to the **Messaging** menu.
 * On the left side, you will see a list of existing message conversations.
 * Select an existing conversation to open the chat UI, where you can continue the conversation or start composing a new message.
 
-**3. Using the New Message Button:**
+**3. Using the new message button:**
 
 * Navigate to the **Messaging** menu and click the **New Message** button in the upper-right corner.
 * From the list, select the extension user you wish to message, and click their name to proceed.
