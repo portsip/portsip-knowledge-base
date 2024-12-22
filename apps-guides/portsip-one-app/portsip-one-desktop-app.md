@@ -331,7 +331,7 @@ To quickly access your most frequently used contacts, you can mark them as favor
 Both the extension users and contacts can be favored.
 {% endhint %}
 
-## How to access team messages: <a href="#id-6" id="id-6"></a>
+## How to access team messages <a href="#id-6" id="id-6"></a>
 
 PortSIP allows seamless communication within your team through internal extension user chat. If the contact you're messaging isn't an extension user, messages will be sent via SMS, MMS, or a WhatsApp channel, ensuring you're always connected.
 
@@ -344,7 +344,7 @@ To access your team messages, follow these steps:
 
 <figure><img src="../../.gitbook/assets/portsip-one-message.png" alt=""><figcaption></figcaption></figure>
 
-### Sending a New Team Message
+### Sending a new team message
 
 There are **three ways** to send a new team message:
 
@@ -373,7 +373,7 @@ There are **three ways** to send a new team message:
 
 Once you’ve entered the chat UI, type your message in the chat window, when you're ready, press **Enter** on your keyboard to send the message. You can also click the arrow icon to send the message.
 
-### Creating a Team Messaging Group
+### Creating a team messaging group
 
 1. **Navigate to the Messaging Menu:** Go to the **Messaging** menu within the application.
 2. **Create a New Group:** Click on the **New Group** icon. The **New Group** window will appear.
@@ -389,7 +389,7 @@ Once you’ve entered the chat UI, type your message in the chat window, when yo
 
 <figure><img src="../../.gitbook/assets/portsip-one-group-message.png" alt=""><figcaption></figcaption></figure>
 
-### Sending a Team Message in a Group
+### Sending a team message in a group
 
 1. **Select the Group:** Click on the desired group within the **Team Messaging** window to open the conversation.
 2. **Compose Your Message:** Type your message in the **chat window** field located in the information area.
