@@ -344,5 +344,60 @@ To access your team messages, follow these steps:
 
 <figure><img src="../../.gitbook/assets/portsip-one-message.png" alt=""><figcaption></figcaption></figure>
 
+### Sending a New Team Message
+
+There are **three ways** to send a new team message:
+
+**1. From the Contacts Menu:**
+
+* Navigate to the **Contacts** menu and select the desired extension user.
+* In the right-hand window, you will see the user's information.
+* Click the **Message Icon** (as shown in the below screenshot) to open a chat window and begin composing your message. Note: there have two message icons allow you to send the message.
+
+<figure><img src="../../.gitbook/assets/portsip-one-message-1.png" alt=""><figcaption></figcaption></figure>
+
+**2. From the Messaging Menu:**
+
+* Navigate to the **Messaging** menu.
+* On the left side, you will see a list of existing message conversations.
+* Select an existing conversation to open the chat UI, where you can continue the conversation or start composing a new message.
+
+**3. Using the New Message Button:**
+
+* Navigate to the **Messaging** menu and click the **New Message** button in the upper-right corner.
+* From the list, select the extension user you wish to message, and click their name to proceed.
+
+<figure><img src="../../.gitbook/assets/portsip-one-message-2.png" alt=""><figcaption></figcaption></figure>
+
+#### Composing and Sending Your Message:
+
+Once you’ve entered the chat UI, type your message in the chat window, when you're ready, press **Enter** on your keyboard to send the message. You can also click the arrow icon to send the message.
+
+### Creating a Team Messaging Group
+
+1. **Navigate to the Messaging Menu:** Go to the **Messaging** menu within the application.
+2. **Create a New Group:** Click on the **New Group** icon. The **New Group** window will appear.
+3. **Name and Customize the Group:**
+   * Enter a name for your group chat.
+   * Optionally, add a description for the group to provide more context.
+   * You can also upload a picture for the group by clicking on the **Upload Image** option.
+4. **Add Group Members:**
+   * After naming the group, click the **Next** button to proceed.
+   * From the **Extension Users** list, select the members you want to add to the group.
+   * Once you've selected all desired members, click **Apply** to finalize the group creation.
+5. **Finish and View the Group:** Once the group is created, you will see it listed in the **Team Messaging** window.
+
+<figure><img src="../../.gitbook/assets/portsip-one-group-message.png" alt=""><figcaption></figcaption></figure>
+
+### Sending a Team Message in a Group
+
+1. **Select the Group:** Click on the desired group within the **Team Messaging** window to open the conversation.
+2. **Compose Your Message:** Type your message in the **chat window** field located in the information area.
+3. **Send the Message:** When you're ready, press **Enter** on your keyboard to send your message to the group. You can also click the arrow icon to send the message.
+
+<figure><img src="../../.gitbook/assets/portsip-one-group-message-1.png" alt=""><figcaption></figcaption></figure>
+
+
+
 
 
