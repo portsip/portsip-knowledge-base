@@ -303,7 +303,7 @@ EOF
 The following command is only executed on the node **pbx01**.&#x20;
 
 ```sh
-cd /opt/portsip-pbx-ha-guide/ && sudo /bin/bash install_dependencies.sh
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash install_dependencies.sh
 ```
 
 ### Reboot Servers
@@ -333,7 +333,7 @@ ssh -t pbx01 "sudo reboot"
 Only execute the following command on the node **pbx01**, the execution may take some time, so patience is required. Please do not interrupt, restart, or shut down while the process is in progress.
 
 ```sh
-cd /opt/portsip-pbx-ha-guide/ && sudo /bin/sh deploy_pbx.sh
+cd /opt/portsip-pbx-ha-guide/ && /bin/sh deploy_pbx.sh
 ```
 
 Once the resource configuration is complete, you can access your PBX by opening https://192.168.1.130:8887 in a web browser. All future PBX management, configuration, and access will be done through the virtual IP 192.168.1.130.
