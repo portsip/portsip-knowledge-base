@@ -12,7 +12,7 @@ You can configure Speed Dial 8 in the PortSIP PBX Web Portal through the followi
 
 1. **For Tenant Admins**:
    * Log in to the Web Portal as a tenant administrator.
-   * Navigate to **Call Manager > Users**, select the desired extension, and click the **Speed Dial 8** tab to set up speed dialing options.
+   * Navigate to **Call Manager > Users**, select the desired extension, and click the **Speed Dial 8** tab to set up speed dialing options for that user.
 2. **For Extension Users**:
    * Log in to the Web Portal as an extension user.
    * Go to the **Profile** menu, then click the **Speed Dial 8** tab to configure your speed dialing settings.
