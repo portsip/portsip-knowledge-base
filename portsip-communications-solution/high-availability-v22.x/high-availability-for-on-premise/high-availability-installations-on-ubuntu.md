@@ -271,7 +271,8 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub pbx03
 The following command should only be executed on the node "**pbx01**".
 
 ```sh
-cd /opt/ && sudo wget -N https://www.portsip.com/downloads/ha/v22/portsip-pbx-ha-guide-22-online.tar.gz \ 
+cd /opt/ && sudo wget \
+-N https://www.portsip.com/downloads/ha/v22/portsip-pbx-ha-guide-22-online.tar.gz \
 && sudo tar xf portsip-pbx-ha-guide-22-online.tar.gz
 ```
 
