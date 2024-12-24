@@ -11,7 +11,7 @@ This article explains how to use the PortSIP PBX’s uniquely enhanced call park
 
 ## Supported PortSIP PBX Version
 
-From version 22.0.0.
+From version 22.0.
 
 ## Application Scenarios
 
@@ -57,13 +57,15 @@ Now James can enter the number 103, then press the **Park** key. The IP Phone wi
 
 James established a call with extension 1004, James (extension number 1003) wants to park that call to the park group, he needs to hit the **Callpark** key first, then the **GPark** key.
 
+<figure><img src="../../../.gitbook/assets/grandstream-park-2.png" alt=""><figcaption></figcaption></figure>
+
 As shown on the IP Phone screen in the below screenshot, press the **GPark** key, the IP phone will then park this call to the group, and all members of the group will receive the park alert notification. In this way, James does not need to remember the FAC for the group park operation.
 
 <figure><img src="../../../.gitbook/assets/grandstream-park-3.png" alt=""><figcaption></figcaption></figure>
 
 ## Retrieve Call
 
-Alice established the call with Bob, and Bob parked the call at James' extension number 101. On James' IP Phone, the IP Phone will display the Retrieve Label as shown below screenshot to alert James that a call has parked on him.
+Alice established the call with Bob, and Bob parked the call at James' extension number 1003. On James' IP Phone, the IP Phone will display the Retrieve Label as shown below screenshot to alert James that a call has parked on him.
 
 James simply presses the "**Retrievepark"** soft key to retrieve the call. In this way, James does not need to remember the FAC for the retrieve operation.
 
