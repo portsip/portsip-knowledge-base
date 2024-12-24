@@ -41,9 +41,13 @@ The User can configure the recall settings such as recall object and recall time
 
 ## Parking Call
 
-If James wants to park a call to his colleague whose extension is 103, he just needs to press the configured Visual Park key and enter the number 103, then press the OK key. The IP Phone will then park the call at extension 103. In this way, James does not need to remember the FAC for park operations.
+If James wants to park a call to his colleague whose extension is 103, he just needs to press the **CallPark** key.&#x20;
 
-<figure><img src="../../../.gitbook/assets/yealink-vpark-3.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/grandstream-park-2.png" alt=""><figcaption></figcaption></figure>
+
+Now James can enter the number 103, then press the **Park** key. The IP Phone will then park the call at extension 103. In this way, James does not need to remember the FAC for park operations.
+
+<figure><img src="../../../.gitbook/assets/grandstream-park-1.png" alt=""><figcaption></figcaption></figure>
 
 ## Group Call Park
 
@@ -51,19 +55,19 @@ If James wants to park a call to his colleague whose extension is 103, he just n
 2. Select the menu **Advanced Services > Call Park**.&#x20;
 3. Follow the guide to [configure a park group](./#adding-and-deleting-a-call-park-group). Assume that extensions 101, 102, 103, 104, and 105 are in the same park group.
 
-James established a call with extension 102. James (extension number 101) wants to park that call to the park group, he just needs to press the Callpark key first, then press **Gpark** key.&#x20;
+James established a call with extension 1004, James (extension number 1003) wants to park that call to the park group, he needs to hit the **Callpark** key first, then the **GPark** key.
 
-<figure><img src="../../../.gitbook/assets/yealink-vpark-4.jpg" alt=""><figcaption></figcaption></figure>
+As shown on the IP Phone screen in the below screenshot, press the **GPark** key, the IP phone will then park this call to the group, and all members of the group will receive the park alert notification. In this way, James does not need to remember the FAC for the group park operation.
 
-As shown on the IP Phone screen in the above screenshot, press the **Gpark** key, the IP phone will then park this call to the group, and all members of the group will receive the park alert notification. In this way, James does not need to remember the FAC for the group park operation.
+<figure><img src="../../../.gitbook/assets/grandstream-park-3.png" alt=""><figcaption></figcaption></figure>
 
 ## Retrieve Call
 
 Alice established the call with Bob, and Bob parked the call at James' extension number 101. On James' IP Phone, the IP Phone will display the Retrieve Label as shown below screenshot to alert James that a call has parked on him.
 
-<figure><img src="../../../.gitbook/assets/yealink-vpark-2.jpg" alt=""><figcaption></figcaption></figure>
+James simply presses the "**Retrievepark"** soft key to retrieve the call. In this way, James does not need to remember the FAC for the retrieve operation.
 
-James simply presses the "**Retrievepark"** soft key to retrieve the call.  In this way, James does not need to remember the FAC for the retrieve operation.
+<figure><img src="../../../.gitbook/assets/grandstream-park-4.png" alt=""><figcaption></figcaption></figure>
 
 
 
