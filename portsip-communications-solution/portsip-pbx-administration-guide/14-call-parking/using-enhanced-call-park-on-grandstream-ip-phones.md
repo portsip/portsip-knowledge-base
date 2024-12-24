@@ -55,7 +55,7 @@ Now James can enter the number 103, then press the **Park** key. The IP Phone wi
 2. Select the menu **Advanced Services > Call Park**.&#x20;
 3. Follow the guide to [configure a park group](./#adding-and-deleting-a-call-park-group). Assume that extensions 101, 102, 103, 104, and 105 are in the same park group.
 
-James established a call with extension 1004, James (extension number 1003) wants to park that call to the park group, he needs to hit the **Callpark** key first, then the **GPark** key.
+James established a call with extension 1004, James (extension number 1003) wants to park that call to the park group, he needs to hit the **Callpark** key first as the below screenshot.
 
 <figure><img src="../../../.gitbook/assets/grandstream-park-2.png" alt=""><figcaption></figcaption></figure>
 
