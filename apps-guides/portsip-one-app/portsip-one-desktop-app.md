@@ -42,6 +42,37 @@ The PortSIP ONE app makes logging in effortless by using a QR code. On the PortS
 
 <figure><img src="../../.gitbook/assets/portsip-one-desktop-qrcode.png" alt=""><figcaption></figcaption></figure>
 
+## Logging into the PortSIP ONE app via SSO
+
+Once you have configured the [**Microsoft 365 integration**](../../portsip-communications-solution/portsip-pbx-administration-guide/microsoft-365-integration.md) and synced Microsoft 365 users with PortSIP PBX users, you can log into the **PortSIP ONE app** using your Microsoft 365 credentials.
+
+### Prerequisites
+
+* Ensure your tenant has successfully configured the Microsoft 365 integration.
+* Verify that the users have been properly synced and provisioned to PortSIP PBX.
+
+### Steps to log in
+
+1. **Launch the PortSIP ONE app:** Open the **PortSIP ONE app** (either the Windows desktop app or WebRTC app).
+2. **Enter Connection Information:**
+   * In the login window, enter your tenant’s **SIP domain** and the **PBX IP address** or **hostname/domain**.
+   * Click the **Next** button to proceed.
+
+<figure><img src="../../.gitbook/assets/portsip-one-sso.png" alt=""><figcaption></figcaption></figure>
+
+3. **SSO Authentication via Microsoft 365:**
+   * If the Microsoft 365 integration is configured correctly, the PortSIP ONE app will detect your tenant and display the Microsoft 365 logo (as shown in the screenshot below).
+   * Click on the **Microsoft 365 logo** to initiate the authentication process.
+
+<figure><img src="../../.gitbook/assets/portsip-one-sso-1.png" alt=""><figcaption></figcaption></figure>
+
+4. **Login to Microsoft 365:**
+   * A browser window will automatically open, directing you to the Microsoft 365 portal.
+   * Enter your **Microsoft 365 username** and **password** to sign in.
+   * After successfully logging into Microsoft 365, the PortSIP ONE app will automatically log you into the PortSIP PBX.
+
+<figure><img src="../../.gitbook/assets/portsip-one-sso-2.png" alt=""><figcaption></figcaption></figure>
+
 ## Logging into the PortSIP ONE app manually
 
 You can manually input user details in the PortSIP ONE app to log in to the PortSIP PBX. In this example, we assume the following configurations:
