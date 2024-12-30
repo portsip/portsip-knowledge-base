@@ -23,10 +23,10 @@ Authenticate the PBX system administrator with PortSIP PBX.
 | Name        | Type   | Description                                                 |
 | ----------- | ------ | ----------------------------------------------------------- |
 | grant\_type | string | The value is always "password".                             |
-| username    | string | The user name of the System Administrator.                  |
-| password    | string | The password of the System Administrator.                   |
+| username    | string | The System Administrator's username.                        |
+| password    | string | The System Administrator's password.                        |
 | scope       | string | The value is always  "all"                                  |
-| clicent\_id | string | The value is always "9d806019-75b2-4b3d-bb8b-f5a3a412cc0a". |
+| client\_id  | string | The value is always "9d806019-75b2-4b3d-bb8b-f5a3a412cc0a". |
 
 **Response**
 
@@ -73,11 +73,11 @@ Authenticate the tenant user with the PortSIP PBX.
 | Name        | Type   | Description                                                 |
 | ----------- | ------ | ----------------------------------------------------------- |
 | grant\_type | string | The value is always "password".                             |
-| username    | string | The user name of the tenant.                                |
+| username    | string | The extension's username.                                   |
 | domain      | string | The SIP domain of tenant.                                   |
 | password    | string | The password of the user.                                   |
 | scope       | string | The value is always  "all"                                  |
-| clicent\_id | string | The value is always "9d806019-75b2-4b3d-bb8b-f5a3a412cc0a". |
+| client\_id  | string | The value is always "9d806019-75b2-4b3d-bb8b-f5a3a412cc0a". |
 
 **Response**
 
@@ -125,7 +125,7 @@ Refresh the `access_token` using the `refresh_token`.
 | -------------- | ------ | ---------------------------------------------------------------------- |
 | grant\_type    | string | The value is always "refresh\_token".                                  |
 | refresh\_token | string | The refresh token is obtained from the response of the authentication. |
-| clicent\_id    | string | The value is always "9d806019-75b2-4b3d-bb8b-f5a3a412cc0a".            |
+| client\_id     | string | The value is always "9d806019-75b2-4b3d-bb8b-f5a3a412cc0a".            |
 
 **Response**
 
