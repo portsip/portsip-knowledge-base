@@ -25,7 +25,7 @@ PortSIP PBX supports a wide range of mainstream SIP trunk providers worldwide. T
 * [Aire Networks](https://airenetworks.es/)
 * [VoiceMeUp](https://www.voicemeup.com/)
 
-In this article, we provide the detailed guides for configuring the below trunks:
+The PortSIP PBX has integrated the SMS feature as well with the below trunk providers:
 
 * [Configuring Quest Blue SIP Trunk](questblue-sip-trunk/)
 * [Configuring Twilio SIP Trunk](twilio-sip-trunk/)
@@ -35,6 +35,6 @@ In this article, we provide the detailed guides for configuring the below trunks
 * [Configuring Voxtelesys SIP Trunk](voxtelesys-sip-trunk/)
 * [Configuring Wavix SIP Trunk](wavix-sip-trunk/)
 * [Configuring Gamma SIP Trunk](gamma-sip-trunk.md)
-* Configuring Aire Networks Trunk
-* VoiceMeUp Trunk
+* [Configuring Aire Networks Trunk](aire-networks-sip-trunk.md)
+* [VoiceMeUp Trunk](voicemeup-sip-trunk.md)
 
