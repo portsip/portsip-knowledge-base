@@ -4,7 +4,7 @@
 Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/upgrade-portsip-pbx-to-v22.x.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
-## Changes for Release v22.0.0
+## Changes for Release v22.0.38
 
 Date: Dec 12, 2024
 
