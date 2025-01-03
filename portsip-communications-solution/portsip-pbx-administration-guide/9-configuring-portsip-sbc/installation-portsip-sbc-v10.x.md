@@ -19,7 +19,7 @@ Before proceeding, please review the following sections carefully:
 
 ## Preparing the Server for Installation <a href="#preparing-the-server-for-installation" id="preparing-the-server-for-installation"></a>
 
-Tasks that MUST be completed before installing PortSIP PBX
+Tasks that MUST be completed before installing PortSIP SBC.
 
 * **Ensure the server date-time is synced correctly**.
 * For the Linux, use the `sudo` to perform the installation is recommended. For Windows, it requires the Administrator user.

@@ -17,8 +17,8 @@ According for that guide, the following items summarize the configuration of the
 
 Please follow the guides below to install and configure the PortSIP PBX:
 
-* [Installation of the PortSIP PBX](https://support.portsip.com/portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx)
-* [Configuring the PortSIP PBX](https://support.portsip.com/portsip-pbx-administration-guide/2-configuring-the-portsip-pbx)
+* [Installation of the PortSIP PBX](../1-installation-of-the-portsip-pbx/)
+* [Configuring the PortSIP PBX](configure-an-sbc-for-multiple-tenants.md#id-2-configuring-the-portsip-pbx)
 
 Now, create three tenants and set their respective SIP domains to **sbc1.customers.adatum.biz**, **sbc2.customers.adatum.biz**, and **sbc3.customers.adatum.biz**.
 

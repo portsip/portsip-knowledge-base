@@ -4,8 +4,8 @@
 
 Please confirm the following items have been completed before configuring the SBC and PBX for Microsoft Teams Direct Routing.
 
-* The PBX has been [installed](broken-reference) and [configured](../2-configuring-the-portsip-pbx.md).
-* The SBC has been [installed](broken-reference) and [configured](broken-reference).
+* The PBX has been [installed ](../1-installation-of-the-portsip-pbx/)and [configured](../2-configuring-the-portsip-pbx.md).
+* The SBC has been [installed ](../9-configuring-portsip-sbc/)and [configured](../9-configuring-portsip-sbc/configuring-sbc-for-webrtc.md).
 * The Microsoft Teams Direct Routing has been [configured](configuring-microsoft-teams.md).
 
 ## 1 Add Teams Base Domain
