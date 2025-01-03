@@ -1,12 +1,12 @@
 # Install PortSIP IM Server on Linux
 
 {% hint style="warning" %}
-Install the separate IM server only applicable if you install the PortSIP PBX in the Linux environment.
+The **IM server** (Instant Messaging server) installation is a separate step that is only required when installing **PortSIP PBX** in a **Linux environment**.
+
+For Windows-based installations, the IM server is integrated within the main installation process and does not require separate setup.
 {% endhint %}
 
-The installation of the IM Server is a separate step, required only when PortSIP PBX is installed on a **Linux server**.
-
-Before proceeding with this guide, ensure that you have already completed **steps 1–4** of the [Install PortSIP PBX for Linux](./).
+Before proceeding with this guide, ensure that you have already completed **steps 1–4** of the [Install PortSIP PBX on Linux](install-portsip-pbx-on-linux.md).
 
 You have two options for deploying the PortSIP IM Server:
 
@@ -57,7 +57,7 @@ If everything is set up correctly, the PBX web portal will display the IM server
 
 <figure><img src="../../../../.gitbook/assets/im_server_update_address.png" alt=""><figcaption></figcaption></figure>
 
-The Instant Messaging (IM) server has been successfully installed. We can now proceed with the next steps in the [PortSIP PBX installation step 6](./#step-6-reboot-to-apply-the-certificate).
+The Instant Messaging (IM) server has been successfully installed. We can now proceed with the next steps in the [PortSIP PBX installation step 6](install-portsip-pbx-on-linux.md#step-6-reboot-to-apply-the-certificate).
 
 ## Install IM Service on a Separate Server
 
@@ -159,6 +159,10 @@ All commands must be executed in the **`/opt/portsip`** directory.
 Perform the below commands to download the installation scripts and initialize the environment:
 
 ```sh
+mkdir -p /opt/portsip
+```
+
+```sh
 sudo curl \
 https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/init.sh  \
 -o  init.sh
@@ -221,5 +225,5 @@ If everything is set up correctly, the PBX web portal will display the IM server
 
 <figure><img src="../../../../.gitbook/assets/im_server_update_address.png" alt=""><figcaption></figcaption></figure>
 
-The Instant Messaging (IM) server has been successfully installed. We can now proceed with the next steps in the [PortSIP PBX installation step 6](./#step-6-reboot-to-apply-the-certificate).
+The Instant Messaging (IM) server has been successfully installed. We can now proceed with the next steps in the [PortSIP PBX installation step 6](install-portsip-pbx-on-linux.md#step-6-reboot-to-apply-the-certificate).
 

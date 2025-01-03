@@ -4,7 +4,7 @@
 
 This guide is just for installing a fresh PortSIP PBX version 22.x.
 
-If you currently installed the PortSIP PBX v16.x, please follow the article [Upgrade to Latest v22.x Release](upgrade-portsip-pbx-to-v22.x.md) to upgrade to the v22.x release.
+If you currently installed the PortSIP PBX v16.x, please follow the article [Upgrade to Latest v22.x Release to upgrade to the v22.x release](upgrade-portsip-pbx-to-v22.x.md).
 
 ## Minimal Hardware Requirements
 
@@ -109,10 +109,8 @@ run -p /var/lib/portsip \
 ```
 
 {% hint style="danger" %}
-If you are upgrading from v16.x to v22.x and specify the `-f` parameter, or if you did not specify the `-f` parameter in earlier v22.x versions but chose to do so during the upgrade, please be aware that all previously recorded files and uploaded prompt files will no longer be accessible. Exercise caution when using this parameter!
+If you are upgrading from v16.x to v22.x and specify the `-f` parameter, or if you did not specify the `-f` parameter in earlier v22.x installation but chose to do so during the upgrade, please be aware that all previously recorded files and uploaded prompt files will no longer be accessible. Exercise caution when using this parameter!
 {% endhint %}
-
-
 
 After successfully installing the PortSIP PBX, you can access the PBX web portal by visiting: [**https://66.175.221.120:8887**](https://66.175.221.120:8887)
 
@@ -129,7 +127,7 @@ Click on **"Sign in as the administrator or dealer"** to navigate to the adminis
 <figure><img src="../../../../.gitbook/assets/login-2.png" alt="" width="320"><figcaption></figcaption></figure>
 
 {% hint style="danger" %}
-Please change the default password of the admin after you log in.
+Please change the admin's default password after you log in.
 {% endhint %}
 
 After successfully logging into the PBX Web Portal, with a new installation, the PBX will launch a setup wizard automatically to guide you through completing the mandatory settings.
@@ -223,7 +221,7 @@ For the Microsoft 365 SMTP server, there are already preconfigured parameters; y
 
 Starting with version 22.0, PortSIP PBX introduces an Instant Messaging (IM) service, offering modern features such as group chat. The IM service requires a separate installation step, as in some cases, you may also want to deploy it on a separate server for optimal performance.
 
-Please follow the article [Installation of the PortSIP IM Server for Linux](install-portsip-im-server-on-linux.md) to install the PortSIP IM Server for the PBX.
+Please follow the article [Installation of the PortSIP IM Server on Linux](install-portsip-im-server-on-linux.md) to install the PortSIP IM Server for the PBX.
 
 ### Step 6: Reboot to Apply the Certificate
 
@@ -239,7 +237,7 @@ Now the PortSIP PBX is successfully installed, you can use [https://uc.portsip.c
 
 ## Managing PortSIP PBX Docker Instance
 
-After successfully installed the PortSIP PBX, then you can use the following commands to manage the PortSIP PBX docker instance.
+After successfully installing the PortSIP PBX, then you can use the following commands to manage the PortSIP PBX docker instance.
 
 ```sh
 cd /opt/portsip

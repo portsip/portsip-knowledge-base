@@ -4,7 +4,7 @@
 
 This guide is just for installing a fresh PortSIP PBX version 22.x.
 
-If you currently installed the PortSIP PBX v16.x, please follow the article [Upgrade to Latest v22.x Release](upgrade-portsip-pbx-to-v22.x.md) to upgrade to the v22.x release.
+If you currently installed the PortSIP PBX v16.x, please follow the article [Upgrade to Latest v22.x Release to upgrade to the v22.x release](upgrade-portsip-pbx-to-v22.x.md).
 
 ## Minimal Hardware Requirements
 
@@ -69,7 +69,7 @@ Click on **"Sign in as the administrator or dealer"** to navigate to the adminis
 <figure><img src="../../../../.gitbook/assets/login-2.png" alt="" width="320"><figcaption></figcaption></figure>
 
 {% hint style="danger" %}
-Please change the default password of the admin after you log in.
+Please change the admin's default password after you log in.
 {% endhint %}
 
 After successfully logging into the PBX Web Portal, with a new installation, the PBX will launch a setup wizard to guide you through completing the mandatory settings.
