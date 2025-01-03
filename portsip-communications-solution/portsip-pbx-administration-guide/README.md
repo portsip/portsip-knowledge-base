@@ -1,20 +1,14 @@
----
-description: This is the administration Guide for PortSIP PBX v16.
----
-
 # PortSIP PBX Administration Guide
 
 ## Copyright Notice
 
-Copyright© 2024 PortSIP Solutions, Inc. All rights reserved. Any technical documentation that is made available by PortSIP Solutions, Inc. is proprietary and confidential and is considered the copyrighted work of PortSIP Solutions, Inc. This publication is for distribution under the PortSIP non-disclosure agreement only. No part of this publication may be duplicated without the express written permission of PortSIP Solutions, Inc. PortSIP reserves the right to make changes without prior notice.
+Copyright© 2025 PortSIP Solutions, Inc. All rights reserved. Any technical documentation that is made available by PortSIP Solutions, Inc. is proprietary and confidential and is considered the copyrighted work of PortSIP Solutions, Inc. This publication is for distribution under the PortSIP non-disclosure agreement only. No part of this publication may be duplicated without the express written permission of PortSIP Solutions, Inc. PortSIP reserves the right to make changes without prior notice.
 
 ## Trademarks
 
-<div align="left">
+<div align="left"><figure><img src="../../.gitbook/assets/logo_V22_0 (3).png" alt="" width="111"><figcaption></figcaption></figure></div>
 
-<figure><img src="../../.gitbook/assets/25.png" alt=""><figcaption></figcaption></figure>
-
-</div>
+<div align="left"><figure><img src="../../.gitbook/assets/25.png" alt=""><figcaption></figcaption></figure></div>
 
 PortSIP®, the PortSIP logo, and the names and marks associated with PortSIP products are trademarks and/or service marks of PortSIP Solutions, Inc. and are registered and/or common law marks in the United States and various other countries. All other trademarks are the property of their respective owners. No portion hereof may be reproduced or transmitted in any form or by any means, for any purpose other than the recipient's personal use, without the express written permission of PortSIP.
 
@@ -37,3 +31,4 @@ PortSIP and/or its respective suppliers make no representations about the suitab
 ## About This Guide
 
 This document provides guidelines to help facilitate the administration of the PortSIP PBX Unified Communications solution. It includes important sections detailing installation, administration, and upgrade procedures, in particular for the admin mode. Where applicable, it lists and references other guides that contain detailed information on administrative procedures for PortSIP PBX servers or client applications.
+
