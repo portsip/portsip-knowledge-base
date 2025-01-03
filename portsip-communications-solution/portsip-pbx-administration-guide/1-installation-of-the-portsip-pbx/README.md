@@ -19,5 +19,5 @@ With the release of PortSIP PBX v22.0, we also introduced the all-new[ PortSIP O
 
 This app includes a wide range of modern business communication features. However, please note that it is **not** compatible with PortSIP PBX v1.6.x.&#x20;
 
-Additionally, the legacy [PortSIP Phone](https://www.portsip.com/portsip-softphone), which was compatible with v1.6.x, does not work with v22.x.
+Additionally, the legacy [PortSIP softphone phone](https://www.portsip.com/portsip-softphone), which was compatible with v1.6.x, does not work with v22.x.
 
