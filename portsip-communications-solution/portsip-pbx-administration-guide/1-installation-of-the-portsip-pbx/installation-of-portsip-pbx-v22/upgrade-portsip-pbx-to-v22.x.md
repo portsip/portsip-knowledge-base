@@ -236,15 +236,11 @@ rm install_docker.sh
 rm sbc_ctl.sh
 ```
 
-### Remove the Separate IM Service Installation
+### Remove the IM Service Installation
 
-{% hint style="warning" %}
-If you installed the IM service with PBX on the same server, please ignore this section.&#x20;
-{% endhint %}
+Please follow the steps below to remove the IM service.
 
-If you have an IM service installed on a separate server, follow the steps below to remove it.
-
-First, use SSH to connect to the separate IM server.&#x20;
+If your IM service is installed on a separate server, first, use SSH to connect to the separate IM server.&#x20;
 
 The IM service is hosted within the PBX Docker instance and image, so it will appear as **PBX** in the following steps.
 
