@@ -1,4 +1,4 @@
-# Upgrade to the Latest v22.x Release
+# Upgrade to the Latest v22.x on Linux
 
 This guide provides step-by-step instructions for upgrading your current PortSIP PBX v16.x or v22.x installation to the latest v22.x release.
 
@@ -23,12 +23,6 @@ Once your PBX is upgraded to the latest v16.x, follow the steps below to remove 
 {% hint style="danger" %}
 After you upgraded the PortSIP PBX from v16.x to v22.x, the old PortSIP Softphone app can't be used with v22.x, you must use the new [PortSIP ONE](https://www.portsip.com/portsip-one) app with the PortSIP PBX v22.x and higher.
 {% endhint %}
-
-### Upgrading for Windows installation
-
-If your current **PortSIP PBX v16.x** installation is on a **Windows server**, simply download the latest installer, then double-click it like i[nstall a fresh version](install-portsip-pbx-on-windows.md). The installer will automatically detect your existing installation and upgrade it to the latest version.
-
-The following steps are only applicable if you are upgrading **PortSIP PBX** on a **Linux server**.
 
 ### Remove the current PBX installation
 
@@ -145,8 +139,6 @@ If you are upgrading from v16.x to v22.x, please follow these steps after your u
 * Since SMTP server configurations have changed in v22.0, your previous settings will now be recognized as a generic email provider. Please review your configuration and update it if necessary.
 
 ## Prerequisites for Upgrading within v22.x
-
-If your current installation is already PortSIP PBX v22.x and you need to upgrade to the latest v22.x version, please follow the steps below to remove the existing v22.x installation.
 
 ### Remove the current PBX installation
 

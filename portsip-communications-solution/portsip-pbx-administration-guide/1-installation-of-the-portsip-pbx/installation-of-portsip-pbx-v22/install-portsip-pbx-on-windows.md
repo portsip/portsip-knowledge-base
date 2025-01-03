@@ -4,7 +4,7 @@
 
 This guide is just for installing a fresh PortSIP PBX version 22.x.
 
-If you currently installed the PortSIP PBX v16.x, please follow the article [Upgrade to Latest v22.x Release to upgrade to the v22.x release](upgrade-portsip-pbx-to-v22.x.md).
+If you currently installed the PortSIP PBX v16.x, please follow the article [Upgrade to Latest v22.x Release to upgrade to the v22.x release](upgrade-to-the-latest-v22.x-on-linux.md).
 
 ## Minimal Hardware Requirements
 

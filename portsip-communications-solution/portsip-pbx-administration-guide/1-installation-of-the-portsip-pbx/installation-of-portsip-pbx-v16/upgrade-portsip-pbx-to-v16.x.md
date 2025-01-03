@@ -4,7 +4,7 @@ This guide provides step-by-step instructions for upgrading your current PortSIP
 
 ## Important
 
-> This guide is specifically for upgrades within the **v16.x** series. If you need to upgrade from v16.x to v22.x, please refer to the [Upgrading to the Latest v22.x Release](../installation-of-portsip-pbx-v22/upgrade-portsip-pbx-to-v22.x.md).
+> This guide is specifically for upgrades within the **v16.x** series. If you need to upgrade from v16.x to v22.x, please refer to the [Upgrading to the Latest v22.x Release](../installation-of-portsip-pbx-v22/upgrade-to-the-latest-v22.x-on-linux.md).
 
 ## **Upgrading PBX for Linux**
 
