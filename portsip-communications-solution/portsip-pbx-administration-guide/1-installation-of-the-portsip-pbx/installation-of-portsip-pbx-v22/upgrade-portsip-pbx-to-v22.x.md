@@ -21,8 +21,14 @@ If your current installation is running a version lower than v16.4.4, please fir
 Once your PBX is upgraded to the latest v16.x, follow the steps below to remove the v16.x installation before upgrading.
 
 {% hint style="danger" %}
-After you upgraded the PortSIP PBX from v16.x to v22.x, the old PortSIP Softphone app can't use with v22.x, you must use the new [PortSIP ONE](https://www.portsip.com/portsip-one) app with the PortSIP PBX v22.x and higher.
+After you upgraded the PortSIP PBX from v16.x to v22.x, the old PortSIP Softphone app can't be used with v22.x, you must use the new [PortSIP ONE](https://www.portsip.com/portsip-one) app with the PortSIP PBX v22.x and higher.
 {% endhint %}
+
+### Upgrading for Windows installation
+
+If your current **PortSIP PBX v16.x** installation is on a **Windows server**, simply download the latest installer, then double-click it like i[nstall a fresh version](install-portsip-pbx-on-windows.md). The installer will automatically detect your existing installation and upgrade it to the latest version.
+
+The following steps are only applicable if you are upgrading **PortSIP PBX** on a **Linux server**.
 
 ### Remove the current PBX installation
 
