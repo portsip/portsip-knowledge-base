@@ -116,7 +116,7 @@ sudo /bin/sh pbx_ctl.sh stop
 sudo /bin/sh pbx_ctl.sh rm
 ```
 
-2. Install the latest version of the PBX server. Follow the instructions provided in the[ Installation of the PortSIP PBX](../portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/installation-of-the-portsip-im-server.md) guide to complete this step with the latest version.
+2. Install the latest version of the PBX server. Follow the instructions provided in the[ Installation of the PortSIP PBX](../portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/install-portsip-im-server-on-linux.md) guide to complete this step with the latest version.
 
 ### Upgrading the IM Server
 

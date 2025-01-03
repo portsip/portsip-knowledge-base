@@ -1,8 +1,12 @@
-# Installation of PortSIP IM Server
+# Install PortSIP IM Server on Linux
+
+{% hint style="warning" %}
+Install the separate IM server only applicable if you install the PortSIP PBX in the Linux environment.
+{% endhint %}
 
 The installation of the IM Server is a separate step, required only when PortSIP PBX is installed on a **Linux server**.
 
-Before proceeding with this guide, ensure that you have already completed **steps 1–4** of the [Installation of the PortSIP PBX v22.x](./).
+Before proceeding with this guide, ensure that you have already completed **steps 1–4** of the [Install PortSIP PBX for Linux](./).
 
 You have two options for deploying the PortSIP IM Server:
 
