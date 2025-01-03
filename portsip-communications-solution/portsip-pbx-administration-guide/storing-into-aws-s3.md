@@ -15,7 +15,7 @@ Use this feature when you need to meet compliance requirements that exclude reli
 
 ## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
 
-* Debian 11/12, Ubuntu 20.04/22.04/24.04, 64-bit
+* Debian 11/12, Ubuntu 22.04/24.04, 64-bit
 * PortSIP PBX is deployed on AWS EC2
 * AWS EC2 instance(s) located within the same region as S3
 
@@ -24,11 +24,11 @@ Use this feature when you need to meet compliance requirements that exclude reli
 1. Navigate to the **Identity and Access Management (IAM)** menu, select **Access Management**, and then click on the **Add User** button.&#x20;
 2. Input a name for the user, such as **s3store**, select **Programmatic Access**, and then click **Next**.
 
-![](../../.gitbook/assets/iam\_s3.png)
+![](../../.gitbook/assets/iam_s3.png)
 
 3\. Click on the **Create group** button to create a new group.
 
-![](../../.gitbook/assets/iam\_s3\_group.png)
+![](../../.gitbook/assets/iam_s3_group.png)
 
 {% hint style="info" %}
 You can choose to add this user to an existing group rather than create a new group but must grant **AmazonS3FullAccess** permission to this existing group.
@@ -36,12 +36,12 @@ You can choose to add this user to an existing group rather than create a new gr
 
 4\. Enter a name for the group, for example, **portsip-pbx-s3**, Choose **AmazonS3FullAccess** Policy name, and click the **Create group** button.
 
-![](../../.gitbook/assets/iam\_s3\_2.png)
+![](../../.gitbook/assets/iam_s3_2.png)
 
 5. Once the group is successfully created, select it and click the **Next** button. You have the option to add tags to this user, or you can simply skip this step by clicking the **Next** button.
 6. After the user is successfully added, make sure to note down the **Access Key ID** and **Secret Access Key** as shown.
 
-![](../../.gitbook/assets/iam\_s3\_1.png)
+![](../../.gitbook/assets/iam_s3_1.png)
 
 ## Step 2: Create an S3 bucket <a href="#create-s3-bucket" id="create-s3-bucket"></a>
 
