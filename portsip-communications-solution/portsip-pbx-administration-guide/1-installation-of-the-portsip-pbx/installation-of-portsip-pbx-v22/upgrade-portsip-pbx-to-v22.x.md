@@ -151,6 +151,7 @@ Perform the following commands as root to stop the current PBX Docker instance:
 ```sh
 cd /opt/portsip
 sudo /bin/sh pbx_ctl.sh stop
+sudo /bin/sh im_ctl.sh stop
 ```
 
 #### 2: Delete the PBX docker instances <a href="#step-2-delete-the-pbx-docker-instance" id="step-2-delete-the-pbx-docker-instance"></a>
@@ -159,6 +160,7 @@ Perform the following command to delete the PBX Docker instance:
 
 ```sh
 sudo /bin/sh pbx_ctl.sh rm
+sudo /bin/sh im_ctl.sh rm
 ```
 
 #### 3: Delete the PBX docker images <a href="#step-3-list-the-pbx-docker-images" id="step-3-list-the-pbx-docker-images"></a>
@@ -236,11 +238,11 @@ rm install_docker.sh
 rm sbc_ctl.sh
 ```
 
-### Remove the IM Service Installation
+### Remove the separated IM service installation
 
-Please follow the steps below to remove the IM service.
+If your IM service is installed on a separate server, please follow the below steps to remove it.
 
-If your IM service is installed on a separate server, first, use SSH to connect to the separate IM server.&#x20;
+First, use SSH to connect to the separate IM server to perform the below commands.
 
 The IM service is hosted within the PBX Docker instance and image, so it will appear as **PBX** in the following steps.
 
