@@ -2,7 +2,7 @@
 
 ## PortSIP PBX Free Edition
 
-You can install the PortSIP PBX Free Edition, which supports up to 3 simultaneous calls and allows for 10 extension registrations. If you require additional capacity for more simultaneous calls or extensions, please visit the [PortSIP PBX Pricing](https://www.portsip.com/portsip-pbx-pricing/) page for further details.
+You can install the PortSIP PBX Free Edition, which supports up to 3 simultaneous calls and allows for 10 extension registrations. If you require additional capacity for more simultaneous calls or extensions, please visit the [PortSIP PBX Pricing](https://www.portsip.com/portsip-pricing/) page for further details.
 
 ## Supported Versions of PortSIP PBX
 
@@ -15,9 +15,9 @@ We recommend installing the latest v22.x version for the best performance and fe
 
 ## PortSIP ONE App
 
-With the release of PortSIP PBX v22.0, we also introduced the all new PortSIP ONE application.&#x20;
+With the release of PortSIP PBX v22.0, we also introduced the all-new[ PortSIP ONE](https://www.portsip.com/portsip-one/) application.&#x20;
 
-This app includes a wide range of modern business communication features. However, please note that it is not compatible with PortSIP PBX v1.6.x.&#x20;
+This app includes a wide range of modern business communication features. However, please note that it is **not** compatible with PortSIP PBX v1.6.x.&#x20;
 
-Additionally, the legacy PortSIP Phone, which was compatible with v1.6.x, does not work with v22.x.
+Additionally, the legacy [PortSIP Phone](https://www.portsip.com/portsip-softphone), which was compatible with v1.6.x, does not work with v22.x.
 
