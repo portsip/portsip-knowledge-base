@@ -92,7 +92,7 @@ If you currently running the PortSIP PBX v22.x HA, please follow the below steps
 Perform the below command only on the **pbx01.**
 
 ```sh
-  cd /opt && rm -rf portsip-pbx-ha-guide-22-online.tar.gz && \
+  cd /opt && sudo rm -rf portsip-pbx-ha-guide-22-online.tar.gz && \
   sudo wget -N https://www.portsip.com/downloads/ha/v22/portsip-pbx-ha-guide-22-online.tar.gz \
   && sudo tar xf portsip-pbx-ha-guide-22-online.tar.gz
 ```
@@ -107,12 +107,12 @@ Please contact PortSIP support to obtain the **\<PortSIP PBX new version image>*
 
 Perform the below command only on the **pbx01.**
 
-<pre class="language-sh"><code class="lang-sh"><strong>cd /opt/portsip-pbx-ha-guide/ &#x26;&#x26; sudu /bin/bash update.sh &#x3C;PortSIP PBX new version image>
+<pre class="language-sh"><code class="lang-sh"><strong>cd /opt/portsip-pbx-ha-guide/ &#x26;&#x26; /bin/bash update.sh &#x3C;PortSIP PBX new version image>
 </strong></code></pre>
 
 For example:
 
 ```sh
-cd /opt/portsip-pbx-ha-guide/ && sudo /bin/bash update.sh portsip/pbx:22
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash update.sh portsip/pbx:22
 ```
 
