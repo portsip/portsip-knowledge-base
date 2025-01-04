@@ -244,7 +244,7 @@ rm sbc_ctl.sh
 
 ### Remove the separated IM service installation
 
-If your IM service is installed on a separate server, please follow the below steps to remove it.
+If your IM service is installed **on a separate server**, please follow the below steps to remove it. Otherwise, please ignore this section.
 
 First, use SSH to connect to the separate IM server to perform the below commands.
 
