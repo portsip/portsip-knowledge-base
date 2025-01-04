@@ -297,11 +297,8 @@ rm init.sh
 
 ## Upgrade to the Latest PortSIP PBX v22.x
 
-To upgrade to the latest version of PortSIP PBX v22.x, simply follow the same steps as for a fresh installation. The installer will automatically handle the data upgrade process.
-
 After removing the current installation, you can now proceed with the installation of PortSIP PBX v22.x and the Instant Messaging (IM) service.&#x20;
 
+To upgrade to the latest version of PortSIP PBX v22.x, simply follow **the same steps as for a fresh installation**. The installer will automatically handle the data upgrade process.
+
 For detailed instructions and to complete the upgrade, please refer to the [**Installation of PortSIP PBX v22.x** ](./)Guide.
-
-You are now ready to upgrade to the latest version of PortSIP PBX v22.x.
-
