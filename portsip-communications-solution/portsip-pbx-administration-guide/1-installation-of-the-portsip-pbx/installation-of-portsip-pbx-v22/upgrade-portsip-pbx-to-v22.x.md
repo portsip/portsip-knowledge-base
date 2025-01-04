@@ -144,6 +144,8 @@ If you are upgrading from v16.x to v22.x, please follow these steps after your u
 All commands must be executed in the **`/opt/portsip`** directory.
 {% endhint %}
 
+If you are currently running **PortSIP PBX v22.x** and wish to upgrade to the latest version, please follow the steps below.
+
 ### Remove the current PBX installation
 
 #### 1: Stop PBX docker instances <a href="#step-1-stop-pbx-docker-instance" id="step-1-stop-pbx-docker-instance"></a>
