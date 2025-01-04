@@ -10,7 +10,7 @@ Although several providers and third parties offer call blocking and caller iden
 
 STIR (Secure Telephony Identity Revisited) is the proposed standard developed by IETF that defines a signature to verify the calling number, and specifies how it will be transported in SIP “on the wire.”
 
-SHAKEN (Signature-based Handling of Asserted information using toKENs) is the framework document developed by the ATIS/SIP Forum IP-NNI task force to provide an implementation profile for service providers implementing STIR. STIR/SHAKEN will be the basis for verifying calls, classifying calls, and facilitating the ability to trust the caller ID information.
+SHAKEN (Signature-based Handling of Asserted information using toKENs) is the framework document developed by the ATIS/SIP Forum IP-NNI task force to provide an implementation profile for service providers implementing STIR. STIR/SHAKEN will be the basis for verifying calls, classifying calls, and facilitating the ability to trust caller ID information.
 
 ## Caller Authentication
 
@@ -20,7 +20,7 @@ STIR is used to enhance the SIP protocol to provide a mechanism for service prov
 
 ## PortSIP Solution
 
-We are pleased to announce that PortSIP has officially launched **PortSIP PBX v22.0** with a complete implementation of **STIR/SHAKEN** for two key reasons:
+**PortSIP PBX** provides the complete implementation of **STIR/SHAKEN** for two key reasons:
 
 * Our clients no longer need to pay for expensive STIR/SHAKEN subscription services for their business.
 * Our clients' data stays secure, without being routed through third-party service provider networks.
