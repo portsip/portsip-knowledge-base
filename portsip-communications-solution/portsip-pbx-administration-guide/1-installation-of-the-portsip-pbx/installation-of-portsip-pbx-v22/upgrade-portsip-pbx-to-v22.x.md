@@ -297,5 +297,5 @@ rm init.sh
 
 ## Upgrade to the Latest PortSIP PBX v22.x
 
-If you have removed the current installation of **PortSIP PBX** (while retaining the PBX data), you can proceed with the upgrade by following the [same steps as for a fresh installation](install-portsip-pbx-on-linux.md). The installer will automatically handle the data upgrade process.
+If you have removed the current installation of **PortSIP PBX** (while retaining the PBX data), you can proceed with the upgrade by following the [same steps as for a **fresh installation**](install-portsip-pbx-on-linux.md). The process is identical to installing a new PBX docker instance, and the installer will automatically handle the data upgrade process.
 
