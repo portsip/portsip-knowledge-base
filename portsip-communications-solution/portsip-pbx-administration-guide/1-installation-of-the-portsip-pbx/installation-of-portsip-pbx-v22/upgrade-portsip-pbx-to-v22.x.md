@@ -10,10 +10,6 @@ Please follow the article [Backup and Restore: An Essential Guide](https://suppo
 Rest assured, if all steps are followed correctly, your PBX data will remain intact throughout the upgrade process.
 {% endhint %}
 
-{% hint style="warning" %}
-All commands must be executed in the **`/opt/portsip`** directory.
-{% endhint %}
-
 ## Prerequisites for Upgrading from v16.x
 
 If your current installation is running a version lower than v16.4.4, please first follow the [**Upgrading to the Latest v16.x Release**](../installation-of-portsip-pbx-v16/upgrade-portsip-pbx-to-v16.x.md) guide to complete the upgrade to v16.4.4.
@@ -22,6 +18,10 @@ Once your PBX is upgraded to the latest v16.x, follow the steps below to remove 
 
 {% hint style="danger" %}
 After you upgraded the PortSIP PBX from v16.x to v22.x, the old PortSIP Softphone app can't be used with v22.x, you must use the new [PortSIP ONE](https://www.portsip.com/portsip-one) app with the PortSIP PBX v22.x and higher.
+{% endhint %}
+
+{% hint style="warning" %}
+All commands must be executed in the **`/opt/portsip`** directory.
 {% endhint %}
 
 ### Remove the current PBX installation
@@ -139,6 +139,10 @@ If you are upgrading from v16.x to v22.x, please follow these steps after your u
 * Since SMTP server configurations have changed in v22.0, your previous settings will now be recognized as a generic email provider. Please review your configuration and update it if necessary.
 
 ## Prerequisites for Upgrading within v22.x
+
+{% hint style="warning" %}
+All commands must be executed in the **`/opt/portsip`** directory.
+{% endhint %}
 
 ### Remove the current PBX installation
 
