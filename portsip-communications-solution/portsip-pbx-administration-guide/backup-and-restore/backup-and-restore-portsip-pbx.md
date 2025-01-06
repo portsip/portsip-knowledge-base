@@ -20,7 +20,7 @@ Remember, it’s always a good idea to test the restore process periodically to 
 
 ### **Linux**&#x20;
 
-When [installing PortSIP PBX for Linux](broken-reference), in step 3, you typically use the following command to create the PortSIP PBX Docker instance:
+When [installing PortSIP PBX on Linux](../1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/install-portsip-pbx-on-linux.md#step-3-create-and-run-pbx-docker-instance), in step 3, you typically use the following command to create the PortSIP PBX Docker instance:
 
 ```shell
 /bin/sh pbx_ctl.sh \
@@ -52,7 +52,7 @@ After successfully backing up the data, save it safely.
 
 ### **Windows**&#x20;
 
-When [installing PortSIP PBX for Windows](broken-reference), in step 1, there is an option that allows you to choose the **parent** folder for storing the PBX data.&#x20;
+When [installing PortSIP PBX on Windows](../1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/install-portsip-pbx-on-windows.md), in step 1, there is an option that allows you to choose the **parent** folder for storing the PBX data.&#x20;
 
 To back up the data, copy this folder to another server or an external disk. By default, if you didn’t specify otherwise, the **parent** folder is `C:\ProgramData\PortSIP`.&#x20;
 
