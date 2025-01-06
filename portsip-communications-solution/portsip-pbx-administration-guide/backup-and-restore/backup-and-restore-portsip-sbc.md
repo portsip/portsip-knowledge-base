@@ -20,7 +20,7 @@ Remember, it’s always a good idea to test the restore process periodically to 
 
 ### **Linux**&#x20;
 
-When [installing PortSIP SBC for Linux](broken-reference), in step 3, you typically use the following command to create the PortSIP SBC Docker instance:
+When [installing PortSIP SBC](../9-configuring-portsip-sbc/installation-portsip-sbc-v11.x.md) on Linux, you typically use the following command to create the PortSIP SBC Docker instance:
 
 ```bash
 /bin/sh sbc_ctl.sh run -p /var/lib/portsip -i portsip/sbc:10
@@ -44,7 +44,7 @@ cp -p -r /portsip/data/sbc /back/sbc-data
 
 ### **Windows**&#x20;
 
-When [installing PortSIP SBC for Windows](broken-reference), in step 1, there is an option that allows you to choose the **parent** folder for storing the SBC data.&#x20;
+When [installing PortSIP SBC](../9-configuring-portsip-sbc/installation-portsip-sbc-v11.x.md) on Windows, in step 1, there is an option that allows you to choose the **parent** folder for storing the SBC data.&#x20;
 
 To back up the data, simply copy the data folder to another server or an external disk. By default, if you didn’t specify otherwise, the SBC data **parent** folder is `C:\ProgramData\PortSIP`. The following folder needs to be copied:
 
