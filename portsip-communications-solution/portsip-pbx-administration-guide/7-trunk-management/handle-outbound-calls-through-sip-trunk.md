@@ -157,13 +157,15 @@ If both the user’s outbound caller ID and the group’s outbound caller ID are
 
 When making an outbound call through a SIP trunk, the PBX applies the outbound caller ID in the following order of priority:
 
-1. **Caller Extension's Outbound Caller ID**:\
+1. **App specified Outbound Caller ID**:\
+   If the user makes a call from the PortSIP ONE app and specifies an Outbound caller ID, the PBX will use that caller ID anyway.
+2. **Caller Extension's Outbound Caller ID**:\
    If the caller’s extension has an outbound caller ID set, the PBX will use this ID to overwrite the **FROM** header.
-2. **Outbound Rule's Outbound Caller ID**:\
+3. **Outbound Rule's Outbound Caller ID**:\
    If the caller extension’s outbound caller ID is not set, the PBX will use the outbound caller ID configured in the outbound rule to overwrite the **FROM** header.
-3. **User Group's Outbound Caller ID**:\
+4. **User Group's Outbound Caller ID**:\
    If the outbound rule does not have an outbound caller ID set but specifies a user group with an outbound caller ID, the PBX will use the group’s outbound caller ID to overwrite the **FROM** header.
-4. **Company's Outbound Caller ID**:\
+5. **Company's Outbound Caller ID**:\
    If none of the above IDs are configured, the PBX will default to the company’s outbound caller ID to overwrite the **FROM** header.
 
 ## Outbound Caller ID for PBX Services
