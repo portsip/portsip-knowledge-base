@@ -1,0 +1,9 @@
+# Agent
+
+{% swagger src="../../../../../../.gitbook/assets/openapi (3).json" path="/user/call_queues/{id}/agent" method="get" %}
+[openapi (3).json](<../../../../../../.gitbook/assets/openapi (3).json>)
+{% endswagger %}
+
+{% swagger src="../../../../../../.gitbook/assets/openapi (3).json" path="/user/call_queues/{id}/agent" method="post" %}
+[openapi (3).json](<../../../../../../.gitbook/assets/openapi (3).json>)
+{% endswagger %}
