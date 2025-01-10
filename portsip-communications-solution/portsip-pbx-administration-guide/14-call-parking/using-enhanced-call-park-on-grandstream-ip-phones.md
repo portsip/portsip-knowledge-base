@@ -6,8 +6,8 @@ This article explains how to use the PortSIP PBX’s uniquely enhanced call park
 
 ### Grandstream
 
-* GRP 260x: 2604, 2603, 2602, 2601
-* ROM: From 1.0.5.68
+* GRP 260x: 2604, 2603, 2602, 2601. **ROM**: From 1.0.5.68
+* GRP 26XX: 2610, 2611, 2612, 2613, 2614, 2615, 2616, 2624, 2634, 2636, 2650, 2670. **ROM**: From 1.0.13.13
 
 ## Supported PortSIP PBX Version
 
