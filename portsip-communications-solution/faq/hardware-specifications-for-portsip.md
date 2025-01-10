@@ -69,7 +69,7 @@ The PortSIP PBX is usually deployed for users within 100K and around 10K simulta
 | Virtualized          | YES          |
 | Multi-tenant         | YES          |
 
-### **Up to 8,000 simultaneous calls**
+### **Up to 10,000 simultaneous calls**
 
 | HARDWARE             | REQUIREMENTS    |
 | -------------------- | --------------- |
