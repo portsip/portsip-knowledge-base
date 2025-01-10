@@ -1,5 +1,9 @@
 # PortSIP PBX Administration Guide
 
+## GitHub
+
+You can get the original markdown format of this guide from the Github repo: [PortSIP Knowledge Base](https://github.com/portsip/portsip-knowledge-base).
+
 ## Copyright Notice
 
 Copyright© 2025 PortSIP Solutions, Inc. All rights reserved. Any technical documentation that is made available by PortSIP Solutions, Inc. is proprietary and confidential and is considered the copyrighted work of PortSIP Solutions, Inc. This publication is for distribution under the PortSIP non-disclosure agreement only. No part of this publication may be duplicated without the express written permission of PortSIP Solutions, Inc. PortSIP reserves the right to make changes without prior notice.
