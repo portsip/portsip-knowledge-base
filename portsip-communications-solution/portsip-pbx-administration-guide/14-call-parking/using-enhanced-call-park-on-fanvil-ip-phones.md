@@ -6,15 +6,13 @@ This article explains how to use the PortSIP PBX’s uniquely enhanced call park
 
 ### V1
 
-Models: X4U,X5U,X6U,X7,X7C,X210, and X210i.
-
-ROM: from version 2.4.13.
+* Models: X4U, X5U, X6U, X7, X7C, X210, and X210i.
+* ROM: from version 2.4.13.
 
 ### V2
 
-Models: X4U-V2/X5U-V2/X6U-V2, X7-V2/X7C-V2/X210-V2, V62,V64,V65&#x20;
-
-ROM: from version 2.12.16.17.
+* Models: X4U-V2/X5U-V2/X6U-V2, X7-V2/X7C-V2/X210-V2, V62, V64, V65&#x20;
+* ROM: from version 2.12.16.17.
 
 ## Supported PortSIP PBX Version
 
