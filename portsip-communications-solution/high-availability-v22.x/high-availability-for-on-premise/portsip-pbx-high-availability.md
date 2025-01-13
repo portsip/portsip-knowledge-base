@@ -4,7 +4,23 @@ Make a high-availability cluster using three PortSIP PBX servers. PortSIP PBX ca
 
 **Figure 1-1**   PortSIP PBX HA Architecture
 
-<figure><img src="../../../.gitbook/assets/pbx_ha_diagram_v16.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/pbx_ha_arch_diagram.png" alt=""><figcaption></figcaption></figure>
+
+## PBX Node Failover with Virtual IP for LAN
+
+As illustrated in the diagram above, the **PortSIP PBX** system is configured with three **PBX nodes** within the **LAN**. A **virtual IP** is assigned to float between two active PBX nodes, ensuring **high availability** and **failover protection** for your communication system.
+
+**How It Works**
+
+1.  **Virtual IP for Active Nodes:**
+
+    The **virtual IP** is shared among the three PBX nodes, ensuring that communication components such as **IVR servers** and **Queue servers** can communicate via the virtual IP. This setup guarantees **continuous service** even if one of the PBX nodes becomes unavailable, as the virtual IP will always point to an active node.
+2.  **Static Public IP for Client Access:**
+
+    A **static public IP** is configured to route incoming traffic to the **virtual IP**. When an **IP phone** or **client app** connects using this static public IP, the **SIP messages** are routed to the virtual IP, which in turn directs them to the currently active PBX node. This ensures that client devices consistently connect to the active PBX node, without manual configuration changes.
+3.  **Pacemaker Monitoring and Failover:**
+
+    The **Pacemaker** service continuously monitors the health of the active PBX node. If Pacemaker detects that the active node is unresponsive, it automatically triggers the **failover process**. This causes the virtual IP to "float" to another active PBX node, ensuring **uninterrupted service** and minimizing downtime in the event of a node failure.
 
 ## Pacemaker
 
