@@ -4,7 +4,7 @@ After successfully [configuring the PortSIP PBX](../portsip-communications-solut
 
 ## Configuring the PortSIP ONE App
 
-If you are using the PortSIP PBX v22.0 or higher, please follow the guide [Apps Guides](portsip-one-app/) to configure it.
+If you are using the PortSIP PBX v22.0 or higher, please follow the guide [Apps Guides](broken-reference) to configure it.
 
 ## Configuring the PortSIP Softphone App
 

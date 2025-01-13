@@ -227,9 +227,10 @@
 
 ## Apps Guides
 
-* [PortSIP ONE App](apps-guides/portsip-one-app/README.md)
-  * [PortSIP ONE Mobile App](apps-guides/portsip-one-app/portsip-one-mobile-app.md)
-  * [PortSIP ONE Desktop App](apps-guides/portsip-one-app/portsip-one-desktop-app.md)
+* [PortSIP ONE Desktop App](apps-guides/portsip-one-desktop-app/README.md)
+  * [Sign in to PBX](apps-guides/portsip-one-desktop-app/sign-in-to-pbx.md)
+  * [Calls, Messages, and Voicemails](apps-guides/portsip-one-desktop-app/calls-messages-and-voicemails.md)
+* [PortSIP ONE Mobile App](apps-guides/portsip-one-mobile-app.md)
 * [PortSIP Softphone](apps-guides/portsip-softphone.md)
 
 ## DEVELOPING WITH PORTSIP <a href="#development-portsip" id="development-portsip"></a>
