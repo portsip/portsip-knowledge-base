@@ -14,7 +14,7 @@ As illustrated in the diagram above, the **PortSIP PBX** system is configured wi
 
 1.  **Virtual IP for Active Nodes:**
 
-    The **virtual IP** is shared among the three PBX nodes, ensuring that communication components such as **IVR servers** and **Queue servers** can communicate via the virtual IP. This setup guarantees **continuous service** even if one of the PBX nodes becomes unavailable, as the virtual IP will always point to an active node.
+    The private **virtual IP** is shared among the three PBX nodes, ensuring that communication components such as **IVR servers** and **Queue servers** can communicate via the virtual IP. This setup guarantees **continuous service** even if one of the PBX nodes becomes unavailable, as the virtual IP will always point to an active node. The private virtual IP address is configured during you setup the PortSIP PBX HA.&#x20;
 2.  **Static Public IP for Client Access:**
 
     A **static public IP** is configured to route incoming traffic to the **virtual IP**. When an **IP phone** or **client app** connects using this static public IP, the **SIP messages** are routed to the virtual IP, which in turn directs them to the currently active PBX node. This ensures that client devices consistently connect to the active PBX node, without manual configuration changes.
