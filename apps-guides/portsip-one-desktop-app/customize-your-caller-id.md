@@ -93,15 +93,15 @@ There may be a time when you need to block your caller ID.&#x20;
 
 <figure><img src="../../.gitbook/assets/caller_id_6.png" alt=""><figcaption></figcaption></figure>
 
-## Let the PBX decide on delivery caller ID
+## Let the PBX Decide on Delivery Caller ID
 
+If you prefer not to manually select the caller ID when placing a call, you can configure it to use the **Server delivery caller ID**.
 
+<figure><img src="../../.gitbook/assets/caller_id_7.png" alt=""><figcaption></figcaption></figure>
 
+In the **From** section, choose the **Server delivery caller ID** option. With this setting, when the app places the call and route through the SIP trunk,  the PBX will automatically select the appropriate caller ID based on its configuration.
 
+For further details on how the PBX determines the outbound caller ID, please refer to the article: [**Handle Outbound Calls Through SIP Trunk**](../../portsip-communications-solution/portsip-pbx-administration-guide/7-trunk-management/handle-outbound-calls-through-sip-trunk.md#outboundcallerid), which explains how the PBX dynamically chooses the correct caller ID.
 
-
-
-
-
-
+Note: This logic is typically applied to desk IP phones as well, which always follow this automatic caller ID selection process.
 
