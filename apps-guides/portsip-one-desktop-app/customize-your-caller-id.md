@@ -23,6 +23,82 @@ A user’s **outbound Caller ID** can be configured in several places within the
 3. **Company-Wide Settings:**
    * The **outbound Caller ID** can be defined at the **Company** level, under **Company > Outbound Caller ID**. This setting will apply to all users who do not have specific Caller ID settings at the extension or group level.
 
+## Adjust your caller ID <a href="#adjust-your-caller-id" id="adjust-your-caller-id"></a>
+
+Your caller ID can be adjusted in three places: on the **Keypad,** in the **Conversation Thread,** and on our **mobile apps** (both [iOS ](https://www.portsip.com/portsip-one/)and [Android](https://www.portsip.com/portsip-one/)).
+
+Currently, caller ID cannot be updated via desk IP phones.
+
+### Adjust caller ID from the dialer pad <a href="#adjust-caller-id-from-the-main-dialer" id="adjust-caller-id-from-the-main-dialer"></a>
+
+To adjust your caller ID from your keypad:
+
+1. Click the **Keypad** icon from the title bar
+2. Click the Arrow icon in the "**Call as**"&#x20;
+3. Choose caller ID in the drop-down
+4. Enter the number or contact you'd like to call, then press enter to start dialing
+
+<figure><img src="../../.gitbook/assets/caller_id_1.png" alt=""><figcaption></figcaption></figure>
+
+### Adjust caller ID from a contact details view  <a href="#adjust-caller-id-from-a-conversation-thread" id="adjust-caller-id-from-a-conversation-thread"></a>
+
+Caller ID can also be customized in the contact details view.&#x20;
+
+From the contact details view in the PortSIP ONE app:
+
+1. Click the drop-down arrow icon beside the **Phone** icon&#x20;
+2. Navigate to the **From** section
+3. Choose an outbound caller ID
+4. Click the **Phone** icon to call
+
+<figure><img src="../../.gitbook/assets/caller_id_2.png" alt=""><figcaption></figcaption></figure>
+
+### Adjust caller ID from a conversation thread  <a href="#adjust-caller-id-from-a-conversation-thread" id="adjust-caller-id-from-a-conversation-thread"></a>
+
+Caller ID can also be customized in the SMS/WhatsApp conversation thread view.&#x20;
+
+From the conversation thread view in the PortSIP ONE app:
+
+1. Click the drop-down option beside the **Phone** icon&#x20;
+2. Navigate to the **From** section
+3. Choose an outbound caller ID
+4. Click the **Phone** icon to call
+
+<figure><img src="../../.gitbook/assets/caller_id_3.png" alt=""><figcaption></figcaption></figure>
+
+## Block your caller ID <a href="#block-your-caller-id" id="block-your-caller-id"></a>
+
+There may be a time when you need to block your caller ID.&#x20;
+
+### To block caller ID when placing a call from the Keypad
+
+1. Click the **Drop-Down icon** alongside the **Call as**
+2. Select **Block caller ID**
+
+<figure><img src="../../.gitbook/assets/caller_id_4.png" alt=""><figcaption></figcaption></figure>
+
+### To block caller ID from the contact details view
+
+1. Click the drop-down arrow icon beside the **Phone** icon&#x20;
+2. Navigate to the **From** section
+3. Choose **Block caller ID**
+
+<figure><img src="../../.gitbook/assets/caller_id_5.png" alt=""><figcaption></figcaption></figure>
+
+### Block caller ID from a conversation thread  <a href="#adjust-caller-id-from-a-conversation-thread" id="adjust-caller-id-from-a-conversation-thread"></a>
+
+1. Click the drop-down option beside the **Phone** icon&#x20;
+2. Navigate to the **From** section
+3. Choose **Block caller ID**
+
+<figure><img src="../../.gitbook/assets/caller_id_6.png" alt=""><figcaption></figcaption></figure>
+
+## Let the PBX decide on delivery caller ID
+
+
+
+
+
 
 
 
