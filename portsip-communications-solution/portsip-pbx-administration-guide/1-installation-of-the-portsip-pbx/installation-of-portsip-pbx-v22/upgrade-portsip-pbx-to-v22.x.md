@@ -1,5 +1,9 @@
 # Upgrade to the Latest v22.x on Linux
 
+{% hint style="warning" %}
+Once you upgrade to the v22.x from the v16.x, the PortSIP Softphone will no longer work with the v22.x. You need to install the new PortSIP ONE app to works with the PBX v22.x.
+{% endhint %}
+
 This guide provides step-by-step instructions for upgrading your current PortSIP PBX v16.x or v22.x installation to the latest v22.x release. The sections include:
 
 #### 1. **Upgrading from v16.x to the Latest v22.x**
