@@ -67,6 +67,8 @@ For optimal performance, it’s recommended to install the IM service on a separ
 * **Memory**: 16 GB
 * **Disk**: High I/O performance required (SSD recommended, at least 256 GB)
 * **Network Bandwidth**: 1000 Mbps or higher, particularly if handling high volumes of messages and file sharing.
+* **Static private IP**: You must configure a static private IP for this IM server.
+* **Static public IP**: If your PBX and IM server are located in the cloud and need to serve internet users, you must have a static public IP for this IM server.
 
 ### **Supported Linux OS** <a href="#supported-linux-os" id="supported-linux-os"></a>
 
@@ -78,7 +80,8 @@ It only supports 64-bit OS.
 For this setup, we assume:
 
 * The PortSIP PBX is installed on a server, which has the static private IP address **192.168.1.20.**
-* The Instant Messaging (IM) service will be installed on a server with a static IP address of **192.168.1.25**.
+* The Instant Messaging (IM) service will be installed on a server with a static private IP address of **192.168.1.25**.
+* The Instant Messaging (IM) service will be installed on a server with a static public IP address of **104.18.36.119.**
 
 ### Step 1: **Preparing the Linux server for Installation**
 
@@ -86,6 +89,7 @@ Tasks that MUST be completed before installing cluster servers.
 
 * **Ensure the server date-time is synced correctly**.
 * If the Linux server is on a LAN, assign a **static private IP** address, in this case, **192.168.1.25**.
+* Assign/route the static public IP address to this server, in this case, **104.18.36.119.**
 * Install all available updates and service packs before installing the cluster server.
 * Do not install PostgreSQL on the server.
 * Ensure that all power-saving options for your system and network adapters are disabled (by setting the system to High-Performance mode).
@@ -109,7 +113,7 @@ To verify that the rule has been created correctly, you can use the following co
 sudo firewall-cmd --zone=trusted --list-all
 ```
 
-The correct output should be like below:
+The correct output should be like the following:
 
 ```sh
 [ubuntu@localhost ~]$ sudo firewall-cmd --zone=trusted --list-all
@@ -187,7 +191,7 @@ Use the following command to create the Instant Messaging (IM) service Docker in
 * **-E**: Specifies that the IM server is installed in extended mode (required).
 * **-p**: Specifies the path for storing IM service data (required).
 * **-a**: Specifies the private IP address of this IM server. If this parameter is omitted, the **-A** parameter must be specified.
-* **-A**: Specifies the public IP address of this IM server. If this parameter is omitted, the **-a** parameter must be specified.
+* **-A**: Specifies the public IP address of this IM server. If this parameter is omitted, the **-a** parameter must be specified. If you install the IM server on a **separate server, this parameter must be specified**. If installed with PBX on the same server, it can be ignored.
 * **-i**: Specifies the PBX Docker image version (required).
 * **-x**: Indicates the main PBX server's IP address (typically the private IP of the main PBX server) (required).
 * **-t**: Provides the token generated and copied in the previous step (required).
@@ -197,6 +201,7 @@ Use the following command to create the Instant Messaging (IM) service Docker in
 sudo /bin/sh im_ctl.sh run -E \
 -p /var/lib/portsip/ \
 -a 192.168.1.25 \
+-A 104.18.36.119 \
 -i portsip/pbx:22 \
 -x 192.168.1.20 \
 -t OWMWYWJKZJYTMWM2NI0ZNZJMLWJJZDKTMGVMZDYXNZU1NWI1
@@ -209,6 +214,7 @@ sudo /bin/sh im_ctl.sh run -E \
 -p /var/lib/portsip/ \
 -f /chat/files/ \
 -a 192.168.1.25 \
+-A 104.18.36.119 \
 -i portsip/pbx:22 \
 -x 192.168.1.20 \
 -t OWMWYWJKZJYTMWM2NI0ZNZJMLWJJZDKTMGVMZDYXNZU1NWI1
