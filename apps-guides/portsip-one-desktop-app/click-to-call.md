@@ -6,7 +6,7 @@ Click-to-call is a feature that allows users to initiate phone calls with a sing
 
 Originally developed for call centers, the click-to-call functionality aimed to streamline outbound calling, minimize dialing errors, and enhance efficiency. Over time, it has evolved to incorporate technologies like WebRTC and browser plugins, making it even more accessible.
 
-## How to set up click to call
+## How to set up click-to-call
 
 ### Desktop-based calling
 
