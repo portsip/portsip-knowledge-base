@@ -92,6 +92,10 @@ Tasks that MUST be completed before installing cluster servers.
 * Do not install TeamViewer, VPN, or similar software on the host machine.
 * The server must not be installed as a DNS or DHCP server.
 
+{% hint style="danger" %}
+If your Instant Messaging (IM) server is hosted in the cloud (e.g., AWS), you must ensure that TCP port 8887 is open in the cloud firewall rules. The client application requires access to this port in order to send and receive messages.
+{% endhint %}
+
 ### Step 2: Configure the Firewall on the PBX Server <a href="#configure-the-firewall" id="configure-the-firewall"></a>
 
 To allow the separate Instant Messaging server (IP: **192.168.1.25**) to access the PBX server (IP: **192.168.1.20**), it is necessary to create appropriate firewall rules on the PBX server.
@@ -226,6 +230,10 @@ sudo /bin/sh im_ctl.sh restart
 If everything is set up correctly, the PBX web portal will display the IM server's IP address, as shown in the screenshot below.
 
 <figure><img src="../../../../.gitbook/assets/im_server_update_address.png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="danger" %}
+If your Instant Messaging (IM) server is hosted in the cloud (e.g., AWS), you must ensure that TCP port 8887 is open in the cloud firewall rules. The client application requires access to this port in order to send and receive messages.
+{% endhint %}
 
 The Instant Messaging (IM) server has been successfully installed. We can now proceed with the next steps in the [PortSIP PBX installation step 6](install-portsip-pbx-on-linux.md#step-6-reboot-to-apply-the-certificate).
 

@@ -17,6 +17,8 @@ The SMS/MMS feature requires your trunk provider to support it. Currently, PortS
 * [Configuring Aire Networks Trunk](https://support.portsip.com/portsip-communications-solution/configuring-sip-trunks/aire-networks-sip-trunk)
 * [VoiceMeUp Trunk](https://support.portsip.com/portsip-communications-solution/configuring-sip-trunks/voicemeup-sip-trunk)
 
+If the tenant administrator is successfully configured for the SMS integration as the above guides, then the users can use the PortSIP ONE app to send & receive the SMS/MMS.
+
 ## Customizing caller ID
 
 While the default settings provide a standardized Caller ID, there are scenarios where you might need to customize it for specific calls or globally across your organization. PortSIP PBX offers flexibility in adjusting Caller ID settings both on a per-call basis and globally.
