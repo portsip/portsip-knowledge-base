@@ -68,7 +68,7 @@ For optimal performance, it’s recommended to install the IM service on a separ
 * **Disk**: High I/O performance required (SSD recommended, at least 256 GB)
 * **Network Bandwidth**: 1000 Mbps or higher, particularly if handling high volumes of messages and file sharing.
 * **Static private IP**: You must configure a static private IP for this IM server.
-* **Static public IP**: If your PBX and IM server are located in the cloud and need to serve internet users, you **must have a static public IP for this IM service**.
+* **Static public IP:** If your PBX and IM server are located in the cloud for the internet users to access, you **must have a static public IP for this IM service**.
 
 ### **Supported Linux OS** <a href="#supported-linux-os" id="supported-linux-os"></a>
 
@@ -78,9 +78,6 @@ It only supports 64-bit OS.
 * Debian 11.x, 12.x
 
 For this setup, we assume the PortSIP PBX is installed on a server, that has the static private IP address **192.168.1.20,** and the static public IP address **104.18.36.119**.
-
-* The Instant Messaging (IM) service will be installed on a server with a static private IP address of **192.168.1.25**.
-* The Instant Messaging (IM) service will be installed on a server with a static public IP address of **104.18.36.119**. This **static public IP address is mandatory** if you install the IM service on a separate server.
 
 ### Step 1: **Preparing the Linux server for Installation**
 
@@ -190,7 +187,7 @@ Use the following command to create the Instant Messaging (IM) service Docker in
 * **-E**: Specifies that the IM server is installed in extended mode (required).
 * **-p**: Specifies the path for storing IM service data (required).
 * **-a**: Specifies the private IP address of this IM server. If this parameter is omitted, the **-A** parameter must be specified.
-* **-A**: Specifies the public IP address of this IM server. If this parameter is omitted, the **-a** parameter must be specified. If you install the IM server on a **separate server, this parameter must be specified**. If installed with PBX on the same server, it can be ignored.
+* **-A**: Specifies the public IP address of this IM server. If this parameter is omitted, the **-a** parameter must be specified. If you install the IM server on a **separate server in the cloud, this parameter must be specified**. Otherwise, it can be ignored.
 * **-i**: Specifies the PBX Docker image version (required).
 * **-x**: Indicates the main PBX server's IP address (typically the private IP of the main PBX server) (required).
 * **-t**: Provides the token generated and copied in the previous step (required).
