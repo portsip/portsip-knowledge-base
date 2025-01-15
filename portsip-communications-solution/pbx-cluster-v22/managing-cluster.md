@@ -128,7 +128,7 @@ sudo /bin/sh im_ctl.sh stop
 sudo /bin/sh im_ctl.sh rm
 ```
 
-2. Install the latest version of the IM server. Follow the instructions provided in the [Installing the IM Server](configuring-cluster-servers.md#installing-the-im-server) guide to complete this step with the latest version.
+2. Install the latest version of the IM server. Follow the instructions provided in the [Installing the IM Server](configuring-cluster-servers.md#installing-im-server) guide to complete this step with the latest version.
 
 ### Upgrading Cluster Servers
 
@@ -142,5 +142,5 @@ sudo /bin/sh cluster_ctl.sh stop -s media-server-only
 sudo /bin/sh cluster_ctl.sh rm -s media-server-only
 ```
 
-2. Install the latest version of the server. Follow the instructions provided in the [Install Media server](../pbx-cluster/configuring-cluster-servers.md#install-media-server) guide to complete this step with the latest version.
+2. Install the latest version of the server. Follow the instructions provided in the [Install Media server](configuring-cluster-servers.md#install-media-server) guide to complete this step with the latest version.
 
