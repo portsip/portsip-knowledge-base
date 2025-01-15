@@ -1,10 +1,21 @@
 # SMS and WhatsApp Messaging
 
-**Caller ID** is an essential feature that allows recipients to see the caller’s information before answering a call. It enhances communication transparency and professionalism within your organization.
+PortSIP offers external SMS, MMS, and WhatsApp features, as well as PBX extensions internal chat—allowing you to keep your lines of communication open from anywhere within PortSIP.
 
-## Default caller ID settings
+## Setup SMS/MMS features
 
-By default, the **PortSIP PBX** system determines the outbound Caller ID based on the PBX configuration. This ensures consistency and accuracy in the information displayed to call recipients.
+The SMS/MMS feature requires your trunk provider to support it. Currently, PortSIP PBX has integrated the SMS feature as well with the below trunk providers:
+
+* [Configuring Quest Blue SIP Trunk](https://support.portsip.com/portsip-communications-solution/configuring-sip-trunks/questblue-sip-trunk)
+* [Configuring Twilio SIP Trunk](https://support.portsip.com/portsip-communications-solution/configuring-sip-trunks/twilio-sip-trunk)
+* [Configuring Telnyx SIP Trunk](https://support.portsip.com/portsip-communications-solution/configuring-sip-trunks/telnyx-sip-trunk)
+* [Configuring Vonage SIP Trunk](https://support.portsip.com/portsip-communications-solution/configuring-sip-trunks/vonage-sip-trunk)
+* [Configuring VoIP.ms SIP Trunk](https://support.portsip.com/portsip-communications-solution/configuring-sip-trunks/voip.ms-sip-trunk)
+* [Configuring Voxtelesys SIP Trunk](https://support.portsip.com/portsip-communications-solution/configuring-sip-trunks/voxtelesys-sip-trunk)
+* [Configuring Wavix SIP Trunk](https://support.portsip.com/portsip-communications-solution/configuring-sip-trunks/wavix-sip-trunk)
+* Configuring VoIP Innovation SIP Trunk
+* [Configuring Aire Networks Trunk](https://support.portsip.com/portsip-communications-solution/configuring-sip-trunks/aire-networks-sip-trunk)
+* [VoiceMeUp Trunk](https://support.portsip.com/portsip-communications-solution/configuring-sip-trunks/voicemeup-sip-trunk)
 
 ## Customizing caller ID
 

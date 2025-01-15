@@ -29,12 +29,12 @@ The PortSIP PBX has integrated the SMS feature as well with the below trunk prov
 
 * [Configuring Quest Blue SIP Trunk](questblue-sip-trunk/)
 * [Configuring Twilio SIP Trunk](twilio-sip-trunk/)
-* [C](telnyx-sip-trunk/)[onfiguring Telnyx SIP Trunk](telnyx-sip-trunk/)
+* [Configuring Telnyx SIP Trunk](telnyx-sip-trunk/)
 * [Configuring Vonage SIP Trunk](vonage-sip-trunk/)
 * [Configuring VoIP.ms SIP Trunk](voip.ms-sip-trunk/)
 * [Configuring Voxtelesys SIP Trunk](voxtelesys-sip-trunk/)
 * [Configuring Wavix SIP Trunk](wavix-sip-trunk/)
-* [Configuring Gamma SIP Trunk](gamma-sip-trunk.md)
+* Configuring VoIP Innovation SIP Trunk
 * [Configuring Aire Networks Trunk](aire-networks-sip-trunk.md)
 * [VoiceMeUp Trunk](voicemeup-sip-trunk.md)
 
