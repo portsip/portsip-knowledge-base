@@ -96,7 +96,7 @@ To do this, simply follow the topics on [Preparing Cluster Servers](preparing-cl
 Currently, the IM server does not support cluster installations; it can be deployed as a standalone server. It can support up to 50,000 online users with a powerful CPU and memory(16 cores, 16GB). So there is no support to add more IM servers.
 {% endhint %}
 
-Please note that restarting the resource load balancer and servers will affect the calling service, so it is recommended to do this during the middle night.
+Please note that restarting the resource load balancer and servers will affect the calling service, so it is recommended to do this in the middle night.
 
 ## Upgrading Servers
 
@@ -108,7 +108,7 @@ Whenever a new version of PortSIP PBX is released, it’s essential to upgrade y
 
 ### Upgrading the Main PBX Server
 
-1. Remove the current running PBX Main server by the commands on the server 192.168.1.20:
+1. Remove the currently running PBX Main server by the commands on the server 192.168.1.20:
 
 ```sh
 cd /opt/portsip
@@ -116,11 +116,11 @@ sudo /bin/sh pbx_ctl.sh stop
 sudo /bin/sh pbx_ctl.sh rm
 ```
 
-2. Install the latest version of the PBX server. Follow the instructions provided in the[ Installation of the PortSIP PBX](../portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/install-portsip-im-server-on-linux.md) guide to complete this step with the latest version.
+2. Install the latest version of the PBX server. Follow the instructions provided in the [Installation of the PortSIP PBX](../portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/install-portsip-pbx-on-linux.md) guide to complete this step with the latest version.
 
 ### Upgrading the IM Server
 
-1. Remove the current running server by the commands:
+1. Remove the currently running server by the commands:
 
 ```sh
 cd /opt/portsip
