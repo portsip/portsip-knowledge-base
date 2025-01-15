@@ -232,6 +232,7 @@
   * [Calls, Messages, and Voicemails](apps-guides/portsip-one-desktop-app/calls-messages-and-voicemails.md)
   * [Customize Your Caller ID](apps-guides/portsip-one-desktop-app/customize-your-caller-id.md)
   * [SMS and WhatsApp Messaging](apps-guides/portsip-one-desktop-app/sms-and-whatsapp-messaging.md)
+  * [Click to Call](apps-guides/portsip-one-desktop-app/click-to-call.md)
 * [PortSIP ONE Mobile App](apps-guides/portsip-one-app/portsip-one-mobile-app.md)
 * [PortSIP Softphone](apps-guides/portsip-softphone.md)
 
