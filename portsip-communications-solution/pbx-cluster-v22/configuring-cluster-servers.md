@@ -15,7 +15,7 @@ A server can only deploy one type of PortSIP server at a time. For instance, it'
 
 ## Setup the PortSIP PBX
 
-Before configuring the cluster servers, please ensure that you have completed the PBX installation and configuration on the **Main Server** by following the guide for [Installation of the PortSIP PBX](broken-reference) to install it.
+Before configuring the cluster servers, please ensure that you have completed the PBX installation and configuration on the **Main Server** by following the guide for [Installation of the PortSIP PBX](../portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/) to install it.
 
 {% hint style="danger" %}
 Note: In this step, just need to install the PBX only, is no need to install the IM server at this stage, as it will be installed later in this guide.
@@ -118,7 +118,7 @@ Suggest don't set the Maximum of call sessions to more than 5,000.
 
 Please go to **Server 1** (whose IP address is **192.168.1.21**) to install the media server.&#x20;
 
-Make sure you have followed the guide for [Preparing Cluster Servers](../pbx-cluster/preparing-cluster-servers.md) on **Server 1**.
+Make sure you have followed the guide for [Preparing Cluster Servers](preparing-cluster-servers.md) on **Server 1**.
 
 To install the media server, execute the following commands and pay close attention to the parameters:
 
@@ -160,7 +160,7 @@ To add a new queue server, select the **Servers > Queue Servers** menu, click th
 
 Please go to **Server 2** (whose IP address is **192.168.1.22**) to install the queue server.&#x20;
 
-Make sure you have followed the guide for [Preparing Cluster Servers](../pbx-cluster/preparing-cluster-servers.md) for **Server 2**.
+Make sure you have followed the guide for [Preparing Cluster Servers](preparing-cluster-servers.md) for **Server 2**.
 
 &#x20;To install the queue server, execute the following commands and pay close attention to the parameters:
 
@@ -196,7 +196,7 @@ To add a new meeting server, select the **Servers > Meeting Servers** menu, clic
 
 Please go to **Server 3** (whose IP address is **192.168.1.23**) to install the meeting server.&#x20;
 
-Make sure you have followed the guide for [Preparing Cluster Servers](../pbx-cluster/preparing-cluster-servers.md) on **Server 3**.
+Make sure you have followed the guide for [Preparing Cluster Servers](preparing-cluster-servers.md) on **Server 3**.
 
 &#x20;To install the meeting server, execute the following commands and pay close attention to the parameters:
 
@@ -232,7 +232,7 @@ To add a new IVR server, select the **Servers > IVR Servers** menu, click the **
 
 Please go to **Server 4** (whose IP address is **192.168.1.24**) to install the IVR server.&#x20;
 
-Make sure you have followed the guide for [Preparing Cluster Servers](../pbx-cluster/preparing-cluster-servers.md) on **Server 4**.
+Make sure you have followed the guide for [Preparing Cluster Servers](preparing-cluster-servers.md) on **Server 4**.
 
 To install the IVR server, execute the following commands and pay close attention to the parameters:
 
@@ -389,7 +389,7 @@ We use the media server as an example, you will need to replace the media server
 </strong>sudo /bin/sh cluster_ctl.sh rm -s media-server-only
 </code></pre>
 
-2. Install the latest version of the server. Follow the instructions provided in the [Add Cluster Servers](../pbx-cluster/configuring-cluster-servers.md#add-the-cluster-servers) guide to complete this step.
+2. Install the latest version of the server. Follow the instructions provided in the [Add Cluster Servers](configuring-cluster-servers.md#add-the-cluster-servers) guide to complete this step.
 
 ## SBC Cluster
 
