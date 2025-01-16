@@ -1,2 +1,0 @@
-# PortSIP ONE Mobile App
-

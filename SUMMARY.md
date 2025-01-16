@@ -234,7 +234,13 @@
   * [SMS and WhatsApp Messaging](apps-guides/portsip-one-desktop-app/sms-and-whatsapp-messaging.md)
   * [Click to Call](apps-guides/portsip-one-desktop-app/click-to-call.md)
   * [Calling from Another Device](apps-guides/portsip-one-desktop-app/calling-from-another-device.md)
-* [PortSIP ONE Mobile App](apps-guides/portsip-one-app/portsip-one-mobile-app.md)
+* [PortSIP ONE Mobile App](apps-guides/portsip-one-mobile-app/README.md)
+  * [Sign in to PBX](apps-guides/portsip-one-mobile-app/sign-in-to-pbx.md)
+  * [Calls, Messages, and Voicemails](apps-guides/portsip-one-mobile-app/calls-messages-and-voicemails.md)
+  * [Customize Your Caller ID](apps-guides/portsip-one-mobile-app/customize-your-caller-id.md)
+  * [SMS and WhatsApp Messaging](apps-guides/portsip-one-mobile-app/sms-and-whatsapp-messaging.md)
+  * [Click to Call](apps-guides/portsip-one-mobile-app/click-to-call.md)
+  * [Calling from Another Device](apps-guides/portsip-one-mobile-app/calling-from-another-device.md)
 * [PortSIP Softphone](apps-guides/portsip-softphone.md)
 
 ## DEVELOPING WITH PORTSIP <a href="#development-portsip" id="development-portsip"></a>

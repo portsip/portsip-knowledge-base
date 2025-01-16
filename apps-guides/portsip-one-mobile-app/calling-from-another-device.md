@@ -16,5 +16,3 @@ After successfully selecting a device, all future outgoing calls made within the
 
 If the selected device is offline, you will receive an error when attempting to place a call through it. In this case, click the **Connect to a device** icon again to choose a different device.
 
-You can uncheck a deviced that to disconnect from it.
-

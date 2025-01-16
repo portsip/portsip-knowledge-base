@@ -1,8 +1,6 @@
 # Sign in to PBX
 
-To download the latest version of PortSIP ONE for Windows desktop, visit the [PortSIP website](https://www.portsip.com/download-portsip-one/). The application is provided as an MSI installer. Simply double-click the downloaded file to start the installation process.
-
-This guide applies to both **PortSIP ONE for Windows** and **PortSIP ONE WebRTC**.
+Once installed, you can log in using the username and password or by scanning the QR code, or SSO.
 
 ## Logging into the PortSIP ONE app via QR code
 
@@ -34,9 +32,9 @@ Within the **Extension** tab of a user’s settings, there are two QR code confi
 
 ### 2. Logging into the PortSIP ONE app
 
-The PortSIP ONE app makes logging in effortless by using a QR code. On the PortSIP ONE login window, click the QR code icon located at the bottom-right corner. Select the QR code option, and then scan the QR code provided by the PBX. The app will log in automatically.
+The PortSIP ONE app makes logging in effortless by using a QR code. On the PortSIP ONE login page, tap the QR code icon located in the upper right corner, then scan the QR code provided by the PBX. The app will log in automatically.
 
-<figure><img src="../../.gitbook/assets/portsip-one-desktop-qrcode.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/portsip-one-mobile-2.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ## Logging into the PortSIP ONE app via SSO
 
@@ -49,9 +47,9 @@ Once you have configured the [**Microsoft 365 integration**](../../portsip-commu
 
 ### Steps to log in
 
-1. **Launch the PortSIP ONE app:** Open the **PortSIP ONE app** (either the Windows desktop app or WebRTC app).
+1. **Launch the PortSIP ONE app:** Open the **PortSIP ONE app**.
 2. **Enter Connection Information:**
-   * In the login window, enter your tenant’s **SIP domain** and the **PBX IP address** or **hostname/domain**.
+   * On the login page, enter your tenant’s **SIP domain** and the **PBX IP address** or **hostname/domain**.
    * Click the **Next** button to proceed.
 
 <figure><img src="../../.gitbook/assets/portsip-one-sso.png" alt=""><figcaption></figcaption></figure>
