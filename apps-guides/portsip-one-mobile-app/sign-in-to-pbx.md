@@ -52,20 +52,20 @@ Once you have configured the [**Microsoft 365 integration**](../../portsip-commu
    * On the login page, enter your tenant’s **SIP domain** and the **PBX IP address** or **hostname/domain**.
    * Click the **Next** button to proceed.
 
-<figure><img src="../../.gitbook/assets/portsip-one-sso.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/portsip-one-mobile-3.png" alt="" width="375"><figcaption></figcaption></figure>
 
 3. **SSO Authentication via Microsoft 365:**
    * If the Microsoft 365 integration is configured correctly, the PortSIP ONE app will detect your tenant and display the Microsoft 365 logo (as shown in the screenshot below).
-   * Click on the **Microsoft 365 logo** to initiate the authentication process.
+   * Click on the **Sign in with Microsoft 365** button to initiate the authentication process.
 
-<figure><img src="../../.gitbook/assets/portsip-one-sso-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/portsip-one-mobile-4.png" alt="" width="375"><figcaption></figcaption></figure>
 
 4. **Login to Microsoft 365:**
    * A browser window will automatically open, directing you to the Microsoft 365 portal.
    * Enter your **Microsoft 365 username** and **password** to sign in.
    * After successfully logging into Microsoft 365, the PortSIP ONE app will automatically log you into the PortSIP PBX.
 
-<figure><img src="../../.gitbook/assets/portsip-one-sso-2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/portsip-one-mobile-5.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ## Logging into the PortSIP ONE app manually
 
@@ -92,11 +92,11 @@ At the PortSIP ONE login window, provide the following details:
 
 * **SIP Domain**: Enter the tenant's SIP domain. For this example, the SIP domain is **`test.io`**.
 * **Server Address**: Enter the PBX server's IP address or web domain:
-  * If logging in from the internet, use the public IP (**`66.175.221.12`**`0`).
+  * If logging in from the internet, use the public IP (**`66.175.221.120`**).
   * If logging in from a LAN, use the private IP (**`192.168.1.72`**).
   * Alternatively, you can enter the web domain (**`uc.portsip.cc`**) instead of the IP address.
 
-<figure><img src="../../.gitbook/assets/portsip-one-login1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/portsip-one-mobile-6.png" alt="" width="375"><figcaption></figcaption></figure>
 
 Click **Next** after entering this information. If the details are correct, the next window will prompt you to enter user credentials.
 
@@ -107,7 +107,7 @@ In the user information window, provide the following:
 * **Username**: Enter the username of the extension user. Note that this is **not the extension number**, but the designated username.
 * **Password**: Enter the password for the extension user. This is **not the extension password**, but the user’s account password.
 
-<figure><img src="../../.gitbook/assets/portsip-one-login2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/portsip-one-mobile-7.png" alt="" width="375"><figcaption></figcaption></figure>
 
 Click the **Sign In** button to complete the login process. The PortSIP ONE app will successfully log in to the PortSIP PBX.
 
