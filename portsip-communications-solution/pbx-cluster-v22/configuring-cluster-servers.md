@@ -7,7 +7,7 @@ In this guide, we will assume that the following servers are being installed for
 * **Server 2**: Install a queue server with an IP address of **192.168.1.22**.
 * **Server 3**: Install a meeting server with an IP address of **192.168.1.23**.
 * **Server 4**: Install an IVR server with an IP address of 1**92.168.1.24**.
-* **Server 5**: Install an IM server with an IP address of 1**92.168.1.25**.
+* **Server 5**: Install an IM server with a static private IP address of 1**92.168.1.25,** and a static public IP address of **104.18.36.110.**
 
 {% hint style="danger" %}
 A server can only deploy one type of PortSIP server at a time. For instance, it's not allowed to deploy both the media server and queue server simultaneously on **Server 1**.
@@ -272,10 +272,8 @@ The following hardware specifications are suitable for supporting up to 50,000 u
 * **Memory**: 16 GB
 * **Disk**: High I/O performance required (SSD recommended, at least 256 GB)
 * **Network Bandwidth**: 1000 Mbps or higher, particularly if handling high volumes of messages and file sharing.
-* **Static private IP**: You must configure a static private IP for this IM server.
-* **Static public IP:** If your PBX and IM server are located in the cloud for the internet users to access, you **must have a static public IP for this IM service**.
-
-To install the IM server on a server with the IP address **192.168.1.25**, please follow these steps:
+* **Static private IP**: You must configure a static private IP for this IM server. In this case, we assume it's **192.168.1.25.**
+* **Static public IP:** If your PBX and IM server are located in the cloud for the internet users to access, you must have a static public IP for this IM service. In this case, we assume it's **104.18.36.110.**
 
 #### Generate a Token for the IM Server
 
@@ -293,7 +291,7 @@ Use the following command to create the Instant Messaging (IM) service Docker in
 * **-E**: Specifies that the IM server is installed in extended mode (required).
 * **-p**: Specifies the path for storing IM service data (required).
 * **-a**: Specifies the private IP address of this IM server. If this parameter is omitted, the **-A** parameter must be specified.
-* **-A**: Specifies the public IP address of this IM server. If this parameter is omitted, the **-a** parameter must be specified.
+* **-A**: Specifies the public IP address of this IM server. If this parameter is omitted, the **-a** parameter must be specified. If you install the IM server on a **separate server in the cloud, this parameter must be specified**. Otherwise, it can be ignored. In this case is **104.18.36.110**.
 * **-i**: Specifies the PBX Docker image version (required).
 * **-x**: Indicates the main PBX server's IP address (typically the private IP of the main PBX server) (required).
 * **-t**: Provides the token generated and copied in the previous step (required).
@@ -304,11 +302,29 @@ Use the following command to create the Instant Messaging (IM) service Docker in
 sudo /bin/sh im_ctl.sh run -E \
 -p /var/lib/portsip/ \
 -a 192.168.1.25 \
+-A 104.18.36.110 \
 -i portsip/pbx:22 \
 -x 192.168.1.20 \
 -t MJC4NZBLYTGTZTJJNS0ZMWZHLWIXZDCTZJLLMDEWZJHKZTAY
 ```
 {% endcode %}
+
+For example, if you want to store the chat files in the path `/chat/files`, please ensure this path is already existing, then use the below command (please pay attention to the **-f** parameter.) to create the Instant Messaging (IM) service Docker instance on the IM server (IP **192.168.1.25)**. Replace each parameter with your actual values:
+
+```sh
+sudo /bin/sh im_ctl.sh run -E \
+-p /var/lib/portsip/ \
+-f /chat/files/ \
+-a 192.168.1.25 \
+-A 104.18.36.110 \
+-i portsip/pbx:22 \
+-x 192.168.1.20 \
+-t MJC4NZBLYTGTZTJJNS0ZMWZHLWIXZDCTZJLLMDEWZJHKZTAY
+```
+
+{% hint style="danger" %}
+If your Instant Messaging (IM) server is hosted in the cloud (e.g., AWS), you must ensure that TCP port 8887 is open in the cloud firewall rules. The client application requires access to this port in order to send and receive messages.
+{% endhint %}
 
 ## Restarting Servers
 
