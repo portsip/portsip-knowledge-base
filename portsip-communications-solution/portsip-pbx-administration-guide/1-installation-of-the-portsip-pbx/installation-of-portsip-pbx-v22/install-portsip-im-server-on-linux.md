@@ -67,8 +67,8 @@ For optimal performance, it’s recommended to install the IM service on a separ
 * **Memory**: 16 GB
 * **Disk**: High I/O performance required (SSD recommended, at least 256 GB)
 * **Network Bandwidth**: 1000 Mbps or higher, particularly if handling high volumes of messages and file sharing.
-* **Static private IP**: You must configure a static private IP for this IM server.
-* **Static public IP:** If your PBX and IM server are located in the cloud for the internet users to access, you **must have a static public IP for this IM service**.
+* **Static private IP**: You must configure a static private IP for this IM server. In this case, we assume it's **192.168.1.25.**
+* **Static public IP:** If your PBX and IM server are located in the cloud for the internet users to access, you must have a static public IP for this IM service. In this case, we assume it's **104.18.36.110.**
 
 ### **Supported Linux OS** <a href="#supported-linux-os" id="supported-linux-os"></a>
 
