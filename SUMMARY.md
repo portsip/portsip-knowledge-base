@@ -626,3 +626,4 @@
   * [Store the recording files to AWS S3](pbx_v12/tutorials/store-the-recording-files-to-aws-s3.md)
   * [Configure Notifications for Kubernetes](pbx_v12/tutorials/configure-notifications-for-kubernetes.md)
   * [Rebranding PortSIP PBX](pbx_v12/tutorials/rebranding-portsip-pbx.md)
+* [Release Notes of PortSIP PBX v22.X](pbx_v12/release-notes-of-portsip-pbx-v22.x.md)
