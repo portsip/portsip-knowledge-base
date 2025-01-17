@@ -73,7 +73,34 @@ For instance, for the call park feature, as per traditional PBX design, the PBX 
 
 Assume each tenant creates 5 park spots, then for a cloud PBX with 1k tenants, there will need to be 5K park spots (extensions) created for the tenants. As mentioned above, these spots are actually PBX extensions. The registration and subscription of these spots will consume massive CPU, memory, and bandwidth resources and reduce cloud PBX performance. This is unacceptable for service providers. It’s hard to imagine if tenants need to create more park spots!
 
-PortSIP pays attention to each feature for multi-tenancy. In order to avoid the problems of traditional PBXs, PortSIP has designed the call parking feature in a unique way that is easy to use and more friendly. It also has good performance and uses fewer resources. You can find more details in this article: [Call Parking](portsip-pbx-administration-guide/14-call-parking/).
+PortSIP pays attention to each feature for multi-tenancy. In order to avoid the problems of traditional PBXs, PortSIP has designed the call parking feature in a unique way that is easy to use and more friendly. It also has good performance and uses fewer resources.&#x20;
+
+You can find more details in these articles:
+
+* [Using Enhanced Call Park on Fanvil IP Phones](https://support.portsip.com/portsip-pbx-administration-guide/14-call-parking/using-enhanced-call-park-on-fanvil-ip-phones)
+* [Using Enhanced Call Park on Yealink IP Phones](https://support.portsip.com/portsip-pbx-administration-guide/14-call-parking/using-enhanced-call-park-on-yealink-ip-phones)
+* [Using Enhanced Call Park on GrandStream IP Phones](https://support.portsip.com/portsip-communications-solution/portsip-pbx-administration-guide/14-call-parking/using-enhanced-call-park-on-grandstream-ip-phones)
+* [Using Enhanced Call Park on Dinstar IP Phones](https://support.portsip.com/portsip-pbx-administration-guide/14-call-parking/using-enhanced-call-park-on-dinstar-ip-phones)
+
+## Complete Contact Center Solution at no Extra Cost
+
+PortSIP PBX Contact Center solution offers a powerful suite of features to streamline your operations and improve customer interactions. With dynamic call queues, detailed reporting, live wallboards, and integrations with SMS and WhatsApp, customers can reach you through their preferred channels, ensuring seamless communication.
+
+**Key Features Include:**
+
+* **Skill-based Routing & Queue Strategies**: Optimize call handling for better efficiency and customer satisfaction.
+* **Call-back Options**: Never miss a call, and give customers the flexibility they need.
+* **Real-time Monitoring & Training Tools**: With features like Listen In, Whisper, and Barge In, supervisors can maintain high service quality with continuous monitoring and real-time coaching.
+* **Live Wallboards**: Display real-time data on call queues, agent performance, and more for better team visibility and performance tracking.
+* **SMS & WhatsApp Integration**: Engage with customers on their preferred channels, providing fast and efficient communication.
+* **Last Called Agent**: Automatically route calls back to the last agent who handled the customer, improving continuity and satisfaction.
+* **VIP Support**: Prioritize calls from VIP customers, ensuring they receive immediate attention and a premium service experience.
+* **Exclusive Agent Features**: Assign specific agents to handle exclusive customers or certain types of queries, ensuring personalized service and expertise.
+* **Analytics & Reporting**: Gain actionable insights with in-depth analytics and customizable reports on call performance, agent productivity, and customer satisfaction metrics.
+
+All of these powerful tools are available at no extra cost—helping you manage your contact center efficiently, without additional licensing fees.
+
+<figure><img src="https://www.portsip.com/wp-content/uploads/2024/09/portsip-wallboard-2048x978.png" alt=""><figcaption></figcaption></figure>
 
 ## **Seamless Migration from BroadSoft**
 
@@ -99,6 +126,8 @@ PortSIP PBX offers a comprehensive and free collaboration and communication solu
 * **Video Messaging**
 * **Screen Sharing**
 * **File Sharing**
+* C**ontacts Syncing**
+* **CDR Syncing**
 
 This unified platform ensures that businesses can efficiently communicate and collaborate, regardless of location, while maintaining secure and flexible connectivity options for their teams.
 
@@ -124,13 +153,17 @@ For more information, please refer to the article on [User Management](portsip-p
 
 ## **CDR and Recording**
 
-PortSIP PBX offers advanced call recording features, enabling recordings to start automatically once a call is established. Additionally, recordings can be initiated in the middle of a call and paused or resumed as needed. The PBX supports both audio and video recording, with files saved in MP3 or MP4 formats, making it easy to play the recordings directly in a browser.
+PortSIP PBX supports both audio and video recording and can record calls in MP3 or MP4 format, which makes it easy to play them in the browser.
 
-A key advantage of PortSIP PBX is that the Call Detail Record (CDR) is linked with the recording file, allowing for easy download and playback within a browser. What sets PortSIP’s CDR apart from other PBX systems is its ability to consolidate call flow details into a single record, even if the call is rerouted or forwarded multiple times. This comprehensive CDR makes tracking complex call flows straightforward.
+The CDR is linked with the recording file, which can be downloaded and played in a browser.
 
-For example, if a call originates from a SIP trunk, is routed to the PBX, then to an IVR system, and subsequently forwarded to a queue by the user pressing DTMF, where an agent finally answers, all relevant details (such as callee number, callee IP address, port, and timestamps) are captured and recorded in one CDR.
+The PortSIP CDR feature is different from other PBXs in that if a call is rerouted and forwarded multiple times during the call, the PBX will tie all call targets in one CDR. This makes it easy to track the call flow.
 
-For further information, please refer to the article on [CDR and Call Recording](the-advantages-of-portsip-pbx-vs.-other-pbxs.md#cdr-and-recording).
+<figure><img src="https://www.portsip.com/wp-content/uploads/2023/11/cdr-1-2048x669.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="https://www.portsip.com/wp-content/uploads/2024/12/portsip-pbx-recording.webp" alt=""><figcaption></figcaption></figure>
+
+For example, if a call comes from the SIP trunk and arrives at the PBX, then is routed to the IVR and re-routed to the queue by the user pressing DTMF, and an agent of the queue answers that call, all this information(callee number, callee IP address, and port) and timestamp are recorded in the CDR. For more details, please refer to the article on [CDR and Call Recording](the-advantages-of-portsip-pbx-vs.-other-pbxs.md#cdr-and-recording).
 
 ## Storing Into AWS S3
 
@@ -177,6 +210,8 @@ Distributors/Resellers partner of the service providers to give out cloud PBX se
 A distributor or the reseller purchases cloud PBX services and cloud-based PBX products from the cloud service provider and further sells them to the end users.
 
 PortSIP PBX offers a great feature called **Dealers** for the above scenario that allows service providers to manage dealers (distributors and resellers) easily. For more details please read the article: [Dealers](the-advantages-of-portsip-pbx-vs.-other-pbxs.md#dealers).
+
+<figure><img src="https://www.portsip.com/wp-content/uploads/2024/12/portsip-deleaders.webp" alt=""><figcaption></figcaption></figure>
 
 ## Flexibility Office Hours and Holidays
 
