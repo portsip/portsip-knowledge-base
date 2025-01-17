@@ -110,6 +110,10 @@ To do this, please select the **Servers** menu, expand each server type(media se
 
 To add a new media server, select the **Servers > Media Servers** menu, click the **Add** button, enter the server information as shown in the screenshot then click the **OK** button to save it. Please remember the server name "**media-server-1**", we will use it in a later step.
 
+{% hint style="danger" %}
+If your PBX is deployed for internet users to access, it is essential to assign a static public IP to the extended media server. Enter the static IP address as shown in the screenshot below.
+{% endhint %}
+
 Suggest don't set the Maximum of call sessions to more than 5,000.
 
 <figure><img src="../../.gitbook/assets/media-server-1.png" alt=""><figcaption></figcaption></figure>
