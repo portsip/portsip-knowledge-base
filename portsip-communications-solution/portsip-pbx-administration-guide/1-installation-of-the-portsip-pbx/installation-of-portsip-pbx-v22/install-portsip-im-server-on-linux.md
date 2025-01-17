@@ -77,15 +77,15 @@ It only supports 64-bit OS.
 * Ubuntu 22.04, 24.04
 * Debian 11.x, 12.x
 
-For this setup, we assume the PortSIP PBX is installed on a server, that has the static private IP address **192.168.1.20,** and the static public IP address **104.18.36.119**.
+For this setup, we assume the **PortSIP PBX** is installed on a server, that has the static private IP address **192.168.1.20,** and the static public IP address **104.18.36.119**.
 
-### Step 1: **Preparing the Linux server for Installation**
+### Step 1: **Preparing the Linux server for IM Installation**
 
 Tasks that MUST be completed before installing cluster servers.
 
 * **Ensure the server date-time is synced correctly**.
 * If the Linux server is on a LAN, assign a **static private IP** address, in this case, **192.168.1.25**.
-* Assign/route the static public IP address to this server, in this case, **104.18.36.119.**
+* Assign/route the static public IP address to this server, in this case, **104.18.36.110.**
 * Install all available updates and service packs before installing the cluster server.
 * Do not install PostgreSQL on the server.
 * Ensure that all power-saving options for your system and network adapters are disabled (by setting the system to High-Performance mode).
@@ -191,7 +191,7 @@ Use the following command to create the Instant Messaging (IM) service Docker in
 * **-E**: Specifies that the IM server is installed in extended mode (required).
 * **-p**: Specifies the path for storing IM service data (required).
 * **-a**: Specifies the private IP address of this IM server. If this parameter is omitted, the **-A** parameter must be specified.
-* **-A**: Specifies the public IP address of this IM server. If this parameter is omitted, the **-a** parameter must be specified. If you install the IM server on a **separate server in the cloud, this parameter must be specified**. Otherwise, it can be ignored.
+* **-A**: Specifies the public IP address of this IM server. If this parameter is omitted, the **-a** parameter must be specified. If you install the IM server on a **separate server in the cloud, this parameter must be specified**. Otherwise, it can be ignored. In this case is **104.18.36.110**.
 * **-i**: Specifies the PBX Docker image version (required).
 * **-x**: Indicates the main PBX server's IP address (typically the private IP of the main PBX server) (required).
 * **-t**: Provides the token generated and copied in the previous step (required).
@@ -201,7 +201,7 @@ Use the following command to create the Instant Messaging (IM) service Docker in
 sudo /bin/sh im_ctl.sh run -E \
 -p /var/lib/portsip/ \
 -a 192.168.1.25 \
--A 104.18.36.119 \
+-A 104.18.36.110 \
 -i portsip/pbx:22 \
 -x 192.168.1.20 \
 -t OWMWYWJKZJYTMWM2NI0ZNZJMLWJJZDKTMGVMZDYXNZU1NWI1
@@ -214,7 +214,7 @@ sudo /bin/sh im_ctl.sh run -E \
 -p /var/lib/portsip/ \
 -f /chat/files/ \
 -a 192.168.1.25 \
--A 104.18.36.119 \
+-A 104.18.36.110 \
 -i portsip/pbx:22 \
 -x 192.168.1.20 \
 -t OWMWYWJKZJYTMWM2NI0ZNZJMLWJJZDKTMGVMZDYXNZU1NWI1
