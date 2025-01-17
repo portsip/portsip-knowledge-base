@@ -4,13 +4,22 @@
 Please follow the [guide ](upgrade-to-the-latest-sbc-release.md)to upgrading your PortSIP SBC to the latest version.
 {% endhint %}
 
+## Changes for Release v11.1.1
+
+Data: Jan 13, 2025
+
+The following changes are included in this release:
+
+* Add some new features for the WebRTC app
+* Fix some bugs of the WebRTC app
+
 ## Changes for Release v11.0.0
 
 Data: Dec 12, 2024
 
 The following changes are included in this release:
 
-* Include an all-new PortSIP ONE WebRTC app:
+* Include an all-new PortSIP ONE WebRTC app.
 
 ## Changes for Release v10.1.2
 

@@ -4,6 +4,23 @@
 Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/upgrade-portsip-pbx-to-v22.x.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
+## Changes for Release v22.0.42
+
+Date: Jan 16, 2025
+
+* Fixed an issue where the client app’s username was displayed incorrectly when the app was offline but push notifications were enabled.&#x20;
+* Resolved an issue where inbound calls to a queue via a trunk were not routed to an agent if the trunk’s ACK response was delayed.&#x20;
+* Corrected a bug where the outbound caller ID specified in a REST API call was not properly recorded in the CDR.
+
+## Changes for Release v22.0.39
+
+Date: Jan 2, 2025
+
+* Fixed an issue where inbound rules were not being applied correctly when a holiday was configured.&#x20;
+* Resolved a bug with Advanced Routing, where the “all” option was not properly matching year/month parameters.&#x20;
+* Corrected an issue where exception forwarding rules failed to match the caller number under certain scenarios.&#x20;
+* Fixed a display issue where the caller’s display name was incorrect when calling into a ring group or queue.
+
 ## Changes for Release v22.0.38
 
 Date: Dec 12, 2024
