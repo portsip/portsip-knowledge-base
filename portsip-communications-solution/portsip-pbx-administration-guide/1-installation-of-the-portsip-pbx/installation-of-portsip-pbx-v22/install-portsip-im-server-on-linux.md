@@ -77,7 +77,10 @@ It only supports 64-bit OS.
 * Ubuntu 22.04, 24.04
 * Debian 11.x, 12.x
 
-For this setup, we assume the **PortSIP PBX** is installed on a server, that has the static private IP address **192.168.1.20,** and the static public IP address **104.18.36.119**.
+For this setup, we assume the **PortSIP PBX** is installed on a server:
+
+* PBX Server static private IP address: **192.168.1.20**
+* PBX Server static public IP address: **104.18.36.119**.
 
 ### Step 1: **Preparing the Linux server for IM Installation**
 
