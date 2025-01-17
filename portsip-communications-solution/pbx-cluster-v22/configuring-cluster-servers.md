@@ -266,6 +266,15 @@ If you set up multiple IVR servers, they must not use the same server name or IP
 
 Currently, the IM server does not support cluster installations; it can be deployed as a standalone server. It can support up to 50,000 online users with a powerful CPU and memory(16 cores, 16GB).
 
+The following hardware specifications are suitable for supporting up to 50,000 users online, with messaging and file sharing:
+
+* **CPU**: 20 cores or higher
+* **Memory**: 16 GB
+* **Disk**: High I/O performance required (SSD recommended, at least 256 GB)
+* **Network Bandwidth**: 1000 Mbps or higher, particularly if handling high volumes of messages and file sharing.
+* **Static private IP**: You must configure a static private IP for this IM server.
+* **Static public IP:** If your PBX and IM server are located in the cloud for the internet users to access, you **must have a static public IP for this IM service**.
+
 To install the IM server on a server with the IP address **192.168.1.25**, please follow these steps:
 
 #### Generate a Token for the IM Server
