@@ -12,5 +12,6 @@ This article includes the following topics:
 * [Using Call Parking Feature](using-call-parking-feature.md)
 * [Using Enhanced Call Park on Fanvil IP Phones](using-enhanced-call-park-on-fanvil-ip-phones.md)
 * [Using Enhanced Call Park on Yealink IP Phones](using-enhanced-call-park-on-yealink-ip-phones.md)
+* [Using Enhanced Call Park on GrandStream IP Phones](using-enhanced-call-park-on-grandstream-ip-phones.md)
 * [Using Enhanced Call Park on Dinstar IP Phones](using-enhanced-call-park-on-dinstar-ip-phones.md)
 
