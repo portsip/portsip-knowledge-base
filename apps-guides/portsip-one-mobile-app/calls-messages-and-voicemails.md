@@ -42,5 +42,17 @@ The Meetings tab is where you can access your upcoming meetings list, join exist
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-13.png" alt="" width="375"><figcaption></figcaption></figure>
 
+## How to access your Quick Menu <a href="#id-4" id="id-4"></a>
+
+On the left side of the dashboard, you will see your profile icon displaying your initials. This is the mobile client’s quick menu. To access this menu:
+
+* Tap your **Profile** icon, and the menu window appears.
+
+<figure><img src="../../.gitbook/assets/portsip-one-mobile-15.png" alt="" width="375"><figcaption></figcaption></figure>
+
+
+
+
+
 
 
