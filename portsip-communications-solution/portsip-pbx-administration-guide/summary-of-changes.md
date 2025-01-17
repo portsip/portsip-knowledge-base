@@ -12,6 +12,10 @@ Date: Jan 16, 2025
 * Resolved an issue where inbound calls to a queue via a trunk were not routed to an agent if the trunk’s ACK response was delayed.&#x20;
 * Corrected a bug where the outbound caller ID specified in a REST API call was not properly recorded in the CDR.
 
+### REST API Changes
+
+* Added `/api/calllogs`to query the CDR logs.
+
 ## Changes for Release v22.0.39
 
 Date: Jan 2, 2025
