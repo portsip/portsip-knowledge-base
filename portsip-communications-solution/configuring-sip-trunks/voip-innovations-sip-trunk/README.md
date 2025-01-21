@@ -15,8 +15,8 @@ PortSIP PBX integrated the [**VoIP Innovations**](https://carrierservices.sangom
 
 This article includes the following topics:
 
-* Purchase a DID on VoIP Innovations Platform
-* Configuring VoIP Innovations IP Authentication Trunk
+* [Purchase a DID on the VoIP Innovations Platform](purchase-a-did-on-voip-innovations-platform.md)
+* [Configuring VoIP Innovations IP Authentication Trunk](configuring-voip-innovations-ip-authentication-trunk.md)
 * Configuring Outbound & Inbound Calls
-* VoIP Innovations SMS Integration
+* [VoIP Innovations SMS Integration](voip-innovations-sms-integration.md)
 

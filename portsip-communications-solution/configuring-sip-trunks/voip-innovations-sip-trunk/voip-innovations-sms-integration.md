@@ -1,4 +1,4 @@
-# VoIP Innovation SMS Integration
+# VoIP Innovations SMS Integration
 
 Before proceeding with the next steps, you need to [purchase a DID on the Wavix platform](../wavix-sip-trunk/purchase-a-did-on-wavix-platform.md).
 
@@ -12,9 +12,9 @@ You must use Numeric Sender IDs, if you want to enable 2-way messaging service. 
 
 Assume you have purchased DID phone numbers as per the guide on[Purchase a DID on the Wavix platform](../wavix-sip-trunk/purchase-a-did-on-wavix-platform.md).
 
-The following step [SMS-enable your number](wavix-sms-integration.md#sms-enable-your-number) is mandatory only if you have purchased U.S. or Canadian numbers to send messages using a U.S. or Canadian phone number as the Sender ID.
+The following step [SMS-enable your number](voip-innovations-sms-integration.md#sms-enable-your-number) is mandatory only if you have purchased U.S. or Canadian numbers to send messages using a U.S. or Canadian phone number as the Sender ID.
 
-If you have purchased other countries' phone numbers and wish to use them as the Sender ID, please skip  [SMS-enable your number](wavix-sms-integration.md#sms-enable-your-number) and scroll down to [Create a Sender ID on the Wavix Platform](wavix-sms-integration.md#create-a-sender-id-on-the-wavix-platform) section.
+If you have purchased other countries' phone numbers and wish to use them as the Sender ID, please skip  [SMS-enable your number](voip-innovations-sms-integration.md#sms-enable-your-number) and scroll down to [Create a Sender ID on the Wavix Platform](voip-innovations-sms-integration.md#create-a-sender-id-on-the-wavix-platform) section.
 
 ### SMS-enable your number
 
@@ -79,7 +79,7 @@ Please follow the below steps:
 1. In the [Wavix account](https://app.wavix.com/profile/api-keys), click the top menu Administration, click the **Create New** button to create an API key for the PortSIP PBX to send the SMS, and copy it. Or copy an existing API Key.
 2. In PortSIP PBX Web portal, navigate to the left menu, select **SMS/MMS**, and click the **Add** button.&#x20;
 3. Choose your configured Wavix Trunk:
-   * **Sender ID**: If you want to use the Sender ID that you created in the [Create a Sender ID on the Wavix Platform](wavix-sms-integration.md#create-a-sender-id-on-the-wavix-platform) section, please enter that Sender ID in this field. Otherwise, leave it empty, and the PortSIP PBX will use the DID number you configured for that Wavix trunk as the Sender ID.
+   * **Sender ID**: If you want to use the Sender ID that you created in the [Create a Sender ID on the Wavix Platform](voip-innovations-sms-integration.md#create-a-sender-id-on-the-wavix-platform) section, please enter that Sender ID in this field. Otherwise, leave it empty, and the PortSIP PBX will use the DID number you configured for that Wavix trunk as the Sender ID.
    * **API Key**: Paste your copied Wavix API key here.
 
 <figure><img src="../../../.gitbook/assets/wafix-fig32.png" alt=""><figcaption></figcaption></figure>
