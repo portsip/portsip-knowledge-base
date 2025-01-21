@@ -28,7 +28,7 @@ Retrieve the CDRs at the tenant level using the specified query parameters.
 
 **Query Options**
 
-You can specify the query options as the URL parameters to filter the CDR, more details please see [Query Options Overview](broken-reference).&#x20;
+You can specify the query options as the URL parameters to filter the CDR, for more details please see [Query Options Overview](version-22.0/about.md#query-options-overview).&#x20;
 
 **Response**
 
@@ -114,7 +114,7 @@ Retrieve the call recordings at the tenant level using the specified query param
 
 **Query Options**
 
-You can specify the query options as the URL parameters to filter the CDR, more details please see [Query Options Overview](broken-reference).&#x20;
+You can specify the query options as the URL parameters to filter the CDR, , for more details please see [Query Options Overview](version-22.0/about.md#query-options-overview).&#x20;
 
 **Response**
 
@@ -214,4 +214,6 @@ Specify the recording ID which you parsed from the response of [Retrieve Call Re
 Once you have [retrieved the recording information](accessing-cdrs-and-recordings.md#id-2-retrieve-cdr-list-2), the response will contain a `file_url` property. Use this URL to directly download the recording file. **No additional authentication (e.g., access token) is required for this download request.**
 
 Simply make a GET request to the specified `file_url` to initiate the download. The recording file will be available for download at the provided location.
+
+
 
