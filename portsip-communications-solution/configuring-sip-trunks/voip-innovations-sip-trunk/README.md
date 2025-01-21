@@ -17,6 +17,6 @@ This article includes the following topics:
 
 * [Purchase a DID on the VoIP Innovations Platform](purchase-a-did-on-voip-innovations-platform.md)
 * [Configuring VoIP Innovations IP Authentication Trunk](configuring-voip-innovations-ip-authentication-trunk.md)
-* Configuring Outbound & Inbound Calls
+* [Configuring Outbound & Inbound Calls](configuring-outbound-and-inbound-calls.md)
 * [VoIP Innovations SMS Integration](voip-innovations-sms-integration.md)
 

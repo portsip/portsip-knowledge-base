@@ -1,6 +1,6 @@
-# Configuring VoIP Innovation IP Authentication Trunk
+# Configuring VoIP Innovations IP Authentication Trunk
 
-Before proceeding with the next steps, you need to [purchase a DID on the Wavix platform](../wavix-sip-trunk/purchase-a-did-on-wavix-platform.md).
+Before proceeding with the next steps, you need to purchase a DID on the [VoIP Innovations](purchase-a-did-on-voip-innovations-platform.md) platform.
 
 ## Create a SIP Trunk on the Wavix platform
 
