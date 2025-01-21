@@ -1,20 +1,22 @@
-# VoIP Innovation SIP Trunk
+# VoIP Innovations SIP Trunk
 
 {% hint style="info" %}
 This guide is only applicable for the PortSIP PBX v22 or higher.
 {% endhint %}
 
-[Wavix ](https://www.wavix.com/sip-trunk)is a SIP trunk provider, it provides a robust set of calling, SMS/MMS features, and reliability that enhances your communications.
+[**VoIP Innovations**](https://carrierservices.sangoma.com/) offers comprehensive telecom carrier services and CPaaS solutions designed for developers, business customers, and enterprises.
 
-One of the primary advantages of trunking with Wavix is its greatly expanded geographic reach. Wavix provides connectivity across 170+ countries, allowing you to make and receive calls around the world. Your callers and customers worldwide can connect with your business at local rates.
+**PortSIP's** calling and SMS features allow users to select VoIP Innovations as their service provider within the configuration settings, ensuring full utilization of both calling and messaging services. To successfully integrate VoIP Innovations with PortSIP PBX, users must follow these essential steps:
 
-PortSIP PBX integrated the [Wavix SIP trunking](https://www.wavix.com/sip-trunk) for calls and SMS/MMS that allows you to set up easily.
+1. **Obtain a VoIP Innovations Account:** Begin by creating an account with VoIP Innovations to access their services.
+2. **Log In and Configure Settings:** After account creation, log in to your VoIP Innovations account to set up the necessary configurations for seamless integration with PortSIP PBX.
+
+PortSIP PBX integrated the [**VoIP Innovations**](https://carrierservices.sangoma.com/) SIP trunking for calls and SMS/MMS that allows you to set up easily.
 
 This article includes the following topics:
 
-* [Purchase a DID on Wavix Platform](../wavix-sip-trunk/purchase-a-did-on-wavix-platform.md)
-* [Configuring Wavix IP Authentication Trunk](../wavix-sip-trunk/configuring-wavix-ip-authentication-trunk.md)
-* [Configuring Wavix Digest Trunk](../wavix-sip-trunk/configuring-wavix-digest-trunk.md)
-* [Configuring Outbound & Inbound Calls](../wavix-sip-trunk/configuring-outbound-and-inbound-calls.md)
-* [Wavix SMS Integration](../wavix-sip-trunk/wavix-sms-integration.md)
+* Purchase a DID on VoIP Innovations Platform
+* Configuring VoIP Innovations IP Authentication Trunk
+* Configuring Outbound & Inbound Calls
+* VoIP Innovations SMS Integration
 
