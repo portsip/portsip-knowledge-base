@@ -1,20 +1,25 @@
 # Change Your Call Queue Status
 
-## Calling from another device using PortSIP ONE app
+When your administrator assigns you as an agent to a call queue, you can manage your call queue status directly within the **PortSIP ONE** app.&#x20;
 
-You can manage all your contact details in the **PortSIP ONE** desktop app, but take calls on your mobile phone or desk phone with ease. For example, if you prefer to make calls using your desk phone, you can easily push all outgoing calls to that device with just a few clicks, allowing you to make calls the way you prefer.
+When a call enters your assigned call queue and your status is set to **Ready**, you will receive a notification within the app. You can then answer the call directly from the PortSIP ONE app.
 
-## To Enable Calling from Another Device:
+## Changing Your Call Queue Status
 
-1. Click the **Connect to a device** icon on the **PortSIP ONE** title bar.
-2. A list of currently available devices will be displayed.
-3. Select your desired device. A prompt message will appear, notifying you that all outbound calls will now be initiated by the selected device.
+To manage your call queue status, follow these simple steps:
 
-<figure><img src="../../.gitbook/assets/portsip-one-calling-device.png" alt=""><figcaption></figcaption></figure>
+1. **Locate the Queues Status Icon**\
+   In the app’s **title bar**, you will see the **Queues Status Icon**. This icon displays your current status and lists all the call queues you are a part of.
+2. **Open the Status Menu**\
+   Click on the **Queues Status Icon**. A menu window will appear, showing your current status and providing available options to change it.
+3. **Select a New Status**\
+   From the **Agent Status** dropdown, select your desired status. This status will be applied to all queues you are currently logged into (joined).
+4. **Log In or Log Out of Individual Queues**\
+   In the list of queues, each one has a **Switch ON/OFF Option**. Log in or Log out a queue by toggling it on or off.
 
-After successfully selecting a device, all future outgoing calls made within the app will automatically be initiated by that device.
+{% hint style="info" %}
+**Note:** Changing your agent status will only apply to the queues you are currently logged into.
+{% endhint %}
 
-If the selected device is offline, you will receive an error when attempting to place a call through it. In this case, click the **Connect to a device** icon again to choose a different device.
-
-You can uncheck a deviced that to disconnect from it.
+<figure><img src="../../.gitbook/assets/poprtsip_one_queues.png" alt=""><figcaption></figcaption></figure>
 
