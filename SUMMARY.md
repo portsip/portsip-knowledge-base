@@ -239,6 +239,7 @@
   * [SMS and WhatsApp Messaging](apps-guides/portsip-one-desktop-app/sms-and-whatsapp-messaging.md)
   * [Click to Call](apps-guides/portsip-one-desktop-app/click-to-call.md)
   * [Calling from Another Device](apps-guides/portsip-one-desktop-app/calling-from-another-device.md)
+  * [Change Your Call Queue Status](apps-guides/portsip-one-desktop-app/change-your-call-queue-status.md)
 * [PortSIP ONE Mobile App](apps-guides/portsip-one-mobile-app/README.md)
   * [Sign in to PBX](apps-guides/portsip-one-mobile-app/sign-in-to-pbx.md)
   * [Calls, Messages, and Voicemails](apps-guides/portsip-one-mobile-app/calls-messages-and-voicemails.md)
