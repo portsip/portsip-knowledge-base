@@ -9,6 +9,9 @@ PortSIP PBX seamlessly integrates SMS functionality with the following SIP trunk
 * Wavix
 * Telnyx
 * Voxtelesys
+* VoIP Innovation
+* Aire Networks
+* VoiceMeUp
 
 If you’re using any of these providers, setting up the SMS channel with PortSIP PBX is straightforward.
 
