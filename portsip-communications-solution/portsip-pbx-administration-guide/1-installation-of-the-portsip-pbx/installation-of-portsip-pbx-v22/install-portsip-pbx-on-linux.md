@@ -8,7 +8,13 @@ If you currently installed the PortSIP PBX v16.x, please follow the article [Upg
 
 ## Minimal Hardware Requirements
 
-The PortSIP PBX requires a minimum of 2 CPU cores, 4 GB of memory, and 50 GB of disk storage. With this configuration, the PBX can support up to 1,000 online users and handle 500 simultaneous calls.
+The PortSIP PBX requires a minimum as below:
+
+* CPU: 2 cores
+* Memory: 4 GB
+* Disk: 50 GB of disk storage.&#x20;
+
+With this configuration, the PBX can support up to 1,000 online users and handle 30\~500 simultaneous calls.
 
 ## Supported OS
 
