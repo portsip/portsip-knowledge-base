@@ -8,8 +8,6 @@ If you currently installed the PortSIP PBX v16.x, please follow the article [Upg
 
 ## Minimal Hardware Requirements
 
-The PortSIP PBX requires a minimum as below:
-
 * CPU: 2 cores
 * Memory: 4 GB
 * Disk: 50 GB
