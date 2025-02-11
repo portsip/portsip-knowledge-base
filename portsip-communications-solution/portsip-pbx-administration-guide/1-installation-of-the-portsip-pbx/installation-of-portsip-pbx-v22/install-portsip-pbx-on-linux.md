@@ -12,7 +12,7 @@ The PortSIP PBX requires a minimum as below:
 
 * CPU: 2 cores
 * Memory: 4 GB
-* Disk: 50 GB of disk storage.&#x20;
+* Disk: 50 GB
 
 With this configuration, the PBX can support up to 1,000 online users and handle 30\~500 simultaneous calls.
 
