@@ -34,7 +34,7 @@ The PortSIP PBX has integrated the SMS feature as well with the below trunk prov
 * [Configuring VoIP.ms SIP Trunk](voip.ms-sip-trunk/)
 * [Configuring Voxtelesys SIP Trunk](voxtelesys-sip-trunk/)
 * [Configuring Wavix SIP Trunk](wavix-sip-trunk/)
-* Configuring VoIP Innovation SIP Trunk
+* [Configuring VoIP Innovation SIP Trunk](voip-innovations-sip-trunk/)
 * [Configuring Aire Networks Trunk](aire-networks-sip-trunk.md)
 * [VoiceMeUp Trunk](voicemeup-sip-trunk.md)
 
