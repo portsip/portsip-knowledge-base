@@ -22,7 +22,7 @@ In order to place outbound calls you need to configure Outbound Rules. Go to **C
 
 <figure><img src="../../../.gitbook/assets/wavix-fig21.png" alt=""><figcaption></figcaption></figure>
 
-3. Scroll to the Place outbound calls using the following trunk routes section, click the Add icon, then select **Wavix Trunk** and save the Outbound Rule.
+3. Scroll to the Place outbound calls using the following trunk routes section, click the Add icon, then select **VoIP Innovations Trunk** and save the Outbound Rule.
 
 <figure><img src="../../../.gitbook/assets/vi_trunk_3.png" alt=""><figcaption></figcaption></figure>
 
