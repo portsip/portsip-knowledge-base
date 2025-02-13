@@ -1,20 +1,8 @@
 # VoIP Innovations SMS Integration
 
-Before proceeding with the next steps, you need to [purchase a DID on the Wavix platform](../wavix-sip-trunk/purchase-a-did-on-wavix-platform.md).
+Before proceeding with the next steps, you need to [purchase a DID on the VoIP Innovations platform](../vonage-sip-trunk/purchase-a-did-on-vonage-platform.md) with the SMS feature activated.
 
-## Register a Sender ID
-
-Before sending an SMS or MMS message, you need to activate a Sender ID on the Wavix platform. A Sender ID is the message sender details recipients will see on their devices. Sender IDs can be either numeric or alphanumeric presenting your brand or service name.
-
-{% hint style="info" %}
-You must use Numeric Sender IDs, if you want to enable 2-way messaging service. For one-way SMS you can use both Numeric and AlphanumericSender IDs.
-{% endhint %}
-
-Assume you have purchased DID phone numbers as per the guide on[Purchase a DID on the Wavix platform](../wavix-sip-trunk/purchase-a-did-on-wavix-platform.md).
-
-The following step [SMS-enable your number](voip-innovations-sms-integration.md#sms-enable-your-number) is mandatory only if you have purchased U.S. or Canadian numbers to send messages using a U.S. or Canadian phone number as the Sender ID.
-
-If you have purchased other countries' phone numbers and wish to use them as the Sender ID, please skip  [SMS-enable your number](voip-innovations-sms-integration.md#sms-enable-your-number) and scroll down to [Create a Sender ID on the Wavix Platform](voip-innovations-sms-integration.md#create-a-sender-id-on-the-wavix-platform) section.
+Note: If you are using a newly added phone number or carrier account or have had messaging stop working unexpectedly, please make sure you have completed your carrier's 10DLC registration process before attempting to utilize PortSIP PBX. 10DLC registration is required by ALL supported carriers due to the requirements set by the wireless carriers.
 
 ### SMS-enable your number
 
@@ -24,8 +12,6 @@ Inbound SMS can be enabled on US and Canadian phone numbers only. To activate su
 2. Select a number you want to activate inbound SMS on
 3. Click on the down arrow to see additional details
 4. Click **Activate** next to **Inbound SMS**
-
-<figure><img src="../../../.gitbook/assets/wafix-fig29.jpg" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 In case of any questions, please raise a ticket in the support tab or email [support@wavix.com](mailto:support@wavix.com)

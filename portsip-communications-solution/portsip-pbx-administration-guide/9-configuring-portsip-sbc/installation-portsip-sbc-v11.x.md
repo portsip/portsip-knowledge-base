@@ -27,7 +27,7 @@ Tasks that MUST be completed before installing PortSIP SBC.
 * The PortSIP SBC must not be installed on a host that is a DNS or DHCP server.
 * The below ports must be permitted by your firewall(these ports are required by the PortSIP SBC).
   * UDP: 5066, 25000-34999
-  * TCP: 5065, 5067, 10443. please also ensure the above ports have not been used by other applications.
+  * TCP: 5065, 5067, 8883, 10443. please also ensure the above ports have not been used by other applications.
 * If installed on Windows, ensure the **`Windows Firewall`** service has been started.
 
 {% hint style="warning" %}
