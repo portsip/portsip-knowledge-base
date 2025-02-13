@@ -1,6 +1,6 @@
 # Purchase a DID on Bandwidth Platform
 
-Before placing or receiving a call, you need to have an active DID or a dozen DID numbers on your VoIP Bandwidth account. If you already have an active number on your Bandwidth account, the below steps are optional.
+Before placing or receiving a call, you need to have an active DID or a dozen DID numbers on your Bandwidth account. If you already have an active number on your Bandwidth account, the below steps are optional.
 
 ## Creating Your Bandwidth Account
 
