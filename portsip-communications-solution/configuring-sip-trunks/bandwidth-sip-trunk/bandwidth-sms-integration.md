@@ -32,6 +32,8 @@ Once the application is created, you’ll need to generate your API credentials.
 * The system will generate a new **API Token** and **API Secret**. Make sure to copy these for future use.
 * Save these credentials in a secure location.
 
+Here is the Bandwidth official documentation for your reference: [How do I set up a Messaging API account in the Bandwidth App?](https://support.bandwidth.com/hc/en-us/articles/360033658613-How-do-I-set-up-a-Messaging-API-account-in-the-Bandwidth-App)
+
 ## Configure SMS with Bandwidth Trunk in PortSIP PBX
 
 Before configuring SMS in PortSIP PBX, you must have already configured a Bandwidth SIP trunk using one of the following guides:
