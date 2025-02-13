@@ -12,6 +12,7 @@ PortSIP PBX supports a wide range of mainstream SIP trunk providers worldwide. T
 * [QuestBlue](https://questblue.com/)
 * [VoIP.ms](https://voip.ms/)
 * [Voxtelesys](https://voxtelesys.com/)
+* [Bandwidth](https://www.bandwidth.com/)
 * [Flowroute](https://flowroute.com/)
 * [Skyetel](https://skyetel.com/)
 * [Wavix](https://wavix.com/)
@@ -22,6 +23,7 @@ PortSIP PBX supports a wide range of mainstream SIP trunk providers worldwide. T
 * [Telstra](https://www.telstra.com.au/)
 * [Keen systems](https://keen-systems.com/)
 * [Gamma](https://gammagroup.co/products/sip-trunking-call-management/)
+* [VoIP Innovations](https://carrierservices.sangoma.com/)
 * [Aire Networks](https://airenetworks.es/)
 * [VoiceMeUp](https://www.voicemeup.com/)
 
@@ -29,6 +31,8 @@ The PortSIP PBX has integrated the SMS feature as well with the below trunk prov
 
 * [Configuring Quest Blue SIP Trunk](questblue-sip-trunk/)
 * [Configuring Twilio SIP Trunk](twilio-sip-trunk/)
+* Configuring Bandwidth SIP Trunk
+* Configuring Flowroute SIP Trunk
 * [Configuring Telnyx SIP Trunk](telnyx-sip-trunk/)
 * [Configuring Vonage SIP Trunk](vonage-sip-trunk/)
 * [Configuring VoIP.ms SIP Trunk](voip.ms-sip-trunk/)
