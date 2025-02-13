@@ -32,7 +32,7 @@ The PortSIP PBX has integrated the SMS feature as well with the below trunk prov
 * [Configuring Quest Blue SIP Trunk](questblue-sip-trunk/)
 * [Configuring Twilio SIP Trunk](twilio-sip-trunk/)
 * [Configuring Bandwidth SIP Trunk](bandwidth-sip-trunk/)
-* Configuring Flowroute SIP Trunk
+* [Configuring Flowroute SIP Trunk](flowroute-sip-trunk/)
 * [Configuring Telnyx SIP Trunk](telnyx-sip-trunk/)
 * [Configuring Vonage SIP Trunk](vonage-sip-trunk/)
 * [Configuring VoIP.ms SIP Trunk](voip.ms-sip-trunk/)
