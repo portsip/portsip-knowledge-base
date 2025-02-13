@@ -12,7 +12,10 @@ After signing in as a tenant administrator, select **Billing > Settings** from t
 
 **Billing Profile:** This feature allows you to set billing to be either from the tenant or from a user.
 
-**Charge Mode:** This feature allows you to choose between online and offline charging. For online charging, the PBX will check every call that matches the billing rule to see if the balance is sufficient, the balance will be deducted, and insert the cost into the CDR field once the call is completed. If the billing profile is set to the tenant, it will check the tenant’s balance; if it is set to extension, it will check the extension’s balance. For offline charging, the PBX will not check the balance but will calculate the cost and insert it into the CDR field.
+**Charge Mode:** This feature allows you to choose between **Online** and **Offline** charging.
+
+* **Online Charging:** The PBX will check the balance for each call that matches the billing rule. It verifies if the balance is sufficient, deducts the appropriate amount, and records the cost in the **CDR** field once the call is completed. If the billing profile is set to the **tenant**, it will check the tenant’s balance; if it is set to the **extension**, it will check the extension’s balance.
+* **Offline Charging:** The PBX does not check the balance but will calculate the call cost and record it in the **CDR** field.
 
 ## Account Recharge
 
