@@ -13,10 +13,6 @@ To purchase a DID on your VoIP Innovations account:
 5. **Select Your Desired Numbers:** Browse through the list and select the DIDs (Direct Inward Dialing numbers) you wish to purchase.
 6. After selecting your desired numbers, click on **Buy DIDs Now** to finalize the purchase process.
 
-<figure><img src="../../../.gitbook/assets/vi_purchase_did.png" alt=""><figcaption></figcaption></figure>
-
-
-
 After purchasing the DID, you can follow one of the guides to configure the trunk with PortSIP PBX.
 
 * [Configuring VoIP Innovations IP Authentication Trunk](configuring-voip-innovations-ip-authentication-trunk.md)
