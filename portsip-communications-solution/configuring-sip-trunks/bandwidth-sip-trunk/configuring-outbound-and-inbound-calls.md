@@ -22,13 +22,13 @@ In order to place outbound calls you need to configure Outbound Rules. Go to **C
 
 <figure><img src="../../../.gitbook/assets/wavix-fig21.png" alt=""><figcaption></figcaption></figure>
 
-3. Scroll to the Place outbound calls using the following trunk routes section, click the Add icon, then select **VoIP Innovations Trunk** and save the Outbound Rule.
+3. Scroll to the Place outbound calls using the following trunk routes section, click the Add icon, then select **Bandwidth Trunk** and save the Outbound Rule.
 
-<figure><img src="../../../.gitbook/assets/vi_trunk_3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/bandwidth_trunk_3.png" alt=""><figcaption></figcaption></figure>
 
 Depending on your users’ dialing habits, you may want to strip some of the leading digits or prepend the country code. For example, the below configuration can be used to prepend all dialed numbers with the leading 1 in case your users are accustomed to US domestic numbers in the national format.
 
-<figure><img src="../../../.gitbook/assets/vi_trunk_4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/bandwidth_trunk_4.png" alt=""><figcaption></figcaption></figure>
 
 ## Configure Inbound Rules
 
@@ -41,11 +41,11 @@ In order to receive inbound calls, you need to configure Inbound Rules. Go to **
 3. Enter the number for **DID/DDI Number or Number Range** field, the entered number must in the DID pool range of the selected trunk
 4. Set the extension to route calls to.
 
-<figure><img src="../../../.gitbook/assets/vi_trunk_5.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/bandwidth_trunk_5.png" alt=""><figcaption></figcaption></figure>
 
 Click **OK** to save the rule. Depending on your business needs, you may set specific office hours for the rule and route calls to different extensions, and voice mailbox or automatically drop the call based on the schedule. Please reference the article [Office Hours and Holiday Schedule](../../portsip-pbx-administration-guide/office-hours-and-holiday-schedule/) for more details.
 
-Please make sure that all your VoIP Innovations DIDs are set up in the DID Pool of the VoIP Innovations Trunk you configured in the PortSIP PBX.
+Please make sure that all your Bandwidth DIDs are set up in the DID Pool of the Bandwidth Trunk you configured in the PortSIP PBX.
 
 For more details about the outbound and inbound rule configuration, please refer to the article [Call Route Management](../../portsip-pbx-administration-guide/8-call-route-management/).
 

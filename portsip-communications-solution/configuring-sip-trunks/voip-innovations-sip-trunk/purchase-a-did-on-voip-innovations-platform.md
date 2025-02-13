@@ -1,6 +1,6 @@
 # Purchase a DID on VoIP Innovations Platform
 
-Before placing or receiving a call, you need to have an active DID or a dozen DID numbers on your VoIP Innovations account. If you already have an active number on your Wavix account, the below steps are optional.
+Before placing or receiving a call, you need to have an active DID or a dozen DID numbers on your VoIP Innovations account. If you already have an active number on your VoIP Innovations account, the below steps are optional.
 
 To purchase a DID on your VoIP Innovations account:
 

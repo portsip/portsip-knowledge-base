@@ -43,4 +43,5 @@ In the trunk list, you will see the status displayed as **Registered** (for IP B
 
 <figure><img src="../../../.gitbook/assets/vi_trunk_2.png" alt=""><figcaption></figcaption></figure>
 
-Now you can follow the article to [Configuring inbound and outbound calls](configuring-outbound-and-inbound-calls.md).
+Now you can follow the article on [Configuring inbound and outbound calls](configuring-outbound-and-inbound-calls.md).
+
