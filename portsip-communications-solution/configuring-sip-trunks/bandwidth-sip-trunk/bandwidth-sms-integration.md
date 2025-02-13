@@ -32,9 +32,9 @@ Once the application is created, you’ll need to generate your API credentials.
 * The system will generate a new **API Token** and **API Secret**. Make sure to copy these for future use.
 * Save these credentials in a secure location.
 
-## Configure SMS with VoIP Innovations Trunk in PortSIP PBX
+## Configure SMS with Bandwidth Trunk in PortSIP PBX
 
-Before configuring SMS in PortSIP PBX, you must have already configured a VoIP Innovation SIP trunk using one of the following guides:
+Before configuring SMS in PortSIP PBX, you must have already configured a Bandwidth SIP trunk using one of the following guides:
 
 * [Configuring Bandwidth IP Authentication Trunk](configuring-bandwidth-ip-authentication-trunk.md)
 
@@ -52,29 +52,21 @@ For more details, please reference [Tenant Management](../../portsip-pbx-adminis
 Please follow the below steps:
 
 1. In the PortSIP PBX Web portal, navigate to the left menu, select **SMS/MMS**, and click the **Add** button.&#x20;
-2. Choose your configured VoIP Innovations Trunk:
-   * **Sender ID**: If you want to use the Sender ID that you created in the Bandwidth platform, please enter that Sender ID in this field. Otherwise, leave it empty, and the PortSIP PBX will use the DID number you configured for that VoIP Innovation trunk as the Sender ID.
-   * **Account ID**: Enter the **User ID** you get in the step Obtaining the User ID.
-   * Application ID: Enter the Application ID you get in the step Obtaining the Application ID.
-   * Username: Enter the username&#x20;
-   * Password:
+2. Choose your configured Bandwidth Trunk:
+   * **Sender ID**: If you want to use the Sender ID that you created in the Bandwidth platform, please enter that Sender ID in this field. Otherwise, leave it empty, and the PortSIP PBX will use the DID number you configured for that Bandwidth trunk as the Sender ID.
+   * **Account ID**: Enter the **User ID** you obtained in the [Obtaining the User ID step](bandwidth-sms-integration.md#id-1.-obtaining-the-user-id).
+   * **Application ID**: Enter the **Application ID** you obtained in the [Obtaining the Application ID](bandwidth-sms-integration.md#id-2.-obtaining-the-application-id) step.
+   * **API Token**: Enter the **API Token** you obtained in the [Obtaining API Token and Secret](bandwidth-sms-integration.md#id-3.-obtaining-api-token-and-secret) step.
+   * **API Secret**: Enter the **API Secret** you obtained in the [Obtaining API Token and Secret](bandwidth-sms-integration.md#id-3.-obtaining-api-token-and-secret) step.
 
 <figure><img src="../../../.gitbook/assets/bandwidth_trunk_6.png" alt=""><figcaption></figcaption></figure>
 
 4. Click **OK** to be brought to the SMS/MMS list page. You can select that SMS configuration and click the **Copy Webhook** button to copy it. Or Double-click the SMS configuration you created and copy the Webhook URL.
-
-## Adding an SMS DID on VoIP Innovations
-
-1. Log in to your VoIP Innovations account at [backoffice.voipinnovations.com](https://backoffice.voipinnovations.com).
-2. Navigate to **SMS >** **Add New SMS DID**.
-3. Set the **Destination Type** to **API POST**.
-4. Enter the **SMS Number** you wish to add.
-5. In the **URL** field, enter your copied Webhook URL from PortSIP PBX for this number.
-6. Click **Configure** button to save the settings.
-
-<figure><img src="../../../.gitbook/assets/vi_trunk_sms_3.png" alt=""><figcaption></figcaption></figure>
+5. **Sign in** to your Bandwidth dashboard. Go to the **Applications** section.
+6. Find the **Webhook URL** field and replace the old fake URL with the new **Webhook URL** you copied from PortSIP PBX.
+7. **Save** the changes.
 
 ## Verify Configuration
 
-Now you can [create the outbound and inbound rules](../wavix-sip-trunk/configuring-outbound-and-inbound-calls.md) in PortSIP PBX for sending and receiving SMS/MMS using the VoIP Innovation Trunk, just like you create the rules for making and receiving calls.
+Now you can [create the outbound and inbound rules](../wavix-sip-trunk/configuring-outbound-and-inbound-calls.md) in PortSIP PBX for sending and receiving SMS/MMS using the Bandwidth Trunk, just like you create the rules for making and receiving calls.
 
