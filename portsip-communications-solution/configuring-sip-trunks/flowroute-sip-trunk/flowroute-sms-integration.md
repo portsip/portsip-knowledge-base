@@ -1,44 +1,36 @@
 # Flowroute SMS Integration
 
-Before proceeding with the next steps, you need to purchase a DID on the Flowroute platform with the SMS feature activated.
+Before proceeding with the next steps, you need to [purchase a DID on the Flowroute platform](purchase-a-did-on-flowroute-platform.md) with the SMS feature activated.
 
-Note: If you are using a newly added phone number or carrier account or have had messaging stop working unexpectedly, please make sure you have completed your carrier's 10DLC registration process before attempting to utilize PortSIP PBX. 10DLC registration is required by ALL supported carriers due to the requirements set by the wireless carriers.
+**Important**: According to US legislation (A2P 10DLC SMS), SMS numbers must be registered with a wireless carrier to avoid being blocked. This only applies to A2P numbers (Application to People) and not P2P (People to People). Follow [this guide](https://support.flowroute.com/265034-Messaging-Guidelines---10DLC-Carrier-Fees-and-Registration) to register your phone numbers.
 
-## Obtaining Integration Details from Bandwidth
+## Obtaining Integration Details from Flowroute
 
-### 1. Obtaining the User ID
+### Create the API Key
 
-To retrieve your Bandwidth User ID:
+To create your Flowroute API Key:
 
-* Log in to your Bandwidth account at [dashboard.bandwidth.com](https://dashboard.bandwidth.com).
-* Once logged in, locate the User ID either in the **Overview** section or at the top right corner, next to the **Account Settings**.
+* Log in to the [Flowroute Portal](https://manage.flowroute.com/).
+* Select the menu **PREFERENCES** and click on the **API Control** tab. Enter the name for your API and click the **Add new** button to create it.
 
-### 2. Obtaining the Application ID
 
-The Application ID is generated automatically when creating a new application. To obtain it:
 
-* Go to the **Applications** section and click on **Create New Application**.
-* Enter a descriptive name in the **Application Name** field, and select **Messaging** as the application type.
-*   Set the **Callback URL** for the application, ensuring it matches the required format. At this moment, let us set **a fake URL** first, for example:
+<figure><img src="../../../.gitbook/assets/flowroute_trunk_2.png" alt=""><figcaption></figcaption></figure>
 
-    `https://portsip.com/sms/bandwidth`
-* Save your settings. The system will generate an **Application ID**, which you can now use.
+### Obtaining the Access Key and Secret Key
 
-### 3. Obtaining API Token and Secret
+To retrieve your Flowroute Access Key and Secret Key:
 
-Once the application is created, you’ll need to generate your API credentials. Here’s how:
+* After you create the new API Key, you will be on the page as shown in the below screenshot
+* Copy the note down the **Access Key** and **Secret Key**.
 
-* In the upper right corner of the dashboard, click on **API Credentials** and select **Create New**.
-* The system will generate a new **API Token** and **API Secret**. Make sure to copy these for future use.
-* Save these credentials in a secure location.
+<figure><img src="../../../.gitbook/assets/flowroute_trunk_4.png" alt=""><figcaption></figcaption></figure>
 
-Here is the Bandwidth official documentation for your reference: [How do I set up a Messaging API account in the Bandwidth App?](https://support.bandwidth.com/hc/en-us/articles/360033658613-How-do-I-set-up-a-Messaging-API-account-in-the-Bandwidth-App)
+## Configure SMS with Flowroute Trunk in PortSIP PBX
 
-## Configure SMS with Bandwidth Trunk in PortSIP PBX
+Before configuring SMS in PortSIP PBX, you must have already configured a Flowroute SIP trunk using one of the following guides:
 
-Before configuring SMS in PortSIP PBX, you must have already configured a Bandwidth SIP trunk using one of the following guides:
-
-* [Configuring Bandwidth IP Authentication Trunk](../bandwidth-sip-trunk/configuring-bandwidth-ip-authentication-trunk.md)
+* [Configuring Flowroute IP Authentication Trunk](configuring-flowroute-ip-authentication-trunk.md)
 
 ### Sign in PortSIP PBX Web Portal
 
@@ -54,21 +46,37 @@ For more details, please reference [Tenant Management](../../portsip-pbx-adminis
 Please follow the below steps:
 
 1. In the PortSIP PBX Web portal, navigate to the left menu, select **SMS/MMS**, and click the **Add** button.&#x20;
-2. Choose your configured Bandwidth Trunk:
-   * **Sender ID**: If you want to use the Sender ID that you created in the Bandwidth platform, please enter that Sender ID in this field. Otherwise, leave it empty, and the PortSIP PBX will use the DID number you configured for that Bandwidth trunk as the Sender ID.
-   * **Account ID**: Enter the **User ID** you obtained in the [Obtaining the User ID step](flowroute-sms-integration.md#id-1.-obtaining-the-user-id).
-   * **Application ID**: Enter the **Application ID** you obtained in the [Obtaining the Application ID](flowroute-sms-integration.md#id-2.-obtaining-the-application-id) step.
-   * **API Token**: Enter the **API Token** you obtained in the [Obtaining API Token and Secret](flowroute-sms-integration.md#id-3.-obtaining-api-token-and-secret) step.
-   * **API Secret**: Enter the **API Secret** you obtained in the [Obtaining API Token and Secret](flowroute-sms-integration.md#id-3.-obtaining-api-token-and-secret) step.
+2. Choose your configured Flowroute Trunk:
+   * **Sender ID**: If you want to use the Sender ID that you created in the Flowroute platform, please enter that Sender ID in this field. Otherwise, leave it empty, and the PortSIP PBX will use the DID number you configured for that Flowroute trunk as the Sender ID.
+   * **Access Key**: Enter the **Access Key** you obtained in the [Obtaining the Access Key and Secret Key](flowroute-sms-integration.md#id-2.-obtaining-the-access-key-and-secret-key) step.
+   * **Secret Key**: Enter the **Secret Key** you obtained in the [Obtaining the Access Key and Secret Key](flowroute-sms-integration.md#id-2.-obtaining-the-access-key-and-secret-key) step.
 
-<figure><img src="../../../.gitbook/assets/bandwidth_trunk_6.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/flowroute_trunk_6.png" alt=""><figcaption></figcaption></figure>
 
 4. Click **OK** to be brought to the SMS/MMS list page. You can select that SMS configuration and click the **Copy Webhook** button to copy it. Or Double-click the SMS configuration you created and copy the Webhook URL.
-5. **Sign in** to your Bandwidth dashboard. Go to the **Applications** section.
-6. Find the **Webhook URL** field and replace the old fake URL with the new **Webhook URL** you copied from PortSIP PBX.
-7. **Save** the changes.
+
+## Configure SMS for a Number in Flowroute
+
+To enable SMS functionality for a specific number in Flowroute, follow these steps:
+
+1. **Log in to the Flowroute Portal**: Access your account at the [Flowroute Portal](https://manage.flowroute.com/).
+2. **Navigate to the DIDs Section**: From the main menu, select **DIDs**, then click on the **Manage** tab.
+3. **Select the Number**: Choose the phone number for which you want to enable SMS.
+4. **Enable SMS**: From the "**Choose a DID Action"** dropdown, select **Enable Messaging** to activate the SMS feature for that number.
+
+<figure><img src="../../../.gitbook/assets/flowroute_trunk_3.png" alt=""><figcaption></figcaption></figure>
+
+You can configure a webhook for SMS callback notifications in one of two ways, depending on your needs:
+
+* **For Specific Numbers**: If you want to receive inbound message notifications only for a particular number, configure a messaging webhook for that number individually. Use the PBX’s Webhook URL to receive these notifications.
+
+<figure><img src="../../../.gitbook/assets/flowroute_trunk_5.png" alt=""><figcaption></figcaption></figure>
+
+* **For All Numbers in Your Account**: If you need to receive inbound message notifications for all numbers under your account, set up a **global messaging webhook** with the PBX’s Webhook URL, as illustrated below.
+
+<figure><img src="../../../.gitbook/assets/flowroute_trunk_1.png" alt=""><figcaption></figcaption></figure>
 
 ## Verify Configuration
 
-Now you can [create the outbound and inbound rules](../wavix-sip-trunk/configuring-outbound-and-inbound-calls.md) in PortSIP PBX for sending and receiving SMS/MMS using the Bandwidth Trunk, just like you create the rules for making and receiving calls.
+Now you can [create the outbound and inbound rules](../wavix-sip-trunk/configuring-outbound-and-inbound-calls.md) in PortSIP PBX for sending and receiving SMS/MMS using the Flowroute Trunk, just like you create the rules for making and receiving calls.
 

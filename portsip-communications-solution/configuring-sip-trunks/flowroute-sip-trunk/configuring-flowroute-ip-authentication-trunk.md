@@ -10,7 +10,7 @@ To configure the Flowroute trunk in the PortSIP PBX, there are two key sections 
 
 In the **IP Authentication** section, you'll need to set up the public static IP address of your PortSIP PBX system. Additionally, this section will provide the **SIP Host** for your trunk, as well as the **Call Prefix**. The Call Prefix will be used later when configuring the outbound routes on your PBX.
 
-<figure><img src="../../../.gitbook/assets/flowroute_trunk_1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/flowroute_trunk_1 (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Configuring the Inbound Routes
 
@@ -25,7 +25,7 @@ If your SIP trunk is using a port other than the default port 5060, be sure to u
 
 Also, in the **Edge Strategy** drop-down, select the **SIP Proxy** host you noted from the **IP Authentication** section.&#x20;
 
-<figure><img src="../../../.gitbook/assets/flowroute_trunk_2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/flowroute_trunk_2 (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Associating DIDs with Inbound Routes
 
@@ -48,7 +48,7 @@ Please follow the below steps:
    * **Hostname or IP address**: us-west-or.sip.flowroute.com.
    * Associated IP Addresses: Please contact your[ Flowroute Support Team ](https://flowroute.com/contact-us/)to obtain the IP addresses of the Flowroute trunk. Usually, it comes with one or more IP addresses. Please add them to the **Associated IP Addresses**. For example, 210.82.221.12 and 210.82.221.13.
 
-<figure><img src="../../../.gitbook/assets/flowroute_trunk_3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/flowroute_trunk_3 (1).png" alt=""><figcaption></figcaption></figure>
 
 4. Click the **Next** button, you can adjust the options for the trunk.
    * &#x20;**Max Concurrent Calls:** This field sets the maximum number of calls that PortSIP can establish with this trunk. You can adjust it to an appropriate value.
@@ -72,6 +72,6 @@ Click the **OK** button to save the changes. The trunk configuration is now comp
 
 In the trunk list, you will see the status displayed as **Registered** (for IP Based Trunk it always displays Registered).
 
-<figure><img src="../../../.gitbook/assets/flowroute_trunk_4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/flowroute_trunk_4 (1).png" alt=""><figcaption></figcaption></figure>
 
 Now you can follow the article to [Configuring inbound and outbound calls](configuring-outbound-and-inbound-calls.md).\

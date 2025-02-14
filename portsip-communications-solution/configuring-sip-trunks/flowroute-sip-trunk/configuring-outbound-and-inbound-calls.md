@@ -28,7 +28,7 @@ In the **IP Authentication** section of the Flowroute portal, you will find a **
 
 The Tech Prefix should be added to the outbound rules for outbound calls to ensure they are correctly processed by the Flowroute trunk. As the below screnshot shown up, enter the tech prefix **52709417\*** for the **Prepend** field.
 
-<figure><img src="../../../.gitbook/assets/flowroute_trunk_5.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/flowroute_trunk_5 (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Configure Inbound Rules
 
