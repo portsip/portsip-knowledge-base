@@ -196,7 +196,12 @@ Use the following command to create the Instant Messaging (IM) service Docker in
 * **-a**: Specifies the private IP address of this IM server. If this parameter is omitted, the **-A** parameter must be specified.
 * **-A**: Specifies the public IP address of this IM server. If this parameter is omitted, the **-a** parameter must be specified. If you install the IM server on a **separate server in the cloud, this parameter must be specified**. Otherwise, it can be ignored. In this case is **104.18.36.110**.
 * **-i**: Specifies the PBX Docker image version (required).
-* **-x**: Indicates the main PBX server's IP address (typically the private IP of the main PBX server) (required).
+* **-x**: Indicates the main PBX server's IP address (typically the private IP of the main PBX server) (required).&#x20;
+
+{% hint style="danger" %}
+If the PBX is deployed in High Availability (HA) mode, you must enter the **Virtual IP of the PBX** for this parameter.
+{% endhint %}
+
 * **-t**: Provides the token generated and copied in the previous step (required).
 * **-f**: Specifies the path for storing files sent in chats (optional). This path **must differ** from the one specified with **-p**. If this parameter is omitted, chat files will be stored in the path specified by **-p.**
 

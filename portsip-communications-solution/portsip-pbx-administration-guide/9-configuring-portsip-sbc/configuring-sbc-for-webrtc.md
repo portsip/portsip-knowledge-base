@@ -43,11 +43,16 @@ If you installed the PortSIP SBC on the _**same server as the PortSIP PBX**_, pl
    3. Click the **Copy** button to copy the token.
 9. Sign in to the SBC Web Portal at `https://uc.portsip.cc:8883`
    1. Choose **Settings > PBX** from the menu. You need to set up the PBX information here for the SBC to communicate with the PBX.&#x20;
-   2. Paste the copied token into the **PBX Access Token** field,&#x20;
+   2. Paste the copied token into the **PBX Access Token** field.&#x20;
    3. Enter `192.168.1.72` for the **PBX IPv4 Address** field.&#x20;
-   4. Since the TCP transport is created on port 5063 in the PBX, select **TCP** for **Prefer Transport** to communicate with the PBX
-   5. Enter `"5063"` for the **PBX Port**.
-10. Open the URL `https://uc.portsip.cc:10443/webrtc` in your browser, and the WebRTC client will launch. You can scan the user's QR code to register with the PBX and make/receive calls.
+
+{% hint style="danger" %}
+If the PBX is deployed in **High Availability (HA)** mode, you must enter the **Virtual IP address** of the PBX in the **PBX IPv4 Address** field.
+{% endhint %}
+
+10. Since the TCP transport is created on port 5063 in the PBX, select **TCP** for **Prefer Transport** to communicate with the PBX
+11. Enter `"5063"` for the **PBX Port**.
+12. Open the URL `https://uc.portsip.cc:10443/webrtc` in your browser, and the WebRTC client will launch. You can scan the user's QR code to register with the PBX and make/receive calls.
 
 ## Configure PortSIP SBC on a Separate Server
 

@@ -1,6 +1,6 @@
 # Flowroute SMS Integration
 
-Before proceeding with the next steps, you need to [purchase a DID on the Bandwidth platform](../bandwidth-sip-trunk/purchase-a-did-on-bandwidth-platform.md) with the SMS feature activated.
+Before proceeding with the next steps, you need to purchase a DID on the Flowroute platform with the SMS feature activated.
 
 Note: If you are using a newly added phone number or carrier account or have had messaging stop working unexpectedly, please make sure you have completed your carrier's 10DLC registration process before attempting to utilize PortSIP PBX. 10DLC registration is required by ALL supported carriers due to the requirements set by the wireless carriers.
 
