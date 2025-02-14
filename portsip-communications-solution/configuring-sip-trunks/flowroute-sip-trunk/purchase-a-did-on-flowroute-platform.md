@@ -4,7 +4,7 @@ Before placing or receiving a call, you need to have an active DID or a dozen DI
 
 ## Creating Your Flowroute Account
 
-### **1. Create Your Bandwidth Account**
+### **1. Create Your Flowroute Account**
 
 Sign up to the [Flowroute](https://manage.flowroute.com/signup/) website. Once you’re [logged in](https://manage.flowroute.com/accounts/login/) to your account, start creating your trunk.
 
