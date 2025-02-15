@@ -50,6 +50,10 @@ On the left side of the dashboard, you will see your profile icon displaying you
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-15.png" alt="" width="375"><figcaption></figcaption></figure>
 
+* Change your presence status: tap the presence status you can change your status
+
+
+
 
 
 
