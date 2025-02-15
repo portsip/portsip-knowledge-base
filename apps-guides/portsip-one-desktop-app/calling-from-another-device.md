@@ -6,7 +6,7 @@ You can manage all your contact details in the **PortSIP ONE** desktop app, but 
 
 ## To Enable Calling from Another Device
 
-1. Click on the Setting icon on the left-hand menu, select the **Application** option, then turn on the **Enable calling from another device**.
+1. Click on the Setting icon on the left-hand menu, select the **Application** option, then turn on the **Enable calling from another device,** and click **Apply** button to save changes.
 
 <figure><img src="../../.gitbook/assets/portsip-one-calling-device-1.png" alt=""><figcaption></figcaption></figure>
 
