@@ -17,6 +17,8 @@ As a tenant manager or normal extension user, you can also manually access and m
 3. Select a user by either clicking **Edit** or double-clicking their name.
 4. The user’s QR code will be displayed. To refresh the QR code, click on it.
 
+
+
 <figure><img src="../../.gitbook/assets/user_qr1.png" alt=""><figcaption></figcaption></figure>
 
 
@@ -38,7 +40,7 @@ The PortSIP ONE app makes logging in effortless by using a QR code. On the PortS
 
 ## Logging into the PortSIP ONE app via SSO
 
-Once you have configured the [**Microsoft 365 integration**](../../portsip-communications-solution/portsip-pbx-administration-guide/microsoft-365-integration.md) and synced Microsoft 365 users with PortSIP PBX users, you can log into the **PortSIP ONE app** using your Microsoft 365 credentials.
+Once you have configured the [**Microsoft 365 integration**](../../portsip-communications-solution/portsip-pbx-administration-guide/integrations/) and synced Microsoft 365 users with PortSIP PBX users, you can log into the **PortSIP ONE app** using your Microsoft 365 credentials.
 
 ### Prerequisites
 

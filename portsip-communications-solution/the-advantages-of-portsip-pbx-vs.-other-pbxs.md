@@ -232,7 +232,7 @@ PortSIP PBX offers a free SBC to support WebRTC and Microsoft Teams Direct Routi
 
 PortSIP PBX seamlessly integrates business communications into your cloud work environment, transforming Microsoft 365 into an enterprise-grade communications hub with a powerful and easy-to-use interface that is simple for end-users to deploy and IT to manage.
 
-For more details, please read this article: [Microsoft 365 Integration](portsip-pbx-administration-guide/microsoft-365-integration.md).
+For more details, please read this article: [Microsoft 365 Integration](portsip-pbx-administration-guide/integrations/).
 
 ## Open REST API
 
