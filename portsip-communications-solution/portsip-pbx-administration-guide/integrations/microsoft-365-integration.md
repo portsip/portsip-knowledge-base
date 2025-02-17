@@ -114,6 +114,8 @@ In the Microsoft Graph page as shown below, click on **Application permissions**
 
 Once all required permissions have been successfully granted, it will appear as shown in the screenshot below.
 
+If you want to use the MS365 mail server to send the email notifications, you have to grant the **Mail.Send** permission as well.
+
 <figure><img src="../../../.gitbook/assets/ms365-permissions-3.png" alt=""><figcaption></figcaption></figure>
 
 ### Configuring User Synchronization <a href="#h.qstanjnw2wlt" id="h.qstanjnw2wlt"></a>
