@@ -74,6 +74,12 @@ Refer to the screenshot below for further guidance.
 
 <figure><img src="../../../.gitbook/assets/extension_sms_sender_id.png" alt=""><figcaption></figcaption></figure>
 
+{% hint style="danger" %}
+**Important**: Some SMS providers such as Telnyx, they require the phone number should be the E164 foramt. Please see the below screenshot, you need to ask your SMS provider to confirm that.
+{% endhint %}
+
+<figure><img src="../../../.gitbook/assets/extension_sms_sender_id_1.png" alt=""><figcaption></figcaption></figure>
+
 #### Sending an SMS to a Contact
 
 To send an SMS to a contact using the PortSIP ONE app:
