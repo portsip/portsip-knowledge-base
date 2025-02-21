@@ -331,7 +331,7 @@ EOF
 The following command should only be executed on the EC2 **ip-172-31-16-133**.
 
 ```sh
-cd /opt/portsip-pbx-ha-guide/ && cd /bin/bash install_dependencies.sh
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash install_dependencies.sh
 ```
 
 ### Deploying PBX HA
