@@ -4,7 +4,7 @@ With the growth of your business, there might be a need to increase the size of 
 
 ## Prerequisites
 
-* The PortSIP PBX HA must be successfully configured as the article: [High Availability Installations on AWS](../../high-availability-v16.x/high-availability-and-scalability-on-aws/high-availability-installations-on-aws.md).
+* The PortSIP PBX HA must be successfully configured as in the article: [High Availability Installations on AWS](high-availability-installations-on-aws.md).
 
 ## **Back-up EBS**&#x20;
 
