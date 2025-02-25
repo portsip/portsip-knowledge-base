@@ -59,8 +59,8 @@ In this guide, we will assume that the following servers are being installed for
 
 * **Main Server**: Install the PBX HA with a **virtual IP address** of **192.168.1.130**.
 * **Server 1**: Install a media server with a private IP address of **192.168.1.131** and a static public IP of **104.101.137.60**.
-* **Server 2**: Install a queue server with an IP address of **192.168.1.32**.
-* **Server 3**: Install a meeting server with an IP address of **192.168.1.33**.
+* **Server 2**: Install a queue server with an IP address of **192.168.1.132**.
+* **Server 3**: Install a meeting server with an IP address of **192.168.1.133**.
 * **Server 4**: Install an IVR server with an IP address of 1**92.168.1.134**.
 * **Server 5**: Install an IM server with a static private IP address of **192.168.1.135** and a static public IP address of **104.101.137.61.**
 
