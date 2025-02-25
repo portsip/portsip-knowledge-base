@@ -112,7 +112,7 @@ Note: Suggest don't set the maximum of call sessions to more than 5,000.
 * **-a 192.168.1.21**: This parameter specifies the private IP address of **Server 1** (the extended media server).
 
 ```sh
-cd /opt/portsip-pbx-ha-guide/ && /bin/sh extend.sh \
+cd /opt/portsip-pbx-ha-guide/ && /bin/sh extend.sh run \
 -s media-server-only \
 -n media-server-1 \
 -a 192.168.1.21
@@ -136,7 +136,7 @@ To add a new queue server, please follow the below steps:
 * **-a 192.168.1.22**: This parameter specifies the private IP address of **Server 2** (the extended queue server).
 
 ```sh
-cd /opt/portsip-pbx-ha-guide/ && /bin/sh extend.sh \
+cd /opt/portsip-pbx-ha-guide/ && /bin/sh extend.sh run \
 -s queue-server-only \
 -n queue-server-1 \
 -a 192.168.1.22
@@ -160,7 +160,7 @@ To add a new meeting server, please follow the below steps:
 * **-a 192.168.1.23**: This parameter specifies the private IP address of **Server 3** (the extended meeting server).
 
 ```sh
-cd /opt/portsip-pbx-ha-guide/ && /bin/sh extend.sh \
+cd /opt/portsip-pbx-ha-guide/ && /bin/sh extend.sh run \
 -s meeting-server-only \
 -n meeting-server-1 \
 -a 192.168.1.23
@@ -184,7 +184,7 @@ To add a new IVR server, please follow the below steps:
 * **-a 192.168.1.24**: This parameter specifies the private IP address of **Server 4** (the extended IVR server).
 
 ```sh
-cd /opt/portsip-pbx-ha-guide/ && /bin/sh extend.sh \
+cd /opt/portsip-pbx-ha-guide/ && /bin/sh extend.sh run \
 -s vr-server-only \
 -n vr-server-1 \
 -a 192.168.1.24
@@ -193,4 +193,62 @@ cd /opt/portsip-pbx-ha-guide/ && /bin/sh extend.sh \
 Once the process is completed, the server will appear as **Online** in the PBX web portal under the menu: **Servers > IVR Servers**.
 
 **Note**: You can repeat the above steps to set up more IVR servers. If you set up multiple servers, they must not use the same server name or IP address. Especially, you must ensure that the server name specified in the commands matches the one entered on the web portal.
+
+## Managing Servers <a href="#managing-servers" id="managing-servers"></a>
+
+In the below example commands, use the parameter **-s** to specify the service name. PortSIP PBX supports these services:
+
+* media-server-only
+* queue-server-only
+* meeting-server-only
+* vr-server-only
+
+You can replace the **media-server-only** with another service name, such as mentioned above, and also need to replace the **-a 192.168.1.21** with a corresponding server IP address.
+
+{% hint style="warning" %}
+Perform the following command only on the HA PBX node **pbx01**.&#x20;
+{% endhint %}
+
+Perform the following command only on the HA PBX node **pbx01**.&#x20;
+
+### Upgrade Server <a href="#upgrade-server" id="upgrade-server"></a>
+
+First, please ensure you have upgraded the PBX HA as this guide: [Upgrading High Availability Installation](upgrading-high-availability-installation.md). After that, perform the below command to upgrade the server:
+
+```sh
+cd /opt/portsip-pbx-ha-guide/ && \
+/bin/bash extend.sh run -s media-server-only \
+-n media-server-1 \
+-a 192.168.1.21
+```
+
+### Start Server <a href="#start-server" id="start-server"></a>
+
+```sh
+ cd /opt/portsip-pbx-ha-guide/ && \
+ /bin/bash extend.sh start -s media-server-only -a 192.168.1.21
+```
+
+### Restart Server <a href="#restart-server" id="restart-server"></a>
+
+```sh
+ cd /opt/portsip-pbx-ha-guide/ && \
+ /bin/bash extend.sh restart -s media-server-only -a 192.168.1.21
+```
+
+### Stop Server <a href="#stop-server" id="stop-server"></a>
+
+```
+ cd /opt/portsip-pbx-ha-guide/ && \
+  /bin/bash extend.sh stop -s media-server-only -a 192.168.1.21
+```
+
+### Remove Server <a href="#remove-server" id="remove-server"></a>
+
+```sh
+ cd /opt/portsip-pbx-ha-guide/ && \
+ /bin/bash extend.sh rm -s media-server-only -a 192.168.1.21
+```
+
+
 
