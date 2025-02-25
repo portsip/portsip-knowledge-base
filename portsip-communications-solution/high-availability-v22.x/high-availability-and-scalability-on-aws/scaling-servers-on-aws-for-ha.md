@@ -28,10 +28,7 @@ Preparing the Linux servers(EC2 instances) for installing the application server
 
 ## **Supported Linux OS**
 
-* Ubuntu 20.04, 22.04, 24.04
-* Debian 11.x, 12.x
-
-It only supports 64-bit OS.
+* Ubuntu 24.04, it only supports 64-bit OS.
 
 ## **Preparing the Linux Host Machine for Installation**
 
@@ -99,7 +96,7 @@ Please follow the steps below to deploy the Meeting Server.
 * -n: Specify the server name that you entered in the above step 3; In case is **meeting-server-1**.
 * -a: Specify the server's private IP address, in case it's **172.31.16.137**.
 
-```
+```sh
 cd /opt/portsip-pbx-ha-guide/ && \
 /bin/bash extend.sh run -s meeting-server-only \
 -n meeting-server-1 \
@@ -124,7 +121,7 @@ Please follow the steps below to deploy the Queue Server.
 * -n: Specify the server name that you entered in the above step 3; In case is **queue-server-1**.
 * -a: Specify the server's private IP address, in case it's **172.31.16.138**.
 
-```
+```sh
 cd /opt/portsip-pbx-ha-guide/ && \
 /bin/bash extend.sh run -s queue-server-only \
 -n queue-server-1 \
@@ -149,7 +146,7 @@ Please follow the steps below to deploy the Media Server.
 * -n: Specify the server name that you entered in the above step 3; In case is **media-server-1**.
 * -a: Specify the server's private IP address, in case it's **172.31.16.139**.
 
-```
+```sh
 cd /opt/portsip-pbx-ha-guide/ && \
 /bin/bash extend.sh run -s media-server-only \
 -n media-server-1 \
@@ -174,7 +171,7 @@ Please follow the steps below to deploy the IVR Server (Virtual Receptionist).
 * -n: Specify the server name that you entered in the above step 3; In case is **vr-server-1**.
 * -a: Specify the server's private IP address, in case it's **172.31.16.140**.
 
-```
+```sh
 cd /opt/portsip-pbx-ha-guide/ && \
 /bin/bash extend.sh run -s vr-server-only \
 -n vr-server-1 \
@@ -213,16 +210,27 @@ In the commands, use the parameter **-s** to specify the service name, PortSIP P
 
 You can replace the **media-server-only** with another service name such as mentioned above, and also need to replace the **-a 172.31.16.139** with a corresponding server IP address.
 
+### Upgrade Server
+
+First, please ensure you have upgraded the PBX HA as per this guide: [Upgrade the PBX HA](upgrading-high-availability-installation.md). After that, perform the below command to upgrade the server:
+
+```sh
+cd /opt/portsip-pbx-ha-guide/ && \
+/bin/bash extend.sh run -s media-server-only \
+-n media-server-1 \
+-a 172.31.16.139
+```
+
 ### Start Server
 
-```
+```sh
  cd /opt/portsip-pbx-ha-guide/ && \
  /bin/bash extend.sh start -s media-server-only -a 172.31.16.139
 ```
 
 ### Restart Server
 
-```
+```sh
  cd /opt/portsip-pbx-ha-guide/ && \
  /bin/bash extend.sh restart -s media-server-only -a 172.31.16.139
 ```
@@ -234,21 +242,12 @@ You can replace the **media-server-only** with another service name such as ment
   /bin/bash extend.sh stop -s media-server-only -a 172.31.16.139
 ```
 
-### Upgrade Server
-
-First, please ensure you have upgraded the PBX HA as this guide: [Upgrade the PBX HA](../../high-availability-v16.x/high-availability-for-on-premise/high-availability-installations-on-ubuntu.md#upgrade-the-pbx-ha). After that, perform the below command to upgrade the server:
-
-```
-cd /opt/portsip-pbx-ha-guide/ && \
-/bin/bash extend.sh run -s media-server-only \
--n media-server-1 \
--a 172.31.16.139
-```
-
 ### Remove Server
 
 ```
  cd /opt/portsip-pbx-ha-guide/ && \
  /bin/bash extend.sh rm -s media-server-only -a 172.31.16.139
 ```
+
+For other&#x20;
 

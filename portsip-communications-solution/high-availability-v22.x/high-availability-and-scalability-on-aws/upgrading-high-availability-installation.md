@@ -1,4 +1,4 @@
-# Upgrading High Availability Installations
+# Upgrading High Availability Installation
 
 {% hint style="info" %}
 Before upgrading the PBX HA, please consult with PortSIP support to ensure the versions are compatible.
@@ -45,9 +45,10 @@ If you are currently running the PortSIP PBX v22.x HA, please follow the below s
 Perform the below command only on the EC2 instance **ip-172-31-16-133.**
 
 ```sh
-cd /opt/ && rm -rf portsip-pbx-ha-on-aws-guide-22.tar.gz \
-&& sudo wget -N https://www.portsip.com/downloads/ha/v22/portsip-pbx-ha-on-aws-guide-22.tar.gz \
-&& sudo tar xf portsip-pbx-ha-on-aws-guide-22.tar.gz
+cd /opt/ && rm -rf portsip-pbx-ha-on-aws-guide-22.tar.gz && \
+sudo wget -N \
+https://www.portsip.com/downloads/ha/v22/portsip-pbx-ha-on-aws-guide-22.tar.gz && \
+sudo tar xf portsip-pbx-ha-on-aws-guide-22.tar.gz
 ```
 
 ### **2. Update PBX**
@@ -60,6 +61,4 @@ Perform the below command only on the EC2 instance **ip-172-31-16-133 (the main 
 cd /opt/portsip-pbx-ha-guide/ && \
 /bin/bash update.sh portsip/pbx:22
 ```
-
-
 

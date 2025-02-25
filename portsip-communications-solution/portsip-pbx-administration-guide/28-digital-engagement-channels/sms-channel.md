@@ -2,16 +2,18 @@
 
 PortSIP PBX seamlessly integrates SMS functionality with the following SIP trunk providers:
 
-* Twilio
-* Vonage
-* VoIP.ms
-* QuestBlue
-* Wavix
-* Telnyx
-* Voxtelesys
-* VoIP Innovation
-* Aire Networks
-* VoiceMeUp
+* [Vonage](https://www.vonage.com/)
+* [QuestBlue](https://questblue.com/)
+* [VoIP.ms](https://voip.ms/)
+* [Voxtelesys](https://voxtelesys.com/)
+* [Bandwidth](https://www.bandwidth.com/)
+* [Flowroute](https://flowroute.com/)
+* [Wavix](https://wavix.com/)
+* [Twilio](https://www.twilio.com/en-us)
+* [Telnyx](https://telnyx.com/)
+* [VoIP Innovations](https://carrierservices.sangoma.com/)
+* [Aire Networks](https://airenetworks.es/)
+* [VoiceMeUp](https://www.voicemeup.com/)
 
 If you’re using any of these providers, setting up the SMS channel with PortSIP PBX is straightforward.
 
