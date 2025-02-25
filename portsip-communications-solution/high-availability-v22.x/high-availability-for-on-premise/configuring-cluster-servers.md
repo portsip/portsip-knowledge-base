@@ -111,7 +111,7 @@ Note: Suggest don't set the maximum of call sessions to more than 5,000.
 
 * **-s media-server-only**: This parameter indicates that only the media server should be installed.
 * **-n media-server-1**: This parameter specifies the name of the media server, which must match the name entered in step 2 above.
-* **-a 192.168.1.21**: This parameter specifies the private IP address of Server 1 (the extended media server).
+* **-a 192.168.1.21**: This parameter specifies the private IP address of **Server 1** (the extended media server).
 
 ```sh
 cd /opt/portsip-pbx-ha-guide/ && /bin/sh extend.sh \
@@ -131,11 +131,11 @@ To add a new queue server, please follow the below steps:
 
 <figure><img src="../../../.gitbook/assets/queue-server-1.png" alt=""><figcaption></figcaption></figure>
 
-4. Run the following command only on the HA PBX node **pbx01**. The process may take some time, so please be patient and wait for it to complete, don't interrupt or reboot.
+3. Run the following command only on the HA PBX node **pbx01**. The process may take some time, so please be patient and wait for it to complete, don't interrupt or reboot.
 
 * **-s queue-server-only**: This parameter indicates that only the queue server should be installed.
 * **-n queue-server-1**: This parameter specifies the name of the queue server, which must match the name entered in step 2 above.
-* **-a 192.168.1.22**: This parameter specifies the private IP address of Server 1 (the extended queue server).
+* **-a 192.168.1.22**: This parameter specifies the private IP address of **Server 2** (the extended queue server).
 
 ```sh
 cd /opt/portsip-pbx-ha-guide/ && /bin/sh extend.sh \
@@ -145,6 +145,66 @@ cd /opt/portsip-pbx-ha-guide/ && /bin/sh extend.sh \
 ```
 
 Once the process is completed, the server will appear as **Online** in the PBX web portal under the menu: **Servers > Queue Servers**.
+
+### Add Meeting Server <a href="#add-media-server" id="add-media-server"></a>
+
+To add a new meeting server, please follow the below steps:
+
+1. Select the **Servers > Meeting Servers** menu and click the **Add** button.
+2. Enter the server information as shown in the screenshot, and then click the **OK** button to save it. Please remember the server name "**meeting-server-1**", we will use it in a later step.
+
+<figure><img src="../../../.gitbook/assets/meeting-server-1.png" alt=""><figcaption></figcaption></figure>
+
+3. Run the following command only on the HA PBX node **pbx01**. The process may take some time, so please be patient and wait for it to complete, don't interrupt or reboot.
+
+* **-s meeting-server-only**: This parameter indicates that only the meeting server should be installed.
+* **-n meeting-server-1**: This parameter specifies the name of the meeting server, which must match the name entered in step 2 above.
+* **-a 192.168.1.23**: This parameter specifies the private IP address of **Server 3** (the extended meeting server).
+
+```sh
+cd /opt/portsip-pbx-ha-guide/ && /bin/sh extend.sh \
+-s meeting-server-only \
+-n meeting-server-1 \
+-a 192.168.1.23
+```
+
+Once the process is completed, the server will appear as **Online** in the PBX web portal under the menu: **Servers > Meeting Servers**.
+
+### Add Meeting Server <a href="#add-media-server" id="add-media-server"></a>
+
+To add a new IVR server, please follow the below steps:
+
+1. Select the **Servers > IVR Servers** menu and click the **Add** button.
+2. Enter the server information as shown in the screenshot, and then click the **OK** button to save it. Please remember the server name "**vr-server-1**", we will use it in a later step.
+
+<figure><img src="../../../.gitbook/assets/vr-server-1.png" alt=""><figcaption></figcaption></figure>
+
+3. Run the following command only on the HA PBX node **pbx01**. The process may take some time, so please be patient and wait for it to complete, don't interrupt or reboot.
+
+* **-s vr-server-only**: This parameter indicates that only the IVR server should be installed.
+* **-n vr-server-1**: This parameter specifies the name of the IVR server, which must match the name entered in step 2 above.
+* **-a 192.168.1.24**: This parameter specifies the private IP address of **Server 4** (the extended IVR server).
+
+```sh
+cd /opt/portsip-pbx-ha-guide/ && /bin/sh extend.sh \
+-s vr-server-only \
+-n vr-server-1 \
+-a 192.168.1.24
+```
+
+Once the process is completed, the server will appear as **Online** in the PBX web portal under the menu: **Servers > IVR Servers**.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
