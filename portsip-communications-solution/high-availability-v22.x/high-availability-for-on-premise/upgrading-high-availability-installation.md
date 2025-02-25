@@ -10,17 +10,13 @@ Please follow the below steps to upgrade your current PBX HA.
 
 Before upgrading, please back up the PBX data.
 
-1. Stop the PBX service
-
-Perform the below command only on the **pbx01.**
+1. Perform the below command **only** on the **pbx01** stop the PBX service.
 
 ```sh
 cd /opt/portsip-pbx-ha-guide && sudo /bin/bash ha_ctl.sh stop -s pbx
 ```
 
-2. Check the current master node
-
-Perform the below command only on the **pbx01.**
+2. Perform the below command only on the **pbx01** to check the current master node.
 
 ```sh
 cd /opt/portsip-pbx-ha-guide && sudo /bin/bash ha_ctl.sh master
@@ -30,9 +26,7 @@ For example, the below output indicates the current master node is **pbx01**.&#x
 
 <figure><img src="../../../.gitbook/assets/ubuntu-ha-27.png" alt=""><figcaption></figcaption></figure>
 
-3. Back up data
-
-Log in to the current master node, and back up the PBX data directory: `/var/lib/portsip`.
+3. Back up data: Log in to the current master node, and back up the PBX data directory:`/var/lib/portsip`
 
 ## Upgrading PortSIP PBX HA v16.x to v22.x
 
@@ -85,7 +79,7 @@ The PortSIP PBX application will automatically upgrade the data during the start
 
 ## Upgrading PortSIP PBX v22.x HA to the Latest Version
 
-If you currently running the PortSIP PBX v22.x HA, please follow the below steps to upgrade it to the latest version.
+If you are currently running the PortSIP PBX v22.x HA, please follow the below steps to upgrade it to the latest version.
 
 ### 1. Download and update resources
 
@@ -93,7 +87,8 @@ Perform the below command only on the **pbx01.**
 
 ```sh
   cd /opt && sudo rm -rf portsip-pbx-ha-guide-22-online.tar.gz && \
-  sudo wget -N https://www.portsip.com/downloads/ha/v22/portsip-pbx-ha-guide-22-online.tar.gz \
+  sudo wget -N \
+  https://www.portsip.com/downloads/ha/v22/portsip-pbx-ha-guide-22-online.tar.gz \
   && sudo tar xf portsip-pbx-ha-guide-22-online.tar.gz
 ```
 
