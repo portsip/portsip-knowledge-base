@@ -4,7 +4,9 @@
 This topic is only applicable to the PortSIP PBX v22.x and later versions.
 {% endhint %}
 
-This topic describes how to deploy the PortSIP PBX with cluster support for up to 1M+ users, \~50,000 online users(registered users/signed-in users), and \~10,000 simultaneous calls, support more meetings, and IVR, queue calls.
+This guide explains how to deploy the standalone PortSIP PBX with cluster support, capable of handling over 1 million users, approximately 50,000 online (registered/signed-in) users, and up to 10,000 simultaneous calls. This setup also supports heavy meetings, IVR, and call queue scenarios.
+
+If you've already deployed your PBX in High Availability (HA) mode and wish to expand to a cluster configuration, please refer to the guide in [**High Availability (v22.x)**](../high-availability-v22.x/).
 
 This article includes the following topics:
 
