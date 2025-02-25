@@ -2,16 +2,12 @@
 
 This guide explains how to configure cluster servers for a High Availability (HA) PortSIP PBX deployment, capable of supporting over 1 million users, approximately 50,000 online (registered/signed-in) users, and up to 10,000 simultaneous calls. The setup is also well-suited for high-demand scenarios, including large meetings, IVR, and call queues.
 
-## Setup the PortSIP PBX HA
+## Prerequisites
 
 Before configuring the cluster servers, please ensure that you have completed the PBX HA installation and configuration on the **Main Server** by following the guide [High Availability Installations on Ubuntu](high-availability-installations-on-ubuntu.md).
 
 {% hint style="danger" %}
 Note: In this step, just need to install the PBX only, is no need to install the IM server at this stage, as it will be installed later in this guide.
-{% endhint %}
-
-{% hint style="warning" %}
-All commands must be executed in the **`/opt/portsip`** directory.
 {% endhint %}
 
 ## Preparing Cluster Servers
@@ -24,11 +20,23 @@ We need to prepare the Linux servers for installing the following cluster applic
 * IVR servers
 * IM Server
 
+In this guide, we assume that the following servers are being installed for the cluster:
+
+* **Main Server**: Install the PBX HA with a **virtual IP address** of **192.168.1.130**.
+* **Server 1**: Install a media server with a private IP address of **192.168.1.21** and a static public IP of **104.101.137.60**.
+* **Server 2**: Install a queue server with an IP address of **192.168.1.22**.
+* **Server 3**: Install a meeting server with an IP address of **192.168.1.23**.
+* **Server 4**: Install an IVR server with an IP address of 1**92.168.1.24**.
+* **Server 5**: Install an IM server with a static private IP address of **192.168.1.25** and a static public IP address of **104.101.137.61.**
+
+{% hint style="danger" %}
+A server can only deploy one type of PortSIP server at a time. For instance, it's not allowed to deploy both the media server and queue server simultaneously on **Server 1**.
+{% endhint %}
+
 ## **Supported Linux OS**
 
-* Ubuntu 24.04
-
-It only supports 64-bit OS.
+* Ubuntu 24.04 (64-bit).
+* We recommend allocating at least 128 GB of disk space, with no need for an additional data partition.
 
 {% hint style="danger" %}
 All cluster servers must run the same version of the Linux OS as the PBX in High Availability (HA).
@@ -36,10 +44,6 @@ All cluster servers must run the same version of the Linux OS as the PBX in High
 
 {% hint style="danger" %}
 When setting up the PBX cluster, please ensure there is sufficient network speed and bandwidth between the servers. Insufficient network resources may cause the PBX to not work as expected.
-{% endhint %}
-
-{% hint style="warning" %}
-We recommend allocating at least 128GB of disk space, with no need for an additional data partition.
 {% endhint %}
 
 ## **Preparing the Linux Host Machine for Installation**
@@ -50,23 +54,10 @@ Tasks that MUST be completed before installing cluster servers.
 * If the Linux server is on a LAN, assign a **Static Private IP** address.
 * For the **media server cluster**, each media server also needs a **Static Public IP** address if you want the user to call from the Internet.
 * Install all available updates and service packs before installing the cluster server.
-* Do not install PostgreSQL on the Server.
+* Do not install PostgreSQL on the server.
 * Ensure that all power-saving options for your system and network adapters are disabled (by setting the system to High-Performance mode).
 * Do not install TeamViewer, VPN, or similar software on the host machine.
 * The server must not be installed as a DNS or DHCP server.
-
-In this guide, we will assume that the following servers are being installed for the cluster:
-
-* **Main Server**: Install the PBX HA with a **virtual IP address** of **192.168.1.130**.
-* **Server 1**: Install a media server with a private IP address of **192.168.1.131** and a static public IP of **104.101.137.60**.
-* **Server 2**: Install a queue server with an IP address of **192.168.1.132**.
-* **Server 3**: Install a meeting server with an IP address of **192.168.1.133**.
-* **Server 4**: Install an IVR server with an IP address of 1**92.168.1.134**.
-* **Server 5**: Install an IM server with a static private IP address of **192.168.1.135** and a static public IP address of **104.101.137.61.**
-
-{% hint style="danger" %}
-A server can only deploy one type of PortSIP server at a time. For instance, it's not allowed to deploy both the media server and queue server simultaneously on **Server 1**.
-{% endhint %}
 
 ## **Set password-free login for all three servers**
 
@@ -90,9 +81,70 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@192.168.1.133
 ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@192.168.1.134
 ```
 
+## Add the Cluster Servers
 
+To add the cluster servers in the web portal, sign in to the **PBX Web portal** as the system administrator.
 
+### Disable Default Servers <a href="#disable-default-servers" id="disable-default-servers"></a>
 
+The PortSIP PBX installation comes with default media, queue, meeting, and IVR servers. We recommend disabling these default servers so that the **Main Server** only handles SIP signaling, allowing it to support more users and calls.
+
+To do this, please select the **Servers** menu, expand each server type (media servers, queue servers, meeting servers, IVR servers), and turn off the default server as the below screenshot shows up.
+
+**Note:** The IM server does not need to be disabled.
+
+<figure><img src="../../../.gitbook/assets/disable-default-media-server.png" alt=""><figcaption></figcaption></figure>
+
+### Add Media Server <a href="#add-media-server" id="add-media-server"></a>
+
+To add a new media server, please follow the below steps:
+
+1. Select the **Servers > Media Servers** menu and click the **Add** button.
+2. Enter the server information as shown in the screenshot, and then click the **OK** button to save it. Please remember the server name "**media-server-1**", we will use it in a later step.
+3. If your PBX is deployed for internet users to access, it is **mandatory** to assign a **static public IP** to this extended media server. Enter the static IP address as shown in the screenshot below.
+
+Note: Suggest don't set the maximum of call sessions to more than 5,000.
+
+<figure><img src="../../../.gitbook/assets/media-server-1.png" alt=""><figcaption></figcaption></figure>
+
+4. Run the following command only on the HA PBX node **pbx01**. The process may take some time, so please be patient and wait for it to complete, don't interrupt or reboot.
+
+* **-s media-server-only**: This parameter indicates that only the media server should be installed.
+* **-n media-server-1**: This parameter specifies the name of the media server, which must match the name entered in step 2 above.
+* **-a 192.168.1.21**: This parameter specifies the private IP address of Server 1 (the extended media server).
+
+```sh
+cd /opt/portsip-pbx-ha-guide/ && /bin/sh extend.sh \
+-s media-server-only \
+-n media-server-1 \
+-a 192.168.1.21
+```
+
+Once the process is completed, the server will appear as **Online** in the PBX web portal under the menu: **Servers > Media Servers**.
+
+### Add Queue Server <a href="#add-media-server" id="add-media-server"></a>
+
+To add a new queue server, please follow the below steps:
+
+1. Select the **Servers > Queue Servers** menu and click the **Add** button.
+2. Enter the server information as shown in the screenshot, and then click the **OK** button to save it. Please remember the server name "**queue-server-1**", we will use it in a later step.
+
+<figure><img src="../../../.gitbook/assets/queue-server-1.png" alt=""><figcaption></figcaption></figure>
+
+4. Run the following command only on the HA PBX node **pbx01**. The process may take some time, so please be patient and wait for it to complete, don't interrupt or reboot.
+
+* **-s queue-server-only**: This parameter indicates that only the queue server should be installed.
+* **-n queue-server-1**: This parameter specifies the name of the queue server, which must match the name entered in step 2 above.
+* **-a 192.168.1.22**: This parameter specifies the private IP address of Server 1 (the extended queue server).
+
+```sh
+cd /opt/portsip-pbx-ha-guide/ && /bin/sh extend.sh \
+-s queue-server-only \
+-n queue-server-1 \
+-a 192.168.1.22
+```
+
+Once the process is completed, the server will appear as **Online** in the PBX web portal under the menu: **Servers > Queue Servers**.
 
 
 
