@@ -213,6 +213,7 @@
   * [High Availability for On-Premise](portsip-communications-solution/high-availability-v22.x/high-availability-for-on-premise/README.md)
     * [PortSIP PBX High Availability Architecture](portsip-communications-solution/high-availability-v22.x/high-availability-for-on-premise/portsip-pbx-high-availability.md)
     * [High Availability Installations on Ubuntu](portsip-communications-solution/high-availability-v22.x/high-availability-for-on-premise/high-availability-installations-on-ubuntu.md)
+    * [Configuring Cluster Servers](portsip-communications-solution/high-availability-v22.x/high-availability-for-on-premise/configuring-cluster-servers.md)
     * [Upgrading High Availability Installation](portsip-communications-solution/high-availability-v22.x/high-availability-for-on-premise/upgrading-high-availability-installation.md)
   * [High Availability and Scalability on AWS](portsip-communications-solution/high-availability-v22.x/high-availability-and-scalability-on-aws/README.md)
     * [PortSIP PBX High Availability Architecture](portsip-communications-solution/high-availability-v22.x/high-availability-and-scalability-on-aws/portsip-pbx-high-availability.md)
