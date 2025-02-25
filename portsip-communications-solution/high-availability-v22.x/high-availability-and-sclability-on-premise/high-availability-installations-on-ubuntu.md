@@ -43,7 +43,7 @@ We used **192.168.1.130** as the VIP (Virtual IP).
 
 The PortSIP PBX HA for Ubuntu supports the following versions:
 
-* &#x20;Ubuntu 24.04
+* &#x20;Ubuntu 24.04, 64bit.
 
 ## **Architecture**
 
