@@ -75,15 +75,19 @@ The following commands provided below should only be executed on the PBX HA node
 If you are prompted to choose an option (**yes/no**), please enter **yes**.
 
 ```sh
-ssh-copy-id -i ~/.ssh/id_rsa.pub pbx01
+ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@192.168.1.131
 ```
 
 ```sh
-ssh-copy-id -i ~/.ssh/id_rsa.pub pbx02
+ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@192.168.1.132
 ```
 
 ```sh
-ssh-copy-id -i ~/.ssh/id_rsa.pub pbx03
+ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@192.168.1.133
+```
+
+```sh
+ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@192.168.1.134
 ```
 
 
