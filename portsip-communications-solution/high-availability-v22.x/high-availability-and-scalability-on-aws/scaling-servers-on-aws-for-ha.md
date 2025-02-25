@@ -45,7 +45,7 @@ Tasks that MUST be completed before installing cluster servers.
 
 ## **Create EC2 Instances**
 
-Please follow the below steps to create the EC2 instances for the application servers. The steps are almost the same as the [High Availability Installation on AWS](../../high-availability-v16.x/high-availability-and-scalability-on-aws/high-availability-installations-on-aws.md#create-ec2-instances), but please pay attention to the below points。
+Please follow the below steps to create the EC2 instances for the application servers. The steps are almost the same as the [High Availability Installations on AWS](high-availability-installations-on-aws.md). but please pay attention to the below points。
 
 ### Meeting Server
 
@@ -53,32 +53,32 @@ Please follow the below steps to create the EC2 instances for the application se
   * Select the same VPC and Subnet used in PBX HA nodes.
   * Select the same security group used in PBX HA nodes.
   * The **Auto-assign public IP** option must be selected to **Enable**.
-* &#x20;In the **Advanced network configuration** > **Network interface 1** section, enter the IP **172.31.16.137** for the **Primary IP** field.
+* In the **Advanced network configuration** > **Network interface 1** section, enter the IP **172.31.16.137** for the **Primary IP** field.
 
 ### Queue Server
 
-* Section **Network settings：**
+* Section **Network settings:**
   * Select the same VPC and Subnet used in PBX HA nodes.
   * Select the same security group used in PBX HA nodes.
   * The **Auto-assign public IP** option must be selected to **Enable**.
-* &#x20;In the **Advanced network configuration** > **Network interface 1** section, enter the IP **172.31.16.138** for the **Primary IP** field.
+* In the **Advanced network configuration** > **Network interface 1** section, enter the IP **172.31.16.138** for the **Primary IP** field.
 
 ### Media Server
 
-* Section **Network settings：**
+* Section **Network settings:**
   * Select the same VPC and Subnet used in PBX HA nodes.
   * Select the same security group used in PBX HA nodes.
   * The **Auto-assign public IP** option must be selected to **Enable**.
-* &#x20;In the **Advanced network configuration** > **Network interface 1** section, enter the IP **172.31.16.139** for the **Primary IP** field.
+* In the **Advanced network configuration** > **Network interface 1** section, enter the IP **172.31.16.139** for the **Primary IP** field.
 * Allocate an Elastic IP and associate this Elastic IP address to this EC2 instance for this media server. In this example, it's  **54.215.234.52**.
 
 ### IVR Server
 
-* Section **Network settings：**
+* Section **Network settings:**
   * Select the same VPC and Subnet used in PBX HA nodes.
   * Select the same security group used in PBX HA nodes.
   * The **Auto-assign public IP** option must be selected to **Enable**.
-* &#x20;In the **Advanced network configuration** > **Network interface 1** section, enter the IP **172.31.16.140** for the **Primary IP** field.
+* In the **Advanced network configuration** > **Network interface 1** section, enter the IP **172.31.16.140** for the **Primary IP** field.
 
 ## Deploying Meeting Server
 
@@ -86,7 +86,7 @@ Please follow the steps below to deploy the Meeting Server.
 
 1. Sign in to the PortSIP BPX web portal as the system administrator.
 2. Select the menu **Servers > Meeting Servers**.
-3. click the **Add** button, enter the server information as shown in the screenshot then click the **OK** button to save it. Please remember the server name **meeting-server-1**, we will use it in a later step.
+3. Click the **Add** button, enter the server information as shown in the screenshot then click the **OK** button to save it. Please remember the server name **meeting-server-1**, we will use it in a later step.
 
 <figure><img src="../../../.gitbook/assets/aws_ha_extend_meeting_1.png" alt=""><figcaption></figcaption></figure>
 
@@ -201,7 +201,7 @@ To do this, please follow the below steps:
 
 Perform the below commands on the PBX HA node **ip-172-31-16-133** only.&#x20;
 
-In the commands, use the parameter **-s** to specify the service name, PortSIP PBX supports these services:
+In the below media sever example commands, use the parameter **-s** to specify the service name, PortSIP PBX supports these services:
 
 * media-server-only
 * queue-server-only
@@ -212,7 +212,7 @@ You can replace the **media-server-only** with another service name such as ment
 
 ### Upgrade Server
 
-First, please ensure you have upgraded the PBX HA as per this guide: [Upgrade the PBX HA](upgrading-high-availability-installation.md). After that, perform the below command to upgrade the server:
+First, please ensure you have upgraded the PBX HA as per this guide: [Upgrading High Availability Installation](upgrading-high-availability-installation.md). After that, perform the below command to upgrade the server:
 
 ```sh
 cd /opt/portsip-pbx-ha-guide/ && \
@@ -249,5 +249,5 @@ cd /opt/portsip-pbx-ha-guide/ && \
  /bin/bash extend.sh rm -s media-server-only -a 172.31.16.139
 ```
 
-For other&#x20;
+
 

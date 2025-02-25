@@ -1,4 +1,4 @@
-# Configuring Cluster Servers
+# Scaling Servers on AWS for On-Premise
 
 This guide explains how to configure cluster servers for a High Availability (HA) PortSIP PBX deployment, capable of supporting over 1 million users, approximately 50,000 online (registered/signed-in) users, and up to 10,000 simultaneous calls. The setup is also well-suited for high-demand scenarios, including large meetings, IVR, and call queues.
 
@@ -196,7 +196,7 @@ Once the process is completed, the server will appear as **Online** in the PBX w
 
 ## Managing Servers <a href="#managing-servers" id="managing-servers"></a>
 
-In the below example commands, use the parameter **-s** to specify the service name. PortSIP PBX supports these services:
+In the below media server example commands, use the parameter **-s** to specify the service name. PortSIP PBX supports these services:
 
 * media-server-only
 * queue-server-only
