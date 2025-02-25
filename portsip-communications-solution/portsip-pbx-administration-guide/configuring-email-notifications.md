@@ -1,4 +1,4 @@
-# Configuring Email Notifications
+# 31 Configuring Email Notifications
 
 Email notification is a feature used to send an email notification about a range of specific activities occurring in your PBX. For example, it can be used to notify the user when a new voicemail is generated.
 

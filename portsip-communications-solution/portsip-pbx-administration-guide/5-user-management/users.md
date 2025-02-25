@@ -97,7 +97,7 @@ Choose whether the extension will use **Global Office Hours** or **Specific Offi
 
 The time shift **00:00-23:59** indicates that the entire day is open for business, whereas **00:00-00:00** indicates that the entire day is closed.
 
-For more details about the Office Hours and Holidays, please read the [Office Hours and Holiday Schedule](../30-office-hours-and-holiday-schedule/).
+For more details about the Office Hours and Holidays, please read the [Office Hours and Holiday Schedule](../office-hours-and-holiday-schedule/).
 
 ## Phone Provisioning
 

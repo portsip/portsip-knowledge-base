@@ -7,7 +7,7 @@ To join a PortSIP meeting, you may receive an invite link through email, message
 ## Prerequisites
 
 * Ensure that PortSIP SBC is installed and configured for WebRTC. Please refer to this article: [Configuring SBC for WebRTC](../9-configuring-portsip-sbc/).
-* If you want to send the meeting invitation via email, ensure that the SMTP server is configured as described in this article: [Configuring Email Notifications](../31-configuring-email-notifications.md).
+* If you want to send the meeting invitation via email, ensure that the SMTP server is configured as described in this article: [Configuring Email Notifications](../configuring-email-notifications.md).
 
 ## Create Meeting
 

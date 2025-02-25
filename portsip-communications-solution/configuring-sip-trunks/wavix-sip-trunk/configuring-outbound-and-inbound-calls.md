@@ -51,7 +51,7 @@ In order to receive inbound calls you need to configure Inbound Rules. Go to **C
 
 <figure><img src="../../../.gitbook/assets/wavix-fig25.png" alt="" width="563"><figcaption></figcaption></figure>
 
-Click **OK** to save the rule. Depending on your business needs, you may set specific office hours for the rule and route calls to different extensions, and voice mailbox or automatically drop the call based on the schedule. Please reference the article [Office Hours and Holiday Schedule](../../portsip-pbx-administration-guide/30-office-hours-and-holiday-schedule/) for more details.
+Click **OK** to save the rule. Depending on your business needs, you may set specific office hours for the rule and route calls to different extensions, and voice mailbox or automatically drop the call based on the schedule. Please reference the article [Office Hours and Holiday Schedule](../../portsip-pbx-administration-guide/office-hours-and-holiday-schedule/) for more details.
 
 ### Configure Route in Wavix
 

@@ -144,7 +144,7 @@ If you are upgrading from v16.x to v22.x, please follow these steps after your u
 
 * **Re-generate User QR Codes:**
   * Go to **Call Manager > Users** and click the **Send All Welcome Email** button. The PBX will then re-generate QR codes for all users, allowing the PortSIP ONE app to sign in successfully.
-* **Reconfigure Microsoft 365 Integration:** If you have configured Microsoft 365 integration on v16.x, follow the [**Microsoft 365 Integration Guide**](../../29-integrations/) to configure it again:&#x20;
+* **Reconfigure Microsoft 365 Integration:** If you have configured Microsoft 365 integration on v16.x, follow the [**Microsoft 365 Integration Guide**](../../integrations/) to configure it again:&#x20;
   * Remove all previously configured callback URIs in Microsoft 365.
   * Add the two new callback URIs as described in the guide.
 * **Must log in to** the PBX web portal as a tenant administrator for each tenant and navigate to **Advanced > Contacts**. Select any contact, make an edit, and click **OK**. This action will prompt the PBX to generate an XML phone book for your IP phones, allowing them to download it successfully.
