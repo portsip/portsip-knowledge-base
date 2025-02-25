@@ -6,7 +6,7 @@ This guide provides a detailed, step-by-step process for scaling application ser
 
 ## Prerequisites
 
-* The PortSIP PBX HA must be successfully deployed as the article: [High Availability Installations on AWS](../../high-availability-v16.x/high-availability-and-scalability-on-aws/high-availability-installations-on-aws.md).
+* The PortSIP PBX HA must be successfully deployed as the article: [High Availability Installations on AWS](high-availability-installations-on-aws.md).
 * Please read the guide [PBX Cluster](../../pbx-cluster/) before processing.
 * Currently, the PortSIP PBX supports the scale of the following application servers:
   * Media Server
