@@ -126,7 +126,7 @@ In the overlay that appears, click **CONFIRM** to publish your app.
 
 Once confirmation is complete, you’ll see that your app’s Publishing status is now **In production**.
 
-### Granting Google / Gmail Permissions <a href="#permissions" id="permissions"></a>
+## Granting Google / Gmail Permissions <a href="#permissions" id="permissions"></a>
 
 Next, click on **Credentials** in the left side menu, and you will be on the **Credentials** page, in the **OAuth 2.0 Client IDs** section, you can see the details of the web application you just created. To view the **Client ID** and **Client Secret**, click the app name.
 
