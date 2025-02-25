@@ -18,7 +18,6 @@ We need to prepare the Linux servers for installing the following cluster applic
 * Queue Servers
 * Meeting Servers
 * IVR servers
-* IM Server
 
 In this guide, we assume that the following servers are being installed for the cluster:
 
@@ -27,7 +26,6 @@ In this guide, we assume that the following servers are being installed for the 
 * **Server 2**: Install a queue server with an IP address of **192.168.1.22**.
 * **Server 3**: Install a meeting server with an IP address of **192.168.1.23**.
 * **Server 4**: Install an IVR server with an IP address of 1**92.168.1.24**.
-* **Server 5**: Install an IM server with a static private IP address of **192.168.1.25** and a static public IP address of **104.101.137.61.**
 
 {% hint style="danger" %}
 A server can only deploy one type of PortSIP server at a time. For instance, it's not allowed to deploy both the media server and queue server simultaneously on **Server 1**.
@@ -66,19 +64,19 @@ The following commands provided below should only be executed on the PBX HA node
 If you are prompted to choose an option (**yes/no**), please enter **yes**.
 
 ```sh
-ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@192.168.1.131
+ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@192.168.1.21
 ```
 
 ```sh
-ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@192.168.1.132
+ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@192.168.1.22
 ```
 
 ```sh
-ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@192.168.1.133
+ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@192.168.1.23
 ```
 
 ```sh
-ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@192.168.1.134
+ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@192.168.1.24
 ```
 
 ## Add the Cluster Servers
@@ -170,7 +168,7 @@ cd /opt/portsip-pbx-ha-guide/ && /bin/sh extend.sh \
 
 Once the process is completed, the server will appear as **Online** in the PBX web portal under the menu: **Servers > Meeting Servers**.
 
-### Add Meeting Server <a href="#add-media-server" id="add-media-server"></a>
+### Add IVR Server <a href="#add-media-server" id="add-media-server"></a>
 
 To add a new IVR server, please follow the below steps:
 
@@ -194,19 +192,5 @@ cd /opt/portsip-pbx-ha-guide/ && /bin/sh extend.sh \
 
 Once the process is completed, the server will appear as **Online** in the PBX web portal under the menu: **Servers > IVR Servers**.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+**Note**: You can repeat the above steps to set up more IVR servers. If you set up multiple servers, they must not use the same server name or IP address. Especially, you must ensure that the server name specified in the commands matches the one entered on the web portal.
 
