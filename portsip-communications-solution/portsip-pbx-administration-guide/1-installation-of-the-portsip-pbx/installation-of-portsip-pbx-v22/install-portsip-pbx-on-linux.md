@@ -41,7 +41,7 @@ If the PBX runs on a cloud platform such as AWS and the cloud platform has its f
 
 ## Installing PortSIP PBX
 
-## Step 1: Download Installation Scripts
+### Step 1: Download Installation Scripts
 
 {% hint style="warning" %}
 All commands must be executed in the **`/opt/portsip`** directory.
@@ -203,23 +203,27 @@ After adding a new transport protocol, be sure to update your firewall rules to 
 
 To enable email notifications in PortSIP PBX for system alerts, you must configure the SMTP settings. Once a critical event occurs in the PBX, alert emails will be sent to the specified **Recipients**.
 
-<figure><img src="../../../../.gitbook/assets/system-notifications-smtp.png" alt="" width="563"><figcaption></figcaption></figure>
-
 #### Generic
 
-For other generic SMTP providers that are not Google or Microsoft, please set it up as per the provider's instructions.
+For other generic SMTP providers that are not Google or Microsoft, please set it up as per the provider's instructions. For some users, SMTP authentication is done by IP address rather than by username and password. In this case, select **NONE** for the **Authentication Mode** field.
 
-#### Google
+<figure><img src="../../../../.gitbook/assets/mail-server-settings-1.png" alt="" width="563"><figcaption></figcaption></figure>
 
-If you’re using Google’s SMTP server, ensure that **less secure apps** is enabled for your Gmail account. For more details, refer to Google's documentation:
+#### Google Gmail
 
-[Less secure apps & your Google Account ](https://support.google.com/accounts/answer/6010255?hl=en)
+You can choose to use Google Gmail as the email service provider. Enter the username (usually your email address), the sender’s email, and the recipient emails.
 
-For the Google SMTP server, there are already preconfigured parameters; you will just need to enter your credentials and other personal information.
+Since Google has disabled third-party apps from sending emails using a username and password, after saving the settings, you will need to complete the [Google Integration](../../integrations/google-workspace-integration.md) process to enable the PBX to send emails via Gmail using OAuth.
+
+<figure><img src="../../../../.gitbook/assets/mail-server-settings-2.png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### Microsoft 365
 
-For the Microsoft 365 SMTP server, there are already preconfigured parameters; you will just need to enter your credentials and other personal information.
+You can choose to use Microsoft 365 as the email service provider. Enter the username (usually your email address), the sender’s email, and the recipient emails.
+
+Since Microsoft has disabled third-party apps from sending emails using a username and password, after saving the settings, you will need to complete the [Microsoft 365 Integration](../../integrations/microsoft-365-integration.md) process to enable the PBX to send emails via Microsoft 365 using OAuth.
+
+<figure><img src="../../../../.gitbook/assets/mail-server-settings-3.png" alt="" width="563"><figcaption></figcaption></figure>
 
 ### Step 5: Install Instant Messaging Service
 
