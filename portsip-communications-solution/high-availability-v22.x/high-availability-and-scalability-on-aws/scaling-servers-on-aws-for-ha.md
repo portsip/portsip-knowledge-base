@@ -1,4 +1,4 @@
-# Scaling Servers on AWS for HA
+# Scaling Servers on AWS for High Availability
 
 PortSIP PBX offers application server scaling capabilities to accommodate an increasing number of users and calls, thereby catering to your evolving business needs. For more information, please refer to the [PBX Cluster](../../pbx-cluster/) article.&#x20;
 

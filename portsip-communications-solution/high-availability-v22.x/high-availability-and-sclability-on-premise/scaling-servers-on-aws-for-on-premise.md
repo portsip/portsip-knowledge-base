@@ -1,4 +1,4 @@
-# Scaling Servers on AWS for On-Premise
+# Scaling Servers On-Premise for High Availability
 
 This guide explains how to configure cluster servers for a High Availability (HA) PortSIP PBX deployment, capable of supporting over 1 million users, approximately 50,000 online (registered/signed-in) users, and up to 10,000 simultaneous calls. The setup is also well-suited for high-demand scenarios, including large meetings, IVR, and call queues.
 
