@@ -51,7 +51,7 @@ In order to receive inbound calls you need to configure Inbound Rules. Go to **C
 
 <figure><img src="../../../.gitbook/assets/wavix-fig25.png" alt="" width="563"><figcaption></figcaption></figure>
 
-Click **OK** to save the rule. Depending on your business needs, you may set specific office hours for the rule and route calls to different extensions, and voice mailbox or automatically drop the call based on the schedule. Please reference the article [Office Hours and Holiday Schedule](../../portsip-pbx-administration-guide/office-hours-and-holiday-schedule/) for more details.
+Click **OK** to save the rule. Depending on your business needs, you may set specific office hours for the rule and route calls to different extensions, and voice mailbox or automatically drop the call based on the schedule. Please reference the article [Office Hours and Holiday Schedule](../../portsip-pbx-administration-guide/30-office-hours-and-holiday-schedule/) for more details.
 
 ### Configure Route in Wavix
 
@@ -96,8 +96,8 @@ Please follow the below steps to configure the routing:
 
 For example, if your PortSIP PBX domain is `sip.yourpbx.com`, and the PBX static IP is `98.11.99.12`, and the PBX uses port 5060 over UDP to communicate with Wavix trunk, the SIP URI can be one of the below formats:
 
-* \+did@sip.yourpbx.com:5060;transport=udp
-* \+did@98.11.99.12:5060;transport=udp
+* +did@sip.yourpbx.com:5060;transport=udp
+* +did@98.11.99.12:5060;transport=udp
 
 6. Click **Add** to add the destination for the DID
 7. Click **Save** to apply settings

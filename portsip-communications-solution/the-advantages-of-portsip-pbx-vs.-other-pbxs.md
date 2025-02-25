@@ -219,7 +219,7 @@ PortSIP PBX offers a great feature called **Dealers** for the above scenario tha
 
 ## Flexibility Office Hours and Holidays
 
-PortSIP PBX offers flexible office hours and holiday schedules for tenants located in different countries around the world to meet their local usage. For more details, please read the article: [Office Hours and Holiday Schedule](portsip-pbx-administration-guide/office-hours-and-holiday-schedule/).
+PortSIP PBX offers flexible office hours and holiday schedules for tenants located in different countries around the world to meet their local usage. For more details, please read the article: [Office Hours and Holiday Schedule](portsip-pbx-administration-guide/30-office-hours-and-holiday-schedule/).
 
 ## Free SBC
 
@@ -232,7 +232,7 @@ PortSIP PBX offers a free SBC to support WebRTC and Microsoft Teams Direct Routi
 
 PortSIP PBX seamlessly integrates business communications into your cloud work environment, transforming Microsoft 365 into an enterprise-grade communications hub with a powerful and easy-to-use interface that is simple for end-users to deploy and IT to manage.
 
-For more details, please read this article: [Microsoft 365 Integration](portsip-pbx-administration-guide/integrations/).
+For more details, please read this article: [Microsoft 365 Integration](portsip-pbx-administration-guide/29-integrations/).
 
 ## Open REST API
 

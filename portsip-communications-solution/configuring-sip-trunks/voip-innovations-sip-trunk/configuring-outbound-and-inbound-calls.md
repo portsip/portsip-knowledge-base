@@ -43,7 +43,7 @@ In order to receive inbound calls, you need to configure Inbound Rules. Go to **
 
 <figure><img src="../../../.gitbook/assets/vi_trunk_5.png" alt=""><figcaption></figcaption></figure>
 
-Click **OK** to save the rule. Depending on your business needs, you may set specific office hours for the rule and route calls to different extensions, and voice mailbox or automatically drop the call based on the schedule. Please reference the article [Office Hours and Holiday Schedule](../../portsip-pbx-administration-guide/office-hours-and-holiday-schedule/) for more details.
+Click **OK** to save the rule. Depending on your business needs, you may set specific office hours for the rule and route calls to different extensions, and voice mailbox or automatically drop the call based on the schedule. Please reference the article [Office Hours and Holiday Schedule](../../portsip-pbx-administration-guide/30-office-hours-and-holiday-schedule/) for more details.
 
 Please make sure that all your VoIP Innovations DIDs are set up in the DID Pool of the VoIP Innovations Trunk you configured in the PortSIP PBX.
 
