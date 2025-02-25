@@ -1,22 +1,45 @@
 # 31 Configuring Email Notifications
 
-Email notification is a feature used to send an email notification about a range of specific activities occurring in your PBX. For example, it can be used to notify the user when a new voicemail is generated.
+Email notifications are used to send alerts about specific activities occurring in your PBX. For example, you can configure notifications to inform users when a new voicemail is received.
 
-Email notifications can be customized by setting some custom variables.
+These notifications can be customized by setting various custom parameters.
 
 ## System Administrator Level
 
-### Setting Up SMTP Server
+### Setting Up Mail Servers
 
-In order to send email notifications for system events to the system administrator, the SMTP server must be correctly configured.&#x20;
+In order to send email notifications for system events to the system administrator, the mail server must be correctly configured.&#x20;
 
 1. Sign in as System Administrator
 2. Select the menu **Advanced > System Notifications,** and click the **Mail Server** tab.
-3. Enter your SMTP server domain/address and port.
-4. **Reply Email Address**: the email of the sender.
-5. Enter the username and password.
-6. **Recipients**: enter the recipients' email addresses, and separate them by a semicolon.
-7. **Enable TLS/SSL**: turn on this option if your SMTP requires TLS/SSL.
+
+From here, you can set the mail server settings for different email service providers.
+
+#### Generic
+
+For other generic SMTP providers that are not Google or Microsoft, please set it up as per the provider's instructions. For some users, SMTP authentication is done by IP address rather than by username and password. In this case, select **NONE** for the **Authentication Mode** field.
+
+<figure><img src="../../.gitbook/assets/mai-server-admin-1.png" alt=""><figcaption></figcaption></figure>
+
+#### Google Gmail
+
+You can choose to use Google Gmail as the email service provider. Enter the username (usually your email address), the sender’s email, and the recipient emails.
+
+Since Google has disabled third-party apps from sending emails using a username and password, after saving the settings, you will need to complete the [Google Integration](https://support.portsip.com/portsip-communications-solution/portsip-pbx-administration-guide/29-integrations/google-workspace-integration) process to enable the PBX to send emails via Gmail using OAuth.
+
+<figure><img src="../../.gitbook/assets/mai-server-admin-2.png" alt=""><figcaption></figcaption></figure>
+
+#### Microsoft 365
+
+You can choose to use Microsoft 365 as the email service provider. Enter the username (usually your email address), the sender’s email, and the recipient emails.
+
+Since Microsoft has disabled third-party apps from sending emails using a username and password, after saving the settings, you will need to complete the [Microsoft 365 Integration](https://support.portsip.com/portsip-communications-solution/portsip-pbx-administration-guide/29-integrations/microsoft-365-integration) process to enable the PBX to send emails via Microsoft 365 using OAuth.
+
+<figure><img src="../../.gitbook/assets/mai-server-admin-3.png" alt=""><figcaption></figcaption></figure>
+
+#### Apply Mail Settings to Tenants
+
+There is an option "**Apply the mail server settings to all tenants.".** When it is enabled, the PBX will use the System Administrator’s email settings to send notification emails to tenants who have not configured their own mail server.
 
 ### Configure Notifications
 
@@ -33,8 +56,6 @@ Emails containing the quota reports and other events reported in the following f
 * An IP has been blacklisted - Turn on/off to enable email notification once an IP was blocked.
 * The license limit is reached - Turn on/off to enable email notification once the license limit is reached.
 * PBX Services are stopped or fail  - Turn on/off to enable email notification once one of the PBX services is stopped or fails.
-
-
 
 ## Tenant Level
 

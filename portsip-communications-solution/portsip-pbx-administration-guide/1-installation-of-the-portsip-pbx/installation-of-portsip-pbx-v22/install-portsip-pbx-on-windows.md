@@ -137,28 +137,6 @@ After adding a new transport protocol, be sure to update your firewall rules to 
 
 <figure><img src="../../../../.gitbook/assets/setup_wizard_3.png" alt=""><figcaption></figcaption></figure>
 
-#### 4. System Notifications
-
-To enable email notifications in PortSIP PBX for system alerts, you must configure the SMTP settings. Once a critical event occurs in the PBX, alert emails will be sent to the specified **Recipients**.
-
-<figure><img src="../../../../.gitbook/assets/system-notifications-smtp.png" alt="" width="563"><figcaption></figcaption></figure>
-
-#### Generic
-
-For other generic SMTP providers that are not Google or Microsoft, please set it up as per the provider's instructions.
-
-#### Google
-
-If you’re using Google’s SMTP server, ensure that **less secure apps** is enabled for your Gmail account. For more details, refer to Google's documentation:
-
-[Less secure apps & your Google Account ](https://support.google.com/accounts/answer/6010255?hl=en)
-
-For the Google SMTP server, there are already preconfigured parameters; you will just need to enter your credentials and other personal information.
-
-#### Microsoft 365
-
-For the Microsoft 365 SMTP server, there are already preconfigured parameters; you will just need to enter your credentials and other personal information.
-
 ### Step 3: Configuring Instant Messaging Service
 
 Starting with version 22.0, PortSIP PBX introduces an Instant Messaging (IM) service, offering modern features such as group chat. The IM service requires a separate configuration step.
