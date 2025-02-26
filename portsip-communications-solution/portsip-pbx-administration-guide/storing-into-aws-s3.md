@@ -1,23 +1,21 @@
 # Storing Into AWS S3
 
-## Overview&#x20;
+With PortSIP PBX, you can configure your system to store call recordings and compositions directly to your own Amazon Web Services (AWS) S3 bucket, instead of using local disk storage. This guide will walk you through setting up your AWS account or project to leverage this feature.
 
-With PortSIP PBX, you can write your Video Recordings and Compositions to your own AWS (Amazon Web Services) S3 bucket, rather than a local disk. This guide explains how you can set up your own account or project to use this capability.
+**Note:** Once external S3 storage is enabled, PortSIP PBX will stop storing uploaded files (such as voice prompts, profile pictures, and audio/video recordings) on the local disk. You will then be responsible for managing the security and lifecycle of your recorded content.
 
-Note: Once you activate external S3 storage, PortSIP PBX will stop storing uploaded files (voice prompts, profile pictures, audio/video recordings) into the local disk. It will be your responsibility to manage the security and lifecycle of your recorded content.
+Use this feature if you need to comply with regulatory requirements that prohibit reliance on third-party storage solutions.
 
-Use this feature when you need to meet compliance requirements that exclude reliance on third-party storage.
+**Warning:** Please be aware of the following considerations when configuring Amazon S3 storage for your recordings:
 
-**Warning**: Once you configure the PBX to store recording files using Amazon S3, please be aware of the following:
+* Historical recordings stored on the local disk of the PBX server will no longer be accessible after S3 storage is activated. Therefore, it is recommended to configure Amazon S3 storage before making or receiving calls.
+* Once the "**Store to S3**" option is activated, do not disable it. Disabling this feature will prevent the PBX from accessing historical recordings and will disrupt the process of storing new recordings on Amazon S3.
 
-1. The historical recordings stored on the PBX server’s local disk will no longer be accessible. Therefore, it is recommended to set up Amazon S3 storage before you start making and receiving calls.
-2. Do not turn off the **Store to S3** option once it is activated. This would prevent PBX from accessing historical recordings and interrupt the process of storing new recordings in Amazon S3.
-
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## Prerequisites
 
 * Debian 11/12, Ubuntu 22.04/24.04, 64-bit
-* PortSIP PBX is deployed on AWS EC2
-* AWS EC2 instance(s) located within the same region as S3
+* PortSIP PBX deployed on AWS EC2
+* AWS EC2 instance(s) located in the same region as your S3 bucket
 
 ## Step 1: Create an IAM group and user <a href="#create-an-iam-group-and-user" id="create-an-iam-group-and-user"></a>
 

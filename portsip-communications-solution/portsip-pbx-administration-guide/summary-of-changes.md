@@ -43,9 +43,7 @@ Date: Feb 26, 2025
 
 ### Bug Fixes
 
-1. **Fixed Bug in Test Email Recipient Handling**\
-   Fixed a bug where entering multiple email recipients when sending a test email caused failure.
-2. **Trunk ACK Delay Handling**\
+1. **Trunk ACK Delay Handling**\
    Fixed a bug where slow ACK responses from the trunk to the PBX prevented calls from being offered to queue agents.
 
 ## Changes for Release v22.0.42

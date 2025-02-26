@@ -1,57 +1,24 @@
 # Storing Into Azure Blob Storage
 
-## Overview&#x20;
+With PortSIP PBX, you can configure your system to store call recordings and compositions directly to your own Azure Blob Storage, instead of using local disk storage. This guide will walk you through setting up your AWS account or project to leverage this feature.
 
-With PortSIP PBX, you can write your Video Recordings and Compositions to your own AWS (Amazon Web Services) S3 bucket, rather than a local disk. This guide explains how you can set up your own account or project to use this capability.
+**Note:** Once external Azure Blob Storage is enabled, PortSIP PBX will stop storing uploaded files (such as voice prompts, profile pictures, and audio/video recordings) on the local disk. You will then be responsible for managing the security and lifecycle of your recorded content.
 
-Note: Once you activate external S3 storage, PortSIP PBX will stop storing uploaded files (voice prompts, profile pictures, audio/video recordings) into the local disk. It will be your responsibility to manage the security and lifecycle of your recorded content.
+Use this feature if you need to comply with regulatory requirements that prohibit reliance on third-party storage solutions.
 
-Use this feature when you need to meet compliance requirements that exclude reliance on third-party storage.
+**Warning:** Please be aware of the following considerations when configuring Azure Blob Storage for your recordings:
 
-**Warning**: Once you configure the PBX to store recording files using Amazon S3, please be aware of the following:
+* Historical recordings stored on the local disk of the PBX server will no longer be accessible after Azure Blob Storage is activated. Therefore, it is recommended to configureAzure Blob Storage before making or receiving calls.
+* Once the "**Azure Blob Storage**" option is activated, do not disable it. Disabling this feature will prevent the PBX from accessing historical recordings and will disrupt the process of storing new recordings on Azure Blob Storage.
 
-1. The historical recordings stored on the PBX server’s local disk will no longer be accessible. Therefore, it is recommended to set up Amazon S3 storage before you start making and receiving calls.
-2. Do not turn off the **Store to S3** option once it is activated. This would prevent PBX from accessing historical recordings and interrupt the process of storing new recordings in Amazon S3.
-
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## Prerequisites
 
 * Debian 11/12, Ubuntu 22.04/24.04, 64-bit
-* PortSIP PBX is deployed on AWS EC2
-* AWS EC2 instance(s) located within the same region as S3
+* We recommend deploying the PortSIP PBX on Azure to get the best performance
 
 ## Step 1: Create an IAM group and user <a href="#create-an-iam-group-and-user" id="create-an-iam-group-and-user"></a>
 
-1. Navigate to the **Identity and Access Management (IAM)** menu, select **Access Management**, and then click on the **Add User** button.&#x20;
-2. Input a name for the user, such as **s3store**, select **Programmatic Access**, and then click **Next**.
-
-![](../../.gitbook/assets/iam_s3.png)
-
-3\. Click on the **Create group** button to create a new group.
-
-![](../../.gitbook/assets/iam_s3_group.png)
-
-{% hint style="info" %}
-You can choose to add this user to an existing group rather than create a new group but must grant **AmazonS3FullAccess** permission to this existing group.
-{% endhint %}
-
-4\. Enter a name for the group, for example, **portsip-pbx-s3**, Choose **AmazonS3FullAccess** Policy name, and click the **Create group** button.
-
-![](../../.gitbook/assets/iam_s3_2.png)
-
-5. Once the group is successfully created, select it and click the **Next** button. You have the option to add tags to this user, or you can simply skip this step by clicking the **Next** button.
-6. After the user is successfully added, make sure to note down the **Access Key ID** and **Secret Access Key** as shown.
-
-![](../../.gitbook/assets/iam_s3_1.png)
-
-## Step 2: Create an S3 bucket <a href="#create-s3-bucket" id="create-s3-bucket"></a>
-
-* Navigate to the **Amazon S3** menu and click on the **Create Bucket** button to establish the S3 service that PortSIP PBX will utilize for storing recording files. Please pay attention to the **Buket name**, **AWS Region**, and the **Object Ownership** as the below screenshot.&#x20;
-* The AWS Region must be chosen as the same region with your PBX installed. Remember to make note of the following, which you will need later:
-  * The _bucket-name_.&#x20;
-  * The _bucket-region_. This is the AWS region where your S3 bucket is located.
-* Click on the **Create** button then the S3 bucket will be created.
-
-<figure><img src="../../.gitbook/assets/aws3-1.png" alt=""><figcaption></figcaption></figure>
+1.
 
 ## Step 3: Modify the PortSIP PBX settings <a href="#change-the-portsip-pbx-settings" id="change-the-portsip-pbx-settings"></a>
 
