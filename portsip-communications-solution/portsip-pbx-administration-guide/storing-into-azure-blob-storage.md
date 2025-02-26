@@ -16,11 +16,41 @@ Use this feature if you need to comply with regulatory requirements that prohibi
 * Debian 11/12, Ubuntu 22.04/24.04, 64-bit
 * We recommend deploying the PortSIP PBX on Azure to get the best performance
 
-## Step 1: Create an IAM group and user <a href="#create-an-iam-group-and-user" id="create-an-iam-group-and-user"></a>
+## Step 1: Create Storage Account <a href="#create-an-iam-group-and-user" id="create-an-iam-group-and-user"></a>
 
-1.
+1. Sign the [Azure web portal](https://portal.azure.com/).
+2. Select the menu Storage accounts, then click **Create**.
 
-## Step 3: Modify the PortSIP PBX settings <a href="#change-the-portsip-pbx-settings" id="change-the-portsip-pbx-settings"></a>
+<figure><img src="../../.gitbook/assets/azure-storage-1.png" alt=""><figcaption></figcaption></figure>
+
+3. In the **Basic** tab, fill in the **Storage Account Name** field and note down it, as you will need it in a later step.
+4. For the **Primary Service**, select **Azure Blob Storage** **or Azure Data Lake Storage Gen 2**.
+5. Follow the page instructions and select the appropriate values for the remaining fields.
+6. Click the **Next** button to complete the creation process.
+
+<figure><img src="../../.gitbook/assets/azure-storage-2.png" alt=""><figcaption></figcaption></figure>
+
+## Step 2: Create the Container <a href="#change-the-portsip-pbx-settings" id="change-the-portsip-pbx-settings"></a>
+
+Now, follow these steps to create the storage container:
+
+1. Double-click the **Storage Account** you created in the previous steps.
+2. In the **Data Storage** menu, click **+ Container**.
+
+<figure><img src="../../.gitbook/assets/azure-storage-3.png" alt=""><figcaption></figcaption></figure>
+
+3. Enter a name for the container, make a note of the container name, and click the **Create** button.
+
+<figure><img src="../../.gitbook/assets/azure-storage-4.png" alt=""><figcaption></figcaption></figure>
+
+## Step 3: Retrieve the Access Key <a href="#change-the-portsip-pbx-settings" id="change-the-portsip-pbx-settings"></a>
+
+1. Navigate to the **Security + Networking** menu.
+2. There are two keys available. Click **Show** for either key, then copy it.
+
+<figure><img src="../../.gitbook/assets/azure-storage-5.png" alt=""><figcaption></figcaption></figure>
+
+## Step 4: Modify the PortSIP PBX settings <a href="#change-the-portsip-pbx-settings" id="change-the-portsip-pbx-settings"></a>
 
 Open the settings file:
 
@@ -40,18 +70,18 @@ Edit the section **storage.azure** as shown below.
 
 ```
 [storage.azure]
-account_name = Storage account name of your Azure Blob Storage
-account_key = Account key of your Azure Blob Storage
-container = Container name of Azure Blob Storage
+account_name = Storage account name
+account_key = Access key of your Azure Blob Storage
+container = Container name
 ```
 
 After modifying the parameters for **Azure Block Storage**, save the changes made to **system.ini**. You will then need to restart the PortSIP PBX for the changes to take effect.
 
-## Step 4: Restart the PortSIP PBX
+## Step 5: Restart the PortSIP PBX
 
 ### Linux
 
-&#x20;Restart the PBX by performing the following commands:
+Restart the PBX by performing the following commands:
 
 ```
 cd /opt/portsip && pbx_ctl.sh restart
