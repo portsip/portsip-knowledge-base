@@ -124,6 +124,7 @@
     * [Backup and Restore PortSIP PBX](portsip-communications-solution/portsip-pbx-administration-guide/backup-and-restore/backup-and-restore-portsip-pbx.md)
     * [Backup and Restore PortSIP SBC](portsip-communications-solution/portsip-pbx-administration-guide/backup-and-restore/backup-and-restore-portsip-sbc.md)
   * [Storing Into AWS S3](portsip-communications-solution/portsip-pbx-administration-guide/storing-into-aws-s3.md)
+  * [Storing Into Azure Blob Storage](portsip-communications-solution/portsip-pbx-administration-guide/storing-into-azure-blob-storage.md)
   * [Trace Server - A Better Way to Monitoring SIP Messages and QoS for PortSIP PBX](portsip-communications-solution/portsip-pbx-administration-guide/debug-sip-message.md)
 * [Configuring SIP Trunks](portsip-communications-solution/configuring-sip-trunks/README.md)
   * [QuestBlue SIP Trunk](portsip-communications-solution/configuring-sip-trunks/questblue-sip-trunk/README.md)
