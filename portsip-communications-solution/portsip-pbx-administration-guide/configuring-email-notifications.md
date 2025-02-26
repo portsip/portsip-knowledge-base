@@ -17,7 +17,7 @@ From here, you can set the mail server settings for different email service prov
 
 #### Generic
 
-For other generic SMTP providers that are not Google or Microsoft, please set it up as per the provider's instructions. For some users, SMTP authentication is done by IP address rather than by username and password. In this case, select **NONE** for the **Authentication Mode** field.
+For other generic SMTP providers that are not Google or Microsoft, please set it up as per the provider's instructions. For some users, SMTP authentication is done by IP address rather than username and password. In this case, select **NONE** for the **Authentication Mode** field.
 
 <figure><img src="../../.gitbook/assets/mai-server-admin-1.png" alt=""><figcaption></figcaption></figure>
 
@@ -59,21 +59,20 @@ Navigate to **Advanced > System Notifications** and select the **Notifications**
 
 ## Tenant Level
 
-PortSIP PBX also supports email notifications for the tenant administrator, different from the system events, the tenant events are more related to the calls.
+PortSIP PBX supports email notifications for tenant administrators, specifically for call-related events, which differ from system events.
 
-Each tenant needs to set up its own SMTP server if wants to receive email notifications.
+Each tenant can configure their own mail server to receive email notifications. Alternatively, if the system administrator allows it, tenants can use the system administrator’s mail server settings. For more details, refer to [_Apply Mail Settings to Tenants_](configuring-email-notifications.md#apply-mail-settings-to-tenants).
 
-Sign in to the Web Portal as the tenant Admin user or [manage the tenant](3-tenant-management.md#3.4-managing-tenant) from the system administrator workspace, the Web Portal will pop-ups a Window to ask to configure the SMTP server for this tenant if the SMTP server is not set up yet.&#x20;
+To configure the mail server for a tenant:
+
+1. **Sign in to the Web Portal** as the tenant administrator or manage the tenant from the system administrator workspace.
+2. If the SMTP server is not yet configured, the Web Portal will prompt you with a pop-up window to set it up.
 
 <figure><img src="../../.gitbook/assets/tenant_smtp.png" alt=""><figcaption></figcaption></figure>
 
-You can also click the **Settings** button to set up it. You can also go to this page by selecting the menu **Advanced > Notifications** and clicking the **Mail Server** page.
+You can click the **Settings** button to configure the mail server.&#x20;
 
-* Enter your SMTP server domain/address and port.
-* **Reply Email Address**: the email of the sender.
-* Enter the username and password.
-* **Recipients**: enter the recipients' email addresses, and separate them by a semicolon.
-* **Enable TLS/SSL**: turn on this option if your SMTP requires TLS/SSL.
+You can also navigate to **Advanced > Notifications**, then click the **Mail Server** page to access the configuration options.
 
 ### Configure Notifications
 
