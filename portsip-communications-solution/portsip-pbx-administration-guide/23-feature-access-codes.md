@@ -2,11 +2,17 @@
 
 Feature access codes (FACs), also known as star codes, give you access to advanced calling features. To use a Feature Access Code, pick up the handset and enter the appropriate Feature Access Code (see below) to dial. For some features that require additional input, follow the audible prompts to input the required additional information.
 
-Your PortSIP App and your IP phone support FACs.
+Your PortSIP ONE app and IP phone support FACs.
 
-## Feature Access Code Definitions <a href="#feature-access-code-definitions" id="feature-access-code-definitions"></a>
+## Feature Access Code Definitions
 
-The Feature Access Codes (FAC) definitions are separated for each tenant. The tenant administrator can modify the FAC definitions to meet their specific needs. To view all FACs, select the menu **Advanced > Feature Access Codes**.
+Feature Access Codes (FAC) definitions are configured separately for each tenant. The tenant administrator can modify these definitions to meet their specific needs. To view all FACs, go to **Advanced > Feature Access Codes**.
+
+The FAC format rules are as follows:
+
+* The FAC can start with any combination of `*#`, with the combination portion being 1 to 3 characters in length (e.g., `*#`, `##`, `**`, `*`, `#*`, `***`, `###`, `##*`).
+* The numeric portion can be between 0 and 4 digits.
+* The total length of the FAC must be between 2 and 7 characters.
 
 The following list provides more information about each feature access code. Some features have separate codes for their activation, deactivation, and interrogation.
 
