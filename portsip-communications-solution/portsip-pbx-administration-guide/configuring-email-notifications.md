@@ -6,7 +6,7 @@ These notifications can be customized by setting various custom parameters.
 
 ## System Administrator Level
 
-### Setting Up Mail Servers
+### Setting Up Mail Server
 
 In order to send email notifications for system events to the system administrator, the mail server must be correctly configured.&#x20;
 
@@ -37,7 +37,7 @@ Since Microsoft has disabled third-party apps from sending emails using a userna
 
 <figure><img src="../../.gitbook/assets/mai-server-admin-3.png" alt=""><figcaption></figcaption></figure>
 
-### Apply Mail Settings to Tenants
+### Apply Mail Settings to All Tenants
 
 There is an option "**Apply the mail server settings to all tenants"**. When it is enabled, the PBX will use the System Administrator’s email settings to send notification emails to tenants who have not configured their own mail server.
 
@@ -74,23 +74,34 @@ You can click the **Settings** button to configure the mail server.&#x20;
 
 You can also navigate to **Advanced > Notifications**, then click the **Mail Server** page to access the configuration options.
 
+<figure><img src="../../.gitbook/assets/tenant-mail-server-1.png" alt=""><figcaption></figcaption></figure>
+
+If the PBX system administrator has enabled the [**Apply Mail Settings to All Tenants**](configuring-email-notifications.md#apply-mail-settings-to-all-tenants) option, you will see the following text in green:\
+&#xNAN;**"You can now use the system administrator's mail server settings to send email notifications."**
+
+This means you do not need to configure the email server information yourself; instead, you can utilize the system administrator's email server to send email notifications. However, you must enter at least one email address in the **Emails of Recipients** field to specify where the notifications will be sent.
+
+#### Overwrite System Administrator's Mail Server Settings
+
+If you prefer to configure your own email server settings for sending notifications, follow the guide [**Setting Up Mail Server**](configuring-email-notifications.md#setting-up-mail-server) to configure it. Once configured, the PBX will use your settings to send email notifications, even if the system administrator has enabled the **Apply Mail Settings to All Tenants** option.
+
 ### Configure Notifications
 
-Select the menu **Advanced > System Notifications,** and click the **Notifications** tab, where you can decide how to send the notifications.
-
-Emails containing the quota reports and other events reported in the following functional areas are sent to the recipients:
-
-* **A new user was created** - Turn on/off to send the welcome email which includes the user extension number, password, PBX domain and IP address for logging in, and the QR code.
-* **When queue SLA time has been breached** - Turn on/off to send the email notification if the SLA time has been breached in a queue.
-* When queue callback has been made - Turn on/off to send the email notifications if the callback is made in a queue.
-* When queue callback fails - Turn on/off to send the email notifications if the queue callback failed.
-* **When a queue call is lost** - Turn on/off to send an email notification if there have an abandoned call in a queue.
+1. Navigate to **Advanced > Notifications** and click the **Notifications** tab to configure how notifications will be sent.
+2. The following email notifications can be enabled for specific events, and will be sent to the designated recipients:
+   * **A new user was created**: Turn on/off to send a welcome email containing the user’s extension number, password, PBX domain, IP address for login, and a QR code.
+   * **When queue SLA time has been breached**: Turn on/off to send an email notification if the SLA time is breached in a queue.
+   * **When queue callback has been made**: Turn on/off to send an email notification when a callback is made in a queue.
+   * **When the queue callback is unsuccessful**: Turn on/off to send an email notification if a queue callback fails.
+   * **When a queue call is lost**: Turn on/off to send an email notification if a call is abandoned in a queue.
 
 ## Custom Email Notification Template
 
-One of the features of the PortSIP PBX is the ability to customize Email Templates. In the **Advanced > Email Templates** menu, you can completely reinvent the email templates within the PortSIP PBX.
+PortSIP PBX offers the ability to customize email templates. From the **Advanced > Email Templates** menu, you can fully modify the email templates used within the system.
 
-For instance, you can take the default Welcome Email Template (the email that is sent out when a new extension is created) and enter some of your own text, including some of your own links and even add an email from your name and the first and last name of the user, as configured in their extension settings.
+For example, you can customize the default **Welcome Email Template** (the email sent when a new extension is created). You can add your own text, include personalized links, and even modify the sender’s name to display your own name, or the first and last name of the user, as configured in their extension settings.
 
 <figure><img src="../../.gitbook/assets/email_template.png" alt=""><figcaption></figcaption></figure>
+
+
 
