@@ -4,6 +4,50 @@
 Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/upgrade-portsip-pbx-to-v22.x.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
+## Changes for Release v22.1.7
+
+Date: Feb 26, 2025
+
+### New Features & Enhancements
+
+1. **OAuth Integration with Microsoft 365 and Google Workspace**\
+   PBX system administrators and tenants can now use OAuth for email notifications via Gmail or Microsoft 365.
+2. **Apply Mail Server Settings to All Tenants**\
+   A new option allows tenants to use the system administrator’s mail server settings for email notifications.
+3. **SMS and WhatsApp Message Records**\
+   Support for listing and querying SMS and WhatsApp message records has been added.
+4. **New SIP Header – X-Info**\
+   A new SIP header, `X-Info`, has been introduced to transmit call information.
+5. **Removal of X-Trunk-Name SIP Header**\
+   The `X-Trunk-Name` SIP header has been removed. Trunk information will now be transmitted via the `X-Info` header.
+6. **Azure Blob Storage Support**\
+   Added support for storing recording and voicemail files in Azure Blob Storage.
+7. **BLF Subscription for System Extensions**\
+   Extensions can now subscribe to system extensions' BLF. Previously, only subscriptions to other extensions' BLFs were allowed.
+8. **Updated FAC Format Rules**\
+   The format rules for Feature Access Codes (FAC) have been adjusted.
+9. **Optimized CDR Query Performance**\
+   Performance improvements have been made to the Call Detail Record (CDR) query process.
+10. **Increased REST API Rate Limit**\
+    The REST API rate limit has been increased to 10,000 requests per minute.
+11. **SMTP Authentication Mode – IP Authentication**\
+    Added an option for `None` in the SMTP Authentication Mode, applicable when the SMTP server uses IP address-based authentication.
+12. **Chat Group Member Limit**\
+    The maximum number of members allowed in a chat group is now limited to 200.
+13. **Handset Language for SNOM DECT M100 Auto-Provisioning**\
+    Support for setting the handset language during auto-provisioning of the SNOM DECT M100 has been added.
+14. **User and Engineer Passwords for SNOM DECT Auto-Provisioning**\
+    Added fields for User and Engineer passwords in the auto-provisioning setup for SNOM DECT M300, M400, M700, and M900 devices.
+15. **Web Portal Optimization**\
+    The web portal has been optimized for better usability and a more intuitive user experience.
+
+### Bug Fixes
+
+1. **Fixed Bug in Test Email Recipient Handling**\
+   Fixed a bug where entering multiple email recipients when sending a test email caused failure.
+2. **Trunk ACK Delay Handling**\
+   Fixed a bug where slow ACK responses from the trunk to the PBX prevented calls from being offered to queue agents.
+
 ## Changes for Release v22.0.42
 
 Date: Jan 16, 2025
