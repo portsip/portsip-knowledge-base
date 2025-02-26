@@ -76,18 +76,20 @@ Forwarding the call to a certain mobile number requires the trunk and outbound r
 The forwarding rules have the following optional values:
 
 * Forward to voicemail: The call will be routed to the voicemail service so that the caller can leave a voice message. There is an option to select an extension number for the voicemail box. For example, if you select extension 108, the voicemail will be saved in the 108's mailbox; if you leave it blank, the voicemail will be saved in the extension's own mailbox.
-* Forward to number: permits you to enter a number and then forward the call to that number; the number can be an extension number or system extension number(ring group, virtual receptionist, meeting number, queue number) or a PSTN phone number(Forwarding the call to a certain mobile number requires the trunk and outbound rule configured).
+* Forward to number: permits you to enter a number and then forward the call to that number; the number can be an extension number or system extension number (ring group, virtual receptionist, meeting number, queue number) or a PSTN phone number (forwarding the call to a certain mobile number requires the trunk and outbound rule configured).
 * Hangup: The call will be terminated by the PBX.
 * Ring anyway: send the call to this extension anyway.
-* Exceptions: you can create exception rules for an extension by entering the caller ID, selecting the time shifts in the **Received During** field, and choosing the desired action in the **Forward To** field. If a call matches one of the exceptions, it will be rerouted according to that exception rule and the extension’s normal forwarding rules will be bypassed.
+* Exceptions: You can create exception rules for an extension by entering the caller ID, selecting the time shifts in the **Received During** field, and choosing the desired action in the **Forward To** field. If a call matches one of the exceptions, it will be rerouted according to that exception rule, and the extension’s normal forwarding rules will be bypassed.
 
 ## Voicemail
 
-The **Voicemail** page allows you to specify the extension's voice mail preferences (including the voicemail PIN number for authentication), enable or disable PIN Authentication, and enable PortSIP PBX to read out the message's date and time.
+The **Voicemail** page allows you to specify the extension's voicemail preferences (including the voicemail PIN number for authentication), enable or disable PIN Authentication, and enable PortSIP PBX to read out the message's date and time.
 
-The **Greetings for Voicemail** section allows you to configure your voicemail greetings.
+The **Choose default Voicemail greeting message** section allows you to configure your voicemail greetings.
 
-Click the "**+**" button to upload the new greeting file, and click the **Lock** icon to specify it as a greeting file.
+Click the "**+**" button to upload the new greeting file, and click the **Switch** icon to specify it as a greeting file. You can also record the voicemail greeting by dialing the FAC **\*57**.
+
+<figure><img src="../../../.gitbook/assets/user-vm-1.png" alt=""><figcaption></figcaption></figure>
 
 ## Office Hours
 

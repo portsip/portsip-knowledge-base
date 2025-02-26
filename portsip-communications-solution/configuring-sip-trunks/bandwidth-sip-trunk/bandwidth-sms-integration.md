@@ -24,16 +24,6 @@ The Application ID is generated automatically when creating a new application. T
     `https://portsip.com/sms/bandwidth`
 * Save your settings. The system will generate an **Application ID**, which you can now use.
 
-### 3. Obtaining API Token and Secret
-
-Once the application is created, you’ll need to generate your API credentials. Here’s how:
-
-* In the upper right corner of the dashboard, click on **API Credentials** and select **Create New**.
-* The system will generate a new **API Token** and **API Secret**. Make sure to copy these for future use.
-* Save these credentials in a secure location.
-
-Here is the Bandwidth official documentation for your reference: [How do I set up a Messaging API account in the Bandwidth App?](https://support.bandwidth.com/hc/en-us/articles/360033658613-How-do-I-set-up-a-Messaging-API-account-in-the-Bandwidth-App)
-
 ## Configure SMS with Bandwidth Trunk in PortSIP PBX
 
 Before configuring SMS in PortSIP PBX, you must have already configured a Bandwidth SIP trunk using one of the following guides:
@@ -58,8 +48,8 @@ Please follow the below steps:
    * **Sender ID**: If you want to use the Sender ID that you created in the Bandwidth platform, please enter that Sender ID in this field. Otherwise, leave it empty, and the PortSIP PBX will use the DID number you configured for that Bandwidth trunk as the Sender ID.
    * **Account ID**: Enter the **User ID** you obtained in the [Obtaining the User ID step](bandwidth-sms-integration.md#id-1.-obtaining-the-user-id).
    * **Application ID**: Enter the **Application ID** you obtained in the [Obtaining the Application ID](bandwidth-sms-integration.md#id-2.-obtaining-the-application-id) step.
-   * **API Token**: Enter the **API Token** you obtained in the [Obtaining API Token and Secret](bandwidth-sms-integration.md#id-3.-obtaining-api-token-and-secret) step.
-   * **API Secret**: Enter the **API Secret** you obtained in the [Obtaining API Token and Secret](bandwidth-sms-integration.md#id-3.-obtaining-api-token-and-secret) step.
+   * **Username**: Enter the user name of your Bandwidth account.
+   * **Password**: Enter the password associated with your Bandwidth account.
 
 <figure><img src="../../../.gitbook/assets/bandwidth_trunk_6.png" alt=""><figcaption></figcaption></figure>
 
