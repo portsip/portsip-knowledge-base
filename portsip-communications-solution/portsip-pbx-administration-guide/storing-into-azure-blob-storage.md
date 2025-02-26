@@ -27,49 +27,25 @@ Open the settings file:
 * On Linux is  `/var/lib/portsip/pbx/system.ini`
 * On Windows is  `c:/programdata/portsip/pbx/system.ini`
 
-In the section **apigateway**, modify the value of the key **storage** to **s3** as shown below.
+In the section **apigateway**, modify the value of the key **storage** to **azure** as shown below.
 
 ```
 [apigateway]
-storage=s3
+storage=azure
 host=localhost
 port=8903
 ```
 
-Edit the section **storage.s3** as shown below.
+Edit the section **storage.azure** as shown below.
 
 ```
-[storage.s3]
-endpoint =  http://s3.region-code.amazonaws.com
-cred_id = Access key ID
-cred_secret = Secret access key
-region = region-code
-bucket = portsip-pbx-storage
+[storage.azure]
+account_name = Storage account name of your Azure Blob Storage
+account_key = Account key of your Azure Blob Storage
+container = Container name of Azure Blob Storage
 ```
 
-* **endpoint**: This is an HTTP URL, replace the **region-code** with the actual region name. For example, if the EC2 and S3 region name is **us-west-1**, then it will be http://s3.**us-west-1**.amazonaws.com.
-
-```
-[storage.s3]
-endpoint =  http://s3.us-west-1.amazonaws.com
-cred_id = Access key ID
-cred_secret = Secret access key
-region = us-west-1
-bucket = portsip-pbx-storage
-```
-
-Region names can be found via this page: [https://docs.aws.amazon.com/general/latest/gr/rande.html](https://docs.aws.amazon.com/general/latest/gr/rande.html)
-
-{% hint style="info" %}
-If your EC2 and S3 are in the China region, in the endpoint URL the **amazonaws.com** should be **amazonaws.com.cn**.
-{% endhint %}
-
-* **cred\_id**: It's the **Access key ID** of the IAM user noted whilst creating the IAM user.
-* **cred\_secret**: It's the **Secret access key** of the IAM user noted whilst creating the IAM user.
-* **region**: The region name (region code) of the EC2 instance and S3. For example, if the region is us-west-2 then use the actual region name to replace it.
-* **bucket**: The bucket name of S3. In this example, it's **portsip-pbx-storage**.
-
-After modifying the parameters for **AWS S3**, save the changes made to **system.ini**. You will then need to restart the PortSIP PBX for the changes to take effect.
+After modifying the parameters for **Azure Block Storage**, save the changes made to **system.ini**. You will then need to restart the PortSIP PBX for the changes to take effect.
 
 ## Step 4: Restart the PortSIP PBX
 
