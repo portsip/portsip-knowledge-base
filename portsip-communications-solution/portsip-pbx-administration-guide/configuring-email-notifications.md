@@ -37,25 +37,25 @@ Since Microsoft has disabled third-party apps from sending emails using a userna
 
 <figure><img src="../../.gitbook/assets/mai-server-admin-3.png" alt=""><figcaption></figcaption></figure>
 
-#### Apply Mail Settings to Tenants
+### Apply Mail Settings to Tenants
 
-There is an option "**Apply the mail server settings to all tenants.".** When it is enabled, the PBX will use the System Administrator’s email settings to send notification emails to tenants who have not configured their own mail server.
+There is an option "**Apply the mail server settings to all tenants"**. When it is enabled, the PBX will use the System Administrator’s email settings to send notification emails to tenants who have not configured their own mail server.
 
 ### Configure Notifications
 
-Select the menu **Advanced > System Notifications,** and click the **Notifications** tab, where you can decide how to send the notifications.
+Navigate to **Advanced > System Notifications** and select the **Notifications** tab to configure how notifications will be sent.
 
-Emails containing the quota reports and other events reported in the following functional areas are sent to the recipients:
-
-* Hard Disk Threshold - The hard disk usage threshold in percentage, 0 means don't monitor hard disk usage.
-* CPU Threshold - The CPU usage threshold in percentage, 0 means don't monitor CPU usage.
-* Memory Threshold - The memory usage threshold percentage, 0 means don't monitor memory usage.
-* When specified hard disk threshold is exceeded - Turn on/off to enable email notification for the hard disk usage.
-* When specified CPU threshold is exceeded - Turn on/off to enable email notification for the CPU usage.
-* When specified memory threshold is exceeded - Turn on/off to enable email notification for memory usage.
-* An IP has been blacklisted - Turn on/off to enable email notification once an IP was blocked.
-* The license limit is reached - Turn on/off to enable email notification once the license limit is reached.
-* PBX Services are stopped or fail  - Turn on/off to enable email notification once one of the PBX services is stopped or fails.
+1. The following email notifications can be enabled for specific events. These notifications will be sent to the designated recipients:
+   * **Hard Disk Threshold**: Notifies when the hard disk usage exceeds a specified threshold. A value of 0 means hard disk usage is not monitored.
+   * **CPU Threshold**: Notifies when CPU usage exceeds a specified threshold. A value of 0 means CPU usage is not monitored.
+   * **Memory Threshold**: Notifies when memory usage exceeds a specified threshold. A value of 0 means memory usage is not monitored.
+2. Enable or disable notifications for the following events:
+   * **Hard Disk Usage Exceeds Threshold**: Turn on/off email notifications when the specified hard disk threshold is exceeded.
+   * **CPU Usage Exceeds Threshold**: Turn on/off email notifications when the specified CPU threshold is exceeded.
+   * **Memory Usage Exceeds Threshold**: Turn on/off email notifications when the specified memory threshold is exceeded.
+   * **IP Blacklisting**: Turn on/off email notifications when an IP address is blacklisted.
+   * **License Limit Reached**: Turn on/off email notifications when the license limit is reached.
+   * **PBX Services Stopped or Failed**: Turn on/off email notifications when any PBX service is stopped or fails.
 
 ## Tenant Level
 
