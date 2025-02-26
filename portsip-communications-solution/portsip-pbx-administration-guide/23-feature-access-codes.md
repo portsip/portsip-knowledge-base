@@ -10,7 +10,7 @@ Feature Access Codes (FAC) definitions are configured separately for each tenant
 
 The FAC format rules are as follows:
 
-* The FAC can start with any combination of `*#`, with the combination portion being 1 to 3 characters in length (e.g., `*#`, `##`, `**`, `*`, `#*`, `***`, `###`, `##*`).
+* The FAC can start with any combination of `*#`, with the combination portion being 1 to 3 characters in length (e.g., `*#`, `##`, `**`, `#*`, `***`, `###`, `##*`).
 * The numeric portion can be between 0 and 4 digits.
 * The total length of the FAC must be between 2 and 7 characters.
 
