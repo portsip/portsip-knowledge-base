@@ -2,7 +2,7 @@
 
 This article provides solutions for common PortSIP PBX issues with calls.
 
-## Troubleshooting Outbound Calls Issues
+## 1. Troubleshooting Outbound Calls Issues
 
 When you make a call from the app or an IP Phone, if the call fails, you will receive a status code indicating the reason. Below, we explain the status codes and their meanings:
 
@@ -67,7 +67,7 @@ Usually, trunks require the Outbound Caller ID (CLI) to be included in the **Fro
 
 Note: Some trunks also require the **Outbound Caller ID** to start with a '**+**'. Please confirm this requirement with your trunk provider.
 
-## Troubleshooting Inbound Calls Issues
+## 2. Troubleshooting Inbound Calls Issues
 
 Sometimes, after configuring the trunk and inbound rule in the PortSIP PBX, calls to the DID number may not be received. To troubleshoot this issue, please follow the steps below.
 
@@ -103,7 +103,7 @@ Typically, the **Caller Number Mask** field does not need to be filled in. For m
 
 <figure><img src="../../.gitbook/assets/inbound-rule-did.png" alt=""><figcaption></figcaption></figure>
 
-## Troubleshooting No Response from the Trunk
+## 3. Troubleshooting No Response from the Trunk
 
 In some cases, the trunk may not respond to the PortSIP PBX when it sends REGISTER, INVITE, or other SIP messages. To troubleshoot this issue, please follow the steps below.
 
