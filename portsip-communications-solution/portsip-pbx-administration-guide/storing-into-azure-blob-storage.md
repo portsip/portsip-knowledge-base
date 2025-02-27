@@ -62,8 +62,6 @@ In the section **apigateway**, modify the value of the key **storage** to **azur
 ```
 [apigateway]
 storage=azure
-host=localhost
-port=8903
 ```
 
 Edit the section **storage.azure** as shown below.

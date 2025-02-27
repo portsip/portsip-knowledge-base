@@ -63,8 +63,6 @@ In the section **apigateway**, modify the value of the key **storage** to **s3**
 ```
 [apigateway]
 storage=s3
-host=localhost
-port=8903
 ```
 
 Edit the section **storage.s3** as shown below.

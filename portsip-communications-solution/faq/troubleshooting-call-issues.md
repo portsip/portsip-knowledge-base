@@ -121,5 +121,70 @@ To resolve this, sign in to the PortSIP PBX web portal as a **System Administrat
 
 <figure><img src="../../.gitbook/assets/portsip-pbx-user-agent.png" alt=""><figcaption></figcaption></figure>
 
+## 4. Collect the Logs
+
+PortSIP provides a powerful tool that allows you to troubleshoot calls visually. For more details, please refer to the article [Trace Server - A Better Way to Monitoring SIP Messages and QoS for PortSIP PBX.](../../pbx_v12/tutorials/debug-sip-message.md)&#x20;
+
+### Capture SIP Messages and RTP Packets
+
+You can capture SIP messages and RTP packets during a call to aid in troubleshooting.
+
+#### Linux
+
+1. Ensure that **tcpdump** is installed on your Linux server. If not, install it using the following command:
+
+```sh
+sudo apt install tcpdump
+```
+
+2. Run the following command to start capturing packets:
+
+```sh
+tcpdump -i any -w 1000.pcap
+```
+
+You can specify any file name you prefer (other than `1000.pcap`), but make sure to use the `.pcap` extension.
+
+3. Make the call and reproduce the issue.
+4. Once the issue occurs, keep the call for 5-10 seconds, then stop **tcpdump** by pressing **Ctrl + C**.
+5. Send the captured **PCAP** file to the PortSIP team.
+
+#### Windows
+
+1. Install [**Wireshark** ](https://www.wireshark.org)and start capturing packets.
+2. Make the call and reproduce the issue.
+3. Once the issue occurs, keep the call for 5-10 seconds, then stop the capture.
+4. Save the captured packets as a **.pcapng** file and send it to the PortSIP team.
+
+### Download PortSIP Log Files
+
+By default, the PortSIP PBX log files are stored in the following locations:
+
+#### Linux
+
+```sh
+/var/lib/portsip/pbx/log/
+```
+
+If you configured a different path rather than the default path during the installation, the log files will be located in:
+
+```sh
+path/portsip/pbx/log/
+```
+
+#### Windows
+
+```
+C:\ProgramData\PortSIP\pbx\log\
+```
+
+If you configured a different path rather than the default path during the installation, the log files will be located in:
+
+```
+path\PortSIP\pbx\log\
+```
+
+Typically, you should copy the **callmanager.log** file, compress it, and send it to the PortSIP team for further investigation.
+
 Feel free to contact the PortSIP support team at [support@portsip.com](mailto:support@portsip.com) or [submit a ticket](https://portsip.atlassian.net/servicedesk/customer/portals). Our team will help you resolve any issues.
 
