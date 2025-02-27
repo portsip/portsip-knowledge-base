@@ -69,6 +69,10 @@ Note: Some trunks also require the **Outbound Caller ID** to start with a '**+**
 
 ## Inbound Calls
 
+Sometimes, after configuring the trunk and inbound rule in the PortSIP PBX, calls to the DID number may not be received. To troubleshoot this issue, please follow the steps below:
+
+
+
 
 
 Feel free to contact the PortSIP support team at [support@portsip.com](mailto:support@portsip.com) or [submit a ticket](https://portsip.atlassian.net/servicedesk/customer/portals). Our team will help you resolve any issues.
