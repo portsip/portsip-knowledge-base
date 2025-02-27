@@ -56,6 +56,7 @@ Navigate to **Advanced > System Notifications** and select the **Notifications**
    * **IP Blacklisting**: Turn on/off email notifications when an IP address is blacklisted.
    * **License Limit Reached**: Turn on/off email notifications when the license limit is reached.
    * **PBX Services Stopped or Failed**: Turn on/off email notifications when any PBX service is stopped or fails.
+   * **Failed to update the push notification certificates for the iOS app:** Turn on/off to send an email notification if a the PBX update push notififaction certificates for iOS app is failed.
 
 ## Tenant Level
 

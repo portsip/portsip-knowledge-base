@@ -83,8 +83,8 @@ After modifying the parameters for **Azure Block Storage**, save the changes mad
 
 Restart the PBX by performing the following commands:
 
-```
-cd /opt/portsip && pbx_ctl.sh restart
+```sh
+cd /opt/portsip && sudo /bin/sh pbx_ctl.sh restart
 ```
 
 ### Windows

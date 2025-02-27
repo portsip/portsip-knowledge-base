@@ -108,8 +108,8 @@ After modifying the parameters for **AWS S3**, save the changes made to **system
 
 &#x20;Restart the PBX by performing the following commands:
 
-```
-cd /opt/portsip && pbx_ctl.sh restart
+```sh
+cd /opt/portsip && sudo /bin/sh pbx_ctl.sh restart
 ```
 
 ### Windows
