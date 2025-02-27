@@ -8,7 +8,7 @@ Use this feature if you need to comply with regulatory requirements that prohibi
 
 **Warning:** Please be aware of the following considerations when configuring Amazon S3 storage for your recordings:
 
-* Historical recordings stored on the local disk of the PBX server will no longer be accessible after S3 storage is activated. Therefore, it is recommended to configure Amazon S3 storage before making or receiving calls.
+* Once Amazon S3 storage is activated, historical recordings stored on the local disk of the PBX server will no longer be accessible. Additionally, previously uploaded prompt files for queues, voicemail, IVR, and other voice announcements will need to be re-uploaded. Therefore, it is recommended to configure Amazon S3 storage immediately after completing the PBX installation.
 * Once the "**Store to S3**" option is activated, do not disable it. Disabling this feature will prevent the PBX from accessing historical recordings and will disrupt the process of storing new recordings on Amazon S3.
 
 ## Prerequisites
