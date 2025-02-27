@@ -69,19 +69,57 @@ Note: Some trunks also require the **Outbound Caller ID** to start with a '**+**
 
 ## Troubleshooting Inbound Calls Issues
 
-Sometimes, after configuring the trunk and inbound rule in the PortSIP PBX, calls to the DID number may not be received. To troubleshoot this issue, please follow the steps below:
+Sometimes, after configuring the trunk and inbound rule in the PortSIP PBX, calls to the DID number may not be received. To troubleshoot this issue, please follow the steps below.
 
+### Check the Trunk IP Address
 
+If the trunk sends calls to the PortSIP PBX from an IP address that does not match the IP host or the **Associated IP Addresses** configured for the trunk in the PortSIP PBX, the PBX will respond with a 407 error.
 
-## Troubleshooting Trunk Issues
+It’s important to contact your trunk provider to obtain the IP addresses they use to send the INVITE messages to the PortSIP PBX. Once you have this information, add the IP addresses to the **Trunk Associated IP Addresses** as shown in the screenshot below.
 
-user agent
+**Note**: Some preconfigured trunks already have these associated IP addresses.
 
+<figure><img src="../../.gitbook/assets/trunk-asscociated-ip.png" alt=""><figcaption></figcaption></figure>
 
+The trunk also includes an option in the PortSIP PBX: **"Verify the port when receiving SIP messages from the trunk"**. This option is **disabled** by default. When enabled, the PBX will verify that the source port of incoming SIP messages matches the port configured in the PortSIP PBX. If the ports do not match, the PBX will respond with a **407** error.
+
+We recommend keeping this option **disabled** by default unless you specifically require it for your configuration.
+
+### Check the DID Number
+
+When the PortSIP PBX identifies that the call is coming from a configured trunk, it will check if the dialed number falls within the trunk's DID pool range. If the dialed number is not within the DID pool for a tenant’s configured trunk, the PBX will respond with a **407** error to the trunk.
+
+In many scenarios, customers configure the DID pool without including the **country code**, but the trunk sends the INVITE message to the PortSIP PBX with the country code prefixed. For example, if a tenant’s DID pool is set to **620012861** or **620012861-6200128618**, but the trunk sends the DID as **33620012861** or **+33620012861**, the PortSIP PBX will return a 407 error because the dialed number is outside the DID pool range. In this case, the DID pool should be configured as **33620012861** or **33620012861-633200128618**.
+
+**Note:** You do not need to include the "+" prefix in the DID pool configuration; the PortSIP PBX will automatically handle this scenario.
+
+### Check the Inbound Rules
+
+Once the PortSIP PBX verifies that the call is coming from the trunk, it will proceed to match the tenant's inbound rules. You must ensure that the dialed number matches at least one inbound rule.
+
+For the inbound rule, fill in the **"DID/DDI Number or Number Range"** field with the dialed number you want to route to an extension or system extension.&#x20;
+
+Typically, the **Caller Number Mask** field does not need to be filled in. For more details, please refer to the guide on [**Configuring Inbound Rules**](../portsip-pbx-administration-guide/8-call-route-management/configuring-inbound-rule.md).
+
+<figure><img src="../../.gitbook/assets/inbound-rule-did.png" alt=""><figcaption></figcaption></figure>
+
+## Troubleshooting No Response from the Trunk
+
+In some cases, the trunk may not respond to the PortSIP PBX when it sends REGISTER, INVITE, or other SIP messages. To troubleshoot this issue, please follow the steps below.
+
+### Check the Whitelist on the Trunk Side
+
+Some trunk providers require you to whitelist the PortSIP PBX’s IP address. Please contact your trunk provider to confirm this requirement.
+
+### Change the User-Agent
+
+Some trunk providers host their services based on PortSIP competitors' platforms, and they may block the PortSIP PBX **User-Agent**.  So if the trunk recognizes that the SIP message’s **User-Agent** header includes the "**PortSIP**" string, it may silently discard the message without sending any response to the PortSIP PBX.
+
+To resolve this, sign in to the PortSIP PBX web portal as a **System Administrator**, navigate to the menu **Advanced > Settings**, change the **User-Agent**, save the changes, and then try again.
+
+**Note:** This is an unfortunate behavior that wastes both customer and support team time during troubleshooting.
+
+<figure><img src="../../.gitbook/assets/portsip-pbx-user-agent.png" alt=""><figcaption></figcaption></figure>
 
 Feel free to contact the PortSIP support team at [support@portsip.com](mailto:support@portsip.com) or [submit a ticket](https://portsip.atlassian.net/servicedesk/customer/portals). Our team will help you resolve any issues.
-
-
-
-
 

@@ -57,7 +57,7 @@ If you have added the Access Control List (ACL) for authentication, you must not
 
 <figure><img src="../../../.gitbook/assets/vonage-fig18.png" alt=""><figcaption></figcaption></figure>
 
-## Configure Register Based Trunk in PortSIP PBX
+## Configure IP Authentication Trunk in PortSIP PBX
 
 The **IP Registration** trunk refers to the **IP Based Trunk** in PortSIP PBX. You can configure the Register Based Trunk at either the PortSIP PBX **system administrator level** or the **Tenant Admin level**:
 
