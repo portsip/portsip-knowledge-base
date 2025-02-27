@@ -253,7 +253,9 @@ The following screenshot shows the example:
 Perform the below command on all EC2 instances.
 
 ```sh
-sudo apt install unzip && curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && sudo ./aws/install
+sudo apt install unzip && \
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" \
+-o "awscliv2.zip" && unzip awscliv2.zip && sudo ./aws/install
 ```
 
 You can use the following command to check the AWS CLI version:
@@ -300,7 +302,8 @@ chmod 400 /home/ubuntu/.ssh/aws-portsip-pbx-ha.pem
 The following command should only be executed on the EC2 **ip-172-31-16-133**.
 
 ```sh
-cd /opt/ && sudo wget -N https://www.portsip.com/downloads/ha/v22/portsip-pbx-ha-on-aws-guide-22.tar.gz \
+cd /opt/ && sudo wget -N \
+https://www.portsip.com/downloads/ha/v22/portsip-pbx-ha-on-aws-guide-22.tar.gz \
  && sudo tar xf portsip-pbx-ha-on-aws-guide-22.tar.gz
 ```
 
@@ -341,7 +344,7 @@ Perform the below command on the node **ip-172-31-16-133** only.&#x20;
 The execution may take a long time, so patience is required. Please do not interrupt, restart, or shut down while the process is in progress.
 
 ```sh
-cd /opt/portsip-pbx-ha-guide/ && sudo /bin/bash deploy_pbx.sh
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash deploy_pbx.sh
 ```
 
 Once the resource configuration is complete, you can access your PBX by opening [https://54.151.30.9:8887](https://54.151.30.9:8887/) in a web browser. All future PBX management, configuration, and access will be done through the Elastic IP 54.151.30.9.
@@ -368,7 +371,7 @@ All commands should be performed only on the EC2 instance **ip-172-31-16-133.**
 
 ### View PBX HA Status
 
-```
+```sh
 cd /opt/portsip-pbx-ha-guide && /bin/bash ha_ctl.sh show
 ```
 
@@ -406,7 +409,7 @@ Daemon Status:
 
 Perform the below command only on the EC2 instance **ip-172-31-16-133**.
 
-```
+```sh
 cd /opt/portsip-pbx-ha-guide && /bin/bash ha_ctl.sh master
 ```
 
@@ -416,13 +419,13 @@ The output will indicate the current master node is on which EC2 instance.
 
 Use the below command to restart the PBX.
 
-```
+```sh
 cd /opt/portsip-pbx-ha-guide && /bin/bash ha_ctl.sh restart -s pbx
 ```
 
 The following output indicates that the PBX is successfully restarted.
 
-```
+```sh
 try to restart resource pbx
 disable resource pbx
 resource 'pbx' is not running on any node
