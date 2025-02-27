@@ -6,7 +6,7 @@ Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-por
 
 ## Changes for Release v22.1.7
 
-Date: Feb 26, 2025
+Date: Feb 27, 2025
 
 ### New Features & Enhancements
 
@@ -45,6 +45,14 @@ Date: Feb 26, 2025
 
 1. **Trunk ACK Delay Handling**\
    Fixed a bug where slow ACK responses from the trunk to the PBX prevented calls from being offered to queue agents.
+
+### REST API Changes
+
+* **New Endpoint:** `/api/external_messages` – Allows querying of SMS and WhatsApp message histories.
+* **New Endpoint:** `/api/user/external_messages` – Allows querying of the current user’s SMS and WhatsApp message histories.
+* **Endpoint Removal:** `/api/test_email` – This endpoint has been removed. System administrators can now use `/api/admin/notification/test_email`, and tenant administrators can use `/api/tenant/notification/test_email` as alternatives.
+* **Updated Endpoint:** `/api/admin/notification` – Added the `enable_tenant_access` option, which allows tenants to use the system administrator’s mail server settings to send email notifications.
+* **Updated Endpoint:** `/api/tenant/notification/test_email` – Added the `enable_system_email_server` option, which indicates whether the tenant has permission to use the system administrator’s mail server settings to send email notifications.
 
 ## Changes for Release v22.0.42
 
