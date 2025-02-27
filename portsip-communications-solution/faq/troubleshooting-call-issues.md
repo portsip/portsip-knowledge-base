@@ -2,9 +2,9 @@
 
 This article provides solutions for common PortSIP PBX issues with calls.
 
-## Outbound Calls
+## Troubleshooting Outbound Calls Issues
 
-&#x20;When you make a call from the app or an IP Phone, if the call fails, you will receive a status code indicating the reason. Below, we explain the status codes and their meanings:
+When you make a call from the app or an IP Phone, if the call fails, you will receive a status code indicating the reason. Below, we explain the status codes and their meanings:
 
 ### Check if the Error Originates from the PBX or the Trunk
 
@@ -67,11 +67,15 @@ Usually, trunks require the Outbound Caller ID (CLI) to be included in the **Fro
 
 Note: Some trunks also require the **Outbound Caller ID** to start with a '**+**'. Please confirm this requirement with your trunk provider.
 
-## Inbound Calls
+## Troubleshooting Inbound Calls Issues
 
 Sometimes, after configuring the trunk and inbound rule in the PortSIP PBX, calls to the DID number may not be received. To troubleshoot this issue, please follow the steps below:
 
 
+
+## Troubleshooting Trunk Issues
+
+user agent
 
 
 
