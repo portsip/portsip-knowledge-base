@@ -11,35 +11,37 @@ Date: Feb 27, 2025
 ### New Features & Enhancements
 
 * **OAuth Integration with Microsoft 365 and Google Workspace**\
-  PBX system administrators and tenants can now use OAuth for email notifications via Gmail or Microsoft 365.
+  PBX system administrators and tenants can now authenticate email notifications using OAuth for Gmail and Microsoft 365 accounts.
 * **Apply Mail Server Settings to All Tenants**\
-  A new option allows tenants to use the system administrator’s mail server settings for email notifications.
+  A new feature allows tenants to adopt the system administrator’s mail server settings for email notifications, ensuring consistent configuration across all tenants.
 * **SMS and WhatsApp Message Records**\
-  Support for listing and querying SMS and WhatsApp message records has been added.
+  The system now supports listing and querying records for both SMS and WhatsApp messages, providing better tracking and management of communications.
+* **Trunk Integration with VoIP Innovations, Bandwidth, and Flowroute**\
+  Users can now easily configure trunks and integrate with the SMS API for VoIP Innovations, Bandwidth, and Flowroute, simplifying trunk setup and management.
 * **New SIP Header – X-Info**\
-  A new SIP header, `X-Info`, has been introduced to transmit call information.
+  A new SIP header, _X-Info_, has been introduced to enhance the transmission of call information for improved troubleshooting and analytics.
 * **Removal of X-Trunk-Name SIP Header**\
-  The `X-Trunk-Name` SIP header has been removed. Trunk information will now be transmitted via the `X-Info` header.
+  The _X-Trunk-Name_ SIP header has been removed. Trunk-related information will now be transmitted via the _X-Info_ header for better standardization.
 * **Azure Blob Storage Support**\
-  Added support for storing recording and voicemail files in Azure Blob Storage.
+  Added support for storing call recordings and voicemail files in Azure Blob Storage, offering flexible and scalable storage options.
 * **BLF Subscription for System Extensions**\
-  Extensions can now subscribe to system extensions' BLF. Previously, only subscriptions to other extensions' BLFs were allowed.
-* **Updated FAC Format Rules**\
-  The format rules for Feature Access Codes (FAC) have been adjusted.
+  System extensions can now subscribe to other system extensions' BLF status. Previously, only extensions could subscribe to the BLFs of other extensions.
+* **Updated Feature Access Code (FAC) Format Rules**\
+  The format rules for Feature Access Codes (FAC) have been updated to ensure better compatibility and user experience.
 * **Optimized CDR Query Performance**\
-  Performance improvements have been made to the Call Detail Record (CDR) query process.
+  Performance improvements have been made to enhance the efficiency and speed of Call Detail Record (CDR) queries.
 * **Increased REST API Rate Limit**\
-  The REST API rate limit has been increased to 10,000 requests per minute.
+  The REST API rate limit has been increased to 10,000 requests per minute, improving scalability and performance for high-traffic applications.
 * **SMTP Authentication Mode – IP Authentication**\
-  Added an option for `None` in the SMTP Authentication Mode, applicable when the SMTP server uses IP address-based authentication.
+  A new “None” option has been added to the SMTP Authentication Mode settings for use with SMTP servers that employ IP address-based authentication.
 * **Chat Group Member Limit**\
-  The maximum number of members allowed in a chat group is now limited to 200.
+  The maximum number of members allowed in a chat group has been increased to 200, providing greater flexibility for team communication.
 * **Handset Language for SNOM DECT M100 Auto-Provisioning**\
-  Support for setting the handset language during auto-provisioning of the SNOM DECT M100 has been added.
+  Support has been added for setting the handset language during auto-provisioning of SNOM DECT M100 devices, ensuring smoother user experiences.
 * **User and Engineer Passwords for SNOM DECT Auto-Provisioning**\
-  Added fields for User and Engineer passwords in the auto-provisioning setup for SNOM DECT M300, M400, M700, and M900 devices.
+  Fields for User and Engineer passwords have been added in the auto-provisioning setup for SNOM DECT M300, M400, M700, and M900 devices.
 * **Web Portal Optimization**\
-  The web portal has been optimized for better usability and a more intuitive user experience.
+  The web portal has been optimized to enhance usability and provide a more intuitive user interface, improving the overall user experience.
 
 ### Bug Fixes
 
