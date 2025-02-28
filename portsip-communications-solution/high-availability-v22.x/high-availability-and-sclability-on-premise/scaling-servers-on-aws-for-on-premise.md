@@ -57,7 +57,7 @@ Tasks that MUST be completed before installing cluster servers.
 * Do not install TeamViewer, VPN, or similar software on the host machine.
 * The server must not be installed as a DNS or DHCP server.
 
-## **Set password-free login for all three servers**
+## **Set password-free login for all these servers**
 
 The following commands provided below should only be executed on the PBX HA node "**pbx01**".
 
