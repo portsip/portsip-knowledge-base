@@ -86,5 +86,6 @@ For the Fanvil, Yealink, and Dinstar phones, the enhanced call park feature is s
 
 * [Using Enhanced Call Park on Fanvil IP Phones](using-enhanced-call-park-on-fanvil-ip-phones.md)
 * [Using Enhanced Call Park on Yealink IP Phones](using-enhanced-call-park-on-yealink-ip-phones.md)
+* [Using Enhanced Call Park on Grandstream IP Phones](using-enhanced-call-park-on-grandstream-ip-phones.md)
 * [Using Enhanced Call Park on Dinstar IP Phones](using-enhanced-call-park-on-dinstar-ip-phones.md)
 
