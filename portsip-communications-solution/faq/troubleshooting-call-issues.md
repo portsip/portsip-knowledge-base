@@ -121,7 +121,29 @@ To resolve this, sign in to the PortSIP PBX web portal as a **System Administrat
 
 <figure><img src="../../.gitbook/assets/portsip-pbx-user-agent.png" alt=""><figcaption></figcaption></figure>
 
-## 4. Collect the Logs
+## 4. Troubleshooting Voice Issues for Trunk Calls
+
+If extension-to-extension calls work correctly, but inbound or outbound trunk calls experience no audio or one-way audio issues, follow these troubleshooting steps:
+
+1.  In the trunk **Options** section of PortSIP PBX, there is a setting labeled **"Use the private IP address to communicate with this trunk."** This setting determines how the PBX populates the media IP address in the **SDP** of **INVITE** and **200 OK** messages during call establishment.
+
+    * When **enabled**, the PBX inserts its **private IP address** into the SDP.
+    * When **disabled**, the PBX inserts its **public IP address** into the SDP.
+
+    **Best Practice:**
+
+    * If the trunk is connected over the **public Internet**, keep this option **disabled**.
+    * If the trunk is within a **local network (LAN)**, enable this option.
+2. Some SIP trunk providers require the **PBX's IP address** to be whitelisted in order to receive RTP (media) packets.
+   * Ensure that both the **PBX’s IP address** and the **Extended Media Server IP address** (if configured) are whitelisted on the trunk provider's side.
+   * Refer to the **trunk provider’s documentation** for specific whitelisting requirements.
+3. If your PortSIP PBX is hosted on a cloud platform such as **AWS, Microsoft Azure, or Google Cloud (GCE)**, you must configure network security rules to allow media traffic.
+   * Ensure that RTP (Real-Time Transport Protocol) port ranges are open.
+   * For these port ranges, refer to the **"**[**Preparing the Server for Installation**](../portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/install-portsip-pbx-on-linux.md#preparing-the-server-for-installation)**"** article.
+
+By following these steps, you can resolve most voice-related issues with trunk calls. If problems persist, verify the SIP trunk provider's settings and contact the [PortSIP support team](mailto:support@portsip.com).
+
+## 5. Collect the Logs
 
 PortSIP provides a powerful tool that allows you to troubleshoot calls visually. For more details, please refer to the article [Trace Server - A Better Way to Monitoring SIP Messages and QoS for PortSIP PBX.](../../pbx_v12/tutorials/debug-sip-message.md)&#x20;
 
