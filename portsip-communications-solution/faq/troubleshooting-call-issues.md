@@ -152,7 +152,7 @@ Sometimes, you may encounter error messages when trying to log in to the PortSIP
   * Check your server’s disk space usage.
   * As a temporary solution, you can free space by deleting archived log files with the `.gz` extension in the `/var/lib/portsip/pbx/log` directory.
   * For a permanent solution, consider increasing your disk size.
-  * To receive alerts before running out of space, enable email notifications by referring to the “Configuring Email Notifications” guide.
+  * To receive alerts before running out of space, enable email notifications by referring to the [Configuring Email Notifications](../portsip-pbx-administration-guide/configuring-email-notifications.md) guide.
 * **Error: Login failed, authentication error. (UNAUTHORIZED)**
   * This indicates that your username or password is incorrect. Verify your credentials and try again.
 * **Error: No tenant information found by provided SIP domain (404)**
@@ -161,7 +161,7 @@ Sometimes, you may encounter error messages when trying to log in to the PortSIP
   * This indicates that the PortSIP PBX API gateway is down.
   * Insufficient disk space can also trigger this error.
   * If resolving disk space issues does not help, please contact the PortSIP Support Team.
-* **Error: the client IP address: x.x.x.x has been blocked until \[date/time] (DENIED)**
+* **Error: the client IP address x.x.x.x has been blocked until \[date/time] (DENIED)**
   * This occurs when you enter an incorrect password too many times, causing your IP address to be blocked.
   * Use a different IP address (or network) to access the PortSIP PBX Web Portal with the correct credentials.
   * Remove the blocked IP address from the **IP Blacklist** once you regain access.
