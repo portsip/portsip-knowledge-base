@@ -147,16 +147,16 @@ By following these steps, you can resolve most voice-related issues with trunk c
 
 Sometimes, you may encounter error messages when trying to log in to the PortSIP PBX Web Portal. Refer to the following common errors and their potential causes:
 
-* **Error: Login failed, authentication error. (UNAUTHORIZED)**
-  * This indicates that your username or password is incorrect. Verify your credentials and try again.
-* **Error: No tenant information found by provided SIP domain (404)**
-  * This means the SIP domain does not exist. Double-check the SIP domain you entered and make sure it is correct.
 * **Error: Unknown Error (500)**
   * This usually occurs due to insufficient disk space on the server.
   * Check your server’s disk space usage.
   * As a temporary solution, you can free space by deleting archived log files with the `.gz` extension in the `/var/lib/portsip/pbx/log` directory.
   * For a permanent solution, consider increasing your disk size.
   * To receive alerts before running out of space, enable email notifications by referring to the “Configuring Email Notifications” guide.
+* **Error: Login failed, authentication error. (UNAUTHORIZED)**
+  * This indicates that your username or password is incorrect. Verify your credentials and try again.
+* **Error: No tenant information found by provided SIP domain (404)**
+  * This means the SIP domain does not exist. Double-check the SIP domain you entered and make sure it is correct.
 * **Error: Server error, please try again later (502)**
   * This indicates that the PortSIP PBX API gateway is down.
   * Insufficient disk space can also trigger this error.
