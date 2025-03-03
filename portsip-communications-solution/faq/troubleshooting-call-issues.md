@@ -143,7 +143,32 @@ If extension-to-extension calls work correctly, but inbound or outbound trunk ca
 
 By following these steps, you can resolve most voice-related issues with trunk calls. If problems persist, verify the SIP trunk provider's settings and contact the [PortSIP support team](mailto:support@portsip.com).
 
-## 5. Collect the Logs
+## 5. Troubleshooting PBX Web Portal Login Failures
+
+Sometimes, you may encounter error messages when trying to log in to the PortSIP PBX Web Portal. Refer to the following common errors and their potential causes:
+
+* **Error: Login failed, authentication error. (UNAUTHORIZED)**
+  * This indicates that your username or password is incorrect. Verify your credentials and try again.
+* **Error: No tenant information found by provided SIP domain (404)**
+  * This means the SIP domain does not exist. Double-check the SIP domain you entered and make sure it is correct.
+* **Error: Unknown Error (500)**
+  * This usually occurs due to insufficient disk space on the server.
+  * Check your server’s disk space usage.
+  * As a temporary solution, you can free space by deleting archived log files with the `.gz` extension in the `/var/lib/portsip/pbx/log` directory.
+  * For a permanent solution, consider increasing your disk size.
+  * To receive alerts before running out of space, enable email notifications by referring to the “Configuring Email Notifications” guide.
+* **Error: Server error, please try again later (502)**
+  * This indicates that the PortSIP PBX API gateway is down.
+  * Insufficient disk space can also trigger this error.
+  * If resolving disk space issues does not help, please contact the PortSIP Support Team.
+* **Error: the client IP address: x.x.x.x has been blocked until \[date/time] (DENIED)**
+  * This occurs when you enter an incorrect password too many times, causing your IP address to be blocked.
+  * Use a different IP address (or network) to access the PortSIP PBX Web Portal with the correct credentials.
+  * Remove the blocked IP address from the **IP Blacklist** once you regain access.
+
+Following these steps should help you diagnose and resolve the most common login issues with the PortSIP PBX Web Portal. If you continue to experience problems, please contact PortSIP Support for further assistance.
+
+## 6. Collect the Logs
 
 PortSIP provides a powerful tool that allows you to troubleshoot calls visually. For more details, please refer to the article [Trace Server - A Better Way to Monitoring SIP Messages and QoS for PortSIP PBX.](../../pbx_v12/tutorials/debug-sip-message.md)&#x20;
 
