@@ -1,6 +1,6 @@
 # Cloud PBX Empowering Service Provider
 
-Cloud PBX has become increasingly popular in today’s cloud-driven world, providing service providers with the tools they need to build and manage their own Cloud PBX businesses. With Cloud PBX, providers can offer a comprehensive suite of services, including voice, video, messaging, and video meetings—all integrated into a single business phone system and app. This unified solution enables seamless communication across multiple channels, delivering a robust, scalable platform for modern businesses.
+Cloud PBX has become increasingly popular in today’s cloud-driven world, providing service providers with the tools they need to build and manage their own Cloud PBX businesses. With Cloud PBX, providers can offer a comprehensive suite of services, including voice, video, messaging, and video meetings—all integrated into a single business phone system and app. This unified solution enables seamless communication across multiple channels, delivering a robust, scalable platform for modern businesses communications, and empowering Cloud PBX/UCaaS/CCaaS service providers.
 
 <figure><img src="../.gitbook/assets/portsip-yealink.jpg" alt=""><figcaption></figcaption></figure>
 
