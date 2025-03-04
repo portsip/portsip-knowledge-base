@@ -4,7 +4,7 @@
 
 * [What is PortSIP?](README.md)
 * [The Advantages of PortSIP PBX vs. Other PBXs](portsip-communications-solution/the-advantages-of-portsip-pbx-vs.-other-pbxs.md)
-* [Cloud PBX Empowering Service Provider](portsip-communications-solution/cloud-pbx-empowering-service-provider.md)
+* [Cloud PBX Phone System for Service Providers](portsip-communications-solution/cloud-pbx-phone-system-for-service-providers.md)
 * [What is CPaaS? Communications Platform as a Service Explained](portsip-communications-solution/what-is-cpaas-communications-platform-as-a-service-explained.md)
 * [UCaaS is Unified Communications as a Service](portsip-communications-solution/ucaas-is-unified-communications-as-a-service.md)
 * [PortSIP PBX Administration Guide](portsip-communications-solution/portsip-pbx-administration-guide/README.md)
