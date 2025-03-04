@@ -33,7 +33,7 @@ A server can only deploy one type of PortSIP server at a time. For instance, it'
 
 ## **Supported Linux OS**
 
-* Ubuntu 24.04 (64-bit).
+* Ubuntu 24.04, 64bit.
 * We recommend allocating at least 128 GB of disk space, with no need for an additional data partition.
 
 {% hint style="danger" %}
@@ -58,6 +58,10 @@ Tasks that MUST be completed before installing cluster servers.
 * The server must not be installed as a DNS or DHCP server.
 
 ## **Set password-free login for all these servers**
+
+{% hint style="danger" %}
+The following commands provided below should only be executed on the PBX HA node "**pbx01**".
+{% endhint %}
 
 The following commands provided below should only be executed on the PBX HA node "**pbx01**".
 

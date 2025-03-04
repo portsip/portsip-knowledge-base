@@ -6,11 +6,15 @@ Before upgrading the PBX HA, please consult with PortSIP support to ensure the v
 
 Please follow the below steps to upgrade your current PBX HA.
 
+{% hint style="danger" %}
+All the below commands must be performed on the pbx01 node, even if it is not the current active node.
+{% endhint %}
+
 ## Back up data
 
 Before upgrading, please back up the PBX data.
 
-1. Perform the below command **only** on the **pbx01** stop the PBX service.
+1. Perform the below command **only** on the  **pbx01** (even if it is not the current active node) to stop the PBX service.
 
 ```sh
 cd /opt/portsip-pbx-ha-guide && sudo /bin/bash ha_ctl.sh stop -s pbx
@@ -22,7 +26,7 @@ cd /opt/portsip-pbx-ha-guide && sudo /bin/bash ha_ctl.sh stop -s pbx
 cd /opt/portsip-pbx-ha-guide && sudo /bin/bash ha_ctl.sh master
 ```
 
-For example, the below output indicates the current master node is **pbx01**.&#x20;
+For example, the output below indicates the current master node is **pbx01**.&#x20;
 
 <figure><img src="../../../.gitbook/assets/ubuntu-ha-27.png" alt=""><figcaption></figcaption></figure>
 
@@ -49,7 +53,7 @@ Choose the method that best suits your requirements to install the new PortSIP P
 
 ### **2. Stop the PBX v22.x HA**
 
-To proceed with the upgrade, stop the PBX service on the v22.x HA environment. Perform the following steps **only on pbx01**:
+To proceed with the upgrade, stop the PBX service on the v22.x HA environment. Perform the following steps **only on pbx01** (even if it is not the current active node):
 
 1.  Stop the HA services:
 
@@ -69,7 +73,7 @@ To proceed with the upgrade, stop the PBX service on the v22.x HA environment. P
 
 ### **4. Start PortSIP PBX v22.x HA**
 
-Start the upgraded PBX system by running the following command:
+Start the upgraded PBX system by running the following command **on pbx01** (even if it is not the current active node):
 
 ```bash
 cd /opt/portsip-pbx-ha-guide && sudo /bin/bash ha_ctl.sh start -s pbx
@@ -83,7 +87,7 @@ If you are currently running the PortSIP PBX v22.x HA, please follow the below s
 
 ### 1. Download and update resources
 
-Perform the below command only on the **pbx01.**
+Perform the below command only on the **pbx01** (even if it is not the current active node):
 
 ```sh
   cd /opt && sudo rm -rf portsip-pbx-ha-guide-22-online.tar.gz && \
@@ -100,7 +104,7 @@ Use the new version image of PortSIP PBX to update the PBX.
 Please contact PortSIP support to obtain the **\<PortSIP PBX new version image>** before upgrading.
 {% endhint %}
 
-Perform the below command only on the **pbx01.**
+Perform the below command only on the **pbx01** (even if it is not the current active node):
 
 <pre class="language-sh"><code class="lang-sh"><strong>cd /opt/portsip-pbx-ha-guide/ &#x26;&#x26; /bin/bash update.sh &#x3C;PortSIP PBX new version image>
 </strong></code></pre>
