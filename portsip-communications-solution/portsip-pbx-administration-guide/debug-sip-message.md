@@ -1,5 +1,9 @@
 # Trace Server - A Better Way to Monitoring SIP Messages and QoS for PortSIP PBX
 
+{% hint style="danger" %}
+**Important**: Please note that the PortSIP Trace Server and PortSIP PBX should not be installed on the same server. Doing so may lead to undefined issues.
+{% endhint %}
+
 PortSIP has been building its SIP Trace Server based on the open-source project [HOMER](https://github.com/sipcapture/homer),  which provides key information in troubleshooting SIP Trunks, SIP endpoints, and other SIP related issues. It provides a place to:
 
 * Access singularly to retrieve SIP and RTCP QoS captures via Web UI
