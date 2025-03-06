@@ -30,6 +30,8 @@ sudo /bin/sh init.sh
 
 ### Upgrading PBX
 
+**Important**: If you installed the PBX High Availability, please follow the guide [Upgrading High Availability Installation](../../../high-availability-v22.x/) to upgrade.
+
 If you are currently running **PortSIP PBX v22.x** and want to upgrade to the latest version, run the following command:
 
 ```sh
