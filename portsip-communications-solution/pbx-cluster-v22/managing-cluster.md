@@ -108,39 +108,51 @@ Whenever a new version of PortSIP PBX is released, it’s essential to upgrade y
 
 ### Upgrading the Main PBX Server
 
-1. Remove the currently running PBX Main server by the commands on the server 192.168.1.20:
-
-```sh
-cd /opt/portsip
-sudo /bin/sh pbx_ctl.sh stop
-sudo /bin/sh pbx_ctl.sh rm
-```
-
-2. Install the latest version of the PBX server. Follow the instructions provided in the [Installation of the PortSIP PBX](../portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/install-portsip-pbx-on-linux.md) guide to complete this step with the latest version.
-
-### Upgrading the IM Server
-
-1. Remove the currently running server by the commands:
-
-```sh
-cd /opt/portsip
-sudo /bin/sh im_ctl.sh stop
-sudo /bin/sh im_ctl.sh rm
-```
-
-2. Install the latest version of the IM server. Follow the instructions provided in the [Installing the IM Server](configuring-cluster-servers.md#installing-im-server) guide to complete this step with the latest version.
+Please follow the guide [Upgrade to the Latest Version Within v22.x on Linux](../portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/upgrade-to-the-latest-version-within-v22.x-on-linux.md) to upgrade the main PBX server, SBC server, and IM server.
 
 ### Upgrading Cluster Servers
 
-We use the **media server** as an example, you will need to replace the media server with other servers as your actual environment.
-
-1. Remove the current running server by the commands:
+Perform the below commands to download the latest scripts.
 
 ```sh
-cd /opt/portsip
-sudo /bin/sh cluster_ctl.sh stop -s media-server-only
-sudo /bin/sh cluster_ctl.sh rm -s media-server-only
+sudo curl \
+https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/init.sh  \
+-o  init.sh
 ```
 
-2. Install the latest version of the server. Follow the instructions provided in the [Install Media server](configuring-cluster-servers.md#install-media-server) guide to complete this step with the latest version.
+```sh
+sudo /bin/sh init.sh
+```
+
+Use the below commands to upgrade the servers. We use the **-s** parameter to specify the server name.
+
+#### Media Server
+
+```sh
+cd /opt/portsip && sudo /bin/sh cluster_ctl.sh upgrade \
+-s media-server-only -i portsip/pbx:22
+```
+
+#### Queue Server
+
+```sh
+cd /opt/portsip && sudo /bin/sh cluster_ctl.sh upgrade \
+-s queue-server-only -i portsip/pbx:22
+```
+
+#### IVR Server
+
+```sh
+cd /opt/portsip && sudo /bin/sh cluster_ctl.sh upgrade \
+-s vr-server-only -i portsip/pbx:22
+```
+
+#### Meeting Server
+
+```sh
+cd /opt/portsip && sudo /bin/sh cluster_ctl.sh upgrade \
+-s meeting-server-only -i portsip/pbx:22
+```
+
+
 
