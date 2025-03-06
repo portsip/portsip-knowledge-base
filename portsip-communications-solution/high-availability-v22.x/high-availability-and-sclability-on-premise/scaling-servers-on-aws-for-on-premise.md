@@ -256,7 +256,7 @@ cd /opt/portsip-pbx-ha-guide/ && \
 
 The above example commands are just for the media servers; for other servers, you need to use the **-s** and **-a** parameters to specify the service name and its IP address:
 
-* Media Servers
-* Queue Servers
-* Meeting Servers
-* IVR servers
+* media-server-only
+* queue-server-only
+* meeting-server-only
+* ivr-server-only
