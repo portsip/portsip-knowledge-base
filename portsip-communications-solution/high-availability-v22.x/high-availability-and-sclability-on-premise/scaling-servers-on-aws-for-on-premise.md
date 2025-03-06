@@ -217,7 +217,7 @@ Perform the following command only on the HA PBX node **pbx01,** even if it is n
 
 ### Upgrade Server <a href="#upgrade-server" id="upgrade-server"></a>
 
-First, please ensure you have upgraded the PBX HA as this guide: [Upgrading High Availability Installation](upgrading-high-availability-installation.md). After that, perform the below command to upgrade the server:
+First, please ensure you have upgraded the PBX HA as per this guide: [Upgrading High Availability Installation](upgrading-high-availability-installation.md). After that, perform the below command to upgrade the server:
 
 ```sh
 cd /opt/portsip-pbx-ha-guide/ && \
@@ -254,5 +254,9 @@ cd /opt/portsip-pbx-ha-guide/ && \
  /bin/bash extend.sh rm -s media-server-only -a 192.168.1.21
 ```
 
+The above example commands are just for the media servers; for other servers, you need to use the **-s** and **-a** parameters to specify the service name and its IP address:
 
-
+* Media Servers
+* Queue Servers
+* Meeting Servers
+* IVR servers
