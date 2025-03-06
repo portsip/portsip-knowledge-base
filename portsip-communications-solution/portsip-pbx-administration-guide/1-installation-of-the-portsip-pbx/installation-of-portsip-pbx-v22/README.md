@@ -26,6 +26,6 @@ Please follow the guide below to install the PortSIP PBX v22.x on a Windows serv
 
 If you are currently running **PortSIP PBX v16.x** and wish to upgrade to **v22.x**, or if you need to upgrade from an earlier **v22.x** release to the latest version, please follow the steps outlined below.
 
-* [Upgrade to the latest v22.x on Linux](upgrade-portsip-pbx-to-v22.x.md)
+* [Upgrade to the latest v22.x on Linux](upgrade-to-the-latest-version-within-v22.x-on-linux.md)
 * [Upgrade to the latest v22.x on Windows](upgrade-to-the-latest-v22.x-on-windows.md)
 

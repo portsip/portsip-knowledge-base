@@ -4,7 +4,7 @@
 
 This guide is just for installing a **fresh** PortSIP PBX version 22.x.
 
-If you currently installed the PortSIP PBX v16.x, please follow the article [Upgrade to Latest v22.x on Linux](upgrade-portsip-pbx-to-v22.x.md) to upgrade it.
+If you currently installed the PortSIP PBX v16.x, please follow the article [Upgrade to Latest v22.x on Linux](upgrade-to-the-latest-version-within-v22.x-on-linux.md) to upgrade it.
 
 ## Minimal Hardware Requirements
 
@@ -206,6 +206,8 @@ To enable email notifications in PortSIP PBX for system alerts, you must configu
 #### Generic
 
 For other generic SMTP providers that are not Google or Microsoft, please set it up as per the provider's instructions. For some users, SMTP authentication is done by IP address rather than by username and password. In this case, select **NONE** for the **Authentication Mode** field.
+
+
 
 <figure><img src="../../../../.gitbook/assets/mail-server-settings-1.png" alt="" width="563"><figcaption></figcaption></figure>
 

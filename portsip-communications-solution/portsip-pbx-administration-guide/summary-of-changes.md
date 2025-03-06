@@ -1,7 +1,7 @@
 # Summary of Changes
 
 {% hint style="info" %}
-Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/upgrade-portsip-pbx-to-v22.x.md)to upgrading your PBX to the latest version.
+Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/upgrade-to-the-latest-version-within-v22.x-on-linux.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
 ## Changes for Release v22.1.7
