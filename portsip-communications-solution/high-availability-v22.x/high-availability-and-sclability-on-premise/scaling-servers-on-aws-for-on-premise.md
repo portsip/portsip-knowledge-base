@@ -209,11 +209,11 @@ In the below media server example commands, use the parameter **-s** to specify 
 
 You can replace the **media-server-only** with another service name, such as mentioned above, and also need to replace the **-a 192.168.1.21** with a corresponding server IP address.
 
-{% hint style="warning" %}
-Perform the following command only on the HA PBX node **pbx01**.&#x20;
+{% hint style="danger" %}
+All the below commands must be performed on the pbx01 node, even if it is not the current active node.
 {% endhint %}
 
-Perform the following command only on the HA PBX node **pbx01**.&#x20;
+Perform the following command only on the HA PBX node **pbx01,** even if it is not the current active node.
 
 ### Upgrade Server <a href="#upgrade-server" id="upgrade-server"></a>
 
