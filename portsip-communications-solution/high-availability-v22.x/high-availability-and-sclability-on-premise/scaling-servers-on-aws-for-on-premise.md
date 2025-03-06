@@ -242,7 +242,7 @@ cd /opt/portsip-pbx-ha-guide/ && \
 
 ### Stop Server <a href="#stop-server" id="stop-server"></a>
 
-```
+```sh
  cd /opt/portsip-pbx-ha-guide/ && \
   /bin/bash extend.sh stop -s media-server-only -a 192.168.1.21
 ```
