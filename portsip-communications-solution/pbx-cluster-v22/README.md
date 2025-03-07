@@ -10,8 +10,7 @@ If you've already deployed your PBX in High Availability (HA) mode and wish to e
 
 This article includes the following topics:
 
-* [Topology](../pbx-cluster/topology.md)
-* [Preparing Cluster Servers](../pbx-cluster/preparing-cluster-servers.md)
-* [Configuring Cluster Servers](../pbx-cluster/configuring-cluster-servers.md)
-* [Managing Cluster](../pbx-cluster/managing-cluster.md)
-* [Configuring Cluster Servers for High Availability](../pbx-cluster/configuring-cluster-servers-for-portsip-pbx-ha.md)
+* [Topology](topology.md)
+* [Preparing Cluster Servers](preparing-cluster-servers.md)
+* [Configuring Cluster Servers](configuring-cluster-servers.md)
+* [Managing Cluster](managing-cluster.md)
