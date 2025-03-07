@@ -228,6 +228,13 @@ After that, perform the below command to upgrade the server:
   && sudo tar xf portsip-pbx-ha-guide-22-online.tar.gz
 ```
 
+The example commands below are just for the **media servers**; for other servers, you need to use the **-s** and **-a** parameters to specify the **service nam**e and **its IP address**:
+
+* media-server-only
+* queue-server-only
+* meeting-server-only
+* ivr-server-only
+
 ```sh
 cd /opt/portsip-pbx-ha-guide/ && \
 /bin/bash extend.sh run -s media-server-only \
@@ -263,9 +270,3 @@ cd /opt/portsip-pbx-ha-guide/ && \
  /bin/bash extend.sh rm -s media-server-only -a 192.168.1.21
 ```
 
-The above example commands are just for the media servers; for other servers, you need to use the **-s** and **-a** parameters to specify the service name and its IP address:
-
-* media-server-only
-* queue-server-only
-* meeting-server-only
-* ivr-server-only
