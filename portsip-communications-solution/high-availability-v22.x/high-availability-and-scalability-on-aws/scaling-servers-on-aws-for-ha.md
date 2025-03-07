@@ -13,7 +13,7 @@ This guide provides a detailed, step-by-step process for scaling application ser
   * Queue Server
   * Meeting Server
   * IVR Server
-* Each EC2 instance must have a static private IP, can't use DHCP, and the EC2 for the Media Server must associate an elastic IP
+* Each EC2 instance must have a static private IP and can't use DHCP, and the EC2 for the Media Server must associate an elastic IP
 
 {% hint style="danger" %}
 Please don't install multiple application servers on a single EC2 instance.
@@ -28,14 +28,14 @@ Preparing the Linux servers(EC2 instances) for installing the application server
 
 ## **Supported Linux OS**
 
-* Ubuntu 24.04, it only supports 64-bit OS.
+* Ubuntu 24.04, only supports 64-bit OS.
 
 ## **Preparing the Linux Host Machine for Installation**
 
 Tasks that MUST be completed before installing cluster servers.
 
 * **Ensure the server date-time is synced correctly**.
-* Ensure each EC2 instance has assigned a **Static Private IP** address.
+* Ensure each EC2 instance has been assigned a **Static Private IP** address.
 * For the **Media Server**, each EC2 instance also needs an **Elastic Public IP** address.
 * Install all available updates and service packs before installing the application server.
 * Do not install PostgreSQL on the Server.
@@ -86,7 +86,7 @@ Please follow the steps below to deploy the Meeting Server.
 
 1. Sign in to the PortSIP BPX web portal as the system administrator.
 2. Select the menu **Servers > Meeting Servers**.
-3. Click the **Add** button, enter the server information as shown in the screenshot then click the **OK** button to save it. Please remember the server name **meeting-server-1**, we will use it in a later step.
+3. Click the **Add** button, enter the server information as shown in the screenshot, and then click the **OK** button to save it. Please remember the server name **meeting-server-1**, we will use it in a later step.
 
 <figure><img src="../../../.gitbook/assets/aws_ha_extend_meeting_1.png" alt=""><figcaption></figcaption></figure>
 
@@ -111,7 +111,7 @@ Please follow the steps below to deploy the Queue Server.
 
 1. Sign in to the PortSIP BPX web portal as the system administrator.
 2. Select the menu **Servers > Queue Servers**.
-3. click the **Add** button, enter the server information as shown in the screenshot then click the **OK** button to save it. Please remember the server name **queue-server-1**, we will use it in a later step.
+3. Click the **Add** button, enter the server information as shown in the screenshot, and then click the **OK** button to save it. Please remember the server name **queue-server-1**, we will use it in a later step.
 
 <figure><img src="../../../.gitbook/assets/aws_ha_extend_queue_1.png" alt=""><figcaption></figcaption></figure>
 
@@ -136,7 +136,7 @@ Please follow the steps below to deploy the Media Server.
 
 1. Sign in to the PortSIP BPX web portal as the system administrator.
 2. Select the menu **Servers > Media Servers**.
-3. click the **Add** button, enter the server information as shown in the screenshot then click the **OK** button to save it. Please remember the server name **media-server-1**, we will use it in a later step.
+3. Click the **Add** button, enter the server information as shown in the screenshot, and then click the **OK** button to save it. Please remember the server name **media-server-1**, we will use it in a later step.
 
 <figure><img src="../../../.gitbook/assets/aws_ha_extend_media_1.png" alt=""><figcaption></figcaption></figure>
 
@@ -161,7 +161,7 @@ Please follow the steps below to deploy the IVR Server (Virtual Receptionist).
 
 1. Sign in to the PortSIP BPX web portal as the system administrator.
 2. Select the menu **Servers > IVR Servers**.
-3. click the **Add** button, enter the server information as shown in the screenshot then click the **OK** button to save it. Please remember the server name **ivr-server-1**, we will use it in a later step.
+3. Click the **Add** button, enter the server information as shown in the screenshot, and then click the **OK** button to save it. Please remember the server name **ivr-server-1**, we will use it in a later step.
 
 <figure><img src="../../../.gitbook/assets/aws_ha_extend_ivr_1.png" alt=""><figcaption></figcaption></figure>
 
@@ -192,23 +192,23 @@ To do this, please follow the below steps:
 
 1. Sign in as the System Administrator
 2. Select the menu **IP Blacklist** > **Add**.&#x20;
-3. Enter the cluster server IP as shown in the screenshot below and choose a long **expiration date.**
+3. Enter the cluster server IP, as shown in the screenshot below, and choose a long **expiration date.**
 4. Repeat the above steps for each cluster server.
 
 <figure><img src="../../../.gitbook/assets/aws_cluster_ip_whitelist.png" alt=""><figcaption></figcaption></figure>
 
 ## Managing Servers
 
-Perform the below commands on the PBX HA node **ip-172-31-16-133** only.&#x20;
+Perform the below commands on the PBX HA node **ip-172-31-16-133** only, even if it is not the **current active node**.
 
-In the below media sever example commands, use the parameter **-s** to specify the service name, PortSIP PBX supports these services:
+In the below media server example commands, use the parameter **-s** to specify the service name. PortSIP PBX supports these services:
 
 * media-server-only
 * queue-server-only
 * meeting-server-only
 * vr-server-only
 
-You can replace the **media-server-only** with another service name such as mentioned above, and also need to replace the **-a 172.31.16.139** with a corresponding server IP address.
+You can replace the **media-server-only** with another service name, such as mentioned above, and you also need to replace the **-a 172.31.16.139** with a corresponding server IP address.
 
 ### Upgrade Server
 
@@ -237,14 +237,14 @@ cd /opt/portsip-pbx-ha-guide/ && \
 
 ### Stop Server
 
-```
+```sh
  cd /opt/portsip-pbx-ha-guide/ && \
   /bin/bash extend.sh stop -s media-server-only -a 172.31.16.139
 ```
 
 ### Remove Server
 
-```
+```sh
  cd /opt/portsip-pbx-ha-guide/ && \
  /bin/bash extend.sh rm -s media-server-only -a 172.31.16.139
 ```
