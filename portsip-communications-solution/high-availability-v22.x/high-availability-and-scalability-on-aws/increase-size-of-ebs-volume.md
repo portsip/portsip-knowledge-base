@@ -39,9 +39,7 @@ Please follow the steps below to increase the EBS volume size to **2000GB** as a
 
 Perform the below command on the PBX HA EC2 instance **ip-172-31-16-133** only.
 
-```
+```sh
 cd /opt/portsip-pbx-ha-guide && /bin/bash extend.sh run -s disk-only
 ```
-
-
 
