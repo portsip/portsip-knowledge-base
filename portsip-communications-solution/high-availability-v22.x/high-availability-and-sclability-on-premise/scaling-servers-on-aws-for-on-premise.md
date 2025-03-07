@@ -217,7 +217,16 @@ Perform the following command only on the HA PBX node **pbx01,** even if it is n
 
 ### Upgrade Server <a href="#upgrade-server" id="upgrade-server"></a>
 
-First, please ensure you have upgraded the PBX HA as per this guide: [Upgrading High Availability Installation](upgrading-high-availability-installation.md). After that, perform the below command to upgrade the server:
+First, please ensure you have upgraded the PBX HA as per this guide: [Upgrading High Availability Installation](upgrading-high-availability-installation.md).&#x20;
+
+After that, perform the below command to upgrade the server:
+
+```sh
+  cd /opt && sudo rm -rf portsip-pbx-ha-guide-22-online.tar.gz && \
+  sudo wget -N \
+  https://www.portsip.com/downloads/ha/v22/portsip-pbx-ha-guide-22-online.tar.gz \
+  && sudo tar xf portsip-pbx-ha-guide-22-online.tar.gz
+```
 
 ```sh
 cd /opt/portsip-pbx-ha-guide/ && \
