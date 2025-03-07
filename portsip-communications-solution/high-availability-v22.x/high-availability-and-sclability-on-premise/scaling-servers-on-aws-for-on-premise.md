@@ -219,7 +219,7 @@ Perform the following command only on the HA PBX node **pbx01,** even if it is n
 
 First, please ensure you have upgraded the PBX HA as per this guide: [Upgrading High Availability Installation](upgrading-high-availability-installation.md).&#x20;
 
-After that, perform the below command to upgrade the server:
+After that, perform the below command to download the latest HA resoruces:
 
 ```sh
   cd /opt && sudo rm -rf portsip-pbx-ha-guide-22-online.tar.gz && \
