@@ -105,8 +105,69 @@ To do this while on an active call:
 2. Click **Attended Transfer**.
 3. You can transfer the call to a contact/extension user within the contacts list by searching and tapping the contact you wish to transfer the call to.
 4. Or you can transfer the call to an ad-hoc number by using the keypad.
-5. Enter the number. Once finished, hit the **Call** button.
-6. Once the third-party answers, you can then click **Complete** to complete the transfer.
+5. Enter the number to call it.
+6. Once the third-party answers,  the **Attend transfer** icon will flash,   you can then press it to complete the transfer.
+
+<figure><img src="../../.gitbook/assets/portsip-one-mobile-19.png" alt="" width="375"><figcaption></figcaption></figure>
+
+## Transferring a call to voicemail <a href="#transferring-a-call-to-voicemail" id="transferring-a-call-to-voicemail"></a>
+
+A **Direct-to-Voicemail Transfer** is used when you wish to transfer a call directly to another user’s voicemail. To perform a transfer to voicemail while on an active call:
+
+1. Click the **Transfer** button.
+2. Select **Transfer to Voicemail**.
+3. From the **Contact Panel**, select the recipient to whom you wish to transfer the call to click on it.
+4. The call will be transferred directly to their voicemail.
+
+## Call on Hold <a href="#id-9" id="id-9"></a>
+
+To put a call on hold, during an active call:
+
+* Tap **Hold**. The caller will go on hold and hear the on-hold audio based on the Music-on-Hold file that has been set up for your tenant.
+* Tap the **Hold** icon again, the call will be resumed.
+
+## Direct parking a call <a href="#direct-parking-a-call" id="direct-parking-a-call"></a>
+
+To park a call to an extension while on an active call:
+
+1. Click the **Transfer** button.
+2. Select **Park**.
+3. From the **Contact Panel**, select the recipient to whom you wish to park the call and click on their name.
+
+The call will be parked on that extension.
+
+## Group parking a call <a href="#group-parking-a-call" id="group-parking-a-call"></a>
+
+If the user is a member of a park group, they can park a call to the group, allowing group members to retrieve the parked call.
+
+To park a call to the group while on an active call:
+
+1. Click the **Transfer** button.
+2. Select **Group Park**.
+
+The call will be parked to the group if the user is a member of a park group.
+
+## Retrieving a parked call <a href="#retrieving-a-parked-call" id="retrieving-a-parked-call"></a>
+
+Once a call is parked to an extension user or a park group, the extension user or group members will receive a notification. As shown in the screenshot below, the **Call HUB** icon on the top title bar will start blinking.
+
+1. Click the **HUD** icon. The parked call will appear in the list.
+2. Click the **Retrieve** button to easily retrieve the call.
+
+## Call Flip <a href="#call-flip" id="call-flip"></a>
+
+**Call Flip** allows you to quickly transfer an active call from PortSIP ONE to another endpoint, such as PortSIP ONE mobile or an IP phone. To perform a Call Flip while on an active call:
+
+1. Click the **Transfer** button.
+2. Select **Flip**.
+3. Your other devices (e.g., PortSIP ONE mobile or IP phone) will ring. Simply answer the call on the other device.
+
+## How to access your voicemail <a href="#how-to-access-your-voicemail" id="how-to-access-your-voicemail"></a>
+
+To access your voicemails, click on the **Voicemails** tab. The page is divided into two sections:
+
+1. **Voicemail Window**: This area displays your voicemails, typically organized in chronological order (by date).
+2. **Voicemail Details**: Located to the right of the voicemail window, this section provides detailed information about each voicemail.
 
 
 
