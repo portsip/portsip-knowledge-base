@@ -82,7 +82,7 @@ To place a call using your app:
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-17.png" alt="" width="375"><figcaption></figcaption></figure>
 
-### Blind Transfer <a href="#id-7" id="id-7"></a>
+### Blind transferring a call
 
 To transfer a call, during an active call:
 
@@ -95,7 +95,7 @@ To transfer a call, during an active call:
 4. Or you can transfer the call to an ad-hoc number by using the keypad.
 5. Once selected or entered in the dialpad, the call is transferred to the recipient.
 
-## Attended Transfer <a href="#id-8" id="id-8"></a>
+### Attended transferring a call
 
 If you are on an active call, you can perform an Attended Transfer to another contact within the company directory or any other number you dial via the keypad.
 
@@ -110,7 +110,7 @@ To do this while on an active call:
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-19.png" alt="" width="375"><figcaption></figcaption></figure>
 
-## Transferring a call to voicemail <a href="#transferring-a-call-to-voicemail" id="transferring-a-call-to-voicemail"></a>
+### Transferring a call to voicemail <a href="#transferring-a-call-to-voicemail" id="transferring-a-call-to-voicemail"></a>
 
 A **Direct-to-Voicemail Transfer** is used when you wish to transfer a call directly to another user’s voicemail. To perform a transfer to voicemail while on an active call:
 
@@ -119,7 +119,7 @@ A **Direct-to-Voicemail Transfer** is used when you wish to transfer a call dire
 3. From the **Contact Panel**, select the recipient to whom you wish to transfer the call to click on it.
 4. The call will be transferred directly to their voicemail.
 
-## Call on Hold <a href="#id-9" id="id-9"></a>
+### Call on Hold <a href="#id-9" id="id-9"></a>
 
 To put a call on hold, during an active call:
 
@@ -130,11 +130,14 @@ To put a call on hold, during an active call:
 
 To park a call to an extension while on an active call:
 
-1. Click the **Transfer** button.
-2. Select **Park**.
-3. From the **Contact Panel**, select the recipient to whom you wish to park the call and click on their name.
+1. Click the **Transfer** button, and select **Park**.
 
-The call will be parked on that extension.
+<figure><img src="../../.gitbook/assets/portsip-one-mobile-20.png" alt="" width="375"><figcaption></figcaption></figure>
+
+2. From the **Contact Panel**, select the recipient to whom you wish to park the call and click on their name.&#x20;
+3. The call will be parked on that extension, the extension which the call is parked on he will received the notification, or you can copy the retrieve code and share to him, then he can dial the `*881004` to retrieve the call.
+
+<figure><img src="../../.gitbook/assets/portsip-one-mobile-21.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ## Group parking a call <a href="#group-parking-a-call" id="group-parking-a-call"></a>
 
@@ -145,14 +148,16 @@ To park a call to the group while on an active call:
 1. Click the **Transfer** button.
 2. Select **Group Park**.
 
-The call will be parked to the group if the user is a member of a park group.
+The call will be parked to the group if the user is a member of a park group. All of other members of this park group will received notification then can simply retrieve the call.
 
 ## Retrieving a parked call <a href="#retrieving-a-parked-call" id="retrieving-a-parked-call"></a>
 
-Once a call is parked to an extension user or a park group, the extension user or group members will receive a notification. As shown in the screenshot below, the **Call HUB** icon on the top title bar will start blinking.
+Once a call is parked to an extension user or a park group, the extension user or group members will receive a notification. As shown in the screenshot below, the **Call HUB** icon on the top title bar will start blinking with red color.
 
 1. Click the **HUD** icon. The parked call will appear in the list.
 2. Click the **Retrieve** button to easily retrieve the call.
+
+<figure><img src="../../.gitbook/assets/portsip-one-mobile-22.png.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ## Call Flip <a href="#call-flip" id="call-flip"></a>
 
@@ -164,10 +169,16 @@ Once a call is parked to an extension user or a park group, the extension user o
 
 ## How to access your voicemail <a href="#how-to-access-your-voicemail" id="how-to-access-your-voicemail"></a>
 
-To access your voicemails, click on the **Voicemails** tab. The page is divided into two sections:
+To access your voicemails, click on the **Messages** tab. The page is divided into some sections:
 
-1. **Voicemail Window**: This area displays your voicemails, typically organized in chronological order (by date).
-2. **Voicemail Details**: Located to the right of the voicemail window, this section provides detailed information about each voicemail.
+1. Messages: This area displays your team messages with other extensions.
+2. SMS: This area displays your SMS with contacts.
+3. WhatsApp: This area displays your WhatsApp messages with contacts.
+4. Voicemail: This area displays your voicemails.
+
+<figure><img src="../../.gitbook/assets/portsip-one-mobile-23.png.png" alt="" width="375"><figcaption></figcaption></figure>
+
+## Accessing your contacts
 
 
 
