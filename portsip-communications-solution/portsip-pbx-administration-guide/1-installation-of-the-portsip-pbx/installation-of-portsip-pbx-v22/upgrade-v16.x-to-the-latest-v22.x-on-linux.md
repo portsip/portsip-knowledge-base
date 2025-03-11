@@ -42,6 +42,8 @@ sudo /bin/sh init.sh
 
 **Important**: If you installed the PBX High Availability, please follow the guide U[pgrading PortSIP PBX HA v16.x to v22.x](../../../high-availability-v22.x/high-availability-and-sclability-on-premise/upgrading-high-availability-installation.md#upgrading-portsip-pbx-ha-v16.x-to-v22.x) to upgrade.
 
+This guide is only for upgrading a standalone PortSIP PBX installation from v16.x to v22.x.
+
 Please run the following command to upgrade to the PortSIP PBX v22.x.
 
 ```sh
