@@ -24,107 +24,45 @@ Once your PBX is upgraded to the latest v16.x, follow the steps below to remove 
 All commands must be executed in the **`/opt/portsip`** directory.
 {% endhint %}
 
-### Remove the current PBX installation
+## Update the Scripts <a href="#update-the-scripts" id="update-the-scripts"></a>
 
-#### 1: Stop PBX docker instances <a href="#step-1-stop-pbx-docker-instance" id="step-1-stop-pbx-docker-instance"></a>
-
-Perform the following commands to stop the PBX Docker instance:
+Run the following commands to download the latest scripts:
 
 ```sh
-cd /opt/portsip
-sudo /bin/sh pbx_ctl.sh stop
+sudo curl \
+https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/init.sh  \
+-o  init.sh
 ```
-
-#### 2: Delete the PBX docker instances <a href="#step-2-delete-the-pbx-docker-instance" id="step-2-delete-the-pbx-docker-instance"></a>
-
-Perform the following command to delete the PBX Docker instance:
 
 ```sh
-sudo /bin/sh pbx_ctl.sh rm
+sudo /bin/sh init.sh
 ```
 
-#### 3: Delete the PBX docker images <a href="#step-3-list-the-pbx-docker-images" id="step-3-list-the-pbx-docker-images"></a>
+## Upgrading PBX <a href="#upgrading-pbx" id="upgrading-pbx"></a>
 
-Perform the following command to list the PBX Docker images:
+**Important**: If you installed the PBX High Availability, please follow the guide U[pgrading PortSIP PBX HA v16.x to v22.x](../../../high-availability-v22.x/high-availability-and-sclability-on-premise/upgrading-high-availability-installation.md#upgrading-portsip-pbx-ha-v16.x-to-v22.x) to upgrade.
+
+Please run the following command to upgrade to the PortSIP PBX v22.x.
 
 ```sh
-docker image list
+cd /opt/portsip && sudo /bin/sh pbx_ctl.sh upgrade -i portsip/pbx:22
 ```
 
-You will get a similar result, as shown in the screenshot below.
+## Upgrading SBC <a href="#upgrading-sbc" id="upgrading-sbc"></a>
 
-<figure><img src="../../../../.gitbook/assets/docker_image.png" alt=""><figcaption></figcaption></figure>
-
-You can use the following command to delete Docker images by specifying the first 4 digits of the IMAGE ID for **PBX** and **Postgresql**. In this case, the IMAGE IDs are **03b8** for **PBX** and **d569** for **Postgresql**:
+If you are currently running **PortSIP SBC** v11.x and wish to upgrade to the latest version, please perform the below command:
 
 ```sh
-docker image rm 03b8 d569 
+cd /opt/portsip && sudo /bin/sh sbc_ctl.sh upgrade -i portsip/sbc:11
 ```
 
-#### 4: Delete the scripts <a href="#step-4-delete-the-pbx-scripts" id="step-4-delete-the-pbx-scripts"></a>
+## Install IM Server <a href="#upgrading-im-server" id="upgrading-im-server"></a>
 
-Use the below commands to delete the current scripts.
+Starting with version 22.0, PortSIP PBX introduces an Instant Messaging (IM) service, offering modern features such as group chat. The IM service requires a separate installation step, as in some cases, you may also want to deploy it on a separate server for optimal performance.
 
-```sh
-rm install_pbx_docker.sh
-rm install_docker.sh
-rm pbx_ctl.sh
-```
+Please follow the article [Installation of the PortSIP IM Server on Linux](https://support.portsip.com/portsip-communications-solution/portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/install-portsip-im-server-on-linux) to install the PortSIP IM Server for the PBX.
 
-### Remove the current SBC installation
-
-If you installed **PortSIP SBC 10.x** with PortSIP PBX v16.x, you will also need to upgrade to **v11.x** for compatibility with PortSIP PBX v22.x.&#x20;
-
-Please follow the steps below to remove the current installation.
-
-#### 1: Stop SBC docker instances <a href="#step-1-stop-pbx-docker-instance" id="step-1-stop-pbx-docker-instance"></a>
-
-Perform the following commands to stop the SBC Docker instance:
-
-```sh
-cd /opt/portsip
-sudo /bin/sh sbc_ctl.sh stop
-```
-
-#### 2: Delete the SBC docker instances <a href="#step-2-delete-the-pbx-docker-instance" id="step-2-delete-the-pbx-docker-instance"></a>
-
-Perform the following command to delete the SBC Docker instance:
-
-```sh
-sudo /bin/sh sbc_ctl.sh rm
-```
-
-#### 3: Delete the SBC docker images <a href="#step-3-list-the-pbx-docker-images" id="step-3-list-the-pbx-docker-images"></a>
-
-Perform the following command to list the SBC Docker images:
-
-```sh
-sudo docker image list
-```
-
-You will get a similar result, as shown in the screenshot below.
-
-<figure><img src="../../../../.gitbook/assets/sbc_docker.png" alt=""><figcaption></figcaption></figure>
-
-You can use the following command to delete Docker images by specifying the first 4 digits of the IMAGE ID for **SBC**. In this case, the IMAGE ID is **9f51** for **SBC**:
-
-```sh
-sudo docker image rm 9f51
-```
-
-#### 4: Delete the scripts <a href="#step-4-delete-the-pbx-scripts" id="step-4-delete-the-pbx-scripts"></a>
-
-Use the below commands to delete the current scripts.
-
-```sh
-rm install_pbx_docker.sh
-rm install_docker.sh
-rm sbc_ctl.sh
-```
-
-You are now ready to upgrade to the latest version of PortSIP PBX v22.x.
-
-### Important: Upgrading from v16.x to v22.x
+## Important: Upgrading from v16.x to v22.x
 
 {% hint style="danger" %}
 If you are upgrading from v16.x to v22.x, please follow these steps after your upgrade is complete.
@@ -137,11 +75,4 @@ If you are upgrading from v16.x to v22.x, please follow these steps after your u
   * Add the two new callback URIs as described in the guide.
 * **Must log in to** the PBX web portal as a tenant administrator for each tenant and navigate to **Advanced > Contacts**. Select any contact, make an edit, and click **OK**. This action will prompt the PBX to generate an XML phone book for your IP phones, allowing them to download it successfully.
 * Since SMTP server configurations have changed in v22.0, your previous settings will now be recognized as a generic email provider. Please review your configuration and update it if necessary.
-
-## Performing the Upgrade to the Latest PortSIP PBX v22.x
-
-You can now proceed with the upgrade after **completing the above steps** to remove the existing PortSIP PBX installation (while retaining the PBX data).
-
-* Following the [same steps as for a **fresh PBX installation**](install-portsip-pbx-on-linux.md) to install a new PBX docker instance, the installer will automatically handle the data upgrade process, and all your data and configurations will be retained.
-* Following the [same steps as for a **fresh SBC installation**](../../9-configuring-portsip-sbc/installation-portsip-sbc-v11.x.md) to install a new SBC docker instance, the installer will automatically handle the data upgrade process, and all your data and configurations will be retained.
 
