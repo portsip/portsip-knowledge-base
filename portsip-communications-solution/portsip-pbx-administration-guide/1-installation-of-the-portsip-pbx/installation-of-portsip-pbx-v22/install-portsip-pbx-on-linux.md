@@ -199,34 +199,6 @@ After adding a new transport protocol, be sure to update your firewall rules to 
 
 <figure><img src="../../../../.gitbook/assets/setup_wizard_3.png" alt="" width="563"><figcaption></figcaption></figure>
 
-#### 4. System Notifications
-
-To enable email notifications in PortSIP PBX for system alerts, you must configure the SMTP settings. Once a critical event occurs in the PBX, alert emails will be sent to the specified **Recipients**.
-
-#### Generic
-
-For other generic SMTP providers that are not Google or Microsoft, please set it up as per the provider's instructions. For some users, SMTP authentication is done by IP address rather than by username and password. In this case, select **NONE** for the **Authentication Mode** field.
-
-
-
-<figure><img src="../../../../.gitbook/assets/mail-server-settings-1.png" alt="" width="563"><figcaption></figcaption></figure>
-
-#### Google Gmail
-
-You can choose to use Google Gmail as the email service provider. Enter the username (usually your email address), the sender’s email, and the recipient emails.
-
-Since Google has disabled third-party apps from sending emails using a username and password, after saving the settings, you will need to complete the [Google Integration](../../integrations/google-workspace-integration.md) process to enable the PBX to send emails via Gmail using OAuth.
-
-<figure><img src="../../../../.gitbook/assets/mail-server-settings-2.png" alt="" width="563"><figcaption></figcaption></figure>
-
-#### Microsoft 365
-
-You can choose to use Microsoft 365 as the email service provider. Enter the username (usually your email address), the sender’s email, and the recipient emails.
-
-Since Microsoft has disabled third-party apps from sending emails using a username and password, after saving the settings, you will need to complete the [Microsoft 365 Integration](../../integrations/microsoft-365-integration.md) process to enable the PBX to send emails via Microsoft 365 using OAuth.
-
-<figure><img src="../../../../.gitbook/assets/mail-server-settings-3.png" alt="" width="563"><figcaption></figcaption></figure>
-
 ### Step 5: Install Instant Messaging Service
 
 Starting with version 22.0, PortSIP PBX introduces an Instant Messaging (IM) service, offering modern features such as group chat. The IM service requires a separate installation step, as in some cases, you may also want to deploy it on a separate server for optimal performance.

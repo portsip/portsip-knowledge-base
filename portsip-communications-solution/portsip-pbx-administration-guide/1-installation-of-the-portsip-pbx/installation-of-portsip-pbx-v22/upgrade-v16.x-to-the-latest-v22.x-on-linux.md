@@ -29,6 +29,10 @@ All commands must be executed in the **`/opt/portsip`** directory.
 Run the following commands to download the latest scripts:
 
 ```sh
+cd /opt/portsip && rm -rf *.sh
+```
+
+```sh
 sudo curl \
 https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/init.sh  \
 -o  init.sh
