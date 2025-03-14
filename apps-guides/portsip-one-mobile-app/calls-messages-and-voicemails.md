@@ -148,7 +148,7 @@ To park a call to the group while on an active call:
 1. Click the **Transfer** button.
 2. Select **Group Park**.
 
-The call will be parked to the group if the user is a member of a park group. All of other members of this park group will received notification then can simply retrieve the call.
+The call will be parked to the group if the user is a member of a park group. All of the other members of this park group will receive notification and then can simply retrieve the call.
 
 ## Retrieving a parked call <a href="#retrieving-a-parked-call" id="retrieving-a-parked-call"></a>
 
@@ -179,6 +179,49 @@ To access your voicemails, click on the **Messages** tab. The page is divided in
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-23.png.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ## Accessing your contacts
+
+To access your contact directory, follow these steps:
+
+1. **Open the Contacts Tab**\
+   Tap the **Contacts** tab at the bottom navigation menu.
+2. **Explore the Contacts Page**
+   * **All**: Shows all your contacts in one list.
+   * **Favorites**: Displays your favorite contacts, including both extension users and general contacts.
+   * **Users**: Lists all extension users within your organization.
+   * **Company**: Displays company-wide contacts.
+   * **Personal**: Contains your private, personal contacts.
+   * **Device**: Shows contacts stored locally on your mobile device.
+
+<figure><img src="../../.gitbook/assets/portsip-one-mobile-24.png" alt="" width="375"><figcaption></figcaption></figure>
+
+### **Adding a new contact** <a href="#adding-a-new-contact" id="adding-a-new-contact"></a>
+
+To add a new contact to your directory, follow these steps:
+
+1. Navigate to the **Contacts** tab. Tap the **+Contact** icon at the top bar to open the contact creation window.
+2. **Enter Contact Information:** In the **Add Contact** window, fill in the necessary details in the appropriate fields.
+3. If you are a tenant administrator with the necessary permissions to access Company Contacts, you have the option to save a new contact to either **Company Contacts** or **Personal Contacts** by tapping the Title. This allows you to manage contacts effectively based on their intended usage and accessibility.
+4. **Save the Contact:** After entering all required information, click the **Save** button.
+
+Your new contact will now appear in the **My Contacts** table.
+
+<figure><img src="../../.gitbook/assets/portsip-one-mobile-25.png" alt="" width="375"><figcaption></figcaption></figure>
+
+### **Adding a user/contact to favorites** <a href="#adding-a-user-contact-to-favorites" id="adding-a-user-contact-to-favorites"></a>
+
+To quickly access your most frequently used contacts, you can mark them as favorites. Follow these steps to add a contact to your **Favorites** list:
+
+1. Click on the **Contacts** tab located in the main navigation menu.
+   * Select the **Users,** **Company,** or **Personal** tab to view your contact list.
+2. **Select the contact:** Locate the contact you wish to favor, and tap on the contact to view the details.
+3. Tap the start icon at the upper right corner.
+
+<figure><img src="../../.gitbook/assets/portsip-one-mobile-26.png" alt="" width="375"><figcaption></figcaption></figure>
+
+4. Once tapped, a **solid yellow star (⭐)** will appear to confirm that the contact has been successfully added to your **Favorites** list.
+5. **Unfavorite a contact:** To remove a contact from your **Favorites**, follow the same steps. The yellow star will disappear, indicating that the contact is no longer in your favorites.
+
+<figure><img src="../../.gitbook/assets/portsip-one-mobile-27.png" alt="" width="375"><figcaption></figcaption></figure>
 
 
 
