@@ -126,7 +126,7 @@ To put a call on hold, during an active call:
 * Tap **Hold**. The caller will go on hold and hear the on-hold audio based on the Music-on-Hold file that has been set up for your tenant.
 * Tap the **Hold** icon again, the call will be resumed.
 
-## Direct parking a call <a href="#direct-parking-a-call" id="direct-parking-a-call"></a>
+### Direct parking a call <a href="#direct-parking-a-call" id="direct-parking-a-call"></a>
 
 To park a call to an extension while on an active call:
 
@@ -139,7 +139,7 @@ To park a call to an extension while on an active call:
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-21.png" alt="" width="375"><figcaption></figcaption></figure>
 
-## Group parking a call <a href="#group-parking-a-call" id="group-parking-a-call"></a>
+### Group parking a call <a href="#group-parking-a-call" id="group-parking-a-call"></a>
 
 If the user is a member of a park group, they can park a call to the group, allowing group members to retrieve the parked call.
 
@@ -150,7 +150,7 @@ To park a call to the group while on an active call:
 
 The call will be parked to the group if the user is a member of a park group. All of the other members of this park group will receive notification and then can simply retrieve the call.
 
-## Retrieving a parked call <a href="#retrieving-a-parked-call" id="retrieving-a-parked-call"></a>
+### Retrieving a parked call <a href="#retrieving-a-parked-call" id="retrieving-a-parked-call"></a>
 
 Once a call is parked to an extension user or a park group, the extension user or group members will receive a notification. As shown in the screenshot below, the **Call HUB** icon on the top title bar will start blinking with red color.
 
@@ -159,7 +159,7 @@ Once a call is parked to an extension user or a park group, the extension user o
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-22.png.png" alt="" width="375"><figcaption></figcaption></figure>
 
-## Call Flip <a href="#call-flip" id="call-flip"></a>
+### Call Flip <a href="#call-flip" id="call-flip"></a>
 
 **Call Flip** allows you to quickly transfer an active call from PortSIP ONE to another endpoint, such as PortSIP ONE mobile or an IP phone. To perform a Call Flip while on an active call:
 
@@ -167,7 +167,7 @@ Once a call is parked to an extension user or a park group, the extension user o
 2. Select **Flip**.
 3. Your other devices (e.g., PortSIP ONE mobile or IP phone) will ring. Simply answer the call on the other device.
 
-## How to access your voicemail <a href="#how-to-access-your-voicemail" id="how-to-access-your-voicemail"></a>
+### How to access your voicemail <a href="#how-to-access-your-voicemail" id="how-to-access-your-voicemail"></a>
 
 To access your voicemails, click on the **Messages** tab. The page is divided into some sections:
 
@@ -222,6 +222,55 @@ To quickly access your most frequently used contacts, you can mark them as favor
 5. **Unfavorite a contact:** To remove a contact from your **Favorites**, follow the same steps. The yellow star will disappear, indicating that the contact is no longer in your favorites.
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-27.png" alt="" width="375"><figcaption></figcaption></figure>
+
+{% hint style="info" %}
+Both the extension users and contacts can be favored.
+{% endhint %}
+
+## How to access team messages <a href="#id-6" id="id-6"></a>
+
+PortSIP allows seamless communication within your team through internal extension user chat. If the contact you're messaging isn't an extension user, messages will be sent via SMS, MMS, or a WhatsApp channel, ensuring you're always connected.
+
+To access your team messages, follow these steps:
+
+1. **Navigate to the Messaging Tab:** Click on the **Messaging** tab in the main navigation menu.
+2. **Understand the Messaging Interface:** The page is divided into four sections:
+   * **Messages**: This is where your team messages are displayed. Messages are usually sorted by date and recipient in chronological order. You can tap the message to view the message details and reply to it.
+   * **SMS**: This is where your SMS messages are displayed. Messages are usually sorted by date and recipient in chronological order. you can tap the message to view the message details and reply to it.
+   * **WhatsApp**: This is where your WhatsApp messages are displayed. Messages are usually sorted by date and recipient in chronological order. You can tap the message to view the message details and reply to it.
+   * **Voicemail**: This is where your Voicemail messages are displayed. Messages are usually sorted by date and recipient in chronological order. You can tap the message to view the message details and play them.
+
+<figure><img src="../../.gitbook/assets/portsip-one-mobile-28.png" alt="" width="375"><figcaption></figcaption></figure>
+
+### Sending a new team message <a href="#sending-a-new-team-message" id="sending-a-new-team-message"></a>
+
+There are two ways to send a new team message:
+
+1. **From the Contacts Menu**
+   1. Go to **Contacts** and select the desired extension user.
+   2. Tap the user’s name; you’ll be taken to the chat window.
+   3. Compose and send your message.
+2. **Using the New Message Button**
+   1. Navigate to **Messaging**.
+   2. Tap the **+** icon in the top-right corner to open the menu.
+   3. Select **Create a message**.
+   4. You’ll be redirected to the chat window; compose and send your message.
+
+### Creating a team messaging group <a href="#creating-a-team-messaging-group" id="creating-a-team-messaging-group"></a>
+
+1. Navigate to **Messaging**.
+2. Tap the **+** icon in the top-right corner to open the menu.
+3. **Create a New Group:** Choose  **Create a group**. The **New Group** window will appear.
+4. **Name and Customize the Group:**
+   * Enter a name for your group chat.
+   * Optionally, add a description for the group to provide more context.
+5. **Add Group Members:**
+   * After naming the group, click the **Next** button to proceed.
+   * From the **Extension Users** list, select the members you want to add to the group.
+   * Once you've selected all desired members, click **Create** to finalize the group creation.
+6. **Finish and View the Group:** Once the group is created, you will see it listed in the **Messaging** window. You can edit it to upload the picture for the group.
+
+<figure><img src="../../.gitbook/assets/portsip-one-mobile-29.png" alt="" width="375"><figcaption></figcaption></figure>
 
 
 
