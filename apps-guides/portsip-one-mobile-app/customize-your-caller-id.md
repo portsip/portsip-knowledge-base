@@ -40,32 +40,6 @@ To adjust your caller ID from your keypad:
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-30.png" alt="" width="375"><figcaption></figcaption></figure>
 
-### Adjust caller ID from a contact details view  <a href="#adjust-caller-id-from-a-conversation-thread" id="adjust-caller-id-from-a-conversation-thread"></a>
-
-Caller ID can also be customized in the contact details view.&#x20;
-
-From the contact details view in the PortSIP ONE app:
-
-1. Click the drop-down arrow icon beside the **Phone** icon&#x20;
-2. Navigate to the **From** section
-3. Choose an outbound caller ID
-4. Click the **Phone** icon to call
-
-<figure><img src="../../.gitbook/assets/caller_id_2.png" alt=""><figcaption></figcaption></figure>
-
-### Adjust caller ID from a conversation thread  <a href="#adjust-caller-id-from-a-conversation-thread" id="adjust-caller-id-from-a-conversation-thread"></a>
-
-Caller ID can also be customized in the SMS/WhatsApp conversation thread view.&#x20;
-
-From the conversation thread view in the PortSIP ONE app:
-
-1. Click the drop-down option beside the **Phone** icon&#x20;
-2. Navigate to the **From** section
-3. Choose an outbound caller ID
-4. Click the **Phone** icon to call
-
-<figure><img src="../../.gitbook/assets/caller_id_3.png" alt=""><figcaption></figcaption></figure>
-
 ## Block your caller ID <a href="#block-your-caller-id" id="block-your-caller-id"></a>
 
 There may be a time when you need to block your caller ID.&#x20;
@@ -76,22 +50,6 @@ There may be a time when you need to block your caller ID.&#x20;
 2. Select **Block caller ID**
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-31.png" alt="" width="375"><figcaption></figcaption></figure>
-
-### To block caller ID from the contact details view
-
-1. Tab the **Drop-Down icon** alongside the **Call as**
-2. Navigate to the **From** section
-3. Choose **Block caller ID**
-
-<figure><img src="../../.gitbook/assets/caller_id_5.png" alt=""><figcaption></figcaption></figure>
-
-### Block caller ID from a conversation thread  <a href="#adjust-caller-id-from-a-conversation-thread" id="adjust-caller-id-from-a-conversation-thread"></a>
-
-1. Tab the **Drop-Down icon** alongside the **Call as**
-2. Navigate to the **From** section
-3. Choose **Block caller ID**
-
-<figure><img src="../../.gitbook/assets/caller_id_6.png" alt=""><figcaption></figcaption></figure>
 
 ## Let the PBX Decide on Delivery Caller ID
 
