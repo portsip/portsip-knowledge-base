@@ -15,9 +15,10 @@ The SMS/MMS feature requires your trunk provider to support it. Currently, PortS
 * [Configuring VoIP.ms SIP Trunk](https://support.portsip.com/portsip-communications-solution/configuring-sip-trunks/voip.ms-sip-trunk)
 * [Configuring Voxtelesys SIP Trunk](https://support.portsip.com/portsip-communications-solution/configuring-sip-trunks/voxtelesys-sip-trunk)
 * [Configuring Wavix SIP Trunk](https://support.portsip.com/portsip-communications-solution/configuring-sip-trunks/wavix-sip-trunk)
-* [Configuring VoIP Innovation SIP Trunk](../../portsip-communications-solution/configuring-sip-trunks/voip-innovations-sip-trunk/configuring-voip-innovations-ip-authentication-trunk.md)
+* [Configuring VoIP Innovation SIP Trunk](../../portsip-communications-solution/configuring-sip-trunks/voip-innovations-sip-trunk/)
 * [Configuring Aire Networks Trunk](https://support.portsip.com/portsip-communications-solution/configuring-sip-trunks/aire-networks-sip-trunk)
 * [VoiceMeUp Trunk](https://support.portsip.com/portsip-communications-solution/configuring-sip-trunks/voicemeup-sip-trunk)
+* [Configuring Bandwidth SIP Trunk](../../portsip-communications-solution/configuring-sip-trunks/bandwidth-sip-trunk/)
 
 If the tenant administrator is successfully configured for the SMS integration as the above guides, then the users can use the PortSIP ONE app to send & receive the SMS/MMS.
 
