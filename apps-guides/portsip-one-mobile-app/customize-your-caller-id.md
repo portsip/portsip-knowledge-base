@@ -33,12 +33,12 @@ Currently, caller ID cannot be updated via desk IP phones.
 
 To adjust your caller ID from your keypad:
 
-1. Click the **Keypad** icon from the title bar
+1. Click the **Keypad** tab
 2. Click the Arrow icon in the "**Call as**"&#x20;
 3. Choose caller ID in the drop-down
 4. Enter the number or contact you'd like to call, then press enter to start dialing
 
-<figure><img src="../../.gitbook/assets/caller_id_1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/portsip-one-mobile-30.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### Adjust caller ID from a contact details view  <a href="#adjust-caller-id-from-a-conversation-thread" id="adjust-caller-id-from-a-conversation-thread"></a>
 
@@ -75,11 +75,11 @@ There may be a time when you need to block your caller ID.&#x20;
 1. Click the **Drop-Down icon** alongside the **Call as**
 2. Select **Block caller ID**
 
-<figure><img src="../../.gitbook/assets/caller_id_4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/portsip-one-mobile-31.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### To block caller ID from the contact details view
 
-1. Click the drop-down arrow icon beside the **Phone** icon&#x20;
+1. Tab the **Drop-Down icon** alongside the **Call as**
 2. Navigate to the **From** section
 3. Choose **Block caller ID**
 
@@ -87,7 +87,7 @@ There may be a time when you need to block your caller ID.&#x20;
 
 ### Block caller ID from a conversation thread  <a href="#adjust-caller-id-from-a-conversation-thread" id="adjust-caller-id-from-a-conversation-thread"></a>
 
-1. Click the drop-down option beside the **Phone** icon&#x20;
+1. Tab the **Drop-Down icon** alongside the **Call as**
 2. Navigate to the **From** section
 3. Choose **Block caller ID**
 
@@ -97,11 +97,11 @@ There may be a time when you need to block your caller ID.&#x20;
 
 If you prefer not to manually select the caller ID when placing a call, you can configure it to use the **Server delivery caller ID**.
 
-<figure><img src="../../.gitbook/assets/caller_id_7.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/portsip-one-mobile-32.png" alt="" width="375"><figcaption></figcaption></figure>
 
-In the **From** section, choose the **Server delivery caller ID** option. With this setting, when the app places the call and route through the SIP trunk,  the PBX will automatically select the appropriate caller ID based on its configuration.
+Tab the **Drop-Down icon** alongside the **Call as,** choose the **Server delivery caller ID** option. With this setting, when the app places the call and route through the SIP trunk,  the PBX will automatically select the appropriate caller ID based on its configuration.
 
-For further details on how the PBX determines the outbound caller ID, please refer to the article: [**Handle Outbound Calls Through SIP Trunk**](../../portsip-communications-solution/portsip-pbx-administration-guide/7-trunk-management/handle-outbound-calls-through-sip-trunk.md#outboundcallerid), which explains how the PBX dynamically chooses the correct caller ID.
+For further details on how the PBX determines the outbound caller ID, please refer to the article [**Handle Outbound Calls Through SIP Trunk**](../../portsip-communications-solution/portsip-pbx-administration-guide/7-trunk-management/handle-outbound-calls-through-sip-trunk.md#outboundcallerid), which explains how the PBX dynamically chooses the correct caller ID.
 
 Note: This logic is typically applied to desk IP phones as well, which always follow this automatic caller ID selection process.
 
