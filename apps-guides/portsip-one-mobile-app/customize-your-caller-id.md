@@ -38,7 +38,7 @@ To adjust your caller ID from your keypad:
 3. Choose caller ID in the drop-down
 4. Enter the number or contact you'd like to call, then press enter to start dialing
 
-<figure><img src="../../.gitbook/assets/portsip-one-mobile-30.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/portsip-one-mobile-30 (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 ## Block your caller ID <a href="#block-your-caller-id" id="block-your-caller-id"></a>
 

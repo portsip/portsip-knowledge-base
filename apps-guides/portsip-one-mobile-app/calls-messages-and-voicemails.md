@@ -240,7 +240,7 @@ To access your team messages, follow these steps:
    * **WhatsApp**: This is where your WhatsApp messages are displayed. Messages are usually sorted by date and recipient in chronological order. You can tap the message to view the message details and reply to it.
    * **Voicemail**: This is where your Voicemail messages are displayed. Messages are usually sorted by date and recipient in chronological order. You can tap the message to view the message details and play them.
 
-<figure><img src="../../.gitbook/assets/portsip-one-mobile-28.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/portsip-one-mobile-28 (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### Sending a new team message <a href="#sending-a-new-team-message" id="sending-a-new-team-message"></a>
 
@@ -270,7 +270,7 @@ There are two ways to send a new team message:
    * Once you've selected all desired members, click **Create** to finalize the group creation.
 6. **Finish and View the Group:** Once the group is created, you will see it listed in the **Messaging** window. You can edit it to upload the picture for the group.
 
-<figure><img src="../../.gitbook/assets/portsip-one-mobile-29.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/portsip-one-mobile-29 (2).png" alt="" width="375"><figcaption></figcaption></figure>
 
 
 
