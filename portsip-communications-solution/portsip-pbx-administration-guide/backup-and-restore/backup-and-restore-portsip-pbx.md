@@ -85,7 +85,7 @@ You can't restore the backup data of a Windows PBX to a Linux PBX.
 Please ensure the backup PBX version is the same as the restored PBX server version.
 {% endhint %}
 
-### **1. Restoring from backup data to the same server**
+### **Restoring from Backup Data to the Same Server**
 
 1. Stop the current PBX and delete the PBX data.
 
@@ -131,7 +131,7 @@ run -p /var/lib/portsip \
 
 Congratulations! Your PBX has now been successfully restored.
 
-### **2. Restoring Backup Data to a New PBX Server**
+### **Restoring Backup Data to a New PBX Server**
 
 If you want to restore the backup PBX v22.x data to another new server, please follow the below steps.
 
@@ -176,9 +176,7 @@ rm -rf /var/lib/portsip/pbx/*
 rm -rf /var/lib/portsip/postgresql/*
 ```
 
-### **2. Restoring a PortSIP PBX**
-
-### **1. Upgrade the PortSIP PBX Docker Image (Optional)**
+### **2. Upgrade the PortSIP PBX Docker Image (Optional)**
 
 If you want to upgrade the PBX to the latest v22.x after restoring, please follow this section, otherwise ignore it.
 
