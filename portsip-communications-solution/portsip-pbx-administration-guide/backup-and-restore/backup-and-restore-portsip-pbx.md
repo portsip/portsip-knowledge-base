@@ -81,10 +81,6 @@ Please follow the steps below to restore the PortSIP PBX from the backup data in
 You can't restore the backup data of a Windows PBX to a Linux PBX.
 {% endhint %}
 
-{% hint style="danger" %}
-Please ensure the backup PBX version is the same as the restored PBX server version.
-{% endhint %}
-
 ### **Restoring from Backup Data to the Same Server**
 
 1. Stop the current PBX and delete the PBX data.
@@ -165,65 +161,26 @@ Please follow the steps below to restore the PortSIP PBX from the backup data in
 You can't restore the backup data of a Windows PBX to a Linux PBX.
 {% endhint %}
 
-### **1. Stop the Currently Running PBX Instance**
+### **Restoring from Backup Data to the Same Server**
 
-Execute the following commands to stop the PBX and delete the data:
+1. Stop the current PBX and delete the PBX data.
 
-```bash
+```sh
 cd /opt/portsip && /bin/sh pbx_ctl.sh stop
+```
+
+```sh
 /bin/sh pbx_ctl.sh rm
-rm -rf /var/lib/portsip/pbx/*
+```
+
+<pre class="language-sh"><code class="lang-sh"><strong>rm -rf /var/lib/portsip/pbx/*
+</strong></code></pre>
+
+```sh
 rm -rf /var/lib/portsip/postgresql/*
 ```
 
-### **2. Upgrade the PortSIP PBX Docker Image (Optional)**
-
-If you want to upgrade the PBX to the latest v22.x after restoring, please follow this section, otherwise ignore it.
-
-Please perform the below commands:
-
-First, list the PBX Docker images with the following command:
-
-```bash
-docker image list
-```
-
-You will get the result shown in the below screenshot.
-
-<figure><img src="../../../.gitbook/assets/docker_image.png" alt=""><figcaption></figcaption></figure>
-
-You can then delete Docker images using the first 4 digits of the IMAGE ID for PBX and Postgresql:
-
-```bash
-docker image rm 03b8 d569 
-```
-
-#### **Update the PortSIP PBX Scripts**
-
-Next, delete the existing PortSIP PBX scripts:
-
-```bash
-rm install_pbx_docker.sh
-rm install_docker.sh
-rm pbx_ctl.sh
-```
-
-Download the latest installation scripts:
-
-```bash
-curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v16.x/new/install_docker.sh -o install_docker.sh
-curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v16.x/new/pbx_ctl.sh -o pbx_ctl.sh
-```
-
-#### **Install the Docker-Compose Environment**
-
-Execute the following command to install the Docker-Compose environment. If you encounter a prompt like `*** cloud.cfg (Y/I/N/O/D/Z) [default=N] ?`, enter `Y` and then press the Enter button:
-
-```bash
-/bin/sh install_docker.sh
-```
-
-### **3. Restoring a PortSIP PBX**
+2\. Restoring a PortSIP PBX
 
 First, copy the backup data to the PortSIP PBX server. You can use the default folder, such as `/var/lib/portsip`, or another folder of your choice.
 
@@ -239,7 +196,7 @@ For example:
 After copying the data, make sure that the  folder, all subfolders, and files have the correct permissions set to `888:888`.
 {% endhint %}
 
-The command below is used to create and run the PBX on a server with the IP `66.175.221.120`. If you’re running the PBX in a LAN without a public IP, replace `66.175.221.120` with the PBX server’s private LAN IP. If you copied the backup data to a folder other than `/var/lib/portsip`, make sure to use the actual folder in the commands below.
+The command below is used to create and run the PBX on a server with the IP `66.175.221.120`. If you’re running the PBX in a LAN without a public IP, replace `66.175.221.120` with the PBX server’s private LAN IP. If you copied the backup data to a folder other than `/var/lib/portsip`, make sure to use the actual folder with parameter **-p** in the commands below.
 
 ```bash
 /bin/sh pbx_ctl.sh \
@@ -250,9 +207,29 @@ run -p /var/lib/portsip \
 
 Congratulations! Your PBX has now been successfully restored.
 
-#### **Restoring Backup Data to a New PBX Server**
+### **Restoring Backup Data to a New PBX Server**
 
-The steps for restoring backup data to a new PBX server are essentially the same. The only difference is that you’ll need to use the new server’s IP address in step 5.
+If you want to restore the backup PBX v16.x data to another new server, please follow the below steps.
+
+**Note**, that once you successfully restore the PBX data to the new server, the PBX will be upgraded to the latest v16.x automatically.
+
+1. prepare the new Linux server, don't install the PBX.&#x20;
+
+Copy the backup data to the new server. You can use the default folder, such as `/var/lib/portsip`, or another folder of your choice.
+
+<pre class="language-sh"><code class="lang-sh"><strong>mkdir -p /var/lib/portsip/pbx
+</strong><strong>cp -p -r /back/pbx-data/pbx /var/lib/portsip/
+</strong><strong>mkdir -p /var/lib/portsip/postgresql
+</strong>cp -p -r /back/pbx-db/postgresql /var/lib/portsip/
+</code></pre>
+
+{% hint style="danger" %}
+After copying the data, make sure that the  folder, all subfolders, and files have the correct permissions set to `888:888`.
+{% endhint %}
+
+2. Now follow the guide [Installation of PortSIP PBX v16.x](../1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v16/) to install a new PBX with your restored PBX data by use the **-p** parameter to specify the restored data path.
+
+After successfully installing the PortSIP PBX, your restored PBX data now is attached to the newly installed PBX.&#x20;
 
 After signing into the PBX web portal, launch the PortSIP PBX Setup Wizard. In step 1 of the Setup Wizard, make sure to update the PBX IP address to match the new server’s IP.
 
