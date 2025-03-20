@@ -20,12 +20,12 @@ Remember, it’s always a good idea to test the restore process periodically to 
 
 ### **Linux**&#x20;
 
-When [installing PortSIP PBX on Linux](../1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/install-portsip-pbx-on-linux.md#step-3-create-and-run-pbx-docker-instance), in step 3, you typically use the following command to create the PortSIP PBX Docker instance as below:
+When [installing PortSIP PBX on Linux](../1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/install-portsip-pbx-on-linux.md), in step 3, you typically use the following command to create the PortSIP PBX Docker instance as below:
 
 **v22.x:**
 
 ```sh
-/bin/sh pbx_ctl.sh \
+sudo /bin/sh pbx_ctl.sh \
 run -p /var/lib/portsip \
 -a 66.175.221.120 \
 -i portsip/pbx:22
@@ -34,7 +34,7 @@ run -p /var/lib/portsip \
 **v16.x:**
 
 ```shell
-/bin/sh pbx_ctl.sh \
+sudo /bin/sh pbx_ctl.sh \
 run -p /var/lib/portsip \
 -a 66.175.221.120 \
 -i portsip/pbx:16
@@ -44,19 +44,19 @@ In the above command used to create the PortSIP PBX Docker instance, the `-p` pa
 
 Now back up the data.
 
-<pre class="language-bash"><code class="lang-bash"><strong>mkdir -p /back/pbx-data
-</strong><strong>cp -p -r /var/lib/portsip/pbx /back/pbx-data
-</strong><strong>mkdir -p /back/pbx-db
-</strong>cp -p -r /var/lib/portsip/postgresql /back/pbx-db
+<pre class="language-bash"><code class="lang-bash"><strong>sudo mkdir -p /back/pbx-data
+</strong><strong>sudo cp -p -r /var/lib/portsip/pbx /back/pbx-data
+</strong><strong>sudo mkdir -p /back/pbx-db
+</strong>sudo cp -p -r /var/lib/portsip/postgresql /back/pbx-db
 </code></pre>
 
 For example, if you specified the **parent**  path as `/portsip/data` using the `-p` parameter when installing the PortSIP PBX, then you need to back up the folder `/portsip/data/pbx` and `/portsip/data/postgresql`.
 
 ```sh
-mkdir -p /back/pbx-data
-cp -p -r /portsip/data/pbx /back/pbx-data
-mkdir -p /back/pbx-db
-cp -p -r /portsip/data/postgresql /back/pbx-db
+sudo mkdir -p /back/pbx-data
+sudo cp -p -r /portsip/data/pbx /back/pbx-data
+sudo mkdir -p /back/pbx-db
+sudo cp -p -r /portsip/data/postgresql /back/pbx-db
 ```
 
 After successfully backing up the data, save it safely.
@@ -90,19 +90,18 @@ Please ensure the backup PBX version is the same as the restored PBX server vers
 1. Stop the current PBX and delete the PBX data.
 
 ```sh
-cd /opt/portsip && /bin/sh pbx_ctl.sh stop
+cd /opt/portsip && sudo /bin/sh pbx_ctl.sh stop
 ```
 
 ```sh
-/bin/sh pbx_ctl.sh rm
+sudo /bin/sh pbx_ctl.sh rm
 ```
 
-```sh
-rm -rf /var/lib/portsip/pbx/*
-```
+<pre class="language-sh"><code class="lang-sh"><strong>sudo rm -rf /var/lib/portsip/pbx/*
+</strong></code></pre>
 
 ```sh
-rm -rf /var/lib/portsip/postgresql/*
+sudo rm -rf /var/lib/portsip/postgresql/*
 ```
 
 2\. Restoring a PortSIP PBX
@@ -111,10 +110,10 @@ First, copy the backup data to the PortSIP PBX server. You can use the default f
 
 For example:
 
-<pre class="language-sh"><code class="lang-sh"><strong>mkdir -p /var/lib/portsip/pbx
-</strong><strong>cp -p -r /back/pbx-data/pbx /var/lib/portsip/
-</strong><strong>mkdir -p /var/lib/portsip/postgresql
-</strong>cp -p -r /back/pbx-db/postgresql /var/lib/portsip/
+<pre class="language-sh"><code class="lang-sh"><strong>sudo mkdir -p /var/lib/portsip/pbx
+</strong><strong>sudo cp -p -r /back/pbx-data/pbx /var/lib/portsip/
+</strong><strong>sudo mkdir -p /var/lib/portsip/postgresql
+</strong>sudo cp -p -r /back/pbx-db/postgresql /var/lib/portsip/
 </code></pre>
 
 {% hint style="danger" %}
@@ -124,7 +123,7 @@ After copying the data, make sure that the  folder, all subfolders, and files ha
 The command below is used to create and run the PBX on a server with the IP `66.175.221.120`. If you’re running the PBX in a LAN without a public IP, replace `66.175.221.120` with the PBX server’s private LAN IP. If you copied the backup data to a folder other than `/var/lib/portsip`, make sure to use the actual folder with parameter **-p** in the commands below.
 
 ```bash
-/bin/sh pbx_ctl.sh \
+sudo /bin/sh pbx_ctl.sh \
 run -p /var/lib/portsip \
 -a 66.175.221.120 \
 -i portsip/pbx:22
@@ -142,10 +141,10 @@ If you want to restore the backup PBX v22.x data to another new server, please f
 
 Copy the backup data to the new server. You can use the default folder, such as `/var/lib/portsip`, or another folder of your choice.
 
-<pre class="language-sh"><code class="lang-sh"><strong>mkdir -p /var/lib/portsip/pbx
-</strong><strong>cp -p -r /back/pbx-data/pbx /var/lib/portsip/
-</strong><strong>mkdir -p /var/lib/portsip/postgresql
-</strong>cp -p -r /back/pbx-db/postgresql /var/lib/portsip/
+<pre class="language-sh"><code class="lang-sh"><strong>sudo mkdir -p /var/lib/portsip/pbx
+</strong><strong>sudo cp -p -r /back/pbx-data/pbx /var/lib/portsip/
+</strong><strong>sudo mkdir -p /var/lib/portsip/postgresql
+</strong>sudo cp -p -r /back/pbx-db/postgresql /var/lib/portsip/
 </code></pre>
 
 {% hint style="danger" %}
@@ -165,6 +164,19 @@ Please follow the steps below to restore the PortSIP PBX from the backup data in
 {% hint style="danger" %}
 You can't restore the backup data of a Windows PBX to a Linux PBX.
 {% endhint %}
+
+### **1. Stop the Currently Running PBX Instance**
+
+Execute the following commands to stop the PBX and delete the data:
+
+```bash
+cd /opt/portsip && /bin/sh pbx_ctl.sh stop
+/bin/sh pbx_ctl.sh rm
+rm -rf /var/lib/portsip/pbx/*
+rm -rf /var/lib/portsip/postgresql/*
+```
+
+### **2. Restoring a PortSIP PBX**
 
 ### **1. Upgrade the PortSIP PBX Docker Image (Optional)**
 
@@ -211,17 +223,6 @@ Execute the following command to install the Docker-Compose environment. If you 
 
 ```bash
 /bin/sh install_docker.sh
-```
-
-### **1. Stop the Currently Running PBX Instance**
-
-Execute the following commands to stop the PBX and delete the data:
-
-```bash
-cd /opt/portsip && /bin/sh pbx_ctl.sh stop
-/bin/sh pbx_ctl.sh rm
-rm -rf /var/lib/portsip/pbx/*
-rm -rf /var/lib/portsip/postgresql/*
 ```
 
 ### **3. Restoring a PortSIP PBX**
