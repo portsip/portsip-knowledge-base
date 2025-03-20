@@ -153,7 +153,7 @@ If you want to restore the backup PBX v22.x data to another new server, please f
 
 **Note**, that once you successfully restore the PBX data to the new server, the PBX will be upgraded to the latest v22.x automatically.
 
-1. prepare the new Linux server, don't install the PBX.&#x20;
+1. prepare the new Linux server, **don't** install the PBX.&#x20;
 
 Copy the backup data to the new server. You can use the default folder, such as `/var/lib/portsip`, or another folder of your choice.
 
@@ -233,7 +233,7 @@ If you want to restore the backup PBX v16.x data to another new server, please f
 
 **Note**, that once you successfully restore the PBX data to the new server, the PBX will be upgraded to the latest v16.x automatically.
 
-1. prepare the new Linux server, don't install the PBX.&#x20;
+1. prepare the new Linux server, **don't** install the PBX.&#x20;
 
 Copy the backup data to the new server. You can use the default folder, such as `/var/lib/portsip`, or another folder of your choice.
 
