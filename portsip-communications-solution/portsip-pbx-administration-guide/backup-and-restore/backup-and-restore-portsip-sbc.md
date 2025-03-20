@@ -42,8 +42,6 @@ sudo mkdir -p /back/sbc-data
 sudo cp -p -r /portsip/data/sbc /back/sbc-data
 ```
 
-### **Windows**&#x20;
-
 **v10.x:**
 
 ```sh
@@ -140,7 +138,7 @@ sudo cp -p -r /back/sbc-data/sbc /var/lib/portsip/
 After copying the data, make sure that the folder, all subfolders, and files have the correct permissions set to `888:888`.
 {% endhint %}
 
-1. Now follow the guide [Installation PortSIP SBC v11.x](../9-configuring-portsip-sbc/installation-portsip-sbc-v11.x.md) to install a new SBC with your restored SBC data by use the **-p** parameter to specify the restored data path.
+2. Now follow the guide [Installation PortSIP SBC v11.x](../9-configuring-portsip-sbc/installation-portsip-sbc-v11.x.md) to install a new SBC with your restored SBC data by using the **-p** parameter to specify the restored data path.
 
 After successfully installing the PortSIP SBC, your restored SBC data now is attached to the newly installed SBC.
 
@@ -212,7 +210,7 @@ cp -p -r /back/sbc-data/sbc /var/lib/portsip/
 After copying the data, make sure that the folder, all subfolders, and files have the correct permissions set to `888:888`.
 {% endhint %}
 
-1. Now follow the guide [Installation PortSIP SBC v10.x](../9-configuring-portsip-sbc/installation-portsip-sbc-v10.x.md) to install a new SBC with your restored SBC data by use the **-p** parameter to specify the restored data path.
+2. Now follow the guide [Installation PortSIP SBC v10.x](../9-configuring-portsip-sbc/installation-portsip-sbc-v10.x.md) to install a new SBC with your restored SBC data by using the **-p** parameter to specify the restored data path.
 
 After successfully installing the PortSIP SBC, your restored SBC data now is attached to the newly installed SBC.
 

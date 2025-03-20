@@ -167,7 +167,7 @@ Copy the backup data to the new server. You can use the default folder, such as 
 After copying the data, make sure that the  folder, all subfolders, and files have the correct permissions set to `888:888`.
 {% endhint %}
 
-2. Now follow the guide [Install PortSIP PBX on Linux](../1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/install-portsip-pbx-on-linux.md) to install a new PBX with your restored PBX data by use the **-p** parameter to specify the restored data path.
+2. Now follow the guide [Install PortSIP PBX on Linux](../1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/install-portsip-pbx-on-linux.md) to install a new PBX with your restored PBX data by using the **-p** parameter to specify the restored data path.
 
 After successfully installing the PortSIP PBX, your restored PBX data now is attached to the newly installed PBX.&#x20;
 
@@ -247,7 +247,7 @@ Copy the backup data to the new server. You can use the default folder, such as 
 After copying the data, make sure that the  folder, all subfolders, and files have the correct permissions set to `888:888`.
 {% endhint %}
 
-2. Now follow the guide [Installation of PortSIP PBX v16.x](../1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v16/) to install a new PBX with your restored PBX data by use the **-p** parameter to specify the restored data path.
+2. Now follow the guide [Installation of PortSIP PBX v16.x](../1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v16/) to install a new PBX with your restored PBX data by using the **-p** parameter to specify the restored data path.
 
 After successfully installing the PortSIP PBX, your restored PBX data now is attached to the newly installed PBX.&#x20;
 
