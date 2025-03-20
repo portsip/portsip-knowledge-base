@@ -22,7 +22,14 @@ Remember, it’s always a good idea to test the restore process periodically to 
 
 When [installing PortSIP SBC](../9-configuring-portsip-sbc/installation-portsip-sbc-v11.x.md) on Linux, you typically use the following command to create the PortSIP SBC Docker instance:
 
-```bash
+**V11.x:**&#x20;
+
+<pre class="language-sh"><code class="lang-sh"><strong>sudo /bin/sh sbc_ctl.sh run -p /var/lib/portsip -i portsip/sbc:11
+</strong></code></pre>
+
+**v10.x:**
+
+```sh
 /bin/sh sbc_ctl.sh run -p /var/lib/portsip -i portsip/sbc:10
 ```
 

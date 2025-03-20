@@ -34,7 +34,7 @@ run -p /var/lib/portsip \
 **v16.x:**
 
 ```shell
-sudo /bin/sh pbx_ctl.sh \
+/bin/sh pbx_ctl.sh \
 run -p /var/lib/portsip \
 -a 66.175.221.120 \
 -i portsip/pbx:16
@@ -43,6 +43,8 @@ run -p /var/lib/portsip \
 In the above command used to create the PortSIP PBX Docker instance, the `-p` parameter is used to specify the **parent** folder for storing the PBX data. To back up the data, simply copy the folder `/var/lib/portsip/pbx` and `/var/lib/portsip/postgresql` to another server or an external disk.
 
 Now back up the data.
+
+**v22.x:**
 
 <pre class="language-bash"><code class="lang-bash"><strong>sudo mkdir -p /back/pbx-data
 </strong><strong>sudo cp -p -r /var/lib/portsip/pbx /back/pbx-data
@@ -57,6 +59,24 @@ sudo mkdir -p /back/pbx-data
 sudo cp -p -r /portsip/data/pbx /back/pbx-data
 sudo mkdir -p /back/pbx-db
 sudo cp -p -r /portsip/data/postgresql /back/pbx-db
+```
+
+**v16.x:**
+
+```sh
+mkdir -p /back/pbx-data
+cp -p -r /var/lib/portsip/pbx /back/pbx-data
+mkdir -p /back/pbx-db
+cp -p -r /var/lib/portsip/postgresql /back/pbx-db
+```
+
+For example, if you specified the **parent**  path as `/portsip/data` using the `-p` parameter when installing the PortSIP PBX, then you need to back up the folder `/portsip/data/pbx` and `/portsip/data/postgresql`.
+
+```sh
+mkdir -p /back/pbx-data
+cp -p -r /portsip/data/pbx /back/pbx-data
+mkdir -p /back/pbx-db
+cp -p -r /portsip/data/postgresql /back/pbx-db
 ```
 
 After successfully backing up the data, save it safely.
