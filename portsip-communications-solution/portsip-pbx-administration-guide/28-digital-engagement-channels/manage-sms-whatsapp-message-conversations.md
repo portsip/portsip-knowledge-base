@@ -34,11 +34,11 @@ Once the transfer is completed, all future messages from this customer to the sa
 
 In the PortSIP ONE mobile app, the currently assigned agent can **tap on their own message**, and then select **Transfer** from the pop-up menu.&#x20;
 
-<figure><img src="../../../.gitbook/assets/sms-whatsapp-queue-6.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/sms-whatsapp-queue-6.png" alt="" width="375"><figcaption></figcaption></figure>
 
 From there, they can choose another agent to transfer the conversation to.
 
-
+<figure><img src="../../../.gitbook/assets/sms-whatsapp-queue-7.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ## Selecting the Destination Number and Outbound Caller ID
 
