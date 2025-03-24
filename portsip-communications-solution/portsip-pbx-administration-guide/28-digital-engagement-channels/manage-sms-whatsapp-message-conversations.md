@@ -30,7 +30,7 @@ If an agent is unable to resolve a customer’s inquiry and needs to escalate th
 
 Once the transfer is completed, all future messages from this sender to the same group or queue will be automatically routed to the newly assigned agent as the designated recipient.
 
-
+<figure><img src="../../../.gitbook/assets/sms-whatsapp-queue-1.png" alt=""><figcaption></figcaption></figure>
 
 
 
