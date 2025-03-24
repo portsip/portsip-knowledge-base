@@ -107,6 +107,7 @@
   * [28 Digital Engagement Channels](portsip-communications-solution/portsip-pbx-administration-guide/28-digital-engagement-channels/README.md)
     * [SMS Channel](portsip-communications-solution/portsip-pbx-administration-guide/28-digital-engagement-channels/sms-channel.md)
     * [WhatsApp Channel](portsip-communications-solution/portsip-pbx-administration-guide/28-digital-engagement-channels/whatsapp-channel.md)
+    * [Manage SMS/WhatsApp Message Conversations](portsip-communications-solution/portsip-pbx-administration-guide/28-digital-engagement-channels/manage-sms-whatsapp-message-conversations.md)
   * [29 Integrations](portsip-communications-solution/portsip-pbx-administration-guide/integrations/README.md)
     * [Microsoft 365 Integration](portsip-communications-solution/portsip-pbx-administration-guide/integrations/microsoft-365-integration.md)
     * [Google Workspace Integration](portsip-communications-solution/portsip-pbx-administration-guide/integrations/google-workspace-integration.md)
