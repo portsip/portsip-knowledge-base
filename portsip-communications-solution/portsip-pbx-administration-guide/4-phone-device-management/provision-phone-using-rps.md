@@ -2,7 +2,16 @@
 
 In case PortSIP PBX is located in the cloud, IP Phones can be auto-provisioned via RPS (Redirection and Provisioning Service).&#x20;
 
-PortSIP PBX supports [Fanvil](https://www.fanvil.com), [Yealink](https://www.yealink.com), [SNOM](https://www.snom.com), [ALE](https://www.al-enterprise.com/), and [Htek ](https://www.htek.com/)RPS. If you are using an IP phone from one of the providers mentioned above, you can configure your IP phone easily without the need to manually copy the auto-provisioning link. In this scenario, the PnP method is unavailable.
+PortSIP PBX supports the following IP Phone's RPS:
+
+* [Fanvil](https://www.fanvil.com)
+* [Yealink](https://www.yealink.com)
+* [GrandStream](https://www.grandstream.com/)
+* [SNOM](https://www.snom.com)
+* [ALE](https://www.al-enterprise.com/)
+* [Htek](https://www.htek.com/)
+
+If you are using an IP phone from one of the providers mentioned above, you can configure your IP phone easily without the need to manually copy the auto-provisioning link. In this scenario, the PnP method is unavailable.
 
 <figure><img src="../../../.gitbook/assets/rps.png" alt=""><figcaption></figcaption></figure>
 
