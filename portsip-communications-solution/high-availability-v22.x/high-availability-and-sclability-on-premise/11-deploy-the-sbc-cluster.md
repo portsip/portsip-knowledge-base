@@ -167,7 +167,7 @@ All the below commands must be performed on the pbx01 node, even if it is not th
 
 First, please ensure you have upgraded the PBX HA as per this guide: [Upgrading High Availability Installation](upgrading-high-availability-installation.md).&#x20;
 
-To upgrade all SBC servers, run the following command on the `pbx01` node:
+To upgrade all SBC servers, run the following command on the `pbx01` node. The process may take some time—**do not interrupt, reboot, or close the terminal** during execution.
 
 ```sh
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash sbc.sh upgrade \
