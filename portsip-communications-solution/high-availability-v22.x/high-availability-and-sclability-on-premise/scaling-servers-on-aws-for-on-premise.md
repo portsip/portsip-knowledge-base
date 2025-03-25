@@ -225,7 +225,7 @@ To manage a **specific server instance** by its IP address, use the `-a` paramet
 
 ### Managing All Extended Servers
 
-The following commands apply actions to **all** extended servers:
+The following commands apply actions to **all** extended servers(Media servers, Queue Servers, Meeting Servers, IVR Servers):
 
 **Start All:**
 
