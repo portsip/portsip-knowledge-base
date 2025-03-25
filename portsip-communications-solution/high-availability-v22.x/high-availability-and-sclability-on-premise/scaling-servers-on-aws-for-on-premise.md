@@ -329,15 +329,6 @@ Perform the following command only on the HA PBX node **pbx01,** even if it is n
 
 First, please ensure you have upgraded the PBX HA as per this guide: [Upgrading High Availability Installation](upgrading-high-availability-installation.md).&#x20;
 
-After that, perform the below command to download the latest HA resources:
-
-```sh
-  cd /opt && sudo rm -rf portsip-pbx-ha-guide-22-online.tar.gz && \
-  sudo wget -N \
-  https://www.portsip.com/downloads/ha/v22/portsip-pbx-ha-guide-22-online.tar.gz \
-  && sudo tar xf portsip-pbx-ha-guide-22-online.tar.gz
-```
-
 ### Upgrading All Extended Servers
 
 If you want to upgrade all extended servers—including the **Media Server**, **Queue Server**, **Meeting Server**, and **IVR Server**—run the following command:
