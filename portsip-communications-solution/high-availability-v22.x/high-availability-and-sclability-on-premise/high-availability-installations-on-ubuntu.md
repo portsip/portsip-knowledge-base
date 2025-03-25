@@ -36,8 +36,8 @@ In this article, we deploy the HA on three servers that have the following IP ad
 * 192.168.1.131
 * 192.168.1.132
 * 192.168.1.133
-
-We used **192.168.1.130** as the VIP (Virtual IP).
+* We used **192.168.1.130** as the VIP (Virtual IP)
+* Route the static public IP **104.18.36.119** to the virtual IP
 
 ### Linux OS
 
