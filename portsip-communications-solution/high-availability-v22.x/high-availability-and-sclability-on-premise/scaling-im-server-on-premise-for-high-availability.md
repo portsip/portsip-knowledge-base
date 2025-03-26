@@ -170,6 +170,6 @@ Please follow the below steps to upgrade the IM server.
 3. Now upgrade the IM server and run the following command on the `pbx01` node. The process may take some time—**do not interrupt, reboot, or close the terminal** during execution.
 
 ```sh
-cd /opt/portsip-pbx-ha-guide/ && /bin/bash sbc.sh upgrade
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash im.sh upgrade
 ```
 
