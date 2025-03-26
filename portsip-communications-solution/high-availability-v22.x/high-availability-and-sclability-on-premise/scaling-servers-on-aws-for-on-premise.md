@@ -31,14 +31,24 @@ In this guide, we assume that the following servers are being installed for the 
 A server can only deploy one type of PortSIP server at a time. For instance, it's not allowed to deploy both the media server and queue server simultaneously on **Server 1**.
 {% endhint %}
 
-## **Supported Linux OS**
+## Supported Linux OS
 
-* Ubuntu 24.04, 64bit.
-* We recommend allocating at least 128 GB of disk space, with no need for an additional data partition.
+PortSIP PBX High Availability (HA) and all associated cluster servers require a consistent and compatible Linux environment.
 
-{% hint style="danger" %}
-All cluster servers must run the same version of the Linux OS as the PBX in High Availability (HA).
-{% endhint %}
+### Operating System Requirements
+
+* **Supported OS:** Ubuntu 24.04 (64-bit)
+* All servers in the HA cluster **must run the exact same OS version** as the PBX server.
+
+### User Account Requirements
+
+* All cluster servers must use the **same username and password** as the PBX server.
+* In this guide, the username **`pbx`** is used as an example. The user account **must have `sudo` privileges** to execute administrative commands.
+
+### Disk Space Recommendations
+
+* **Cluster Servers:** A minimum of **128 GB** of disk space is required. No additional data partition is necessary.
+* **Media Servers (with Call Recording Enabled):** If call recording is enabled, a minimum of **256 GB** of disk space is recommended to accommodate the additional storage requirements.
 
 {% hint style="danger" %}
 When setting up the PBX cluster, please ensure there is sufficient network speed and bandwidth between the servers. Insufficient network resources may cause the PBX to not work as expected.

@@ -43,12 +43,25 @@ Please purchase a wildcard TLS certificate for the domain **sbc.com** as per the
 
 Before configuring the cluster servers, please ensure that you have completed the PBX HA installation and configuration on the **Main Server** by following the guide [High Availability Installations on Ubuntu](high-availability-installations-on-ubuntu.md).
 
-## **Supported Linux OS** <a href="#supported-linux-os" id="supported-linux-os"></a>
+## Supported Linux OS
 
-* Ubuntu 24.04, 64-bit.
-* We recommend allocating at least 128 GB of disk space, with no need for an additional data partition.
-* All cluster servers must run the same version of the Linux OS as the PBX in High Availability (HA).
-* When setting up the PBX cluster, please ensure there is sufficient network speed and bandwidth between the servers. Insufficient network resources may cause the PBX to not work as expected.
+PortSIP PBX High Availability (HA) and all associated servers require a consistent and compatible Linux environment.
+
+### Operating System Requirements
+
+* **Supported OS:** Ubuntu 24.04 (64-bit)
+* All servers in the HA cluster **must run the exact same OS version** as the PBX server.
+
+### User Account Requirements
+
+To ensure consistency and seamless operation across the HA cluster, all SBC servers must meet the following user account requirements:
+
+* All SBC servers must use the **same username and password** as the PBX server.
+* In this guide, the username **`pbx`** is used as an example. The user account **must have `sudo` privileges** to execute administrative commands.
+
+### Disk Space Recommendations
+
+* A minimum of **128 GB** of disk space is required. No additional data partition is necessary.
 
 {% hint style="danger" %}
 **Important:** All management commands for extended servers **must be executed on the `pbx01` node**, regardless of whether it is currently the active node.

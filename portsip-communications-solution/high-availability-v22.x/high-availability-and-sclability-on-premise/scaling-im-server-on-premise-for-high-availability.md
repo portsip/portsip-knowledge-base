@@ -15,11 +15,27 @@ For optimal performance, it’s recommended to install the IM service on a separ
 * **Static private IP**: You must configure a static private IP for this IM server. In this case, we assume it's **192.168.1.25.**
 * **Static public IP:** If your PBX and IM server are located in the cloud for the internet users to access, you must have a static public IP for this IM service. In this case, we assume it's **104.18.36.110.**
 
-### **Supported Linux OS** <a href="#supported-linux-os" id="supported-linux-os"></a>
+## Supported Linux OS
 
-It only supports 64-bit OS.
+PortSIP PBX High Availability (HA) and all associated servers require a consistent and compatible Linux environment.
 
-* Ubuntu 24.04
+### Operating System Requirements
+
+* **Supported OS:** Ubuntu 24.04 (64-bit)
+* All servers in the HA cluster **must run the exact same OS version** as the PBX server.
+
+### User Account Requirements
+
+To ensure consistency and seamless operation across the HA cluster, IM server must meet the following user account requirements:
+
+* IM server ust use the **same username and password** as the PBX server.
+* In this guide, the username **`pbx`** is used as an example. The user account **must have `sudo` privileges** to execute administrative commands.
+
+### Disk Space Recommendations
+
+* A minimum of **128 GB** of disk space is required. No additional data partition is necessary. If you have massive users to send & receive messages, and share the files in the chat, please allocate an appropriate disks size.
+
+### Network Settings
 
 For this setup, we assume the **PortSIP PBX High Availability** is installed on a server:
 
