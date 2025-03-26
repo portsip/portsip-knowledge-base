@@ -45,6 +45,11 @@ The PortSIP PBX HA for Ubuntu supports the following versions:
 
 * &#x20;Ubuntu 24.04, 64bit.
 
+### User Account Requirements
+
+* All cluster servers must use the **same username and password** as the PBX server.
+* In this guide, the username **`pbx`** is used as an example. The user account **must have `sudo` privileges** to execute administrative commands. If you follow this guide to setup the server, that the `pbx` user will be created and has the **`sudo`** privileges, no need extra adjustments.
+
 ## **Architecture**
 
 **Figure 1-1**   PortSIP PBX HA Architecture
@@ -92,6 +97,8 @@ The steps in this section guide you through the process of installing and config
 {% endhint %}
 
 In this article, we installed the **Ubuntu 24.04**.
+
+In this guide, the username **`pbx`** is used as an example. The user account **must have `sudo` privileges** to execute administrative commands. If you follow this guide to setup the server, that the `pbx` user will be created and has the **`sudo`** privileges, no need extra adjustments.
 
 ### Select language
 
@@ -334,7 +341,7 @@ ssh -t pbx01 "sudo reboot"
 Only execute the following command on the node **pbx01**, the execution may take some time, so patience is required. Please do not interrupt, restart, or shut down while the process is in progress.
 
 ```sh
-cd /opt/portsip-pbx-ha-guide/ && /bin/sh deploy_pbx.sh
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash deploy_pbx.sh
 ```
 
 Once the resource configuration is complete, you can access your PBX by opening https://192.168.1.130:8887 in a web browser. All future PBX management, configuration, and access will be done through the virtual IP 192.168.1.130.
