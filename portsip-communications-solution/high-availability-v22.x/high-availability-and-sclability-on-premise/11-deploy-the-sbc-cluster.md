@@ -14,7 +14,7 @@ Assume we have the three servers with the below IP addresses:
 
 * **SBC 1**: Private IP **192.168.1.11**, public IP is: **72.247.113.11**
 * **SBC 2**: Private IP **192.168.1.12**, public IP is: **72.247.113.12**
-* **SBC 3**: Private IP **192.168.13**, public IP is: **72.247.113.13**
+* **SBC 3**: Private IP **192.168.1.13**, public IP is: **72.247.113.13**
 
 ## DNS Configuration
 
