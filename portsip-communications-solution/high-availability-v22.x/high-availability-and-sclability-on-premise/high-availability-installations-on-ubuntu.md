@@ -39,6 +39,11 @@ In this article, we deploy the HA on three servers that have the following IP ad
 * We used **192.168.1.130** as the VIP (Virtual IP)
 * Route the static public IP **104.18.36.119** to the virtual IP
 
+**Please note:**
+
+* The IP addresses must be static; dynamic IP addresses assigned via DHCP are not supported.
+* When installing Ubuntu, please ensure that Netplan is used for network configuration.
+
 ### Linux OS
 
 The PortSIP PBX HA for Ubuntu supports the following versions:
