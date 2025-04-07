@@ -41,8 +41,8 @@ In this article, we deploy the HA on three servers that have the following IP ad
 
 **Please note:**
 
-* The IP addresses must be static; dynamic IP addresses assigned via DHCP are not supported.
-* When installing Ubuntu, please ensure that Netplan is used for network configuration.
+* The IP addresses must be **static**; dynamic IP addresses assigned via DHCP are not supported.
+* When installing Ubuntu, please ensure that **Netplan** is used for network configuration.
 
 ### Linux OS
 
