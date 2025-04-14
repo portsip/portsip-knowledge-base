@@ -25,11 +25,11 @@ To give an order of magnitude of the waiting time before each retry (those data 
 
 | Request | Time interval |
 | ------- | ------------- |
-| Try #1  | \~ 32 sec     |
-| Try #2  | \~ 4 min      |
-| Try #3  | \~ 17 min     |
-| Try #4  | \~ 52 min     |
-| Try #5  | \~ 2 hours    |
+| Try #1  | \~ 15 sec     |
+| Try #2  | \~ 1 min      |
+| Try #3  | \~ 3 mins     |
+| Try #4  | \~ 8 mins     |
+| Try #5  | \~ 15 mins    |
 
 It means that when the first request fails the next retry is processed after 32 sec, then 4 minutes after the last retry... If it’s still failing this request will never be sent afterward.
 
