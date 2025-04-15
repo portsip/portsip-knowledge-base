@@ -19,19 +19,19 @@ PortSIP PBX cannot guarantee the order in which the events arrive. PortSIP PBX d
 
 ## Endpoint Unavailability <a href="#endpoint-unavailability" id="endpoint-unavailability"></a>
 
-When an event notification request to an endpoint is not responded by an HTTP 200 OK status (network issue, endpoint is down ...), the request will be retried. The request will be retried during 3 hours 5 times with waiting time growing.
+When an event notification request to an endpoint is not responded by an HTTP 200 OK status (network issue, endpoint is down ...), the request will be retried. The request will be retried during 15 minutes 5 times with waiting time growing.
 
 To give an order of magnitude of the waiting time before each retry (those data are for information only and are susceptible to change):
 
 | Request | Time interval |
 | ------- | ------------- |
-| Try #1  | \~ 15 sec     |
+| Try #1  | \~ 15 secs    |
 | Try #2  | \~ 1 min      |
 | Try #3  | \~ 3 mins     |
 | Try #4  | \~ 8 mins     |
 | Try #5  | \~ 15 mins    |
 
-It means that when the first request fails the next retry is processed after 32 sec, then 4 minutes after the last retry... If it’s still failing this request will never be sent afterward.
+It means that when the first request fails the next retry is processed after 15 secs, then 1 minute after the last retry... If it’s still failing this request will never be sent afterward.
 
 ## Automatic Disablement
 
