@@ -154,7 +154,7 @@ To prevent the PBX from restricting the request rate to the IM servers, you must
 
 If your PBX and IM server are hosted on a cloud platform (e.g., AWS, Azure, or GCE), you must configure the necessary firewall or network security rules to allow communication between them.
 
-In your cloud platform, create a firewall or network security rule that permits **all TCP traffic** from the **IM server to the PBX server**. This ensures proper connectivity between the services for messaging and signaling.
+In your cloud platform, create a firewall or network security rule that permits **all TCP traffic** from the **IM server IP address to the PBX server**. This ensures proper connectivity between the services for messaging and signaling.
 
 > ⚠️ **Note:** Make sure this rule is restricted to the internal IP range of your deployment to maintain security.
 
