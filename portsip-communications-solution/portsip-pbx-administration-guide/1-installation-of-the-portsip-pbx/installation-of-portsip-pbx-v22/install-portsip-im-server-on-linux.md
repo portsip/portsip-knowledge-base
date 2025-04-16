@@ -148,7 +148,17 @@ To prevent the PBX from restricting the request rate to the IM servers, you must
 
 <figure><img src="../../../../.gitbook/assets/im_server_whitelist.png" alt="" width="563"><figcaption></figcaption></figure>
 
-### Step 4: Generate Token for the IM Server
+### Step 4: Configure Cloud Firewall or Network Security Rules
+
+> _Skip this step if you are not deploying the PBX and IM server on a cloud platform such as AWS, Azure, or Google Cloud (GCE)._
+
+If your PBX and IM server are hosted on a cloud platform (e.g., AWS, Azure, or GCE), you must configure the necessary firewall or network security rules to allow communication between them.
+
+In your cloud platform, create a firewall or network security rule that permits **all TCP traffic** from the **IM server to the PBX server**. This ensures proper connectivity between the services for messaging and signaling.
+
+> ⚠️ **Note:** Make sure this rule is restricted to the internal IP range of your deployment to maintain security.
+
+### Step 5: Generate Token for the IM Server
 
 1. Log in as the **System Administrator** to the PortSIP PBX Web portal.
 2. Navigate to **Servers > IM Servers**.
@@ -157,7 +167,7 @@ To prevent the PBX from restricting the request rate to the IM servers, you must
 
 <figure><img src="../../../../.gitbook/assets/im_server_update_address_new_token.png" alt=""><figcaption></figcaption></figure>
 
-### **Step 5: Create and Run Instant Messaging Docker Instance**
+### **Step 6: Create and Run Instant Messaging Docker Instance**
 
 {% hint style="warning" %}
 All commands must be executed in the **`/opt/portsip`** directory.
