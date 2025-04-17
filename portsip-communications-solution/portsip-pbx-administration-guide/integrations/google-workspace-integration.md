@@ -2,19 +2,19 @@
 
 The PortSIP PBX integrates with Google Workspace to provide the following features:
 
-* Send email notifications through Google Workspace with oAuth.
+* Send email notifications through Google Workspace with OAuth.
 
 Since Google stopped supporting "[**Less secure apps**](https://support.google.com/accounts/answer/6010255?hl=en)" to send emails from 3rd applications, you must configure the Google Workspace Integration with PortSIP PBX to allow the PBX to utilize the GMail to send the email notifications.
 
 ## Pre-Requisites <a href="#prerequisites" id="prerequisites"></a>
 
 * You need PortSIP PBX running on a static public IP address.
-* A web domain (which is FQDN) in PortSIP PBX with a valid SSL certificate. The certificate should be issued by a trusted certificate provider such as Digicert, Thawte, Godaddy, etc. You can read this [article ](../certificates-for-tls-https-webrtc/)to configure the SSL certificate.
-* Requires the PBX system administrator or tenant who wants to enable the Google Workspace integration to have a Google account (Workspace or normal Google account).
+* A web domain (which is an FQDN) in PortSIP PBX with a valid SSL certificate. The certificate should be issued by a trusted certificate provider such as Digicert, Thawte, GoDaddy, etc. You can read this [article ](../certificates-for-tls-https-webrtc/)to configure the SSL certificate.
+* Requires the PBX system administrator or tenant who wants to enable the Google Workspace integration to have a Google account (Workspace or a normal Google account).
 
 ## Configuring Settings on the Google Side
 
-Please follow the below steps to configure the Google integration.
+Please follow the steps below to configure the Google integration.
 
 ### Creating a Web App in Your Google Account <a href="#create-app" id="create-app"></a>
 
@@ -23,7 +23,7 @@ Please follow the below steps to configure the Google integration.
 
 <figure><img src="../../../.gitbook/assets/google-integration-1.png" alt=""><figcaption></figcaption></figure>
 
-* Enter a project name and select an organization and location from the dropdowns. If you are using a normal Gmail account, for the **Organization** you can choose **No organization**. Click the **Create** button.
+* Enter a project name and select an organization and location from the dropdowns. If you are using a normal Gmail account, for the **Organization,** you can choose **No organization**. Click the **Create** button.
 
 <figure><img src="../../../.gitbook/assets/google-integration-2.png" alt=""><figcaption></figcaption></figure>
 
