@@ -9,7 +9,7 @@ To integrate WhatsApp Business with PortSIP PBX, ensure the following requiremen
 1. **WhatsApp Business Platform Account**
    * You must have a WhatsApp Business Platform account set up with an associated phone number.
    * The phone number must not be registered with any other WhatsApp account, whether on a device or virtually.
-   * If you wish to use a number already linked to an existing WhatsApp account, you must first delete the account. [Read more here](https://faq.whatsapp.com/605464643328528/?locale=en\_US).
+   * If you wish to use a number already linked to an existing WhatsApp account, you must first delete the account. [Read more here](https://faq.whatsapp.com/605464643328528/?locale=en_US).
 2. **Inbound Messaging Only**
    * WhatsApp integration with PortSIP PBX supports responding to inbound messages only.
    * A WhatsApp user must initiate the conversation by sending you a message.
@@ -68,11 +68,24 @@ To set up your WhatsApp Business account for integration, follow these steps:
 
 ### Generate a New Token
 
-1. Navigate to **Users > System Users** from the left-hand menu and click **Generate New Token**.
-2. In the pop-up, select your app from the drop-down list.
-3. Check the permissions for **whatsapp\_business\_messaging** and **whatsapp\_business\_management**.
-4. Click **Generate Token**.
-5. Copy the access token displayed in the pop-up box and save it securely, as it will not be accessible again. This is a permanent token that will remain valid unless you click the **Revoke Token** button.
+1. Click the _Business Settings_.
+
+<figure><img src="../../../.gitbook/assets/whatsapp_portsip22.png" alt=""><figcaption></figcaption></figure>
+
+2. Navigate to **Users > System Users** from the left-hand menu and click **Generate New Token**.
+
+<figure><img src="../../../.gitbook/assets/whatsapp_portsip23.png" alt=""><figcaption></figcaption></figure>
+
+3. In the pop-up, select your app from the drop-down list.
+
+<figure><img src="../../../.gitbook/assets/whatsapp_portsip24.png" alt=""><figcaption></figcaption></figure>
+
+4. Check the permissions for **whatsapp\_business\_messaging** and **whatsapp\_business\_management**.
+
+<figure><img src="../../../.gitbook/assets/whatsapp_portsip25.png" alt=""><figcaption></figcaption></figure>
+
+6. Click **Generate Token**.
+7. Copy the access token displayed in the pop-up box and save it securely, as it will not be accessible again. This is a permanent token that will remain valid unless you click the **Revoke Token** button.
 
 ## Configuring PortSIP PBX
 
