@@ -87,6 +87,10 @@ To set up your WhatsApp Business account for integration, follow these steps:
 6. Click **Generate Token**.
 7. Copy the access token displayed in the pop-up box and save it securely, as it will not be accessible again. This is a permanent token that will remain valid unless you click the **Revoke Token** button.
 
+### Verify your Phone number
+
+Once you have successfully generated the token, if your WhatsApp phone number status is still pending,  you will need to use the REST API to verify your phone number. For detailed instructions, please follow this guide: [**Register a Business Phone Number**](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/registration#register-phone).
+
 ## Configuring PortSIP PBX
 
 To integrate the WhatsApp account you created with PortSIP PBX, follow these steps:
