@@ -30,7 +30,7 @@ Now, create three tenants and set their respective SIP domains to **sbc1.custome
 
 ## 3 Configuring the PortSIP SBC
 
-Please install the PortSIP SBC by following the guide [Installation of the PortSIP SBC](broken-reference).&#x20;
+Please install the PortSIP SBC by following the guide[ Configuring PortSIP SBC](../9-configuring-portsip-sbc/).&#x20;
 
 To configure the PortSIP SBC for multiple tenants, please follow the [guide ](configuring-sbc-and-pbx.md)and pay attention to the following points:
 
