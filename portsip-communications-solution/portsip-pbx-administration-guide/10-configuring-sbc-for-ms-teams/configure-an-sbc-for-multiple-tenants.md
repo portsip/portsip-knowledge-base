@@ -2,7 +2,7 @@
 
 PortSIP SBC supports configuring one Session Border Controller (SBC) to serve multiple tenants for Teams Direct Routing.
 
-## 1 Configuring the Tenant Domains in Microsoft Teams
+## 1. Configuring the Tenant Domains in Microsoft Teams
 
 Microsoft provided a detailed guide for configuring Microsoft Teams Direct Routing for multiple tenants; please follow [Configure a Session Border Controller for multiple tenants](https://learn.microsoft.com/en-us/MicrosoftTeams/direct-routing-sbc-multiple-tenants) to set up the tenant domains in the Microsoft 365 admin center.
 
@@ -13,7 +13,7 @@ According to that guide, the following items summarize the configuration of the 
 * a wildcard SSL certificate for the domain **\*.customers.adatum.biz.**
 * Resolve the domain **customers.adatum.biz** to the SBC IP address.
 
-## **2 Configuring the PortSIP PBX**
+## **2. Configuring the PortSIP PBX**
 
 Please follow the guides below to install and configure the PortSIP PBX:
 

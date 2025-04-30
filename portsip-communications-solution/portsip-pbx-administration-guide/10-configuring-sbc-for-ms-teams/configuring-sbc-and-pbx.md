@@ -36,7 +36,7 @@ If it is displayed as **Inactive**, something is wrong, please double-check ever
 4. Click the **Next** button
 5. Turn off the **Rewrite the host IP of Via header by the public IP when sending the request to the trunk**, and click **OK** to complete the Teams Trunk configuration.
 
-## 3 Creating Inbound Rules
+## 3. Creating Inbound Rules
 
 The inbound rule must be created in order to route the Microsoft Teams call to the extension or system service, such as IVR, Call Queue, and Ring Group.
 
@@ -46,7 +46,7 @@ The inbound rule must be created in order to route the Microsoft Teams call to t
 
 <figure><img src="../../../.gitbook/assets/teams_inbound_rule.png" alt=""><figcaption></figcaption></figure>
 
-## 4 Creating Outbound Rules
+## 4. Creating Outbound Rules
 
 We can create an outbound rule that routes the calls from PBX to Microsoft Teams.
 
@@ -60,7 +60,7 @@ When extension 102 dials a number that does not exist in the PBX internal direct
 
 For example, when extension 102 dials 1001, the PBX routes the call to Microsoft Teams, and since the callee number is 1001, the Teams user who has the phone number 1001 will be ringing.
 
-## 5 Forward Teams calls to Trunk for any number
+## 5. Forward Teams calls to Trunk for any number
 
 Consider this scenario: A Teams caller calls phone numbers and routes to SBC/PBX. These calls should be sent to the trunk in order to ring the mobile phone/landline. Since it is impossible to create multiple inbound rules for all phone numbers, we can implement it easily as follows:
 
