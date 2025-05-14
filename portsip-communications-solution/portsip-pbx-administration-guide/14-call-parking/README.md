@@ -9,11 +9,11 @@ Once someone parks a call at a spot, subscribers who have subscribed to this spo
 This article includes the following topics:
 
 * [PortSIP Call Parking Feature](portsip-call-parking-feature.md)
-* [Using Call Parking Feature](using-call-parking-feature.md)
+* [Using the Call Parking Feature](using-call-parking-feature.md)
 * [Using Enhanced Call Park on Fanvil IP Phones](using-enhanced-call-park-on-fanvil-ip-phones.md)
 * [Using Enhanced Call Park on Yealink IP Phones](using-enhanced-call-park-on-yealink-ip-phones.md)
 * [Using Enhanced Call Park on GrandStream IP Phones](using-enhanced-call-park-on-grandstream-ip-phones.md)
 * [Using Enhanced Call Park on Snom IP Phones](using-enhanced-call-park-on-snom-ip-phones.md)
 * [Using Enhanced Call Park on Dinstar IP Phones](using-enhanced-call-park-on-dinstar-ip-phones.md)
-* [Using Enhanced Call Park on HTEK IP Phones](broken-reference)
+* [Using Enhanced Call Park on Htek IP Phones](using-enhanced-call-park-on-htek-ip-phones.md)
 
