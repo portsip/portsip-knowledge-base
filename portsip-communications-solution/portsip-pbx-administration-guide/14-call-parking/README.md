@@ -15,5 +15,5 @@ This article includes the following topics:
 * [Using Enhanced Call Park on GrandStream IP Phones](using-enhanced-call-park-on-grandstream-ip-phones.md)
 * [Using Enhanced Call Park on Snom IP Phones](using-enhanced-call-park-on-snom-ip-phones.md)
 * [Using Enhanced Call Park on Dinstar IP Phones](using-enhanced-call-park-on-dinstar-ip-phones.md)
-* [Using Enhanced Call Park on HTEK IP Phones](using-enhanced-call-park-on-htek-ip-phones.md)
+* [Using Enhanced Call Park on HTEK IP Phones](broken-reference)
 
