@@ -2,7 +2,7 @@
 
 This article explains how to use the PortSIP PBX’s uniquely enhanced call park feature with SNOM IP phones.
 
-## Supported Grandstream IP Phone Models
+## Supported SNOM IP Phone Models
 
 ### Models
 
