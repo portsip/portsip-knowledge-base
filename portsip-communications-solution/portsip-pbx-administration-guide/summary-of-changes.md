@@ -36,6 +36,7 @@ Date: May 15, 2025
 * **Default header behavior changes in version 22.2m**: Starting from v22.2, the following settings are **disabled by default** for Queues and Ring Groups:
   * Adding ring group or queue information to the `P-Asserted-Identity` header.
   * Adding ring group or queue information to the `Remote-Party-ID` header.
+* Added an SRTP policy option in the SBC web portal to control whether SRTP information is included in the SDP.
 
 ### Bug Fixes
 
