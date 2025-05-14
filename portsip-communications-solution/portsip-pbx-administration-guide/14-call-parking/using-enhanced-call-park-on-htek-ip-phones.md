@@ -1,21 +1,21 @@
-# Using Enhanced Call Park on HTEK IP Phones
+# Using Enhanced Call Park on Htek IP Phones
 
-This article explains how to use the PortSIP PBX’s uniquely enhanced call park feature with Dinstar IP phones.
+This article explains how to use the PortSIP PBX’s uniquely enhanced call park feature with Htek IP phones.
 
-## Supported Dinstar IP Phone Models
+## Supported Htek IP Phone Models
 
-* Models: C60/C61/C62/C63/C64/C66&#x20;
+* Models: UCxxx series
 * ROM: From the firmware version **2.x.6.9.7** or **2.x.11.9.7**.
 
 ## Supported PortSIP PBX Version
 
-From version 16.0.2.
+From version 22.1.0.
 
 ## Application Scenarios
 
 ### **Enhanced Call Park**
 
-Enhanced Call Park is a feature that improved the call park experience on the phone. It provides the park and retrieve soft key instead of the call park FACs. And it provides the capability of call park notification and any other Enhanced features with PortSIP PBX.
+Enhanced Call Park is a feature that improves the call park experience on the phone. It provides the park and retrieve soft key instead of the call park FACs. And it provides the capability of call park notification and any other enhanced features with PortSIP PBX.
 
 ### Call Park
 
@@ -35,13 +35,9 @@ The user dials the Call Park Retrieve feature access code with the extension num
 
 ### **Recall**
 
-The User can configure the recall settings such as recall object and recall timer. The server will recall the number which parked the call or the specified number if no one retrieves the call in the limited time. For instance, if you set the recall timer to 30s, the server will recall your number if no one retrieves the call in 30s.
+The User can configure the recall settings, such as recall object and recall timer. The server will recall the number that parked the call or the specified number if no one retrieves the call in the limited time. For instance, if you set the recall timer to 30s, the server will recall your number if no one retrieves the call in 30s.
 
 ## Configuring Soft Key for Visual Park
-
-When provisioning an IP phone, a soft key can be configured for Visual Call Parking.&#x20;
-
-<figure><img src="../../../.gitbook/assets/visual-park-1.png" alt=""><figcaption></figcaption></figure>
 
 After the IP phone has been successfully provisioned, the soft key will display the label "**Visual Park"**. As shown in the screenshot below, user James has extension number 103 and has configured the key with Visual Park.
 
@@ -66,3 +62,4 @@ Alice established the call with Bob, and Bob park the call to James' extension n
 <figure><img src="../../../.gitbook/assets/dinstar_park2.jpg" alt="" width="375"><figcaption></figcaption></figure>
 
 James simply presses the configured visual park key to retrieve the call.  In this way, James does not need to remember the FAC for the retrieve operation.
+

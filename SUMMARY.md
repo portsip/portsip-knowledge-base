@@ -82,7 +82,7 @@
     * [Using Enhanced Call Park on Grandstream IP Phones](portsip-communications-solution/portsip-pbx-administration-guide/14-call-parking/using-enhanced-call-park-on-grandstream-ip-phones.md)
     * [Using Enhanced Call Park on SNOM IP Phones](portsip-communications-solution/portsip-pbx-administration-guide/14-call-parking/using-enhanced-call-park-on-snom-ip-phones.md)
     * [Using Enhanced Call Park on Dinstar IP Phones](portsip-communications-solution/portsip-pbx-administration-guide/14-call-parking/using-enhanced-call-park-on-dinstar-ip-phones.md)
-    * [Using Enhanced Call Park on HTEK IP Phones](portsip-communications-solution/portsip-pbx-administration-guide/14-call-parking/using-enhanced-call-park-on-htek-ip-phones.md)
+    * [Using Enhanced Call Park on Htek IP Phones](portsip-communications-solution/portsip-pbx-administration-guide/14-call-parking/using-enhanced-call-park-on-htek-ip-phones.md)
   * [15 Shared Voicemail](portsip-communications-solution/portsip-pbx-administration-guide/15-shared-voicemail.md)
   * [16 Call Queue](portsip-communications-solution/portsip-pbx-administration-guide/16-call-queue/README.md)
     * [Configuring Call Queue](portsip-communications-solution/portsip-pbx-administration-guide/16-call-queue/configuring-call-queue.md)
