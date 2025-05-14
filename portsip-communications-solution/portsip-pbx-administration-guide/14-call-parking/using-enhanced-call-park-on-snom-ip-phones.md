@@ -44,37 +44,45 @@ The user dials the Call Park Retrieve feature access code with the extension num
 
 The User can configure the recall settings such as recall object and recall timer. The server will recall the number that parked the call or the specified number if no one retrieves the call in the limited time. For instance, if you set the recall timer to 30s, the server will recall your number if no one retrieves the call in 30s.
 
+## Configure Park with BLF
+
+First, when provisioning the SNOM phone, click the BLF tab and choose Visual Park, as shown in the screenshot below.
+
+<figure><img src="../../../.gitbook/assets/snow-park-blf.png" alt=""><figcaption></figcaption></figure>
+
+Once the phone is successfully provisioned, it will display likes below:
+
+<figure><img src="../../../.gitbook/assets/park-blf.jpg" alt=""><figcaption></figcaption></figure>
+
 ## Parking Call
 
-If James wants to park a call to his colleague whose extension is 103, he just needs to press the **CallPark** key.&#x20;
+If James wants to park a call to his colleague whose extension is 103, he just needs to press the **Park** key.&#x20;
 
-<figure><img src="../../../.gitbook/assets/grandstream-park-2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/snow-direct-park.png" alt=""><figcaption></figcaption></figure>
 
-Now James can enter the number 103, then press the **Park** key. The IP Phone will then park the call at extension 103. In this way, James does not need to remember the FAC for park operations.
+Now, James can enter the number 103, then press the **OK** key. The IP Phone will then park the call at extension 103. In this way, James does not need to remember the FAC for park operations.
 
-<figure><img src="../../../.gitbook/assets/grandstream-park-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/snow-direct-park-number.png" alt=""><figcaption></figcaption></figure>
 
 ## Group Call Park
 
 1. To configure a park group, sign in to the PBX web portal as the tenant administrator.
 2. Select the menu **Advanced Services > Call Park**.&#x20;
-3. Follow the guide to [configure a park group](./#adding-and-deleting-a-call-park-group). Assume that extensions 1001, 1002, 1003, 1004, and 1005 are in the same park group.
+3. Follow the guide to [configure a park group](./#adding-and-deleting-a-call-park-group). Assume that extensions 101, 102, 103, 104, and 105 are in the same park group.
 
-James established a call with extension 1004, James (extension number 1003) wants to park that call to the park group, he needs to hit the **Callpark** key first as the below screenshot.
+James established a call with extension 106. James (extension number 101) wants to park that call to the park group, he needs to hit the **Call Park** key as the screenshot below.
 
-<figure><img src="../../../.gitbook/assets/grandstream-park-2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/snow-group-park.png" alt=""><figcaption></figcaption></figure>
 
-As shown on the IP Phone screen in the below screenshot, press the **GPark** key, the IP phone will then park this call to the group, and all members of the group will receive the park alert notification. In this way, James does not need to remember the FAC for the group park operation.
-
-<figure><img src="../../../.gitbook/assets/grandstream-park-3.png" alt=""><figcaption></figcaption></figure>
+The IP phone will then park this call to the group, and all members of the group will receive the park alert notification. In this way, James does not need to remember the FAC for the group park operation.
 
 ## Retrieve Call
 
-Alice established the call with Bob, and Bob parked the call at James' extension number 1003. On James' IP Phone, the IP Phone will display the Retrieve Label as shown below screenshot to alert James that a call has parked on him.
+Once an extension receives the notification indicates there is a call parked for him, the BLF key will light green, and the user can press that BLF key. Please see the screenshot below:
 
-James simply presses the "**Retrievepark"** soft key to retrieve the call. In this way, James does not need to remember the FAC for the retrieve operation.
+<figure><img src="../../../.gitbook/assets/snom-park-notification.jpg" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/grandstream-park-4.png" alt=""><figcaption></figcaption></figure>
+The parked calls will be listed on the screen, you can simply press the Retrieve button to retrieve the parked call as the screenshot below.
 
-
+<figure><img src="../../../.gitbook/assets/snow-retrieve-call.jpg" alt=""><figcaption></figcaption></figure>
 
