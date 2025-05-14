@@ -4,6 +4,58 @@
 Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/upgrade-to-the-latest-version-within-v22.x-on-linux.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
+## Changes for Release v22.2.0
+
+Date: May 15, 2025
+
+### New Features & Enhancements
+
+* Support the night mode for the Queue, Ring Group, Visual Receptionist, allows you to forward the call to a destination if the night mode is activated
+* Allows IP phones subscribe the night mode with BLF key and easy to activate/deactivate the night mode by pressing the BLF key
+* Allows activate/deactivate the night mode in PortSIP ONE app
+* Support PIN call: dial the FAC with the dialed number and the PBX will prompts to verify the caller's voicemail PIN for launch the call
+* Added new FAC allows to set the default outbound caller ID for the caller.
+* Add support the email notification if hit the trunk concurrent calls limit.
+* If the agent of ring group/queue declined a call from group/queue, the PBX will no longer to offer that call to this agent again.
+* Fix the bug: Don't billing on the emergency call
+* Update the caller and callee number, name  by the PAI header with re-INVITE after blind transfer/attended transfer
+* Fix bug that if all agent are busy, once the call us timeout in the queue, the No Answer destination is not be called.
+* If an extension registered to PBX from multiple devices, one of them declined a call, in the CANCEL t hat PBX send to other devices, added the Reason SIP header with the text is "Busy", code is 200.
+* If launch a call between number and queue by REST API, pass the user data field, in the CDR user-data field, the data will be stored as user-data=abc;service-number=1111; The service-number is the queue number.
+* Now if the extension declined a call, that call will be forward to extension's voicemail instead of hangup it directly.
+* Support join meeting by link
+* Fix the bug if the Accept Register Trunk's IP/portsip is changed by refresh registration but the call still send to that trunk's old address.
+* Fix the thread numbers bug of the webhook.
+* Fix the bug that WhatsApp trunk always display as offline
+* Fix the but that inbound WhatsApp message with a wrong phone number.
+* Fix the bug, in the WSI extension\_agent\_status message, the extension id value is the numeric, but it should be the string.
+* The redirect URI is changed in the v22.2, if the previous PBX installations upgraded to the v22.2, need to update the new redirect URI in the Microsoft 365.
+* &#x20;From v22.2m The Queue, Ring Group will deactivate the below settings by default:
+  * Add ring group/queue information to P-Asserted-Identity header
+  * Add ring/group queue information to Remote-Party-ID header
+* For the scenarios below , the caller display name will be set as tenant's name(Company name):
+  * A queue calblack call is send to the caller after agent answered
+  * A call is place from extension who belongs to a user group, and also applied this group's caller ID
+  * A call is timeout, or failed, or within night mode with the Virtual Receptionist and forward to a trunk number
+  * A call is timeout, or within night mode with the Queue and forward to a trunk number
+  * A call is timeout, or within night mode with Virtual Receptionist and forward to a trunk number
+* Fix the PortSIP ONE app bug if the user walking cause the mobile phone switching between WIFI zone and 4G/5G/LTE during the call cause the call hang-up
+* Now the mobile app push valid date changed to 7 days-before is 3 days, and also allows user to edit the system.ini file to custom this interval dates
+*
+
+### Bug Fixes
+
+1. **Trunk ACK Delay Handling**\
+   Fixed a bug where slow ACK responses from the trunk to the PBX prevented calls from being offered to queue agents.
+
+### REST API Changes
+
+* **New Endpoint:** `/api/external_messages` – Allows querying of SMS and WhatsApp message histories.
+* **New Endpoint:** `/api/user/external_messages` – Allows querying of the current user’s SMS and WhatsApp message histories.
+* **Endpoint Removal:** `/api/test_email` – This endpoint has been removed. System administrators can now use `/api/admin/notification/test_email`, and tenant administrators can use `/api/tenant/notification/test_email` as alternatives.
+* **Updated Endpoint:** `/api/admin/notification` – Added the `enable_tenant_access` option, which allows tenants to use the system administrator’s mail server settings to send email notifications.
+* **Updated Endpoint:** `/api/tenant/notification/test_email` – Added the `enable_system_email_server` option, which indicates whether the tenant has permission to use the system administrator’s mail server settings to send email notifications.
+
 ## Changes for Release v22.1.7
 
 Date: Feb 27, 2025
