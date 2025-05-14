@@ -4,7 +4,30 @@
 **Important Notice:** After upgrading from **v16.x to v22.x**, the PortSIP Softphone will no longer be compatible with **v22.x**. To continue using your PBX seamlessly, you must install the new **PortSIP ONE** app, which is fully compatible with **v22.x**.
 {% endhint %}
 
-This guide provides step-by-step instructions for upgrading your current PortSIP PBX v16.x installation to the latest v22.x release. The sections include:
+This guide provides step-by-step instructions for upgrading your current PortSIP PBX v16.x installation to the latest v22.x release.&#x20;
+
+## Processing FAC Conflicts Before Upgrading
+
+PortSIP PBX introduced new Feature Access Codes (FACs) in the following versions:
+
+**v22.0:**
+
+* Call Flip: `*11`
+* Reset Calls: `*12`
+* Clear Push Information: `*13`
+* Call Transfer: `*54`
+
+**v22.2:**
+
+* Night Mode: `*16`
+* PIN-Based Calling: `*20`
+* Set Default Outbound Caller ID: `*64`
+
+Before upgrading from **version v16.x to v22.2**, it is mandatory to verify with all tenants whether any custom FACs have been configured. **Custom FACs must not conflict with the new default codes listed above.**
+
+{% hint style="danger" %}
+If any tenant-defined FAC matches one of the new default codes, the upgrade will fail. To ensure a smooth upgrade process, review and modify any conflicting custom FACs prior to upgrading.
+{% endhint %}
 
 ## Back-Up
 
