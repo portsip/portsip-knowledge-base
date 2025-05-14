@@ -8,53 +8,50 @@ Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-por
 
 Date: May 15, 2025
 
-### New Features & Enhancements
+### New Features and Enhancements
 
-* Support the night mode for the Queue, Ring Group, Visual Receptionist, allows you to forward the call to a destination if the night mode is activated
-* Allows IP phones subscribe the night mode with BLF key and easy to activate/deactivate the night mode by pressing the BLF key
-* Allows activate/deactivate the night mode in PortSIP ONE app
-* Support PIN call: dial the FAC with the dialed number and the PBX will prompts to verify the caller's voicemail PIN for launch the call
-* Added new FAC allows to set the default outbound caller ID for the caller.
-* Add support the email notification if hit the trunk concurrent calls limit.
-* If the agent of ring group/queue declined a call from group/queue, the PBX will no longer to offer that call to this agent again.
-* Fix the bug: Don't billing on the emergency call
-* Update the caller and callee number, name  by the PAI header with re-INVITE after blind transfer/attended transfer
-* Fix bug that if all agent are busy, once the call us timeout in the queue, the No Answer destination is not be called.
-* If an extension registered to PBX from multiple devices, one of them declined a call, in the CANCEL t hat PBX send to other devices, added the Reason SIP header with the text is "Busy", code is 200.
-* If launch a call between number and queue by REST API, pass the user data field, in the CDR user-data field, the data will be stored as user-data=abc;service-number=1111; The service-number is the queue number.
-* Now if the extension declined a call, that call will be forward to extension's voicemail instead of hangup it directly.
-* Support join meeting by link
-* Fix the bug if the Accept Register Trunk's IP/portsip is changed by refresh registration but the call still send to that trunk's old address.
-* Fix the thread numbers bug of the webhook.
-* Fix the bug that WhatsApp trunk always display as offline
-* Fix the but that inbound WhatsApp message with a wrong phone number.
-* Fix the bug, in the WSI extension\_agent\_status message, the extension id value is the numeric, but it should be the string.
-* The redirect URI is changed in the v22.2, if the previous PBX installations upgraded to the v22.2, need to update the new redirect URI in the Microsoft 365.
-* &#x20;From v22.2m The Queue, Ring Group will deactivate the below settings by default:
-  * Add ring group/queue information to P-Asserted-Identity header
-  * Add ring/group queue information to Remote-Party-ID header
-* For the scenarios below , the caller display name will be set as tenant's name(Company name):
-  * A queue calblack call is send to the caller after agent answered
-  * A call is place from extension who belongs to a user group, and also applied this group's caller ID
-  * A call is timeout, or failed, or within night mode with the Virtual Receptionist and forward to a trunk number
-  * A call is timeout, or within night mode with the Queue and forward to a trunk number
-  * A call is timeout, or within night mode with Virtual Receptionist and forward to a trunk number
-* Fix the PortSIP ONE app bug if the user walking cause the mobile phone switching between WIFI zone and 4G/5G/LTE during the call cause the call hang-up
-* Now the mobile app push valid date changed to 7 days-before is 3 days, and also allows user to edit the system.ini file to custom this interval dates
-*
+* Added **night mode support** for Queues, Ring Groups, and Virtual Receptionists. When night mode is active, calls are forwarded to a predefined destination.
+* Enabled **BLF key integration for night mode** on supported IP phones, allowing activation and deactivation via BLF key press.
+* Added support for **activating/deactivating night mode** directly from the PortSIP ONE app.
+* Added support for **Two-Factor Authentication (2FA)** via email verification code for **web portal login and app login**. Requires proper email server configuration by the administrator.
+* Added the ability to **reset passwords by sending a reset link via email** for users who forget their login credentials.
+* Introduced **PIN-protected calling**. When dialing a Feature Access Code (FAC) followed by a number, the PBX prompts the user to enter their voicemail PIN before placing the call.
+* Added a new FAC to allow users to **set/unset their default outbound caller ID**.
+* Enabled **Enhanced Call Park support for SNOM phones**.
+* Added **email notification support** when the **trunk concurrent call limit** is reached.
+* Improved agent handling in Queues and Ring Groups: if an agent **declines a call**, it will no longer be offered to that agent again during the same session.
+* Updated call decline behavior: when an extension **declines a call**, it is now **routed to voicemail** instead of being disconnected.
+* **Enhanced REST API CDR behavior**: When a call is launched via REST API between a number and a queue or ring group, and includes a `user-data` field, the PBX now stores this in the CDR as `user-data=abc;service-number=1111`, where `1111` is the queue or ring group number.
+* Added support for **joining meetings via URL link**.
+* Added **auto-provisioning support for Aastra/Mitel 6xxxi IP phones**.
+* Improved transfer handling: the PBX now updates the **caller and callee name and number** using the **PAI header** in re-INVITE after blind or attended transfers.
+* **Caller display name delivery behavior**: In the following scenarios, the **caller display name will be replaced with the tenant’s name (company name)**:
+  * A queue callback call is sent to the caller after an agent answers.
+  * A call is placed from an extension that belongs to a user group, and the group’s caller ID is applied.
+  * A call times out, fails, or is forwarded during night mode by the Virtual Receptionist to a trunk number.
+  * A call times out or is forwarded during night mode by the Queue to a trunk number.
+  * A call times out or is forwarded during night mode by the Virtual Receptionist to a trunk number.
+* Updated **redirect URI** for Microsoft 365 integration. After upgrading to v22.2, the new URI must be configured in Microsoft 365 settings.
+* Extended the **validity period of mobile app push notifications** from 3 to 7 days. This value is now configurable in the `system.ini` file.
+* **Default header behavior changes in version 22.2m**: Starting from v22.2, the following settings are **disabled by default** for Queues and Ring Groups:
+  * Adding ring group or queue information to the `P-Asserted-Identity` header.
+  * Adding ring group or queue information to the `Remote-Party-ID` header.
 
 ### Bug Fixes
 
-1. **Trunk ACK Delay Handling**\
-   Fixed a bug where slow ACK responses from the trunk to the PBX prevented calls from being offered to queue agents.
-
-### REST API Changes
-
-* **New Endpoint:** `/api/external_messages` – Allows querying of SMS and WhatsApp message histories.
-* **New Endpoint:** `/api/user/external_messages` – Allows querying of the current user’s SMS and WhatsApp message histories.
-* **Endpoint Removal:** `/api/test_email` – This endpoint has been removed. System administrators can now use `/api/admin/notification/test_email`, and tenant administrators can use `/api/tenant/notification/test_email` as alternatives.
-* **Updated Endpoint:** `/api/admin/notification` – Added the `enable_tenant_access` option, which allows tenants to use the system administrator’s mail server settings to send email notifications.
-* **Updated Endpoint:** `/api/tenant/notification/test_email` – Added the `enable_system_email_server` option, which indicates whether the tenant has permission to use the system administrator’s mail server settings to send email notifications.
+* Fixed an issue where **emergency calls should not be billed**.
+* Fixed a bug where WhatsApp trunks always appeared offline.
+* Resolved a problem with inbound WhatsApp messages using an incorrect phone number.
+* Fixed an issue where anonymous calls to trunks were missing the required `Privacy` header.
+* Corrected the `extension_agent_status` message to use string values for extension ID instead of a numeric value.
+* Fixed an issue where webhook thread numbers were incorrectly managed.
+* Resolved a bug where, if all queue agents were busy and the call timed out, the "No Answer" destination was not triggered.
+* When a user declines a call on one device, the CANCEL message sent to other devices now includes a `Reason` SIP header with cause `200` and text `"Busy"`.
+* Fixed a bug where REST API-initiated a call that was not answered on the caller side could cause recording issues on subsequent calls.
+* Resolved a problem in Ring Groups where, if the last agent declined the call and "Repeat on No Answer" was enabled, the caller was disconnected.
+* Fixed a bug in Advanced Routing logic where only the last configured route would take effect.
+* Corrected an issue where calls were still being routed to an outdated IP/port of an Accept Register Trunk after registration refresh.
+* Fixed a bug in PortSIP ONE app where switching between Wi-Fi and mobile networks during a call caused disconnection.
 
 ## Changes for Release v22.1.7
 
