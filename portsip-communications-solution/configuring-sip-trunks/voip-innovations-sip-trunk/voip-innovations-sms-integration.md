@@ -30,7 +30,7 @@ You can sign in to the PortSIP PBX Web portal using one of the following methods
 1. Sign in as the PBX system administrator, navigate to the **Tenants** menu, choose a tenant, and click the **Manage** button to switch to that tenant.
 2. Sign in as a tenant admin to manage the tenant.
 
-For more details, please reference [Tenant Management](../../portsip-pbx-administration-guide/3-tenant-management.md).
+For more details, please reference [Tenant Management](../../portsip-pbx-administration-guide/3-tenant-management/).
 
 ### Add an SMS configuration
 

@@ -74,7 +74,7 @@ To configure SMS integration, sign in to the **PortSIP PBX Web Portal** using on
   * Click the **Manage** button to switch to that tenant’s settings.
 * **Sign in as a Tenant Administrator**: If you are a tenant admin, sign in directly to manage the tenant’s settings.
 
-For more details on managing tenants, refer to the [Tenant Management](../../portsip-pbx-administration-guide/3-tenant-management.md) guide.
+For more details on managing tenants, refer to the [Tenant Management](../../portsip-pbx-administration-guide/3-tenant-management/) guide.
 
 ### Add an SMS Configuration
 

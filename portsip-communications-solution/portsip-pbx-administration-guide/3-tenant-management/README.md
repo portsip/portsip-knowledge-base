@@ -56,11 +56,11 @@ Given that a tenant may utilize a significant amount of resources, the process o
 
 The System Administrator of PortSIP PBX has the ability to manage tenants, their settings, and extension users. To do this, sign into the PBX Web Portal and navigate to the **Tenants** menu. Select the tenant you wish to manage and click the **Manage** button. This action will allow the System Administrator to assume the role of the tenant’s admin, enabling them to set up or modify the tenant’s settings and manage its extensions.
 
-<figure><img src="../../.gitbook/assets/manage-tenant.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/manage-tenant.png" alt=""><figcaption></figcaption></figure>
 
 Once these tasks are completed, the System Administrator can revert to their original role by clicking on the profile picture located at the top right of the page.&#x20;
 
 This will display a menu where they can select **Switch to Administrator**. This action allows the System Administrator to return to their original role without the need to log out of the tenant account and re-login to the administrator account.
 
-<figure><img src="../../.gitbook/assets/manage-tenant-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/manage-tenant-1.png" alt=""><figcaption></figcaption></figure>
 
