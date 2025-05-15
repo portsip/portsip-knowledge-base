@@ -18,6 +18,7 @@ Date: May 15, 2025
 * Introduced **PIN-protected calling**. When dialing a Feature Access Code (FAC) followed by a number, the PBX prompts the user to enter their voicemail PIN before placing the call.
 * Added a new FAC to allow users to **set/unset their default outbound caller ID**.
 * Enabled **Enhanced Call Park support for SNOM phones**.
+* Integrated the SMS API and SIP trunk with the provider [CM.com](https://www.cm.com)
 * Added **email notification support** when the **trunk concurrent call limit** is reached.
 * Improved agent handling in Queues and Ring Groups: if an agent **declines a call**, it will no longer be offered to that agent again during the same session.
 * Updated call decline behavior: when an extension **declines a call**, it is now **routed to voicemail** instead of being disconnected.
