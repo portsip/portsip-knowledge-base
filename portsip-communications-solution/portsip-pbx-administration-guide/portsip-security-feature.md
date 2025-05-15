@@ -118,10 +118,12 @@ After creating a user with the **Standard User**" or **Standard International Us
 
 ## Login Security
 
-After the PortSIP PBX administrator signs in to Web Portal, there are some settings that allow login security for tenant managers, tenants, and extensions.
+After the PortSIP PBX administrator signs in to the Web Portal, there are some settings that allow login security for tenant managers, tenants, and extensions.
 
-* Click the left menu **Advanced > Security**, on the **Web Login** page,  set the maximum number of login tries on the **Web Login** page, and the user IP will be blocked if the number of failed login attempts exceeds the allowed times.
-* Set the period of an IP block, a blocked IP will be removed after this time.
+* Click the left menu **Advanced > Security**, on the **Web Login** page,  set the maximum number of login tries on the **Web Login** page, and the user's IP will be blocked if the number of failed login attempts exceeds the allowed times.
+* Set the period of an IP block, and a blocked IP will be removed after this time.
+* You can require the newly created users to change their default password upon their initial login.
+* You can enable [2FA ](portsip-security-feature.md#password-and-login-security)for extension users
 
 ## SIP and TCP/IP Security
 
@@ -131,7 +133,7 @@ Click the left menu **Advanced > Security**, on the **Anti Hacking** page, which
 
 ### Detection Period&#x20;
 
-This is a time interval in seconds when counting starts but no action is enforced. To disable security, set it to a higher value.
+This is a time interval in seconds when counting starts, but no action is enforced. To disable security, set it to a higher value.
 
 ### Failed Authentication Protection&#x20;
 
