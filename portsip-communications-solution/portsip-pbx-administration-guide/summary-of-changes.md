@@ -54,6 +54,61 @@ Date: May 15, 2025
 * Corrected an issue where calls were still being routed to an outdated IP/port of an Accept Register Trunk after registration refresh.
 * Fixed a bug in PortSIP ONE app where switching between Wi-Fi and mobile networks during a call caused disconnection.
 
+### REST API Changes
+
+**New Endpoints**
+
+* `/auth/sign_in` – Sign in using account credentials.
+* `/auth/sign_in/:provider` – Sign in via social login providers.
+* `/auth/sign_out` – Sign out the authenticated user.
+* `/auth/send_otp` – Send OTP code for two-factor authentication (2FA).
+* `/auth/verify_otp` – Verify 2FA OTP code.
+* `/auth/forget_password` – Request password reset email.
+* `/auth/reset_password` – Reset user password.
+* `/auth/refresh_token` – Refresh access token.
+* `/auth/user` – Retrieve authenticated user information.
+
+**Updated Endpoints**
+
+* `/api/tenants`
+  * Changed default value of `contact_append_type` from `DISABLE` to `APPEND`.
+  * Added new attributes:
+    * `enable_night_mode`
+    * `enable_two_factor_authentication`
+    * `email_recipients`
+    * `password_force_reset`
+* `/api/tenants/:id`
+  * Added new attributes:
+    * `enable_night_mode`
+    * `enable_two_factor_authentication`
+    * `email_recipients`
+    * `password_force_reset`
+* `/api/users` and `/api/users/:id`
+  * Modified `outbound_caller_ids` to include a new sub-attribute: `preferred`.
+* `/api/ring_groups` and `/api/ring_groups/:id`
+  * Added new attribute: `night_mode_forward_rule`
+  * Changed default values:
+    * `enable_paid`: now defaults to `false` (was `true`)
+    * `enable_prid`: now defaults to `false` (was `true`)
+* `/api/call_queues` and `/api/call_queues/:id`
+  * Added new attribute: `night_mode_forward_rule`
+  * Changed default values:
+    * `enable_paid`: now defaults to `false` (was `true`)
+    * `enable_prid`: now defaults to `false` (was `true`)
+* `/api/ivrs` and `/api/ivrs/:id`
+  * Added new attribute: `night_mode_forward_rule`
+* `/api/feature_access_codes`
+  * Extended `feature` enum to include:
+    * `NIGHT_MODE`
+    * `PIN_BASED_CALLING`
+    * `SET_DEFAULT_CLI`
+* `/api/user/cdrs/sync_tokens/{token}/diff`
+  * Added new attribute: `status_code`
+* `/api/providers` and `/api/providers/:id`
+  * Updated `outbound_parameters`: the `privacy_types_supported` field now accepts new enum values:
+    * `NONE`
+    * `SESSION`
+
 ## Changes for Release v22.1.7
 
 Date: Feb 27, 2025
