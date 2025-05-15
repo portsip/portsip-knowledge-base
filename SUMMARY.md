@@ -118,6 +118,7 @@
     * [Configuring Office Hours and Holiday Schedule](portsip-communications-solution/portsip-pbx-administration-guide/office-hours-and-holiday-schedule/configuring-office-hours-and-holiday-schedule.md)
     * [Routing Calls Based on Office Hours and Holidays](portsip-communications-solution/portsip-pbx-administration-guide/office-hours-and-holiday-schedule/routing-calls-based-on-office-hours-and-holidays.md)
   * [31 Configuring Email Notifications](portsip-communications-solution/portsip-pbx-administration-guide/configuring-email-notifications.md)
+  * [32 Night Mode](portsip-communications-solution/portsip-pbx-administration-guide/32-night-mode.md)
   * [PBX and SIP Trunk using PortSIP SBC](portsip-communications-solution/portsip-pbx-administration-guide/pbx-and-sip-trunk-using-portsip-sbc.md)
   * [SIP Header Manipulation](portsip-communications-solution/portsip-pbx-administration-guide/sip-header-manipulation.md)
   * [Rebranding PortSIP PBX, SBC](portsip-communications-solution/portsip-pbx-administration-guide/rebranding-portsip-pbx-sbc.md)
