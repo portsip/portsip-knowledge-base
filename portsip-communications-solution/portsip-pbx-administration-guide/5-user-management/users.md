@@ -15,11 +15,11 @@ To configure an extension,
 
 ## User
 
-Enter the **Username** and **Password** in the section **User**. Please keep in mind this username and password are only for access to the PBX Personal Web Portal. In case assume we create a user whose user name is **jamesbond.**
+Enter the **Username** and **Password** in the **User** section. Please keep in mind that this username and password are only for access to the PBX Personal Web Portal. In case assume we create a user whose user name is **jamesbond.**
 
 The user can grant permissions by selecting a role from the **Role** list box; the **User** role indicates that the user has typical extension access; the **Admin** role indicates that the user is a tenant administrator who can manage the tenant through the web portal.
 
-If a user has the **Admin** role, we refer to him as a **Tenant Admin**. A tenant admin has ability to manage the tenant which it belongs.
+If a user has the **Admin** role, we refer to him as a **Tenant Admin**. A tenant admin has ability to manage the tenant to which it belongs.
 
 The PortSIP PBX allows adding more than one administrator to a tenant.
 
@@ -33,7 +33,7 @@ Please refer to the below screenshot, which shows that the user of a tenant sign
 
 <figure><img src="../../../.gitbook/assets/login-3.png" alt="" width="319"><figcaption></figcaption></figure>
 
-If the SIP domain you entered is correct, you will see the below screenshot to allows you enter the username and password otherwise you will get an error.
+If the SIP domain you entered is correct, you will see the below screenshot to allows you to enter the username and password; Otherwise, you will get an error.
 
 <figure><img src="../../../.gitbook/assets/login-4.png" alt="" width="321"><figcaption></figcaption></figure>
 
@@ -51,26 +51,26 @@ The **Generate QR code with the below network interface** option allows you to s
 
 You can select a DID from the trunk and trunk DID pool for the extension in the **Outbound Caller ID** section; when the extension makes an outbound call to a trunk, the **Outbound Caller I** will be presented in the **From** header of the INVITE SIP message.
 
-As shown in the screenshot below, if the call is made over trunk 1, the **Outbound Caller ID** will be **022000**, and if it is made over trunk 2, the **Outbound Caller ID** is **88010**.
+As shown in the screenshot below, if the call is made over trunk 1, the **Outbound Caller ID** will be **022000**, and if it is made over trunk 2, the **Outbound Caller ID** will be **88010**.
 
 <figure><img src="../../../.gitbook/assets/extension_cli.png" alt=""><figcaption></figcaption></figure>
 
 * Record audio calls: If this option is selected, any audio calls with this extension audio calls will be recorded as audio files.
 * Record video calls: If this option is selected, any video calls with this extension will be recorded as video files, and any video calls will be recorded as video files (MP4).
-* Always make outbound anonymous calls: When this option is enabled, the user part of the "**From**", "**P-Asserted-Identity**", and "**P-Preferred-Identity**" headers in the **INVITE** message sent to the trunk will be set to "**anonymous**".
+* Always make outbound anonymous calls: When this option is enabled, the user part of the "**From**" header in the **INVITE** message sent to the trunk will be set to "**anonymous**".
 * Always deliver outbound caller ID: If you enable this option, the **Outbound Caller ID** will always be set as the user part of the **From** header in the INVITE delivered to the trunk.
 
 ## Forwarding Rule
 
-Each extension can have a set of call forwarding rules that define what PortSIP PBX should do when the extension user is unable to answer an incoming call. This can be configured using the following criteria.
+Each extension can have a set of call forwarding rules that define what the PortSIP PBX should do when the extension user is unable to answer an incoming call. This can be configured using the following criteria.
 
 * The user’s status
 * The time
 
-Each status requires a call-forwarding rule. For example, if the user is unable to take a call whilst their status is "**Available**", the call can forward to voicemail or to the mobile phone number / Landline.
+Each status requires a call-forwarding rule. For example, if the user is unable to take a call whilst their status is "**Available**", the call can be forwarded to voicemail or to the mobile phone number / Landline.
 
 {% hint style="info" %}
-Forwarding the call to a certain mobile number requires the trunk and outbound rule configured.
+Forwarding the call to a certain mobile number requires the trunk and outbound rule to be configured.
 {% endhint %}
 
 The forwarding rules have the following optional values:
@@ -112,10 +112,11 @@ You can configure the BLF lights on an IP phone in this tab.
 Match a BLF button with an extension, so that this button will show the status of that extension. The number of available BLF buttons varies per phone. The following options are available for BLFs.
 
 * BLF: shows the dialog status of another extension
-* Visual Park: the unique park feature that PortSIP PBX offered, get more details in the article [Call Parking](../14-call-parking/).
-* Speed Dial: link to a phone number for easy calling
+* Visual Park: The unique park feature that PortSIP PBX offered, get more details in the article [Call Parking](../14-call-parking/).
+* Speed Dial: Link to a phone number for easy calling
 * Custom Speed Dial
 * Change Status
+* Night Mode: Easy to control the night mode activation/deactivation,  get more details in the article [Night Mode](../32-night-mode.md).
 
 ## Balance
 
