@@ -26,8 +26,9 @@ To create a virtual receptionist:
 6. **Gap Time Between DTMF Digits (Seconds)**: This is the time the virtual attendant will wait before searching for an account that matches the entered digits. If the account does not exist, the system will play an announcement indicating that the extension does not exist.
 7. **DISA PIN**: If you want to set the DISA feature within the virtual receptionist, you can set the PIN for accessing the DISA feature. For more details, please refer to [Direct Inward System Access](direct-inward-system-access-disa.md).
 8. **Verify the PIN for DISA**: This indicates whether the virtual receptionist should verify the PIN for DISA.
-9. **Timeout (Seconds)**: This allows you to specify how long the virtual receptionist should wait for a DTMF input. If no input is received, it will automatically perform the default action. This is for callers who do not understand the menu or who do not have a DTMF-capable phone.
-10. **Call Failure**: If the caller enters a DTMF value or key that IVR will refers the call to it, if the refer fails then action fails. In this Call Failure section, you can define how the call should be handled in such cases.
+9. In the **Destination for Night Mode** section, you can define how incoming calls should be handled when Night Mode is active for a tenant. For detailed configuration instructions, please refer to the [**Night Mode**](../32-night-mode.md) section of this guide.
+10. **Timeout (Seconds)**: This allows you to specify how long the virtual receptionist should wait for a DTMF input. If no input is received, it will automatically perform the default action. This is for callers who do not understand the menu or who do not have a DTMF-capable phone.
+11. **Call Failure**: If the caller enters a DTMF value or key that IVR will refers the call to it, if the refer fails then action fails. In this Call Failure section, you can define how the call should be handled in such cases.
 
 ## Menu Options
 

@@ -23,6 +23,7 @@ From the Web Portal, select menu **Advanced Services > Call Queues** and click t
 * **Set agent status to Wrap Up after agent completes a Non ACD call** - If an agent completes a Non-ACD call and this option is enabled, the PBX will automatically set their status to **Wrap Up**. However, this option will be ignored if the “Set agent to Ready automatically” option is enabled.
 * **Last Called Agent Routing** - Turn on this option to enable the Last Called Agent Routing feature. For more details please see [Skills Based Routing](skills-based-routing.md#5-last-called-agent-routing).
 * **Destination if no answer** - Define the maximum queue waiting time and the action to be taken if the call remains unanswered. If no agent is logged into the queue and the **Keep waiting if there are no members online** option is disabled, this option will be triggered immediately.
+* In the **Destination for Night Mode** section, you can define how incoming calls should be handled when Night Mode is active for a tenant. For detailed configuration instructions, please refer to the [**Night Mode**](../32-night-mode.md) section of this guide.
 
 ## **Queue Options**
 

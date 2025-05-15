@@ -28,6 +28,7 @@ To add a Ring Group:
     * **Paging/Intercom**: This is a Paging or Intercom group (see the next section for more details).
 * **Skip member(s) who's calling** - If the member of the group is on call, then don't ring this&#x20;
 * In the section "**Destination if no answer**", you can define what should happen if the call is not answered by the ring group.
+* In the **Destination for Night Mode** section, you can define how incoming calls should be handled when Night Mode is active for a tenant. For detailed configuration instructions, please refer to the [**Night Mode**](32-night-mode.md) section of this guide.
 * On the "**Group Members**" page, select the extensions that should be members of this ring group.&#x20;
 * **Outbound Caller ID** - Once the outbound caller ID for the ring group is set, when no members answer the call and forward the call to an external number on a trunk by the **Destination if no answer** option, the outbound caller ID could be a replacement for certain SIP field. For more details, please refer to [Outbound parameters and Inbound parameters](7-trunk-management/#7.2-outbound-parameters-and-inbound-parameters).
 
