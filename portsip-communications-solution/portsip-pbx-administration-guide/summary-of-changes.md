@@ -34,7 +34,7 @@ Date: May 15, 2025
   * A call times out or is forwarded during night mode by the Virtual Receptionist to a trunk number.
 * Updated **redirect URI** for Microsoft 365 integration. After upgrading to v22.2, the new URI must be configured in Microsoft 365 settings.
 * Extended the **validity period of mobile app push notifications** from 3 to 7 days. This value is now configurable in the `system.ini` file.
-* **Default header behavior changes in version 22.2m**: Starting from v22.2, the following settings are **disabled by default** for Queues and Ring Groups:
+* **Default header behavior changes in version 22.2**: Starting from v22.2, the following settings are **disabled by default** for Queues and Ring Groups:
   * Adding ring group or queue information to the `P-Asserted-Identity` header.
   * Adding ring group or queue information to the `Remote-Party-ID` header.
 * Added an SRTP policy option in the SBC web portal to control whether SRTP information is included in the SDP.
