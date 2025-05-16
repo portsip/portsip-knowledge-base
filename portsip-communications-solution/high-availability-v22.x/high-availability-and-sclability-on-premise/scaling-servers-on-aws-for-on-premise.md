@@ -304,7 +304,7 @@ cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh start \
 **Stop Specific Media Server:**
 
 ```sh
-cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh start \
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh stop \
 -s media-server-only \
 -a 192.168.1.21
 ```
@@ -312,7 +312,7 @@ cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh start \
 **Restart Specific Media Server:**
 
 ```sh
-cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh start \
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh restart \
 -s media-server-only \
 -a 192.168.1.21
 ```
@@ -320,7 +320,7 @@ cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh start \
 **Remove Specific Media Server:**
 
 ```sh
-cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh start \
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh rm \
 -s media-server-only \
 -a 192.168.1.21
 ```
