@@ -8,6 +8,10 @@ Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-por
 
 Date: May 15, 2025
 
+{% hint style="danger" %}
+After upgrading from a previous version to v22.2.x, the SBC token is automatically regenerated. To ensure continued functionality, you must update the SBC web portal with the new token.
+{% endhint %}
+
 ### New Features and Enhancements
 
 * Added **night mode support** for Queues, Ring Groups, and Virtual Receptionists. When night mode is active, calls are forwarded to a predefined destination.

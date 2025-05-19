@@ -8,6 +8,10 @@ Please follow the article [Backup and Restore: An Essential Guide](https://suppo
 Rest assured, if all steps are followed correctly, your PBX data will remain intact throughout the upgrade process.
 {% endhint %}
 
+{% hint style="danger" %}
+After upgrading from a previous version to v22.2.x, the SBC token is automatically regenerated. To ensure continued functionality, you must update the SBC web portal with the new token.
+{% endhint %}
+
 ## Upgrading within v22.x
 
 {% hint style="warning" %}
