@@ -98,6 +98,17 @@ If your EC2 and S3 are in the China region, in the endpoint URL the **amazonaws.
 * **region**: The region name (region code) of the EC2 instance and S3. For example, if the region is us-west-2 then use the actual region name to replace it.
 * **bucket**: The bucket name of S3. In this example, it's **portsip-pbx-storage**.
 
+### Configuring S3 Path Style
+
+Amazon S3 supports two URL styles for accessing stored objects: **Path-Style** and **Virtual-Hosted–Style**. By default, PortSIP PBX uses **Path-Style** URLs to ensure compatibility with certain AWS S3-compatible private storage services.
+
+According to AWS best practices, **Virtual-Hosted–Style** is the preferred URL format. If you wish to configure PortSIP PBX to use **Virtual-Hosted–Style** with AWS S3, you can add a line into the **\[storage.s3]** section as below:
+
+* To use Path-Style (default, recommended for S3-compatible services):  \
+  `path_style = true`
+* To use Virtual-Hosted–Style (recommended for official AWS S3):  \
+  `path_style = false`&#x20;
+
 After modifying the parameters for **AWS S3**, save the changes made to **system.ini**. You will then need to restart the PortSIP PBX for the changes to take effect.
 
 ## Step 4: Restart the PortSIP PBX
@@ -113,4 +124,8 @@ cd /opt/portsip && sudo /bin/sh pbx_ctl.sh restart
 ### Windows
 
 Restart the Windows Server directly.
+
+
+
+
 
