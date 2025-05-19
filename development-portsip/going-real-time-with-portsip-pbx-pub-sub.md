@@ -434,7 +434,9 @@ To subscribe to **Call Detail Record (CDR)** events, send the following command.
 
 ### Subscribe to Global CDR Event
 
-The **System Administrator** can subscribe to the global **CDR** event to receive CDR events from multiple tenants. To subscribe to the global CDR event for specific tenants, send the following command:
+The **System Administrator** can subscribe to the global **CDR** event to receive CDR events from multiple tenants. To subscribe to the global CDR event for specific tenants, send the following command.
+
+The "**tenants**" array should use the tenant's ID in string format as the elements.
 
 ```sh
 {
@@ -451,7 +453,9 @@ The **System Administrator** can subscribe to the global **CDR** event to receiv
 
 ### Subscribe to Extension Event
 
-To subscribe to events for specific extensions, send the following command:
+To subscribe to events for specific extensions, send the following command.
+
+The "**extensions**" array should use the extension number as the elements.
 
 ```json
 {
@@ -470,6 +474,8 @@ To subscribe to events for specific extensions, send the following command:
 
 The PBX administrators can subscribe to this event by specifying the tenant IDs as a JSON array.
 
+The "**tenants**" array should use the tenant's ID in string format as the elements.
+
 ```json
 {
    "command":"subscribe",
@@ -486,6 +492,8 @@ The PBX administrators can subscribe to this event by specifying the tenant IDs 
 ### Subscribe to Global Extension Management Event
 
 PBX System Administrators can subscribe to extension management events by specifying the tenant IDs as a JSON array.
+
+The "**tenants**" array should use the tenant's ID in string format as the elements.
 
 ```json
 {
@@ -507,7 +515,9 @@ PBX System Administrators can subscribe to extension management events by specif
 * **Extension-Specific Subscriptions:** Extensions can only subscribe to queues that they belong to or manage. If an extension is not an agent or queue manager of a queue, it cannot subscribe to that queue's events.
 * **Tenant Admin and Queue Manager Permissions:** Tenant Admin and Queue Manager users have the permission to subscribe to any queue wiin a tenant.
 
-If extension 101 is an agent or queue manager of queues 8001 and 8002, and it subscribes to queue events using the following command:
+If extension 101 is an agent or queue manager of queues 8001 and 8002, and it subscribes to queue events using the following command.&#x20;
+
+The "**queues**" array should use the queue number as the elements.
 
 ```json
 {
@@ -524,7 +534,9 @@ If extension 101 is an agent or queue manager of queues 8001 and 8002, and it su
 
 ### Subscribe Global Queue Event
 
-Only the PBX administrators can subscribe to this event.
+Only the PBX administrators can subscribe to this event.&#x20;
+
+The "**tenants**" array should use the tenant's ID in string format as the elements.
 
 ```json
 {
@@ -554,7 +566,9 @@ Tenant Admin and Queue Manager users can subscribe to the `queue_management_even
 
 ### Subscribe to Global Queue Management Event
 
-Only the PBX Administrator can subscribe to this event.
+Only the PBX Administrator can subscribe to this event.&#x20;
+
+The "**tenants**" array should use the tenant's ID in string format as the elements.
 
 ```json
 {
@@ -571,7 +585,9 @@ Only the PBX Administrator can subscribe to this event.
 
 ### Unsubscribe
 
-To unsubscribe from all events, send the following command:
+To unsubscribe from all events, send the following command.&#x20;
+
+The "**queues**" array and "**extensions**" array should use the queue number, extension number as the elements.
 
 ```json
 {
