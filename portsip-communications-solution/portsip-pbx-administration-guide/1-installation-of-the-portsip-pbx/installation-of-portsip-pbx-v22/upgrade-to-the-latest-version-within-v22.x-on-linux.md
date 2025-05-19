@@ -52,6 +52,10 @@ If you are currently running **PortSIP SBC** and wish to upgrade to the latest v
 cd /opt/portsip && sudo /bin/sh sbc_ctl.sh upgrade -i portsip/sbc:11
 ```
 
+{% hint style="danger" %}
+After upgrading from a previous version to v22.2.x, the SBC token is automatically regenerated. To ensure continued functionality, you must update the SBC web portal with the new token.
+{% endhint %}
+
 ### Upgrading IM Server
 
 If your IM server is installed on the same server as the PBX, run the following command to upgrade:
