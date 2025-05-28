@@ -12,6 +12,8 @@ The all-new PortSIP ONE App is one easy-to-use and secure app you can use to cal
 * It makes you smarter; it’s personalized to you.
 * It gives you options to choose how you work.
 
+## Download and Installation
+
 To download the latest version of PortSIP ONE for Windows desktop, visit the [PortSIP website](https://www.portsip.com/download-portsip-one/). The application is provided as an MSI installer. Simply double-click the downloaded file to start the installation process.
 
 This guide applies to both **PortSIP ONE for Windows** and **PortSIP ONE WebRTC**.

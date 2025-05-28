@@ -14,7 +14,11 @@ The all-new PortSIP ONE App is one easy-to-use and secure app you can use to cal
 
 ## Downloading from the App Store or Google Play Store
 
-You can also download the application by searching the App Store or Google Play store from your mobile device. Search **PortSIP ONE** to install it.
+You can also download the application by searching the App Store or Google Play Store from your mobile device. Search **PortSIP ONE** to install it.
+
+You can also download them from the [PortSIP website](https://www.portsip.com/download-portsip-one/).
+
+
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-1.png" alt="" width="375"><figcaption></figcaption></figure>
 
