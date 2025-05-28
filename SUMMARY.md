@@ -231,7 +231,6 @@
     * [Upgrading High Availability Installations](portsip-communications-solution/high-availability-v16.x/high-availability-and-scalability-on-aws/upgrading-high-availability-installations.md)
     * [Increase Size of EBS Volume](portsip-communications-solution/high-availability-v16.x/high-availability-and-scalability-on-aws/increase-size-of-ebs-volume.md)
     * [Scaling Servers on AWS for HA](portsip-communications-solution/high-availability-v16.x/high-availability-and-scalability-on-aws/scaling-servers-on-aws-for-ha.md)
-* [PortSIP UCaaS](portsip-communications-solution/portsip-ucaas.md)
 * [FAQ](portsip-communications-solution/faq/README.md)
   * [Troubleshooting Call Issues](portsip-communications-solution/faq/troubleshooting-call-issues.md)
   * [How to Activate License key?](portsip-communications-solution/faq/how-to-activate-license-key.md)
