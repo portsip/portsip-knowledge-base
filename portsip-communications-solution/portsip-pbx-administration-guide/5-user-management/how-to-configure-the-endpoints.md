@@ -4,7 +4,10 @@ After successfully [configuring the PortSIP PBX](../2-configuring-the-portsip-pb
 
 ## Configuring the PortSIP ONE App
 
-If you are using the PortSIP PBX v22.0 or higher, please follow the guide [PortSIP ONE Guides](broken-reference) to configure it.
+If you are using the PortSIP PBX v22.0 or higher, please follow the guides below:
+
+* [PortSIP ONE for Desktop and WebRTC](../../../apps-guides/portsip-one-app/portsip-one-desktop-app.md)
+* [PortSIP ONE for Mobile](../../../apps-guides/portsip-one-mobile-app/)
 
 ## Configuring the PortSIP Softphone App
 
@@ -19,7 +22,7 @@ In this article, we assume the following configurations:
 * The PBX created UDP transport on port **5060**, TLS transport on port **5061** over TLS,  TCP transport on port **5063**, and WSS transport on port **5065** in the SBC.
 * A tenant has been created with the SIP domain set up as **test.io**.
 
-As per the above settings, after you sign in to the PBX as the system administrator, you will see the page like the screenshot below:
+As per the above settings, after you sign in to the PBX as the system administrator, you will see a page like the screenshot below:
 
 <figure><img src="../../../.gitbook/assets/portsip-pbx-home-1.png" alt=""><figcaption></figcaption></figure>
 
