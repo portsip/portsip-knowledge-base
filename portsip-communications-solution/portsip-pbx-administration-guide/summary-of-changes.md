@@ -4,6 +4,23 @@
 Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/upgrade-to-the-latest-version-within-v22.x-on-linux.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
+## Changes for Release v22.2.13
+
+Date: May 29, 2025
+
+{% hint style="danger" %}
+If you upgrading from a version earlier than v22.2.11. You must update the SBC web portal with the new token.
+{% endhint %}
+
+### Enhancements
+
+* Improved Recording File Upload Performance: Added new parameters in system.ini to configure the number of threads used for uploading call recordings to AWS S3 or Azure Blob Storage. This enhancement significantly improves upload speed and efficiency.
+* Optimized CDR Generation for Declined Queue Calls: Prevent generating excessive Call Detail Records (CDRs) when an agent in the queue declines a call with SIP response 488.
+
+### Bug Fixes
+
+* Fixed an issue where enabling “Call Recovery” caused incoming calls initiated via the REST API to fail to be answered properly.
+
 ## Changes for Release v22.2.11
 
 Date: May 15, 2025
