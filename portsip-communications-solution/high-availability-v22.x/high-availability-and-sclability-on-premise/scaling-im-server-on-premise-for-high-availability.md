@@ -163,7 +163,11 @@ cd /opt/portsip-pbx-ha-guide/ && /bin/bash im.sh rm
 
 ## Upgrading the IM Server <a href="#upgrade-server" id="upgrade-server"></a>
 
-Please follow the below steps to upgrade the IM server.
+Please follow the steps below to upgrade the IM server.
+
+{% hint style="danger" %}
+All the below commands must be performed on the pbx01 node, even if it is not the current active node.
+{% endhint %}
 
 1. Please ensure you have upgraded the PBX HA as per this guide: [Upgrading High Availability Installation](upgrading-high-availability-installation.md).&#x20;
 2. Log in as the **System Administrator** to the PortSIP PBX HA Web portal. Navigate to **Servers > IM Servers, sele**ct the default server, and click the **Generate Token** button to generate the new token.
