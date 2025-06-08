@@ -269,6 +269,7 @@ Extension 1001 establishes calls with both 1002 and 1003. Now, use this API to p
 
 ```json
 {
+"extension_number" : "1001",
 "session_1" : "0",
 "refer_to_1" : "1002",
 "session_2" : "0",
