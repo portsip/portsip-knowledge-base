@@ -253,19 +253,19 @@ Consider this scenario: Extension 1001 establishes calls with both 1002 and 1003
 
 **Body**
 
-| Name               | Type   | Description                                                                                                                                                                                                                                           |
-| ------------------ | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `extension_number` | string | To do attended transfer, you need to specify the `extension_number`for select the transffer, it's can be either a PortSIP PBX extension number or a PSTN number (required)                                                                            |
-| session\_1         | string | The session ID of the call which will be transffered. The PBX will match the call leg by both `extension_number` and this specified session ID. This parameter can be set as "0".                                                                     |
-| refer\_to\_1       | string | If the `session_1` is specified as 0, then the PBX will use the `extension_number` and this `refer_to_1` to match the call leg. This parameter can be set as a empty string. If the session\_1  is "0" and refer\_to\_1 is empty, this API will fail. |
-| session\_2         | string | The session ID of the call which will be transffered. The PBX will match the call leg by both `extension_number` and this specified session ID. This parameter can be set as "0".                                                                     |
-| refer\_to\_2       | string | If the `session_2` is specified as 0, then the PBX will use the `extension_number` and this `refer_to_2` to match the call leg. This parameter can be set as a empty string. If the session\_2  is "0" and refer\_to\_2 is empty, this API will fail. |
-|                    |        |                                                                                                                                                                                                                                                       |
-|                    |        |                                                                                                                                                                                                                                                       |
+| Name               | Type   | Description                                                                                                                                                                                                                                            |
+| ------------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `extension_number` | string | To do attended transfer, you need to specify the `extension_number`for select the transffer, it's can be either a PortSIP PBX extension number or a PSTN number (required)                                                                             |
+| session\_1         | string | The session ID of the call which will be transffered. The PBX will match the call leg by both `extension_number` and this specified session ID. This parameter is optional, or can be set as "0".                                                      |
+| refer\_to\_1       | string | If the `session_1` is specified as 0, then the PBX will use the `extension_number` and this `refer_to_1` to match the call leg. This parameter can be set as a empty string. If the `session_1`  is "0" and `refer_to_1` is empty, this API will fail. |
+| session\_2         | string | The session ID of the call which will be transffered. The PBX will match the call leg by both `extension_number` and this specified session ID. This parameter is optional, or can be set as "0".                                                      |
+| refer\_to\_2       | string | If the `session_2` is specified as 0, then the PBX will use the `extension_number` and this `refer_to_2` to match the call leg. This parameter can be set as a empty string. If the `session_2`  is "0" and `refer_to_2` is empty, this API will fail. |
+|                    |        |                                                                                                                                                                                                                                                        |
+|                    |        |                                                                                                                                                                                                                                                        |
 
 **Example**
 
-Extension 1001 establishes calls with both 1002 and 1003. Now, use this API to perform an attended transfer, which will connect the call between 1002 and 1003, and extension 1001 will be disconnected from the calls.
+Extension 1001 establishes calls with both 1002 and 1003. Now, use this API to perform an attended transfer, which will connect the call between 1002 and 1003, and extension 1001 will be disconnected from the call.
 
 ```json
 {
