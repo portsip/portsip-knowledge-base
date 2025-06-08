@@ -4,12 +4,6 @@
 
 * [What is PortSIP?](README.md)
 * [The Advantages of PortSIP PBX vs. Other PBXs](portsip-communications-solution/the-advantages-of-portsip-pbx-vs.-other-pbxs.md)
-* [Cloud PBX Empowering Service Providers](portsip-communications-solution/cloud-pbx-empowering-service-providers.md)
-* [Understanding CPaaS: What it is and What it Requires](portsip-communications-solution/understanding-cpaas-what-it-is-and-what-it-requires.md)
-* [CPaaS vs. UCaaS: What’s the Difference and How to Choose?](portsip-communications-solution/cpaas-vs.-ucaas-whats-the-difference-and-how-to-choose.md)
-* [Simplifying Unified Communications with WebRTC and SIP](portsip-communications-solution/simplifying-unified-communications-with-webrtc-and-sip.md)
-* [What is CPaaS? Communications Platform as a Service Explained](portsip-communications-solution/what-is-cpaas-communications-platform-as-a-service-explained.md)
-* [UCaaS is Unified Communications as a Service](portsip-communications-solution/ucaas-is-unified-communications-as-a-service.md)
 * [PortSIP PBX Administration Guide](portsip-communications-solution/portsip-pbx-administration-guide/README.md)
   * [Overview](portsip-communications-solution/portsip-pbx-administration-guide/overview.md)
   * [PortSIP Security Features](portsip-communications-solution/portsip-pbx-administration-guide/portsip-security-feature.md)
@@ -252,6 +246,12 @@
   * [Migrate from legacy FCM APIs to HTTP v1 for Android Push Notifications](portsip-communications-solution/faq/migrate-from-legacy-fcm-apis-to-http-v1-for-android-push-notifications.md)
   * [PortSIP SDK License Agreement](portsip-communications-solution/faq/portsip-sdk-license-agreement.md)
   * [PortSIP Software End-User License Agreement](portsip-communications-solution/faq/portsip-software-end-user-license-agreement.md)
+* [Simplifying Unified Communications with WebRTC and SIP](portsip-communications-solution/simplifying-unified-communications-with-webrtc-and-sip.md)
+* [CPaaS vs. UCaaS: What’s the Difference and How to Choose?](portsip-communications-solution/cpaas-vs.-ucaas-whats-the-difference-and-how-to-choose.md)
+* [What is CPaaS? Communications Platform as a Service Explained](portsip-communications-solution/what-is-cpaas-communications-platform-as-a-service-explained.md)
+* [UCaaS is Unified Communications as a Service](portsip-communications-solution/ucaas-is-unified-communications-as-a-service.md)
+* [Understanding CPaaS: What it is and What it Requires](portsip-communications-solution/understanding-cpaas-what-it-is-and-what-it-requires.md)
+* [Cloud PBX Empowering Service Providers](portsip-communications-solution/cloud-pbx-empowering-service-providers.md)
 
 ## Apps Guides
 
