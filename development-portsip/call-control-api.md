@@ -194,7 +194,7 @@ Use this API to unhold a call by specifying the session ID. Pass the call sessio
 
 <mark style="color:green;">`POST`</mark> `/sessions/{id}/refer`
 
-Use this API to blind transfer a call by specifying the session ID. Pass the call session ID to the URL parameter ID.
+Use this API to blind transfer a call by specifying the session ID. Pass the call session ID to the URL parameter ID. In the URL parameter, you can specify the `{id}` as 1 means do not need to match the call.
 
 **Headers**
 
@@ -211,9 +211,28 @@ Use this API to blind transfer a call by specifying the session ID. Pass the cal
 | `refer_to`         | string | The target number to which the call will be transferred.  (required)                                                                                                                                                                                                                                      |
 |                    |        |                                                                                                                                                                                                                                                                                                           |
 
-**Example**
+**Example 1:**&#x20;
 
-1001 has established a call. Use the following body payload to blind transfer extension 1001 to the number 0033187691:
+1001 has established a call. Use the following body payload to blind transfer extension 1001 to the number 0033187691.
+
+1. Pass  `1`  for the URL parameter `{id}`
+2. Use the below POST body
+
+**Note**: If the `sessionId` is specified as `1` in the URL parameter `{id}` and extension **1001** has multiple established calls, the PBX will automatically select the most recently established call and perform the transfer.
+
+```json
+{
+"extension_number" : "1001",
+"refer_to" : "0033187691"
+}
+```
+
+**Example 2:**
+
+Extension **1001** has multiple active calls. To blind transfer the call with session ID **111222** from extension 1001 to the number **0033187691**, use the following POST request:
+
+* Set the URL parameter `{id}` to **111222**
+* Use the following POST body:
 
 ```json
 {
@@ -240,7 +259,7 @@ Use this API to blind transfer a call by specifying the session ID. Pass the cal
 
 <mark style="color:green;">`POST`</mark> `/sessions/{id}/attended_refer`
 
-Use this API to attended transfer a call by specifying the session ID. Pass the current call session ID to the URL parameter ID.&#x20;
+Use this API to attend transfer a call by specifying the session ID. Pass the `1` as the URL parameter ID.&#x20;
 
 Consider this scenario: Extension 1001 establishes calls with both 1002 and 1003. Now, use this API to perform an attended transfer, which will connect the call between 1002 and 1003, and extension 1001 will be disconnected from the calls.
 
@@ -263,16 +282,34 @@ Consider this scenario: Extension 1001 establishes calls with both 1002 and 1003
 |                    |        |                                                                                                                                                                                                                                                        |
 |                    |        |                                                                                                                                                                                                                                                        |
 
-**Example**
+**Example 1:**
 
-Extension 1001 establishes calls with both 1002 and 1003. Now, use this API to perform an attended transfer, which will connect the call between 1002 and 1003, and extension 1001 will be disconnected from the call.
+Extension 1001 establishes a call with 1002, the session ID is **111111**,  and establishes a call with 1003, the session ID is **222222**. Now, use this API to perform an attended transfer, which will connect the call between 1002 and 1003, and extension 1001 will be disconnected from the call.
+
+* Pass  `1`  for the URL parameter `{id}`
+* Use the following POST body:
 
 ```json
 {
 "extension_number" : "1001",
-"session_1" : "0",
 "refer_to_1" : "1002",
-"session_2" : "0",
+"session_1" : "111111",
+"refer_to_2" : "1003",
+"session_2" : "222222"
+}
+```
+
+**Example 2:**
+
+Extension 1001 establishes calls with both 1002 and 1003. Now, use this API to perform an attended transfer, which will connect the call between 1002 and 1003, and extension 1001 will be disconnected from the call.
+
+* Pass  `1`  for the URL parameter `{id}`
+* Use the following POST body:
+
+```json
+{
+"extension_number" : "1001",
+"refer_to_1" : "1002",
 "refer_to_2" : "1003"
 }
 ```
