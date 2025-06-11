@@ -41,7 +41,7 @@ Please follow the below steps:
 
 1. In PortSIP PBX Web portal, navigate to the left menu, select **SMS/MMS**, and click the **Add** button.&#x20;
 2. Choose your configured VoIP.ms Trunk:
-   * **Username: E**nter your VoIP.ms account password
+   * **Username:** Enter your VoIP.ms account username (usually your email address) that you use to log in to the VoIP.ms web portal
    * **Password**: Paste your copied VoIP.ms API Password here
 
 <figure><img src="../../../.gitbook/assets/voip.ms-flig14.png" alt=""><figcaption></figcaption></figure>
