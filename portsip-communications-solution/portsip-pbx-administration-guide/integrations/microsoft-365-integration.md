@@ -8,7 +8,7 @@ The PortSIP PBX integrates with Microsoft 365 to provide the following features:
 * Shared mailbox contacts are synchronized with the PortSIP PBX Company contacts.
 * Send email notifications through Microsoft 365 mail server with OAuth.
 
-## Pre-Requisites <a href="#prerequisites" id="prerequisites"></a>
+## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
 
 * You need PortSIP PBX running on a static public IP address.
 * A web domain (which is FQDN) in PortSIP PBX with a valid SSL certificate. The certificate should be issued by a trusted certificate provider such as Digicert, Thawte, Godaddy, etc. You can read this [article ](../certificates-for-tls-https-webrtc/)to configure the SSL certificate.
