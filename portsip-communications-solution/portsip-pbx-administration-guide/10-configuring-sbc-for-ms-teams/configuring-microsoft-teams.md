@@ -19,7 +19,7 @@
 
 ### 2 Create your domain in your Office 365 tenant
 
-* Log in to your Office 365 admin account and create your domain. In the `Microsoft 365 admin center`, go to `Setup`, then press the `View` button for the `Get your custom domain set up`, then the `Manage` button. Add a domain there.
+* Log in to your Office 365 admin account and create your domain. In the[ Microsoft 365 admin center](https://www.microsoft.com/en-us/microsoft-365/business/microsoft-365-administration), go to `Setup.` Then press the `View` button for the `Get your custom domain set up`, then the `Manage` button. Add a domain there.
 * Choose a domain name (e.g. `portsip.cc`) that you own.&#x20;
 
 {% hint style="warning" %}
