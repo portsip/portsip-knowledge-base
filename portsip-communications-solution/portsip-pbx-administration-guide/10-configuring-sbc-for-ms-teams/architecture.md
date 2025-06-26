@@ -3,7 +3,7 @@
 ## Prerequisites
 
 * Requires Microsoft TEAMS (Office 365) account with a domain in Office 365 with FQDN (fully qualified domain name) that you own.
-* Microsoft 365 **E5 subscription** plan or **Microsoft Teams + Microsoft Phone System (add-on)** for Teams users that wish to call or be called.
+* Users need to purchase two SKUs: one E1/E3/E5 (no Teams) suite and one Teams standalone (_Microsoft Teams Enterprise_ or _Microsoft Teams EEA_). For more details, please refer to: [https://learn.microsoft.com/en-us/microsoftteams/user-access](https://learn.microsoft.com/en-us/microsoftteams/user-access)
 * Make sure `Prevent toll bypass and send calls through the PSTN` setting in the calling policy of the user is set to Off. That will allow direct routing, especially if you are also using the MS phone system as well. It is found in the Microsoft Teams admin center under the left-side menu item `Voice > Calling policies`. Then choose the calling policy the user is using and make sure this setting is turned `Off`.
 * A trusted TLS/SSL certificate for your domain, for example, DigiCert, Thawte, GeoTrust, Verisign, or a wildcard certificate is recommended.
 * The setup is a lot easier if the PBX runs on a public IP address. It is also possible to run the setup in a LAN with private IP, but this requires a proper setup of the firewall and additional steps on the PBX to make access from the Microsoft servers possible to the PBX.
