@@ -290,7 +290,7 @@
         spec:
           ref:
             kind: openapi
-            spec: portsip-knowledge-base-api
+            spec: v22-2
       ```
   * [Version 22.1](development-portsip/rest-apis/version-22.1/README.md)
     * [About](development-portsip/rest-apis/version-22.1/about.md)
