@@ -281,17 +281,6 @@
   * [User Manual for Android](development-portsip/calling-apis/user-manual-for-android.md)
   * [User Manual for macOS](development-portsip/calling-apis/user-manual-for-macos.md)
 * [REST APIs](development-portsip/rest-apis/README.md)
-  * [Version 22.2](development-portsip/rest-apis/version-22.2/README.md)
-    * ```yaml
-      type: builtin:openapi
-      props:
-        models: true
-      dependencies:
-        spec:
-          ref:
-            kind: openapi
-            spec: v22-2
-      ```
   * [Version 22.1](development-portsip/rest-apis/version-22.1/README.md)
     * [About](development-portsip/rest-apis/version-22.1/about.md)
     * [API reference](development-portsip/rest-apis/version-22.1/api-reference/README.md)
