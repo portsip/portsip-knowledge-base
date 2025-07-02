@@ -6,6 +6,8 @@ Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-por
 
 ## Changes for Release v22.2.15
 
+Date: July 1, 2025
+
 **Bug Fixes**
 
 * Fixed an issue where queue agents or ring group members could remain in the "ON CALL" status without active calls under certain conditions.
@@ -13,6 +15,8 @@ Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-por
 * Fixed a failure in completing Google Workspace integration.
 
 ## Changes for Release v16.4.5
+
+Date: July 1, 2025
 
 **Enhancements**
 
