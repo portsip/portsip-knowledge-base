@@ -228,6 +228,7 @@
     * [Increase Size of EBS Volume](portsip-communications-solution/high-availability-v16.x/high-availability-and-scalability-on-aws/increase-size-of-ebs-volume.md)
     * [Scaling Servers on AWS for HA](portsip-communications-solution/high-availability-v16.x/high-availability-and-scalability-on-aws/scaling-servers-on-aws-for-ha.md)
 * [FAQ](portsip-communications-solution/faq/README.md)
+  * [Configure Files Vacuum Time](portsip-communications-solution/faq/configure-files-vacuum-time.md)
   * [Troubleshooting Call Issues](portsip-communications-solution/faq/troubleshooting-call-issues.md)
   * [How to Activate License key?](portsip-communications-solution/faq/how-to-activate-license-key.md)
   * [What File Format Is Required for PortSIP PBX Prompt?](portsip-communications-solution/faq/what-file-format-is-required-for-portsip-pbx-prompt.md)
