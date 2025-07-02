@@ -21,7 +21,7 @@ Date: July 1, 2025
 **Enhancements**
 
 * Reimplemented the webhook engine to enhance performance.
-* Optimized system file cleanup operations. Cleanup time can now be configured (e.g., 2:00 AM) via `system.ini`.
+* Optimized system file cleanup operations. Cleanup time can now be configured (e.g., 2:00 AM) via `system.ini`. See the guide: [Configure File Vacuum Time](../faq/configure-files-vacuum-time.md).
 
 **Bug Fixes**
 
