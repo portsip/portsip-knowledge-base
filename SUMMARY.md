@@ -290,7 +290,7 @@
         spec:
           ref:
             kind: openapi
-            spec: 22-2-x
+            spec: 22-2-7-2
       ```
   * [Version 22.1](development-portsip/rest-apis/version-22.1/README.md)
     * [About](development-portsip/rest-apis/version-22.1/about.md)
