@@ -4,6 +4,32 @@
 Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/upgrade-to-the-latest-version-within-v22.x-on-linux.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
+## Changes for Release v22.2.15
+
+**Bug Fixes**
+
+* Fixed an issue where queue agents or ring group members could remain in the "ON CALL" status without active calls under certain conditions.
+* Resolved a memory leak in the queue server in specific scenarios.
+* Fixed a failure in completing Google Workspace integration.
+
+## Changes for Release v16.4.5
+
+**Enhancements**
+
+* Reimplemented the webhook engine to enhance performance.
+* Optimized system file cleanup operations. Cleanup time can now be configured (e.g., 2:00 AM) via `system.ini`.
+
+**Bug Fixes**
+
+* Fixed a call routing issue where a SIP trunk call, auto-answered by a queue, could fail to offer the call to an agent if the trunk delayed a reply with an ACK.
+* Fixed an issue where queue agents or ring group members could remain in the "ON CALL" status without active calls under certain conditions.
+* Corrected CDR display where Virtual Receptionist calls showed the DID number instead of the IVR number.
+* Resolved an issue where the trunk registered to the PBX, and changed its IP  during re-registration, but the PBX still used the old IP.
+* Fixed incorrect CDR direction labeling for trunk-to-trunk calls (`INBOUND_OUTBOUND_CALL`).
+* Addressed a bug where only the last Advanced Routing Rule in an inbound rule took effect.
+* Fixed incorrect or missing recording files issue if a REST API–initiated call that the caller did not answer to end the call by timed out.
+* Fixed a Ring Group bug where a call was hung up if the last member declined the call with "Repeat" enabled for the no answer.
+
 ## Changes for Release v22.2.14
 
 Date: Jun 12, 2025
