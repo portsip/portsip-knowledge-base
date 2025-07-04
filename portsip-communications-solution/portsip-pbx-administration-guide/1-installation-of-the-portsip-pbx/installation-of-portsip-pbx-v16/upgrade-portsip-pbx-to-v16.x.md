@@ -16,6 +16,10 @@ Please follow the article [Backup and Restore: An Essential Guide](../../backup-
 All commands must be executed in the **`/opt/portsip`** directory.
 {% endhint %}
 
+## High Availability Upgrading
+
+If your PortSIP PBX was deployed with High Availability mode, please follow the guide [Upgrading High Availability Installation](../../../high-availability-v16.x/high-availability-and-scalability-on-aws/upgrading-high-availability-installations.md) to upgrade it.
+
 ### Step 1 Stop PBX Docker Instance
 
 Perform the following commands as root to stop the current PBX Docker instance:

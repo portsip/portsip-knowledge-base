@@ -12,7 +12,7 @@ Rest assured, if all steps are followed correctly, your PBX data will remain int
 After upgrading from a previous version to v22.2.x, the SBC token is automatically regenerated. To ensure continued functionality, you must update the SBC web portal with the new token.
 {% endhint %}
 
-## HA Upgrading
+## High Availability Upgrading
 
 If your PortSIP PBX was deployed with High Availability mode, please follow the guide [Upgrading High Availability Installation](../../../high-availability-v22.x/high-availability-and-sclability-on-premise/upgrading-high-availability-installation.md) to upgrade it.
 
