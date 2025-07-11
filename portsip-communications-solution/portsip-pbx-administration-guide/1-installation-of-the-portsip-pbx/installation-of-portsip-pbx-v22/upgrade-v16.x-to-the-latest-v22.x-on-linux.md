@@ -39,7 +39,7 @@ Rest assured, if all steps are followed correctly, your PBX data will remain int
 
 ## Prerequisites for Upgrading from v16.x
 
-If your current installation is running a version lower than v16.4.4, please first follow the [**Upgrading to the Latest v16.x Release**](../installation-of-portsip-pbx-v16/upgrade-portsip-pbx-to-v16.x.md) guide to complete the upgrade to v16.4.4.
+If your current installation is running a version lower than v16.4.5, please first follow the [**Upgrading to the Latest v16.x Release**](../installation-of-portsip-pbx-v16/upgrade-portsip-pbx-to-v16.x.md) guide to complete the upgrade to v16.4.5.
 
 Once your PBX is upgraded to the latest v16.x, follow the steps below to remove the v16.x installation before upgrading.
 
