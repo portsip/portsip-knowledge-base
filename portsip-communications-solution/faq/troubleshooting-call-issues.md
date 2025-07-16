@@ -41,6 +41,7 @@ This code may appear for the following reasons:
 This code may appear for the following reasons:
 
 * The current usage exceeds the PortSIP PBX license.
+* The caller extension lacks sufficient call permissions. Please check its assigned role to resolve the issue.
 * If you make a call to the SIP trunk and the called number starts with a **+**, it means this is an international call. In this case, if the extension caller role is a **standard user**, they will receive this error since standard users do not have permission to make international calls, please change the extension's role to avoid this issue.
 * If the extension caller has permission to make international calls, but the country code is disallowed, you will need to allow the country code in the menu: **Blacklist and Codes > Codec and E164.** Click the tab **ALLOWED COUNTRY CODE** and select the country code to enable it.
 * The current established calls have reached the maximum call limit of the trunk.
