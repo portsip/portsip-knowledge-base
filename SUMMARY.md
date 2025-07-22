@@ -3,8 +3,8 @@
 ## PortSIP Communications Solution
 
 * [What is PortSIP?](README.md)
-* [The Advantages of PortSIP PBX vs. Other PBXs](portsip-communications-solution/the-advantages-of-portsip-pbx-vs.-other-pbxs.md)
 * [Cloud PBX Phone System for Service Providers](portsip-communications-solution/cloud-pbx-phone-system-for-service-providers.md)
+* [The Advantages of PortSIP PBX vs. Other PBXs](portsip-communications-solution/the-advantages-of-portsip-pbx-vs.-other-pbxs.md)
 * [PortSIP PBX Administration Guide](portsip-communications-solution/portsip-pbx-administration-guide/README.md)
   * [Overview](portsip-communications-solution/portsip-pbx-administration-guide/overview.md)
   * [PortSIP Security Features](portsip-communications-solution/portsip-pbx-administration-guide/portsip-security-feature.md)

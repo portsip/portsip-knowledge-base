@@ -4,9 +4,17 @@
 Please follow the [guide ](upgrade-to-the-latest-sbc-release.md)to upgrading your PortSIP SBC to the latest version.
 {% endhint %}
 
+## Changes for Release v11.1.8
+
+**Date**: July 22, 2025
+
+The following changes are included in this release:
+
+* Added support for **configuring codecs for transcoding**
+
 ## Changes for Release v11.1.1
 
-Data: Jan 13, 2025
+**Date**: Jan 13, 2025
 
 The following changes are included in this release:
 
@@ -15,7 +23,7 @@ The following changes are included in this release:
 
 ## Changes for Release v11.0.0
 
-Data: Dec 12, 2024
+**Date**: Dec 12, 2024
 
 The following changes are included in this release:
 

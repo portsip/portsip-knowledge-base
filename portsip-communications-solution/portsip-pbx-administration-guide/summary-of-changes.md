@@ -4,6 +4,21 @@
 Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/upgrade-to-the-latest-version-within-v22.x-on-linux.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
+## Changes for Release v22.2.16
+
+Date: July 22, 2025
+
+#### New Language Support
+
+* Added support for **German**, **Dutch**, and **Vietnamese** languages, including localized **voice prompts**.
+
+#### **Bug Fixes**
+
+* Resolved an issue where **WSI notifications were not sent** when an extension signed out.
+* Fixed a bug where, in deployments using **IPv6**, the app received push notifications for incoming calls but **failed to answer** them.
+* Addressed a compatibility issue when configuring the **SMTP server with AWS SES**, which previously caused email delivery failures.
+* Corrected a bug where an extension **removed from a chat group** would be **re-added upon signing back into the app**.
+
 ## Changes for Release v22.2.15
 
 Date: July 1, 2025
