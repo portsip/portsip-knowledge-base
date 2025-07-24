@@ -249,6 +249,7 @@
   * [PortSIP SDK License Agreement](portsip-communications-solution/faq/portsip-sdk-license-agreement.md)
   * [PortSIP Software End-User License Agreement](portsip-communications-solution/faq/portsip-software-end-user-license-agreement.md)
 * [Virtual Agent of AI Contact Center](portsip-communications-solution/virtual-agent-of-ai-contact-center.md)
+* [Scale, Profit, Own: 7 Critical Keys to Unlocking White-Label UCaaS Success with PortSIP](portsip-communications-solution/scale-profit-own-7-critical-keys-to-unlocking-white-label-ucaas-success-with-portsip.md)
 * [Simplifying Unified Communications with WebRTC and SIP](portsip-communications-solution/simplifying-unified-communications-with-webrtc-and-sip.md)
 * [CPaaS vs. UCaaS: What’s the Difference and How to Choose?](portsip-communications-solution/cpaas-vs.-ucaas-whats-the-difference-and-how-to-choose.md)
 * [What is CPaaS? Communications Platform as a Service Explained](portsip-communications-solution/what-is-cpaas-communications-platform-as-a-service-explained.md)
