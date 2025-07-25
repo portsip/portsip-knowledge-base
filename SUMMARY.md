@@ -255,6 +255,7 @@
 * [What is CPaaS? Communications Platform as a Service Explained](portsip-communications-solution/what-is-cpaas-communications-platform-as-a-service-explained.md)
 * [UCaaS is Unified Communications as a Service](portsip-communications-solution/ucaas-is-unified-communications-as-a-service.md)
 * [Understanding CPaaS: What it is and What it Requires](portsip-communications-solution/understanding-cpaas-what-it-is-and-what-it-requires.md)
+* [Softphone: What It Is, How It Works, and Why Your Business Needs It](portsip-communications-solution/softphone-what-it-is-how-it-works-and-why-your-business-needs-it.md)
 * [What is CCaaS(Contact Center as a Service)?](portsip-communications-solution/ccaas.md)
 
 ## Apps Guides
