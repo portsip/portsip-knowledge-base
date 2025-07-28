@@ -4,6 +4,14 @@
 Please follow the [guide ](upgrade-to-the-latest-sbc-release.md)to upgrading your PortSIP SBC to the latest version.
 {% endhint %}
 
+## Changes for Release v11.1.9
+
+**Date**: July 28, 2025
+
+The following changes are included in this release:
+
+* Fixed the version information display issue.
+
 ## Changes for Release v11.1.8
 
 **Date**: July 22, 2025

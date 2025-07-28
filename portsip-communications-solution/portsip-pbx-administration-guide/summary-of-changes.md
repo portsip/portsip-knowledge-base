@@ -4,6 +4,20 @@
 Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/upgrade-to-the-latest-version-within-v22.x-on-linux.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
+## Changes for Release v22.2.17
+
+Date: July 28, 2025
+
+#### New Language Support
+
+* Introduced a new _Company Call Session_ permission that enables users to monitor and manage live calls within their tenant’s scope.
+
+#### **Bug Fixes**
+
+* Resolved an issue where the iOS push certificate auto-renewal process failed to update correctly.
+* Fixed a bug where newly created extension users were unable to connect to the Instant Messaging (IM) service.
+* Corrected an issue where call reports for queues were occasionally generated incorrectly under specific edge-case scenarios.
+
 ## Changes for Release v22.2.16
 
 Date: July 22, 2025
