@@ -8,37 +8,20 @@ Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-por
 
 Date: July 28, 2025
 
-#### New Language Support
+#### New Features Support
 
 * Introduced a new _Company Call Session_ permission that enables users to monitor and manage live calls within their tenant’s scope.
+* Added support for **German**, **Dutch**, and **Vietnamese** languages, including localized **voice prompts**.
 
 #### **Bug Fixes**
 
 * Resolved an issue where the iOS push certificate auto-renewal process failed to update correctly.
 * Fixed a bug where newly created extension users were unable to connect to the Instant Messaging (IM) service.
 * Corrected an issue where call reports for queues were occasionally generated incorrectly under specific edge-case scenarios.
-
-## Changes for Release v22.2.16
-
-Date: July 22, 2025
-
-#### New Language Support
-
-* Added support for **German**, **Dutch**, and **Vietnamese** languages, including localized **voice prompts**.
-
-#### **Bug Fixes**
-
 * Resolved an issue where **WSI notifications were not sent** when an extension signed out.
 * Fixed a bug where, in deployments using **IPv6**, the app received push notifications for incoming calls but **failed to answer** them.
 * Addressed a compatibility issue when configuring the **SMTP server with AWS SES**, which previously caused email delivery failures.
 * Corrected a bug where an extension **removed from a chat group** would be **re-added upon signing back into the app**.
-
-## Changes for Release v22.2.15
-
-Date: July 1, 2025
-
-**Bug Fixes**
-
 * Fixed an issue where queue agents or ring group members could remain in the "ON CALL" status without active calls under certain conditions.
 * Resolved a memory leak in the queue server in specific scenarios.
 * Fixed a failure in completing Google Workspace integration.
