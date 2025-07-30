@@ -54,20 +54,6 @@ Date: Jun 12, 2025
 If you are upgrading from a version earlier than v22.2.11. You must update the SBC web portal with the new token.
 {% endhint %}
 
-### Bug Fixes
-
-* Fixed an issue where call reports for ring groups were not generated correctly.
-* Resolved a problem where importing extension users with IP Phone provisioning, or creating an extension with auto auto-provisioned phone, could cause the provisioning process to fail.
-* Fixed an issue where using the same phone number for both WhatsApp and voice calls with different inbound rules could result in WhatsApp messages being delivered to the wrong destination extension.
-
-## Changes for Release v22.2.13
-
-Date: May 29, 2025
-
-{% hint style="danger" %}
-If you upgrading from a version earlier than v22.2.11. You must update the SBC web portal with the new token.
-{% endhint %}
-
 ### Enhancements
 
 * Improved Recording File Upload Performance: Added new parameters in system.ini to configure the number of threads used for uploading call recordings to AWS S3 or Azure Blob Storage. This enhancement significantly improves upload speed and efficiency.
@@ -75,6 +61,9 @@ If you upgrading from a version earlier than v22.2.11. You must update the SBC w
 
 ### Bug Fixes
 
+* Fixed an issue where call reports for ring groups were not generated correctly.
+* Resolved a problem where importing extension users with IP Phone provisioning, or creating an extension with auto auto-provisioned phone, could cause the provisioning process to fail.
+* Fixed an issue where using the same phone number for both WhatsApp and voice calls with different inbound rules could result in WhatsApp messages being delivered to the wrong destination extension.
 * Fixed an issue where enabling “Call Recovery” caused incoming calls initiated via the REST API to fail to be answered properly.
 
 ## Changes for Release v22.2.11
