@@ -4,6 +4,14 @@
 Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/upgrade-to-the-latest-version-within-v22.x-on-linux.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
+## Changes for Release v16.4.6
+
+Date: August 1, 2025
+
+**Bug Fixes**
+
+* Fixed a queue abandoned report issue where if the agent refers the call to the queue again causes the number of abandoned calls to be incorrect.
+
 ## Changes for Release v22.2.17
 
 Date: July 28, 2025
