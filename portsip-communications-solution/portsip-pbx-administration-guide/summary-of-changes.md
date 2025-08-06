@@ -4,6 +4,18 @@
 Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/upgrade-to-the-latest-version-within-v22.x-on-linux.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
+## Changes for Release v22.2.18
+
+Date: August 6, 2025
+
+#### New Features Support
+
+* Added support for the [**global\_queue\_events**](../../development-portsip/going-real-time-with-portsip-pbx-pub-sub.md#subscribe-global-queue-event) with the WSI.
+
+#### **Bug Fixes**
+
+* Fixed a bug where if a call between two extensions is launched by REST API, and the callee is logged in with the mobile app, once the caller answers, the PBX doesn't send push notifications to the callee's mobile app.&#x20;
+
 ## Changes for Release v16.4.6
 
 Date: August 1, 2025
@@ -12,16 +24,16 @@ Date: August 1, 2025
 
 * Fixed a queue abandoned report issue where if the agent refers the call to the queue again causes the number of abandoned calls to be incorrect.
 
-## Changes for Release v22.2.17
+## Changes for Release v22.2.17 <a href="#changes-for-release-v22.2.17" id="changes-for-release-v22.2.17"></a>
 
 Date: July 28, 2025
 
-#### New Features Support
+**New Features Support**
 
 * Introduced a new _Company Call Session_ permission that enables users to monitor and manage live calls within their tenant’s scope.
 * Added support for **German**, **Dutch**, and **Vietnamese** languages, including localized **voice prompts**.
 
-#### **Bug Fixes**
+**Bug Fixes**
 
 * Resolved an issue where the iOS push certificate auto-renewal process failed to update correctly.
 * Fixed a bug where newly created extension users were unable to connect to the Instant Messaging (IM) service.
