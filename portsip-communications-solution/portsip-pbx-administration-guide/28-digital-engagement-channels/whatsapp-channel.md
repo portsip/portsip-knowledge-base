@@ -14,6 +14,15 @@ To integrate WhatsApp Business with PortSIP PBX, ensure the following requiremen
    * WhatsApp integration with PortSIP PBX supports responding to inbound messages only.
    * A WhatsApp user must initiate the conversation by sending you a message.
    * Once a message is received, you have a 24-hour window to respond.
+3. **Full Chain SSL Certificates**
+   *   To ensure successful webhook verification by the WhatsApp (Meta) platform, your PortSIP PBX must be configured with a **trusted, full-chain SSL certificate**.
+
+       You can verify whether your SSL certificate is trusted and includes the complete certificate chain using one of these tools:
+
+       * [SSL Checker](https://www.sslchecker.com/sslchecker)
+       * [SSL Shopper](https://www.sslshopper.com/ssl-checker.html)
+
+       If your certificate is not a full-chain SSL certificate, contact your SSL certificate provider to have it corrected.
 
 ## Configuring WhatsApp
 
