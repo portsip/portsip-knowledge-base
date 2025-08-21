@@ -4,6 +4,19 @@
 Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/upgrade-to-the-latest-version-within-v22.x-on-linux.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
+## Changes for Release v22.2.19
+
+Date: August 21, 2025
+
+#### New Feature Support
+
+* **Virtual Receptionist Action URL**\
+  Now supports matching DTMF inputs using the `*`. Each `*` represents a single DTMF digit.
+* **Microsoft 365 SSO**\
+  The PBX now authenticates Microsoft 365 usernames in a case-insensitive manner, ignoring upper and lower case differences.
+* **Mobile App Push Certificates**\
+  Optimized the automatic update process for push notification certificates.
+
 ## Changes for Release v22.2.18
 
 Date: August 6, 2025
