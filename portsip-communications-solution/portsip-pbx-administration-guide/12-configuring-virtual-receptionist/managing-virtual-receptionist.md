@@ -95,7 +95,7 @@ For example, _“W**elcome to Company XYZ. If you know your party's extension nu
 
 When creating a virtual receptionist, the user has three tabs: **Virtual Receptionist**, **Action URL**, and **Outbound Caller ID**. In the **Virtual Receptionist** tab, the user can configure a common Virtual Receptionist and define WebHook and relevant actions in the **Action URL**.
 
-**Action URL** is applied as in the below scenario:
+**Action URL** is applied as in the scenario below:
 
 When users dial the pre-configured DTMF key, the Virtual Receptionist will send an HTTP request to a third-party server as defined by the URL and parse the destination extension number in the response message from the third-party server to forward the call to the target extension.
 
@@ -103,11 +103,13 @@ When users dial the pre-configured DTMF key, the Virtual Receptionist will send 
 * **Type:** Choose the method to trigger the Action URL. PortSIP PBX allows triggering it with the user-inputted DTMF key or caller number. Depending on his request, the user may choose **DTMF** or **Caller Number**. Once **DTMF** is chosen, if the DTMF entered is a replica of the DTMF specified in the **Virtual Receptionis**t tab, PBX will always invalidate settings in **Virtual Receptionist** and handle the call as defined in the **Action URL**.
 *   **DTMF match list/ Caller number match list**: Depending on the selection in **Action Type**, the user may specify the **DTMF match number** or **Caller number match list**. Users may enter a semicolon-separated list of numbers at one time, e.g. “101;102;103”. The entered number must be unique and must not be duplicated.
 
-    The match list also can specify a number range, for example, 860000-880000, it’s used for the below scenario: someone calls the virtual receptionist and enters his bank card number. If the number falls in the matched DTMF range, the virtual receptionist will call the action URL to return some values to indicate the next actions.
+    The match list can also specify a number range, for example, 860000-880000. It’s used for the following scenario: someone calls the virtual receptionist and enters their bank card number. If the number falls in the matched DTMF range, the virtual receptionist will call the action URL to return some values to indicate the next actions.
+
+    The match list also specifies a serial  `*` number, for example, `*****` It’s used to match any 5-digit DTMF that the caller input.
 
     Once an item of the Action URL is triggered, an HTTP request will be sent to the third-party server. Users may specify the username and password for authentication in the **Credentials for HTTP Basic authentication** section (not mandatory), and choose the method for sending HTTP requests in the POST or GET. Fields **Connection timeout** and **Timeout for waiting for response** are filled to set up the timeout value for communication between the Virtual Receptionist and WebHook server.
 * **Request URL:** The WebHook URL to be executed will be entered here when the preset action is triggered. The virtual Receptionist will send an HTTP request to this URL and process the call depending on the HTTP response.&#x20;
-* **Additional Headers**: Allows to set the additional HTTP headers when sending requests to the WebHook. For example, if we want to add the key1:value, and key2:value2 headers, enter them as the `key1:value1&key2:value2`.
+* **Additional Headers**: Allows setting the additional HTTP headers when sending requests to the WebHook. For example, if we want to add the key1:value, and key2:value2 headers, enter them as the `key1:value1&key2:value2`.
 
 ## **HTTP Request Message**
 
@@ -145,7 +147,7 @@ If POST is chosen for the HTTP method, the Virtual Receptionist will send the be
 
 PortSIP PBX has defined the following response to HTTP requests sent by Virtual Receptionist as follows:
 
-* **status\_code:** 200 or other possible status code, of which 200 represents a successful request and others refers to failure.
+* **status\_code:** 200 or other possible status code, of which 200 represents a successful request and others refer to failure.
 * **action**: Values including "**call**", "**hangup**"**,** and "**repeat**" indicate the action to be taken by Virtual Receptionist.
   * call – To forward the call to the number as defined in "**destination**"
   * hangup – To hang up the call directly
