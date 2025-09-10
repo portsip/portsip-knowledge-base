@@ -4,6 +4,14 @@
 Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/upgrade-to-the-latest-version-within-v22.x-on-linux.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
+## Changes for Release v16.4.7
+
+Date: September 10, 2025
+
+**Enhancements**
+
+* Reimplemented the webhook, more stable.
+
 ## Changes for Release v22.2.19
 
 Date: August 21, 2025
