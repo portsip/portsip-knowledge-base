@@ -138,7 +138,7 @@ After upgrading from a previous version to v22.2.x, the SBC token is automatical
   * A call is placed from an extension that belongs to a user group, and the group’s caller ID is applied.
   * A call times out, fails, or is forwarded during night mode by the Virtual Receptionist to a trunk number.
   * A call times out or is forwarded during night mode by the Queue to a trunk number.
-  * A call times out or is forwarded during night mode by the Virtual Receptionist to a trunk number.
+  * A call times out or is forwarded during night mode by the Ring Group to a trunk number.
 * Updated **redirect URI** for Microsoft 365 integration. After upgrading to v22.2, the new URI must be configured in Microsoft 365 settings.
 * Extended the **validity period of mobile app push notifications** from 3 to 7 days. This value is now configurable in the `system.ini` file.
 * **Default header behavior changes in version 22.2**: Starting from v22.2, the following settings are **disabled by default** for Queues and Ring Groups:
