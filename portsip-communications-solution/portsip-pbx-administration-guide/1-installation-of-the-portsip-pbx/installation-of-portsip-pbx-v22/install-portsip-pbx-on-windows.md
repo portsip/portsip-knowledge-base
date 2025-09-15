@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Install PortSIP PBX on Windows
 
 ## Upgrading
