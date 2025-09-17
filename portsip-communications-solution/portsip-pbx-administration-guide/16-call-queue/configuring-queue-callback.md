@@ -1,6 +1,6 @@
 # Configuring Queue Callback
 
-## Queue Callback
+### Queue Callback
 
 A callback is a request callers can make to have their call returned when an agent is unavailable to take it right away. In contact centers, callbacks provide assistance for busy agents and provide an extra level of service to customers who encounter wait times. Callbacks increase customer satisfaction, since a caller does not have to wait on hold or possibly incur long distance charges while waiting to speak with an agent.
 
@@ -8,17 +8,28 @@ A callback is a request callers can make to have their call returned when an age
 
 Tenant Administrators can configure and manage rules to handle callbacks to customers. The queue will automatically offer the customers the ability to retain their position in the queue and arrange for voice callbacks when their turn arrives.
 
-You need to specify the **Callback Outbound Prefix** to match an outbound rule to make the call. Set the **Callback Mode** to be requested by the caller by pressing **3** or to be offered when the queue timeout is reached.
+You can specify the **Callback Outbound Prefix** to match an outbound rule to make the call.
+
+#### Callback Outbound Prefix Example
+
+When a caller (for example, number **12345**) is placed in a queue and requests a callback, the **PBX initiates the outbound callback call** to the stored number.
+
+* **Without an outbound prefix**: The PBX dials the number exactly as it was received, for example `12345`.
+* **With an outbound prefix configured**: The PBX automatically prepends the defined prefix to the number before placing the callback call.
+
+**Example**: If you configure the callback prefix as `003`, the PBX will dial `00312345` instead of `12345`.
+
+&#x20;Set the **Callback Mode** to be requested by the caller by pressing **3** or to be offered when the queue timeout is reached.
 
 <figure><img src="../../../.gitbook/assets/queue_callback.png" alt=""><figcaption></figcaption></figure>
 
-## Trigger the callback by the customer requesting
+### Trigger the callback by the customer requesting
 
 If a customer has been waiting in the queue for a long time; he does not want to wait but needs to keep his spot; he simply presses **3**, and he will hear:
 
 > **Please confirm your phone number in full ends with # so that we may call you back. Alternatively, if you would like us to contact you on the current number, just press`#`. To continue holding, please press,`*` and we will be with you as soon as possible**.
 
-## Trigger the callback by the timeout
+### Trigger the callback by the timeout
 
 If a customer has been waiting in queue for longer than the time specified in the **Offered to the caller after timeout in seconds**. the queue will automatically play the prompt to the caller:
 
