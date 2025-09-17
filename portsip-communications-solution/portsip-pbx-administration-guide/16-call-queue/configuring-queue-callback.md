@@ -19,9 +19,9 @@ When a caller (for example, number **12345**) is placed in a queue and requests 
 
 **Example**: If you configure the callback prefix as `003`, the PBX will dial `00312345` instead of `12345`.
 
-&#x20;Set the **Callback Mode** to be requested by the caller by pressing **3** or to be offered when the queue timeout is reached.
-
 <figure><img src="../../../.gitbook/assets/queue_callback.png" alt=""><figcaption></figcaption></figure>
+
+Set the **Callback Mode** to be requested by the caller by pressing **3** or to be offered when the queue timeout is reached.
 
 ### Trigger the callback by the customer requesting
 
