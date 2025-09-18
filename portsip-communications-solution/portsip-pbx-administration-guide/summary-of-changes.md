@@ -4,6 +4,21 @@
 Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/upgrade-to-the-latest-version-within-v22.x-on-linux.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
+## Changes for Release v22.2.20
+
+Date: September 18, 2025
+
+#### Enhancements
+
+* **Webhook Reimplementation**\
+  The webhook has been fully reimplemented for improved stability and reliability.
+* **Enhanced BLF Functionality**\
+  Resolved an issue where IP phones provisioned via the SBC could not be reprovisioned or rebooted after registration.
+
+#### **Bug Fixes**
+
+* Fixed a bug where if a call between two extensions is launched by REST API, and the callee is logged in with the mobile app, once the caller answers, the PBX doesn't send push notifications to the callee's mobile app.&#x20;
+
 ## Changes for Release v16.4.7
 
 Date: September 10, 2025
