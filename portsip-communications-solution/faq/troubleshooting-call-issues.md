@@ -46,8 +46,8 @@ This code may appear for the following reasons:
 * If the extension caller has permission to make international calls, but the country code is disallowed, you will need to allow the country code in the menu: **Advanced > Codec and E164.** Click the tab **ALLOWED COUNTRY CODE** and select the country code to enable it and save changes.
 * The current established calls have reached the maximum call limit of the trunk.
 * The callee number is in the PBX number blacklist. You can manage the blacklist in the menu: **Advanced > Number Blacklist**.
-* The tenant’s current calls have reached the Maximum Simultaneous Calls limit. Please contact PBX system administrator to increase it.
-* The trunk received the call from the PortSIP PBX but returned an error. Please contact your trunk support team for further assistance.
+* The tenant’s current calls have reached the **Maximum Simultaneous Calls** limit. Please contact PBX system administrator to increase it.
+* The trunk received the call from the PortSIP PBX but returned an error. Please **contact your trunk support team** for further assistance.
 
 ### **402 - Payment Required**
 
