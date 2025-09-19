@@ -182,23 +182,23 @@ Refer to the screenshot below to adjust the trunk's outbound parameters and appl
 
 ## Bypassing the Outbound Caller ID Settings
 
-PortSIP PBX allows you to bypass the default outbound caller ID settings by letting the caller’s device specify the outbound caller ID via a custom SIP header in the INVITE message. By adding the **X-Outbound-Cli** SIP header, the PBX can modify the INVITE message before sending it to the trunk.
+PortSIP PBX allows you to bypass the default outbound caller ID settings by letting the caller’s device specify the outbound caller ID via a custom SIP header when sending the INVITE message to PBX. By adding the **X-Outbound-Cli** SIP header, the PBX can modify the INVITE message before sending it to the trunk.
 
 Here’s how it works:
 
 * **X-Outbound-Cli: rewrite-from=123**\
-  This header rewrites the username in the **From** header to **123** before the PBX sends the INVITE to the trunk.
+  This header indicates that the PBX rewrites the username in the **From** header to **123** before the PBX sends the INVITE to the trunk.
 * **X-Outbound-Cli: rewrite-pai=456**\
-  This header adds a **P-Asserted-Identity** SIP header, setting the username to **456** before forwarding the INVITE to the trunk.
+  This header indicates that the PBX adds a **P-Asserted-Identity** SIP header, setting the username to **456** before forwarding the INVITE to the trunk.
 * **X-Outbound-Cli: rewrite-rpi=789**\
-  This header adds a **Remote-Party-ID** SIP header, setting the username to **789** when the INVITE is sent to the trunk.
+  This header indicates that the PBX adds a **Remote-Party-ID** SIP header, setting the username to **789** when the INVITE is sent to the trunk.
 
 To apply these changes to a specific trunk, you can include the **trunk ID** in the header:
 
 * **X-Outbound-Cli: rewrite-from=123; trunk-id=235468356**\
-  This ensures that the PBX rewrites the **From** header only when the call is routed through the trunk with the ID **235468356**.
+  This header indicates that the PBX rewrites the **From** header only when the call is routed through the trunk with the ID **235468356**.
 * **X-Outbound-Cli: rewrite-from=123; rewrite-rpi=789; rewrite-pai=456; trunk-id=235468356**\
-  With this header, the PBX will rewrite the **From**, **Remote-Party-ID**, and **P-Asserted-Identity** headers for the specified trunk.
+  This header indicates that the PBX rewrites the **From**, **Remote-Party-ID**, and **P-Asserted-Identity** headers for the specified trunk.
 
 If no **trunk-id** is specified, the PBX will apply these changes to any trunk that the call is routed through.
 
