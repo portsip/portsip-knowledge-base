@@ -42,7 +42,7 @@ This code may appear for the following reasons:
 
 * The current usage exceeds the PortSIP PBX license.
 * The caller extension lacks sufficient call permissions. Please check its assigned role to resolve the issue.
-* Caller permissions:
+* International call permissions:
   * If you make a call to the SIP trunk and the called number starts with a **+**, it means this is an international call.
   *   If you configure the **International Code** under menu **Advanced > Codes and E164 > E164**, any number you dial that begins with this code will be recognized as an international call.
 
