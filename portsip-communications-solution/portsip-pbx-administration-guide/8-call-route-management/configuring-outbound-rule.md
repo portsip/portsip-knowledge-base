@@ -36,5 +36,5 @@ PortSIP PBX allows the **Tenant Admin** to specify office hours and holidays for
 
 If you do not wish to block the outbound rule at any time, avoid selecting any holidays and set office hours to cover all days and times.
 
-For more details on outbound routing, please refer to the topic: [**Office Hours and Holiday Schedule**](configuring-outbound-rule.md#office-hours-for-outbound-rules).
+For more details on outbound routing, please refer to the topic: [**Office Hours and Holiday Schedule**](../office-hours-and-holiday-schedule/).
 
