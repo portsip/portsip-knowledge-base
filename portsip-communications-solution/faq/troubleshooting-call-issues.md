@@ -42,7 +42,12 @@ This code may appear for the following reasons:
 
 * The current usage exceeds the PortSIP PBX license.
 * The caller extension lacks sufficient call permissions. Please check its assigned role to resolve the issue.
-* If you make a call to the SIP trunk and the called number starts with a **+**, it means this is an international call. In this case, if the extension caller role is a **standard user**, they will receive this error since standard users do not have permission to make international calls. Please change the extension's role to avoid this issue.
+* Caller permissions:
+  * If you make a call to the SIP trunk and the called number starts with a **+**, it means this is an international call.
+  *   If you configure the **International Code** under menu **Advanced > Codes and E164 > E164**, any number you dial that begins with this code will be recognized as an international call.
+
+      For example, if you configure **02** as the International Code, when you dial a number such as **02xxxxxx**, the PBX will treat it as an international call.
+  * In the above examples, if the extension’s caller role is set to **Standard User**, the call will fail because standard users do not have permission to place international calls. To resolve this, assign the extension a role that allows international calling.
 * If the extension caller has permission to make international calls, but the country code is disallowed, you will need to allow the country code in the menu: **Advanced > Codec and E164.** Click the tab **ALLOWED COUNTRY CODE** and select the country code to enable it and save changes.
 * The current established calls have reached the maximum call limit of the trunk.
 * The callee number is in the PBX number blacklist. You can manage the blacklist in the menu: **Advanced > Number Blacklist**.
