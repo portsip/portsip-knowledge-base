@@ -4,6 +4,21 @@
 Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/upgrade-to-the-latest-version-within-v22.x-on-linux.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
+## Changes for Release v22.2.21
+
+Date: September 28, 2025
+
+#### Enhancements
+
+* The SIP **Contact** header no longer includes a display name by default.
+
+#### Bug Fixes
+
+* Fixed an issue where, with multiple extensions registered and **Push Notifications** enabled, active calls could cause the **callmanager** service to crash(only occurs if the PBX is the v22.2.20).
+* Resolved two queue-handling issues when a queue has only **one** agent who has **Push Notifications** enabled and whose phone is in the background with the network disabled (e.g., Wi-Fi/Cellular off or Airplane Mode):
+  * The agent could remain stuck in **ONCALL** status after the caller timed out in the queue and hung up.
+  * The caller might not receive the SIP **BYE** message after the call timed out in the queue and ended.
+
 ## Changes for Release v22.2.20
 
 Date: September 18, 2025
