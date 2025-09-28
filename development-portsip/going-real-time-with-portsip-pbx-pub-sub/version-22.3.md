@@ -1,22 +1,5 @@
 # Version 22.3
 
-PortSIP PBX offers a Pub/Sub mechanism using WebSocket (PortSIP WSI). This allows users to subscribe to PBX events in any programming language. When subscribed events occur, PortSIP PBX automatically pushes event messages to subscribers in JSON format.
-
-Support version: v16.0 or higher
-
-## Service Port
-
-The PortSIP PBX/UCaaS provides WSI on port **8887** over **WSS**, the server must be allowed this port on the firewall for TCP, which requires WSS(TLS).
-
-## Server URL
-
-The WSI Server URL varies between PortSIP PBX versions:
-
-* **v22.0 or higher**: `wss://pbx.portsip.com:8887/wsi`
-* **v16.x**: `wss://pbx.portsip.com:8885`
-
-The WebSocket client application needs to connect to the appropriate URL. Please replace `pbx.portsip.com` it with your actual PBX domain.
-
 ## **Topics and Message Type**
 
 PortSIP PBX provides the topics and keys for the Pub/Sub below.
@@ -28,16 +11,16 @@ PBX System Administrators can subscribe to the `global_extension_management_even
 The following message keys are included:
 
 * `event_type`**:** Indicates the specific event:
-  * &#x20;`extension_created`
-  * &#x20;`extension_updated`&#x20;
-  * `extension_destroyed`
+  * &#x20;extension\_created
+  * extension\_updated
+  * extension\_destroyed
 * `extension_number`**:** The extension number.
 * `disp_name`: The display name of the extension.
 * `email`: The email of the extension.
 * `extension_id`**:** The ID of the extension.
 * `tenant_id`**:** The ID of the tenant associated with the extension.
 * `username`: The username of the extension.
-* `department`: The department of the extension; If it's not set, this key might not exist in the response JSON.
+* `department`: The department of the extension. If it's not set, this key might not exist in the response JSON.
 
 ```json
 {
@@ -86,7 +69,7 @@ This message will be returned under the following scenarios:
       "extension_id": "794493219718037504",
       "call_status": "ON_CALL",
       "online": false,
-      "presence" : "AVAILABLE",
+      "presence" : "ONLINE",
       "presence_note": "",
       "push_online": false,
       "time": "1704186780"
@@ -103,11 +86,12 @@ The message is in JSON format and includes the following fields:
 * `status`: It's a JSON array that includes the extension status, including the following fields:
   * `extension`: Represents the SIP URI of the extension.
   * `presence`: the presence status with the enum string:&#x20;
-    * `DO_NOT_DISTURB`
-    * `AVAILABLE`
-    * `AWAY`
-    * `BUSINESS_TRIP`
-    * `LUNCH`
+    * ONLINE
+    * LUNCH
+    * BUSINESS\_TRIP
+    * DO\_NOT\_DISTURB
+    * BREAK
+    * AWAY
   * `presence_note`: Contains the text of the additional presence status.
   * `call_status`: The "**ON\_CALL**" status signifies that the extension is currently engaged in a call. The "**RINGING**" status means that the extension is currently receiving a call and is ringing. If this value is empty, it indicates that the extension is not involved in any call.
   * `online`: Indicates whether the extension is currently registered to the PBX.
@@ -153,8 +137,8 @@ This message will be returned under the following scenario:
 {
   "event_type": "extension_presence",
   "extension": "sip:101@test.io",
-  "presence" : "AVAILABLE",
-  "presence_note": "Drving",
+  "presence": "AVAILABLE",
+  "presence_note": "Driving",
   "tenant_id": "792406615960584192",
   "extension_id": "792406615960584220",
   "time": "1703690547"
@@ -166,11 +150,12 @@ The message is in JSON format and includes the following fields:
 * `event_type`: Indicates the type of the message.
 * `extension`: Represents the SIP URI of the extension.
 * `presence`: the presence status with the enum string:&#x20;
-  * `DO_NOT_DISTURB`
-  * `AVAILABLE`
-  * `AWAY`
-  * `BUSINESS_TRIP`
-  * `LUNCH`
+  * ONLINE
+  * LUNCH
+  * BUSINESS\_TRIP
+  * DO\_NOT\_DISTURB
+  * BREAK
+  * AWAY
 * `presence_note`: Contains the text of the presence status.
 * `tenant_id`: Represents the ID of the tenant to which the extension belongs.
 * `extension_id`: Represents the ID of the extension.
@@ -178,7 +163,7 @@ The message is in JSON format and includes the following fields:
 
 #### extension\_agent\_status
 
-When an extension, is also an agent of the queue, who belongs to a queue to which a subscription has been made, changes their status within any of the queues they are associated with, a notification will be sent to the subscriber.
+When an extension, which is also an agent of the queue, that belongs to a queue to which a subscription has been made, changes its status within any of the queues they are associated with, a notification will be sent to the subscriber.
 
 ```json
 {
@@ -228,7 +213,7 @@ Below are the message keys.
   * queue\_updated
   * queue\_destroy
 * queue\_number: The extension number of the queue.
-* tenant\_id: The ID of the tenant which this queue is belongs.
+* tenant\_id: The ID of the tenant to which this queue belongs.
 
 ```json
 {
@@ -250,8 +235,8 @@ Below are the message keys.
   * **Wrap Up**: The agent is in ACW (After Call Work).
   * **Other Call**: The agent is on a non-ACD call.
   * **Not Ready**: The agent is not ready to accept ACD calls.
-  * **Logout**: The agent has logged out from the queue.
-  * **Offline**: The agent is offline.
+  * **Online**: The agent has logged out of the queue
+  * **Offline**: The agent is offline from the PBX.
 
 ```json
 {

@@ -960,7 +960,7 @@
 * [Messaging APIs](development-portsip/messaging-apis/README.md)
   * [Protocol](development-portsip/messaging-apis/protocol.md)
   * [API Examples](development-portsip/messaging-apis/api-examples.md)
-* [WSI: Pub/Sub](development-portsip/going-real-time-with-portsip-pbx-pub-sub/README.md)
+* [WSI: Pub/Sub](development-portsip/going-real-time-with-portsip-pbx-pub-sub.md)
   * [Version 22.3](development-portsip/going-real-time-with-portsip-pbx-pub-sub/version-22.3.md)
   * [Version 22.2](development-portsip/going-real-time-with-portsip-pbx-pub-sub/version-22.2.md)
 * [Webhook Events](development-portsip/webhook-notifications/README.md)

@@ -203,7 +203,7 @@ PortSIP PBX supports sending the CDR and extension call events to a pre-configur
 
 PortSIP PBX provides the Pub/Sub mechanism which is based on the WebSocket (PortSIP WSI).&#x20;
 
-The user is able to create the WebSocket in any programming language to subscribe to the PBX events, once the subscribed events occur, PortSIP PBX will send the event message to the subscriber automatically, the message is in the JSON format. For more details please read this article: [Going Real-Time with PortSIP PBX Pub/Sub](../development-portsip/going-real-time-with-portsip-pbx-pub-sub/).
+The user is able to create the WebSocket in any programming language to subscribe to the PBX events, once the subscribed events occur, PortSIP PBX will send the event message to the subscriber automatically, the message is in the JSON format. For more details please read this article: [Going Real-Time with PortSIP PBX Pub/Sub](../development-portsip/going-real-time-with-portsip-pbx-pub-sub.md).
 
 ## Dealers
 

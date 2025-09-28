@@ -2,7 +2,7 @@
 
 CDRs contain information about call origination, call destination, the date and time the call was started, the time it actually connected, and the time it ended. A call is considered started or originated when the caller goes off-hook. The call is considered ended when either the caller or the called party goes on-hook.
 
-The PortSIP PBX has an inbuilt CDR service that provides complete real-time data for all calls. When a call is completed, the call detail record can be pushed to another application instantly via [WebHook](cdr.md#push-cdr-to-webhook) and [WebSocket](../../../development-portsip/going-real-time-with-portsip-pbx-pub-sub/#cdr_events).
+The PortSIP PBX has an inbuilt CDR service that provides complete real-time data for all calls. When a call is completed, the call detail record can be pushed to another application instantly via [WebHook](cdr.md#push-cdr-to-webhook) and [WebSocket](../../../development-portsip/going-real-time-with-portsip-pbx-pub-sub.md#cdr_events).
 
 ## CDR Management
 
@@ -206,5 +206,5 @@ A WebSocket subscription is a mechanism that allows you to receive the events in
 
 Only the tenant administrator has the ability to subscribe to this event.
 
-For more details please refer to this [topic](../../../development-portsip/going-real-time-with-portsip-pbx-pub-sub/#cdr_events).
+For more details please refer to this [topic](../../../development-portsip/going-real-time-with-portsip-pbx-pub-sub.md#cdr_events).
 
