@@ -1,4 +1,4 @@
-# WSI: Pub/Sub
+# Version 22.3
 
 PortSIP PBX offers a Pub/Sub mechanism using WebSocket (PortSIP WSI). This allows users to subscribe to PBX events in any programming language. When subscribed events occur, PortSIP PBX automatically pushes event messages to subscribers in JSON format.
 
@@ -215,7 +215,7 @@ Once a call has ended, the CDR of this call will be pushed to the subscribers, t
 * `call_update_info`: The call information is updated, and the call information will be packed in a JSON object and pushed to the subscriber.
 * `call_cdr`: Once a call has ended, the CDR will be packed in a JSON object and pushed to the subscriber.
 
-For more details about the CDR JSON object structure information, please refer to [Event Reference](webhook-notifications/event-reference.md).
+For more details about the CDR JSON object structure information, please refer to [Event Reference](../webhook-notifications/event-reference.md).
 
 ### queue\_management\_events
 

@@ -46,7 +46,7 @@ Date: August 6, 2025
 
 #### New Features Support
 
-* Added support for the [**global\_queue\_events**](../../development-portsip/going-real-time-with-portsip-pbx-pub-sub.md#subscribe-global-queue-event) with the WSI.
+* Added support for the [**global\_queue\_events**](../../development-portsip/going-real-time-with-portsip-pbx-pub-sub/#subscribe-global-queue-event) with the WSI.
 
 #### **Bug Fixes**
 
