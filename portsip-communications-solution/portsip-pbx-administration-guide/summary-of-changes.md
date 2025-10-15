@@ -4,6 +4,21 @@
 Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/upgrade-to-the-latest-version-within-v22.x-on-linux.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
+## Changes for Release v22.2.22
+
+Date: October 15, 2025
+
+#### Enhancements
+
+* Calls that fail with 486or 603 are now automatically forwarded to voicemail. All other 4xx/5xx failures terminate the call immediately.
+* Reduced the size of NOTIFY messages for the dialog-info (BLF) event to help prevent MTU issues when using UDP transport.
+
+#### Bug Fixes
+
+* Fixed an issue where the Diversion header was incorrectly set up when sending calls to a SIP trunk.
+* Fixed the `/call_queues/{id}/waiting` REST API endpoint, which was previously non-functional.
+* Fixed an issue where the voicemail playback date was played incorrectly in English.
+
 ## Changes for Release v22.2.21
 
 Date: September 28, 2025
