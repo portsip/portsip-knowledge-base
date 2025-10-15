@@ -13,12 +13,14 @@ Date: October 15, 2025
 * Calls that fail with 486or 603 are now automatically forwarded to voicemail. All other 4xx/5xx failures terminate the call immediately.
 * Reduced the size of NOTIFY messages for the dialog-info (BLF) event to help prevent MTU issues when using UDP transport.
 * Enabled the **allow\_rtp\_on\_mute** option by default in the Snom phone template.
+* Set the extension name for the DECT phone handset.
 
 #### Bug Fixes
 
 * Fixed an issue where the Diversion header was incorrectly set up when sending calls to a SIP trunk.
 * Fixed the `/call_queues/{id}/waiting` REST API endpoint, which was previously non-functional.
 * Fixed an issue where the voicemail playback date was played incorrectly in English.
+* Fixed an issue where the transfer key was configured incorrectly on SNOM and Yealink phones during auto-provisioning.
 
 ## Changes for Release v22.2.21
 
