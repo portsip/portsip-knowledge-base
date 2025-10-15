@@ -12,6 +12,7 @@ Date: October 15, 2025
 
 * Calls that fail with 486or 603 are now automatically forwarded to voicemail. All other 4xx/5xx failures terminate the call immediately.
 * Reduced the size of NOTIFY messages for the dialog-info (BLF) event to help prevent MTU issues when using UDP transport.
+* Enabled the **allow\_rtp\_on\_mute** option by default in the Snom phone template.
 
 #### Bug Fixes
 
