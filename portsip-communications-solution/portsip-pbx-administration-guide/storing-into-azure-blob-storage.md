@@ -6,10 +6,12 @@ With PortSIP PBX, you can configure your system to store call recordings and com
 
 Use this feature if you need to comply with regulatory requirements that prohibit reliance on third-party storage solutions.
 
+{% hint style="danger" %}
 **Warning:** Please be aware of the following considerations when configuring Azure Blob Storage for your recordings:
 
-* Once Amazon **Azure Blob Storage** is activated, historical recordings stored on the local disk of the PBX server will no longer be accessible. Additionally, previously uploaded prompt files for queues, voicemail, IVR, and other voice announcements will need to be re-uploaded. Therefore, it is recommended to configure **Azure Blob Storage** storage immediately after completing the PBX installation.
+* Once Amazon **Azure Blob Storage** is activated, historical recordings stored on the local disk of the PBX server will no longer be accessible. Additionally, previously uploaded prompt files for queues, voicemail, IVR, other voice announcements, logos, user profile images, and QR codes will need to be re-uploaded. Therefore, it is recommended to configure **Azure Blob Storage** immediately after completing the PBX installation. Vice versa for the switch from the **Azure Blob Storage** to the local disk.
 * Once the "**Azure Blob Storage**" option is activated, do not disable it. Disabling this feature will prevent the PBX from accessing historical recordings and will disrupt the process of storing new recordings on Azure Blob Storage.
+{% endhint %}
 
 ## Prerequisites
 
