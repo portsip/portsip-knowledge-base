@@ -6,10 +6,12 @@ With PortSIP PBX, you can configure your system to store call recordings and com
 
 Use this feature if you need to comply with regulatory requirements that prohibit reliance on third-party storage solutions.
 
+{% hint style="danger" %}
 **Warning:** Please be aware of the following considerations when configuring Amazon S3 storage for your recordings:
 
-* Once Amazon S3 storage is activated, historical recordings stored on the local disk of the PBX server will no longer be accessible. Additionally, previously uploaded prompt files for queues, voicemail, IVR, and other voice announcements will need to be re-uploaded. Therefore, it is recommended to configure Amazon S3 storage immediately after completing the PBX installation.
+* Once Amazon S3 storage is activated, historical recordings stored on the local disk of the PBX server will no longer be accessible. Additionally, previously uploaded prompt files for queues, voicemail, IVR, other voice announcements, logos, user profile images, and the QR codes will need to be re-uploaded. Therefore, it is recommended to configure Amazon S3 storage immediately after completing the PBX installation. vice versa for the switch from S3 to local disk.
 * Once the "**Store to S3**" option is activated, do not disable it. Disabling this feature will prevent the PBX from accessing historical recordings and will disrupt the process of storing new recordings on Amazon S3.
+{% endhint %}
 
 ## Prerequisites
 
