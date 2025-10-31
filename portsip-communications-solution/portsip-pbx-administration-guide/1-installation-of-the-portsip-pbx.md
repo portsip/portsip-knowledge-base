@@ -2,8 +2,6 @@
 
 If you plan to deploy PortSIP PBX on Amazon Web Services (AWS), follow the steps below to prepare the EC2 instance, Elastic IP, and security groups.
 
-***
-
 ### 1. Sign in to the AWS Console
 
 1. Log in to your AWS Management Console.
