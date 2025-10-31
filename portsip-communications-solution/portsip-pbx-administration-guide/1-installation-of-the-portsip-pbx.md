@@ -37,15 +37,12 @@ Please reference the screenshot below:
 
 <figure><img src="../../.gitbook/assets/aws-ec2-2 (1).png" alt=""><figcaption></figcaption></figure>
 
-### 5. Configure Network Settings
+### 5. Configure Network Settings and Storage
 
 * In the **Network settings** section:
   * If this is your first PortSIP PBX deployment, choose **Create security group** to automatically create a new one.
   * If you already have an existing security group for PortSIP PBX, choose **Select existing security group** and select it.
 * Keep all other network parameters at their default values.
-
-### 6. Configure Storage
-
 * Allocate **at least 50 GB** of storage for the root volume.
 * If you plan to store large numbers of call recordings, increase the disk size as needed.
   * As a general guideline, 1 MB of disk space is required for every 1-minute audio recording.
