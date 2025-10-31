@@ -4,7 +4,7 @@
 
 Before updating the certificates for the PBX and SBC, please make sure that you have completed the setup and configuration of the PBX and SBC according to the following guides.
 
-[Installation of the PortSIP PBX](../1-installation-of-the-portsip-pbx/).
+[Installation of the PortSIP PBX](../1-installation-of-the-portsip-pbx-1/).
 
 [Configuring the PortSIP PBX](../2-configuring-the-portsip-pbx.md).
 

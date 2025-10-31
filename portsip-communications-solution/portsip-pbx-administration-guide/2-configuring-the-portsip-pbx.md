@@ -1,6 +1,6 @@
 # 2 Configuring the PortSIP PBX
 
-If you have already completed the configurations in the [**Installation of the PortSIP PBX**](1-installation-of-the-portsip-pbx/) step, please skip this article.
+If you have already completed the configurations in the [**Installation of the PortSIP PBX**](1-installation-of-the-portsip-pbx-1/) step, please skip this article.
 
 Once the PortSIP PBX is successfully installed, you can access the web portal by opening your browser and navigating to [**https://66.175.221.120:8887**](https://66.175.221.120:8887). If your browser displays an SSL certificate warning, you may safely ignore it and proceed. You will then be directed to the login page, as shown in the screenshot below.
 
