@@ -40,7 +40,7 @@ All commands must be executed in the **`/opt/portsip`** directory.
 
 ## Prerequisites
 
-Assume that you have successfully installed the PortSIP PBX following the instructions in the [Installation of the PortSIP PBX](../1-installation-of-the-portsip-pbx-1/) guide.
+Assume that you have successfully installed the PortSIP PBX following the instructions in the [Installation of the PortSIP PBX](../1-installation-of-the-portsip-pbx/) guide.
 
 ## Install the PortSIP SBC and PBX on the Same Server
 

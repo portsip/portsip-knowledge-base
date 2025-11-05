@@ -12,7 +12,7 @@ Please follow the below steps to update the push settings with PortSIP PBX v16.4
 
 ## **Upgrading PortSIP PBX**
 
-Please upgrade your current PBX v16.x to v16.4 per this guide: [Upgrading PortSIP PBX to New Versions](../portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx-1/installation-of-portsip-pbx-v16/upgrade-portsip-pbx-to-v16.x.md).
+Please upgrade your current PBX v16.x to v16.4 per this guide: [Upgrading PortSIP PBX to New Versions](../portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v16/upgrade-portsip-pbx-to-v16.x.md).
 
 ## **Changing Push Settings for Android**&#x20;
 

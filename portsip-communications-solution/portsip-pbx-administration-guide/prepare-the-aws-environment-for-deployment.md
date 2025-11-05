@@ -125,5 +125,5 @@ To connect to your instance using an SSH client:
 
 Your **AWS environment** is now fully prepared for the PortSIP PBX deployment.
 
-You can proceed to the next section:[ **Installing PortSIP PBX**](1-installation-of-the-portsip-pbx-1/).
+You can proceed to the next section:[ **Installing PortSIP PBX**](1-installation-of-the-portsip-pbx/).
 

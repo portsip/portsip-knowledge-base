@@ -361,7 +361,7 @@ Once successfully completed the Setup Wizard, select the menu **Advanced > Setti
 
 ## Installing PortSIP IM Service
 
-You are now ready to install the **PortSIP IM Service**. Please refer to the guide [**Installation of PortSIP IM Server**](../../portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx-1/installation-of-portsip-pbx-v22/install-portsip-im-server-on-linux.md) for detailed steps to complete the installation.
+You are now ready to install the **PortSIP IM Service**. Please refer to the guide [**Installation of PortSIP IM Server**](../../portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/install-portsip-im-server-on-linux.md) for detailed steps to complete the installation.
 
 ## Managing PBX HA
 
