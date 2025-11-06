@@ -10,9 +10,9 @@ Date: October 15, 2025
 
 #### Enhancements
 
-* **Improved trunk configuration handling** – When editing a trunk, the system no longer reloads the trunk unless critical parameters (such as IP host, outbound proxy server, domain, or credentials) are modified. This prevents unnecessary deregistration and re-registration events.
-* **Optimized Twilio SMS response processing** to improve reliability and consistency when handling message callbacks.
-* **Added new phone templates** for the following devices:
+* Improved trunk configuration handling – When editing a trunk, the system no longer reloads the trunk unless critical parameters (such as IP host, outbound proxy server, domain, or credentials) are modified. This prevents unnecessary deregistration and re-registration events.
+* Optimized Twilio SMS response processing to improve reliability and consistency when handling message callbacks.
+* Added new phone templates for the following devices:
   * Polycom 8800 series
   * AudioCodes 420 and 405 models
 * Released PortSIP SBC v11.1.10, which includes the new WebRTC app version.
