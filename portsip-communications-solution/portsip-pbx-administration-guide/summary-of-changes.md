@@ -6,7 +6,7 @@ Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-por
 
 ## Changes for Release v22.2.23
 
-Date: October 15, 2025
+Date: November 6, 2025
 
 #### Enhancements
 
