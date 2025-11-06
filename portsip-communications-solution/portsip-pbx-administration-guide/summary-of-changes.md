@@ -4,6 +4,33 @@
 Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/upgrade-to-the-latest-version-within-v22.x-on-linux.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
+## Changes for Release v22.2.23
+
+Date: October 15, 2025
+
+#### Enhancements
+
+* **Improved trunk configuration handling** – When editing a trunk, the system no longer reloads the trunk unless critical parameters (such as IP host, outbound proxy server, domain, or credentials) are modified. This prevents unnecessary deregistration and re-registration events.
+* **Optimized Twilio SMS response processing** to improve reliability and consistency when handling message callbacks.
+* **Added new phone templates** for the following devices:
+  * Polycom 8800 series
+  * AudioCodes 420 and 405 models
+* Released PortSIP SBC v11.1.10, which includes the new WebRTC app version.
+
+#### Bug Fixes
+
+* Fixed a routing issue that could occur when modifying the trunk DID pool or inbound/outbound rules, which in some cases prevented calls from being routed through the trunk.
+* Corrected a display issue where Snom phones did not show contact names from the phonebook.
+* Fixed an inbound message handling issue for VoIP Innovations trunks.
+
+## Changes for Release v16.4.8
+
+Date: November 6, 2025
+
+#### Bug Fixes
+
+* Fixed the bug where the trunk DID pool management and rule handling to address a condition where editing inbound or outbound rules could prevent calls from being routed through the trunk.
+
 ## Changes for Release v22.2.22
 
 Date: October 15, 2025
