@@ -14,7 +14,7 @@ Date: November 6, 2025
 * Optimized Twilio SMS response processing to improve reliability and consistency when handling message callbacks.
 * Optimized log file management to improve storage efficiency and system stability.
 * Enhanced CDR query performance for faster data retrieval and reporting.
-* Improved audit log information to improve performance
+* Improved audit log information to improve performance.
 * Added new phone templates for the following devices:
   * Polycom 8800 series
   * AudioCodes 420 and 405 models
