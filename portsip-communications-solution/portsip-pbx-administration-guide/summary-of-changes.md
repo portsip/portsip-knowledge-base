@@ -12,6 +12,9 @@ Date: November 6, 2025
 
 * Improved trunk configuration handling – When editing a trunk, the system no longer reloads the trunk unless critical parameters (such as IP host, outbound proxy server, domain, or credentials) are modified. This prevents unnecessary deregistration and re-registration events.
 * Optimized Twilio SMS response processing to improve reliability and consistency when handling message callbacks.
+* Optimized log file management to improve storage efficiency and system stability.
+* Enhanced CDR query performance for faster data retrieval and reporting.
+* Improved audit log information to improve performance
 * Added new phone templates for the following devices:
   * Polycom 8800 series
   * AudioCodes 420 and 405 models
@@ -22,14 +25,22 @@ Date: November 6, 2025
 * Fixed a routing issue that could occur when modifying the trunk DID pool or inbound/outbound rules, which in some cases prevented calls from being routed through the trunk.
 * Corrected a display issue where Snom phones did not show contact names from the phonebook.
 * Fixed an inbound message handling issue for VoIP Innovations trunks.
+* Fixed an issue where filesystem inodes were not released correctly after file operations in Linux, which could lead to unnecessary disk space consumption over time.
 
 ## Changes for Release v16.4.8
 
 Date: November 6, 2025
 
+#### Enhancements
+
+* Optimized log file management to improve storage efficiency and system stability.
+* Enhanced CDR query performance for faster data retrieval and reporting.
+* Improved audit log information to improve performance
+
 #### Bug Fixes
 
 * Fixed the bug where the trunk DID pool management and rule handling to address a condition where editing inbound or outbound rules could prevent calls from being routed through the trunk.
+* Fixed an issue where filesystem inodes were not released correctly after file operations in Linux, which could lead to unnecessary disk space consumption over time.
 
 ## Changes for Release v22.2.22
 
