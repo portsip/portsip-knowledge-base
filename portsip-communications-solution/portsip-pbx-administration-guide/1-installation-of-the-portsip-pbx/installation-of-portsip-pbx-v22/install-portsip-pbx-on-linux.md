@@ -25,15 +25,16 @@ Tasks that MUST be completed before installing PortSIP PBX
 
 * **Ensure the server date-time is synced correctly**.
 * Use the `sudo` to perform the installation is recommended.&#x20;
+* Ensure the Linux OS maximum open file limit has been adjusted to a large number, such as 65535, 100000.
 * If the server on which PBX will be installed is located on a LAN, assign a _**static private IP address**_ to the PBX server; if it's on a public network, assign a _**static public IP address**_ and a _**static private IP**_ to the PBX server.&#x20;
 * Install all available updates and service packs before installing PortSIP PBX.
 * Do not install **PostgreSQL** on your PortSIP PBX Server.
 * Ensure that all power-saving options for your system and network adapters are disabled (by setting the system to High-Performance mode).
 * Do not install TeamViewer, VPN, or other similar software on the host machine.
 * The PortSIP PBX must not be installed on a host that is a DNS or DHCP server.
-* The below ports must be permitted by your firewall.
+* The following ports must be permitted by your firewall.
   * UDP: 5060, 5066, 25000-34999, 45000–65000
-  * TCP: 5061, 5063, 5065, 5067, 8882, 8883, 8887, 8888, 8889, 10443. please also ensure the above ports have not been used by other applications.
+  * TCP: 5061, 5063, 5065, 5067, 8882, 8883, 8887, 8888, 8889, 10443. Please also ensure the above ports have not been used by other applications.
 
 {% hint style="danger" %}
 If the PBX runs on a cloud platform such as AWS and the cloud platform has its firewall, you **must** also open the ports on the cloud platform's firewall as well.
@@ -47,7 +48,7 @@ If the PBX runs on a cloud platform such as AWS and the cloud platform has its f
 All commands must be executed in the **`/opt/portsip`** directory.
 {% endhint %}
 
-Perform the below commands to download the installation scripts and initialize the environment:
+Perform the commands below to download the installation scripts and initialize the environment:
 
 ```sh
 mkdir /opt/portsip
@@ -65,7 +66,7 @@ https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/init.sh  \
 sudo /bin/sh init.sh
 ```
 
-### Step 2: Setup Docker Environment
+### Step 2: Set up Docker Environment
 
 Execute the below command to install the `Docker-Compose` environment. If you get the prompt likes`*** cloud.cfg (Y/I/N/O/D/Z) [default=N] ?`, enter the **Y** and then press the **Enter** button.
 
@@ -83,7 +84,7 @@ The following command is used to create and run the PBX on a server with the pub
 If you are running the PBX on a local area network (LAN) without a public IP address, simply replace **66.175.221.120** with the PBX server’s private LAN IP address.
 
 {% hint style="danger" %}
-If your PBX server has a public IP, you must use it in the below command for the `-a` parameter. If not, the PBX won’t work with the internet trunk and internet users.
+If your PBX server has a public IP, you must use it in the command below for the `-a` parameter. If not, the PBX won’t work with the internet trunk and internet users.
 {% endhint %}
 
 ```shell
