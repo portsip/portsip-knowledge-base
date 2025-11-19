@@ -395,30 +395,7 @@ cd /opt/portsip
 sudo /bin/sh im_ctl.sh restart
 ```
 
-## Upgrading Servers
 
-{% hint style="danger" %}
-It’s crucial to keep your cluster servers updated in line with the latest PortSIP PBX releases. This ensures that all features function as expected and that your system maintains optimal performance and security.
-{% endhint %}
-
-Whenever a new version of PortSIP PBX is released, it’s essential to upgrade your installed cluster servers as well. Follow the steps below to ensure a successful upgrade.
-
-We use the media server as an example, you will need to replace the media server with other servers as your actual environment.
-
-### Upgrade the Main PBX Server
-
-### Upgrade the IM Server
-
-### Upgrade Other Servers
-
-1. Remove the current running server by the commands:
-
-<pre class="language-sh"><code class="lang-sh">cd /opt/portsip
-<strong>sudo /bin/sh cluster_ctl.sh stop -s media-server-only
-</strong>sudo /bin/sh cluster_ctl.sh rm -s media-server-only
-</code></pre>
-
-2. Install the latest version of the server. Follow the instructions provided in the [Add Cluster Servers](configuring-cluster-servers.md#add-the-cluster-servers) guide to complete this step.
 
 ## SBC Cluster
 
