@@ -85,18 +85,37 @@ To set up your WhatsApp Business account for integration, follow these steps:
 
 <figure><img src="../../../.gitbook/assets/whatsapp_portsip23.png" alt=""><figcaption></figcaption></figure>
 
-3. In the pop-up, select your app from the drop-down list.
+
+
+3.  **Choose how long the token should remain valid.**\
+    We recommend selecting "**Never"** so the token does not expire.
+
+    If the token expires, the PBX will no longer be able to send outbound WhatsApp messages. You will then need to generate a new token and update it in the PortSIP PBX web portal before messaging can resume.
+
+<figure><img src="../../../.gitbook/assets/whatsapp-token-expires.png" alt=""><figcaption></figcaption></figure>
+
+
+
+4. In the pop-up, select your app from the drop-down list.
 
 <figure><img src="../../../.gitbook/assets/whatsapp_portsip24.png" alt=""><figcaption></figcaption></figure>
 
-4. Check the permissions for **whatsapp\_business\_messaging** and **whatsapp\_business\_management**.
+
+
+5. Check the permissions for **whatsapp\_business\_messaging** and **whatsapp\_business\_management**.
 
 <figure><img src="../../../.gitbook/assets/whatsapp_portsip25.png" alt=""><figcaption></figcaption></figure>
+
+
 
 6. Click **Generate Token**.
 7. Copy the access token displayed in the pop-up box and save it securely, as it will not be accessible again. This is a permanent token that will remain valid unless you click the **Revoke Token** button.
 
 ### Verify your Phone number
+
+{% hint style="danger" %}
+This step is mandatory, don't ignore it, otherwise you can't to receive the inbound WhatsApp messages.
+{% endhint %}
 
 Once you have successfully generated the token, if your WhatsApp phone number status is still pending,  you will need to use the REST API to verify your phone number. For detailed instructions, please follow this guide: [**Register a Business Phone Number**](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/registration#register-phone).
 
