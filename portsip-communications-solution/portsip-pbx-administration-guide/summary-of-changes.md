@@ -4,6 +4,20 @@
 Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/upgrade-to-the-latest-version-within-v22.x-on-linux.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
+## Changes for Release v22.2.24
+
+Date: November 20, 2025
+
+#### Enhancements
+
+* If an outbound rule has multiple trunk routes, and a trunk with 486 or 603 rejects the call, the PBX will stop trying the next trunk route.
+* Added Fanvil v50P, v60P phones.
+
+#### Bug Fixes
+
+* Fixed a bug where, if an SNOM phone performs the blind transfer to an app extension user who is offline but has activated push notifications(displayed as "push online" in the PBX web portal), it would cause the voice not to work.
+* Fixed a bug where the phone BLF label was displayed incorrectly.
+
 ## Changes for Release v22.2.23
 
 Date: November 6, 2025
