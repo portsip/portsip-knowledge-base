@@ -4,6 +4,22 @@
 Please follow the [guide ](upgrade-to-the-latest-sbc-release.md)to upgrading your PortSIP SBC to the latest version.
 {% endhint %}
 
+## Changes for Release v11.2.0
+
+**Date**: Nov 20, 2025
+
+The following changes are included in this release:
+
+* Fixed a bug where, if the IM service was installed on a separate server, the WebRTC app would fail to connect to the IM server.
+
+## Changes for Release v11.1.10
+
+**Date**: Nov 6, 2025
+
+The following changes are included in this release:
+
+* Shipped the new WebRTC app version.
+
 ## Changes for Release v11.1.9
 
 **Date**: July 28, 2025

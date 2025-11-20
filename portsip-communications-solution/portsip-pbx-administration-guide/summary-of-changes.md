@@ -18,6 +18,10 @@ Date: November 20, 2025
 * Fixed a bug where, if an SNOM phone performs the blind transfer to an app extension user who is offline but has activated push notifications(displayed as "push online" in the PBX web portal), it would cause the voice not to work.
 * Fixed a bug where the phone BLF label was displayed incorrectly.
 
+#### PortSIP SBC v11.20
+
+This version fixed a bug where, if the IM service was installed on a separate server, the WebRTC app would fail to connect to the IM server.
+
 ## Changes for Release v22.2.23
 
 Date: November 6, 2025
