@@ -4,14 +4,15 @@
 Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/upgrade-to-the-latest-version-within-v22.x-on-linux.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
-## Changes for Release v22.2.24
+## Changes for Release v22.2.25
 
-Date: November 20, 2025
+Date: November 21, 2025
 
 #### Enhancements
 
 * If an outbound rule has multiple trunk routes, and a trunk with 486 or 603 rejects the call, the PBX will stop trying the next trunk route.
 * Added Fanvil v50P, v60P phones.
+* Added Yealink T7x and T8x phones.
 
 #### Bug Fixes
 
