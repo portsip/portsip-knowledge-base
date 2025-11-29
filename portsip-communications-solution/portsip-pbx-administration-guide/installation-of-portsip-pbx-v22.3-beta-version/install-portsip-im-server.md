@@ -48,7 +48,7 @@ cd /opt/portsip
 
 {% code overflow="wrap" %}
 ```sh
-sudo /bin/sh im_ctl.sh run -p /var/lib/portsip/ -i portsip/pbx:22 \
+sudo /bin/sh im_ctl.sh run -p /var/lib/portsip/ -i portsip/pbx:22.3.17.1271-beta \
 -t OWMWYWJKZJYTMWM2NI0ZNZJMLWJJZDKTMGVMZDYXNZU1NWI1
 ```
 {% endcode %}
