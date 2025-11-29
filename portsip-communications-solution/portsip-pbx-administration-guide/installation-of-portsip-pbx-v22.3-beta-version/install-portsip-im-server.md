@@ -220,7 +220,7 @@ sudo /bin/sh im_ctl.sh run -E \
 -p /var/lib/portsip/ \
 -a 192.168.1.25 \
 -A 104.18.36.110 \
--i portsip/pbx:22 \
+-i portsip/pbx:22.3.17.1271-beta \
 -x 192.168.1.20 \
 -t OWMWYWJKZJYTMWM2NI0ZNZJMLWJJZDKTMGVMZDYXNZU1NWI1
 ```
@@ -233,7 +233,7 @@ sudo /bin/sh im_ctl.sh run -E \
 -f /chat/files/ \
 -a 192.168.1.25 \
 -A 104.18.36.110 \
--i portsip/pbx:22 \
+-i portsip/pbx:22.3.17.1271-beta \
 -x 192.168.1.20 \
 -t OWMWYWJKZJYTMWM2NI0ZNZJMLWJJZDKTMGVMZDYXNZU1NWI1
 ```

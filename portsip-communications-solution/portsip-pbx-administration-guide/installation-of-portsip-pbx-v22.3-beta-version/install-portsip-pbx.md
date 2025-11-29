@@ -95,7 +95,7 @@ If your PBX server has a public IP, you must use it in the command below for the
 sudo /bin/sh pbx_ctl.sh \
 run -p /var/lib/portsip \
 -a 66.175.221.120 \
--i portsip/pbx:22
+-i portsip/pbx:22.3.17.1271-beta
 ```
 
 In the above command, we can specify the following parameters.
