@@ -181,7 +181,7 @@ mkdir -p /opt/portsip
 
 ```sh
 sudo curl \
-https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/init.sh  \
+https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.3/init.sh  \
 -o  init.sh
 ```
 
