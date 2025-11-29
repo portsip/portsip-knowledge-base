@@ -29,4 +29,4 @@ Please follow up on the below steps.
 
 After restarted, you can sign in PortSIP PBX Web Portal by URL [https://yourdomain.com:8887](https://yourdomain.com:8887)
 
-If you don't use trusted certificate files for the WSS transport, you will get the browser warning and blocked when you use the WebRTC client.\
+If you don't use trusted certificate files for the WSS transport, you will get the browser warning and blocked when you use the WebRTC client.<br>

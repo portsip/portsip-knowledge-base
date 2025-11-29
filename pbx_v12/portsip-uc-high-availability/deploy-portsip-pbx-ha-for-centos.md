@@ -314,14 +314,12 @@ pbx successfully restarted
 [root@pbx01 portsip-pbx-ha-guide]# 
 ```
 
-\
-
+<br>
 
 ### Upgrade PBX
 
 **Important**: Only at the master node, that is, pbx01, perform the following commands.\
-\
-
+<br>
 
 #### Download and update the resource package
 
@@ -332,13 +330,11 @@ pbx successfully restarted
                 cd portsip-pbx-ha-guide
 ```
 
-\
-
+<br>
 
 #### Modify the config file
 
-Edit the `/root/portsip-pbx-ha-guide/vars.yml` to change the `PortSIP PBX` docker image version.\
-
+Edit the `/root/portsip-pbx-ha-guide/vars.yml` to change the `PortSIP PBX` docker image version.<br>
 
 ```
 ...
@@ -348,8 +344,7 @@ pbx_image: portsip/pbx:12.6.5.1042-release
 ...
 ```
 
-\
-
+<br>
 
 #### Upgrade
 

@@ -385,8 +385,7 @@ Only at the master node, that is, pbx01, perform the following commands.
 
 #### Modify the config file
 
-Edit the `/root/portsip-pbx-ha-guide/vars.yml` to change the `PortSIP PBX` docker image version.\
-
+Edit the `/root/portsip-pbx-ha-guide/vars.yml` to change the `PortSIP PBX` docker image version.<br>
 
 ```
 ...

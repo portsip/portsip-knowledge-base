@@ -34,9 +34,9 @@ After you completed the above steps, then click the left menu "**WebRTC**", the 
 
 In the PortSIP PBX Web Portal, on the top right corner, it's always displayed the company news, PortSIP also supports you custom it to display your company news.
 
-1. Download the JSON file from here: [https://portsip.com/news/portsip\_news.json](https://portsip.com/news/portsip\_news.json) and save it as  `news.json`
+1. Download the JSON file from here: [https://portsip.com/news/portsip\_news.json](https://portsip.com/news/portsip_news.json) and save it as  `news.json`
 2. Edit the `news.json` file, replace the text and link - please keep in mind, just replace the text and link, don't change the JSON format
-3. Save changes to the `new.json`, then upload it to your website, for example, [https://yoursite.com/news/new.json](https://yoursite.com/news/alctel\_new.json)
+3. Save changes to the `new.json`, then upload it to your website, for example, [https://yoursite.com/news/new.json](https://yoursite.com/news/alctel_new.json)
 
 #### Linux
 
@@ -54,11 +54,11 @@ vi /var/lib/portsip/system.ini
 > public\_ipaddr\_v4=\
 > private\_ipaddr\_v6=\
 > public\_ipaddr\_v6=\
-> event\_url=[https://www.portsip.com/news/portsip\_news.json](https://www.portsip.com/news/portsip\_news.json)
+> event\_url=[https://www.portsip.com/news/portsip\_news.json](https://www.portsip.com/news/portsip_news.json)
 
 &#x20;  &#x20;
 
-* Change the [https://www.portsip.com/news/portsip\_news.json](https://www.portsip.com/news/portsip\_news.json) to    [https://yoursite.com/news/new.json](https://yoursite.com/news/new.json)
+* Change the [https://www.portsip.com/news/portsip\_news.json](https://www.portsip.com/news/portsip_news.json) to    [https://yoursite.com/news/new.json](https://yoursite.com/news/new.json)
 * Save the `system.ini`and exit the vi.    &#x20;
 * Perform the below commands:
 
@@ -69,8 +69,7 @@ restart gateway
 exit
 ```
 
-* Now the event news is changed.\
-
+* Now the event news is changed.<br>
 
 #### Windows
 
@@ -82,10 +81,10 @@ exit
     > public\_ipaddr\_v4=\
     > private\_ipaddr\_v6=\
     > public\_ipaddr\_v6=\
-    > event\_url=[https://www.portsip.com/news/portsip\_news.json](https://www.portsip.com/news/portsip\_news.json)
+    > event\_url=[https://www.portsip.com/news/portsip\_news.json](https://www.portsip.com/news/portsip_news.json)
 
 
-*   Change the [https://www.portsip.com/news/portsip\_news.json](https://www.portsip.com/news/portsip\_news.json) to    [https://yoursite.com/news/new.json](https://yoursite.com/news/new.json)
+*   Change the [https://www.portsip.com/news/portsip\_news.json](https://www.portsip.com/news/portsip_news.json) to    [https://yoursite.com/news/new.json](https://yoursite.com/news/new.json)
 
     &#x20;
 * Save the `system.ini`and close Windows Notepad

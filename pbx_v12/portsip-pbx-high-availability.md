@@ -1,7 +1,7 @@
 # PortSIP PBX v12.x is EOL
 
 {% hint style="info" %}
-The PortSIP PBX v12.x is EOL, please install the [v16.x](broken-reference).
+The PortSIP PBX v12.x is EOL, please install the [v16.x](/broken/pages/qvwW8wLGi3egyPWd3Hcs).
 {% endhint %}
 
 ## PortSIP PBX High Availability

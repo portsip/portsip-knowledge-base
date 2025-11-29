@@ -1,8 +1,8 @@
 # 18 E164 Number Processing
 
-E.164 is an [international standard](https://en.wikipedia.org/wiki/International\_standard) ([ITU-T](https://en.wikipedia.org/wiki/ITU-T) Recommendation), titled _The international public telecommunication numbering plan_, that defines a [numbering plan](https://en.wikipedia.org/wiki/Telephone\_numbering\_plan) for the worldwide [public switched telephone network](https://en.wikipedia.org/wiki/Public\_switched\_telephone\_network) (PSTN) and some other data [networks](https://en.wikipedia.org/wiki/Telecommunications\_network).
+E.164 is an [international standard](https://en.wikipedia.org/wiki/International_standard) ([ITU-T](https://en.wikipedia.org/wiki/ITU-T) Recommendation), titled _The international public telecommunication numbering plan_, that defines a [numbering plan](https://en.wikipedia.org/wiki/Telephone_numbering_plan) for the worldwide [public switched telephone network](https://en.wikipedia.org/wiki/Public_switched_telephone_network) (PSTN) and some other data [networks](https://en.wikipedia.org/wiki/Telecommunications_network).
 
-E.164 defines a general format for international [telephone numbers](https://en.wikipedia.org/wiki/Telephone\_number). Plan-conforming telephone numbers are limited to only digits and to a maximum of fifteen digits.[\[1\]](https://en.wikipedia.org/wiki/E.164#cite\_note-:0-1) The specification divides the digit string into a country code of one to three digits, and the subscriber telephone number of a maximum of twelve digits.
+E.164 defines a general format for international [telephone numbers](https://en.wikipedia.org/wiki/Telephone_number). Plan-conforming telephone numbers are limited to only digits and to a maximum of fifteen digits.[\[1\]](https://en.wikipedia.org/wiki/E.164#cite_note-:0-1) The specification divides the digit string into a country code of one to three digits, and the subscriber telephone number of a maximum of twelve digits.
 
 In PortSIP PBX, E164 processing converts user-dialed numbers (including those with a leading +) into a standardized format that can be interpreted by your outbound rules and provider.
 
@@ -28,8 +28,7 @@ After signing in as an admin user of a tenant, navigate to the **Blacklist and C
 
 **National Code:** If you need to add a national code when making calls, you can enter it here and it will be automatically added to the beginning of the number during processing. For example, if the national code is set to 8 and we dial +12345678910, it will be converted to 82345678910.
 
-**Add Prefix:** You can add a prefix here if it’s required or if you want to use it to select an outbound rule. E164 rules are processed before outbound rules. For example, if the prefix is set to 2 and we dial +12345678910, it will be converted to 22345678910.\
-
+**Add Prefix:** You can add a prefix here if it’s required or if you want to use it to select an outbound rule. E164 rules are processed before outbound rules. For example, if the prefix is set to 2 and we dial +12345678910, it will be converted to 22345678910.<br>
 
 ## Non E164 Call
 

@@ -6,12 +6,10 @@ Please read this document carefully before proceeding. You must agree to this Po
 
 \
 The PortSIP VoIP SDK includes linkable library files, sample source code, and documentation files.\
-The buyer may freely distribute unlimited applications based on the SDK. The buyer pays a one-time license fee in return for the rights to develop unlimited applications and distribute his applications to as many as he like without paying any royalties or license fees.\
-
+The buyer may freely distribute unlimited applications based on the SDK. The buyer pays a one-time license fee in return for the rights to develop unlimited applications and distribute his applications to as many as he like without paying any royalties or license fees.<br>
 
 The purchased SDK license cannot be transferred to any third party. The purchased SDK license can only be used by the company that purchased it to build products.\
-The PortSIP VoIP SDK includes free technical support (one year, e-mail based technical support, patches, and version updates).\
-
+The PortSIP VoIP SDK includes free technical support (one year, e-mail based technical support, patches, and version updates).<br>
 
 This Agreement accompanies PortSIP VoIP SDK. Related explanatory materials and includes any upgrades, modified versions, updates, additions, and copies of the SDK licensed to you by PortSIP Solutions, Inc.
 

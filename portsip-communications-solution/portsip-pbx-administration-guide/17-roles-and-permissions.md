@@ -39,8 +39,7 @@ There are two admin roles and two user roles. Each role has appropriate permissi
 
 ## Predefined User Roles and Permissions
 
-There are 5 **predefined roles** — those with a built-in set of permissions that can be readily assigned by administrators. Permissions granted to these roles cannot be modified.\
-
+There are 5 **predefined roles** — those with a built-in set of permissions that can be readily assigned by administrators. Permissions granted to these roles cannot be modified.<br>
 
 {% hint style="info" %}
 Standard is assigned to new users by default.
