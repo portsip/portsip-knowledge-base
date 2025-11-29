@@ -113,7 +113,7 @@ For example, if you mount a device or an external NAS device to **`/pbx/recordin
 sudo /bin/sh pbx_ctl.sh \
 run -p /var/lib/portsip \
 -a 66.175.221.120 \
--i portsip/pbx:22 \
+-i portsip/pbx:22.3.17.1271-beta \
 -f /pbx/recordings
 ```
 
