@@ -117,10 +117,6 @@ run -p /var/lib/portsip \
 -f /pbx/recordings
 ```
 
-{% hint style="danger" %}
-If you are upgrading from v16.x to v22.x and specify the `-f` parameter, or if you did not specify the `-f` parameter in earlier v22.x installation but chose to do so during the upgrade, please be aware that all previously recorded files and uploaded prompt files will no longer be accessible. Exercise caution when using this parameter!
-{% endhint %}
-
 After successfully installing the PortSIP PBX, you can access the PBX web portal by visiting: [**https://66.175.221.120:8887**](https://66.175.221.120:8887)
 
 The default system administrator username and password are both **admin**.
@@ -208,11 +204,11 @@ After adding a new transport protocol, be sure to update your firewall rules to 
 
 Starting with version 22.0, PortSIP PBX introduces an Instant Messaging (IM) service, offering modern features such as group chat. The IM service requires a separate installation step, as in some cases, you may also want to deploy it on a separate server for optimal performance.
 
-Please follow the article [Installation of the PortSIP IM Server on Linux](../1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/install-portsip-im-server-on-linux.md) to install the PortSIP IM Server for the PBX.
+Please follow the article [Install PortSIP IM Server ](install-portsip-im-server.md)to install the PortSIP IM service for the PBX.
 
 #### Step 6: Reboot to Apply the Certificate
 
-Once **completed Step 5**, if you uploaded a trusted SSL certificate in **Step 2: SSL Certificate** instead of using the default self-signed certificate, you need to restart the PBX to apply the changes. Use the following commands to reboot the PBX:
+Once **Step 5** is complete&#x64;**,** if you uploaded a trusted SSL certificate in **Step 2: SSL Certificate** instead of using the default self-signed certificate, you need to restart the PBX to apply the changes. Use the following commands to reboot the PBX:
 
 ```sh
 cd /opt/portsip
@@ -220,11 +216,11 @@ sudo /bin/sh pbx_ctl.sh restart
 sudo /bin/sh im_ctl.sh restart
 ```
 
-Now the PortSIP PBX is successfully installed, you can use [https://uc.portsip.cc:8887](https://uc.portsip.cc:8887) to access the PortSIP PBX web portal.
+Now that the PortSIP PBX is successfully installed, you can use [https://uc.portsip.cc:8887](https://uc.portsip.cc:8887) to access the PortSIP PBX web portal.
 
 #### Managing PortSIP PBX Docker Instance
 
-After successfully installing the PortSIP PBX, then you can use the following commands to manage the PortSIP PBX docker instance.
+After successfully installing the PortSIP PBX, you can use the following commands to manage the PortSIP PBX Docker instance.
 
 ```sh
 cd /opt/portsip
@@ -262,7 +258,7 @@ This command will not delete the data of the PBX.
 
 ### Managing PortSIP IM Service Docker Instance
 
-First, you will need to at the `/opt/portsip` folder, then you can use the following commands to manage the PortSIP IM Service docker instance.
+First, you will need to at the `/opt/portsip` folder, then you can use the following commands to manage the PortSIP IM Service Docker instance.
 
 ```sh
 cd /opt/portsip
@@ -273,25 +269,25 @@ cd /opt/portsip
 <pre class="language-sh"><code class="lang-sh"><strong>sudo /bin/sh im_ctl.sh status
 </strong></code></pre>
 
-#### Start the IM ServiceDocker Instance
+#### Start the IM Service Docker Instance
 
 ```bash
 sudo /bin/sh im_ctl.sh start
 ```
 
-#### Stop the IM ServiceDocker Instance
+#### Stop the IM Service Docker Instance
 
 ```bash
 sudo /bin/sh im_ctl.sh stop
 ```
 
-#### Restart the IM ServiceDocker Instance
+#### Restart the IM Service Docker Instance
 
 ```bash
 sudo /bin/sh im_ctl.sh restart
 ```
 
-#### Delete the IM ServiceDocker Instance
+#### Delete the IM Service Docker Instance
 
 This command will not delete the data of the PBX.
 
