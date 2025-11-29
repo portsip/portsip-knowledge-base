@@ -152,7 +152,7 @@ Use the following command to create the Data Flow service Docker instance on the
 * **-p**: Specifies the path for storing data (required), for example, `/var/lib/portsip`.
 * **-d:** The ClickHouse image, `portsip/clickhouse:25.8`.
 * **-a**: Specifies the private IP address of this server. If this parameter is omitted, the **-A** parameter must be specified.
-* **-A**: Specifies the public IP address of this server. If this parameter is omitted, the **-a** parameter must be specified. If you install the IM server on a **separate server in the cloud, this parameter must be specified**. Otherwise, it can be ignored.
+* **-A**: Specifies the public IP address of this server. If this parameter is omitted, the **-a** parameter must be specified.
 * **-i**: Specifies the PBX Docker image version (required).
 * **-x**: Indicates the main PBX server's IP address (typically the private IP of the main PBX server) (required).&#x20;
 
