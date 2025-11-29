@@ -6,7 +6,7 @@ The **IM server** (Instant Messaging server) installation is a separate step tha
 For Windows-based installations, the IM server is integrated within the main installation process and does not require separate setup.
 {% endhint %}
 
-Before proceeding with this guide, ensure that you have already completed **steps 1–4** of the [Install PortSIP PBX on Linux](../1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/install-portsip-pbx-on-linux.md).
+Before proceeding with this guide, ensure that you have already completed **steps 1–4** of the [Install PortSIP PBX](install-portsip-pbx.md).
 
 You have two options for deploying the PortSIP IM Server:
 
@@ -17,11 +17,11 @@ You have two options for deploying the PortSIP IM Server:
 All commands must be executed in the **`/opt/portsip`** directory.
 {% endhint %}
 
-## Install IM Service on the Same Server as PortSIP PBX
+### Install IM Service on the Same Server as PortSIP PBX
 
 Follow these steps to install the IM server on the same server as PortSIP PBX.
 
-### Step 1: Generate Token for the IM Server
+#### Step 1: Generate Token for the IM Server
 
 1. Log in as the **System Administrator** to the PortSIP PBX Web portal.
 2. Navigate to **Servers > IM Servers**.
@@ -30,7 +30,7 @@ Follow these steps to install the IM server on the same server as PortSIP PBX.
 
 <figure><img src="../../../.gitbook/assets/im_server_update_address_new_token.png" alt=""><figcaption></figcaption></figure>
 
-### Step 2: Create and Run Instant Messaging Docker Instance
+#### Step 2: Create and Run Instant Messaging Docker Instance
 
 Follow these steps to create the IM service Docker instance:
 
@@ -59,7 +59,7 @@ If everything is set up correctly, the PBX web portal will display the IM server
 
 The Instant Messaging (IM) server has been successfully installed. We can now proceed with the next steps in the [PortSIP PBX installation step 6](../1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/install-portsip-pbx-on-linux.md#step-6-reboot-to-apply-the-certificate).
 
-## Install IM Service on a Separate Server
+### Install IM Service on a Separate Server
 
 For optimal performance, it’s recommended to install the IM service on a separate server, especially when handling a large number of users for chat and file-sharing activities (including files and pictures). The following hardware specifications are suitable for supporting up to 50,000 users online, with messaging and file sharing:
 
@@ -70,7 +70,7 @@ For optimal performance, it’s recommended to install the IM service on a separ
 * **Static private IP**: You must configure a static private IP for this IM server. In this case, we assume it's **192.168.1.25.**
 * **Static public IP:** If your PBX and IM server are located in the cloud for the internet users to access, you must have a static public IP for this IM service. In this case, we assume it's **104.18.36.110.**
 
-### **Supported Linux OS** <a href="#supported-linux-os" id="supported-linux-os"></a>
+#### **Supported Linux OS** <a href="#supported-linux-os" id="supported-linux-os"></a>
 
 It only supports 64-bit OS.
 
