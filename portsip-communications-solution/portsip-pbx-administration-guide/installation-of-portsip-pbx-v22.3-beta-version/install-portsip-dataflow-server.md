@@ -56,7 +56,7 @@ The following operating systems are officially supported:
 
 #### Static Private IP Address
 
-You must configure a static private IP for this Data Flow server. In this case, we assume it's **192.168.1.35.**
+You must configure a static private IP address for this Data Flow server. In this case, we assume it's **192.168.1.35**. If the server is without a static private IP address, then it should have a static public IP address - it should be able to communicate with PBX server.
 
 ### Step 1: Generate the token
 
@@ -127,7 +127,7 @@ mkdir -p /opt/portsip
 
 ```sh
 sudo curl \
-https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/init.sh  \
+https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.3/init.sh  \
 -o  init.sh
 ```
 
@@ -145,12 +145,12 @@ cd /opt/portsip
 sudo /bin/sh install_docker.sh
 ```
 
-Use the following command to create the Instant Messaging (IM) service Docker instance on the IM server (IP **192.168.1.25)**. Replace each parameter with your actual values:
+Use the following command to create the Data Flow service Docker instance on the server (IP **192.168.1.35)**. Replace each parameter with your actual values:
 
-* **-E**: Specifies that the IM server is installed in extended mode (required).
-* **-p**: Specifies the path for storing IM service data (required).
-* **-a**: Specifies the private IP address of this IM server. If this parameter is omitted, the **-A** parameter must be specified.
-* **-A**: Specifies the public IP address of this IM server. If this parameter is omitted, the **-a** parameter must be specified. If you install the IM server on a **separate server in the cloud, this parameter must be specified**. Otherwise, it can be ignored. In this case is **104.18.36.110**.
+* **-p**: Specifies the path for storing data (required), for example, `/var/lib/portsip`.
+* **-d:** The ClickHouse image, `portsip/clickhouse:25.8`.
+* **-a**: Specifies the private IP address of this server. If this parameter is omitted, the **-A** parameter must be specified.
+* **-A**: Specifies the public IP address of this server. If this parameter is omitted, the **-a** parameter must be specified. If you install the IM server on a **separate server in the cloud, this parameter must be specified**. Otherwise, it can be ignored.
 * **-i**: Specifies the PBX Docker image version (required).
 * **-x**: Indicates the main PBX server's IP address (typically the private IP of the main PBX server) (required).&#x20;
 
@@ -158,40 +158,18 @@ Use the following command to create the Instant Messaging (IM) service Docker in
 If the PBX is deployed in High Availability (HA) mode, you must enter the **Virtual IP of the PBX** for this parameter.
 {% endhint %}
 
-* **-t**: Provides the token generated and copied in the previous step (required).
-* **-f**: Specifies the path for storing files sent in chats (optional). This path **must differ** from the one specified with **-p**. If this parameter is omitted, chat files will be stored in the path specified by **-p.**
-
 ```sh
-sudo /bin/sh im_ctl.sh run -E \
+sudo /bin/sh dataflow_ctl.sh run \
 -p /var/lib/portsip/ \
--a 192.168.1.25 \
--A 104.18.36.110 \
--i portsip/pbx:22 \
+-a 192.168.1.35 \
+-i portsip/pbx:22.3.17.1271-beta \
 -x 192.168.1.20 \
--t OWMWYWJKZJYTMWM2NI0ZNZJMLWJJZDKTMGVMZDYXNZU1NWI1
+-d portsip/clickhouse:25.8
 ```
 
-For example, if you want to store the chat files to the path `/chat/files`, please ensure this path is already existing, then use the below command (please pay attention to the **-f** parameter.) to create the Instant Messaging (IM) service Docker instance on the IM server (IP **192.168.1.25)**. Replace each parameter with your actual values:
+### Notes
 
-```sh
-sudo /bin/sh im_ctl.sh run -E \
--p /var/lib/portsip/ \
--f /chat/files/ \
--a 192.168.1.25 \
--A 104.18.36.110 \
--i portsip/pbx:22 \
--x 192.168.1.20 \
--t OWMWYWJKZJYTMWM2NI0ZNZJMLWJJZDKTMGVMZDYXNZU1NWI1
-```
 
-Perform the below commands to restart the IM service (**please ensure the PBX service on another server is started**).
-
-```sh
-cd /opt/portsip
-sudo /bin/sh im_ctl.sh restart
-```
-
-If everything is set up correctly, the PBX web portal will display the IM server's IP address, as shown in the screenshot below.
 
 
 
