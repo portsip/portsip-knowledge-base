@@ -57,7 +57,7 @@ If everything is set up correctly, the PBX web portal will display the IM server
 
 <figure><img src="../../../.gitbook/assets/im_server_update_address.png" alt=""><figcaption></figcaption></figure>
 
-The Instant Messaging (IM) server has been successfully installed. We can now proceed with the next steps in the [PortSIP PBX installation step 6](../1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/install-portsip-pbx-on-linux.md#step-6-reboot-to-apply-the-certificate).
+The Instant Messaging (IM) server has been successfully installed. We can now proceed with the next steps in the [PortSIP PBX installation step 6](install-portsip-pbx.md#step-6-reboot-to-apply-the-certificate).
 
 ### Install IM Service on a Separate Server
 
@@ -253,5 +253,5 @@ If everything is set up correctly, the PBX web portal will display the IM server
 If your Instant Messaging (IM) server is hosted in the cloud (e.g., AWS), you must ensure that TCP port 8887 is open in the cloud firewall rules. The client application requires access to this port in order to send and receive messages.
 {% endhint %}
 
-The Instant Messaging (IM) server has been successfully installed. We can now proceed with the next steps in the [PortSIP PBX installation step 6](install-portsip-pbx.md#step-6-reboot-to-apply-the-certificate).
+The Instant Messaging (IM) server has been successfully installed. We can now proceed with the next steps in the[ PortSIP PBX installation step 6](install-portsip-pbx.md#step-6-reboot-to-apply-the-certificate).
 
