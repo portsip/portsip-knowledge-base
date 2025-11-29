@@ -26,6 +26,8 @@ Deploying it on the same server as the PBX core service may degrade overall perf
 The PortSIP Data Flow service can be installed on either a **physical server** or a **virtual machine**.\
 For optimal performance, ensure your hardware meets or exceeds the specifications below.
 
+Here is the[ ClickHouse official Best Practices](https://clickhouse.com/docs/guides/sizing-and-hardware-recommendations) for your reference.
+
 **Minimum Requirements**
 
 * **vCPU:** 4 cores
@@ -44,7 +46,7 @@ For large-scale deployments, use the following formula to estimate hardware requ
 
 * **vCPU:** ≥ 8
 * **Memory:** vCPU × 4 GB
-* **Disk:** Based on expected CDR volume and desired retention period
+* **Disk:** Based on expected CDR volume
 
 #### Supported Operating Systems
 
@@ -56,7 +58,7 @@ The following operating systems are officially supported:
 
 #### Static Private IP Address
 
-You must configure a static private IP address for this Data Flow server. In this case, we assume it's **192.168.1.35**. If the server is without a static private IP address, then it should have a static public IP address - it should be able to communicate with PBX server.
+You must configure a static private IP address for this Data Flow server. In this case, we assume it's **192.168.1.35**. If the server is without a static private IP address, then it should have a static public IP address - it should be able to communicate with the PBX server.
 
 ### Step 1: Generate the token
 
