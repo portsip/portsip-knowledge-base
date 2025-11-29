@@ -169,13 +169,11 @@ sudo /bin/sh dataflow_ctl.sh run \
 
 ### Notes
 
+* If the PBX IP address is modified after deployment, you must delete the existing PortSIP Data Flow Docker instance and recreate it.
+* If a new authentication token is generated for the Data Flow service, you must delete and recreate the current Data Flow Docker instance.
+* After upgrading the PBX to a new version, you must remove and recreate the Data Flow Docker instance to ensure compatibility.
 
-
-
-
-
-
-
+The above operations do not affect or erase existing data.
 
 
 

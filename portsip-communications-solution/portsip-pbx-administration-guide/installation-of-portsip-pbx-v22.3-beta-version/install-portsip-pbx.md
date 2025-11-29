@@ -294,3 +294,41 @@ This command will not delete the data of the PBX.
 <pre class="language-bash"><code class="lang-bash"><strong>sudo /bin/sh im_ctl.sh rm
 </strong></code></pre>
 
+### Managing PortSIP Data Flow Service Docker Instance
+
+First, you will need to be at the `/opt/portsip` folder, then you can use the following commands to manage the PortSIP Data Flow Service Docker instance.
+
+```sh
+cd /opt/portsip
+```
+
+#### Show the Data Flow Service Docker Instance Status
+
+<pre class="language-sh"><code class="lang-sh"><strong>sudo /bin/sh dataflow_ctl.sh status
+</strong></code></pre>
+
+#### Start the Data Flow Service Docker Instance
+
+```bash
+sudo /bin/sh dataflow_ctl.sh start
+```
+
+#### Stop the Data Flow Service Docker Instance
+
+```bash
+sudo /bin/sh dataflow_ctl.sh stop
+```
+
+#### Restart the Data Flow Service Docker Instance
+
+```bash
+sudo /bin/sh dataflow_ctl.sh restart
+```
+
+#### Delete the Data Flow Service Docker Instance
+
+This command will not delete the data of the PBX.
+
+<pre class="language-bash"><code class="lang-bash"><strong>sudo /bin/sh dataflow_ctl.sh rm
+</strong></code></pre>
+
