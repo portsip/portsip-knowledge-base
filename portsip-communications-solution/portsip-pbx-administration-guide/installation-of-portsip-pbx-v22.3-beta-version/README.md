@@ -97,6 +97,7 @@ If you plan to deploy PortSIP PBX for production use, please refer instead to th
   * Added support for Fanvil W620W, V50P, and V60P phones.
   * Added support for Yealink T7x and T8x phones.
   * Added support for Gigaset IP and DECT phones.
+  * Added support for Intelbras IP Phones
   * Added support for SNOM headsets in the PortSIP ONE app.
   * DECT phone handset names can now be automatically set to the Extension Name.
 * **Power Optimization**
