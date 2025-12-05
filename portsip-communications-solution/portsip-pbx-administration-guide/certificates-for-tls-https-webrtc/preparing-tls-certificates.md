@@ -94,7 +94,7 @@ After completing this step, you should have two final certificate files:
 
 ***
 
-#### 7. Update the Certificates
+### 7. Update the Certificates
 
 Once the certificate files are ready, follow the guide [**Update Certificates**](update-certificates.md) to apply the new TLS certificates to your PortSIP PBX system.
 
