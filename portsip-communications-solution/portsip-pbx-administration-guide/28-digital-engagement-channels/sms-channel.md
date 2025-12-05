@@ -19,13 +19,24 @@ If you’re using any of these providers, setting up the SMS channel with PortSI
 
 If your favorite SIP trunk provider for SMS is not listed above, feel free to [email us with your request](mailto:support@portsip.com), and we’ll explore the possibility of integrating it with PortSIP PBX.
 
-## Preparing to Configure SMS in PortSIP PBX
+### Preparing to Configure SMS in PortSIP PBX
 
 Before configuring the SMS channel in PortSIP PBX, make sure your SMS service is fully set up with your SIP trunk provider by following the steps outlined in the [_Configuring SIP Trunks_](../../configuring-sip-trunks/) guide.
 
-## Configuring the SMS Channel in PortSIP PBX
+### **Full Chain SSL Certificates**
 
-In this article, we demonstrate configuring SMS integration with PortSIP PBX. For QuestBlue trunk, the DID number _**12172074422**_ will route inbound SMS messages to extension 1001.&#x20;
+*   To ensure successful webhook verification by the SMS provider, your PortSIP PBX must be configured with a **trusted, full-chain SSL certificate**.
+
+    You can verify whether your SSL certificate is trusted and includes the complete certificate chain using one of these tools:
+
+    * [SSL Checker](https://www.sslchecker.com/sslchecker)
+    * [SSL Shopper](https://www.sslshopper.com/ssl-checker.html)
+
+    If your certificate is not a full-chain SSL certificate, contact your SSL certificate provider to have it corrected.
+
+### Configuring the SMS Channel in PortSIP PBX
+
+In this article, we demonstrate configure SMS integration with PortSIP PBX. For QuestBlue trunk, the DID number _**12172074422**_ will route inbound SMS messages to extension 1001.&#x20;
 
 First, ensure you have completed this setup: QuestBlue SMS Integration.
 
