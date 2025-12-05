@@ -1,48 +1,102 @@
 # Preparing TLS Certificates
 
-Please take the steps listed below to get trusted certificates.
+To ensure secure and trusted communication between clients, the PBX, and SBC, you need to prepare and install valid TLS certificates.&#x20;
 
-1. Purchase a Domain (for example, `portsip.cc`) from the domain provider (for example, [Digicert](https://www.digicert.com/), [Thawte](https://www.thawte.com/), [GeoTrust](https://www.geotrust.com/)) for your PBX and SBC.&#x20;
-2. Add an A record in the Domain DNS zone, and resolve the Domain to your PBX IP, for example: point the `uc.portsip.cc` to PBX server IP.
-3. If your SBC is deployed separately from the PBX server, add an A record DNS record and resolve to the SBC server IP, for example, point `sbc.portsip.cc` point to the SBC server IP.
-4. Purchase a TLS certificate from the trust certificate provider for your domain, for example, [Digicert](https://www.digicert.com/), [Thawte](https://www.thawte.com/), [GeoTrust](https://www.geotrust.com/); If your SBC is deployed separately from the PBX server, you must purchase the **`Wildcard Certificate`**.
-5.  Generate a **Certificate Signing Request (CSR)** and a **private key** following your certificate provider’s instructions(Please choose the certificate type for Nginx).
+Follow the steps below to obtain and configure them properly.
 
-    > ⚠️ When generating the private key, **do not set a password** — a password-protected key will prevent the PBX service from starting automatically.
+***
 
-    \
-    After completing this step, you should have the following two files stored locally:
+### 1. Purchase a Domain
 
-* **CSR file** – Used to request the certificate from your provider.
-* **Private key file** – Rename it to `portsip.key`. Must be securely stored and never shared with anyone.
+Purchase a domain (for example, **portsip.cc**) from a trusted domain registrar such as **DigiCert**, **Thawte**, or **GeoTrust**.\
+This domain will be used to identify your PBX and SBC servers.
 
-6. Submit the CRS file to the certificate provider. Once your certificate provider issues the SSL certificate, you will receive **certificate files** corresponding to your CSR. This step will end up with two files: `Intermediate CA certificate` and `TLS certificate` . Assume the file names are:
-   * The  **TLS certificate** file: `cert.pem`
-   * The  **Intermediate CA certificate** file: `intermediate.pem`&#x20;
-7. If your certificate provider did not include the **Intermediate CA certificate**, please request it from them. Without the **Intermediate CA certificate**, your SSL certificate chain will be incomplete (not fully chained).   \
-   An incomplete certificate chain can cause browsers and third-party services (such as SMS or WhatsApp providers) to reject or mistrust the certificate. This may result in failures when receiving **inbound SMS or WhatsApp messages** through the PBX.
-8. To create a full-chain certificate:
-   1.  In a Windows environment, open both the **TLS certificate file** and the **Intermediate CA certificate file** using a **plain text editor** — for example, Windows Notepad.
+***
 
-       ⚠️ Do not use Microsoft Word or any rich-text editor.
+### 2. Configure DNS Records
 
-       Copy the entire contents of the **Intermediate CA certificate** and **append** it to the end of the **TLS certificate file.**
-
-       Save the combined file and rename it as **portsip.pem**.
-   2. In Linux environments, you can use the following command to combine the certificate files:
+Create an **A record** in your domain’s DNS zone and map the domain name to your PBX server’s public IP address.\
+For example:
 
 ```
-// Append intermediate file to TLS certificate file
+uc.portsip.cc → [PBX Server Public IP]
+```
+
+If your **SBC** (Session Border Controller) is deployed on a separate server, create another A record for it:
+
+```
+sbc.portsip.cc → [SBC Server Public IP]
+```
+
+***
+
+### 3. Purchase a TLS Certificate
+
+Purchase a **TLS/SSL certificate** for your domain from a trusted certificate authority such as DigiCert, Thawte, or GeoTrust.\
+If your SBC is deployed on a separate server, it is recommended to purchase a **Wildcard Certificate** (for example, `*.portsip.cc`) so that both the PBX and SBC can share the same certificate.
+
+***
+
+### 4. Generate the CSR and Private Key
+
+Generate a **Certificate Signing Request (CSR)** and **private key** according to your certificate provider’s instructions.
+
+> 💡 When prompted for the certificate type, select **Nginx**.
+
+⚠️ **Important:** Do **not** set a password when generating the private key — a password-protected key will prevent the PBX service from starting automatically.
+
+After this step, you should have two files stored locally:
+
+* **CSR file** – Used to request the certificate from your provider.
+* **Private key file** – Rename it to **`portsip.key`**, store it securely, and never share it with anyone.
+
+***
+
+### 5. Obtain the Certificate Files
+
+Submit the CSR file to your certificate provider. Once processed, you will receive the signed certificate files corresponding to your CSR. Typically, these include:
+
+* **TLS certificate file** – `cert.pem`
+* **Intermediate CA certificate file** – `intermediate.pem`
+
+If your certificate provider did **not** include the Intermediate CA certificate, request it from them.\
+Without the Intermediate CA certificate, your SSL certificate chain will be incomplete (_not fully chained_).\
+An incomplete certificate chain can cause browsers and third-party services (such as SMS or WhatsApp providers) to mistrust the certificate, potentially preventing the PBX from receiving inbound SMS or WhatsApp messages.
+
+***
+
+### 6. Create a Full-Chain Certificate
+
+#### **Windows Environment**
+
+1.  Open both the **TLS certificate file** and the **Intermediate CA certificate file** using a plain text editor such as **Windows Notepad**.
+
+    > ⚠️ Do not use Microsoft Word or any rich-text editor.
+2. Copy the entire contents of the **Intermediate CA certificate** and append it to the end of the **TLS certificate file**.
+3. Save the combined file and rename it as **`portsip.pem`**.
+
+#### **Linux Environment**
+
+Use the following commands to combine the certificate files:
+
+```bash
+# Append the intermediate certificate to the TLS certificate
 cat intermediate.pem >> cert.pem
 
-// Rename certificate file to portsip.pem
+# Rename the combined file
 mv cert.pem portsip.pem
 ```
 
-10. Now you will have two certificate files:
+After completing this step, you should have two final certificate files:
 
-* Certificate File: **portsip.pem**
-* Private Key file: **portsip.key**
+* **Certificate file:** `portsip.pem`
+* **Private key file:** `portsip.key`
 
-After successfully creating the certificate files, please follow the article [Update Certificates](update-certificates.md) to update the certificates.&#x20;
+***
+
+#### 7. Update the Certificates
+
+Once the certificate files are ready, follow the guide [**Update Certificates**](update-certificates.md) to apply the new TLS certificates to your PortSIP PBX system.
+
+
 
