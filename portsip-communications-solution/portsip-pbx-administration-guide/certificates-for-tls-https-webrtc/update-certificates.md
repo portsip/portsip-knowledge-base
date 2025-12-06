@@ -93,7 +93,7 @@ Simply restart the Windows server.
 
 ***
 
-#### Summary
+### Summary
 
 After completing these steps, both the PBX and SBC will use the newly installed TLS certificates (`portsip.pem` and `portsip.key`).\
 This ensures secure HTTPS access to the management portals and encrypted SIP/TLS signaling for your unified communications environment.
