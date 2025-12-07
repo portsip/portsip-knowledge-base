@@ -51,7 +51,7 @@ For this example, assume the following server configuration:
 * **Private IP**: 192.168.1.72
 * **Public IP**: 66.175.221.120
 * The domain **uc.portsip.cc** is resolved to the public IP address **66.175.221.120**.
-* A trusted SSL certificate(not self-signed) is installed for the domain **uc.portsip.cc**. Please follow the article [Certificates for TLS/HTTPS/WebRTC](../certificates-for-tls-https-webrtc/) to prepare the certificates.
+* A trusted SSL certificate(not self-signed) is installed for the domain **uc.portsip.cc**. Please follow the article [Certificates for TLS/HTTPS/WebRTC](../../tutorials/certificates-for-tls-https-webrtc/) to prepare the certificates.
 
 ### Install PortSIP SBC for Linux
 
@@ -89,7 +89,7 @@ Assuming the following server configuration for installation:
 * **SBC Server (Public IP)**: 66.175.221.120
 * The domain **sbc.portsip.cc** is resolved to the SBC server's public IP, **66.175.221.120**.
 * The domain **uc.portsip.cc** is resolved to the PBX server's private IP, **192.168.1.72**. (Note: This step is not necessary for the SBC deployment.)
-* A trusted **Wildcard SSL certificate**(not self-signed) is installed for the domain **portsip.cc**. Please follow the article [Certificates for TLS/HTTPS/WebRTC](../certificates-for-tls-https-webrtc/) to prepare the certificates.
+* A trusted **Wildcard SSL certificate**(not self-signed) is installed for the domain **portsip.cc**. Please follow the article [Certificates for TLS/HTTPS/WebRTC](../../tutorials/certificates-for-tls-https-webrtc/) to prepare the certificates.
 
 ### Install PortSIP SBC for Linux
 

@@ -43,11 +43,11 @@ We recommend customizing your experience by uploading your own logo and favicon 
 
 ### IP Phone Template
 
-PortSIP PBX allows you to customize the IP Phone template, which will give you a unique user experience and your own brand of the IP Phone. Please refer to this article: [Custom IP Phone Template](4-phone-device-management/custom-ip-phone-template.md).
+PortSIP PBX allows you to customize the IP Phone template, which will give you a unique user experience and your own brand of the IP Phone. Please refer to this article: [Custom IP Phone Template](../portsip-pbx-administration-guide/4-phone-device-management/custom-ip-phone-template.md).
 
 ### Email Notification Template
 
-One of the features of the PortSIP PBX is the ability to customize Email Templates. Please refer to this article: [Configuring Email Notifications](configuring-email-notifications.md#custom-email-notification-template).
+One of the features of the PortSIP PBX is the ability to customize Email Templates. Please refer to this article: [Configuring Email Notifications](../portsip-pbx-administration-guide/configuring-email-notifications.md#custom-email-notification-template).
 
 ## Rebranding PortSIP SBC
 

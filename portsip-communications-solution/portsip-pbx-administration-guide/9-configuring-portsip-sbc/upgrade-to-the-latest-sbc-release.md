@@ -6,7 +6,7 @@ This guide is for upgrading your current PortSIP SBC installation to the latest 
 
 We recommend backing up your SBC data. The data file path is usually `/var/lib/portsip`. You can also back up the entire VM server or take a snapshot of the VM server.
 
-Please follow the article [Backup and Restore: An Essential Guide](../backup-and-restore/).
+Please follow the article [Backup and Restore: An Essential Guide](../../tutorials/backup-and-restore/).
 
 {% hint style="warning" %}
 All commands must be executed in the **`/opt/portsip`** directory.
@@ -40,7 +40,7 @@ cd /opt/portsip && sudo /bin/sh sbc_ctl.sh upgrade -i portsip/sbc:11
 
 If you installed the PortSIP SBC for Windows, please follow the below steps to proceed with the upgrade.
 
-1. We suggest backing up your SBC data. The data file path is usually `c:\programdata\portsip`. You can follow the article [Backup and Restore: An Essential Guide](../backup-and-restore/).&#x20;
+1. We suggest backing up your SBC data. The data file path is usually `c:\programdata\portsip`. You can follow the article [Backup and Restore: An Essential Guide](../../tutorials/backup-and-restore/).&#x20;
 2. Download the latest installer from the [PortSIP website](https://www.portsip.com/download-portsip-sbc).&#x20;
 3. Double-click the installer to begin the installation process, and the upgrade will be performed automatically.
 

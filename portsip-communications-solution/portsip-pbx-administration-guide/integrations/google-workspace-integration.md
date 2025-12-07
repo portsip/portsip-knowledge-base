@@ -9,7 +9,7 @@ Since Google stopped supporting "[**Less secure apps**](https://support.google.c
 ## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
 
 * You need PortSIP PBX running on a static public IP address.
-* A web domain (which is an FQDN) in PortSIP PBX with a valid SSL certificate. The certificate should be issued by a trusted certificate provider such as Digicert, Thawte, GoDaddy, etc. You can read this [article ](../certificates-for-tls-https-webrtc/)to configure the SSL certificate.
+* A web domain (which is an FQDN) in PortSIP PBX with a valid SSL certificate. The certificate should be issued by a trusted certificate provider such as Digicert, Thawte, GoDaddy, etc. You can read this [article ](../../tutorials/certificates-for-tls-https-webrtc/)to configure the SSL certificate.
 * Requires the PBX system administrator or tenant who wants to enable the Google Workspace integration to have a Google account (Workspace or a normal Google account).
 
 ## Configuring Settings on the Google Side

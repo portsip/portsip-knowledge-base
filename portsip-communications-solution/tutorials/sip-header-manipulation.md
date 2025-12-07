@@ -57,7 +57,7 @@ Based on the above settings, if someone makes a call to the PBX, the PBX will ad
 
 ## 3 Mainipulate Known SIP Headers
 
-PortSIP PBX also allows you to modify and remove the known SIP headers, please read [Handle Outbound Calls Through SIP Trunk](7-trunk-management/handle-outbound-calls-through-sip-trunk.md#h.rhrzb9hdve5w) for more details.
+PortSIP PBX also allows you to modify and remove the known SIP headers, please read [Handle Outbound Calls Through SIP Trunk](../portsip-pbx-administration-guide/7-trunk-management/handle-outbound-calls-through-sip-trunk.md#h.rhrzb9hdve5w) for more details.
 
 {% hint style="danger" %}
 Modifying or removing known SIP headers may cause the call to not work. Please be careful when doing so, or contact PortSIP Support for assistance.

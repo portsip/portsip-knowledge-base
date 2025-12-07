@@ -123,7 +123,7 @@ When there is a need for additional security of the SIP traffic, Transport Layer
 
 PortSIP PBX and SBC use certificates to deliver secured SIP traffic and services and support WebRTC and Microsoft Teams Direct Routing. In addition, certificates are used to provide secure access to the device and Web (HTTPS) sessions.
 
-Please read [this topic](certificates-for-tls-https-webrtc/) to prepare a trusted SSL certificate.
+Please read [this topic](../tutorials/certificates-for-tls-https-webrtc/) to prepare a trusted SSL certificate.
 
 ## Getting Help and Support Resources
 

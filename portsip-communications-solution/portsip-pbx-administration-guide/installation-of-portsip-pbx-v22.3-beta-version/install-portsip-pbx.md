@@ -167,9 +167,9 @@ To enable **TLS** transport for SIP and secure **HTTPS** access to the Web Porta
   A trusted SSL certificate is necessary to avoid browser warnings. Recommended certificate providers include **DigiCert**, **GeoTrust**, **GoDaddy**, and others.
   * If you do not have a domain or SSL certificate, you can use your PBX’s IP address as the **Web Domain** and proceed with the default certificate. However, please note that PortSIP PBX uses a self-signed certificate by default, which will trigger browsers to block the connection and display a security warning.
 * **Certificate Providers:**\
-  To purchase an SSL certificate, follow the guide: [Preparing TLS Certificates for TLS/HTTPS/WebRTC](../certificates-for-tls-https-webrtc/).
+  To purchase an SSL certificate, follow the guide: [Preparing TLS Certificates for TLS/HTTPS/WebRTC](../../tutorials/certificates-for-tls-https-webrtc/).
 
-You will have two certificate files if complete the steps in the guide: [Preparing TLS Certificates for TLS/HTTPS/WebRTC](../certificates-for-tls-https-webrtc/).
+You will have two certificate files if complete the steps in the guide: [Preparing TLS Certificates for TLS/HTTPS/WebRTC](../../tutorials/certificates-for-tls-https-webrtc/).
 
 * **portsip.key**
 * **portsip.pem**

@@ -6,7 +6,7 @@ After successfully installing the PortSIP SBC following the guide, you can now c
 
 If you installed the PortSIP SBC on the _**same server as the PortSIP PBX**_, please follow the below steps to configure it.
 
-1. Prepare the SSL certificate as outlined in the guide for [TLS Certificates for TLS/HTTPS/WebRTC](../certificates-for-tls-https-webrtc/), You will have the `portsip.pem`  `portsip.key` files.
+1. Prepare the SSL certificate as outlined in the guide for [TLS Certificates for TLS/HTTPS/WebRTC](../../tutorials/certificates-for-tls-https-webrtc/), You will have the `portsip.pem`  `portsip.key` files.
 2. Open `https://66.175.221.120:8883` in the browser and log in using the credentials `admin/admin`. Just ignore the browser SSL certificate warning and continue processing.
 3.  Choose **Settings > TLS Certificates** from the menu, click the **Add** button:
 
@@ -58,7 +58,7 @@ If the PBX is deployed in **High Availability (HA)** mode, you must enter the **
 
 If you installed the PortSIP SBC on _**a separate server from the PortSIP PBX**_, please follow the below steps to configure it.
 
-1. Prepare the SSL certificate as outlined in the guide for [TLS Certificates for TLS/HTTPS/WebRTC](../certificates-for-tls-https-webrtc/), You will have the `portsip.pem`  `portsip.key` files.
+1. Prepare the SSL certificate as outlined in the guide for [TLS Certificates for TLS/HTTPS/WebRTC](../../tutorials/certificates-for-tls-https-webrtc/), You will have the `portsip.pem`  `portsip.key` files.
 2. Open `https://66.175.221.120:8883` in the browser and log in using the credentials `admin/admin`. Just ignore the browser SSL certificate warning and continue processing.
 3.  Choose **Settings > TLS Certificates** from the menu, click the **Add** button:
 

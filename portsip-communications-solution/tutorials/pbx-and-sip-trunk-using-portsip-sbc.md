@@ -18,14 +18,14 @@ The interoperability testing between SBC and a generic SIP Trunk with PortSIP PB
 
 Please follow the below topics to install and configure the PBX:
 
-* [1 Installation of the PortSIP PBX](1-installation-of-the-portsip-pbx/)
-* [2 Configuring the PortSIP PBX](2-configuring-the-portsip-pbx.md)
+* [1 Installation of the PortSIP PBX](../portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/)
+* [2 Configuring the PortSIP PBX](../portsip-pbx-administration-guide/2-configuring-the-portsip-pbx.md)
 
 ## 3 Configuring PortSIP SBC
 
 Please follow the below topics to install and configure the SBC:
 
-* [Configuring SBC for WebRTC](9-configuring-portsip-sbc/)
+* [Configuring SBC for WebRTC](../portsip-pbx-administration-guide/9-configuring-portsip-sbc/)
 
 ## 4 Adding SIP trunk to the PortSIP PBX
 
@@ -46,11 +46,11 @@ To add the trunk to the PBX:
 6. If the trunk is "**Register based**" type, enter the "**Authorization Name**" and "**Password**" here, it gave by your trunk service provider.&#x20;
 7. Turn on the "**Trunk is located in same LAN with PBX**" option.
 8. Turn off the "**Rewrite the host IP of Via header by public IP when sending the request to trunk**" option and click the "**Next**" button.
-9. Since the trunk is added by the "**System Admin**", the "**System Admin**" will need to choose one or more tenants to allow them access to this trunk. Please refer to the "**Add the Trunk by System Admin"** section of [Trunk Management](7-trunk-management/)**.**
+9. Since the trunk is added by the "**System Admin**", the "**System Admin**" will need to choose one or more tenants to allow them access to this trunk. Please refer to the "**Add the Trunk by System Admin"** section of [Trunk Management](../portsip-pbx-administration-guide/7-trunk-management/)**.**
 
 In summary, just add the SBC likes add a normal trunk, fill the trunk's IP or domain to the "**Host Domain or IP**", and fill the SBC's IP and port to the "**Outbound Proxy Server**", set the transport to TCP since the PBX use TCP to communicate with the SBC, and the call flow is:
 
 **extension <---> PBX <---> SBC <---> SIP Trunk**
 
-Now you completed the SBC trunk settings, you can follow this guide to create the i[nbound and outbound rules](8-call-route-management/) as the normal trunk.
+Now you completed the SBC trunk settings, you can follow this guide to create the i[nbound and outbound rules](../portsip-pbx-administration-guide/8-call-route-management/) as the normal trunk.
 

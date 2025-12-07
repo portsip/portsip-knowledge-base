@@ -49,7 +49,7 @@ With PortSIP’s rebranding feature, you can fully private label your PBX, makin
 * **IP Phone Templates**
 * **Notification Email Templates**
 
-This gives you the freedom to focus on marketing, sales, and billing while PortSIP takes care of the technology. For more detailed instructions, please refer to the article on [Rebranding PortSIP PBX, SBC](portsip-pbx-administration-guide/rebranding-portsip-pbx-sbc.md).
+This gives you the freedom to focus on marketing, sales, and billing while PortSIP takes care of the technology. For more detailed instructions, please refer to the article on [Rebranding PortSIP PBX, SBC](tutorials/rebranding-portsip-pbx-sbc.md).
 
 ## **A Scalable Communications Platform**
 
@@ -171,7 +171,7 @@ For example, if a call comes from the SIP trunk and arrives at the PBX, then is 
 
 ## Storing Into AWS S3
 
-With PortSIP PBX, you can write your Video Recordings and Compositions to your own AWS (Amazon Web Services) S3 bucket, rather than a local disk. This guide explains how you can set up your own account or project to use this capability. For more details please read this article: [Storing into AWS S3](portsip-pbx-administration-guide/storing-into-aws-s3.md).
+With PortSIP PBX, you can write your Video Recordings and Compositions to your own AWS (Amazon Web Services) S3 bucket, rather than a local disk. This guide explains how you can set up your own account or project to use this capability. For more details please read this article: [Storing into AWS S3](tutorials/storing-into-aws-s3.md).
 
 ## Privacy
 
