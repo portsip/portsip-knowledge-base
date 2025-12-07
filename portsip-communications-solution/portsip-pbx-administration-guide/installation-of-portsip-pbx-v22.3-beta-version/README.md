@@ -111,6 +111,7 @@ If you plan to deploy PortSIP PBX for production use, please refer instead to th
 
 * **SMS Integration**
   * Integrated with **SMSGlobal** for outbound and inbound SMS support.
+  * Integrated with **CM.COM** for voice calls and SMS support.
 * **IPv6 Support**
   * The system now automatically adapts to IPv6 environments — no manual configuration required.
 * **WebSocket Interface (WSI)**
