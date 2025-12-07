@@ -2,9 +2,9 @@
 
 Before updating the certificates for the **PortSIP PBX** and **PortSIP SBC**, ensure that both systems have been properly installed and configured according to the following guides:
 
-* [**Installing the PortSIP PBX**](../../portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/)
-* [**Configuring the PortSIP PBX**](../../portsip-pbx-administration-guide/2-configuring-the-portsip-pbx.md)
-* [**Configuring the SBC for WebRTC**](../../portsip-pbx-administration-guide/9-configuring-portsip-sbc/)
+* [**Installing the PortSIP PBX**](../1-installation-of-the-portsip-pbx/)
+* [**Configuring the PortSIP PBX**](../2-configuring-the-portsip-pbx.md)
+* [**Configuring the SBC for WebRTC**](../9-configuring-portsip-sbc/)
 
 After completing the [**Preparing TLS Certificates**](preparing-tls-certificates.md) steps, you should have the following files ready:
 

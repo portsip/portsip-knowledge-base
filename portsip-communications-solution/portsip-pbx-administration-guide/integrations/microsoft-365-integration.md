@@ -11,7 +11,7 @@ The PortSIP PBX integrates with Microsoft 365 to provide the following features:
 ## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
 
 * You need PortSIP PBX running on a static public IP address.
-* A web domain (which is FQDN) in PortSIP PBX with a valid SSL certificate. The certificate should be issued by a trusted certificate provider such as Digicert, Thawte, Godaddy, etc. You can read this [article ](../../tutorials/certificates-for-tls-https-webrtc/)to configure the SSL certificate.
+* A web domain (which is FQDN) in PortSIP PBX with a valid SSL certificate. The certificate should be issued by a trusted certificate provider such as Digicert, Thawte, Godaddy, etc. You can read this [article ](../certificates-for-tls-https-webrtc/)to configure the SSL certificate.
 * Requires the PBX tenant who wants to enable the Microsoft 365 integration to have Microsoft 365 Accounts with an Exchange subscription plan:
   * Microsoft 365 Business Basic, Standard, or Premium
   * Microsoft 365 F3, E3 or E5

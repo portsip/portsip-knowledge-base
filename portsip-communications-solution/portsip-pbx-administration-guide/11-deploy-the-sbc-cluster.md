@@ -35,7 +35,7 @@ Additionally, you may create records to resolve **sbc.com** to all three SBC IPs
 
 ## Certificates
 
-Please purchase a wildcard TLS certificate for the domain **sbc.com** as per the article[ Certificates for TLS/HTTPS/WebRTC](../tutorials/certificates-for-tls-https-webrtc/) guide.
+Please purchase a wildcard TLS certificate for the domain **sbc.com** as per the article[ Certificates for TLS/HTTPS/WebRTC](certificates-for-tls-https-webrtc/) guide.
 
 ## Configuring the SBC
 

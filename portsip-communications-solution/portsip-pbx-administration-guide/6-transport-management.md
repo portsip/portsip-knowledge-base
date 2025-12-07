@@ -27,7 +27,7 @@ To add UDP/TLS/TCP transport:
 
 ## Add TLS transport
 
-First of all, prepare the certificate files. Please refer to "[Preparing TLS Certificates for TLS/HTTPS/WebRTC](../tutorials/certificates-for-tls-https-webrtc/)" to purchase a certificate file from a trusted third-party provider for your PBX **Web Domain** (assuming you purchased the certificate for the domain **uc.portsip.cc**).
+First of all, prepare the certificate files. Please refer to "[Preparing TLS Certificates for TLS/HTTPS/WebRTC](certificates-for-tls-https-webrtc/)" to purchase a certificate file from a trusted third-party provider for your PBX **Web Domain** (assuming you purchased the certificate for the domain **uc.portsip.cc**).
 
 * Click the **Add** button and choose **TLS** in the **Transport protocol** box. The default transport port for TLS is 5061. You may specify another port as you like, but the port must not be in use by other applications.
 * Click the **OK** button to add the transport.
