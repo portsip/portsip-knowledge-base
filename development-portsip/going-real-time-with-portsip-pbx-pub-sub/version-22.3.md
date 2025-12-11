@@ -290,7 +290,7 @@ The `cdr_events` topic delivers real-time Call Detail Record (CDR) notifications
 
 #### **Permission**
 
-Users with either of the following permissions are allowed to subscribe to this event:
+Tenant users with either of the following permissions are allowed to subscribe to this event:
 
 * **Analytics: View Only**
 * **Analytics: Full Access**
@@ -329,7 +329,7 @@ Thereafter, any time a queue is **created**, **updated**, or **deleted**, the PB
 
 #### **Permission**
 
-Users with either of the following permissions are allowed to subscribe to this event:
+Tenant users with either of the following permissions are allowed to subscribe to this event:
 
 * **Analytics: View Only**
 * **Analytics: Full Access**
@@ -356,6 +356,18 @@ Users with either of the following permissions are allowed to subscribe to this 
 
 ***
 
+### **global\_queue\_events**
+
+The `global_queue_events` topic delivers real-time updates whenever a queue’s status changes for all tenants.\
+For example, if a caller waiting in the queue hangs up, or if an agent answers a queued call, the PBX immediately pushes the updated queue status to all subscribers.
+
+#### **Permission**
+
+System Administrators with either of the following permissions are allowed to subscribe to this event:
+
+* **User: View Only**
+* **User: Full Access**
+
 ### **queue\_events**
 
 The `queue_events` topic delivers real-time updates whenever a queue’s status changes.\
@@ -363,7 +375,7 @@ For example, if a caller waiting in the queue hangs up, or if an agent answers a
 
 #### **Permission**
 
-Users with either of the following permissions are allowed to subscribe to this event:
+Tenant users with either of the following permissions are allowed to subscribe to this event:
 
 * **Analytics: View Only**
 * **Analytics: Full Access**
