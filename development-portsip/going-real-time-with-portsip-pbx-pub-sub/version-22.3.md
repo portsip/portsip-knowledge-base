@@ -308,9 +308,22 @@ For a detailed explanation of the CDR JSON structure, please refer to the [Event
 
 ***
 
+### **global\_queue\_management\_events**
+
+System Administrators are authorized to subscribe to the `global_queue_management_events` topic for all tenants.\
+After successfully subscribing, the PBX immediately pushes all existing queue information to the subscriber.\
+Thereafter, any time a queue is **created**, **updated**, or **deleted**, the PBX sends real-time notifications with the corresponding queue details.
+
+#### **Permission**
+
+System Administrators with either of the following permissions are allowed to subscribe to this event:
+
+* **Users: View Only**
+* **Users: Full Access**
+
 ### **queue\_management\_events**
 
-Tenant Administrators and Queue Managers are authorized to subscribe to the `queue_management_events` topic.\
+Tenant users are authorized to subscribe to the `queue_management_events` topic.\
 After successfully subscribing, the PBX immediately pushes all existing queue information to the subscriber.\
 Thereafter, any time a queue is **created**, **updated**, or **deleted**, the PBX sends real-time notifications with the corresponding queue details.
 
