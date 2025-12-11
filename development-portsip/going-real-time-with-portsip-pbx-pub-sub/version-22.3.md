@@ -4,7 +4,7 @@ PortSIP PBX exposes a set of **Pub/Sub topics** and structured **message keys** 
 
 ### **global\_extension\_management\_events**
 
-System Administrators can subscribe to the `global_extension_management_events` topic to receive **instant notifications** whenever an extension is created, updated, or deleted.
+System Administrators can subscribe to the `global_extension_management_events` topic to receive instant notifications whenever an extension is created, updated, or deleted **for all tenants**.
 
 #### **Permission**&#x20;
 
@@ -56,13 +56,24 @@ The `extension_updated` event includes the same information as the `extnesion_cr
 
 ***
 
-### **extension\_events**
+### global\_extension\_events
 
-All extension-related event messages are published under the **extension\_events** topic. This topic provides real-time updates on an extension’s registration state and availability.
+System Administrators can subscribe to **global\_extension\_events** topic to receive all extension-related event messages for **all tenants.** This topic provides real-time updates on an extension’s registration state and availability.
 
 #### **Permission**
 
-Users with either of the following permissions are allowed to subscribe to this event:
+System Administrators with either of the following permissions are allowed to subscribe to this event:
+
+* **Users: View Only**
+* **Users: Full Access**
+
+### **extension\_events**
+
+All extension-related event messages **within a tenant** are published under the **extension\_events** topic. This topic provides real-time updates on an extension’s registration state and availability.
+
+#### **Permission**
+
+Tenant users with either of the following permissions are allowed to subscribe to this event:
 
 * **Users: View Only**
 * **Users: Full Access**
@@ -261,6 +272,17 @@ The message is delivered in **JSON format** and includes the following fields:
     The agent’s current status within that queue.
 
 ***
+
+### global\_cdr\_events
+
+System Administrators can subscribe to **global\_cdr\_events** topic to receive real-time Call Detail Record (CDR) notifications for all calls for all tenants. Once a subscription is established, the PBX pushes call lifecycle updates and final CDR data to the subscriber.
+
+#### **Permission**
+
+System Administrators with either of the following permissions are allowed to subscribe to this event:
+
+* **Users: View Only**
+* **Users: Full Access**
 
 ### **cdr\_events**
 
