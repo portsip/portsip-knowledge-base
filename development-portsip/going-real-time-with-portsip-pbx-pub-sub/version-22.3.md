@@ -1,26 +1,42 @@
 # Version 22.3
 
-## **Topics and Message Type**
+PortSIP PBX exposes a set of **Pub/Sub topics** and structured **message keys** that allow external systems to receive real-time updates.
 
-PortSIP PBX provides the topics and keys for the Pub/Sub below.
+### **global\_extension\_management\_events**
 
-### global\_extension\_management\_events
+System Administrators can subscribe to the `global_extension_management_events` topic to receive **instant notifications** whenever an extension is created, updated, or deleted.
 
-PBX System Administrators can subscribe to the `global_extension_management_events` topic. Once subscribed, they'll receive real-time notifications whenever an extension is added, updated, or deleted.
+#### **Permission**&#x20;
 
-The following message keys are included:
+PBX System Administrators with either of the following permissions are allowed to subscribe to this event:
 
-* `event_type`**:** Indicates the specific event:
-  * &#x20;extension\_created
-  * extension\_updated
-  * extension\_destroyed
-* `extension_number`**:** The extension number.
-* `disp_name`: The display name of the extension.
-* `email`: The email of the extension.
-* `extension_id`**:** The ID of the extension.
-* `tenant_id`**:** The ID of the tenant associated with the extension.
-* `username`: The username of the extension.
-* `department`: The department of the extension. If it's not set, this key might not exist in the response JSON.
+* **Users: View Only**
+* **Users: Full Access**
+
+#### **Message Keys**
+
+Each published message includes the following keys:
+
+* **event\_type**\
+  Specifies the type of event. Possible values include:
+  * `extension_created`
+  * `extension_updated`
+  * `extension_destroyed`
+* **extension\_number**\
+  The extension’s number.
+* **disp\_name**\
+  The display name associated with the extension.
+* **email**\
+  The email address assigned to the extension.
+* **extension\_id**\
+  The unique ID of the extension.
+* **tenant\_id**\
+  The ID of the tenant to which the extension belongs.
+* **username**\
+  The username associated with the extension.
+* **department** _(optional)_\
+  The department of extension.\
+  If no department is configured, this key will not appear in the JSON payload.
 
 ```json
 {
@@ -38,17 +54,31 @@ The following message keys are included:
 
 The `extension_updated` event includes the same information as the `extnesion_created` event.
 
-### extension\_events
+***
 
-All extension-related event messages will be published under `extension_events`. The following are the various message keys:
+### **extension\_events**
 
-#### extension\_status
+All extension-related event messages are published under the **extension\_events** topic. This topic provides real-time updates on an extension’s registration state and availability.
 
-This message will be returned under the following scenarios:
+#### **Permission**
 
-* Upon successful subscription to an extension.
-* When a subscribed extension comes online.
-* When a subscribed extension goes offline.
+Users with either of the following permissions are allowed to subscribe to this event:
+
+* **Users: View Only**
+* **Users: Full Access**
+
+The **event\_type** key identifies the specific message type, as described below.
+
+#### **extension\_status**
+
+The `extension_status` message is published in the following scenarios:
+
+* **After a successful subscription**\
+  When the client successfully subscribes to a specific extension, the PBX immediately returns the current status of that extension.
+* **When the extension comes online**\
+  A notification is sent when the subscribed extension registers successfully or becomes reachable.
+* **When the extension goes offline**\
+  A notification is sent when the subscribed extension unregisters or becomes unreachable.
 
 ```json
 {
@@ -79,33 +109,46 @@ This message will be returned under the following scenarios:
 }
 ```
 
-The message is in JSON format and includes the following fields:
+The message is delivered in **JSON format** and contains the following fields:
 
-* `event_type`: Indicates the type of the message.
-* `tenant_id`: Represents the ID of the tenant to which the extension belongs.
-* `status`: It's a JSON array that includes the extension status, including the following fields:
-  * `extension`: Represents the SIP URI of the extension.
-  * `presence`: the presence status with the enum string:&#x20;
-    * ONLINE
-    * LUNCH
-    * BUSINESS\_TRIP
-    * DO\_NOT\_DISTURB
-    * BREAK
-    * AWAY
-  * `presence_note`: Contains the text of the additional presence status.
-  * `call_status`: The "**ON\_CALL**" status signifies that the extension is currently engaged in a call. The "**RINGING**" status means that the extension is currently receiving a call and is ringing. If this value is empty, it indicates that the extension is not involved in any call.
-  * `online`: Indicates whether the extension is currently registered to the PBX.
-  * `push_online`: This field indicates whether mobile push notifications are currently enabled for the extension. This is only valid if `online` is false.
-  * `extension_id`: Represents the ID of the extension.
-  * `time`: Represents the timestamp of this message in UNIX time.
+* **event\_type**\
+  Identifies the type of extension event.
+* **tenant\_id**\
+  The ID of the tenant to which the extension belongs.
+* **status**\
+  A JSON array containing the status details of the extension. Each entry includes:
+  * **extension**\
+    The SIP URI of the extension.
+  * **presence**\
+    The presence status of the extension. Possible values include:\
+    `ONLINE`, `LUNCH`, `BUSINESS_TRIP`, `DO_NOT_DISTURB`, `AWAY`.
+  * **presence\_note**\
+    Optional text providing additional presence information.
+  * **call\_status**\
+    Indicates the extension’s current call state:
+    * `ON_CALL` — The extension is currently in an active call.
+    * `RINGING` — The extension is currently receiving an incoming call.
+    * _(empty)_ — The extension is not involved in any call.
+  * **online**\
+    Indicates whether the extension is currently registered to the PBX.
+  * **push\_online**\
+    Indicates whether push notifications are active for the extension.\
+    This field is only meaningful when **online = false**.
+  * **extension\_id**\
+    The unique ID of the extension.
+  * **time**\
+    The timestamp of the event, represented in UNIX time.
 
-#### extension\_call
+#### **extension\_call**
 
-This message will be returned under the following scenarios:
+The `extension_call` message is published in the following scenarios:
 
-* When an extension starts dialing a call.
-* When an extension receives a call.
-* When an extension disconnects a call.
+* **When an extension initiates an outbound call**\
+  Triggered as soon as the extension begins dialing.
+* **When an extension receives an inbound call**\
+  Published when the extension is being called and starts ringing.
+* **When an extension disconnects a call**\
+  Generated when the extension ends or terminates an active call.
 
 ```json
 {
@@ -118,20 +161,30 @@ This message will be returned under the following scenarios:
 }
 ```
 
-The message is in JSON format and includes the following fields:
+The message is delivered in **JSON format** and contains the following fields:
 
-* `event_type`: Indicates the type of the message.
-* `extension`: Represents the SIP URI of the extension.
-* `call_status`: The "**ON\_CALL**" status signifies that the extension is currently engaged in a call. The "**RINGING**" status means that the extension is currently receiving a call and is ringing. If this value is empty, it indicates that the extension is not involved in any call.
-* `tenant_id`: Represents the ID of the tenant to which the extension belongs.
-* `extension_id`: Represents the ID of the extension.
-* `time`: Represents the timestamp of this message in UNIX time.
+* **event\_type**\
+  Identifies the specific type of call-related event.
+* **extension**\
+  The SIP URI of the extension associated with this event.
+* **call\_status**\
+  Indicates the current call state of the extension:
+  * `ON_CALL` — The extension is actively engaged in a call.
+  * `RINGING` — The extension is receiving an incoming call.
+  * _(empty)_ — The extension is not involved in any call.
+* **tenant\_id**\
+  The ID of the tenant to which the extension belongs.
+* **extension\_id**\
+  The unique ID of the extension.
+* **time**\
+  The timestamp of the event, represented in UNIX time.
 
-#### extension\_presence
+#### **extension\_presence**
 
-This message will be returned under the following scenario:
+The `extension_presence` message is published in the following scenario:
 
-* When an extension changes its presence status.
+* **When an extension updates its presence status**\
+  Triggered whenever the extension’s presence state changes—for example, switching to _Do Not Disturb_, _Away_, or any other presence mode.
 
 ```json
 {
@@ -145,25 +198,32 @@ This message will be returned under the following scenario:
 }
 ```
 
-The message is in JSON format and includes the following fields:
+The message is delivered in **JSON format** and includes the following fields:
 
-* `event_type`: Indicates the type of the message.
-* `extension`: Represents the SIP URI of the extension.
-* `presence`: the presence status with the enum string:&#x20;
-  * ONLINE
-  * LUNCH
-  * BUSINESS\_TRIP
-  * DO\_NOT\_DISTURB
-  * BREAK
-  * AWAY
-* `presence_note`: Contains the text of the presence status.
-* `tenant_id`: Represents the ID of the tenant to which the extension belongs.
-* `extension_id`: Represents the ID of the extension.
-* `time`: Represents the timestamp of this message in UNIX time.
+* **event\_type**\
+  Identifies the type of presence-related event.
+* **extension**\
+  The SIP URI of the extension whose presence has changed.
+* **presence**\
+  The current presence status of the extension. Possible values include:
+  * `ONLINE`
+  * `LUNCH`
+  * `BUSINESS_TRIP`
+  * `DO_NOT_DISTURB`
+  * `AWAY`
+* **presence\_note**\
+  Optional text providing additional presence information.
+* **tenant\_id**\
+  The ID of the tenant to which the extension belongs.
+* **extension\_id**\
+  The unique ID of the extension.
+* **time**\
+  The timestamp of the event, represented in UNIX time.
 
-#### extension\_agent\_status
+#### **extension\_agent\_status**
 
-When an extension, which is also an agent of the queue, that belongs to a queue to which a subscription has been made, changes its status within any of the queues they are associated with, a notification will be sent to the subscriber.
+When an extension that serves as a queue agent changes its status in any queue to which the subscriber is subscribed, the PBX publishes an `extension_agent_status` message.\
+This notification is triggered whenever the agent’s state changes within any of the queues they are associated with.
 
 ```json
 {
@@ -181,26 +241,48 @@ When an extension, which is also an agent of the queue, that belongs to a queue 
 }
 ```
 
-The message is in JSON format and includes the following fields:
+The message is delivered in **JSON format** and includes the following fields:
 
-* `event_type`: Indicates the type of the message.
-* `extension`: Represents the SIP URI of the extension.
-* `tenant_id`: Represents the ID of the tenant to which the extension belongs.
-* `extension_id`: Represents the ID of the extension.
-* `time`: Represents the timestamp of this message in UNIX time.
-* `agent_status`: A JSON array that contains the status of the queues:
-  * `queue_number`: The extension number of the queue
-  * `status`: the agent status of the queue
+* **event\_type**\
+  Indicates the type of agent-related event.
+* **extension**\
+  The SIP URI of the extension (agent).
+* **tenant\_id**\
+  The ID of the tenant to which the extension belongs.
+* **extension\_id**\
+  The unique ID of the extension.
+* **time**\
+  The timestamp of the event, represented in UNIX time.
+* **agent\_status**\
+  A JSON array containing the agent’s status for each queue they belong to. Each entry includes:
+  * **queue\_number**\
+    The extension number of the queue.
+  * **status**\
+    The agent’s current status within that queue.
 
-### cdr\_events
+***
 
-Once a call has ended, the CDR of this call will be pushed to the subscribers, this event means subscribing to all calls CDR of a tenant. The message topic is: **`cdr_events`**, the message key is below.
+### **cdr\_events**
 
-* `call_start`: Once an extension receives a call, the call information will be packed in a JSON object and pushed to the subscriber.
-* `call_update_info`: The call information is updated, and the call information will be packed in a JSON object and pushed to the subscriber.
-* `call_cdr`: Once a call has ended, the CDR will be packed in a JSON object and pushed to the subscriber.
+The `cdr_events` topic delivers real-time Call Detail Record (CDR) notifications for all calls within a tenant. Once a subscription is established, the PBX pushes call lifecycle updates and final CDR data to the subscriber.
 
-For more details about the CDR JSON object structure information, please refer to [Event Reference](../webhook-notifications/event-reference.md).
+#### **Permission**
+
+Users with either of the following permissions are allowed to subscribe to this event:
+
+* **Analytics: View Only**
+* **Analytics: Full Access**
+
+The following message types are published under this topic:
+
+* **call\_start**\
+  Triggered when an extension receives an incoming call. The initial call information is packaged into a JSON object and delivered to the subscriber.
+* **call\_update\_info**\
+  Published when call-related information changes (such as call state or routing updates). The updated call information is packaged into a JSON object and pushed to the subscriber.
+* **call\_cdr**\
+  Sent immediately after a call ends. The final CDR (Call Detail Record) is packaged into a JSON object and delivered to the subscriber.
+
+For a detailed explanation of the CDR JSON structure, please refer to the [Event Reference](../webhook-notifications/event-reference.md) section.
 
 ### queue\_management\_events
 
