@@ -284,18 +284,32 @@ The following message types are published under this topic:
 
 For a detailed explanation of the CDR JSON structure, please refer to the [Event Reference](../webhook-notifications/event-reference.md) section.
 
-### queue\_management\_events
+***
 
-The tenant Admin and Queue Manager have permission to subscribe to the `queue_management_events`. Once successfully subscribed, the PBX will push all current queue information to the subscriber. After that, during the subscription, whenever a queue is updated, deleted, or added, the subscriber will receive the queue information in real-time.
+### **queue\_management\_events**
 
-Below are the message keys.
+Tenant Administrators and Queue Managers are authorized to subscribe to the `queue_management_events` topic.\
+After successfully subscribing, the PBX immediately pushes all existing queue information to the subscriber.\
+Thereafter, any time a queue is **created**, **updated**, or **deleted**, the PBX sends real-time notifications with the corresponding queue details.
 
-* event\_type: Indicates the event type, it can have the following values:
-  * queue\_created
-  * queue\_updated
-  * queue\_destroy
-* queue\_number: The extension number of the queue.
-* tenant\_id: The ID of the tenant to which this queue belongs.
+#### **Permission**
+
+Users with either of the following permissions are allowed to subscribe to this event:
+
+* **Analytics: View Only**
+* **Analytics: Full Access**
+
+#### **Message Keys**
+
+* **event\_type**\
+  Identifies the queue-related event type. Possible values:
+  * `queue_created`
+  * `queue_updated`
+  * `queue_destroy`
+* **queue\_number**\
+  The extension number assigned to the queue.
+* **tenant\_id**\
+  The ID of the tenant that owns the queue.
 
 ```json
 {
@@ -305,20 +319,40 @@ Below are the message keys.
 }
 ```
 
-### queue\_events
+***
 
-Once the queue status is changed, for example, the caller who is in the queue has hung up the call, or the caller who is in the queue is answered by an agent, the related status information will be pushed to the subscribers. The message topic is **queue\_events.**&#x20;
+### **queue\_events**
 
-Below are the message keys.
+The `queue_events` topic delivers real-time updates whenever a queue’s status changes.\
+For example, if a caller waiting in the queue hangs up, or if an agent answers a queued call, the PBX immediately pushes the updated queue status to all subscribers.
 
-* **queue\_status**: If a subscriber successfully subscribed to queue events, the PBX will push the queue’s current status to the subscriber for all waiting for callers and agents. The `type` indicates that the waiting caller is active or is scheduled for a callback. The state of the agent can have the following values:
-  * **Ready**: The agent is ready to accept ACD calls.
-  * **Queue Call**: The agent is on an ACD call.
-  * **Wrap Up**: The agent is in ACW (After Call Work).
-  * **Other Call**: The agent is on a non-ACD call.
-  * **Not Ready**: The agent is not ready to accept ACD calls.
-  * **Online**: The agent has logged out of the queue
-  * **Offline**: The agent is offline from the PBX.
+#### **Permission**
+
+Users with either of the following permissions are allowed to subscribe to this event:
+
+* **Analytics: View Only**
+* **Analytics: Full Access**
+
+#### **Message Keys**
+
+* **queue\_status**\
+  After a successful subscription, the PBX sends the current status of the queue—including all waiting callers and all agents assigned to the queue.\
+  Each caller entry indicates whether the caller is actively waiting or scheduled for a callback.\
+  Each agent entry includes the agent’s current state, which may be one of the following:
+  * **Ready**\
+    The agent is available to receive ACD calls.
+  * **Queue Call**\
+    The agent is currently handling an ACD (queue) call.
+  * **Wrap Up**\
+    The agent is in After Call Work (ACW).
+  * **Other Call**\
+    The agent is on a non-ACD call.
+  * **Not Ready**\
+    The agent is not available to receive ACD calls.
+  * **Online**\
+    The agent has logged out of the queue.
+  * **Offline**\
+    The agent is offline from the PBX.
 
 ```json
 {
@@ -350,12 +384,21 @@ Below are the message keys.
 }
 ```
 
-* **queue\_caller\_status**: if the waiting callers of a queue were changed, the PBX will push the **queue\_caller\_status** event in JSON format to the subscribers. The reason can be:
-  * **enqueue**: This caller has just connected with the queue and is now on the waiting list.
-  * **agent\_answered**: The caller left the queue since it was answered by an agent.
-  * **overflow**: The caller reached the maximum waiting time of the queue and was forwarded to the overflow destination.
-  * **hangup**: The caller hung up.
-  * **callback**: The caller has successfully scheduled a callback.
+*   **queue\_caller\_status**\
+    The `queue_caller_status` event is published whenever the list of waiting callers in a queue changes.
+
+    This message is delivered in JSON format and is triggered for any of the following reasons:
+
+    * **enqueue**\
+      The caller has just entered the queue and is now on the waiting list.
+    * **agent\_answered**\
+      The caller has exited the queue because an agent answered the call.
+    * **overflow**\
+      The caller has reached the configured maximum waiting time and was routed to the queue’s overflow destination.
+    * **hangup**\
+      The caller hung up while waiting in the queue.
+    * **callback**\
+      The caller successfully scheduled a callback request.
 
 ```json
 {
@@ -375,7 +418,13 @@ Below are the message keys.
 }
 ```
 
-* **queue\_agent\_status**: If an agent’s status in the queue changes, or a new agent is added to the queue, or an existing agent is removed from the queue, the PBX will push the **queue\_agent\_status** event in JSON format to the subscribers. The **removed\_agents** field indicates the agents that have been newly removed from the queue.
+*   **queue\_agent\_status**\
+    The `queue_agent_status` key provides real-time updates about agents assigned to a queue.\
+    Whenever an agent’s status changes, a new agent is added to the queue, or an existing agent is removed, the PBX publishes an updated `queue_agent_status` list in JSON format to all subscribers.
+
+    The **queue\_agent\_status** list contains the current agent status entries for the queue.
+
+    In addition, the **removed\_agents** field lists any agents that were newly removed from the queue since the previous update.
 
 ```json
 {
@@ -400,7 +449,9 @@ Below are the message keys.
 }
 ```
 
-* **queue\_sla\_breached**: If a caller is waiting in the queue and the SLA is breached, the PBX will push a notification to subscribers in JSON format indicating that the queue SLA has been breached.
+* **queue\_sla\_breached**\
+  The `queue_sla_breached` key indicates that a caller has waited in the queue long enough to exceed the configured Service Level Agreement (SLA).\
+  When an SLA breach occurs, the PBX sends a JSON-formatted notification to all subscribers, informing them that the queue’s SLA threshold has been violated.
 
 ```json
 {
