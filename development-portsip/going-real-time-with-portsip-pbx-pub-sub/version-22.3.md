@@ -13,6 +13,17 @@ PBX System Administrators with either of the following permissions are allowed t
 * **System Tenant: View Only**
 * **System Tenant: Full Access**
 
+### **extension\_management\_events**
+
+Tenant users can subscribe to the `extension_management_events` topic to receive instant notifications whenever an extension is created, updated, or deleted within a tenant.
+
+#### **Permission**&#x20;
+
+Tenant users with either of the following permissions are allowed to subscribe to this event:
+
+* **User: View Only**
+* **User: Full Access**
+
 #### **Message Keys**
 
 Each published message includes the following keys:
