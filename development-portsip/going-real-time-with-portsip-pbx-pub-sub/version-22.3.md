@@ -10,8 +10,8 @@ System Administrators can subscribe to the `global_extension_management_events` 
 
 PBX System Administrators with either of the following permissions are allowed to subscribe to this event:
 
-* **System Tenant:** View Only
-* **System Tenant:** Full Access
+* **System Tenant: View Only**
+* **System Tenant: Full Access**
 
 #### **Message Keys**
 
