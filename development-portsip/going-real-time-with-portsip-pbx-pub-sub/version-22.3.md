@@ -8,7 +8,7 @@ System Administrators can subscribe to the `global_extension_management_events` 
 
 #### **Permission**&#x20;
 
-PBX System Administrators with either of the following permissions are allowed to subscribe to this event:
+PBX System Administrators with one of the following permissions are allowed to subscribe to this event:
 
 * **System Tenant: View Only**
 * **System Tenant: Full Access**
@@ -19,7 +19,7 @@ Tenant users can subscribe to the `extension_management_events` topic to receive
 
 #### **Permission**&#x20;
 
-Tenant users with either of the following permissions are allowed to subscribe to this event:
+Tenant users with one of the following permissions are allowed to subscribe to this event:
 
 * **User: View Only**
 * **User: Full Access**
@@ -73,7 +73,7 @@ System Administrators can subscribe to **global\_extension\_events** topic to re
 
 #### **Permission**
 
-System Administrators with either of the following permissions are allowed to subscribe to this event:
+System Administrators with one of the following permissions are allowed to subscribe to this event:
 
 * **System Tenant:** View Only
 * **System Tenant:** Full Access
@@ -84,10 +84,11 @@ All extension-related event messages **within a tenant** are published under the
 
 #### **Permission**
 
-Tenant users with either of the following permissions are allowed to subscribe to this event:
+Tenant users with one of the following permissions are allowed to subscribe to this event:
 
 * **Users: View Only**
-* **Users: Full Access**
+* **PhoneSystem: View Only**
+* **PhoneSystem: Full Access**
 
 The **event\_type** key identifies the specific message type, as described below.
 
@@ -290,7 +291,7 @@ System Administrators can subscribe to **global\_cdr\_events** topic to receive 
 
 #### **Permission**
 
-System Administrators with either of the following permissions are allowed to subscribe to this event:
+System Administrators with one of the following permissions are allowed to subscribe to this event:
 
 * **System Tenant:** View Only
 * **System Tenant:** Full Access
@@ -301,7 +302,7 @@ The `cdr_events` topic delivers real-time Call Detail Record (CDR) notifications
 
 #### **Permission**
 
-Tenant users with either of the following permissions are allowed to subscribe to this event:
+Tenant users with one of the following permissions are allowed to subscribe to this event:
 
 * **Analytics: View Only**
 * **Analytics: Full Access**
@@ -327,7 +328,7 @@ Thereafter, any time a queue is **created**, **updated**, or **deleted**, the PB
 
 #### **Permission**
 
-System Administrators with either of the following permissions are allowed to subscribe to this event:
+System Administrators with one of the following permissions are allowed to subscribe to this event:
 
 * **System Tenant:** View Only
 * **System Tenant:** Full Access
@@ -340,7 +341,7 @@ Thereafter, any time a queue is **created**, **updated**, or **deleted**, the PB
 
 #### **Permission**
 
-Tenant users with either of the following permissions are allowed to subscribe to this event:
+Tenant users with one of the following permissions are allowed to subscribe to this event:
 
 * **Analytics: View Only**
 * **Analytics: Full Access**
@@ -374,7 +375,7 @@ For example, if a caller waiting in the queue hangs up, or if an agent answers a
 
 #### **Permission**
 
-System Administrators with either of the following permissions are allowed to subscribe to this event:
+System Administrators with one of the following permissions are allowed to subscribe to this event:
 
 * **System Tenant:** View Only
 * **System Tenant:** Full Access
@@ -386,7 +387,7 @@ For example, if a caller waiting in the queue hangs up, or if an agent answers a
 
 #### **Permission**
 
-Tenant users with either of the following permissions are allowed to subscribe to this event:
+Tenant users with one of the following permissions are allowed to subscribe to this event:
 
 * **Analytics: View Only**
 * **Analytics: Full Access**
