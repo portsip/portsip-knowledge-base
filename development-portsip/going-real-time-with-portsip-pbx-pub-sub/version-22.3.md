@@ -11,7 +11,6 @@ System Administrators can subscribe to the `global_extension_management_events` 
 PBX System Administrators with one of the following permissions are allowed to subscribe to this event:
 
 * **System Tenant: View Only**
-* **System Tenant: Full Access**
 
 ### **extension\_management\_events**
 
@@ -22,7 +21,6 @@ Tenant users can subscribe to the `extension_management_events` topic to receive
 Tenant users with one of the following permissions are allowed to subscribe to this event:
 
 * **User: View Only**
-* **User: Full Access**
 
 #### **Message Keys**
 
@@ -76,7 +74,6 @@ System Administrators can subscribe to **global\_extension\_events** topic to re
 System Administrators with one of the following permissions are allowed to subscribe to this event:
 
 * **System Tenant:** View Only
-* **System Tenant:** Full Access
 
 ### **extension\_events**
 
@@ -88,7 +85,6 @@ Tenant users with one of the following permissions are allowed to subscribe to t
 
 * **Users: View Only**
 * **PhoneSystem: View Only**
-* **PhoneSystem: Full Access**
 
 The **event\_type** key identifies the specific message type, as described below.
 
@@ -294,7 +290,6 @@ System Administrators can subscribe to **global\_cdr\_events** topic to receive 
 System Administrators with one of the following permissions are allowed to subscribe to this event:
 
 * **System Tenant:** View Only
-* **System Tenant:** Full Access
 
 ### **cdr\_events**
 
@@ -330,8 +325,7 @@ Thereafter, any time a queue is **created**, **updated**, or **deleted**, the PB
 
 System Administrators with one of the following permissions are allowed to subscribe to this event:
 
-* **System Tenant:** View Only
-* **System Tenant:** Full Access
+* **System Tenant: View Only**
 
 ### **queue\_management\_events**
 
@@ -344,7 +338,6 @@ Thereafter, any time a queue is **created**, **updated**, or **deleted**, the PB
 Tenant users with one of the following permissions are allowed to subscribe to this event:
 
 * **Analytics: View Only**
-* **Analytics: Full Access**
 
 #### **Message Keys**
 
@@ -377,8 +370,7 @@ For example, if a caller waiting in the queue hangs up, or if an agent answers a
 
 System Administrators with one of the following permissions are allowed to subscribe to this event:
 
-* **System Tenant:** View Only
-* **System Tenant:** Full Access
+* **System Tenant: View Only**
 
 ### **queue\_events**
 
@@ -390,7 +382,6 @@ For example, if a caller waiting in the queue hangs up, or if an agent answers a
 Tenant users with one of the following permissions are allowed to subscribe to this event:
 
 * **Analytics: View Only**
-* **Analytics: Full Access**
 
 #### **Message Keys**
 
