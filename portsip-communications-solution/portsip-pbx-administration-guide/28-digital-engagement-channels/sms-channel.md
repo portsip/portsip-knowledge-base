@@ -31,7 +31,7 @@ Before configuring the SMS channel in PortSIP PBX, make sure your SMS service is
 
     * [SSL Checker](https://www.sslchecker.com/sslchecker)
     * [SSL Shopper](https://www.sslshopper.com/ssl-checker.html)
-    * [Key CDN SSL Checker](https://tools.keycdn.com/ssl)
+    * [Key Cdn SSL Checker](https://tools.keycdn.com/ssl)
 
     If your certificate is not a full-chain SSL certificate, contact your SSL certificate provider to have it corrected.
 
