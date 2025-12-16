@@ -19,11 +19,11 @@ If you’re using any of these providers, setting up the SMS channel with PortSI
 
 If your favorite SIP trunk provider for SMS is not listed above, feel free to [email us with your request](mailto:support@portsip.com), and we’ll explore the possibility of integrating it with PortSIP PBX.
 
-### Preparing to Configure SMS in PortSIP PBX
+### 1. Preparing to Configure SMS in PortSIP PBX
 
 Before configuring the SMS channel in PortSIP PBX, make sure your SMS service is fully set up with your SIP trunk provider by following the steps outlined in the [_Configuring SIP Trunks_](../../configuring-sip-trunks/) guide.
 
-### **Full Chain SSL Certificates**
+### **2. Full Chain SSL Certificates**
 
 *   To ensure successful webhook verification by the SMS provider, your PortSIP PBX must be configured with a **trusted, full-chain SSL certificate**.
 
@@ -34,13 +34,13 @@ Before configuring the SMS channel in PortSIP PBX, make sure your SMS service is
 
     If your certificate is not a full-chain SSL certificate, contact your SSL certificate provider to have it corrected.
 
-### Configuring the SMS Channel in PortSIP PBX
+### 3. Configuring the SMS Channel in PortSIP PBX
 
-In this article, we demonstrate configure SMS integration with PortSIP PBX. For QuestBlue trunk, the DID number _**12172074422**_ will route inbound SMS messages to extension 1001.&#x20;
+In this article, we demonstrate configure SMS integration with PortSIP PBX. For the [QuestBlue ](https://www.questblue.com)trunk, the DID number _**12172074422**_ will route inbound SMS messages to extension 1001.&#x20;
 
-First, ensure you have completed this setup: QuestBlue SMS Integration.
+First, ensure you have completed this setup: [QuestBlue SMS Integration](../../configuring-sip-trunks/questblue-sip-trunk/questblue-sms-integration.md).
 
-### Creating an Inbound Rule for SMS
+### 4. Creating an Inbound Rule for SMS
 
 1. Sign in to the PortSIP PBX web portal.
 2. Navigate to **Call Manager > Inbound Rules** and click the **Add** button.
@@ -59,13 +59,13 @@ Now, register the PortSIP ONE app to the PBX using extension 1001. Once register
 With the above inbound rule, calls to the DID +12172074422 will also be routed to extension 1001.
 {% endhint %}
 
-### Sending Outbound SMS
+### 5. Sending Outbound SMS
 
-With the PortSIP ONE app, you can send outbound SMS messages through PortSIP PBX. If you have registered a Sender ID with your trunk provider and wish to enable the extension to send outbound SMS displaying this Sender ID, make sure to specify the Sender ID in the SMS settings in the PortSIP PBX web portal, as shown below. For the Sender ID, please refer to: [The Alphanumeric Sender ID.](https://www.twilio.com/docs/glossary/what-alphanumeric-sender-id) More details please consult to your SMS provider.
+With the PortSIP ONE app, you can send outbound SMS messages through PortSIP PBX. If you have registered a Sender ID with your trunk provider and wish to enable the extension to send outbound SMS displaying this Sender ID, make sure to specify the Sender ID in the SMS settings in the PortSIP PBX web portal, as shown below. For the Sender ID, please refer to: [The Alphanumeric Sender ID.](https://www.twilio.com/docs/glossary/what-alphanumeric-sender-id) For more details, please consult your SMS provider.
 
 <figure><img src="../../../.gitbook/assets/sms_sender_id.png" alt=""><figcaption></figcaption></figure>
 
-#### Granting SMS Permissions to an Extension
+#### 5.1 Granting SMS Permissions to an Extension
 
 By default, extensions are not permitted to send SMS. To enable an extension to send outbound SMS, the tenant administrator must grant permission. Follow these steps to allow SMS for an extension:
 
@@ -73,7 +73,7 @@ By default, extensions are not permitted to send SMS. To enable an extension to 
 2. Navigate to **Call Manager > Users**, double-click the desired extension, and go to the **Extension** tab.
 3. Under the **Send SMS/MMS** option, select **Allow** or **Allow Send SMS with Sender ID**.
 
-#### Configuring Outbound Caller ID for SMS
+#### 5.2 Configuring Outbound Caller ID for SMS
 
 In the **Outbound Caller ID** section, you can set up the outbound Caller ID for the extension:
 
@@ -93,7 +93,7 @@ Refer to the screenshot below for further guidance.
 
 <figure><img src="../../../.gitbook/assets/extension_sms_sender_id_1.png" alt=""><figcaption></figcaption></figure>
 
-#### Sending an SMS to a Contact
+#### 5.3 Sending an SMS to a Contact
 
 To send an SMS to a contact using the PortSIP ONE app:
 
@@ -105,7 +105,7 @@ To send an SMS to a contact using the PortSIP ONE app:
 
 <figure><img src="../../../.gitbook/assets/portsip_pbx_sms2.png" alt=""><figcaption></figcaption></figure>
 
-#### Sending an SMS Directly to a Phone Number
+#### 5.4 Sending an SMS Directly to a Phone Number
 
 To send an SMS directly to a contact's phone number using the PortSIP ONE app, follow these steps:
 
