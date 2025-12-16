@@ -21,6 +21,7 @@ To integrate WhatsApp Business with PortSIP PBX, ensure the following requiremen
 
        * [SSL Checker](https://www.sslchecker.com/sslchecker)
        * [SSL Shopper](https://www.sslshopper.com/ssl-checker.html)
+       * [Key CDN SSL Checker](https://tools.keycdn.com/ssl)
 
        If your certificate is not a full-chain SSL certificate, contact your SSL certificate provider to have it corrected.
 

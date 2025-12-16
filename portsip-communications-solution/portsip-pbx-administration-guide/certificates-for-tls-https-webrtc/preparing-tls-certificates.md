@@ -90,7 +90,15 @@ mv cert.pem portsip.pem
 After completing this step, you should have two final certificate files:
 
 * **Certificate file:** `portsip.pem`
-* **Private key file:** `portsip.key`
+* **Private key file:** `portsip.key`&#x20;
+
+You can verify whether your SSL certificate is trusted and includes the complete certificate chain using one of these tools:
+
+* [SSL Checker](https://www.sslchecker.com/sslchecker)
+* [SSL Shopper](https://www.sslshopper.com/ssl-checker.html)
+* [Key CDN SSL Checker](https://tools.keycdn.com/ssl)
+
+If your certificate is not a full-chain SSL certificate, contact your SSL certificate provider to have it corrected.
 
 ***
 
