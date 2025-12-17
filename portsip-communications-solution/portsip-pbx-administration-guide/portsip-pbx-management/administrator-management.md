@@ -1,119 +1,207 @@
 # Administrator Management
 
-If you have already completed the configurations in the [**Installation of the PortSIP PBX**](../1-installation-of-the-portsip-pbx/) step, please skip this article.
+### Built-in System Administrator
 
-Once the PortSIP PBX is successfully installed, you can access the web portal by opening your browser and navigating to [**https://66.175.221.120:8887**](https://66.175.221.120:8887). If your browser displays an SSL certificate warning, you may safely ignore it and proceed. You will then be directed to the login page, as shown in the screenshot below.
+By default, the PBX creates a built-in **System Administrator** account with the username **admin**.
 
-<figure><img src="../../../.gitbook/assets/login-1.png" alt="" width="321"><figcaption></figcaption></figure>
+You can view this account by navigating to **Administrators** in the PBX web portal menu. Select the **admin** account and click **Edit** to configure its **Email Address** and **Display Name**.
 
-Click on **"Sign in as the administrator or dealer"** to navigate to the administrator login page, as shown in the screenshot below. Enter **admin** as both the username and password to log in to the web portal.
+To change the administrator’s login name or personal profile information, click the **profile picture** in the upper-right corner of the web portal and update the profile settings.
 
-<figure><img src="../../../.gitbook/assets/login-2.png" alt="" width="320"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/portsip_pbx_administrators_1.png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="danger" %}
-Please change the default password of the admin after you log in.
-{% endhint %}
+***
 
-After successfully logging in to the PBX Web Portal, the dashboard will appear as shown in the screenshot below.
+### Administrator Roles
 
-<figure><img src="../../../.gitbook/assets/pbx_admin_portal.png" alt=""><figcaption></figcaption></figure>
+Starting with **PortSIP PBX v22.3**, the system supports **multiple System Administrators** and introduces **role-based access control (RBAC)** for administrators.
 
-## Setup Wizard
+The PBX includes three predefined administrator roles, each designed for different operational responsibilities.
 
-If the setup wizard has not been completed, it will launch automatically upon logging into the web portal. Some settings are required to get the PBX operational.
+#### System Admin
 
-### **Step 1: Network Environment**
+The **System Admin** has the **highest level of privilege** in the PBX.
 
-* If the PBX server has a static public IP address, enter it in the **Public IPv4** field. If the server does not have a static public IP, leave the **Public IPv4** field blank.
-* You must enter the private IPv4 address. If the server does not have a private IP, use the public IP address instead.
-* The IP addresses must be accessible by your SIP client, as the IP address entered here will serve as the SIP server IP for the PBX. This address is essential when a SIP client or IP phone registers to PortSIP PBX and should be configured as the **Outbound Proxy Server**.
-* If the PBX is deployed in the cloud, both **Private IPv4** and **Public IPv4** must be entered. If the PBX is on a LAN, only the **Private IPv4** should be entered.
+* Full access to all system functions and settings
+* Can manage all administrators, roles, users, tenants, trunks, and system configurations
+* Can create additional System Administrators
 
-{% hint style="info" %}
-The loopback interface (127.0.0.1) is unacceptable for the private IP. Only the static IP for the LAN where the PBX is located is allowed (do not use DHCP dynamic IP).&#x20;
-{% endhint %}
+> ⚠️ **Best Practice:** Creating multiple System Administrators should be done with caution and limited to trusted personnel only.
 
-<figure><img src="../../../.gitbook/assets/setup_wizard_1.png" alt=""><figcaption></figcaption></figure>
+***
 
-### Step 2: SSL Certificate
+#### Operation Admin
 
-To enable TLS transport for SIP and secure HTTPS access to the Web Portal and REST API, a trusted SSL certificate must be uploaded to the PBX during this step.
+The **Operation Admin** has slightly fewer privileges than the System Admin and is intended for day-to-day operational management.
 
-* You'll need to have a web domain. For example, you can purchase a domain from a provider like GoDaddy and point it to your PBX IP address.
-* Additionally, you must purchase a trusted SSL certificate for this domain to avoid browser warnings. Recommended certificate providers include Digicert, GeoTrust, GoDaddy, or others.
-* If you do not have a domain or SSL certificate, you can simply use the PBX IP address as the **Web Domain** and proceed with the default certificate. However, note that PortSIP PBX uses a self-signed certificate by default, which will cause most browsers to block the connection and display a security warning.
+* Has full access to most PBX management functions
+* **Does not** have access to:
+  * System.Settings
+  * System.Users
+  * System.Roles
+  * System.Integrations
 
-Please follow up on this guide for purchasing the SSL certificate: [Preparing TLS Certificates for TLS/HTTPS/WebRTC](../certificates-for-tls-https-webrtc/).
+All other permissions are equivalent to those of the System Admin.
 
-You have two certificate files.
+***
 
-* portsip.key
-* portsip.pem
+#### Site Admin
 
-To configure the certificates:
+The **Site Admin** has fewer privileges than the Operation Admin and is typically used for site-level or delegated administration.
 
-1. In the **Web Domain** field, enter **uc.portsip.cc**.
-2. Open the **portsip.pem** file in a text editor like Windows Notepad, and copy its entire contents into the **Certificate File** field.
-3. Similarly, open the **portsip.key** file, and copy its entire contents into the **Private Key File** field.
+The Site Admin has access to the following permissions:
 
-<figure><img src="../../../.gitbook/assets/setup_wizard_2.png" alt=""><figcaption></figcaption></figure>
+* System.Information (View Only)
+* Analytics (Full Access)
+* System.Tenants
+* Trunks (Full Access)
+* System.Dealers
+* System.Features
 
-### Step 3: Transport Protocol
+This role is suitable for administrators who manage specific tenants or operational areas without full system control.
 
-You can configure the transport layer protocol for SIP signaling by clicking the **Add** button. The default transport ports are:
+***
 
-* **UDP:** 5060
-* **TCP:** 5063
-* **TLS:** 5061
+#### Viewing Role Permissions
 
-You are free to change these default ports to any preferred port, but ensure that the new port is not already in use by other applications.
+You can view the detailed permissions assigned to each administrator role by navigating to the menu:
 
-{% hint style="danger" %}
-After adding a new transport protocol, be sure to update your firewall rules to allow traffic on the newly assigned transport port. The IP Phone client app will use this transport and port to connect to the PBX.
-{% endhint %}
+**Advanced > Roles**
 
-<figure><img src="../../../.gitbook/assets/setup_wizard_3.png" alt=""><figcaption></figcaption></figure>
+***
 
-### Step 4: System Notifications
+### Creating New Roles
 
-To enable email notifications in PortSIP PBX for system alerts, you must configure the SMTP settings.
+In addition to the predefined roles, you can create **custom administrator roles** to meet your specific operational requirements.
 
-**Google**
+To create a new role:
 
-If you’re using Google’s SMTP server, ensure that **less secure apps** is enabled for your Gmail account. For more details, refer to Google's documentation:
+1. Navigate to **Advanced > Roles**
+2. Click **Add**
+3. Enter a **Role Name** and **Description**
+4. Assign at least one permission to the role
+5. Click **OK** to create the role
 
-[Less secure apps & your Google Account ](https://support.google.com/accounts/answer/6010255?hl=en)
+<figure><img src="../../../.gitbook/assets/portsip_pbx_administrators_2.png" alt=""><figcaption></figcaption></figure>
 
-Additionally, you’ll need to select either SSL or TLS as the security protocol for the Google SMTP server. Use the following settings:
+***
 
-* SMTP Server: smtp.gmail.com
-* Port: 587
-* Username: The username of the SMTP server
-* Password: Your password
-* Sender Email: The sender's email address
-* Use TLS: ON
+### Creating a New Administrator
 
-**Microsoft 365**
+You can create additional administrators and assign different roles to distribute management responsibilities more effectively.
 
-If you’re using the Microsoft 365 SMTP server, SSL or TLS must also be selected as the security protocol. Use the following settings:
+To create a new administrator:
 
-* SMTP Server: smtp.office365.com
-* Port: 587
-* Username: The username of the SMTP server
-* Password: Your password
-* Sender Email: The sender's email address
-* Use TLS: ON
+1. Navigate to **Administrators**
+2. Click **Add**
+3. Enter the **Display Name**, **Username**, **Password**, **Email Address**, and other required information
+4. Select an appropriate **Role** for the administrator
+5. Click **OK** to complete the creation
 
-Once a critical event occurs in the PBX, alert emails will be sent to the specified **Recipients**.
+<figure><img src="../../../.gitbook/assets/portsip_pbx_administrators_3.png" alt=""><figcaption></figcaption></figure>
 
-## **Reboot to Apply the Certificate**
+After the administrator is successfully created, they can sign in to the PBX web portal and manage the system according to the permissions granted by their assigned role.
 
-If you uploaded a trusted certificate in  [Step 2: Certificate File](administrator-management.md#step-2-certificate-file) (instead of the default self-signed certificate), you need to restart the PBX to apply the certificate. Use the following commands to reboot the PBX:
+***
 
-```
-cd /opt/portsip
-/bin/sh pbx_ctl.sh restart
-```
+### Permission List
 
-For Windows, just simply restart the server.
+The following section provides a **detailed explanation of each administrator permission**, including access levels and functional scope.
+
+#### System.Information
+
+* **View Only**\
+  Allows viewing system status, version information, license details, and basic platform health data. No configuration changes are permitted.
+
+***
+
+#### Analytics
+
+* **View Only**\
+  Allows access to dashboards and reports for monitoring system usage, call statistics, and performance metrics.
+* **Full Access**\
+  Allows configuring analytics settings, creating or modifying reports, dashboards, filters, and exporting data.
+
+***
+
+#### System.Dealers
+
+* **View Only**\
+  Allows viewing dealers and associated information without making changes.
+* **Full Access**\
+  Allows creating, editing, disabling, or deleting dealers and managing dealer-related settings.
+
+***
+
+#### System.Tenants
+
+* **View Only**\
+  Allows viewing tenant information and configuration details without modification.
+* **Full Access**\
+  Allows creating, editing, disabling, and deleting tenants, as well as managing tenant-level settings.
+
+***
+
+#### Integrations
+
+* **View Only**\
+  Allows viewing configured integrations and their status.
+* **Full Access**\
+  Allows configuring, modifying, enabling, or disabling integrations with external systems and services.
+
+***
+
+#### System.Devices
+
+* **View Only**\
+  Allows viewing of the phone device templates.
+* **Full Access**\
+  Allows adding and editing phone device templates.
+
+***
+
+#### Trunks
+
+* **View Only**\
+  Allows viewing trunk configurations, status, and usage information.
+* **Full Access**\
+  Allows creating, editing, enabling, disabling, and deleting trunks settings.
+
+***
+
+#### Features
+
+* **View Only**\
+  Allows viewing system features such as Audit Trail, Events.
+* **Full Access**\
+  Allows managing system features such as Audit Trail, Events.
+
+***
+
+#### System Settings
+
+* **View Only**\
+  Allows viewing global system configuration and parameters.
+* **Full Access**\
+  Allows modifying global system settings that affect platform behavior and services.
+
+***
+
+#### Roles
+
+* **View Only**\
+  Allows viewing existing roles and their assigned permissions.
+* **Full Access**\
+  Allows creating, editing, and deleting roles and configuring permission assignments.
+
+***
+
+#### Users
+
+* **View Only**\
+  Allows viewing of administrators and related information.
+* **Full Access**\
+  Allows creating, editing, disabling, and deleting administrators, and managing their settings.
+
+
 

@@ -30,7 +30,7 @@
       * [Upgrade v16.x to the Latest v22.x on Linux](portsip-communications-solution/portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.2/upgrade-v16.x-to-the-latest-v22.x-on-linux.md)
     * [Installation of PortSIP PBX v16.x](portsip-communications-solution/portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v16/README.md)
       * [Upgrade to the Latest v16.x Release](portsip-communications-solution/portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v16/upgrade-portsip-pbx-to-v16.x.md)
-  * [PortSIP PBX Management](portsip-communications-solution/portsip-pbx-administration-guide/portsip-pbx-management/README.md)
+  * [PortSIP PBX Management](portsip-communications-solution/portsip-pbx-administration-guide/2-configuring-the-portsip-pbx.md)
     * [Configuring the PortSIP PBX](portsip-communications-solution/portsip-pbx-administration-guide/portsip-pbx-management/configuring-the-portsip-pbx.md)
     * [Administrator Management](portsip-communications-solution/portsip-pbx-administration-guide/portsip-pbx-management/administrator-management.md)
   * [3 Tenant Management](portsip-communications-solution/portsip-pbx-administration-guide/3-tenant-management/README.md)
