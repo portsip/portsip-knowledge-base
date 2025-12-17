@@ -15,7 +15,7 @@ A server can only deploy one type of PortSIP server at a time. For instance, it'
 
 ## Setup the PortSIP PBX
 
-Before configuring the cluster servers, please ensure that you have completed the PBX installation and configuration on the **Main Server** by following the guide for [Installation of the PortSIP PBX](../portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22/) to install it.
+Before configuring the cluster servers, please ensure that you have completed the PBX installation and configuration on the **Main Server** by following the guide for [Installation of the PortSIP PBX](../portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.2/) to install it.
 
 {% hint style="danger" %}
 Note: In this step, just need to install the PBX only, is no need to install the IM server at this stage, as it will be installed later in this guide.
@@ -394,8 +394,6 @@ Go to the IM server, and perform the below commands to restart the service (**pl
 cd /opt/portsip
 sudo /bin/sh im_ctl.sh restart
 ```
-
-
 
 ## SBC Cluster
 
