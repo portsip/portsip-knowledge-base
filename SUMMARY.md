@@ -35,6 +35,7 @@
     * [Administrator Management](portsip-communications-solution/portsip-pbx-administration-guide/2-portsip-pbx-management/administrator-management.md)
   * [3 Tenant Management](portsip-communications-solution/portsip-pbx-administration-guide/3-tenant-management/README.md)
     * [Password and Sign-In Security](portsip-communications-solution/portsip-pbx-administration-guide/3-tenant-management/3-tenant-management.md)
+    * [Tenant Feature Management](portsip-communications-solution/portsip-pbx-administration-guide/3-tenant-management/tenant-feature-management.md)
   * [4 Phone Device Management](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/README.md)
     * [Managing Phones](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/managing-phones.md)
     * [Auto Provisioning Security](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/auto-provisioning-security.md)
