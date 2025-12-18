@@ -309,14 +309,11 @@ Depending on the selected **Type**, configure one of the following:
 You can specify:
 
 * A **semicolon-separated list** of values\
-  Example:\
-  `101;102;103`
+  Example: `101;102;103`
 * A **number range**\
-  Example:\
-  `860000–880000`
+  Example: `860000–880000`
 * A **wildcard pattern** using asterisks (`*`)\
-  Example:\
-  `*****` (matches any 5-digit DTMF input)
+  Example: `*****` (matches any 5-digit DTMF input)
 
 Each entry must be **unique** and must not be duplicated.
 
@@ -328,11 +325,11 @@ Each entry must be **unique** and must not be duplicated.
 
 ***
 
-### HTTP Request Behavior
+#### HTTP Request Behavior
 
 Once an Action URL rule is triggered, the Virtual Receptionist sends an HTTP request to the configured WebHook server.
 
-#### Authentication
+**Authentication**
 
 You may optionally configure:
 
