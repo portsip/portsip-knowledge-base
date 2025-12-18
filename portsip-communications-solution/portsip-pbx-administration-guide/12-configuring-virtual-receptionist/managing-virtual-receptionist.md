@@ -174,23 +174,23 @@ Using the sample shown below, the virtual receptionist’s welcome message will 
 
 ***
 
-### Direct Destination vs. IVR Node
+#### Direct Destination vs. IVR Node
 
-For **simple virtual receptionist configurations**, using a **direct destination** is often the most straightforward and effective option.\
-For virtual receptionists that require **advanced IVR logic, complex call flows, or integrations**, it is recommended to use an **IVR node**.
+For simple virtual receptionist configurations, using a direct destination is often the most straightforward and effective option.\
+For virtual receptionists that require advanced IVR logic, complex call flows, or integrations, it is recommended to use an IVR node.
 
 ***
 
-### Direct Destination Behavior
+#### Direct Destination Behavior
 
 Once direct destination mappings are configured, the system automatically dials the associated destination when the caller enters the corresponding DTMF input.
 
 **Example:**\
-As shown in the screenshot above, when a caller presses **2**, the call is routed to **extension 8001**.
+As shown in the screenshot above, when a caller presses 2, the call is routed to extension 8001.
 
 ***
 
-### Using the Pound Sign (#) Delay
+#### Using the Pound Sign (#) Delay
 
 By appending a **pound sign (#)** to a direct destination (for example, `2#`), the system waits **3 seconds** before dialing the destination.
 
@@ -199,9 +199,9 @@ The 3-second pause ensures the system collects the **entire user input** (for ex
 
 ***
 
-### User Input Considerations
+#### User Input Considerations
 
-The **User Input** value can consist of **one or multiple digits**. By default, the system dials a direct destination **immediately after the caller finishes entering the keypad input**.
+The User Input value can consist of one or multiple digits. By default, the system dials a direct destination immediately after the caller finishes entering the keypad input.
 
 This behavior can cause conflicts when:
 
@@ -212,7 +212,7 @@ In this scenario, the system cannot distinguish whether the caller intends to re
 
 ***
 
-### Best Practices to Avoid Conflicts
+#### Best Practices to Avoid Conflicts
 
 To prevent overlap issues:
 
@@ -225,7 +225,7 @@ By appending a **pound sign (#)** to the direct destination (for example, `1#`),
 
 ***
 
-### Destination Extension
+#### Destination Extension
 
 The **Destination Extension** can be any valid internal destination, including:
 
@@ -234,24 +234,6 @@ The **Destination Extension** can be any valid internal destination, including:
 * Other internal system numbers
 
 ***
-
-#### Why This Version Is Better
-
-
-
-
-
-
-
-For simple virtual receptionist configurations, a direct destination is an excellent choice. However, for virtual receptionists that require advanced IVR development and functionality, the use of an IVR node is advised.
-
-Once the direct destination links are set up, the system will dial the destination number whenever a caller inputs the number associated with it. For instance as in the above screenshot, if a caller presses **2**, the call will be routed to extension **8001**.
-
-By appending a pound sign to the direct destination (e.g., "2#"), the system will pause for 3 seconds before dialing the direct destination. This feature is particularly useful for extension numbers in the 100 range (101, 102, etc.). The 3-second delay ensures that the system processes the caller’s complete input (e.g., 101) rather than just the first digit.
-
-* **User Input:** This number can be a single digit or multiple digits. However, the system dials direct destinations immediately after a user has entered their keypad input. This can cause overlap issues between a direct destination and an extension number. For instance, extensions beginning with '1' would conflict with a direct destination of '1', as the system would be unable to dial the extension number. To avoid this, choose extension numbers that do not overlap with direct destinations or mailbox and outbound call prefixes. The extension range 4xx through 7xx is a good choice.&#x20;
-  * If it’s challenging to change the extension assignments (e.g., business cards with extension numbers have already been distributed), a timeout mechanism can be employed. By appending a pound sign to the direct destination (e.g., '1#'), the system will pause for 3 seconds before dialing the destination.
-* **Destination Extension**: This number can be either an internal number (e.g., an extension or conference room).
 
 ### Allow Callers to Dial a Known Extension Directly
 
@@ -262,6 +244,167 @@ This option is **enabled by default**. To make effective use of this feature, in
 **Example prompt:**
 
 > “Welcome to Company XYZ. If you know your party’s extension number, please enter it now. For Sales, press 1. For Support, press 2.”
+
+from platforms like Cisco, Avaya, and RingCentral.
+
+***
+
+### Sending HTTP Requests to a WebHook
+
+When creating a Virtual Receptionist, the configuration interface includes three tabs:
+
+* **Virtual Receptionist**
+* **Action URL**
+* **Outbound Caller ID**
+
+In the **Virtual Receptionist** tab, you configure the basic IVR behavior.\
+In the **Action URL** tab, you define **WebHook-based actions** and how calls are handled when specific conditions are met.
+
+***
+
+### Action URL Overview
+
+An **Action URL** allows the Virtual Receptionist to send an **HTTP request to a third-party server** and route the call dynamically based on the response.
+
+#### Typical Scenario
+
+When a caller enters a preconfigured **DTMF input** (or when the caller number matches a defined rule), the Virtual Receptionist:
+
+1. Sends an HTTP request to the specified WebHook URL
+2. Receives a response from the third-party server
+3. Parses the response
+4. Routes the call to the destination defined in the response
+
+This mechanism enables **advanced IVR logic**, such as database lookups, external validation, or dynamic call routing.
+
+***
+
+### Action URL Configuration
+
+#### Name
+
+Enter a **user-friendly name** for the Action URL.\
+This field is **mandatory** and is used to identify the action.
+
+***
+
+#### Type
+
+Specifies how the Action URL is triggered. PortSIP PBX supports the following trigger types:
+
+* **DTMF** – Triggered by user-entered DTMF digits
+* **Caller Number** – Triggered by matching the caller’s number
+
+> When **DTMF** is selected and the entered DTMF matches a rule defined in the **Action URL**, the PBX **overrides** the DTMF handling configured in the Virtual Receptionist tab and processes the call according to the Action URL settings.
+
+***
+
+#### DTMF Match List / Caller Number Match List
+
+Depending on the selected **Type**, configure one of the following:
+
+* **DTMF Match List**
+* **Caller Number Match List**
+
+You can specify:
+
+* A **semicolon-separated list** of values\
+  Example:\
+  `101;102;103`
+* A **number range**\
+  Example:\
+  `860000–880000`
+* A **wildcard pattern** using asterisks (`*`)\
+  Example:\
+  `*****` (matches any 5-digit DTMF input)
+
+Each entry must be **unique** and must not be duplicated.
+
+**Common Use Cases**
+
+* Matching bank card numbers or account IDs entered by callers
+* Triggering external validation or lookup services
+* Handling variable-length DTMF input dynamically
+
+***
+
+### HTTP Request Behavior
+
+Once an Action URL rule is triggered, the Virtual Receptionist sends an HTTP request to the configured WebHook server.
+
+#### Authentication
+
+You may optionally configure:
+
+* **Username**
+* **Password**
+
+These credentials are used for **HTTP Basic Authentication**.
+
+***
+
+#### HTTP Method
+
+Choose how the request is sent:
+
+* **GET**
+* **POST**
+
+***
+
+#### Timeout Settings
+
+* **Connection Timeout**\
+  Defines how long the system waits to establish a connection with the WebHook server.
+* **Response Timeout**\
+  Defines how long the system waits for a response after sending the request.
+
+These settings control communication reliability between the Virtual Receptionist and the WebHook server.
+
+***
+
+#### Request URL
+
+Specifies the **WebHook endpoint URL**.
+
+When the action is triggered, the Virtual Receptionist sends an HTTP request to this URL and processes the call based on the **HTTP response message** returned by the server.
+
+***
+
+#### Additional Headers
+
+Allows you to include **custom HTTP headers** in the request.
+
+To add multiple headers, use the following format:
+
+```
+key1:value1&key2:value2
+```
+
+**Example:**
+
+```
+Authorization:Bearer token123&X-App-ID:portsip
+```
+
+***
+
+### Summary
+
+The Action URL feature enables the Virtual Receptionist to integrate with **external systems** and perform **dynamic, logic-driven call routing**, making it ideal for:
+
+* CRM and database integrations
+* Banking or account verification
+* Advanced IVR workflows
+* Custom business logic
+
+***
+
+#### Why This Version Is Better
+
+###
+
+###
 
 ### **Sending HTTP Request to WebHook**
 
