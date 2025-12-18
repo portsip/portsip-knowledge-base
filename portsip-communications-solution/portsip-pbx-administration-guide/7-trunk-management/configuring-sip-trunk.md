@@ -2,7 +2,7 @@
 
 ## **Introduction**
 
-VoIP service providers replace traditional telecom lines by hosting phone lines and delivering trunk services. These providers can assign local numbers in various cities or countries and route calls to your system, often supporting number porting as well. VoIP providers typically offer better call rates, leveraging international networks or favorable rate negotiations to reduce overall call costs.
+VoIP service providers replace traditional telecom lines by hosting phone lines and delivering trunk services. These providers can assign local numbers in various cities or countries and route calls to your system, often supporting number porting as well. VoIP providers typically offer better call rates, leveraging international networks or favourable rate negotiations to reduce overall call costs.
 
 PortSIP PBX supports several types of trunks:
 
@@ -64,8 +64,8 @@ To add a trunk, follow these steps:
 
 1. Navigate to **Call Manager > Trunks**, then click the arrow button to select the type of trunk you need to add.
 2. Enter a friendly name for the trunk.
-3. Choose the trunk brand from the Brand combo box, if your trunk is preconfigured there, please follow the [Configuring SIP Trunks](../../configuring-sip-trunks/) guide to cofigure it.
-4. If your trunk is not preconfigured, Please choose the **Generic** for the brand field and follow the below steps.
+3. Choose the trunk brand from the Brand combo box. If your trunk is preconfigured there, please follow the [Configuring SIP Trunks](../../configuring-sip-trunks/) guide to configure it.
+4. If your trunk is not preconfigured, please choose the **Generic** for the brand field and follow the steps below.
 5. and fill in the **Host Domain or IP**, **Port**, **Outbound Proxy Server**, and **Outbound Proxy Server Port** fields using the details provided by your trunk service provider.
 6. **Transport**:\
    Choose the appropriate transport protocol (UDP, TCP, or TLS) that the PBX will use to communicate with the trunk. Consult your trunk provider for the correct transport protocol. The transport must already be configured in the PBX before adding the trunk. For example, if your provider requires TCP, ensure that TCP is added to the PBX beforehand. For instructions, refer to the section on [**Transport Management**](../6-transport-management.md).
@@ -83,6 +83,15 @@ Click **Next** to configure additional parameters:
   This option allows the PBX to match incoming SIP messages from the trunk by both IP and port. If disabled, the port will be ignored during this process. It is recommended to leave this option at its default setting.
 * **This trunk only accepts a single Via SIP header**:\
   When enabled, the PBX will retain only a single Via header when sending SIP messages to the trunk.
+* **Use the Tel URI scheme for the Request-Line**:\
+  When this option is enabled, the PBX sends SIP **INVITE** requests to the trunk using the **`tel:` URI scheme** in the **Request-Line**. For example: `INVITE tel:+12345678 SIP/2.0`
+* **Use the Tel URI scheme for the To heade**r:\
+  When this option is enabled, the PBX uses the **`tel:` URI scheme** in the **To** header of SIP **INVITE** requests sent to the trunk. For example: `To: tel:+12345678`
+* **STIR/SHAKEN signature required**:\
+  When this option is enabled, the PBX signs outbound calls using STIR/SHAKEN.\
+  For more information, refer to the [**STIR/SHAKEN**](../27-stir-shaken/) chapter.
+* **Remove the “+” prefix from the called number on outbound calls**:\
+  When this option is enabled, the PBX removes the **“+” prefix** from the called number when sending the **INVITE** request to the trunk.
 * **Send OPTIONS message for keep-alive**:\
   When enabled, the PBX will send SIP OPTIONS messages to the trunk to monitor its connectivity status (whether it's online or offline). If no **200 OK** response is received from the trunk, the PBX will mark it as offline.
 * **Send OPTIONS message interval (seconds)**:\
@@ -115,8 +124,8 @@ To add a trunk, follow these steps:
 
 1. Navigate to **Call Manager > Trunks**, and click the arrow button to select the trunk type you wish to add.
 2. Enter a friendly name for the trunk.
-3. Choose the trunk brand from the Brand combo box, if your trunk is preconfigured there, please follow the [Configuring SIP Trunks](../../configuring-sip-trunks/) guide to configure it.
-4. If your trunk is not preconfigured, Please choose the **Generic** for the brand field and follow the below steps.
+3. Choose the trunk brand from the Brand combo box. If your trunk is preconfigured there, please follow the [Configuring SIP Trunks](../../configuring-sip-trunks/) guide to configure it.
+4. If your trunk is not preconfigured, please choose **Generic** for the brand field and follow the steps below.
 5. **DID Pool**: A DID pool must be specified for the tenant. When creating an inbound rule for the tenant based on this trunk, the DID number used in the inbound rule must fall within the specified DID pool range. For more details, refer to the **DID Pool** section.
 6. Fill in the **Host Domain or IP**, **Port**, **Outbound Proxy Server**, and **Outbound Proxy Server Port** fields with the details provided by your trunk service provider.
 7. **Transport**: Choose the appropriate transport protocol (UDP, TCP, or TLS) for communication between the PBX and the trunk. Consult your trunk provider for the correct transport. The transport protocol must already be added in the PBX before adding the trunk. For example, if your provider requires TCP, ensure that TCP is added in the PBX. Refer to the **Transport Management** section for more details.
@@ -133,6 +142,15 @@ Click **Next** to configure additional parameters:
   When the PBX receives a SIP message, it will match both the IP and port to recognize the trunk. If this option is disabled, the port will be ignored. It is recommended to leave this option at its default setting.
 * **This trunk only accepts a single Via SIP header**:\
   Enable this option if the trunk requires the PBX to include only a single Via header in outgoing SIP messages.
+* **Use the Tel URI scheme for the Request-Line**:\
+  When this option is enabled, the PBX sends SIP **INVITE** requests to the trunk using the **`tel:` URI scheme** in the **Request-Line**. For example: `INVITE tel:+12345678 SIP/2.0`
+* **Use the Tel URI scheme for the To heade**r:\
+  When this option is enabled, the PBX uses the **`tel:` URI scheme** in the **To** header of SIP **INVITE** requests sent to the trunk. For example: `To: tel:+12345678`
+* **STIR/SHAKEN signature required**:\
+  When this option is enabled, the PBX signs outbound calls using STIR/SHAKEN.\
+  For more information, refer to the [**STIR/SHAKEN**](../27-stir-shaken/) chapter.
+* **Remove the “+” prefix from the called number on outbound calls**:\
+  When this option is enabled, the PBX removes the **“+” prefix** from the called number when sending the **INVITE** request to the trunk.
 * **Send OPTIONS message for keep-alive**:\
   When enabled, the PBX will send SIP OPTIONS messages to the trunk to monitor its connectivity status (online or offline). If no **200 OK** response is received, the PBX will mark the trunk as offline.
 * **Send OPTIONS message interval (seconds)**:\
