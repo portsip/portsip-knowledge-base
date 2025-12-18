@@ -1,17 +1,56 @@
 # Provision Phone Using TFTP
 
-TFTP stands for Trivial File Transfer Protocol. It is mainly used for automated file transfers between machines on UDP Port 69. In a VoIP environment, TFTP is used to upload firmware files to Gateways, Phones, and other hardware.
+### What Is TFTP?
 
-## Install TFTP Server&#x20;
+**TFTP (Trivial File Transfer Protocol)** is a lightweight file transfer protocol that operates over **UDP port 69**. It is primarily used for **automated file transfers** between devices on a local network.
 
-There are a lot of free and open-source TFTP servers available, such as tftp32d and PumpKIN. Download one and install it as needed.
+In a **VoIP environment**, TFTP is commonly used to upload or download **firmware files**, configuration files, and other resources for devices such as:
 
-## Configuring PumpKIN&#x20;
+* IP Phones
+* VoIP Gateways
+* Routers and other network hardware
+
+***
+
+### Installing a TFTP Server
+
+There are many free and open-source TFTP server applications available, such as:
+
+* **PumpKIN**
+
+Download and install a TFTP server of your choice according to your operating system and requirements.
+
+***
+
+### Configuring PumpKIN
+
+To configure PumpKIN as a TFTP server:
 
 1. Launch PumpKIN.
-2. From the PumpKIN menu follow to **Options > Server > TFTP file system root**. Point PumpKIN to the provisioning folder of your PortSIP PBX – by default:   **C:\ProgramData\PortSIP\pbx\provision\R2Xu8aVV20Jka.** Where **R2Xu8aVV20Jka** is the randomly generated provisioning folder name. This folder will be used to place files you need to upload via TFTP or download.
-3. Other options can be set as needed. For example: **Read and Write Request Behavior** if you want a prompt before files are uploaded or downloaded. Change network ports, timeout, etc.
-4. Now you have a TFTP server installed you can begin updating your phones, gateways, and routers as needed.
+2. From the PumpKIN menu, navigate to:\
+   **Options > Server > TFTP file system root**
+3.  Set the TFTP root directory to the **PortSIP PBX provisioning folder**.\
+    By default, this path is:
+
+    ```
+    C:\ProgramData\PortSIP\pbx\provision\R2Xu8aVV20Jka
+    ```
+
+    > `R2Xu8aVV20Jka` is a **randomly generated provisioning folder name** created by PortSIP PBX.
+
+    This directory is used to **store files that devices upload to or download from the PBX via TFTP**.
+4. Configure additional options as needed, such as:
+   * **Read and Write Request Behavior** (for prompting before file uploads or downloads)
+   * **Network port**
+   * **Timeout values**
+
+With the TFTP server installed, you can now begin updating IP phones, gateways, and routers as required.
 
 <figure><img src="../../../.gitbook/assets/portsip_tftp_phone.png" alt=""><figcaption></figcaption></figure>
+
+> ⚠️ **Security Note**\
+> For security reasons, you must **disable Auto-Provisioning Security Enhancement** before provisioning phones using DHCP Option 66.\
+> Refer to the article "[**DHCP Option 66 and Auto-Provisioning in PortSIP PBX**](auto-provisioning-security.md#dhcp-option-66-and-auto-provisioning-in-portsip-pbx)**"** for details.
+
+
 
