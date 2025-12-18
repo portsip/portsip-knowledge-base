@@ -1,8 +1,8 @@
 # Provision Phone Using RPS
 
-In case PortSIP PBX is located in the cloud, IP Phones can be auto-provisioned via RPS (Redirection and Provisioning Service).&#x20;
+When the PortSIP PBX is deployed in the cloud, IP phones can be auto-provisioned using **RPS** (Redirection and Provisioning Service).
 
-PortSIP PBX supports the following IP Phone's RPS:
+PortSIP PBX supports RPS for the following IP phone vendors:
 
 * [Fanvil](https://www.fanvil.com)
 * [Yealink](https://www.yealink.com)
@@ -10,33 +10,77 @@ PortSIP PBX supports the following IP Phone's RPS:
 * [SNOM](https://www.snom.com)
 * [ALE](https://www.al-enterprise.com/)
 * [Htek](https://www.htek.com/)
+* [Gigaset](https://www.gigaset.com/)
 
-If you are using an IP phone from one of the providers mentioned above, you can configure your IP phone easily without the need to manually copy the auto-provisioning link. In this scenario, the PnP method is unavailable.
+If you are using an IP phone from one of the vendors listed above, you can provision the phone automatically without manually copying the provisioning link.\
+In this deployment scenario, the PnP method is not available, and RPS must be used instead.
 
 <figure><img src="../../../.gitbook/assets/rps.png" alt=""><figcaption></figcaption></figure>
 
-## Add the Phone
+***
 
-1. From the **Call Manager** > **Phones** menu in the PortSIP PBX Web Portal, click **Add Phone**.
-2. Select an extension that is for phone use.
-3. Enter the MAC address of the phone (which can be found at the bottom of the phone).
-4. Select the appropriate phone model from the drop-down menu.
-5. Select **Phone Display Language** and **Timezone** for the phone.
-6. Enter the password for access the IP Phone web portal.
-7. Turn on the **Save to RPS** option.
-8. Click the **OK** button, and the PortSIP PBX will save the provisioning link to the IP Phone's RPS. When the IP Phone is powered on, it will query the provisioning link from the RPS server using its MAC address to complete the auto-provisioning.
+### Provisioning a Remote Phone Using RPS
 
-<figure><img src="../../../.gitbook/assets/provision_1.png" alt=""><figcaption></figcaption></figure>
+To provision a remote IP phone via RPS, follow the steps below.
 
-As shown in the screenshot above, you can set a password for the IP Phone web portal, and choose a network interface that the IP Phone can use to connect to PBX. This value usually refers to the **Outbound Proxy Server** for the IP Phone. Since the PBX is located in the cloud, usually need to choose the public IP for the **Network**.
+#### Add a New Phone
+
+1. **Open the Phones page**\
+   In the PortSIP PBX Web Portal, navigate to **Call Manager > Phones**.
+2. **Add the phone**\
+   Click **Add Phone**.
+3. **Select the extension**\
+   Choose the extension that will be associated with the phone.
+4. **Enter the MAC address**\
+   Enter the phone’s **MAC address**, which is usually printed on the label at the bottom of the device.
+5. **Select the phone model**\
+   Choose the appropriate **phone model** from the drop-down list.
+6. **Enter phone credentials**\
+   Enter the password required to access the **IP phone web portal**.
+7. **Set language and time zone**\
+   Select the **Phone Display Language** and **Time Zone**.
+8.  **Select network interface and transport**
+
+    * Choose the **network interface** the phone will use to connect to the PBX.\
+      Since the PBX is hosted in the cloud, select the **public IP** network interface.
+    * This typically corresponds to the **Outbound Proxy Server** used by the phone.
+
+    <figure><img src="../../../.gitbook/assets/provision_1.png" alt=""><figcaption></figcaption></figure>
+
+    * Select the **transport protocol** (**UDP**, **TCP**, or **TLS**).
+    * Enable **Save to RPS** to store the provisioning link in the phone vendor’s RPS.
+    * Enable **HTTPS** if the provisioning URL should be generated using HTTPS.
 
 <figure><img src="../../../.gitbook/assets/provision_rps_2.png" alt=""><figcaption></figcaption></figure>
 
-As shown in the screenshot above, you can choose a **transport** that the IP Phone can use to connect to the PBX. The **Save to RPS** option indicates that you can save the provisioning link to the IP Phone RPS, in case it must be turned on here. The **HTTPS** option is used to generate the provisioning link for HTTPS or not.
+9. **Configure audio codecs**\
+   Enable or disable **audio codecs** for the phone by toggling the codec options, as shown in the screenshot below.
 
-## **Restart the IP Phone**
+<figure><img src="../../../.gitbook/assets/phone_provisioning_settings_1.png" alt=""><figcaption></figcaption></figure>
 
-When a phone is starting, it will query the provisioning link from the RPS server using its MAC address to complete the auto-provisioning. Once the IP Phone is successfully provisioned, it will register to the PortSIP PBX automatically. You can see the phone in the below screenshot in the **Call Manager > Phones** menu.
+10. **Save the configuration**\
+    Click **OK**. The PortSIP PBX saves the provisioning link to the IP phone’s **RPS**.
+
+***
+
+### Restart the IP Phone
+
+When the IP phone powers on or restarts:
+
+* The phone queries the **RPS server** using its **MAC address**
+* The RPS server returns the **provisioning URL**
+* The phone downloads the configuration file automatically
+* The phone applies the settings and registers with the **PortSIP PBX**
+
+***
+
+### Provisioning Completion
+
+After provisioning is complete:
+
+* The phone is **automatically registered** with the PortSIP PBX
+* The phone can be fully **managed from the PortSIP PBX Web Portal**
+* You can view the registered phone under **Call Manager > Phones**, as shown in the screenshot below
 
 <figure><img src="../../../.gitbook/assets/phone_provision1.png" alt=""><figcaption></figcaption></figure>
 
