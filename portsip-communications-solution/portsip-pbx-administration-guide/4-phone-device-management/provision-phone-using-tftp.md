@@ -49,7 +49,7 @@ With the TFTP server installed, you can now begin updating IP phones, gateways, 
 <figure><img src="../../../.gitbook/assets/portsip_tftp_phone.png" alt=""><figcaption></figcaption></figure>
 
 > ⚠️ **Security Note**\
-> For security reasons, you must **disable Auto-Provisioning Security Enhancement** before provisioning phones using DHCP Option 66.\
+> For security reasons, you must **disable Auto-Provisioning Security Enhancement** before provisioning phones using TFP as well.\
 > Refer to the article "[**DHCP Option 66 and Auto-Provisioning in PortSIP PBX**](auto-provisioning-security.md#dhcp-option-66-and-auto-provisioning-in-portsip-pbx)**"** for details.
 
 
