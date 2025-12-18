@@ -1,6 +1,6 @@
 # Managing Virtual Receptionist
 
-## **Recording a Menu Prompt**
+### **Recording a Menu Prompt**
 
 Before creating your virtual receptionist, you must decide the menu options you wish to offer the caller and record the announcement. A sample would be, "**Welcome to XYZ. For sales, press 1. For support, press 2 or stay on the line for an operator**".
 
@@ -12,7 +12,7 @@ It is recommended to put the number the user should press after the option, i.e.
 For the prompt file format, please refer to [What's the file format required for the PortSIP PBX prompt files?](../../faq/what-file-format-is-required-for-portsip-pbx-prompt.md)
 {% endhint %}
 
-## **Creating a Virtual Receptionist**
+### **Creating a Virtual Receptionist**
 
 You can create multiple digital receptionists and link them to a particular line.
 
@@ -26,15 +26,21 @@ To create a virtual receptionist:
 6. **Gap Time Between DTMF Digits (Seconds)**: This is the time the virtual attendant will wait before searching for an account that matches the entered digits. If the account does not exist, the system will play an announcement indicating that the extension does not exist.
 7. **DISA PIN**: If you want to set the DISA feature within the virtual receptionist, you can set the PIN for accessing the DISA feature. For more details, please refer to [Direct Inward System Access](direct-inward-system-access-disa.md).
 8. **Verify the PIN for DISA**: This indicates whether the virtual receptionist should verify the PIN for DISA.
-9. In the **Destination for Night Mode** section, you can define how incoming calls should be handled when Night Mode is active for a tenant. For detailed configuration instructions, please refer to the [**Night Mode**](../32-night-mode.md) section of this guide.
-10. **Timeout (Seconds)**: This allows you to specify how long the virtual receptionist should wait for a DTMF input. If no input is received, it will automatically perform the default action. This is for callers who do not understand the menu or who do not have a DTMF-capable phone.
-11. **Call Failure**: If the caller enters a DTMF value or key that IVR will refers the call to it, if the refer fails then action fails. In this Call Failure section, you can define how the call should be handled in such cases.
+9. **Night Mode**: When Night Mode is enabled, all calls that reach this virtual receptionist are handled according to the **Destination for Night Mode** settings.
+10. **Block Direct Extension Dialing:** Prevents callers from dialing extensions directly. You can block specific extensions individually or define extension ranges.\
+    Multiple entries must be separated by semicolons. **Example:** `1001-2001;3000;7000-8000`
+11. In the **Destination for Night Mode** section, you can define how incoming calls should be handled when Night Mode is active for a tenant. For detailed configuration instructions, please refer to the [**Night Mode**](../32-night-mode.md) section of this guide.
+12. **Timeout (Seconds)**: Specifies how long the virtual receptionist waits for a **DTMF input** from the caller. If no input is received within the specified time, the system automatically executes the **default action**.
 
-## Menu Options
+    This option is intended for callers who do not understand the menu options or who are using a phone that does not support DTMF input.
+13. **Call Failure**: A **Call Failure** occurs when a caller enters a DTMF digit that triggers a call transfer, but the transfer attempt fails.\
+    In the **Call Failure** section, you can define how the call should be handled when this situation occurs.
+
+### Menu Options
 
 In the **Menu Options** tab, you specify actions and the extension number or system extension number for each of the numeric keys input by the caller via DTMF. If the action is directed to a specific extension, ring group, call queue, or another virtual receptionist, please also select the target extension number you desire.
 
-### **User Input**
+#### **User Input**
 
 This option allows you to control when the virtual attendant will start searching for an extension that matches the user’s input. The following behavior is expected when the caller presses the DTMF key 2:
 
@@ -44,28 +50,30 @@ This option allows you to control when the virtual attendant will start searchin
 
 <figure><img src="../../../.gitbook/assets/vr_menu_options.png" alt=""><figcaption></figcaption></figure>
 
-The virtual attendant will wait until the caller’s digit sequence matches an existing account. Once a match is found, the virtual attendant will initiate a call to that extension. This mechanism is beneficial when accounts of varying lengths are used. However, it might be frustrating for callers who enter a non-existing number, as the virtual attendant will never start the search.
+The virtual attendant will wait until the caller’s digit sequence matches an existing account. Once a match is found, the virtual attendant will initiate a call to that extension. This mechanism is beneficial when accounts of varying lengths are used. However, it might be frustrating for callers who enter a non-existent number, as the virtual attendant will never start the search.
 
 {% hint style="warning" %}
-If the caller presses the DTMF tones that do not match the single pre-configured DTMF tone, it will not to triggered the failure rule.
+If the caller enters a DTMF digit that does not match any configured DTMF option, the Call Failure rule is not triggered.
 {% endhint %}
 
-### **Office Hours**
+#### **Office Hours**
 
-Define the office hours for this DTMF input by clicking the **Office Hours** button, you have two options:
+You can define the **office hours** for this DTMF input by clicking the **Office Hours** button. Two options are available:
 
-* **Use the default Global Office Hours** from the tenant scope.
-* Specify custom office hours by selecting the **Use specific Office Hours** option.
+* **Use Global Office Hours**\
+  Applies the default office hours defined at the **tenant level**.
+* **Use Specific Office Hours**\
+  Allows you to define **custom office hours** for this DTMF input.
 
-By default, a DTMF input will follow the office hours set at the tenant level.
+By default, each DTMF input follows the global office hours configured for the tenant.
 
 <figure><img src="../../../.gitbook/assets/vr_menu_options_1.png" alt=""><figcaption></figcaption></figure>
 
-### **Holidays**
+#### **Holidays**
 
 Set the holidays for this DTMF input by clicking the **Holidays** button. You can select a holiday list from the tenant scope by clicking the **Select Holidays** button.
 
-## **Direct Destinations**
+### **Direct Destinations**
 
 The Direct Destinations feature is somewhat like a built-in version of the IVR system.
 
@@ -85,13 +93,17 @@ By appending a pound sign to the direct destination (e.g., "2#"), the system wil
   * If it’s challenging to change the extension assignments (e.g., business cards with extension numbers have already been distributed), a timeout mechanism can be employed. By appending a pound sign to the direct destination (e.g., '1#'), the system will pause for 3 seconds before dialing the destination.
 * **Destination Extension**: This number can be either an internal number (e.g., an extension or conference room).
 
-## Allowing Callers to Dial a Known Extension Directly
+### Allow Callers to Dial a Known Extension Directly
 
-Whilst a virtual receptionist prompt is playing, a caller can enter the extension number directly to be connected to an extension immediately. This allows callers who know their party’s extension to avoid going through a receptionist. This option is enabled by default. If you wish to make use of this feature, simply instruct your callers by explaining this in the voice prompt.
+While the virtual receptionist prompt is playing, callers can enter a known **extension number** to be connected immediately. This allows callers who already know their party’s extension to bypass the receptionist menu and reach the intended extension more quickly.
 
-For example, _“W**elcome to Company XYZ. If you know your party's extension number, you may enter it now, otherwise, for sales press 1. For support press 2**”_.
+This option is **enabled by default**. To make effective use of this feature, include clear instructions in the voice prompt.
 
-## **Sending HTTP Request to WebHook**
+**Example prompt:**
+
+> “Welcome to Company XYZ. If you know your party’s extension number, please enter it now. For Sales, press 1. For Support, press 2.”
+
+### **Sending HTTP Request to WebHook**
 
 When creating a virtual receptionist, the user has three tabs: **Virtual Receptionist**, **Action URL**, and **Outbound Caller ID**. In the **Virtual Receptionist** tab, the user can configure a common Virtual Receptionist and define WebHook and relevant actions in the **Action URL**.
 
@@ -111,56 +123,96 @@ When users dial the pre-configured DTMF key, the Virtual Receptionist will send 
 * **Request URL:** The WebHook URL to be executed will be entered here when the preset action is triggered. The virtual Receptionist will send an HTTP request to this URL and process the call depending on the HTTP response.&#x20;
 * **Additional Headers**: Allows setting the additional HTTP headers when sending requests to the WebHook. For example, if we want to add the key1:value, and key2:value2 headers, enter them as the `key1:value1&key2:value2`.
 
-## **HTTP Request Message**
+### HTTP Request Message
 
-PortSIP has defined the following parameters to form the HTTP request message to WebHook in JSON format:
+PortSIP defines the following parameters for constructing the **HTTP request message** sent to a WebHook.\
+The request payload is formatted in **JSON** (for POST requests) or as URL query parameters (for GET requests).
 
-* **from**: Caller’s number, i.e. the caller number who’s calling to Virtual Receptionist
-* **to**: Callee’s number, i.e. the extension number for the Virtual Receptionist
-* **input**: DTMF inputted by the user
-* **from\_name**: The display name of the caller. It will be empty if no value is provided
-* **account\_name**: Name of the Virtual Receptionist
+#### Parameters
 
-Assuming that we have created a Virtual Receptionist with the number **888** and named **Sales**, and its **Action URL** is defined as follows:
+* **from:** The caller’s number (the extension or number calling the Virtual Receptionist).
+* **to:** The callee’s number (the extension number assigned to the Virtual Receptionist).
+* **input:** The DTMF digits entered by the caller.
+* **from\_name:** The display name of the caller. This field is empty if no display name is available.
+* **account\_name:** The name of the Virtual Receptionist.
 
-* **Name**: Action1
-* **Action Type**: DTMF
-* **DTMF match list**: 22;33
-* **HTTP method**: GET
-* **Request URL**: http://www.appserver.com/dest.php
+***
 
-When extension 101 (display name Jason) calls 888, Virtual Receptionist 888 will auto-answer the call and play a prompt to the caller. As extension 101 dials DTMF 22, the Virtual Receptionist will send the below HTTP request in the GET method to: `http://www.appserver.com/dest.php?from=101&to=888&input=22&from_name=Jason&account_name=Sales`
+#### Example Scenario
 
-If POST is chosen for the HTTP method, the Virtual Receptionist will send the below HTTP request in JSON format by means of POST:
+Assume a Virtual Receptionist is configured with the following settings:
+
+* **Number:** 888
+* **Name:** Sales
+* **Action Name:** Action1
+* **Action Type:** DTMF
+* **DTMF Match List:** `22;33`
+* **HTTP Method:** GET
+* **Request URL:**\
+  `http://www.appserver.com/dest.php`
+
+***
+
+#### GET Request Example
+
+When **extension 101** (display name **Jason**) calls **888**, the Virtual Receptionist automatically answers the call and plays the configured prompt.
+
+If the caller enters **DTMF 22**, the Virtual Receptionist sends the following **HTTP GET request** to the WebHook endpoint:
+
+```
+http://www.appserver.com/dest.php?from=101&to=888&input=22&from_name=Jason&account_name=Sales
+```
+
+***
+
+#### POST Request Example
+
+If **POST** is selected as the HTTP method, the Virtual Receptionist sends the request in **JSON format** in the HTTP request body:
 
 ```json
 {
-"from" : "101",
-"to" : "888",
-"input": "22",
-"from_name" : "Jason",
-"account_name" : "Sales"
+  "from": "101",
+  "to": "888",
+  "input": "22",
+  "from_name": "Jason",
+  "account_name": "Sales"
 }
 ```
 
-## **HTTP Response Message**
+### HTTP Response Message
 
-PortSIP PBX has defined the following response to HTTP requests sent by Virtual Receptionist as follows:
+PortSIP PBX defines the following **HTTP response format** for WebHook requests sent by the **Virtual Receptionist**.\
+The response is expected in **JSON format** and determines how the Virtual Receptionist should handle the call.
 
-* **status\_code:** 200 or other possible status code, of which 200 represents a successful request and others refer to failure.
-* **action**: Values including "**call**", "**hangup**"**,** and "**repeat**" indicate the action to be taken by Virtual Receptionist.
-  * call – To forward the call to the number as defined in "**destination**"
-  * hangup – To hang up the call directly
-  * repeat – To repeat the prompt message
-* **destination**: The destination callee number. It’s valid only if the value for "**action**" is set as "**call**"; otherwise it will be ignored.
+#### Response Parameters
+
+* **status\_code**\
+  The HTTP status code returned by the WebHook endpoint.\
+  A value of **200** indicates that the request was processed successfully. Any other value is treated as a failure.
+* **action**\
+  Specifies the action the Virtual Receptionist should take. Supported values are:
+  * **call** – Forward the call to the number specified in `destination`
+  * **hangup** – Immediately terminate the call
+  * **repeat** – Replay the prompt message
+* **destination**\
+  The target callee number. This parameter is **only valid when `action` is set to `call`**.\
+  It is ignored for all other actions.
+
+***
+
+#### Example Response
 
 ```json
 {
-"status_code" : 200,
-"action" : "call",
-"destination" : "222"
+  "status_code": 200,
+  "action": "call",
+  "destination": "222"
 }
 ```
 
-Once the Virtual Receptionist has received the response as above, it will forward the call to extension **222** which is indicated in the JSON response.
+***
+
+#### Call Handling Behavior
+
+When the Virtual Receptionist receives the response above, it forwards the call to **extension 222**, as specified in the `destination` field of the JSON response.
 
