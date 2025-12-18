@@ -97,7 +97,7 @@
   * [15 Shared Voicemail](portsip-communications-solution/portsip-pbx-administration-guide/15-shared-voicemail.md)
   * [16 Call Queue](portsip-communications-solution/portsip-pbx-administration-guide/16-call-queue/README.md)
     * [Configuring Call Queue](portsip-communications-solution/portsip-pbx-administration-guide/16-call-queue/configuring-call-queue.md)
-    * [Configuring Queue Callback](portsip-communications-solution/portsip-pbx-administration-guide/16-call-queue/configuring-queue-callback.md)
+    * [Configuring Queue Callback and Queue Exit](portsip-communications-solution/portsip-pbx-administration-guide/16-call-queue/configuring-queue-callback-and-queue-exit.md)
     * [Agent States and Work Modes](portsip-communications-solution/portsip-pbx-administration-guide/16-call-queue/agent-states-and-work-modes.md)
     * [Skills-Based Routing](portsip-communications-solution/portsip-pbx-administration-guide/16-call-queue/skills-based-routing.md)
     * [Silent Monitoring](portsip-communications-solution/portsip-pbx-administration-guide/16-call-queue/silent-monitoring.md)
