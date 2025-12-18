@@ -257,16 +257,16 @@ When creating a Virtual Receptionist, the configuration interface includes three
 * **Action URL**
 * **Outbound Caller ID**
 
-In the **Virtual Receptionist** tab, you configure the basic IVR behavior.\
-In the **Action URL** tab, you define **WebHook-based actions** and how calls are handled when specific conditions are met.
+In the Virtual Receptionist tab, you configure the basic IVR behavior.\
+In the Action URL tab, you define WebHook-based actions and how calls are handled when specific conditions are met.
 
 ***
 
-### Action URL Overview
+#### Action URL Overview
 
-An **Action URL** allows the Virtual Receptionist to send an **HTTP request to a third-party server** and route the call dynamically based on the response.
+An Action URL allows the Virtual Receptionist to send an HTTP request to a third-party server and route the call dynamically based on the response.
 
-#### Typical Scenario
+**Typical Scenario**
 
 When a caller enters a preconfigured **DTMF input** (or when the caller number matches a defined rule), the Virtual Receptionist:
 
@@ -279,16 +279,16 @@ This mechanism enables **advanced IVR logic**, such as database lookups, externa
 
 ***
 
-### Action URL Configuration
+#### Action URL Configuration
 
-#### Name
+**Name**
 
 Enter a **user-friendly name** for the Action URL.\
 This field is **mandatory** and is used to identify the action.
 
 ***
 
-#### Type
+**Type**
 
 Specifies how the Action URL is triggered. PortSIP PBX supports the following trigger types:
 
