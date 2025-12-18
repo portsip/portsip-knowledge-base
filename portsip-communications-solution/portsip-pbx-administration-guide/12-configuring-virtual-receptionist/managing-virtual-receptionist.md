@@ -409,6 +409,7 @@ The request payload is formatted in **JSON** (for POST requests) or as URL query
 * **input:** The DTMF digits entered by the caller.
 * **from\_name:** The display name of the caller. This field is empty if no display name is available.
 * **account\_name:** The name of the Virtual Receptionist.
+* **session\_id**: The unique ID of that call.
 
 ***
 
@@ -434,7 +435,7 @@ When **extension 101** (display name **Jason**) calls **888**, the Virtual Recep
 If the caller enters **DTMF 22**, the Virtual Receptionist sends the following **HTTP GET request** to the WebHook endpoint:
 
 ```
-http://www.appserver.com/dest.php?from=101&to=888&input=22&from_name=Jason&account_name=Sales
+http://www.appserver.com/dest.php?session_id=12345678&from=101&to=888&input=22&from_name=Jason&account_name=Sales
 ```
 
 ***
@@ -449,7 +450,8 @@ If **POST** is selected as the HTTP method, the Virtual Receptionist sends the r
   "to": "888",
   "input": "22",
   "from_name": "Jason",
-  "account_name": "Sales"
+  "account_name": "Sales",
+  "session_id": "12345678"
 }
 ```
 
