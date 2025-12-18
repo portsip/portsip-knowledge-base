@@ -24,9 +24,10 @@ Controls tenant access to the **AI transcription** feature and its usage limits.
 
 This allows precise cost control and supports usage-based billing models.
 
+You can access this option by navigating to **Tenants**, selecting the desired tenant, and then either **double-clicking the tenant** or clicking **Edit**.\
+In the **General** tab, scroll to the bottom to locate the **AI Transcription** section. From there, you can **enable or disable AI Transcription** and configure the **daily quota**, as shown in the screenshot below.
 
-
-
+<figure><img src="../../../.gitbook/assets/tenant_features_1.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -39,7 +40,19 @@ Controls how many users within a tenant can register using the **PortSIP ONE UC 
 
 This feature is commonly used to enforce **per-user licensing limits**.
 
+You can access this option by navigating to **Tenants**, selecting the desired tenant, and then either **double-clicking the tenant** or clicking **Edit**.\
+In the **Apps** tab, enable **App Usage Limitation** and specify the maximum number of users allowed to use the applications. A value of **0** means that no extension users are permitted to use the apps.\
+Refer to the screenshot below for details.
+
+<figure><img src="../../../.gitbook/assets/tenant_features_2.png" alt=""><figcaption></figcaption></figure>
+
 ***
+
+To limit other features for a tenant, navigate to **Tenants**, select the desired tenant, and then either **double-click the tenant** or click **Edit**.\
+In the **Features** tab, you can enable or disable features as required.\
+Refer to the screenshot below for details.
+
+<figure><img src="../../../.gitbook/assets/tenant_features_3.png" alt=""><figcaption></figcaption></figure>
 
 #### Billing
 
@@ -118,3 +131,6 @@ Controls access to **CRM integration features**.
 ### Best Practice Recommendation
 
 > It is recommended to enable only the features required by each tenant and offer advanced capabilities as **optional, chargeable add-ons**. This approach improves security, simplifies tenant management, and maximizes service revenue.
+
+
+
