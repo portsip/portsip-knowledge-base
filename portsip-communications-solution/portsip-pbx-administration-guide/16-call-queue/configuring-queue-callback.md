@@ -83,5 +83,28 @@ Once the caller confirms their phone number:
 
 ***
 
+### Queue Exit Options
+
+**Queue Exit Options** allow callers who are waiting in a call queue to **proactively leave the queue** and choose an alternative action, instead of simply hanging up and abandoning the call.\
+This is typically implemented through an **IVR option**, where the caller presses a designated key on their phone keypad (for example, **press 8**).
+
+The primary purpose of Queue Exit Options is to **improve the caller experience**, reduce frustration during long wait times, and **lower call abandonment rates** by giving callers more control over how their call is handled.
+
+***
+
+#### Common Queue Exit Destinations
+
+When a caller exits the queue, the call can be routed to one of the following **configured destinations**:
+
+* **Voicemail**
+* **Shared Voicemail**
+* **IVR**
+* **Another Queue**
+* **Ring Group**
+* **Extension**
+* **External Number**
+
+
+
 
 

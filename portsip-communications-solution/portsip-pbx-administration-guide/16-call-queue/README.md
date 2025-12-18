@@ -19,7 +19,7 @@ Call queuing lets you respond to peak demand without higher costs.
 This article includes the following topics:
 
 * [Configuring Call Queue](configuring-call-queue.md)
-* [Configuring Queue Callback](configuring-queue-callback-and-queue-exit.md)
+* [Configuring Queue Callback](configuring-queue-callback.md)
 * [Agent States and Work Modes](agent-states-and-work-modes.md)
 * [Skills-Based Routing](skills-based-routing.md)
 * [Silent Monitoring](silent-monitoring.md)
