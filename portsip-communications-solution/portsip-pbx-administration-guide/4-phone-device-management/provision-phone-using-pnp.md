@@ -1,52 +1,135 @@
 # Provision Phone Using PnP
 
-## Topology
+### Topology Requirements
 
-PnP provisioning requires that the PortSIP PBX run on the default sip port 5060 and that the IP phones reside on the same local LAN subnet as PortSIP PBX.
+PnP provisioning requires that:
+
+* The **PortSIP PBX** is running on the **default SIP port (5060)**.
+* The **IP phones** are located on the **same local LAN subnet** as the PortSIP PBX.
 
 <figure><img src="../../../.gitbook/assets/phone_pnp.png" alt=""><figcaption></figcaption></figure>
 
-To auto-provision phones using Plug and Play:
+***
 
-1. Plug the phone into the network.
-2. The phone will send a multicast message across the LAN, this will be picked up by PortSIP PBX.
-3. The phone will show up in the **Call Manager > Phones** menu in the Web Portal as a new phone.
+### Auto-Provisioning Phones with Plug and Play
+
+To provision IP phones automatically using **Plug and Play (PnP)**, follow these steps:
+
+1. **Connect the phone**\
+   Plug the IP phone into the network.
+2. **Phone discovery**\
+   The phone sends a **multicast message** on the local LAN, which is detected by the PortSIP PBX.
+3. **Phone detection in the Web Portal**\
+   The phone appears as a new device under **Call Manager > Phones** in the Web Portal.
 
 <figure><img src="../../../.gitbook/assets/phone_pnp1.png" alt=""><figcaption></figcaption></figure>
 
-4. Choose the phone and click the **Assign Extension** button to assign the phone to an existing extension or click the **Add Extension** to create a new one for the phone.
+4. **Assign an extension**
+   * Select the phone and click **Assign Extension** to associate it with an existing extension, **or**
+   * Click **Add Extension** to create a new extension for the phone.
 
 <figure><img src="../../../.gitbook/assets/phone_pnp2.png" alt=""><figcaption></figcaption></figure>
 
-5. Go to the extension’s **Phone Provisioning** tab and specify other configuration settings for the phone.
-6. Enter the password to access the IP Phone web portal.
-7. Select **Phone Display Language** and **Timezone** for the phone.
-8. Click **OK.**
-9. The PBX sends the configuration file URL to the IP Phone, the IP phone will download the configuration file automatically.
-10. The phone will apply the settings and connect to PortSIP PBX. The IP phone will be manageable from within the PortSIP PBX Web Portal.
+5. **Configure phone settings**\
+   Navigate to the extension’s **Phone Provisioning** tab and configure additional settings as needed.
+6. **Enter phone credentials**\
+   Enter the password required to access the **IP phone web portal**.
+7. **Set language and time zone**\
+   Select the **Phone Display Language** and **Time Zone** for the phone.
+8. **Select network interface and transport**\
+   Choose the **network interface** the IP phone uses to connect to the PBX.\
+   This typically corresponds to the **Outbound Proxy Server** used by the phone.
 
 <figure><img src="../../../.gitbook/assets/provision_1.png" alt=""><figcaption></figcaption></figure>
 
-As shown in the screenshot above, you can set a password for the IP Phone web portal, and choose a network interface that the IP Phone can use to connect to PBX. This value usually refers to the **Outbound Proxy Server** for the IP Phone.&#x20;
+As shown in the screenshot above, you can also select the **transport protocol** (UDP/TCP/TLS) for the phone.
+
+* **Save to RPS** allows the provisioning link to be saved to the phone’s **RPS (Redirect and Provisioning Server)**.
+* **HTTPS** determines whether the provisioning URL is generated using HTTPS.
 
 <figure><img src="../../../.gitbook/assets/provision_2.png" alt=""><figcaption></figcaption></figure>
 
-As shown in the screenshot above, you can choose a **transport** that the IP Phone can use to connect to the PBX. The **Save to RPS** option indicates that you can save the provisioning link to the IP Phone RPS. The **HTTPS** option is used to generate the provisioning link for HTTPS or not.
 
-### **Provision Phones Using the Provisioning Link Manually**
 
-Remote phones that are not on the same LAN as the PortSIP PBX and that can't broadcast the SIP message then must be configured manually by the provisioning link. To provision a remote phone:
+9. **Configure audio codecs**\
+   Enable or disable **audio codecs** for the phone by toggling the codec options, as shown in the screenshot below.
 
-1. From the **Call Manager > Phones** menu in the PortSIP PBX Web Portal, select **Add Phone**.
-2. Select the extension that the phone uses.
-3. Enter the MAC address of the phone (which can be found at the bottom of the phone).
-4. Select the appropriate phone model from the drop-down menu.
-5. Select **Phone Display Language** and **Timezone** for the phone.
-6. Enter the password for access the IP Phone web portal.
-7. Click the **OK** button and then edit this extension.
-8. Copy the provisioning link.
-9. Insert the provisioning link manually into the phones. You can find it in the **Phone Provisioning** tab of the extension configuration.
+<figure><img src="../../../.gitbook/assets/phone_provisioning_settings_1.png" alt=""><figcaption></figcaption></figure>
 
-Once the IP Phone is successfully provisioned, it will register to the PortSIP PBX automatically. You can see the phone in the below screenshot in the **Call Manager > Phones** menu.
+10. **Apply settings**\
+    Click **OK** to save the configuration.
+
+***
+
+#### Provisioning Completion
+
+After the configuration is saved:
+
+* The PBX generates a **provisioning URL** for the phone.
+* The phone downloads the **configuration file** using the provisioning link.
+* The phone applies the settings and **automatically registers** with the **PortSIP PBX**.
+
+Once provisioning is complete, the phone is fully **managed through the PortSIP PBX Web Portal**.\
+You can view the registered phone under **Call Manager > Phones**, as shown in the screenshot below.
 
 <figure><img src="../../../.gitbook/assets/phone_provision1.png" alt=""><figcaption></figcaption></figure>
+
+***
+
+### Provisioning Phones Using the Provisioning Link Manually
+
+Remote IP phones that are not located on the same LAN as the PortSIP PBX—and therefore cannot broadcast SIP multicast messages—must be provisioned manually using a provisioning link.
+
+To provision a remote phone manually, follow these steps:
+
+1. **Add a new phone**
+   * In the PortSIP PBX Web Portal, navigate to **Call Manager > Phones**.
+   * Click **Add Phone**.
+2. **Select the extension**
+   * Choose the extension that will be associated with the phone.
+3. **Enter the MAC address**
+   * Enter the phone’s **MAC address**, which can usually be found on the label at the bottom of the device.
+4. **Select the phone model**
+   * Choose the appropriate **phone model** from the drop-down list.
+5. **Enter phone credentials**
+   * Enter the password required to access the **IP phone web portal**.
+6. **Set language and time zone**
+   * Select the **Phone Display Language** and **Time Zone** for the phone.
+7.  **Select network interface and transport**
+
+    * Choose the **network interface** the IP phone uses to connect to the PBX.\
+      This typically corresponds to the **Outbound Proxy Server** used by the phone.
+
+    <figure><img src="../../../.gitbook/assets/provision_1.png" alt=""><figcaption></figcaption></figure>
+
+    * Select the **transport protocol** (**UDP**, **TCP**, or **TLS**) as shown in the screenshot above.
+    * **Save to RPS** allows the provisioning link to be saved to the phone’s **RPS (Redirect and Provisioning Server)**.
+    * **HTTPS** determines whether the provisioning URL is generated using **HTTPS**.
+
+<figure><img src="../../../.gitbook/assets/provision_2.png" alt=""><figcaption></figcaption></figure>
+
+8. **Configure audio codecs**
+
+* Enable or disable **audio codecs** for the phone by toggling the codec options, as shown in the screenshot below.
+
+<figure><img src="../../../.gitbook/assets/phone_provisioning_settings_1.png" alt=""><figcaption></figcaption></figure>
+
+9. **Apply settings**
+
+* Click **OK** to save the configuration.
+
+***
+
+#### Provisioning Completion
+
+After the configuration is saved:
+
+* The PBX generates a **provisioning URL** for the phone.
+* The phone downloads the **configuration file** using the provisioning link.
+* The phone applies the settings and **automatically registers** with the **PortSIP PBX**.
+
+Once provisioning is complete, the phone is fully **managed through the PortSIP PBX Web Portal**.\
+You can view the registered phone under **Call Manager > Phones**, as shown in the screenshot below.
+
+<figure><img src="../../../.gitbook/assets/phone_provision1.png" alt=""><figcaption></figcaption></figure>
+
