@@ -69,13 +69,19 @@ During phone provisioning:
 
 1. Assign a **Night Mode BLF key**.
 2. Click the **search icon** and select the desired service type (**Ring Group**, **Call Queue**, or **Virtual Receptionist**).
-3. Choose the specific service(**Virtual Receptionist**, **Call Queue**, or **Ring Group**) and click **OK**.
-4. Complete phone provisioning.
+
+<figure><img src="../../.gitbook/assets/service_blf_night_mode_1.png" alt=""><figcaption></figcaption></figure>
+
+2. Choose the specific service(**Virtual Receptionist**, **Call Queue**, or **Ring Group**) and click **OK**.
+
+<figure><img src="../../.gitbook/assets/service_blf_night_mode_2.png" alt=""><figcaption></figcaption></figure>
+
+3. Complete phone provisioning.
 
 Once the phone is successfully registered with the PBX, the BLF key indicates the Night Mode status for the selected service:
 
-* **Green light** – Night Mode is **deactivated** (business hours)
-* **Red light** – Night Mode is **activated** (after hours)
+* **Green light** – Night Mode of that service is **deactivated** (business hours)
+* **Red light** – Night Mode of that service is **activated** (after hours)
 
 #### Using the BLF Key
 
