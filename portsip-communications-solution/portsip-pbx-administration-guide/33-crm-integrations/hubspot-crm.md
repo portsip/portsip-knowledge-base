@@ -41,7 +41,7 @@ Call recording links and AI transcription links are automatically attached to th
 
 3. Select **Public** as the type of legacy app.
 4. In the **App Info** tab, enter a **Public app name**, for example: `PortSIP PBX Integration`
-5.  In the **Redirect URL** field, enter the callback URL of your PortSIP PBX Admin Console. For example: `https://pbx.portsip.com/api/auth/callback/hubspot`
+5.  In the **Redirect URL** field, enter the callback URL of your PortSIP PBX Admin Console. For example: `https://pbx.portsip.com:8887/api/auth/callback/hubspot`
 
     > **Note:** Replace `pbx.portsip.com` with your actual PBX host name.
 6. In the **Scopes** section, add the following permissions:
@@ -53,7 +53,7 @@ Call recording links and AI transcription links are automatically attached to th
    * **Other**
      * `timeline`&#x20;
 
-<figure><img src="../../../.gitbook/assets/hubspot_app_configure.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/hubspot_app_configure-1.png" alt=""><figcaption></figcaption></figure>
 
 7. Click **Create App**. HubSpot will generate a **Client ID** and **Client Secret**.
 8. Securely store the **Client ID** and **Client Secret**.\

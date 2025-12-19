@@ -50,15 +50,15 @@ The PortSIP PBX Zoho CRM integration is supported for the following Zoho CRM edi
 3. Select **Server-based Applications** as the client type.
 4. Enter a **Client Name**, for example: `PortSIP PBX Integration`
 5. Enter the **Homepage URL**, which is the URL of your PortSIP PBX Admin Console, for example:\
-   `https://pbx.portsip.com`
+   `https://pbx.portsip.com:8887`
 6.  In **Authorized Redirect URIs**, add the PortSIP PBX callback URL:\
-    `https://pbx.portsip.com/api/auth/callback/zoho`
+    `https://pbx.portsip.com:8887/api/auth/callback/zoho`
 
     > **Note:** Replace `pbx.portsip.com` with your actual PBX host name.
 7. Click **Create**.
 8. Zoho will generate a **Client ID** and **Client Secret**.
 
-<figure><img src="../../../.gitbook/assets/zoho_add_client.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/zoho_add_client-1.png" alt=""><figcaption></figcaption></figure>
 
 Securely store the **Client ID** and **Client Secret**. These credentials are required when configuring PortSIP PBX. Treat them as confidential and rotate them immediately if you suspect they have been compromised.
 

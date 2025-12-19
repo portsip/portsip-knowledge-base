@@ -108,9 +108,9 @@ For details on REST API updates in v22.3.0, please refer to the [**REST API Chan
 #### Connectivity and System Improvements
 
 * **SMS Integration**
-  * Integrated with [**SMSGlobal** ](https://www.smsglobal.com/)for outbound and inbound SMS support.
-  * Integrated with [**CM.COM**](https://cm.com) for voice calls and SMS support.
-  * Integrated with [**SIPTRUNK.COM**](https://siptrunk.com) for the voice calls and SMS support.
+  * Integrated with [SMSGlobal ](https://www.smsglobal.com/)for outbound and inbound SMS support.
+  * Integrated with [CM.COM](https://cm.com) for voice calls and SMS support.
+  * Integrated with [SIPTRUNK.COM](https://siptrunk.com) for the voice calls and SMS support.
 * **IPv6 Support**
   * The system now automatically adapts to IPv6 environments — no manual configuration required.
 * **WebSocket Interface (WSI)**
