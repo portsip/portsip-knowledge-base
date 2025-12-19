@@ -1,4 +1,4 @@
-# Installation of PortSIP PBX v22.3
+# Installation of PortSIP PBX v22.x
 
 > ⚠️ **Warning**\
 > **PortSIP PBX v22.3 has not yet been released.**\

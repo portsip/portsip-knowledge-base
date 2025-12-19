@@ -214,7 +214,7 @@ The above operations **do not affect or erase existing analytics data** stored i
 
 The **Data Flow Service** has now been successfully installed.
 
-You can now proceed to [Step 7: Reboot to Apply the Certificate](install-portsip-pbx.md#step-7-reboot-to-apply-the-certificate) in the Install PortSIP PBX guide.
+You can now proceed to [Step 7: Reboot to Apply the Certificate](../../installation-of-portsip-pbx-v22.3-beta-version/install-portsip-pbx.md#step-7-reboot-to-apply-the-certificate) in the Install PortSIP PBX guide.
 
 
 

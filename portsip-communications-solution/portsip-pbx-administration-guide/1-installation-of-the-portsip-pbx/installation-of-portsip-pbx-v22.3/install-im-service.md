@@ -1,6 +1,6 @@
 # Install IM Service
 
-Before proceeding with this guide, ensure that you have already completed **steps 1–4** of the [Install PortSIP PBX](install-portsip-pbx.md) guide.
+Before proceeding with this guide, ensure that you have already completed **steps 1–4** of the [Install PortSIP PBX](../../installation-of-portsip-pbx-v22.3-beta-version/install-portsip-pbx.md) guide.
 
 You have two options for deploying the **PortSIP IM Server**, depending on your scale and performance requirements:
 
@@ -69,7 +69,7 @@ Follow these steps to create and start the IM service Docker container.
 
 The Instant Messaging (IM) Service has now been successfully installed on the same server as the PortSIP PBX.
 
-You can now proceed to Step 6: [Install the Data Flow Service](install-portsip-pbx.md#step-6-install-the-data-flow-service) in the Install PortSIP PBX guide.
+You can now proceed to Step 6: [Install the Data Flow Service](../../installation-of-portsip-pbx-v22.3-beta-version/install-portsip-pbx.md#step-6-install-the-data-flow-service) in the Install PortSIP PBX guide.
 
 ***
 
@@ -298,5 +298,5 @@ If the setup is successful, the **PortSIP PBX Web Portal** will display the IM s
 
 The Instant Messaging (IM) Service has been successfully installed on a separate server from the PortSIP PBX.
 
-You can now proceed to Step 6: [Install the Data Flow Service](install-portsip-pbx.md#step-6-install-the-data-flow-service) in the Install PortSIP PBX guide.
+You can now proceed to Step 6: [Install the Data Flow Service](../../installation-of-portsip-pbx-v22.3-beta-version/install-portsip-pbx.md#step-6-install-the-data-flow-service) in the Install PortSIP PBX guide.
 
