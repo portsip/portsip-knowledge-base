@@ -42,7 +42,5 @@ This integration ensures that all voice communications are properly tracked with
 
 Currently, PortSIP PBX supports integrations with Zoho CRM and HubSpot. Additional CRM integrations are planned for future releases as part of our ongoing commitment to expanding the PortSIP ecosystem.
 
-If you require integration with a specific CRM platform, please contact the PortSIP Support Team with your request. We actively prioritize CRM integrations based on customer demand and real-world deployment needs.
-
-
+If you require integration with a specific CRM platform, please contact the [PortSIP Support Team](mailto:support@portsip.com) with your request. We actively prioritize CRM integrations based on customer demand and real-world deployment needs.
 
