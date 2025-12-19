@@ -62,13 +62,13 @@ This configures PortSIP PBX to use **Amazon AI services** as the backend for tra
 
 ***
 
-### Step 3: Configure AWS Credentials and Settings
+#### Step 3: Configure AWS Credentials and Settings
 
 This section describes how to configure **AWS credentials**, **service parameters**, and **platform API request limits** used by PortSIP PBX for AI-powered speech processing features such as **Speech-to-Text (STT)** and **language analysis**.
 
 ***
 
-#### AWS Service Configuration
+**AWS Service Configuration:**
 
 **Access Key**
 
@@ -103,22 +103,20 @@ The name of the **Amazon S3 bucket** used to store audio files, intermediate pro
 
 Specifies the language and regional format used for **speech recognition** and **text processing**.
 
-Examples include:\
-`en-US`, `en-GB`, `ja-JP`, `zh-CN`, `vi-VN`
+Examples include: `en-US`, `en-GB`, `ja-JP`, `zh-CN`, `vi-VN`
 
 **Language Code**
 
 The **AWS-specific language code** used by speech and language services such as **Amazon Transcribe** and **Amazon Comprehend**.
 
-Examples include:\
-`en-US`, `ja-JP`, `de-DE`
+Examples include: `de`, `en`, `es`, `pt`.
 
 > **Note**\
 > This value must match one of the language codes supported by the corresponding AWS service.
 
 ***
 
-#### AWS Platform API Request Limits
+**AWS Platform API Request Limits:**
 
 These settings control how many AI-related requests can be queued and processed concurrently. Proper configuration helps comply with **AWS service quotas** and protects overall system stability.
 
