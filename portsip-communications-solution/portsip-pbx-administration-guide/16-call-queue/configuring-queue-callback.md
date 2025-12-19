@@ -83,12 +83,14 @@ Once the caller confirms their phone number:
 
 ***
 
-### Queue Exit Options
+### Queue Exit Option
 
 **Queue Exit Options** allow callers who are waiting in a call queue to **proactively leave the queue** and choose an alternative action, instead of simply hanging up and abandoning the call.\
 This is typically implemented through an **IVR option**, where the caller presses a designated key on their phone keypad (for example, **press 8**).
 
 The primary purpose of Queue Exit Options is to **improve the caller experience**, reduce frustration during long wait times, and **lower call abandonment rates** by giving callers more control over how their call is handled.
+
+As the screenshot below, once the queue exit option is activated, the caller in the queue can press 8 to exit the queue that call will be forawrd to the ring group which extension number is 6000.
 
 <figure><img src="../../../.gitbook/assets/queue_feature_exit.png" alt=""><figcaption></figcaption></figure>
 
