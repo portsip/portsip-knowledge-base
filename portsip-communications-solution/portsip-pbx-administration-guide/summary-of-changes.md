@@ -8,6 +8,10 @@ Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-por
 
 Date: December 19, 2025
 
+#### REST API Changes
+
+For details on REST API updates in v22.3.0, please refer to the [**REST API Changes Summary**](../../development-portsip/rest-apis/summary-of-changes.md).
+
 #### New Services and Features
 
 * **Introduced the Data Flow Service**\

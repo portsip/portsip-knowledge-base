@@ -1,4 +1,4 @@
-# Changes Summary
+# Summary of Changes
 
 ### PortSIP PBX REST API Changes Summary
 
