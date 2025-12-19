@@ -44,14 +44,12 @@ This configures PortSIP PBX to use **Microsoft Azure Cognitive Services** as the
 
 ***
 
-### Step 3: Configure Azure Credentials and Service Settings
+#### Step 3: Configure Azure Credentials and Service Settings
 
 Use the information obtained from the Azure Portal to configure the following settings.\
 These settings allow PortSIP PBX to store audio data and invoke Azure AI Foundry services for speech transcription and sentiment analysis.
 
-***
-
-#### Azure Storage Account Configuration
+**Azure Storage Account Configuration:**
 
 These settings are used to access the **Azure Storage Account** that stores call audio recordings and intermediate processing data.
 
@@ -82,7 +80,7 @@ The container must have **read and write permissions** enabled.
 
 For permission configuration details, see: [Azure trusted services security mechanism](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/batch-transcription-audio-data?tabs=portal#trusted-azure-services-security-mechanism)
 
-#### Azure AI Foundry Configuration
+**Azure AI Foundry Configuration:**
 
 These settings are used to invoke Azure AI Foundry services for Speech-to-Text and Sentiment Analysis.
 
@@ -114,7 +112,7 @@ Examples include:\
 
 ***
 
-#### Azure Platform API Request Limits
+**Azure Platform API Request Limits:**
 
 These settings define the API request limits enforced when accessing Azure AI Foundry services.\
 Proper configuration helps control usage and prevent throttling.
