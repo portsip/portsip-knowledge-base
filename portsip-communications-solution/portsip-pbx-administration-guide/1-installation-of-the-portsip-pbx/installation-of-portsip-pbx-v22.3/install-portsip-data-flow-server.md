@@ -68,7 +68,7 @@ Please follow the steps below to generate the token:&#x20;
 * Navigate to **Servers > Data Flow**.
 * Select the default server and click the **Generate Token** button.
 
-<figure><img src="../../../.gitbook/assets/data-flow-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/data-flow-1.png" alt=""><figcaption></figcaption></figure>
 
 ### Step 2: Configure the Firewall on the PBX Server <a href="#configure-the-firewall" id="configure-the-firewall"></a>
 

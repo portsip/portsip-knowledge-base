@@ -4,6 +4,122 @@
 Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.2/upgrade-to-the-latest-version-within-v22.x-on-linux.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
+## Changes for Release v22.3.0
+
+Date: December 19, 2025
+
+#### New Services and Features
+
+* **Introduced the Data Flow Service**\
+  Enables advanced analytics and reporting through real-time data processing.\
+  Includes:
+  * All-new Call Reports
+  * Enhanced CDR with additional filters
+  * Redesigned Dashboards and Wallboards for queue and agent metrics
+* **CRM Integration** _(initially supports Zoho and HubSpot; more CRMs to follow)_\
+  Provides seamless synchronization between PortSIP PBX and CRM systems:
+  * Automatic contact synchronization
+  * Call logging and note-taking directly within the CRM
+  * Ability to create and edit call notes
+  * Unified interaction tracking from both the **PortSIP PBX** and **PortSIP ONE App**
+* **CRM Contacts Category**\
+  Introduced a new _CRM Contacts_ section that categorizes contacts synchronized from connected CRM platforms.
+* **AI Transcription Service**
+  * Integrated with AWS and Microsoft Azure to provide automatic transcription for calls and voicemails.
+  * Transcriptions are viewable in both the PBX Web Portal and the PortSIP ONE App.
+
+***
+
+#### Administration and Access Control
+
+* **Multiple System Administrators**\
+  Support for creating multiple system administrator accounts.
+* **New Administrator Roles**\
+  Introduced two new predefined roles with limited permissions:
+  * Operations Admin
+  * Site Admin
+* **Customizable Administrator Roles**\
+  Administrators can now create custom roles to fine-tune access permissions, enhancing role-based access control and operational flexibility.
+* **User Access Limits**\
+  System administrators can set per-tenant limits on how many users can access:
+  * The PortSIP ONE App
+  * The Teams Phone App
+
+***
+
+#### Security and Compliance Enhancements
+
+* **Recording and Voicemail File Protection**\
+  Strengthened access control for recordings and voicemail files:
+  * Each file now includes both a Public Link and a Private Link.
+  * Private Links require credential verification and role-based permission validation.
+  * Tenant admins can choose whether to push Public or Private Links to the CRM.
+  * When a CRM user clicks a Private Link, credentials are required to verify access.
+  * All accesses to recordings and voicemails are now logged in the Audit Log.
+* **Enhanced Audit Logging**\
+  Added additional filters and detailed tracking for administrator and user activities.
+
+***
+
+#### Telephony and Call Handling
+
+* **Virtual Receptionist Security**\
+  Added the option to block direct extension dialling from the Virtual Receptionist, preventing callers from bypassing menu options.
+* **Queue and Ring Group Enhancements**
+  * Added support for Night Mode per IVR, Queue, or Ring Group.
+  * Introduced Queue Exit Options for callers.
+  * Added configurable Agent Wrap-Up Time after each call.
+  * Added support for Periodic Announcements during queue waiting.
+  * Introduced Agent Pause Codes for more accurate reporting.
+* **Trunk Enhancements**
+  * Added support for the `tel:` URI scheme in trunk configurations.
+  * Added configuration for maximum call duration per trunk.
+  * Enhanced outbound rule configuration to support SMS routing.
+* **Voicemail Improvements**
+  * Minimum PIN length increased to **4 digits** for better security.
+* **Call Routing Enhancement**
+  * If an extension declines a call, it will now follow the Busy Forwarding Rule.
+
+***
+
+#### Device and App Updates
+
+* **New App Releases**
+  * Released the PortSIP Teams Phone App.
+  * Released PortSIP ONE for macOS.
+* **Device Support**
+  * Added support for Fanvil W620W, V50P, and V60P phones.
+  * Added support for Yealink T7x and T8x phones.
+  * Added support for Gigaset IP and DECT phones.
+  * Added support for Intelbras IP Phones
+  * Added support for SNOM headsets in the PortSIP ONE app.
+  * DECT phone handset names can now be automatically set to the Extension Name.
+* **Power Optimization**
+  * Phones provisioned by PortSIP PBX now automatically disable power-saving mode to prevent missed calls.
+* **Codec Configuration**
+  * Added the ability to enable or disable codecs for IP phones during auto-provisioning.
+
+***
+
+#### Connectivity and System Improvements
+
+* **SMS Integration**
+  * Integrated with **SMSGlobal** for outbound and inbound SMS support.
+  * Integrated with **CM.COM** for voice calls and SMS support.
+* **IPv6 Support**
+  * The system now automatically adapts to IPv6 environments — no manual configuration required.
+* **WebSocket Interface (WSI)**
+  * The WSI now supports subscribing to global queue events within a tenant.
+
+***
+
+#### Bug Fixes
+
+* Fixed issues related to the **Diversion Header**.
+* Other stability and performance enhancements across PBX core services.
+
+***
+
 ## Changes for Release v22.2.25
 
 Date: November 21, 2025
@@ -22,6 +138,8 @@ Date: November 21, 2025
 #### PortSIP SBC v11.20
 
 This version fixed a bug where, if the IM service was installed on a separate server, the WebRTC app would fail to connect to the IM server.
+
+***
 
 ## Changes for Release v22.2.23
 
@@ -46,6 +164,8 @@ Date: November 6, 2025
 * Fixed an inbound message handling issue for VoIP Innovations trunks.
 * Fixed an issue where filesystem inodes were not released correctly after file operations in Linux, which could lead to unnecessary disk space consumption over time.
 
+***
+
 ## Changes for Release v16.4.8
 
 Date: November 6, 2025
@@ -60,6 +180,8 @@ Date: November 6, 2025
 
 * Fixed the bug where the trunk DID pool management and rule handling to address a condition where editing inbound or outbound rules could prevent calls from being routed through the trunk.
 * Fixed an issue where filesystem inodes were not released correctly after file operations in Linux, which could lead to unnecessary disk space consumption over time.
+
+***
 
 ## Changes for Release v22.2.22
 
@@ -79,6 +201,8 @@ Date: October 15, 2025
 * Fixed an issue where the voicemail playback date was played incorrectly in English.
 * Fixed an issue where the transfer key was configured incorrectly on SNOM and Yealink phones during auto-provisioning.
 
+***
+
 ## Changes for Release v22.2.21
 
 Date: September 28, 2025
@@ -93,6 +217,8 @@ Date: September 28, 2025
 * Resolved two queue-handling issues when a queue has only **one** agent who has **Push Notifications** enabled and whose phone is in the background with the network disabled (e.g., Wi-Fi/Cellular off or Airplane Mode):
   * The agent could remain stuck in **ONCALL** status after the caller timed out in the queue and hung up.
   * The caller might not receive the SIP **BYE** message after the call timed out in the queue and ended.
+
+***
 
 ## Changes for Release v22.2.20
 
@@ -109,6 +235,8 @@ Date: September 18, 2025
 
 * Fixed a bug where if a call between two extensions is launched by REST API, and the callee is logged in with the mobile app, once the caller answers, the PBX doesn't send push notifications to the callee's mobile app.&#x20;
 
+***
+
 ## Changes for Release v16.4.7
 
 Date: September 10, 2025
@@ -116,6 +244,8 @@ Date: September 10, 2025
 **Enhancements**
 
 * Reimplemented the webhook, more stable.
+
+***
 
 ## Changes for Release v22.2.19
 
@@ -130,6 +260,8 @@ Date: August 21, 2025
 * **Mobile App Push Certificates**\
   Optimized the automatic update process for push notification certificates.
 
+***
+
 ## Changes for Release v22.2.18
 
 Date: August 6, 2025
@@ -142,6 +274,8 @@ Date: August 6, 2025
 
 * Fixed a bug where if a call between two extensions is launched by REST API, and the callee is logged in with the mobile app, once the caller answers, the PBX doesn't send push notifications to the callee's mobile app.&#x20;
 
+***
+
 ## Changes for Release v16.4.6
 
 Date: August 1, 2025
@@ -149,6 +283,8 @@ Date: August 1, 2025
 **Bug Fixes**
 
 * Fixed a queue abandoned report issue where if the agent refers the call to the queue again causes the number of abandoned calls to be incorrect.
+
+***
 
 ## Changes for Release v22.2.17 <a href="#changes-for-release-v22.2.17" id="changes-for-release-v22.2.17"></a>
 
@@ -172,6 +308,8 @@ Date: July 28, 2025
 * Resolved a memory leak in the queue server in specific scenarios.
 * Fixed a failure in completing Google Workspace integration.
 
+***
+
 ## Changes for Release v16.4.5
 
 Date: July 1, 2025
@@ -192,6 +330,8 @@ Date: July 1, 2025
 * Fixed incorrect or missing recording files issue if a REST API–initiated call that the caller did not answer to end the call by timed out.
 * Fixed a Ring Group bug where a call was hung up if the last member declined the call with "Repeat" enabled for the no answer.
 
+***
+
 ## Changes for Release v22.2.14
 
 Date: Jun 12, 2025
@@ -211,6 +351,8 @@ If you are upgrading from a version earlier than v22.2.11. You must update the S
 * Resolved a problem where importing extension users with IP Phone provisioning, or creating an extension with auto auto-provisioned phone, could cause the provisioning process to fail.
 * Fixed an issue where using the same phone number for both WhatsApp and voice calls with different inbound rules could result in WhatsApp messages being delivered to the wrong destination extension.
 * Fixed an issue where enabling “Call Recovery” caused incoming calls initiated via the REST API to fail to be answered properly.
+
+***
 
 ## Changes for Release v22.2.11
 
@@ -322,6 +464,8 @@ After upgrading from a previous version to v22.2.x, the SBC token is automatical
     * `NONE`
     * `SESSION`
 
+***
+
 ## Changes for Release v22.1.7
 
 Date: Feb 27, 2025
@@ -374,6 +518,8 @@ Date: Feb 27, 2025
 * **Updated Endpoint:** `/api/admin/notification` – Added the `enable_tenant_access` option, which allows tenants to use the system administrator’s mail server settings to send email notifications.
 * **Updated Endpoint:** `/api/tenant/notification/test_email` – Added the `enable_system_email_server` option, which indicates whether the tenant has permission to use the system administrator’s mail server settings to send email notifications.
 
+***
+
 ## Changes for Release v22.0.42
 
 Date: Jan 16, 2025
@@ -386,6 +532,8 @@ Date: Jan 16, 2025
 
 * Added `/api/calllogs`to query the CDR logs.
 
+***
+
 ## Changes for Release v22.0.39
 
 Date: Jan 2, 2025
@@ -394,6 +542,8 @@ Date: Jan 2, 2025
 * Resolved a bug with Advanced Routing, where the “all” option was not properly matching year/month parameters.&#x20;
 * Corrected an issue where exception forwarding rules failed to match the caller number under certain scenarios.&#x20;
 * Fixed a display issue where the caller’s display name was incorrect when calling into a ring group or queue.
+
+***
 
 ## Changes for Release v22.0.38
 
@@ -530,6 +680,8 @@ Date: Dec 12, 2024
 * Modified password property: Minimum length restriction changed to 6 (previously 8).
 * Modified outbound\_caller\_ids property: Added sub-property `description`.
 
+***
+
 ## Changes for Release v16.4.4
 
 Date: Nov 25, 2024
@@ -543,6 +695,8 @@ Date: Nov 25, 2024
 * Fixed a queue bug where the last agent did not receive calls in queue "ring simultaneously" mode when all agents were available.
 * Resolved an issue in version 16.4.3 where the PBX used an incorrect IP address in the call SDP when making calls to trunks over the internet in a High Availability (HA) setup.
 
+***
+
 ## Changes for Release v16.4.3
 
 Date: Sep 10, 2024
@@ -550,6 +704,8 @@ Date: Sep 10, 2024
 * Users can now efficiently locate IVRs within the IVR list page by utilizing the search functionality.
 * Fixed a crash issue that occurred when using a domain for the trace server host.
 * Fixed a bug affecting calls using the G.723.1 codec.
+
+***
 
 ## Changes for Release v16.4.2
 
@@ -565,6 +721,8 @@ Date: Jul 24, 2024
 * Fixed a bug where deploying the queue server as a cluster might cause the REST API `/api/call_queues/{id}/waiting` to return empty callers.
 * &#x20;Fixed a bug where incorrect codec usage in SNOM M400 and M900 could result in no voice.
 
+***
+
 ## Changes for Release v16.4.1
 
 Date: Jun 12, 2024
@@ -576,6 +734,8 @@ The following changes are included in this release:
 * Fix an issue when provisioning the ALE H2P phone via RPS.
 * Fix a bug that if an extension registers to PBX from IPv4 and IPv6 devices simultaneously.
 * Allow set the Queue and ring group number for the BLF key.
+
+***
 
 ## Changes for Release v16.4.0
 
@@ -592,6 +752,8 @@ The following changes are included in this release:
 ### REST API Changes
 
 1. Updated `/api/mobile_push` series API, removed `android_server_key`, `android_sender_id`, added `android_service_account` to specify the the contents of **Firebase Cloud Messaging service account JSON file**.
+
+***
 
 ## Changes for Release v16.3.0
 
@@ -636,6 +798,8 @@ The following changes are included in this release:
 * &#x20; Add `GET /api/users/:id/call_queues/:queue_id/agent` to get the agent status of the specified call queue that a specified user belongs to.
 * &#x20; Add `POST /api/users/:id/call_queues/:queue_id/agent` to configure the agent status of the specified call queue that a specified user belongs to.
 
+***
+
 ## Changes for Release v16.2.0
 
 Date: Jan 18, 2024
@@ -666,6 +830,8 @@ The following changes are included in this release:
 * Changed the WSI (Web Socket Interface) events so subscribers more easily watch the extension status.
 * Resolved an issue that was preventing new voicemail alerts on SNOM phones.
 * Fixed a bug that could prevent the Queue prompt voice from playing to the caller when the Queue servers are configured as a cluster.
+
+***
 
 ## Changes for Release v16.1.0
 
@@ -719,12 +885,16 @@ The following changes are included in this release:
 * Made some other minor changes and improvements
 * Fixed some minor bugs
 
+***
+
 ## Changes for Release v16.0.4
 
 **Date**: August 8, 2023
 
 * Fixed a security issue.
 * Fixed a bug that can't hear early media when launching the call by REST API.
+
+***
 
 ## Changes for Release v16.0.3
 
@@ -740,6 +910,8 @@ The following changes are included in this release:
 * Fixed a bug that screen sharing did not work during meetings when the PBX was running on a Linux server.
 * Automatically determine if the server’s IPv6 is disabled, and if so, do not attempt to bind the service to the IPv6 interface.
 * Added support for configuring the first BLF as a speed dial for Fanvil i series intercom devices via auto-provisioning.
+
+***
 
 ## Changes for Release v16.0.2
 
@@ -757,6 +929,8 @@ The following changes are included in this release:
 * Fixed bug that sent NOTIFY for new voicemails.
 * Fixed billing bug that added one more billing round if billing time was multiple of 60 seconds.
 * Fixed push status display incorrectly on the user list page.
+
+***
 
 ## Changes for Release v16.0.1
 
@@ -786,6 +960,8 @@ The following changes are included in this release:
 * The issue where if you launch a call by REST API, one party may have no voice has been fixed.
 * In the Webhook and WSI messages, the ID has been changed from in64\_t to string in order to be compatible with JS.
 * The billing issue is that if the call duration is multiples of the billing circle, don’t plus more 1 billing round; in the previous version, if the duration is 10 seconds and the billing circle is 5 seconds, we will charge 3 rounds, now just charge 2 rounds.
+
+***
 
 ## Changes for Release v16.0.0
 

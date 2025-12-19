@@ -5,7 +5,7 @@
 This guide is intended **exclusively for installing the PortSIP PBX v22.3 Beta version**.\
 **Do not use this release in a production environment.**
 
-If you plan to deploy PortSIP PBX for production use, please refer instead to the [installation guide for **version 22.2.x**](../1-installation-of-the-portsip-pbx/).
+If you plan to deploy PortSIP PBX for production use, please refer instead to the [installation guide for **version 22.2.x**](1-installation-of-the-portsip-pbx/).
 
 #### Important Beta Limitations
 
@@ -133,7 +133,7 @@ To provide the powerful features, PortSIP PBX introduces two new components that
 
 Please follow the installation sequence below to ensure proper deployment:
 
-1. [Install PortSIP PBX](install-portsip-pbx.md)
-2. [Install PortSIP IM Server](install-portsip-im-server.md)
-3. [Install PortSIP Data Flow Server](install-portsip-dataflow-server.md)<br>
+1. [Install PortSIP PBX](1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.3/install-portsip-pbx.md)
+2. [Install PortSIP IM Server](1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.3/install-portsip-im-server.md)
+3. [Install PortSIP Data Flow Server](1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.3/install-portsip-data-flow-server.md)<br>
 
