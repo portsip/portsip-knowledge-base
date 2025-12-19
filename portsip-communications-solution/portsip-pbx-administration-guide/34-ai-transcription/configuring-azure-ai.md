@@ -68,8 +68,7 @@ Using the information obtained from the **Azure Portal**, configure the followin
 **Azure Service Configuration**
 
 * **Container Name**\
-  Required only if you are using **Azure containerized AI services**.\
-  Leave this field empty if you are using standard cloud-based Azure services.
+  This is mandatory .
 * **Locale**\
   Specifies the language and regional format for speech recognition\
   (for example: `en-US`, `en-GB`, `ja-JP`).

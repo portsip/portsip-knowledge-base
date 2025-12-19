@@ -58,7 +58,7 @@ All commands must be executed in the **`/opt/portsip`** directory.
 Perform the commands below to download the installation scripts and initialize the environment:
 
 ```sh
-mkdir /opt/portsip
+sudo mkdir /opt/portsip
 ```
 
 {% code overflow="wrap" %}
@@ -232,7 +232,6 @@ Once **Step 5/6** is complete&#x64;**,** if you uploaded a trusted SSL certifica
 ```sh
 cd /opt/portsip
 sudo /bin/sh pbx_ctl.sh restart
-sudo /bin/sh im_ctl.sh restart
 ```
 
 Now that the PortSIP PBX is successfully installed, you can use [https://uc.portsip.cc:8887](https://uc.portsip.cc:8887) to access the PortSIP PBX web portal.
