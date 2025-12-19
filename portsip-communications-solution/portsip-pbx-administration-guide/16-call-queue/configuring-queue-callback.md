@@ -90,6 +90,8 @@ This is typically implemented through an **IVR option**, where the caller presse
 
 The primary purpose of Queue Exit Options is to **improve the caller experience**, reduce frustration during long wait times, and **lower call abandonment rates** by giving callers more control over how their call is handled.
 
+<figure><img src="../../../.gitbook/assets/queue_feature_exit.png" alt=""><figcaption></figcaption></figure>
+
 ***
 
 #### Common Queue Exit Destinations
@@ -103,8 +105,4 @@ When a caller exits the queue, the call can be routed to one of the following **
 * **Ring Group**
 * **Extension**
 * **External Number**
-
-
-
-
 
