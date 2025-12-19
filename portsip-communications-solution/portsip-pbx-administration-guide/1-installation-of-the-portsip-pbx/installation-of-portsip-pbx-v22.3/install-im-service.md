@@ -217,7 +217,7 @@ All commands must be executed in the **`/opt/portsip`** directory on the IM serv
 **Initialize the Environment**
 
 ```bash
-mkdir -p /opt/portsip
+sudo mkdir -p /opt/portsip
 cd /opt/portsip
 sudo curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.3/init.sh -o init.sh
 sudo /bin/sh init.sh
