@@ -24,7 +24,7 @@ With this configuration, the PBX can support up to 1,000 online users and handle
 ### Supported OS
 
 * Ubuntu 22.04, 24.04
-* Debian 11.x, 12.x
+* Debian 12
 
 ### Preparing the Server for Installation
 

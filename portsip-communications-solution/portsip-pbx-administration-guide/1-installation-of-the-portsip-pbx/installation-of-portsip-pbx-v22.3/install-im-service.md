@@ -1,9 +1,5 @@
 # Install IM Service
 
-{% hint style="warning" %}
-The **IM server** (Instant Messaging server) installation is a separate step that is only required when installing **PortSIP PBX** in a **Linux environment**.
-{% endhint %}
-
 Before proceeding with this guide, ensure that you have already completed **steps 1–4** of the [Install PortSIP PBX](../../installation-of-portsip-pbx-v22.3-beta-version/install-portsip-pbx.md) guide.
 
 You have two options for deploying the **PortSIP IM Server**, depending on your scale and performance requirements:
@@ -77,104 +73,84 @@ You can now proceed to Step 6: [Install the Data Flow Service](../../installatio
 
 ***
 
-### Install IM Service on the Same Server as PortSIP PBX
-
-Follow these steps to install the IM server on the same server as PortSIP PBX.
-
-#### Step 1: Generate Token for the IM Server
-
-1. Log in as the **System Administrator** to the PortSIP PBX Web portal.
-2. Navigate to **Servers > IM Servers**.
-3. Select the default server and click the **Generate Token** button.
-4. Copy the generated token.
-
-#### Step 2: Create and Run Instant Messaging Docker Instance
-
-Follow these steps to create the IM service Docker instance:
-
-1. Navigate to the **/opt/portsip** directory by running the following command:
-
-```sh
-cd /opt/portsip
-```
-
-2. Use the command below to create the Instant Messaging service Docker instance. Replace the placeholders with your actual values:
-
-* **-p**: Specifies the path for storing the IM service data.
-* **-i**: Specifies the PBX Docker image version.
-* **-t**: Specifies the token generated in the previous step.
-
-{% code overflow="wrap" %}
-```sh
-sudo /bin/sh im_ctl.sh run -p /var/lib/portsip/ -i portsip/pbx:22.3.17.1271-beta \
--t OWMWYWJKZJYTMWM2NI0ZNZJMLWJJZDKTMGVMZDYXNZU1NWI1
-```
-{% endcode %}
-
-If everything is set up correctly, the PBX web portal will display the IM server's IP address, as shown in the screenshot below.
-
-The Instant Messaging (IM) server has been successfully installed. We can now proceed with the next steps in the [PortSIP PBX installation step 6](../../installation-of-portsip-pbx-v22.3-beta-version/install-portsip-pbx.md#step-6-reboot-to-apply-the-certificate).
-
 ### Install IM Service on a Separate Server
 
-For optimal performance, it’s recommended to install the IM service on a separate server, especially when handling a large number of users for chat and file-sharing activities (including files and pictures). The following hardware specifications are suitable for supporting up to 50,000 users online, with messaging and file sharing:
+For optimal performance and scalability, it is recommended to install the PortSIP Instant Messaging (IM) service on a separate server, especially in deployments with a large number of users or heavy usage of chat and file-sharing features (including files and images).
+
+The following specifications are suitable for supporting **up to 50,000 concurrent online users** with messaging and file sharing.
+
+***
+
+#### Recommended Hardware Specifications
 
 * **CPU**: 20 cores or higher
-* **Memory**: 16 GB
-* **Disk**: High I/O performance required (SSD recommended, at least 256 GB)
-* **Network Bandwidth**: 1000 Mbps or higher, particularly if handling high volumes of messages and file sharing.
-* **Static private IP**: You must configure a static private IP for this IM server. In this case, we assume it's **192.168.1.25.**
-* **Static public IP:** If your PBX and IM server are located in the cloud for the internet users to access, you must have a static public IP for this IM service. In this case, we assume it's **104.18.36.110.**
+* **Memory**: 16 GB RAM
+* **Disk**: High I/O performance required (SSD recommended, minimum 256 GB)
+* **Network Bandwidth**: 1 Gbps or higher, especially for high message and file transfer volumes
+* **Static Private IP**: Required, for example: `192.168.1.25`
+* **Static Public IP**: Required for internet-facing deployments, for example: `104.18.36.110`
 
-#### **Supported Linux OS** <a href="#supported-linux-os" id="supported-linux-os"></a>
+***
 
-It only supports 64-bit OS.
+#### Supported Linux Operating Systems
+
+The IM server supports **64-bit Linux operating systems only**:
 
 * Ubuntu 22.04, 24.04
-* Debian 11.x, 12.x
+* Debian 12
 
-For this setup, we assume the **PortSIP PBX** is installed on a server:
+***
 
-* PBX Server static private IP address: **192.168.1.20**
-* PBX Server static public IP address: **104.18.36.119**.
+#### Deployment Assumptions
 
-#### Step 1: **Preparing the Linux server for IM Installation**
+For this guide, the following environment is assumed:
 
-Tasks that MUST be completed before installing cluster servers.
+* **PBX Server**
+  * Static private IP: `192.168.1.20`
+  * Static public IP: `104.18.36.119`
+* **IM Server**
+  * Static private IP: `192.168.1.25`
+  * Static public IP: `104.18.36.110`
 
-* **Ensure the server date-time is synced correctly**.
-* If the Linux server is on a LAN, assign a **static private IP** address, in this case, **192.168.1.25**.
-* Assign/route the static public IP address to this server, in this case, **104.18.36.110.**
-* Install all available updates and service packs before installing the cluster server.
-* Do not install PostgreSQL on the server.
-* Ensure that all power-saving options for your system and network adapters are disabled (by setting the system to High-Performance mode).
-* Do not install TeamViewer, VPN, or similar software on the host machine.
-* The server must not be installed as a DNS or DHCP server.
+***
 
-{% hint style="danger" %}
-If your Instant Messaging (IM) server is hosted in the cloud (e.g., AWS), you must ensure that TCP port 8887 is open in the cloud firewall rules. The client application requires access to this port in order to send and receive messages.
-{% endhint %}
+#### Step 1: Prepare the Linux Server for IM Installation
 
-#### Step 2: Configure the Firewall on the PBX Server <a href="#configure-the-firewall" id="configure-the-firewall"></a>
+The following tasks **must be completed before installing the IM server**:
 
-To allow the separate Instant Messaging server (IP: **192.168.1.25**) to access the PBX server (IP: **192.168.1.20**), it is necessary to create appropriate firewall rules on the PBX server.
+* Ensure the system date and time are correctly synchronized.
+* Assign a **static private IP address** (example: `192.168.1.25`).
+* Assign or route a **static public IP address** (example: `104.18.36.110`).
+* Install all available system updates and service packs.
+* **Do not install PostgreSQL** on this server.
+* Disable all power-saving features (set the system to **High Performance** mode).
+* Do **not** install TeamViewer, VPN software, or similar tools.
+* The server **must not** act as a DNS or DHCP server.
+* If hosted in the cloud (AWS, Azure, GCE), ensure **TCP port 8887** is allowed in firewall rules.\
+  This port is required for client messaging traffic.
 
-Please execute the following commands on the **PBX server** (IP: **192.168.1.20**) to configure these firewall rules.
+***
 
-```sh
+#### Step 2: Configure the Firewall on the PBX Server
+
+To allow the IM server (`192.168.1.25`) to communicate with the PBX server (`192.168.1.20`), configure firewall rules on the PBX server.
+
+Run the following commands **on the PBX server**:
+
+```bash
 sudo firewall-cmd --permanent --zone=trusted --add-source=192.168.1.25
 sudo firewall-cmd --reload
 ```
 
-To verify that the rule has been created correctly, you can use the following command:
+To verify the rule:
 
-```sh
+```bash
 sudo firewall-cmd --zone=trusted --list-all
 ```
 
-The correct output should be like the following:
+Expected output:
 
-```sh
+```shellscript
 [ubuntu@localhost ~]$ sudo firewall-cmd --zone=trusted --list-all
 trusted (active)
   target: ACCEPT
@@ -192,122 +168,135 @@ trusted (active)
   rich rules:
 ```
 
-#### Step 3: Configuring the IP Address Whitelist <a href="#configuring-the-ip-address-whitelist" id="configuring-the-ip-address-whitelist"></a>
+***
 
-This step is mandatory; the service will not function without it.&#x20;
+#### Step 3: Configure the IP Address Whitelist (Mandatory)
 
-To prevent the PBX from restricting the request rate to the IM servers, you must add the IM servers' IP addresses to the PBX whitelist. Follow the steps below to complete this process:
+This step is **mandatory**. The IM service will not function without it.
 
-1. Sign in to the PBX web portal as the System Administrator
-2. Select the menu **IP Blacklist** > **Add**.
-3. Enter the IM server IP as shown in the screenshot below and choose a long **expiration date.**
+To prevent the PBX from applying request rate limits to the IM server:
+
+1. Log in to the **PortSIP PBX Web Portal** as a **System Administrator**.
+2. Navigate to **IP Blacklist > Add**.
+3. Enter the IM server IP address (`192.168.1.25`).
+4. Select a **long expiration date** and save the entry.
 
 <figure><img src="../../../../.gitbook/assets/im_server_whitelist.png" alt="" width="563"><figcaption></figcaption></figure>
 
+***
+
 #### Step 4: Configure Cloud Firewall or Network Security Rules
 
-> _Skip this step if you are not deploying the PBX and IM server on a cloud platform such as AWS, Azure, or Google Cloud (GCE)._
+Skip this step if you are **not** deploying in a cloud environment.
 
-If your PBX and IM server are hosted on a cloud platform (e.g., AWS, Azure, or GCE), you must configure the necessary firewall or network security rules to allow communication between them.
+If the PBX and IM server are hosted on **AWS, Azure, or Google Cloud**:
 
-In your cloud platform, create a firewall or network security rule that permits **all TCP traffic** from the **IM server IP address to the PBX server**. This ensures proper connectivity between the services for messaging and signaling.
+* Create a firewall or security group rule allowing **all TCP traffic** from the IM server IP to the PBX server IP.
 
-> ⚠️ **Note:** Make sure this rule is restricted to the internal IP range of your deployment to maintain security.
+> ⚠️ **Note**\
+> Restrict this rule to the **internal IP range** of your deployment to maintain security.
 
-#### Step 5: Generate Token for the IM Server
+***
 
-1. Log in as the **System Administrator** to the PortSIP PBX Web portal.
+#### Step 5: Generate a Token for the IM Server
+
+1. Log in to the **PortSIP PBX Web Portal** as a **System Administrator**.
 2. Navigate to **Servers > IM Servers**.
-3. Select the default server and click the **Generate Token** button.
-4. Copy the generated token.
+3. Select the **default IM server**.
+4. Click **Generate Token**.
+5. Copy and securely store the generated token.
 
 <figure><img src="../../../../.gitbook/assets/im_server_update_address_new_token.png" alt=""><figcaption></figcaption></figure>
 
-#### **Step 6: Create and Run Instant Messaging Docker Instance**
+***
 
-{% hint style="warning" %}
-All commands must be executed in the **`/opt/portsip`** directory.
-{% endhint %}
+#### Step 6: Create and Run the Instant Messaging Docker Instance
 
-Perform the commands below to download the installation scripts and initialize the environment:
+All commands must be executed in the **`/opt/portsip`** directory on the IM server.
 
-```sh
+**Initialize the Environment**
+
+```bash
 mkdir -p /opt/portsip
-```
-
-```sh
-sudo curl \
-https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.3/init.sh  \
--o  init.sh
-```
-
-```sh
+cd /opt/portsip
+sudo curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.3/init.sh -o init.sh
 sudo /bin/sh init.sh
 ```
 
-Execute the command below to install the `Docker-Compose` environment. If you get the prompt likes`*** cloud.cfg (Y/I/N/O/D/Z) [default=N] ?`, enter the **Y** and then press the **Enter** button.
+**Install Docker and Docker Compose**
 
-```sh
-cd /opt/portsip
-```
-
-```sh
+```bash
 sudo /bin/sh install_docker.sh
 ```
 
-Use the following command to create the Instant Messaging (IM) service Docker instance on the IM server (IP **192.168.1.25)**. Replace each parameter with your actual values:
+If prompted with:
 
-* **-E**: Specifies that the IM server is installed in extended mode (required).
-* **-p**: Specifies the path for storing IM service data (required).
-* **-a**: Specifies the private IP address of this IM server. If this parameter is omitted, the **-A** parameter must be specified.
-* **-A**: Specifies the public IP address of this IM server. If this parameter is omitted, the **-a** parameter must be specified. If you install the IM server on a **separate server in the cloud, this parameter must be specified**. Otherwise, it can be ignored. In this case is **104.18.36.110**.
-* **-i**: Specifies the PBX Docker image version (required).
-* **-x**: Indicates the main PBX server's IP address (typically the private IP of the main PBX server) (required).&#x20;
+```
+cloud.cfg (Y/I/N/O/D/Z) [default=N] ?
+```
 
-{% hint style="danger" %}
-If the PBX is deployed in High Availability (HA) mode, you must enter the **Virtual IP of the PBX** for this parameter.
-{% endhint %}
+Enter **Y** and press **Enter**.
 
-* **-t**: Provides the token generated and copied in the previous step (required).
-* **-f**: Specifies the path for storing files sent in chats (optional). This path **must differ** from the one specified with **-p**. If this parameter is omitted, chat files will be stored in the path specified by **-p.**
+***
 
-```sh
+**Create the IM Service Docker Instance**
+
+Command parameters:
+
+* `-E` : Extended mode (required for separate server deployment)
+* `-p` : IM service data directory
+* `-a` : IM server private IP
+* `-A` : IM server public IP (required for cloud deployments)
+* `-i` : PortSIP PBX Docker image version
+* `-x` : PBX server IP (use VIP if PBX is in HA mode)
+* `-t` : Token generated in Step 5
+* `-f` : Optional directory for storing chat files (must differ from `-p`)
+
+Example:
+
+```bash
 sudo /bin/sh im_ctl.sh run -E \
 -p /var/lib/portsip/ \
 -a 192.168.1.25 \
 -A 104.18.36.110 \
--i portsip/pbx:22.3.17.1271-beta \
+-i portsip/pbx:22 \
 -x 192.168.1.20 \
 -t OWMWYWJKZJYTMWM2NI0ZNZJMLWJJZDKTMGVMZDYXNZU1NWI1
 ```
 
-For example, if you want to store the chat files to the path `/chat/files`, please ensure this path is already existing, then use the below command (please pay attention to the **-f** parameter.) to create the Instant Messaging (IM) service Docker instance on the IM server (IP **192.168.1.25)**. Replace each parameter with your actual values:
+Example with a separate directory for chat files:
 
-```sh
+```bash
 sudo /bin/sh im_ctl.sh run -E \
 -p /var/lib/portsip/ \
 -f /chat/files/ \
 -a 192.168.1.25 \
 -A 104.18.36.110 \
--i portsip/pbx:22.3.17.1271-beta \
+-i portsip/pbx:22 \
 -x 192.168.1.20 \
 -t OWMWYWJKZJYTMWM2NI0ZNZJMLWJJZDKTMGVMZDYXNZU1NWI1
 ```
 
-Perform the below commands to restart the IM service (**please ensure the PBX service on another server is started**).
+***
 
-```sh
+**Restart the IM Service**
+
+Ensure the PBX service is running on the PBX server, then restart the IM service:
+
+```bash
 cd /opt/portsip
 sudo /bin/sh im_ctl.sh restart
 ```
 
-If everything is set up correctly, the PBX web portal will display the IM server's IP address, as shown in the screenshot below.
+If the setup is successful, the **PortSIP PBX Web Portal** will display the IM server IP under **Servers > IM Servers**.
 
 <figure><img src="../../../../.gitbook/assets/im_server_update_address.png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="danger" %}
-If your Instant Messaging (IM) server is hosted in the cloud (e.g., AWS), you must ensure that TCP port 8887 is open in the cloud firewall rules. The client application requires access to this port in order to send and receive messages.
-{% endhint %}
+***
 
-The Instant Messaging (IM) server has been successfully installed. We can now proceed with the next steps in the[ PortSIP PBX installation step 6](../../installation-of-portsip-pbx-v22.3-beta-version/install-portsip-pbx.md#step-6-reboot-to-apply-the-certificate).
+#### Installation Complete
+
+The **Instant Messaging (IM) Server** has now been successfully installed on the same server as the PortSIP PBX.
+
+You can now proceed to Step 6: [Install the Data Flow Service](../../installation-of-portsip-pbx-v22.3-beta-version/install-portsip-pbx.md#step-6-install-the-data-flow-service) in the Install PortSIP PBX guide.
 
