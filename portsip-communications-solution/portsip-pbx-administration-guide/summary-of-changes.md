@@ -92,11 +92,11 @@ For details on REST API updates in v22.3.0, please refer to the [**REST API Chan
   * Released the PortSIP Teams Phone App.
   * Released PortSIP ONE for macOS.
 * **Device Support**
-  * Added support for Fanvil W620W, V50P, and V60P phones.
-  * Added support for Yealink T7x and T8x phones.
-  * Added support for Gigaset IP and DECT phones.
-  * Added support for Intelbras IP Phones
-  * Added support for SNOM headsets in the PortSIP ONE app.
+  * Added support for [Fanvil ](https://www.fanvil.com)W620W, V50P, V60P, and W series phones.
+  * Added support for [Yealink ](https://www.yealink.com)T7x and T8x phones.
+  * Added support for [Gigaset ](https://www.gigaset.com)IP and DECT phones.
+  * Added support for [Intelbras ](https://www.intelbras.com/en)IP Phones
+  * Added support for [SNOM ](https://www.snom.com/en/)headsets in the PortSIP ONE app.
   * DECT phone handset names can now be automatically set to the Extension Name.
 * **Power Optimization**
   * Phones provisioned by PortSIP PBX now automatically disable power-saving mode to prevent missed calls.
@@ -108,8 +108,9 @@ For details on REST API updates in v22.3.0, please refer to the [**REST API Chan
 #### Connectivity and System Improvements
 
 * **SMS Integration**
-  * Integrated with **SMSGlobal** for outbound and inbound SMS support.
-  * Integrated with **CM.COM** for voice calls and SMS support.
+  * Integrated with [**SMSGlobal** ](https://www.smsglobal.com/)for outbound and inbound SMS support.
+  * Integrated with [**CM.COM**](https://cm.com) for voice calls and SMS support.
+  * Integrated with [**SIPTRUNK.COM**](https://siptrunk.com) for the voice calls and SMS support.
 * **IPv6 Support**
   * The system now automatically adapts to IPv6 environments — no manual configuration required.
 * **WebSocket Interface (WSI)**
