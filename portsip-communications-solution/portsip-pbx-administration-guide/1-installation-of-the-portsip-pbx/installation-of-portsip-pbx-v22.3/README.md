@@ -39,12 +39,12 @@ This architecture ensures:
 
 ### Upgrading PortSIP PBX
 
-If you are currently running **PortSIP PBX v16.x** and plan to upgrade to **v23.x**, or if you are upgrading from an earlier **v22.2.x** release to the latest version, follow the upgrade procedures outlined below.
+If you are currently running **PortSIP PBX v16.x** and plan to upgrade to the latest **v22.x**, or if you are upgrading from an earlier **v22.x** release to the latest version, follow the upgrade procedures outlined below.
 
 ### Upgrade Path
 
-* Deployments currently running **PortSIP PBX v16.x** must first be upgraded to the **latest v16.x release** before proceeding with an upgrade to **v22.3.x**.
-* Deployments currently running **PortSIP PBX v22.2.x** can upgrade **directly** to the **latest v22.3.x** release.
+* Deployments currently running **PortSIP PBX v16.x** must first be upgraded to the **latest v16.x release** before proceeding with an upgrade to the latest **v22.x**.
+* Deployments currently running earlier **PortSIP PBX v22.x** can upgrade **directly** to the **latest v22.x** release.
 
 Ensure all required services (PBX core, IM service, and Data Flow service, if deployed) are upgraded in the correct order.
 

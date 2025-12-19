@@ -6,7 +6,7 @@ The **IM server** (Instant Messaging server) installation is a separate step tha
 For Windows-based installations, the IM server is integrated within the main installation process and does not require separate setup.
 {% endhint %}
 
-Before proceeding with this guide, ensure that you have already completed **steps 1–4** of the [Install PortSIP PBX](../../installation-of-portsip-pbx-v22.3-beta-version/install-portsip-pbx.md).
+Before proceeding with this guide, ensure that you have already completed **steps 1–4** of the [Install PortSIP PBX](../../installation-of-portsip-pbx-v22.3-beta-version/install-portsip-pbx.md) guide.
 
 You have two options for deploying the PortSIP IM Server:
 
