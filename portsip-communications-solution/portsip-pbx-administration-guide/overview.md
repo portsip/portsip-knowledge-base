@@ -4,7 +4,7 @@
 
 [PortSIP PBX](https://www.portsip.com/portsip-pbx/) is a software-based VoIP PBX that offers business collaboration solutions. it’s designed for both on-premise and cloud PBX environments, including SBC, audio, video calling, Instant Messaging, presence, rich text chat, Microsoft Teams Direct Routing, WebRTC, sharing screens, sending file, picture, voice, and video messages, and mobile push notifications.&#x20;
 
-[PortSIP PBX](https://www.portsip.com/portsip-pbx/) integrates contact center features that help you satisfy the most demanding of customers. Integrated the free SBC to support Microsoft Teams Direct Routing, and free video metting, at no extra cost, share your screen for presentations & online meeting rooms.&#x20;
+[PortSIP PBX](https://www.portsip.com/portsip-pbx/) integrates contact center features that help you satisfy the most demanding of customers. Integrated the free SBC to support Microsoft Teams Direct Routing, and free video meeting, at no extra cost, share your screen for presentations & online meeting rooms.&#x20;
 
 A purchased SIP PBX license is packaged with the Giveaway of [PortSIP SBC](https://www.portsip.com/portsip-pbx/),  [PortSIP VoIP SDK](https://www.portsip.com/portsip-voip-sdk), and [PortSIP ONE App](https://www.portsip.com/portsip-one)! If you are a large service provider looking for a UCaaS solution that supports 1M+ users, please get in [touch with us](mailto:sales@portsip.com) for the PortSIP UCaaS.
 
@@ -26,9 +26,11 @@ The solution includes the following features:
 * Service management (call settings)
 * Audio and video call recording
 * Recordings management
+* AI transcritpion
 * Storing recording files into AWS S3
 * Play call recording notification prompt for calls
 * Address books/contact management
+* CRM Integrations
 * Push notifications
 * Billing
 * Hot desking
@@ -37,6 +39,7 @@ The solution includes the following features:
 * Ring group
 * Contact center
 * Contact center wallboard
+* Contact center supervisor tool
 * Skills-based routing
 * Queue callback
 * Call reports
