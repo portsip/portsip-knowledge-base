@@ -303,6 +303,7 @@
   * [User Manual for Android](development-portsip/calling-apis/user-manual-for-android.md)
   * [User Manual for macOS](development-portsip/calling-apis/user-manual-for-macos.md)
 * [REST APIs](development-portsip/rest-apis/README.md)
+  * [Changes Summary](development-portsip/rest-apis/changes-summary.md)
   * [Version 22.2](development-portsip/rest-apis/version-22.2/README.md)
     * ```yaml
       type: builtin:openapi
