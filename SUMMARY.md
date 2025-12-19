@@ -130,6 +130,7 @@
     * [Routing Calls Based on Office Hours and Holidays](portsip-communications-solution/portsip-pbx-administration-guide/office-hours-and-holiday-schedule/routing-calls-based-on-office-hours-and-holidays.md)
   * [31 Configuring Email Notifications](portsip-communications-solution/portsip-pbx-administration-guide/configuring-email-notifications.md)
   * [32 Night Mode](portsip-communications-solution/portsip-pbx-administration-guide/32-night-mode.md)
+  * [33 CRM Integrations](portsip-communications-solution/portsip-pbx-administration-guide/33-crm-integrations.md)
 * [Configuring SIP Trunks](portsip-communications-solution/configuring-sip-trunks/README.md)
   * [QuestBlue SIP Trunk](portsip-communications-solution/configuring-sip-trunks/questblue-sip-trunk/README.md)
     * [Purchase a DID on QuestBlue Platform](portsip-communications-solution/configuring-sip-trunks/questblue-sip-trunk/purchase-a-did-on-questblue-platform.md)
