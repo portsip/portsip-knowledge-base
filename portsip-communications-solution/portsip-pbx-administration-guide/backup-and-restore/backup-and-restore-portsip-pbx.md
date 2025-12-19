@@ -20,7 +20,7 @@ Remember, it’s always a good idea to test the restore process periodically to 
 
 ### **Linux**&#x20;
 
-When [installing PortSIP PBX on Linux](../1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.2/install-portsip-pbx-on-linux.md), in step 3, you typically use the following command to create the PortSIP PBX Docker instance as below:
+When [installing PortSIP PBX on Linux](/broken/pages/yGaVQdkFEavISR5V0QGV), in step 3, you typically use the following command to create the PortSIP PBX Docker instance as below:
 
 **v22.x:**
 
@@ -83,7 +83,7 @@ After successfully backing up the data, save it safely.
 
 ### **Windows**&#x20;
 
-When [installing PortSIP PBX on Windows](../1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.2/install-portsip-pbx-on-windows.md), in step 1, there is an option that allows you to choose the **parent** folder for storing the PBX data.&#x20;
+When [installing PortSIP PBX on Windows](/broken/pages/OR9aunjWJKcIQshxSgNh), in step 1, there is an option that allows you to choose the **parent** folder for storing the PBX data.&#x20;
 
 To back up the data, copy this folder to another server or an external disk. By default, if you didn’t specify otherwise, the **parent** folder is `C:\ProgramData\PortSIP`.&#x20;
 
@@ -167,7 +167,7 @@ Copy the backup data to the new server. You can use the default folder, such as 
 After copying the data, make sure that the  folder, all subfolders, and files have the correct permissions set to `888:888`.
 {% endhint %}
 
-2. Now follow the guide [Install PortSIP PBX on Linux](../1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.2/install-portsip-pbx-on-linux.md) to install a new PBX with your restored PBX data by using the **-p** parameter to specify the restored data path.
+2. Now follow the guide [Install PortSIP PBX on Linux](/broken/pages/yGaVQdkFEavISR5V0QGV) to install a new PBX with your restored PBX data by using the **-p** parameter to specify the restored data path.
 
 After successfully installing the PortSIP PBX, your restored PBX data now is attached to the newly installed PBX.&#x20;
 

@@ -146,7 +146,7 @@ If extension-to-extension calls work correctly, but inbound or outbound trunk ca
    * Refer to the **trunk provider’s documentation** for specific whitelisting requirements.
 3. If your PortSIP PBX is hosted on a cloud platform such as **AWS, Microsoft Azure, or Google Cloud (GCE)**, you must configure network security rules to allow media traffic.
    * Ensure that RTP (Real-Time Transport Protocol) port ranges are open.
-   * For these port ranges, refer to the **"**[**Preparing the Server for Installation**](../portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.2/install-portsip-pbx-on-linux.md#preparing-the-server-for-installation)**"** article.
+   * For these port ranges, refer to the **"**[**Preparing the Server for Installation**](/broken/pages/yGaVQdkFEavISR5V0QGV#preparing-the-server-for-installation)**"** article.
 
 By following these steps, you can resolve most voice-related issues with trunk calls. If problems persist, verify the SIP trunk provider's settings and contact the [PortSIP support team](mailto:support@portsip.com).
 

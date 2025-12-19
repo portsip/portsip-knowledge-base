@@ -108,7 +108,7 @@ Whenever a new version of PortSIP PBX is released, it’s essential to upgrade y
 
 ### Upgrading the Main PBX Server
 
-Please follow the guide [Upgrade to the Latest Version Within v22.x on Linux](../portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.2/upgrade-to-the-latest-version-within-v22.x-on-linux.md) to upgrade the main PBX server, SBC server, and IM server.
+Please follow the guide [Upgrade to the Latest Version Within v22.x on Linux](/broken/pages/HYNilqLl52W9urfWCLid) to upgrade the main PBX server, SBC server, and IM server.
 
 ### Upgrading Cluster Servers
 
