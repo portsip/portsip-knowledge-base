@@ -128,11 +128,18 @@ Once AI transcription is enabled, **Tenant Administrators** can manage and use A
 2. Navigate to **Company > General** and configure:
    * **Automatically Transcribe Recorded Calls**
    * **Automatically Transcribe Voicemails**
-3. Navigate to **Data Analytics > Call Recordings** to view transcription results.
-4. Calls that have already been transcribed display a **sentiment indicator**.
-5. For calls that have not yet been transcribed, click the transcription icon to manually trigger transcription.
 
-<figure><img src="../../../.gitbook/assets/ai_transcription_options.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/ai_transcription_options (1).png" alt=""><figcaption></figcaption></figure>
+
+4. Navigate to **Data Analytics > Call Recordings** to view transcription results.
+
+<figure><img src="../../../.gitbook/assets/ai_transcription_call_recordings (1).png" alt=""><figcaption></figcaption></figure>
+
+5. Calls that have already been transcribed display a **sentiment indicator**.
+
+<figure><img src="../../../.gitbook/assets/ai_transcription_result (1).png" alt=""><figcaption></figcaption></figure>
+
+6. For calls that have not yet been transcribed, click the transcription icon to manually trigger transcription.
 
 ***
 
@@ -145,17 +152,7 @@ Once AI transcription is enabled for the tenant, **Tenant Administrators** can m
 3. Select the **Extension** tab and enable or disable the following option:
    * **Automatically Transcribe Recorded Calls**
 4. Navigate to **Data Analytics > Call Recordings** to view transcription results.
-
-<figure><img src="../../../.gitbook/assets/ai_transcription_call_recordings.png" alt=""><figcaption></figcaption></figure>
-
-
-
 5. Calls that have already been transcribed display a **sentiment indicator**.
-
-<figure><img src="../../../.gitbook/assets/ai_transcription_result.png" alt=""><figcaption></figcaption></figure>
-
-
-
 6. For calls that have not yet been transcribed, click the **transcription icon** to manually trigger transcription.
 
 ***

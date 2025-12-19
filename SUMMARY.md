@@ -135,7 +135,7 @@
     * [HubSpot CRM](portsip-communications-solution/portsip-pbx-administration-guide/33-crm-integrations/hubspot-crm.md)
   * [34 AI Transcription](portsip-communications-solution/portsip-pbx-administration-guide/34-ai-transcription/README.md)
     * [Configuring AWS AI](portsip-communications-solution/portsip-pbx-administration-guide/34-ai-transcription/configuring-aws-ai.md)
-    * [HubSpot CRM](portsip-communications-solution/portsip-pbx-administration-guide/34-ai-transcription/hubspot-crm.md)
+    * [Configuring Azure AI](portsip-communications-solution/portsip-pbx-administration-guide/34-ai-transcription/configuring-azure-ai.md)
 * [Configuring SIP Trunks](portsip-communications-solution/configuring-sip-trunks/README.md)
   * [QuestBlue SIP Trunk](portsip-communications-solution/configuring-sip-trunks/questblue-sip-trunk/README.md)
     * [Purchase a DID on QuestBlue Platform](portsip-communications-solution/configuring-sip-trunks/questblue-sip-trunk/purchase-a-did-on-questblue-platform.md)
