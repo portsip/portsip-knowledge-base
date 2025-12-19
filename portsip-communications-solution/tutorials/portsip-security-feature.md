@@ -12,7 +12,6 @@ PortSIP PBX provides various services that use different protocols on different 
 | --------------------- | ----------- | ---------------------------------------- |
 | Web Portal            | 8887        | Web Portal over HTTPS                    |
 | IP Phone Provisioning | 8888        | IP Phone provisioning                    |
-| Queue Wallboard       | 8889        | For access the Queue Wallboard           |
 | Rest API              | 8887        | Rest API over HTTPS                      |
 | WebRTC                | 10443       | The WebRTC client over HTTPS             |
 | SBC Web Portal        | 8883        | SBC Web Portal over HTTPS                |
