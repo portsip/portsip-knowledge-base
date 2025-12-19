@@ -2,20 +2,80 @@
 
 {% hint style="warning" %}
 The **IM server** (Instant Messaging server) installation is a separate step that is only required when installing **PortSIP PBX** in a **Linux environment**.
-
-For Windows-based installations, the IM server is integrated within the main installation process and does not require separate setup.
 {% endhint %}
 
 Before proceeding with this guide, ensure that you have already completed **steps 1–4** of the [Install PortSIP PBX](../../installation-of-portsip-pbx-v22.3-beta-version/install-portsip-pbx.md) guide.
 
-You have two options for deploying the PortSIP IM Server:
+You have two options for deploying the **PortSIP IM Server**, depending on your scale and performance requirements:
 
-1. **Same server as PortSIP PBX**: If you have a smaller number of users, you can install the IM Service on the same server as your PortSIP PBX. This setup is simpler but may not provide optimal performance for larger user bases.
-2. **Separate server**: For better performance, especially when dealing with a large number of users who require chat and file-sharing capabilities, it is recommended to install the IM Server on a separate, more powerful server.
+#### Option 1: Deploy on the Same Server as PortSIP PBX
+
+For environments with a **smaller number of users**, you can install the IM service on the **same server** as the PortSIP PBX.\
+This approach simplifies deployment and management but may not deliver optimal performance as user volume and messaging activity increase.
+
+#### Option 2: Deploy on a Separate Server
+
+For better performance and scalability, especially in deployments with a **large number of users** or **heavy usage of chat and file-sharing features**, it is strongly recommended to install the IM server on a dedicated, higher-performance server.
+
+This deployment model helps ensure responsive messaging performance while preventing additional load on the core PBX services.
 
 {% hint style="warning" %}
 All commands must be executed in the **`/opt/portsip`** directory.
 {% endhint %}
+
+***
+
+### Install IM Service on the Same Server as PortSIP PBX
+
+Follow the steps below to install the **PortSIP Instant Messaging (IM) Server** on the **same server** as the PortSIP PBX.
+
+#### Step 1: Generate a Token for the IM Server
+
+1. Log in to the **PortSIP PBX Web Portal** as a **System Administrator**.
+2. Navigate to **Servers > IM Servers**.
+3. Select the **default IM server**.
+4. Click **Generate Token**.
+5. Copy and securely store the generated token. This token will be required when starting the IM service container.
+
+<figure><img src="../../../../.gitbook/assets/im_server_update_address_new_token.png" alt=""><figcaption></figcaption></figure>
+
+***
+
+#### Step 2: Create and Run the Instant Messaging Docker Instance
+
+Follow these steps to create and start the IM service Docker container.
+
+1.  Navigate to the PortSIP installation directory:
+
+    ```bash
+    cd /opt/portsip
+    ```
+2.  Run the following command to create and start the IM service Docker instance.\
+    Replace the placeholders with your actual values:
+
+    * `-p` : Specifies the directory used to store IM service data
+    * `-i` : Specifies the PortSIP PBX Docker image version
+    * `-t` : Specifies the token generated in **Step 1**
+
+    ```bash
+    sudo /bin/sh im_ctl.sh run \
+      -p /var/lib/portsip/ \
+      -i portsip/pbx:22 \
+      -t OWMWYWJKZJYTMWM2NI0ZNZJMLWJJZDKTMGVMZDYXNZU1NWI1
+    ```
+3. Once the container starts successfully, the **PortSIP PBX Web Portal** will display the IM server IP address under **Servers > IM Servers**, indicating that the IM service is running correctly.
+
+<figure><img src="../../../../.gitbook/assets/im_server_update_address.png" alt=""><figcaption></figcaption></figure>
+
+***
+
+#### Installation Complete
+
+The **Instant Messaging (IM) Server** has now been successfully installed on the same server as the PortSIP PBX.
+
+You can now proceed to Step 6: [Install the Data Flow Service](../../installation-of-portsip-pbx-v22.3-beta-version/install-portsip-pbx.md#step-6-install-the-data-flow-service) in the Install PortSIP PBX guide.
+
+***
 
 ### Install IM Service on the Same Server as PortSIP PBX
 
@@ -27,8 +87,6 @@ Follow these steps to install the IM server on the same server as PortSIP PBX.
 2. Navigate to **Servers > IM Servers**.
 3. Select the default server and click the **Generate Token** button.
 4. Copy the generated token.
-
-<figure><img src="../../../../.gitbook/assets/im_server_update_address_new_token.png" alt=""><figcaption></figcaption></figure>
 
 #### Step 2: Create and Run Instant Messaging Docker Instance
 
@@ -54,8 +112,6 @@ sudo /bin/sh im_ctl.sh run -p /var/lib/portsip/ -i portsip/pbx:22.3.17.1271-beta
 {% endcode %}
 
 If everything is set up correctly, the PBX web portal will display the IM server's IP address, as shown in the screenshot below.
-
-<figure><img src="../../../../.gitbook/assets/im_server_update_address.png" alt=""><figcaption></figcaption></figure>
 
 The Instant Messaging (IM) server has been successfully installed. We can now proceed with the next steps in the [PortSIP PBX installation step 6](../../installation-of-portsip-pbx-v22.3-beta-version/install-portsip-pbx.md#step-6-reboot-to-apply-the-certificate).
 
