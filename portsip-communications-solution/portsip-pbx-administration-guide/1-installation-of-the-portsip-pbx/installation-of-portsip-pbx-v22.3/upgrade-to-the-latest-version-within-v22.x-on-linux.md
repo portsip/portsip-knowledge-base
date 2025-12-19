@@ -111,23 +111,18 @@ Please follow the guide [**Install Data Flow Service**](install-data-flow-servic
 
 If you are upgrading from an existing **v22.3.x** release to a **newer v22.x** version, follow the steps below to upgrade the Data Flow service.
 
-**1. Remove the existing Data Flow Docker instance:**
-
 On the **Data Flow server**, run the following commands:
 
 ```bash
-cd /opt/portsip
-sudo /bin/sh dataflow_ctl.sh rm
+sudo curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.3/init.sh -o init.sh
+sudo /bin/sh init.sh
 ```
 
-> **Note**\
-> Removing the Data Flow Docker instance **does not delete or affect existing analytics data**, which remains stored on the server.
+Then run the upgrade command:
 
-***
-
-**2: Reinstall the Data Flow service:**
-
-After removing the existing instance, follow every step in the guide [**Install Data Flow Service**](install-data-flow-service.md) to reinstall and complete the upgrade of the Data Flow service.
+```shellscript
+cd /opt/portsip && sudo /bin/sh dataflow_ctl.sh upgrade -i portsip/pbx:22
+```
 
 
 
