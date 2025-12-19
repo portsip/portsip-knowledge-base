@@ -132,6 +132,7 @@
   * [32 Night Mode](portsip-communications-solution/portsip-pbx-administration-guide/32-night-mode.md)
   * [33 CRM Integrations](portsip-communications-solution/portsip-pbx-administration-guide/33-crm-integrations/README.md)
     * [ZOHO CRM](portsip-communications-solution/portsip-pbx-administration-guide/33-crm-integrations/zoho-crm.md)
+    * [HubSpot CRM](portsip-communications-solution/portsip-pbx-administration-guide/33-crm-integrations/hubspot-crm.md)
 * [Configuring SIP Trunks](portsip-communications-solution/configuring-sip-trunks/README.md)
   * [QuestBlue SIP Trunk](portsip-communications-solution/configuring-sip-trunks/questblue-sip-trunk/README.md)
     * [Purchase a DID on QuestBlue Platform](portsip-communications-solution/configuring-sip-trunks/questblue-sip-trunk/purchase-a-did-on-questblue-platform.md)
