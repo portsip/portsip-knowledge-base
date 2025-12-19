@@ -1,14 +1,13 @@
 # Install PortSIP PBX
 
-### Attention
-
-{% hint style="danger" %}
-This guide is for v22.3.x beta version only.
-{% endhint %}
-
 ### Upgrading
 
-This guide is just for installing a **fresh** PortSIP PBX version 22.3.x Beta, you can't upgrade your currently installed previous version to this beta.
+This guide applies **only to fresh installations** of the latest **PortSIP PBX v22.x**.
+
+If you are upgrading from an earlier version, such as **v16.x, v22.1.x,** or **v22.2.x** to the latest **v22.x** release, please follow the appropriate upgrade guide below:
+
+* **Upgrade from v16.x to the latest v22.x**
+* **Upgrade from an earlier v22.x to the latest v22.x**
 
 ### Minimal Hardware Requirements
 
@@ -17,6 +16,10 @@ This guide is just for installing a **fresh** PortSIP PBX version 22.3.x Beta, y
 * Disk: 50 GB
 
 With this configuration, the PBX can support up to 1,000 online users and handle 300\~500 simultaneous calls.
+
+> **Note**\
+> The **Data Flow service** must be installed on a **separate server**.\
+> Please refer to the [**Install PortSIP Data Flow**](install-portsip-dataflow-server.md) guide for detailed installation instructions.
 
 ### Supported OS
 
@@ -38,7 +41,7 @@ Tasks that MUST be completed before installing PortSIP PBX
 * The PortSIP PBX must not be installed on a host that is a DNS or DHCP server.
 * The following ports must be permitted by your firewall.
   * UDP: 5060, 5066, 25000-34999, 45000–65000
-  * TCP: 5061, 5063, 5065, 5067, 8882, 8883, 8887, 8888, 8889, 10443. Please also ensure the above ports have not been used by other applications.
+  * TCP: 5061, 5063, 5065, 5067, 8882, 8883, 8887, 8888, 10443. Please also ensure the above ports have not been used by other applications.
 
 {% hint style="danger" %}
 If the PBX runs on a cloud platform such as AWS and the cloud platform has its firewall, you **must** also open the ports on the cloud platform's firewall as well.
@@ -95,7 +98,7 @@ If your PBX server has a public IP, you must use it in the command below for the
 sudo /bin/sh pbx_ctl.sh \
 run -p /var/lib/portsip \
 -a 66.175.221.120 \
--i portsip/pbx:22.3.17.1271-beta
+-i portsip/pbx:22
 ```
 
 In the above command, we can specify the following parameters.
@@ -113,7 +116,7 @@ For example, if you mount a device or an external NAS device to **`/pbx/recordin
 sudo /bin/sh pbx_ctl.sh \
 run -p /var/lib/portsip \
 -a 66.175.221.120 \
--i portsip/pbx:22.3.17.1271-beta \
+-i portsip/pbx:22 \
 -f /pbx/recordings
 ```
 
@@ -135,7 +138,7 @@ Click on **"Sign in as the administrator or dealer"** to navigate to the adminis
 Please change the admin's default password after you log in.
 {% endhint %}
 
-After successfully logging into the PBX Web Portal, with a new installation, the PBX will launch a setup wizard automatically to guide you through completing the mandatory settings.
+After successfully logging into the PBX Web Portal with a new installation, the PBX will launch a setup wizard automatically to guide you through completing the mandatory settings.
 
 **1. Network Environment**
 
@@ -169,14 +172,14 @@ To enable **TLS** transport for SIP and secure **HTTPS** access to the Web Porta
 * **Certificate Providers:**\
   To purchase an SSL certificate, follow the guide: [Preparing TLS Certificates for TLS/HTTPS/WebRTC](../certificates-for-tls-https-webrtc/).
 
-You will have two certificate files if complete the steps in the guide: [Preparing TLS Certificates for TLS/HTTPS/WebRTC](../certificates-for-tls-https-webrtc/).
+You will have two certificate files if you complete the steps in the guide: [Preparing TLS Certificates for TLS/HTTPS/WebRTC](../certificates-for-tls-https-webrtc/).
 
 * **portsip.key**
 * **portsip.pem**
 
 **Configuring the Certificates**
 
-In this guide, we assuming use the domain **uc.portsip.cc** for the PBX web domain.
+In this guide, we assume the use of the domain **uc.portsip.cc** for the PBX web domain.
 
 1. In the **Web Domain** field, enter **uc.portsip.cc**.
 2. Open the **portsip.pem** file in a text editor (such as Windows Notepad), and copy the entire contents into the **Certificate File** field.
@@ -186,13 +189,13 @@ In this guide, we assuming use the domain **uc.portsip.cc** for the PBX web doma
 
 **3. Transport Protocol**
 
-You can configure the transport layer protocol for SIP signaling by clicking the **Add** button. The default transport ports are as follows:
+You can configure the transport layer protocol for SIP signalling by clicking the **Add** button. The default transport ports are as follows:
 
 * **UDP**: 5060
 * **TCP**: 5063
 * **TLS**: 5061
 
-You are free to change these default ports to any preferred value but ensure that the new port is not already in use by other applications.
+You are free to change these default ports to any preferred value, but ensure that the new port is not already in use by other applications.
 
 {% hint style="danger" %}
 After adding a new transport protocol, be sure to update your firewall rules to allow traffic on the newly assigned transport port. The IP Phone and client app will use this transport and port to connect to the PBX.
