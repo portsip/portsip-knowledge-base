@@ -62,58 +62,75 @@ This configures PortSIP PBX to use **Amazon AI services** as the backend for tra
 
 ***
 
-#### Step 3: Configure AWS Credentials and Settings
+### Step 3: Configure AWS Credentials and Settings
 
-Using information from the **AWS Management Console**, configure the following settings.
+This section describes how to configure **AWS credentials**, **service parameters**, and **platform API request limits** used by PortSIP PBX for AI-powered speech processing features such as **Speech-to-Text (STT)** and **language analysis**.
 
 ***
 
-**AWS Authentication**
+#### AWS Service Configuration
 
-* **Access Key**\
-  The AWS IAM access key used to authenticate API requests.
-* **Secret Key**\
-  The corresponding secret key for the IAM user or role.
+**Access Key**
+
+The **AWS Access Key ID** associated with an IAM user or role.
+
+This key identifies the AWS account and is required to authenticate requests sent from PortSIP PBX to AWS services.
+
+**Secret Key**
+
+The **AWS Secret Access Key** paired with the Access Key ID.
+
+This key is used to cryptographically sign API requests to AWS services and **must be kept strictly confidential**.
 
 > **Security Best Practice**\
-> Use a **dedicated IAM user or role** with least-privilege permissions.\
-> Never use AWS root account credentials.
+> Use a dedicated IAM user or role with **least-privilege permissions**, and never use root account credentials.
 
-***
+**Region**
 
-**AWS Service Configuration**
+The AWS region where your AI services are deployed.
 
-* **Region**\
-  The AWS region where **Amazon Transcribe** and **Amazon Comprehend** are enabled\
-  (for example: `us-east-1`, `us-west-2`, `eu-central-1`).
-* **Bucket Name**\
-  Specifies the S3 bucket used to store transcription output, if required by your workflow.
-* **Language Code**\
-  Defines the language used for speech recognition\
-  (for example: `en-US`, `en-GB`, `ja-JP`).
-
-> **Best Practice**\
-> Select the AWS region geographically closest to your PBX deployment or primary user base to reduce latency and improve transcription performance.
-
-***
-
-**AI Request Limits**
-
-* **Max Speech-to-Text Queue Size**\
-  Defines the maximum number of speech-to-text transcription tasks that can be queued when the AI service is busy or temporarily rate-limited.
-* **Sentiment Analysis Requests (per minute)**\
-  Defines the maximum number of sentiment analysis requests processed per minute by **Amazon Comprehend**.
+Examples include:\
+`us-east-1`, `us-west-2`, `eu-central-1`, `ap-northeast-1`
 
 > **Recommendation**\
-> For contact centers or high-volume call recording environments, monitor usage via **AWS CloudWatch** and adjust AWS service quotas or limits to avoid throttling.
+> Choose the region closest to your PBX deployment or primary user base to minimize latency and improve transcription performance.
+
+**Bucket Name**
+
+The name of the **Amazon S3 bucket** used to store audio files, intermediate processing data, or transcription results, depending on your deployment configuration.
+
+**Locale**
+
+Specifies the language and regional format used for **speech recognition** and **text processing**.
+
+Examples include:\
+`en-US`, `en-GB`, `ja-JP`, `zh-CN`, `vi-VN`
+
+**Language Code**
+
+The **AWS-specific language code** used by speech and language services such as **Amazon Transcribe** and **Amazon Comprehend**.
+
+Examples include:\
+`en-US`, `ja-JP`, `de-DE`
+
+> **Note**\
+> This value must match one of the language codes supported by the corresponding AWS service.
 
 ***
 
-### Assigning AI Capabilities to Tenants
+#### AWS Platform API Request Limits
 
-> **Important**\
-> **Tenant Administrators** cannot configure the AI engine themselves.\
-> The **PBX System Administrator** must configure AWS AI at the system level and then explicitly assign AI capabilities to individual tenants.
+These settings control how many AI-related requests can be queued and processed concurrently. Proper configuration helps comply with **AWS service quotas** and protects overall system stability.
+
+**Max Speech-to-Text Queue Size**
+
+Defines the maximum number of **Speech-to-Text** requests that can be queued and waiting for processing when the AI service is busy or rate-limited.
+
+**Sentiment Analysis Requests**
+
+Specifies the maximum number of **Sentiment Analysis API requests** that PortSIP PBX is allowed to send to AWS.
+
+This limit applies when analyzing transcription text to determine **caller sentiment**, **call quality metrics**, or other AI-derived insights.
 
 ***
 
