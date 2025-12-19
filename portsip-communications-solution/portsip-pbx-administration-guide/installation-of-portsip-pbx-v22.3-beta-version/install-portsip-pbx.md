@@ -19,7 +19,7 @@ With this configuration, the PBX can support up to 1,000 online users and handle
 
 > **Note**\
 > The **Data Flow service** must be installed on a **separate server**.\
-> Please refer to the [**Install PortSIP Data Flow**](install-portsip-dataflow-server.md) guide for detailed installation instructions.
+> Please refer to the [**Install Data Flow Service**](../1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.3/install-data-flow-service.md) guide for detailed installation instructions.
 
 ### Supported OS
 
@@ -172,7 +172,7 @@ To enable **TLS** transport for SIP and secure **HTTPS** access to the Web Porta
 * **Certificate Providers:**\
   To purchase an SSL certificate, follow the guide: [Preparing TLS Certificates for TLS/HTTPS/WebRTC](../certificates-for-tls-https-webrtc/).
 
-You will have two certificate files if you complete the steps in the guide: [Preparing TLS Certificates for TLS/HTTPS/WebRTC](../certificates-for-tls-https-webrtc/).
+You will have two certificate files if you complete the steps in the guide:
 
 * **portsip.key**
 * **portsip.pem**
@@ -203,15 +203,29 @@ After adding a new transport protocol, be sure to update your firewall rules to 
 
 <figure><img src="../../../.gitbook/assets/setup_wizard_3.png" alt="" width="563"><figcaption></figcaption></figure>
 
-#### Step 5: Install Instant Messaging Service
+#### Step 5: Install the Instant Messaging (IM) Service
 
-Starting with version 22.0, PortSIP PBX introduces an Instant Messaging (IM) service, offering modern features such as group chat. The IM service requires a separate installation step, as in some cases, you may also want to deploy it on a separate server for optimal performance.
+Starting with **PortSIP PBX v22.0**, an integrated **Instant Messaging (IM) service** is available, providing modern collaboration features such as one-to-one messaging and group chat.
 
-Please follow the article [Install PortSIP IM Server ](install-portsip-im-server.md)to install the PortSIP IM service for the PBX.
+The IM service requires a **separate installation step**. In certain deployments, especially in high-concurrency or large-scale environments, you may choose to deploy the IM service on a **dedicated server** to achieve optimal performance and scalability.
 
-#### Step 6: Reboot to Apply the Certificate
+Please follow the guide [**Install IM Service**](../1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.3/install-im-service.md) to install and configure the PortSIP IM service for the PBX.
 
-Once **Step 5** is complete&#x64;**,** if you uploaded a trusted SSL certificate in **Step 2: SSL Certificate** instead of using the default self-signed certificate, you need to restart the PBX to apply the changes. Use the following commands to reboot the PBX:
+#### Step 6: Install the Data Flow Service
+
+Starting with **PortSIP PBX v22.3.0**, PortSIP introduces the **Data Flow service**, which provides advanced **data analytics** and **real-time metrics**.
+
+The Data Flow service is built on ClickHouse, a high-performance, column-oriented database designed for analytics workloads. Due to its resource-intensive nature, this service must be installed on a dedicated, high-performance server and is deployed as a separate service from the core PBX.
+
+Please follow the guide [**Install Data Flow Service**](../1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.3/install-data-flow-service.md) to install and configure the Data Flow service for the PBX.
+
+> **Note**\
+> Installing the Data Flow service is **optional**.\
+> If it is not installed, **call processing will not be affected**; however, **data analytics, wallboards, and certain metrics features will be unavailable**
+
+#### Step 7: Reboot to Apply the Certificate
+
+Once **Step 5/6** is complete&#x64;**,** if you uploaded a trusted SSL certificate in **Step 2: SSL Certificate** instead of using the default self-signed certificate, you need to restart the PBX to apply the changes. Use the following commands to reboot the PBX:
 
 ```sh
 cd /opt/portsip

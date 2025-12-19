@@ -1,4 +1,4 @@
-# Install PortSIP IM Server
+# Install IM Service
 
 {% hint style="warning" %}
 The **IM server** (Instant Messaging server) installation is a separate step that is only required when installing **PortSIP PBX** in a **Linux environment**.
@@ -6,7 +6,7 @@ The **IM server** (Instant Messaging server) installation is a separate step tha
 For Windows-based installations, the IM server is integrated within the main installation process and does not require separate setup.
 {% endhint %}
 
-Before proceeding with this guide, ensure that you have already completed **steps 1–4** of the [Install PortSIP PBX](install-portsip-pbx.md).
+Before proceeding with this guide, ensure that you have already completed **steps 1–4** of the [Install PortSIP PBX](../../installation-of-portsip-pbx-v22.3-beta-version/install-portsip-pbx.md).
 
 You have two options for deploying the PortSIP IM Server:
 
@@ -28,7 +28,7 @@ Follow these steps to install the IM server on the same server as PortSIP PBX.
 3. Select the default server and click the **Generate Token** button.
 4. Copy the generated token.
 
-<figure><img src="../../../.gitbook/assets/im_server_update_address_new_token.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/im_server_update_address_new_token.png" alt=""><figcaption></figcaption></figure>
 
 #### Step 2: Create and Run Instant Messaging Docker Instance
 
@@ -55,9 +55,9 @@ sudo /bin/sh im_ctl.sh run -p /var/lib/portsip/ -i portsip/pbx:22.3.17.1271-beta
 
 If everything is set up correctly, the PBX web portal will display the IM server's IP address, as shown in the screenshot below.
 
-<figure><img src="../../../.gitbook/assets/im_server_update_address.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/im_server_update_address.png" alt=""><figcaption></figcaption></figure>
 
-The Instant Messaging (IM) server has been successfully installed. We can now proceed with the next steps in the [PortSIP PBX installation step 6](install-portsip-pbx.md#step-6-reboot-to-apply-the-certificate).
+The Instant Messaging (IM) server has been successfully installed. We can now proceed with the next steps in the [PortSIP PBX installation step 6](../../installation-of-portsip-pbx-v22.3-beta-version/install-portsip-pbx.md#step-6-reboot-to-apply-the-certificate).
 
 ### Install IM Service on a Separate Server
 
@@ -146,7 +146,7 @@ To prevent the PBX from restricting the request rate to the IM servers, you must
 2. Select the menu **IP Blacklist** > **Add**.
 3. Enter the IM server IP as shown in the screenshot below and choose a long **expiration date.**
 
-<figure><img src="../../../.gitbook/assets/im_server_whitelist.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/im_server_whitelist.png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### Step 4: Configure Cloud Firewall or Network Security Rules
 
@@ -165,7 +165,7 @@ In your cloud platform, create a firewall or network security rule that permits 
 3. Select the default server and click the **Generate Token** button.
 4. Copy the generated token.
 
-<figure><img src="../../../.gitbook/assets/im_server_update_address_new_token.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/im_server_update_address_new_token.png" alt=""><figcaption></figcaption></figure>
 
 #### **Step 6: Create and Run Instant Messaging Docker Instance**
 
@@ -247,11 +247,11 @@ sudo /bin/sh im_ctl.sh restart
 
 If everything is set up correctly, the PBX web portal will display the IM server's IP address, as shown in the screenshot below.
 
-<figure><img src="../../../.gitbook/assets/im_server_update_address.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/im_server_update_address.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="danger" %}
 If your Instant Messaging (IM) server is hosted in the cloud (e.g., AWS), you must ensure that TCP port 8887 is open in the cloud firewall rules. The client application requires access to this port in order to send and receive messages.
 {% endhint %}
 
-The Instant Messaging (IM) server has been successfully installed. We can now proceed with the next steps in the[ PortSIP PBX installation step 6](install-portsip-pbx.md#step-6-reboot-to-apply-the-certificate).
+The Instant Messaging (IM) server has been successfully installed. We can now proceed with the next steps in the[ PortSIP PBX installation step 6](../../installation-of-portsip-pbx-v22.3-beta-version/install-portsip-pbx.md#step-6-reboot-to-apply-the-certificate).
 
