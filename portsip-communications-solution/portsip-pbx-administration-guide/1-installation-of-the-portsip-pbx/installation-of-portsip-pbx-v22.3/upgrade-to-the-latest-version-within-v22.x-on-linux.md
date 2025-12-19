@@ -15,6 +15,9 @@ Please follow the guide [**Backup and Restore: An Essential Guide**](../../backu
   To ensure continued operation, you must update the SBC Web Portal with the new token.
 * If you upgrade from a version earlier than **v22.3.0** to **v22.3.x**, you must install the Data Flow service after the upgrade.\
   Please follow the guide[ Install Data Flow Service](install-data-flow-service.md) to complete the installation.
+* If you upgrade from a version **earlier than v22.3.0** to **v22.3.x**, the extension phone provisioning settings for the BLF keys for Change Status to **Do Not Disturb (DND)** and **Available** will be **cleared**. After the upgrade, you must **reconfigure these BLF key settings**.
+
+<figure><img src="../../../../.gitbook/assets/lost_blf_keys.png" alt=""><figcaption></figcaption></figure>
 
 ***
 

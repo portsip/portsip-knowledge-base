@@ -166,5 +166,11 @@ Starting with v22.0, **SMTP configuration behavior has changed**.
 * Existing SMTP settings from earlier versions are now treated as a **Generic Email Provider**.
 * Review your email configuration carefully and update it if required to ensure proper email delivery.
 
+***
 
+#### Review Phone BLF Key Configuration
+
+The extension phone provisioning settings for the BLF keys for Change Status to **Do Not Disturb (DND)** and **Available** will be **cleared**. After the upgrade, you must **reconfigure these BLF key settings**.
+
+<figure><img src="../../../../.gitbook/assets/lost_blf_keys.png" alt=""><figcaption></figcaption></figure>
 
