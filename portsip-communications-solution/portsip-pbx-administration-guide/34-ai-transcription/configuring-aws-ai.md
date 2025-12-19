@@ -12,12 +12,19 @@ This guide follows VoIP, UCaaS, and CCaaS best practices and assumes basic famil
 
 ### AWS Services Used
 
-PortSIP PBX leverages the following AWS AI services:
+PortSIP PBX leverages the following **AWS AI services and IAM permissions** to enable transcription, analytics, and optional AI capabilities:
 
-* **Amazon Transcribe**\
-  Provides real-time or post-call **Speech-to-Text (STT)** transcription.
-* **Amazon Comprehend**\
-  Provides **sentiment analysis** and natural language processing (NLP) for transcribed text.
+* **AmazonTranscribeFullAccess**\
+  Provides real-time or post-call **Speech-to-Text (STT)** transcription for calls and voicemails.
+* **ComprehendFullAccess**\
+  Provides **sentiment analysis** and **natural language processing (NLP)** for transcribed text.
+* **AmazonBedrockFullAccess**\
+  Enables access to **Amazon Bedrock foundation models** for advanced AI processing and future AI-powered features.
+* **AmazonS3FullAccess**\
+  Allows storage and retrieval of transcription artifacts and related data in **Amazon S3**, if required by the deployment.
+
+> **Best Practice**\
+> For production environments, it is recommended to replace full-access policies with **custom IAM policies** that grant only the minimum permissions required.
 
 ***
 
