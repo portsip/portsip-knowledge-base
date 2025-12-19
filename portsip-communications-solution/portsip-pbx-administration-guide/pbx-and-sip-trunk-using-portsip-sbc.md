@@ -19,7 +19,7 @@ The interoperability testing between SBC and a generic SIP Trunk with PortSIP PB
 Please follow the below topics to install and configure the PBX:
 
 * [1 Installation of the PortSIP PBX](1-installation-of-the-portsip-pbx/)
-* [2 Configuring the PortSIP PBX](2-portsip-pbx-management/)
+* [2 Configuring the PortSIP PBX](/broken/pages/6uo0BsKGLXFqs7Cz40HY)
 
 ## 3 Configuring PortSIP SBC
 
