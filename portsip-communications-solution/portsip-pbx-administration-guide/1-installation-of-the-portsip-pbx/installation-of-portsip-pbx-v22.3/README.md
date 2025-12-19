@@ -1,11 +1,5 @@
 # Installation of PortSIP PBX v22.x
 
-> ⚠️ **Warning**\
-> **PortSIP PBX v22.3 has not yet been released.**\
-> Please **do not follow this guide** or begin any upgrade or deployment processes based on this documentation at this time.
-
-***
-
 ### Supported Operating Systems
 
 PortSIP PBX can be installed on **Ubuntu** and **Debian** Linux operating systems.
