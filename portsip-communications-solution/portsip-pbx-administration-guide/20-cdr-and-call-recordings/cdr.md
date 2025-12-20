@@ -4,7 +4,7 @@ CDRs contain information about call origination, call destination, the date and 
 
 The PortSIP PBX has an inbuilt CDR service that provides complete real-time data for all calls. When a call is completed, the call detail record can be pushed to another application instantly via [WebHook](cdr.md#push-cdr-to-webhook) and [WebSocket](../../../development-portsip/going-real-time-with-portsip-pbx-pub-sub.md#cdr_events).
 
-## CDR Management
+### CDR Management
 
 After signing in as a tenant administrator, select the menu **Call Statistics > CDR**, and the CDR is listed. You can play or download the recording file if the call recording is enabled.
 

@@ -95,6 +95,7 @@
   * [19 Billing](portsip-communications-solution/portsip-pbx-administration-guide/19-billing.md)
   * [20 CDR and Call Recordings](portsip-communications-solution/portsip-pbx-administration-guide/20-cdr-and-call-recordings/README.md)
     * [CDR](portsip-communications-solution/portsip-pbx-administration-guide/20-cdr-and-call-recordings/cdr.md)
+    * [Push CDR](portsip-communications-solution/portsip-pbx-administration-guide/20-cdr-and-call-recordings/cdr-1.md)
     * [Call Recordings](portsip-communications-solution/portsip-pbx-administration-guide/20-cdr-and-call-recordings/call-recordings.md)
     * [CDR Field Descriptions](portsip-communications-solution/portsip-pbx-administration-guide/20-cdr-and-call-recordings/cdr-field-descriptions.md)
   * [21 Call Reports](portsip-communications-solution/portsip-pbx-administration-guide/21-call-reports.md)
