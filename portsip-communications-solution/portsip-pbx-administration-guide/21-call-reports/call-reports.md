@@ -2,7 +2,7 @@
 
 ### Call Reports Overview
 
-**PortSIP Call Reports** deliver the power of a full-featured **business intelligence (BI)** tool directly on top of your call data. They enable you to create highly customized reports and analyses, providing the exact metrics you need, in the format you prefer, and delivered to the right stakeholders.
+**PortSIP Call Reports** deliver the power of a full-featured call analytics tool directly on top of your call data. They enable you to create highly customized reports and analyses, providing the exact metrics you need, in the format you prefer, and delivered to the right stakeholders.
 
 With Call Reports, you can turn raw call data into actionable insights for operational monitoring, performance optimization, and strategic decision-making.
 
@@ -69,8 +69,8 @@ Use filters to control which call data is included in the report.
 
 #### Recipients
 
-* Enter one or more **email addresses** to receive the scheduled reports.
-* If left empty, the report will still be generated and can be **downloaded from the web portal**.
+* Enter one or more email addresses to receive the scheduled reports. Use the semicolon to separate multiple addresses.
+* If left empty, the report will still be generated and can be downloaded from the web portal.
 
 ***
 
