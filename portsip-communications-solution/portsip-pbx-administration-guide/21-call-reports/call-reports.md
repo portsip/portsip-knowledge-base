@@ -80,5 +80,34 @@ Click **OK** to save the configuration and activate the scheduled report.
 
 ***
 
+### Report Schedules
+
+This tab displays a list of reports that are configured to run **recurrently**.&#x20;
+
+<figure><img src="../../../.gitbook/assets/portsip_call_reports_2.png" alt=""><figcaption></figcaption></figure>
+
+For each scheduled report, you can view key details, including:
+
+* **Report Name**
+* **Generation Frequency**
+* **Scheduled Run Day**
+* **Last Generated Time**
+* **Schedule Status**
+
+You can temporarily pause or resume a scheduled report by toggling the **Status** switch.
+
+***
+
+### Report List
+
+This tab displays a list of generated reports that are ready for download. If you subscribed to a report when scheduling it, you will receive an **email notification** when the report is available.
+
+<figure><img src="../../../.gitbook/assets/portsip_call_reports_3.png" alt=""><figcaption></figcaption></figure>
+
+You can:
+
+* Click the **Download** icon to download a report.
+* Click the **Delete** icon to remove a report from the list.
+
 
 
