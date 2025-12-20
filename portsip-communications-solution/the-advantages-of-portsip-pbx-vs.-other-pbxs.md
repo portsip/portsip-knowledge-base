@@ -30,6 +30,8 @@ This architecture:
 * Simplifies upgrades and ongoing maintenance
 * Scales predictably as tenant counts grow
 
+***
+
 #### Centralized Tenant Management, Built for Scale
 
 Through the web portal, system administrators and dealers (including distributors, sub-distributors, and resellers) can easily view and manage all tenants. Common management actions include:
