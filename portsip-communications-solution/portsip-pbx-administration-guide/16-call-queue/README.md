@@ -33,6 +33,6 @@ This article includes the following topics:
 * [Configuring Queue Callback and Queue Exit](configuring-queue-callback.md)
 * [Agent States and Work Modes](agent-states-and-work-modes.md)
 * [Skills-Based Routing](skills-based-routing.md)
-* [Wallboards](wallboards.md)
+* [Live Wallboards](live-wallboards.md)
 * [Silent Monitoring](silent-monitoring.md)
 
