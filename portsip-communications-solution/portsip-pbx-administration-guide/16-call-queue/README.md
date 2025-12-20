@@ -1,29 +1,38 @@
 # 16 Call Queue
 
-## What is a call queue?&#x20;
+### What Is a Call Queue?
 
-A call queue is one line of callers who are waiting for an agent to receive the call. A call can only be in one queue at a time. Agents may receive calls from any number of queues simultaneously.
+A **call queue** is a call-handling mechanism that places incoming callers into a single waiting line until an available agent can answer the call. Each call can belong to **only one queue at a time**, while agents can be assigned to **multiple queues simultaneously**, allowing flexible and efficient call distribution.
 
-Queues are designed for call center or contact center activities. They may include supplemental features that allow agents or supervisors to monitor how many people are in the queue or affect the order.
+Call queues are a foundational component of **call center and contact center operations**. They are designed to manage high inbound call volumes while maintaining a consistent customer experience. Advanced queue features often allow agents and supervisors to monitor queue status in real time—such as the number of callers waiting, wait times, and agent availability—and to control how calls are prioritized and distributed.
 
-Call queuing lets you respond to peak demand without higher costs.
+By using call queues, organizations can handle peak call traffic efficiently **without increasing staffing costs**, ensuring calls are answered in an orderly and predictable manner.
 
-## Why use call queues?&#x20;
+***
 
-* Handle a higher number of calls and limit them from being sent to voicemail.
-* Increase the performance of inbound call campaigns so more calls are answered.
-* Play music on hold to callers and inform them about promotions.
-* Direct calls based on time, dialed number, VIPs, and more.
-* Build contact center
+### Why Use Call Queues?
+
+Call queues provide several critical benefits for businesses handling inbound calls:
+
+* **Handle higher call volumes efficiently**\
+  Manage large numbers of inbound calls and prevent them from being immediately routed to voicemail during busy periods.
+* **Improve inbound campaign performance**\
+  Ensure more calls are answered by distributing them intelligently across available agents.
+* **Enhance the caller experience**\
+  Play music on hold, announcements, or promotional messages while callers wait, keeping them informed and engaged.
+* **Intelligent call routing**\
+  Route calls dynamically based on business hours, dialed numbers (DIDs), caller priority (such as VIPs), or other routing rules.
+* **Build a scalable contact center**\
+  Establish a professional, scalable contact center environment that supports growth, performance monitoring, and service-level optimization.
+
+***
 
 This article includes the following topics:
 
 * [Configuring Call Queue](configuring-call-queue.md)
-* [Configuring Queue Callback](configuring-queue-callback.md)
+* [Configuring Queue Callback and Queue Exit](configuring-queue-callback.md)
 * [Agent States and Work Modes](agent-states-and-work-modes.md)
 * [Skills-Based Routing](skills-based-routing.md)
-* [Silent Monitoring](silent-monitoring.md)
 * [Wallboards](wallboards.md)
-
-
+* [Silent Monitoring](silent-monitoring.md)
 
