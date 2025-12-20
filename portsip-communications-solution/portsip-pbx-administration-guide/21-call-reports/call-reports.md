@@ -1,4 +1,4 @@
-# 21 Call Reports
+# Call Reports
 
 In-depth call reporting is essential for gaining real-time insights into your Unified Communications & contact center performance and customer needs. How long do your agents spend on a call? What’s the number of calls they make and receive? What is the overall performance of your queues? Which agent is underperforming or burning out? SLA statistics, unanswered calls, abandoned calls, callbacks – the list goes on.&#x20;
 
@@ -12,9 +12,9 @@ Depending on the type of report, the results may be presented as lists or data a
 
 In this section, you will learn how to:
 
-* [Create and run a report](21-call-reports.md#create-and-run-a-report) - To review and analyze interaction, speech, and external metadata.&#x20;
-* [Saved reports](21-call-reports.md#save-reports) - To download the reports.&#x20;
-* [Understand report layouts and parameters](21-call-reports.md#understand-report-layouts-and-parameters) - To better absorb the report information.&#x20;
+* [Create and run a report](call-reports.md#create-and-run-a-report) - To review and analyze interaction, speech, and external metadata.&#x20;
+* [Saved reports](call-reports.md#save-reports) - To download the reports.&#x20;
+* [Understand report layouts and parameters](call-reports.md#understand-report-layouts-and-parameters) - To better absorb the report information.&#x20;
 
 
 
@@ -45,7 +45,7 @@ After configuring the filter parameters, click the OK button to generate the rep
 A single "**Normal**" report has a maximum limit of 20,000 calls. Other types of reports do not have this limitation.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/queue_performance_report_2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/queue_performance_report_2.png" alt=""><figcaption></figcaption></figure>
 
 The status will display as "**Running**" during generating the report.
 
@@ -53,7 +53,7 @@ The status will display as "**Running**" during generating the report.
 
 Once the report is completed, you can click the "**Refresh**" button to list the report then click the link icon to download it.
 
-<figure><img src="../../.gitbook/assets/queue_performance_report_3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/queue_performance_report_3.png" alt=""><figcaption></figcaption></figure>
 
 ### Understand report layouts and parameters
 
@@ -72,7 +72,7 @@ This is a basic call report, and you can set up the filter as follows:
 * **Call Status**: Use this field to filter calls by the Call Status, which can be selected **Answered** or **Not Answered**.
 * **Duration**: Use this field to filter the calls by the **Call Duration** or **Ring Duration**.
 
-<figure><img src="../../.gitbook/assets/normal_report.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/normal_report.png" alt=""><figcaption></figcaption></figure>
 
 * Talking Time - The call duration.
 * Cost - The cost of the call.
@@ -93,7 +93,7 @@ This report generates a call cost for a specified user group. You can set up the
   * **Mobile** - Filter the calls which are billed as the **Mobile** call.
   * **International** - Filter the calls which are billed as the **International** call.
 
-<figure><img src="../../.gitbook/assets/user_cost.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/user_cost.png" alt=""><figcaption></figcaption></figure>
 
 * Group Name - Indicates that the user in the call belongs to which user group.
 * Call Type - The billing type of the matched billing rule in this call.
@@ -110,7 +110,7 @@ You can set up the filter as follows:
 * **Exclude Calls Dropped Before Seconds:** Don't count the calls if the call duration is less than the specified time.
 * **Call Queue**: Select one or more queues to count
 
-<figure><img src="../../.gitbook/assets/queue_performance_report_4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/queue_performance_report_4.png" alt=""><figcaption></figcaption></figure>
 
 * Queue - Indicates the queue name and number.
 * Received - Indicates how many calls were received in the report date range.
@@ -125,7 +125,7 @@ The detailed queue statistics report will give you all the required information 
 * **Ring Time**: The total and mean average&#x20;
 * **Talk Time**: The overall and mean average&#x20;
 
-<figure><img src="../../.gitbook/assets/queue_detailed.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/queue_detailed.png" alt=""><figcaption></figcaption></figure>
 
 * Serviced - The calls were answered by an agent.
 * Abandoned - The abandoned calls of the queue in the report date range.
@@ -140,13 +140,13 @@ Managers can use the statistics in the "**Queue  Abandoned Queue Calls**" report
 * The agent who assigned the call
 * The number of polling attempts
 
-<figure><img src="../../.gitbook/assets/queue_abandoned.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/queue_abandoned.png" alt=""><figcaption></figcaption></figure>
 
 #### Queue SLA Statistics
 
 The statistics SLA report shows the total number of calls that are received for one or more queues. Additionally, it will display the number and percentage of missed calls according to the SLA.
 
-<figure><img src="../../.gitbook/assets/queue_sla.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/queue_sla.png" alt=""><figcaption></figcaption></figure>
 
 #### Queue Breaches SLA
 
@@ -154,22 +154,22 @@ The SLA time, or acceptable waiting time for clients calling your queues, is som
 
 The report will also include information on the time of the call, the caller ID, and how long they had to wait before speaking with an agent. Additionally, you can choose to not include any calls that were dropped earlier than the specified period of time.
 
-<figure><img src="../../.gitbook/assets/queue_breaches_sla.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/queue_breaches_sla.png" alt=""><figcaption></figcaption></figure>
 
 #### Queue Callbacks
 
 The number of callers who asked for a callback before being attended to by a user is displayed in the "**Queue Callbacks**" report. The number of calls the queue received, the number of callbacks placed, and the number of unsuccessful callbacks will all be shown in the report.
 
-<figure><img src="../../.gitbook/assets/queue_callbacks.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/queue_callbacks.png" alt=""><figcaption></figcaption></figure>
 
 #### Team Queue General
 
 The "Team Queue General Statistics" report emphasizes the queue at the team level rather than the agent level. This report provides information on how calls are handled when they enter and displays the number of agents in each queue.
 
-<figure><img src="../../.gitbook/assets/teams_queue_general.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/teams_queue_general.png" alt=""><figcaption></figcaption></figure>
 
 #### Ring Group Statistics Report <a href="#id-4" id="id-4"></a>
 
 This report displays the number of calls that were answered and received for a single or a number of different ring groups. The statistics reflect the number of terms you include when scheduling reports. This information is also broken down using the agent extension number, so you can see which agents are effective and which ones require improvement.
 
-<figure><img src="../../.gitbook/assets/ring_group_report.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/ring_group_report.png" alt=""><figcaption></figcaption></figure>
