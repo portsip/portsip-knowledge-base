@@ -12,7 +12,10 @@ PortSIP PBX collects CDRs (Call Detail Records) and Call Recordings to provide r
 
 This article includes the following topics to explain the CDR and Call Recording features:
 
+* [Call History](cdr.md)
 * [CDR](cdr.md)
 * [Push CDR](cdr-1.md)
 * [Call Recordings](call-recordings.md)
-* [CDR Fields Descriptions](cdr-field-descriptions.md)
+
+
+

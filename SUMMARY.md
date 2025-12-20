@@ -98,7 +98,6 @@
     * [CDR](<portsip-communications-solution/portsip-pbx-administration-guide/20-cdr-and-call-recordings/cdr (1).md>)
     * [Push CDR](portsip-communications-solution/portsip-pbx-administration-guide/20-cdr-and-call-recordings/cdr-1.md)
     * [Call Recordings](portsip-communications-solution/portsip-pbx-administration-guide/20-cdr-and-call-recordings/call-recordings.md)
-    * [CDR Field Descriptions](portsip-communications-solution/portsip-pbx-administration-guide/20-cdr-and-call-recordings/cdr-field-descriptions.md)
   * [21 Call Reports](portsip-communications-solution/portsip-pbx-administration-guide/21-call-reports.md)
   * [22 Dealers](portsip-communications-solution/portsip-pbx-administration-guide/22-dealers.md)
   * [23 Feature Access Codes](portsip-communications-solution/portsip-pbx-administration-guide/23-feature-access-codes.md)
