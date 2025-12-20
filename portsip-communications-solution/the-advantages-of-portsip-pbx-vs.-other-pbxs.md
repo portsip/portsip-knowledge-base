@@ -12,8 +12,6 @@ This article explores the key advantages of PortSIP PBX, explaining how it outpe
 
 <figure><img src="https://www.portsip.com/wp-content/uploads/2024/12/portsip-one-all-5.png" alt=""><figcaption></figcaption></figure>
 
-### PortSIP PBX: A True Multi-Tenant Solution Built for the Cloud Era
-
 While many vendors claim to offer multi-tenant PBX platforms, most of them rely on **pseudo multi-tenant architectures**. In practice, their solutions deploy a **separate PBX instance for each customer**, with all instances managed through a centralized portal. Although end users may not notice this difference, service providers quickly encounter serious operational challenges, including:
 
 * Maintaining and monitoring a large number of PBX instances
