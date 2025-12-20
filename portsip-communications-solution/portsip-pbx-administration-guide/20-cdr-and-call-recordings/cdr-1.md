@@ -15,6 +15,8 @@ Only the **Tenant Administrator** has permission to enable or disable this featu
 3. Choose an **Authentication Method**.
 4. Enter your **Webhook URL**.
 
+<figure><img src="../../../.gitbook/assets/cdr-webhook.png" alt=""><figcaption></figcaption></figure>
+
 Once configured, PortSIP PBX will push CDR-related events to the specified third-party webhook endpoint.
 
 ***
