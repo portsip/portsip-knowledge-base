@@ -1,55 +1,122 @@
 # Call Recordings
 
-Businesses today need to be able to communicate with their clients quickly and efficiently. Your business phone system must have the call recording option to achieve this. Once call recording is activated, you can access received calls and have a copy of the conversation aside from knowing who called. The functionality of an automatic call recorder helps businesses maintain high-quality service and train new agents, investigate disputes between company personnel--and more. Discover how PorttSIP PBX can help you improve your business.
+### Call Recording Overview
 
-## Call Recording Management
+Businesses today must communicate with customers quickly, clearly, and reliably. A modern business phone system should include **call recording** to support quality assurance, compliance, training, and dispute resolution.
 
-The tenant administrator can select the menu **Call Statistics > Call Recordings** to view all recording files. Double-click the recording record, the recording file can be downloaded or played.
+Once call recording is enabled, you can access recorded calls to review conversations and identify who called and when. Automatic call recording helps organizations:
+
+* Maintain high service quality
+* Train and evaluate new agents
+* Investigate disputes or incidents
+* Meet regulatory and compliance requirements
+
+Discover how **PortSIP PBX** can help improve your business communications.
+
+***
+
+### Call Recording Management
+
+The **Tenant Administrator** can manage and access call recordings by navigating to:
+
+**Data Analytics > Call Recordings**
 
 <figure><img src="../../../.gitbook/assets/call-recording-1.png" alt=""><figcaption></figcaption></figure>
 
-Click the **Action** button will pop-ups the menu, allowing you to navigate to the CDR of this call.
+From this page:
+
+* All recording files are listed.
+* Double-click a recording to **download or play** the file.
+* Click the **Action** button to open the menu and navigate directly to the **CDR** of the associated call.
 
 <figure><img src="../../../.gitbook/assets/call-recording-2.png" alt=""><figcaption></figcaption></figure>
 
-PortSIP PBX allows you to control the call recording in two levels.
+***
 
-### User Level
+### Call Recording Control Levels
 
-To enable/disable call recording for a user, follow these steps: Click the **Call Manager** menu, then click **Users**. Double-click the user you want to modify, and in the **Extension** tab, you can turn on/off the **Record Audio Calls**, and **Record Video Calls** options.
+PortSIP PBX allows call recording to be controlled at **two levels**: **User Level** and **Tenant Level**.
 
-If **Record Audio Calls** is enabled, the call of this user will be recorded as a WAV file, even if the call is a video call. If **Record Video Calls** is enabled, the call of this user will be recorded as an MP4 file if the call is a video call.
+#### User Level Call Recording
 
-### Tenant Level
+To enable or disable call recording for an individual user:
 
-The tenant administrator has the ability to enable/disable the call recording for all users of this tenant.
+1. Navigate to **Call Manager > Users**.
+2. Double-click the user you want to modify.
+3. Open the **Extension** tab.
+4. Enable or disable:
+   * **Record Audio Calls**
+   * **Record Video Calls**
 
-Click the left menu **Company**, on the **General** page, under the **Options** section, you can turn on/off the  **Enable extension audio recording** or **Enable extension video recording** options.
+#### Behavior
 
-If **Enable extension audio recording** is enabled, a user's call will be recorded as a WAV file, even if the call is a video call. If **Enable extension video recording** is enabled, a user's call will be recorded as an MP4 file if the call is a video call.
+* If **Record Audio Calls** is enabled, the user’s calls are recorded as **WAV** files, even for video calls.
+* If **Record Video Calls** is enabled, video calls are recorded as **MP4** files.
 
-### Automatically stop recording if the call between two external numbers
+***
 
-In some countries, due to privacy and security concerns, the law stipulates that when a call is made between two external numbers, it should not be recorded.
+#### Tenant Level Call Recording
 
-Consider the following scenario: The client calls the contact center from the trunk, and the agent answers, the call is starting to record, and after a while of conversation, the agent transfers the client’s call to another mobile phone number. At this point, the call recording should stop.
+The **Tenant Administrator** can enable or disable call recording for **all users within a tenant**.
 
-PortSIP PBX provides corresponding features to support this regulation. The system administrator can click the menu **Advanced > Settings**, on the **General** page, and turn off the **Record the call between external numbers** option so that when the call is transferred to be made between two external numbers, the call recording will automatically stop.
+1. Navigate to **Company** from the left menu.
+2. Open the **General** page.
+3. Under the **Options** section, enable or disable:
+   * **Enable extension audio recording**
+   * **Enable extension video recording**
 
-### Pause/Resume Recording
+#### Behavior
 
-PortSIP PBX allows Pause/Resume of the call recording during the call.
+* Audio recording generates **WAV** files (even for video calls).
+* Video recording generates **MP4** files for video calls.
 
-* Dials FAC `*48` will pause the call recording during the call
-* Dials FAC `*49` will resume the call recording during the call
+***
 
-The client APP or IP Phone can also pause/resume the call recording by sending the out-of-dialog SIP message to the PBX, the message should be as below:
+### Automatically Stop Recording for Calls Between External Numbers
 
-<pre><code>MESSAGE sip:102@test.io SIP/2.0
+In some countries, privacy and security regulations prohibit recording calls made **between two external numbers**.
+
+#### Example Scenario
+
+* A client calls the contact center via a trunk.
+* An agent answers and recording begins.
+* The agent transfers the call to an external mobile number.
+* At this point, the call is between two external numbers and **recording must stop**.
+
+#### Configuration
+
+To comply with these regulations:
+
+1. Log in as **System Administrator**.
+2. Navigate to **Advanced > Settings**.
+3. Open the **General** page.
+4. Disable **Record the call between external numbers**.
+
+Once disabled, PortSIP PBX automatically stops recording when a call transitions to two external endpoints.
+
+***
+
+### Pause and Resume Call Recording
+
+PortSIP PBX supports pausing and resuming call recording during an active call.
+
+#### Using Feature Access Codes (FAC)
+
+* Dial **\*48** to **pause** call recording
+* Dial **\*49** to **resume** call recording
+
+***
+
+### Pause/Resume Recording via SIP MESSAGE (Out-of-Dialog)
+
+Client apps or IP phones can pause or resume recording by sending an **out-of-dialog SIP MESSAGE** to the PBX.
+
+```
+MESSAGE sip:102@test.io SIP/2.0
 Via: SIP/2.0/UDP 192.168.0.16:5568;branch=z9hG4bK-524287-1---a67ad51a25df052f;rport
 Max-Forwards: 70
-To: &#x3C;sip:102@test.io>
-From: &#x3C;sip:101@test.io>;tag=fa2d6f1d
+To: <sip:102@test.io>
+From: <sip:101@test.io>;tag=fa2d6f1d
 Call-ID: SFNH1yZ5c4LrG70_Tlyxgg..
 CSeq: 3 MESSAGE
 Allow: INVITE, ACK, CANCEL, OPTIONS, BYE, REFER, NOTIFY, MESSAGE, REGISTER, SUBSCRIBE, INFO, PUBLISH
@@ -59,19 +126,23 @@ User-Agent: abcd
 Allow-Events: hold, talk, conference, dialog
 Content-Length: 21
 
-<strong>{ "operation" : "pause-audio-recording", "session_id" : "5984923794364"}
-</strong></code></pre>
-
-In the above out-of-dialog message:
-
-* The message body should be in JSON format.&#x20;
-* The **Content-Type** should be **application/x-media-control+json.**
-* The **operation** indicates whether to pause or resume recording
-* The **session\_id** specifies the call session ID. You can obtain this ID from the **X-Session-Id** header in the INVITE or 200 OK SIP message.&#x20;
-
-You can also use an in-dialog message to pause or resume recording. The message would look like this
-
+{ "operation" : "pause-audio-recording", "session_id" : "5984923794364"}
 ```
+
+#### Notes
+
+* The message body must be **JSON**.
+* `Content-Type` must be `application/x-media-control+json`.
+* `operation` specifies the action (pause or resume).
+* `session_id` is obtained from the `X-Session-Id` header in the SIP `INVITE` or `200 OK`.
+
+***
+
+### Pause/Resume Recording via SIP MESSAGE (In-Dialog)
+
+You can also use an **in-dialog SIP MESSAGE**:
+
+```sip
 MESSAGE sip:102@test.io SIP/2.0
 Via: SIP/2.0/UDP 192.168.0.16:5568;branch=z9hG4bK-524287-1---a67ad51a25df052f;rport
 Max-Forwards: 70
@@ -89,48 +160,59 @@ Content-Length: 21
 pause-audio-recording
 ```
 
-For the in-dialog message, the message body is plain text.
+#### Supported Commands
 
-The PBX supports the following message commands:
+* `pause-audio-recording`
+* `pause-video-recording`
+* `resume-audio-recording`
+* `resume-video-recording`
 
-* pause-audio-recording: pause the audio recording for the call
-* pause-video-recording: pause the video recording for the call
-* resume-audio-recording: resume the audio recording for the call
-* resume-video-recording: resume the video recording for the call
+***
 
-## **Call Recording File Format**
+### Call Recording File Format
 
-By default, PortSIP PBX records files in the WAV format. This format offers superior performance but consumes more disk space.
+By default, PortSIP PBX records calls in **WAV** format, which provides high audio quality but consumes more disk space.
 
-PortSIP PBX also supports recording calls in MP3 and AMR formats. To change the settings, please follow these steps:
+PortSIP PBX also supports **MP3** and **AMR** formats.
 
-1. Open the file `var/lib/portsip/pbx/system.ini`. For Windows, this file is located at `C:/ProgramData/PortSIP/pbx/system.ini`.
-2. In the `[mediaserver]` section, find the key `recorder_file_format`. The default value  `1` corresponds to recording in WAV format.
-3. If you wish to record the call in AMR format, change this value to `2`. For recording in MP3 format, change the value to `3`.
-4. Save the changes.
+#### Change Recording Format
 
-To apply these changes, you'll need to restart the media server:
+1. Open the configuration file:
+   * **Linux**: `/var/lib/portsip/pbx/system.ini`
+   * **Windows**: `C:/ProgramData/PortSIP/pbx/system.ini`
+2.  In the `[mediaserver]` section, locate:
 
-* **Windows**: Open the Windows Service Manager and restart the **PortSIP Media Server** service.
-* **Linux**: Execute the following commands:
+    ```
+    recorder_file_format
+    ```
+3. Set the value:
+   * `1` – WAV (default)
+   * `2` – AMR
+   * `3` – MP3
+4. Save the file.
 
-```
-cd /opt/portsip && /bin/sh pbx_ctl.sh restart -s portsip.mediaserver
-```
+#### Restart Media Server
 
-That’s it! Your changes should now be in effect.
+* **Windows**: Restart **PortSIP Media Server** from Windows Services.
+*   **Linux**:
 
-{% hint style="danger" %}
-Recording the calls in AMR or MP3 format will reduce the disk space but will cause poor performance.
-{% endhint %}
+    ```bash
+    cd /opt/portsip && /bin/sh pbx_ctl.sh restart -s portsip.mediaserver
+    ```
 
-## **Recording File Size Calculation**
+> ⚠️ Recording in **AMR** or **MP3** reduces disk usage but may impact audio quality and performance.
 
-You can calculate the size of the recording file based on the following conditions:
+***
 
-* **Wav**: This format is uncompressed and typically results in a file size of approximately 1MB per minute.
-* **AMR**: This format results in a file size of about 100KB per minute. Please note that AMR files cannot be played in a browser.
-* **MP3**: This format results in a file size of approximately 256KB per minute. MP3 files can be played in a browser.
+### Recording File Size Calculation
 
-Please keep these conditions in mind when choosing a format for your recording files.
+Approximate recording sizes per minute:
+
+* **WAV**: \~1 MB per minute (uncompressed, best quality)
+* **AMR**: \~100 KB per minute (not playable in browsers)
+* **MP3**: \~256 KB per minute (browser-playable)
+
+Choose the format that best balances **storage requirements, performance, and audio quality** for your deployment.
+
+
 
