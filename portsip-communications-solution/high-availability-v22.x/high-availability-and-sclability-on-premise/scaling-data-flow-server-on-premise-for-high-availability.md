@@ -135,7 +135,7 @@ To prevent the PBX from applying request-rate limits to the  Data Flow service, 
 
 <figure><img src="../../../.gitbook/assets/data_flow_whitelist_1.png" alt=""><figcaption></figcaption></figure>
 
-This ensures uninterrupted communication between the PBX and the IM service.
+This ensures uninterrupted communication between the PBX and the data flow service.
 
 ***
 
