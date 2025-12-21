@@ -1,131 +1,172 @@
 # High Availability Installations on Ubuntu
 
-This article is for guidance on deploying the PortSIP PBX HA on Ubuntu.
+This guide provides step-by-step guidance for deploying a **High Availability (HA)** PortSIP PBX cluster on **Ubuntu Linux**. It is intended for system administrators and service providers who require a resilient, production-grade PBX deployment.
 
-## Prerequisites
+***
 
-### Servers
+### Prerequisites
 
-In the examples used in this article, a total of three servers are used. PBX nodes are used to refer to servers in the following
+#### 1. Server Architecture
 
-* The **three PBX nodes** or **all PBX nodes,** refer to all PBX servers
-* **Master node** and **node 1** refer to **pbx01**
-* **Node 2** refers to **pbx02**, and **node 3** refers to **pbx03**
+In the examples used throughout this guide, **three servers** are deployed to form a PortSIP PBX HA cluster. These servers are collectively referred to as **PBX nodes**.
 
-### Disk
+For clarity, the following naming conventions are used:
 
-Deploying the HA requires having two disk volumes. In this example, the hard disk of each server is **80 GB,** creating two volumes:
+* **All PBX nodes / Three PBX nodes**\
+  Refers to all servers participating in the HA cluster.
+* **Master Node / Node 1:** Hostname: `pbx01`
+* **Node 2:** Hostname: `pbx02`
+* **Node 3:** Hostname: `pbx03`
 
-* One is **40G** (**/dev/sda**) for Linux OS we called it "**system volume**". This volume is used to install the Linux system, it's can be smaller, in your production environment, you can allocate it such as 100G.
-* The other one is **40G** (**/dev/sdb**) for storing the PBX data; we called it "**data volume**". This volume usually should be large since it is used to store the PBX data such as DB, recording files, logs, and chat files, in your production environment, we suggest it be as big as possible, such as 500G, or 1000G.
+Each node must be dedicated exclusively to the PBX role and configured consistently to ensure reliable failover and data synchronization.
 
-You are free to decide the disk size, but the size must be the same for all servers.
+***
 
-{% hint style="danger" %}
-For the three node servers, they must have the same disk volumes, and the size must be the same!
-{% endhint %}
+#### 2. Disk Requirements
 
-{% hint style="danger" %}
-The `/dev/sdb` disk volume must remain uninitialized and in an **unused** state, don't initialize it; otherwise, the installation will fail.
-{% endhint %}
+PortSIP PBX High Availability requires **two separate disk volumes** on **each server**.
 
-### Network
+In this example, each server is provisioned with an **80 GB disk**, divided as follows:
 
-In this article, we deploy the HA on three servers that have the following IP addresses:
+**System Volume**
 
-* 192.168.1.131
-* 192.168.1.132
-* 192.168.1.133
-* We used **192.168.1.130** as the VIP (Virtual IP)
-* Route the static public IP **104.18.36.119** to the virtual IP
+* **Device:** `/dev/sda`
+* **Size:** 40 GB
+* **Purpose:** Linux operating system installation
 
-**Please note:**
+This volume is used only for the OS. In production environments, you may allocate a larger size (for example, **100 GB**) based on your operational requirements.
 
-* The IP addresses must be **static**; dynamic IP addresses assigned via DHCP are not supported.
-* When installing Ubuntu, please ensure that **Netplan** is used for network configuration.
+**Data Volume**
 
-### Linux OS
+* **Device:** `/dev/sdb`
+* **Size:** 40 GB (example)
+* **Purpose:** PortSIP PBX data storage
 
-The PortSIP PBX HA for Ubuntu supports the following versions:
+The **data volume** is used to store:
 
-* &#x20;Ubuntu 24.04, 64bit.
+* Databases
+* Call recordings
+* Log files
+* Instant messaging and chat data
 
-### User Account Requirements
+> **Production Recommendation:**\
+> This volume should be sized generously. For real-world deployments, we strongly recommend **500 GB to 1 TB or larger**, depending on call volume, recording retention, and logging policies.
 
-* All cluster servers must use the **same username and password** as the PBX server.
-* In this guide, the username **`pbx`** is used as an example. The user account **must have `sudo` privileges** to execute administrative commands. If you follow this guide to setup the server, that the `pbx` user will be created and has the **`sudo`** privileges, no need extra adjustments.
+**Important Disk Requirements**
 
-## **Architecture**
+* All PBX nodes **must use identical disk layouts** and **exactly the same volume sizes**.
+* The `/dev/sdb` data volume must remain **uninitialized** and **unused** prior to installation.
+* **Do not format or mount `/dev/sdb` manually.**\
+  Initializing this disk will cause the HA installation to fail.
+
+***
+
+#### 3. Network Configuration
+
+In this guide, the HA cluster is deployed using the following private IP addresses:
+
+* `pbx01`: 192.168.1.131
+* `pbx02`: 192.168.1.132
+* `pbx03`: 192.168.1.133
+
+A **Virtual IP (VIP)** is configured for cluster access:
+
+* **Virtual IP:** `192.168.1.130`
+
+A **static public IP** is routed to the Virtual IP:
+
+* **Public IP:** `104.18.36.119` → `192.168.1.130`
+
+This architecture ensures seamless client access and automatic failover between PBX nodes.
+
+**Network Requirements**
+
+* All IP addresses **must be static**. DHCP-assigned addresses are **not supported**.
+* During Ubuntu installation, ensure that **Netplan** is used for network configuration.
+
+***
+
+#### 4. Supported Linux Operating System
+
+PortSIP PBX High Availability on Ubuntu supports the following operating system version:
+
+* **Ubuntu 24.04 LTS (64-bit)**
+
+Ensure the OS is fully updated before proceeding with the installation.
+
+***
+
+#### 5. User Account Requirements
+
+All servers in the HA cluster must use **the same system username and password**.
+
+In this guide:
+
+* **Username:** `pbx` (example)
+
+The user account must:
+
+* Have **sudo privileges** to be able to execute administrative commands without restriction
+
+If you follow this guide from the beginning, the `pbx` user will be created automatically with the required sudo permissions. **No additional configuration is necessary.**
+
+***
+
+### **Architecture**
 
 **Figure 1-1**   PortSIP PBX HA Architecture
 
 <figure><img src="../../../.gitbook/assets/pbx_ha_diagram_v16.png" alt=""><figcaption></figcaption></figure>
 
-## Pacemaker
+### Notes
 
-The [Pacemaker](http://www.clusterlabs.org/) is a high-availability Cluster Resource Manager (CRM) that can be used to manage resources and ensure that they remain available in the event of a node failure.
+* Ensure that each server is provisioned with **at least 4 CPU cores and 4 GB of RAM**. Additional resources may be required for high call volumes or advanced features such as call recording and analytics.
+* Unless explicitly stated otherwise, all commands and configuration steps in this guide must be performed on the master node, which is identified as **`pbx01`**.
+* During the Linux operating system installation, you must create a system user named **`pbx`**.\
+  All Linux commands related to the PortSIP PBX High Availability configuration **must be executed using this user account**.
+* During the HA setup process, you may be prompted to enter the **`pbx`** user password multiple times. Please provide the password when prompted to allow the installation and configuration steps to proceed.
+* The username **`pbx`** used throughout this guide is **for example purposes only**.\
+  You may choose a different username; however, **the same username and password must be created and used consistently across all PBX nodes** in the cluster.
 
-The PortSIP PBX HA uses the [Pacemaker](http://www.clusterlabs.org/) to do the resource management and monitoring, once the event of PBX node failure, the resources will automatically move to a working node in the cluster.&#x20;
+***
 
-## DRBD
+### Install Ubuntu Operating System
 
-[DRBD ](https://linbit.com/drbd/)is used for High Availability purposes. It is a software product used to replicate data in real time from one server to another. This ensures business continuity even in the event of hardware failure.
+This section walks you through the installation and initial configuration of the **Ubuntu** operating system on **all three PBX nodes** in the High Availability cluster.
 
-The [DRBD ](https://linbit.com/drbd/)is utilized in the PortSIP HA scenario to synchronize data (DB, recording files, log files, and prompt files) between the PBX nodes.
+In this guide, **Ubuntu 24.04 LTS (64-bit)** is used as the reference operating system.
 
-To connect to the PBX service, all SIP clients (IP Phone, Softphone, Mobile App, WebRTC Client) will access the Virtual IP of PortSIP PBX in the HA scenario.
+#### User Account Configuration
 
-## Working Mechanisms
+Throughout this guide, the system user **`pbx`** is used as an example.
 
-The PortSIP PBX HA working mechanisms are as follows:
+* The user account **must have sudo privileges** in order to execute administrative commands.
+* If you follow the steps in this guide during the Ubuntu installation process, the **`pbx` u**ser will be created automatically with the required sudo permissions, and no additional configuration is needed.
 
-* Three PBX nodes are running at the same time to prevent split-brain during HA switching.
-* Use [DRBD ](https://linbit.com/drbd/)to synchronize data between nodes, including current active call information, recording files, logs, call records, and prompt voice files uploaded by users.
-* Use virtual IP (VIP) as the access entry point of the system.
-* Use the  [Pacemaker](http://www.clusterlabs.org/) to monitor the status between servers.
-* The primary node provides services. Once the primary node has a DOWN machine, the  [Pacemaker](http://www.clusterlabs.org/) will immediately drift the VIP to the standby node that takes over after detecting it. User service requests will be automatically routed to the standby node, and the standby node will continue to provide services.
-* The established call on the primary node will be automatically restored by the standby node.
+> **Note:**\
+> The username `pbx` is used for demonstration purposes only. You may choose a different username, but the **same username and password** must be created and used consistently on all PBX nodes.
 
-## Notes
-
-* Ensure that your hardware has at least 4 cores and 4GB of memory
-* Unless otherwise specified, perform the operations mentioned below only on the **master node**, which is named **pbx01**
-* During the Linux OS installation, you will need to create a user named “**pbx**”. All Linux commands during the HA configuration process must be performed by that “**pbx**” user.
-* During the configuration of the HA, you may be prompted to enter the password for the user "**pbx**" multiple times. Please provide the password as requested.
-
-Please keep in mind that the username "**pbx**" used in this guide is just an example. You’re free to use a different username, but remember to create the same username and password on all three PBX servers.
-
-## Install Ubuntu OS
-
-{% hint style="danger" %}
-The steps in this section guide you through the process of installing and configuring the Ubuntu operating system on all **three node servers**.
-{% endhint %}
-
-In this article, we installed the **Ubuntu 24.04**.
-
-In this guide, the username **`pbx`** is used as an example. The user account **must have `sudo` privileges** to execute administrative commands. If you follow this guide to setup the server, that the `pbx` user will be created and has the **`sudo`** privileges, no need extra adjustments.
-
-### Select language
+#### Select language
 
 <figure><img src="../../../.gitbook/assets/ubuntu-ha-1.png" alt=""><figcaption></figcaption></figure>
 
-### Install available updates for the installer
+#### Install available updates for the installer
 
 <figure><img src="../../../.gitbook/assets/ubuntu-ha-2.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/ubuntu-ha-3.png" alt=""><figcaption></figcaption></figure>
 
-### Keyboard configuration
+#### Keyboard configuration
 
 <figure><img src="../../../.gitbook/assets/ubuntu-ha-4.png" alt=""><figcaption></figcaption></figure>
 
-### Choose type of install <a href="#choosetypeofinstallubuntuserver-mo-ren" id="choosetypeofinstallubuntuserver-mo-ren"></a>
+#### Choose the type of install <a href="#choosetypeofinstallubuntuserver-mo-ren" id="choosetypeofinstallubuntuserver-mo-ren"></a>
 
 Please choose the **Ubuntu Server**.
 
 <figure><img src="../../../.gitbook/assets/ubuntu-ha-5.png" alt=""><figcaption></figcaption></figure>
 
-### Network connections  <a href="#networkconnections-pei-zhi-jing-tai-di-zhi" id="networkconnections-pei-zhi-jing-tai-di-zhi"></a>
+#### Network connections  <a href="#networkconnections-pei-zhi-jing-tai-di-zhi" id="networkconnections-pei-zhi-jing-tai-di-zhi"></a>
 
 Please configure a static IP address for the server manually.
 
@@ -151,39 +192,40 @@ Please configure a static IP address for the server manually.
 
 <figure><img src="../../../.gitbook/assets/ubuntu-ha-13.png" alt=""><figcaption></figcaption></figure>
 
-### Configure proxy <a href="#configureproxy-mo-ren" id="configureproxy-mo-ren"></a>
+#### Configure proxy <a href="#configureproxy-mo-ren" id="configureproxy-mo-ren"></a>
 
 Keep it as the default settings.
 
 <figure><img src="../../../.gitbook/assets/ubuntu-ha-30.png" alt=""><figcaption></figcaption></figure>
 
-### Configure Ubuntu archive mirror <a href="#configureubuntuarchivemirror-mo-ren" id="configureubuntuarchivemirror-mo-ren"></a>
+#### Configure Ubuntu archive mirror <a href="#configureubuntuarchivemirror-mo-ren" id="configureubuntuarchivemirror-mo-ren"></a>
 
 Keep it as the default settings.
 
 <figure><img src="../../../.gitbook/assets/ubuntu-ha-31.png" alt=""><figcaption></figcaption></figure>
 
-### Guided storage configuration <a href="#guidedstorageconfiguration-mo-ren" id="guidedstorageconfiguration-mo-ren"></a>
+#### Guided storage configuration <a href="#guidedstorageconfiguration-mo-ren" id="guidedstorageconfiguration-mo-ren"></a>
 
 Keep it as the default settings.
 
 <figure><img src="../../../.gitbook/assets/ubuntu-ha-14.png" alt=""><figcaption></figcaption></figure>
 
-### Storage configuration <a href="#storageconfiguration-mo-ren" id="storageconfiguration-mo-ren"></a>
+#### Storage configuration <a href="#storageconfiguration-mo-ren" id="storageconfiguration-mo-ren"></a>
 
-Keep it as the default setting, the **/dev/sdb** should be **unused** state.&#x20;
+Keep the storage configuration at its default settings.
 
-{% hint style="danger" %}
-The `/dev/sdb` disk must remain uninitialized and in an **unused** state; otherwise, the installation will fail.
-{% endhint %}
+* The disk device **`/dev/sdb`** must remain **unused** and **uninitialized**. Otherwise, the HA installation will fail.
 
 <figure><img src="../../../.gitbook/assets/ubuntu-ha-15.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/ubuntu-ha-16.png" alt=""><figcaption></figcaption></figure>
 
-### Profile setup
+#### Profile setup
 
-For all three PBX servers, a new user named "**pbx**" needs to be created. This user should be granted **sudo** permissions and should have a consistent password across all servers.
+On **all three PBX servers**, create a system user named **`pbx`**.
+
+* The **`pbx`** user must have **sudo privileges** to perform administrative tasks.
+* The **same username and password must be used on all PBX servers** to ensure a consistent and successful High Availability configuration.
 
 #### For the PBX node 1 (pbx01):
 
@@ -197,31 +239,31 @@ For all three PBX servers, a new user named "**pbx**" needs to be created. This 
 
 <figure><img src="../../../.gitbook/assets/ubuntu-ha-19.png" alt=""><figcaption></figcaption></figure>
 
-### Upgrade to Ubuntu Pro <a href="#upgradetoubuntupro-mo-ren" id="upgradetoubuntupro-mo-ren"></a>
+#### Upgrade to Ubuntu Pro <a href="#upgradetoubuntupro-mo-ren" id="upgradetoubuntupro-mo-ren"></a>
 
 Keep it as the default settings: **Skip for now**.
 
 <figure><img src="../../../.gitbook/assets/ubuntu-ha-20.png" alt=""><figcaption></figcaption></figure>
 
-### SSH Setup <a href="#ssh-setup" id="ssh-setup"></a>
+#### SSH Setup <a href="#ssh-setup" id="ssh-setup"></a>
 
 Install the OpenSSH server.
 
 <figure><img src="../../../.gitbook/assets/ubuntu-ha-21.png" alt=""><figcaption></figcaption></figure>
 
-### Featured Server Snaps <a href="#featuredserversnaps-mo-ren" id="featuredserversnaps-mo-ren"></a>
+#### Featured Server Snaps <a href="#featuredserversnaps-mo-ren" id="featuredserversnaps-mo-ren"></a>
 
 Keep it as the default settings.
 
 <figure><img src="../../../.gitbook/assets/ubuntu-ha-22.png" alt=""><figcaption></figcaption></figure>
 
-### Installing system <a href="#installingsystem-mo-ren" id="installingsystem-mo-ren"></a>
+#### Installing system <a href="#installingsystem-mo-ren" id="installingsystem-mo-ren"></a>
 
 Start the process of installing the operating system and remain patient while it completes.
 
 <figure><img src="../../../.gitbook/assets/ubuntu-ha-23.png" alt=""><figcaption></figcaption></figure>
 
-### Install complete <a href="#installcomplete-mo-ren" id="installcomplete-mo-ren"></a>
+#### Install complete <a href="#installcomplete-mo-ren" id="installcomplete-mo-ren"></a>
 
 Once the system is successfully installed, reboot the system (Reboot Now).
 
@@ -229,11 +271,20 @@ Once the system is successfully installed, reboot the system (Reboot Now).
 
 After the server reboot, use the "**pbx**" user credentials created during installation to log in and continue with the following steps.
 
-### Resolve all these servers' hostnames
+***
 
-Perform the following commands at all three nodes: **pbx01**, **pbx02**, **pbx03**. Note: you need to replace the IP and hostname in the following command with your actual IP and hostname.
+### Configure Hostname Resolution
 
-```sh
+To ensure proper communication between PBX nodes, you must configure hostname resolution on **all three servers**.
+
+Perform the following steps **on each node**: `pbx01`, `pbx02`, and `pbx03`.
+
+> ⚠️ **IMPORTANT**\
+> Replace the IP addresses and hostnames in the example below with the **actual values for your environment**.
+
+Run the following command to update the `/etc/hosts` file:
+
+```bash
 sudo bash -c 'cat >> /etc/hosts' << EOF
 192.168.1.131 pbx01
 192.168.1.132 pbx02
@@ -241,62 +292,100 @@ sudo bash -c 'cat >> /etc/hosts' << EOF
 EOF
 ```
 
-### Set password-free login
+This configuration ensures that each PBX node can reliably resolve the hostnames of the other nodes, which is required for cluster coordination and High Availability operations.
 
-In this guide, "**pbx01**", "**pbx02**", and "**pbx03**" are the mean for node 1, node 2, and node 3, respectively. The command provided below should only be executed on the node "**pbx01**".
+***
 
-#### Generate the certificate
+### Set Up Password-Free SSH Login
 
-Perform the below command only on the **pbx01**:
+In this guide:
 
-```sh
+* **`pbx01`** refers to **Node 1 (Master Node)**
+* **`pbx02`** refers to **Node 2**
+* **`pbx03`** refers to **Node 3**
+
+All commands in this section **must be executed only on `pbx01`**, unless explicitly stated otherwise.
+
+Password-free SSH access is required to allow the PortSIP PBX HA components to securely communicate and coordinate across nodes.
+
+***
+
+#### Step 1: Generate the SSH Key Pair
+
+On **`pbx01`**, generate an SSH key pair for the `pbx` user:
+
+```bash
 ssh-keygen -t rsa
 ```
 
-&#x20;Follow the prompts to generate the certificate - press the **enter** button if required.
-
 <figure><img src="../../../.gitbook/assets/ubuntu-ha-25.png" alt=""><figcaption></figcaption></figure>
 
-#### Set password-free login for all three servers
+When prompted:
 
-The following commands provided below should only be executed on the node "**pbx01**".
+* Press **Enter** to accept the default file location.
+* Press **Enter** to leave the passphrase empty (recommended for HA automation).
 
-{% hint style="info" %}
-If you are prompted to choose an option (**yes/no**), please enter **yes**.
-{% endhint %}
+This will generate the SSH private and public keys under the `~/.ssh/` directory.
 
-<pre class="language-sh"><code class="lang-sh"><strong>ssh-copy-id -i ~/.ssh/id_rsa.pub pbx01
-</strong></code></pre>
+***
 
-```sh
+#### Step 2: Configure Password-Free Login for All PBX Nodes
+
+On **`pbx01`** only, copy the public key to all PBX nodes:
+
+```bash
+ssh-copy-id -i ~/.ssh/id_rsa.pub pbx01
 ssh-copy-id -i ~/.ssh/id_rsa.pub pbx02
-```
-
-```sh
 ssh-copy-id -i ~/.ssh/id_rsa.pub pbx03
 ```
 
-## Configuring PortSIP PBX HA
+* If prompted with a **yes/no** confirmation (for example, to trust the host), type **`yes`** and press **Enter**.
+* When prompted, enter the **`pbx` user password** for each node.
 
-### Download the PBX resource package
+After this step, the `pbx` user on `pbx01` will be able to log in to all PBX nodes without requiring a password.
 
-The following command should only be executed on the node "**pbx01**".
+***
 
-```sh
+#### Verification (Optional but Recommended)
+
+To verify password-free access, run the following commands from **`pbx01`**:
+
+```bash
+ssh pbx02
+ssh pbx03
+```
+
+If the login succeeds without prompting for a password, the configuration is complete.
+
+***
+
+### Configuring PortSIP PBX HA
+
+All steps in this section must be performed on the **master node (`pbx01`) only**, unless explicitly stated otherwise.
+
+#### Step 1: Download the PBX HA Resource Package
+
+On **`pbx01`**, download and extract the PortSIP PBX HA resource package:
+
+```bash
 cd /opt/ && sudo wget \
 -N https://www.portsip.com/downloads/ha/v22/portsip-pbx-ha-guide-22-online.tar.gz \
 && sudo tar xf portsip-pbx-ha-guide-22-online.tar.gz
 ```
 
-### Set variables
+This package contains the HA deployment scripts and configuration templates required for cluster installation.
 
-Please prepare the value for the below variables.
+***
+
+#### Step 2: Configure HA Variables
+
+Before proceeding, prepare the values for your environment, including hostnames, IP addresses, virtual IP, and disk configuration.
 
 <table data-header-hidden><thead><tr><th width="206">Name</th><th width="120.33333333333326">Type</th><th>Description</th></tr></thead><tbody><tr><td>Name</td><td>Type</td><td>Description</td></tr><tr><td>pbx01_hostname</td><td>string</td><td>The hostname of node 1, in this case is pbx01</td></tr><tr><td>pbx02_hostname</td><td>string</td><td>The hostname of node 2, in this case is pbx02</td></tr><tr><td>pbx03_hostname</td><td>string</td><td>The hostname of node 3, in this case is pbx03</td></tr><tr><td>pbx01_private_ip</td><td>string</td><td>The private <strong>static</strong> IP of node 1, in this case is 192.168.1.131</td></tr><tr><td>pbx02_private_ip</td><td>string</td><td>The private <strong>static</strong> IP of node 2, in this case is 192.168.1.132</td></tr><tr><td>pbx03_private_ip</td><td>string</td><td>The private <strong>static</strong> IP of node 3, in this case is 192.168.1.133</td></tr><tr><td>vip</td><td>string</td><td>The virtual IP in this case is 192.168.1.130</td></tr><tr><td>pbx_image</td><td>string</td><td>PortSIP PBX docker image in this case is <strong>portsip/pbx:22</strong></td></tr><tr><td>pbx_datapath_disk</td><td>string</td><td>The disk volume for PBX data store in this case is /dev/sdb</td></tr><tr><td>pbx_datapath_size</td><td>string</td><td>The disk volume size for PBX data store，in this case is 36G(If set as full 40G maybe report error);<br>For example if the disk volume size is 500G , suggest set as 490G.</td></tr></tbody></table>
 
-The following command is only executed on the node **pbx01**.&#x20;
+On **`pbx01`** only, create and edit the HA variables file:
 
-```sh
+```bash
 cd /opt/portsip-pbx-ha-guide && sudo bash -c 'cat > ./res/vars.yml' << EOF
 pbx01_hostname: pbx01
 pbx02_hostname: pbx02
@@ -311,53 +400,95 @@ pbx_datapath_size: 36G
 EOF
 ```
 
-### Install Dependencies
+> ⚠️ **IMPORTANT**
+>
+> * Ensure all hostnames and IP addresses match your actual environment.
 
-The following command is only executed on the node **pbx01**.&#x20;
+***
 
-```sh
+#### Step 3: Install Required Dependencies
+
+On **`pbx01`**, install all required system dependencies for the HA environment:
+
+```bash
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash install_dependencies.sh
 ```
 
-### Reboot Servers
+This script installs and configures the necessary system packages and services required by the PortSIP PBX HA framework.
 
-The following commands are only executed on the node **pbx01** (Note, the pbx01 must be restarted after the pbx02, and pbx03 restarted).
+***
 
-#### Restart pbx03
+#### Step 4: Reboot All PBX Servers
 
-```sh
+Once the dependencies installation completes, **all PBX nodes must be rebooted** to apply system-level changes.
+
+Process the reboot process from **`pbx01`** only by commands below(keep the order):
+
+```shellscript
 ssh -t pbx03 "sudo reboot"
-```
-
-#### Restart pbx02
-
-```sh
 ssh -t pbx02 "sudo reboot"
-```
-
-#### Restart pbx01
-
-```sh
 ssh -t pbx01 "sudo reboot"
 ```
 
-### Initialize Resources
+***
 
-Only execute the following command on the node **pbx01**, the execution may take some time, so patience is required. Please do not interrupt, restart, or shut down while the process is in progress.
+### Initialize HA Resources
 
-```sh
+All steps in this section must be executed **only on the master node (`pbx01`)**.
+
+On **`pbx01`**, run the following command to initialize the PortSIP PBX HA resources:
+
+```bash
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash deploy_pbx.sh
 ```
 
-Once the resource configuration is complete, you can access your PBX by opening https://192.168.1.130:8887 in a web browser. All future PBX management, configuration, and access will be done through the virtual IP 192.168.1.130.
+> ⚠️ **IMPORTANT**\
+> This process may take several minutes to complete. **Do not interrupt, restart, or shut down any server** while the script is running, as doing so may cause the HA deployment to fail.
 
-### Configuring PortSIP PBX
+Once the resource initialization completes successfully, the PortSIP PBX services will be deployed and started across the cluster.
 
-When you sign into the PBX Web portal, the setup wizard will automatically pop up. In its first step, it asks for setting up the IP addresses and entering the virtual IP **192.168.1.130** for the **Private IPv4** filed. If your virtual IP is different from 192.168.1.130, please enter your actual virtual IP
+Open a web browser and access the PBX Web Portal using the **Virtual IP (VIP)**:
+
+```
+https://192.168.1.130:8887
+```
+
+> **Note:**\
+> All future PBX access, administration, and configuration **must be performed using the virtual IP** (`192.168.1.130`), not the individual node IP addresses.
+
+***
+
+### Configure PortSIP PBX
+
+When you sign in to the PBX Web Portal for the first time, the **Setup Wizard** will launch automatically.
+
+#### Setup Wizard Configuration
+
+In the first step of the Setup Wizard:
+
+* Locate the **Private IPv4** field, enter the **Virtual IP address**: `192.168.1.130`
+
+If your environment uses a different virtual IP, enter your **actual configured VIP** instead.
 
 <figure><img src="../../../.gitbook/assets/ubuntu-ha-26.png" alt=""><figcaption></figcaption></figure>
 
-Once successfully completed the Setup Wizard, select the menu **Advanced > Settings > Advanced**, select the **Enable Call Recovery** option, and confirm by clicking on the **OK** button.
+Complete the Setup Wizard by following the on-screen instructions.
+
+***
+
+### Enable Call Recovery
+
+After completing the Setup Wizard, enable call recovery to ensure seamless failover for active calls:
+
+1. Navigate to **Advanced > Settings > Advanced**
+2. Enable the **Call Recovery** option
+3. Click **OK** to save the configuration
+
+Enabling Call Recovery ensures that active calls can be recovered automatically in the event of a PBX node failure, providing true High Availability behavior.
+
+***
+
+
 
 ## Installing PortSIP IM Service
 
