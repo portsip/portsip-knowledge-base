@@ -118,7 +118,7 @@ If you follow this guide from the beginning, the `pbx` user will be created auto
 
 <figure><img src="../../../.gitbook/assets/pbx_ha_diagram_v16.png" alt=""><figcaption></figcaption></figure>
 
-### Notes
+#### Notes
 
 * Ensure that each server is provisioned with **at least 4 CPU cores and 4 GB of RAM**. Additional resources may be required for high call volumes or advanced features such as call recording and analytics.
 * Unless explicitly stated otherwise, all commands and configuration steps in this guide must be performed on the master node, which is identified as **`pbx01`**.
