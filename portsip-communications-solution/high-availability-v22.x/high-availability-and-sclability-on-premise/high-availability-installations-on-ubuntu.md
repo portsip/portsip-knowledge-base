@@ -408,7 +408,7 @@ EOF
 
 #### Step 3: Install Required Dependencies
 
-On **`pbx01`**, install all required system dependencies for the HA environment:
+On **`pbx01`** only, install all required system dependencies for the HA environment:
 
 ```bash
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash install_dependencies.sh
