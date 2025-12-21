@@ -283,14 +283,14 @@ Before upgrading the IM server:
 
 ***
 
-#### Upgrade Procedure
-
 #### Step 1: Generate a New IM Server Token
 
 1. Sign in to the PortSIP PBX Web Portal as a System Administrator
 2. Navigate to **Servers > IM Servers**
 3. Select the **default IM server**
 4. Click **Generate Token** to generate a new authentication token
+
+***
 
 #### Step 2: Upgrade the IM Server
 
