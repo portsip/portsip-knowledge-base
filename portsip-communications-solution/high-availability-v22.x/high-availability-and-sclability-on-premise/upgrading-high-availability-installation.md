@@ -236,11 +236,45 @@ After the upgrade completes:
   * HA status
   * Call processing
   * Extensions and trunks
-  * IM and related services
 
 ***
 
+### Post-Upgrade Service Installation and Upgrade Guidance
 
+After upgrading your PortSIP PBX environment, follow the appropriate guides below based on your **upgrade path and source version**.
+
+***
+
+#### If You Upgraded from **v16.x to the Latest v22.x**
+
+After completing the PBX upgrade, you must install both the **IM Service** and the **Data Flow Service** by following these guides:
+
+* [Scaling IM Server On-Premise for High Availability](scaling-im-server-on-premise-for-high-availability.md)
+* [Scaling Data Flow Server On-Premise for High Availability](scaling-data-flow-server-on-premise-for-high-availability.md)
+
+***
+
+#### If You Upgraded from **v22.x Earlier Than v22.3.0**
+
+If your previous version was **earlier than v22.3.0**, only the **Data Flow Service** needs to be installed.\
+Follow this guide:
+
+* [Scaling Data Flow Server On-Premise for High Availability](scaling-data-flow-server-on-premise-for-high-availability.md)
+
+***
+
+#### If You Upgraded Within **v22.x from v22.3.0 or Later**
+
+If your upgrade source version was **v22.3.0 or higher**, both services already exist and only need to be upgraded.\
+Follow these guides:
+
+* [Upgrading the IM Server](scaling-im-server-on-premise-for-high-availability.md#upgrading-the-im-server)
+* [Upgrading the Data Flow Server](scaling-data-flow-server-on-premise-for-high-availability.md#upgrade-the-data-flow-server)
+* [Upgrading the SBC Server](11-deploy-the-sbc-cluster.md#upgrading-sbc-servers)
+
+***
+
+Following the correct guide for your upgrade scenario ensures service compatibility, data integrity, and optimal performance in your PortSIP PBX High Availability environment.
 
 
 
