@@ -511,11 +511,11 @@ To check the current status of the PBX HA cluster, run the following command on 
 cd /opt/portsip-pbx-ha-guide && sudo /bin/bash ha_ctl.sh status
 ```
 
-#### Expected Output (Healthy HA State)
+**Expected Output (Healthy HA State)**
 
 The following output indicates that the PBX HA cluster is operating correctly and that the master and slave roles are properly assigned:
 
-```
+```shellscript
 drbd_attr    (ocf::linbit:drbd-attr):    Started pbx01
  Master/Slave Set: drbd_devpath-clone [drbd_devpath]
      Masters: [ pbx01 ]
@@ -535,7 +535,7 @@ This output confirms that:
 
 ***
 
-### Restart the PBX Service
+#### Restart the PBX Service
 
 If you need to restart the PBX service (for example, after configuration changes), run the following command on **`pbx01`**:
 
@@ -543,63 +543,11 @@ If you need to restart the PBX service (for example, after configuration changes
 cd /opt/portsip-pbx-ha-guide && sudo /bin/bash ha_ctl.sh restart -s pbx
 ```
 
-#### Expected Output
+**Expected Output**
 
 The following output indicates that the PBX service has been successfully restarted under HA control:
 
-```
-try to restart resource pbx
-disable resource pbx
-resource 'pbx' is not running on any node
-enable resource pbx
-```
-
-This confirms that:
-
-* The PBX resource was cleanly stopped
-* HA control temporarily disabled the resource
-* The PBX service was re-enabled and restarted successfully
-
-
-
-
-
-## Managing PBX HA
-
-Once you successfully configured the PortSIP PBX HA as per the above steps, you can use the following commands to manage the PBX HA.
-
-All commands should be performed only on the **pbx01.**
-
-### View PBX HA Status
-
-```sh
-cd /opt/portsip-pbx-ha-guide && sudo /bin/bash ha_ctl.sh status
-```
-
-The following output indicates that the PBX HA is working properly.
-
-```
- drbd_attr    (ocf::linbit:drbd-attr):    Started pbx01
- Master/Slave Set: drbd_devpath-clone [drbd_devpath]
-     Masters: [ pbx01 ]
-     Slaves: [ pbx02 pbx03 ]
- vip    (ocf::heartbeat:IPaddr2):    Started pbx01
- src_pkt_ip    (ocf::heartbeat:IPsrcaddr):    Started pbx01
- datapath_fs    (ocf::heartbeat:Filesystem):    Started pbx01
- pbx    (ocf::portsip:pbx):    Started pbx01
-```
-
-### Restart PBX
-
-Use the below command to restart the PBX.
-
-```sh
-cd /opt/portsip-pbx-ha-guide && sudo /bin/bash ha_ctl.sh restart -s pbx
-```
-
-The following output indicates that the PBX is successfully restarted.
-
-```
+```bash
 try to restart resource pbx
 disable resource pbx
 resource 'pbx' is not running on any node
