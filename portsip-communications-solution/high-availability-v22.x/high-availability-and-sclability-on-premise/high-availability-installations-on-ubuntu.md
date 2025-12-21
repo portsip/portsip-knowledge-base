@@ -501,7 +501,7 @@ Please follow the [Scaling IM Server On-Premise for High Availability](scaling-i
 
 With the PortSIP PBX High Availability deployment complete, you are now ready to install the **PortSIP Data Flow Service**.
 
-Please follow the [Scaling IM Server On-Premise for High Availability guide](scaling-im-server-on-premise-for-high-availability.md) to complete the installation and configuration.
+Please follow the [Scaling Data Flow Server On-Premise for High Availability](scaling-data-flow-server-on-premise-for-high-availability.md) guide to complete the installation and configuration.
 
 ***
 
