@@ -126,12 +126,12 @@ This ensures uninterrupted communication between the PBX and the IM service.
 
 ***
 
-### Step 3: Generate a Token for the IM Server
+#### Step 3: Generate a Token for the IM Server
 
 To allow the IM server to securely authenticate with the PortSIP PBX HA cluster, you must generate an IM server token from the PBX Web Portal.
 
 1. Sign in to the **PortSIP PBX HA Web Portal** as a **System Administrator**.
-2. Navigate to **Servers → IM Servers**.
+2. Navigate to **Servers > IM Servers**.
 3. Select the **default IM server**.
 4. Click **Generate Token**.
 
@@ -142,7 +142,7 @@ The generated token will be used during the IM service installation to establish
 > ⚠️ **IMPORTANT**\
 > All commands below for extended servers **must be executed on the `pbx01` node**, regardless of whether it is currently the active node.
 
-### Step 4: Set Up Password-Free SSH Login
+#### Step 4: Set Up Password-Free SSH Login
 
 To allow the PBX HA cluster to deploy and manage the IM service, configure password-free SSH access to the IM server.
 
@@ -158,7 +158,7 @@ After this step, `pbx01` will be able to access the IM server without requiring 
 
 ***
 
-### Step 5: Deploy the IM Service
+#### Step 5: Deploy the IM Service
 
 The IM service deployment **must be initiated from the `pbx01` node** of the PBX HA cluster.
 
@@ -285,14 +285,14 @@ Before upgrading the IM server:
 
 #### Upgrade Procedure
 
-**Step 1: Generate a New IM Server Token**
+#### Step 1: Generate a New IM Server Token
 
 1. Sign in to the PortSIP PBX Web Portal as a System Administrator
 2. Navigate to **Servers > IM Servers**
 3. Select the **default IM server**
 4. Click **Generate Token** to generate a new authentication token
 
-**Step 2: Upgrade the IM Server**
+#### Step 2: Upgrade the IM Server
 
 On **`pbx01`**, run the following command to upgrade the IM service:
 
