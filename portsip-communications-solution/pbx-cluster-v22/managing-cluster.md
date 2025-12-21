@@ -1,155 +1,238 @@
 # Managing Cluster
 
-After successfully setting up the PortSIP PBX cluster, you can manage it easily.
+After successfully deploying the **PortSIP PBX** cluster, you can manage and maintain the system efficiently using the built-in control scripts. These scripts allow you to start, stop, restart, monitor, remove, and upgrade individual cluster services without impacting the core PBX server.
 
-## Managing Servers
+***
 
-On each cluster server (**not the PBX server**), you can use the following commands to manage it.
+### Managing Cluster Servers
 
-In the commands, use the parameter **-s** to specify the service name, PortSIP PBX supports these services:
+The commands in this article apply to **cluster servers only** (for example, Media, Queue, Meeting, or IVR servers). They must **not** be executed on the main PBX server.
 
-* media-server-only
-* queue-server-only
-* meeting-server-only
-* vr-server-only
+#### Supported Service Types
 
-### Start Server
+When running cluster management commands, use the `-s` parameter to specify the service type. The following service names are supported:
 
-```sh
+* `media-server-only`
+* `queue-server-only`
+* `meeting-server-only`
+* `vr-server-only`
+
+***
+
+#### Starting a Cluster Server
+
+```bash
 cd /opt/portsip
 sudo /bin/sh cluster_ctl.sh start -s media-server-only
 ```
 
-You can replace the **media-server-only** with another service name such as mentioned above.
+Replace `media-server-only` with the appropriate service name as required.
 
-### Restart Server
+***
 
-<pre class="language-sh"><code class="lang-sh">cd /opt/portsip
-<strong>sudo /bin/sh cluster_ctl.sh restart -s media-server-only
-</strong></code></pre>
+#### Restarting a Cluster Server
 
-### Check Status
+```bash
+cd /opt/portsip
+sudo /bin/sh cluster_ctl.sh restart -s media-server-only
+```
 
-```sh
+***
+
+#### Checking Cluster Server Status
+
+```bash
 cd /opt/portsip
 sudo /bin/sh cluster_ctl.sh status -s media-server-only
 ```
 
-### Stop Server
+***
 
-```sh
+#### Stopping a Cluster Server
+
+```bash
 cd /opt/portsip
 sudo /bin/sh cluster_ctl.sh stop -s media-server-only
 ```
 
-### Remove Server
+***
 
-```sh
+#### Removing a Cluster Server
+
+```bash
 cd /opt/portsip
 sudo /bin/sh cluster_ctl.sh rm -s media-server-only
 ```
 
-## Managing IM Server
+***
 
-### Start Server
+### Managing the Instant Messaging (IM) Server
 
-```sh
+The IM server is managed independently using a dedicated control script.
+
+#### Start the IM Server
+
+```bash
 cd /opt/portsip
 sudo /bin/sh im_ctl.sh start
 ```
 
-### Restart Server
+#### Restart the IM Server
 
-```sh
+```bash
 cd /opt/portsip
 sudo /bin/sh im_ctl.sh restart
 ```
 
-### Stop Server
+#### Stop the IM Server
 
-```sh
+```bash
 cd /opt/portsip
 sudo /bin/sh im_ctl.sh stop
 ```
 
-### Check Status
+#### Check IM Server Status
 
-```sh
+```bash
 cd /opt/portsip
 sudo /bin/sh im_ctl.sh status
 ```
 
-### Remove Server
+#### Remove the IM Server
 
-```sh
+```bash
 cd /opt/portsip
 sudo /bin/sh im_ctl.sh rm
 ```
 
-## Adding Servers
+***
 
-As the scale of your business expands, you may need to add more servers to the existing cluster.&#x20;
+### Managing the Data Flow Server
 
-To do this, simply follow the topics on [Preparing Cluster Servers](preparing-cluster-servers.md) and [Configuring Cluster Servers](configuring-cluster-servers.md) to add servers. Then, restart the resource load balancer and all cluster servers - there is no need to restart the PBX server.&#x20;
+The Data Flow server is managed independently using a dedicated control script.
 
-{% hint style="info" %}
-Currently, the IM server does not support cluster installations; it can be deployed as a standalone server. It can support up to 50,000 online users with a powerful CPU and memory(16 cores, 16GB). So there is no support to add more IM servers.
-{% endhint %}
+#### Start the Data Flow Server
 
-Please note that restarting the resource load balancer and servers will affect the calling service, so it is recommended to do this in the middle night.
+```bash
+cd /opt/portsip
+sudo /bin/sh dataflow_ctl.sh start
+```
 
-## Upgrading Servers
+#### Restart the Data Flow Server
 
-{% hint style="danger" %}
-It’s crucial to keep your cluster servers updated in line with the latest PortSIP PBX releases. This ensures that all features function as expected and that your system maintains optimal performance and security.
-{% endhint %}
+```bash
+cd /opt/portsip
+sudo /bin/sh dataflow_ctl.sh restart
+```
 
-Whenever a new version of PortSIP PBX is released, it’s essential to upgrade your installed cluster servers as well. Follow the steps below to ensure a successful upgrade.
+#### Stop the Data Flow Server
 
-### Upgrading the Main PBX Server
+```bash
+cd /opt/portsip
+sudo /bin/sh dataflow_ctl.sh stop
+```
 
-Please follow the guide [Upgrade to the Latest Version Within v22.x on Linux](/broken/pages/HYNilqLl52W9urfWCLid) to upgrade the main PBX server, SBC server, and IM server.
+#### Check Data Flow Server Status
+
+```bash
+cd /opt/portsip
+sudo /bin/sh dataflow_ctl.sh status
+```
+
+#### Remove the Data Flow Server
+
+```bash
+cd /opt/portsip
+sudo /bin/sh dataflow_ctl.sh rm
+```
+
+***
+
+### Adding Servers to the Cluster
+
+As your business grows, you may need to scale your deployment by adding additional cluster servers.
+
+To add new servers:
+
+1. Follow the guides [Preparing Cluster Servers](preparing-cluster-servers.md) and [Configuring Cluster Servers](configuring-cluster-servers.md) to provision and configure the new nodes.
+2. Restart the **resource load balancer** and all **cluster servers**.
+
+> **Note:**\
+> The main PBX server does **not** need to be restarted when adding new cluster servers.
+
+#### IM Server Scalability Considerations
+
+* The IM server does **not** currently support clustered deployment.
+* It is designed to run as a standalone service.
+* With sufficient resources (recommended **16 CPU cores and 16 GB RAM**), a single IM server can support **up to 50,000 concurrent online users**.
+* As a result, adding multiple IM servers is not supported at this time.
+
+#### Maintenance Window Recommendation
+
+Restarting the resource load balancer and cluster servers will temporarily impact call processing. To minimize service disruption, it is strongly recommended to perform these operations during off-peak hours, such as late night or scheduled maintenance windows.
+
+***
 
 ### Upgrading Cluster Servers
 
-Perform the below commands to download the latest scripts.
+Keeping all cluster components aligned with the latest PortSIP PBX release is essential for system stability, performance, and security.
 
-```sh
+Whenever a new PortSIP PBX version is released, **all deployed cluster servers must be upgraded accordingly**.
+
+***
+
+#### Upgrading the Main PBX Server
+
+First, follow the guide [Upgrade to the Latest Version Within v22.x ](../portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.3/upgrade-to-the-latest-version-within-v22.x-on-linux.md)to upgrade the following components:
+
+* Main PBX server
+* SBC server
+* IM server
+* Data Flow server
+
+***
+
+#### Upgrading Cluster Servers
+
+**Step 1: Download the Latest Initialization Script**
+
+```bash
 sudo curl \
-https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/init.sh  \
--o  init.sh
-```
-
-```sh
+https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.3/init.sh \
+-o init.sh
 sudo /bin/sh init.sh
 ```
 
-Use the below commands to upgrade the servers. We use the **-s** parameter to specify the server name.
+***
 
-#### Media Server
+**Step 2: Upgrade Individual Cluster Services**
 
-```sh
+Use the `-s` parameter to specify the service type and the `-i` parameter to define the target image version.
+
+**Media Server**
+
+```bash
 cd /opt/portsip && sudo /bin/sh cluster_ctl.sh upgrade \
 -s media-server-only -i portsip/pbx:22
 ```
 
-#### Queue Server
+**Queue Server**
 
-```sh
+```bash
 cd /opt/portsip && sudo /bin/sh cluster_ctl.sh upgrade \
 -s queue-server-only -i portsip/pbx:22
 ```
 
-#### IVR Server
+**IVR Server**
 
-```sh
+```bash
 cd /opt/portsip && sudo /bin/sh cluster_ctl.sh upgrade \
 -s vr-server-only -i portsip/pbx:22
 ```
 
-#### Meeting Server
+**Meeting Server**
 
-```sh
+```bash
 cd /opt/portsip && sudo /bin/sh cluster_ctl.sh upgrade \
 -s meeting-server-only -i portsip/pbx:22
 ```
