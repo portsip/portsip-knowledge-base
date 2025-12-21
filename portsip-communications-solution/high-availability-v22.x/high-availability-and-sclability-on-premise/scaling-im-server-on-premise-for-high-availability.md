@@ -229,6 +229,7 @@ The following operations are supported for managing the IM server:
 * **start** – Start the IM service
 * **stop** – Stop the IM service
 * **restart** – Restart the IM service
+* **upgrade** – Upgrade the IM service
 * **rm** – Remove the IM service installation
 
 ***

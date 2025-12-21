@@ -202,6 +202,7 @@
     * [Scaling Servers On-Premise for High Availability](portsip-communications-solution/high-availability-v22.x/high-availability-and-sclability-on-premise/scaling-servers-on-aws-for-on-premise.md)
     * [Scaling SBC On-Premise for High Availability](portsip-communications-solution/high-availability-v22.x/high-availability-and-sclability-on-premise/11-deploy-the-sbc-cluster.md)
     * [Scaling IM Server On-Premise for High Availability](portsip-communications-solution/high-availability-v22.x/high-availability-and-sclability-on-premise/scaling-im-server-on-premise-for-high-availability.md)
+    * [Scaling Data Flow Server On-Premise for High Availability](portsip-communications-solution/high-availability-v22.x/high-availability-and-sclability-on-premise/scaling-data-flow-server-on-premise-for-high-availability.md)
   * [High Availability and Scalability on AWS](portsip-communications-solution/high-availability-v22.x/high-availability-and-scalability-on-aws/README.md)
     * [PortSIP PBX High Availability Architecture](portsip-communications-solution/high-availability-v22.x/high-availability-and-scalability-on-aws/portsip-pbx-high-availability.md)
     * [High Availability Installations on AWS](portsip-communications-solution/high-availability-v22.x/high-availability-and-scalability-on-aws/high-availability-installations-on-aws.md)
