@@ -1,60 +1,66 @@
 # Configuring Cluster Servers
 
-In this guide, we will assume that the following servers are being installed for the cluster:
+In this guide, we assume the following servers are deployed for the PortSIP PBX cluster:
 
-* **Main Server**: Install the PBX with an IP address of **192.168.1.20**.
-* **Server 1**: Install a media server with a private IP address of **192.168.1.21** and a static public IP of **104.101.137.60**.
-* **Server 2**: Install a queue server with an IP address of **192.168.1.22**.
-* **Server 3**: Install a meeting server with an IP address of **192.168.1.23**.
-* **Server 4**: Install an IVR server with an IP address of 1**92.168.1.24**.
-* **Server 5**: Install an IM server with a static private IP address of 1**92.168.1.25,** and a static public IP address of **104.18.36.110.**
+* **Main Server (PBX Call Manager):** PBX installed on `192.168.1.20`
+* **Server 1 (Media Server):** Private IP `192.168.1.21`, Static Public IP `104.101.137.60`
+* **Server 2 (Queue Server):** `192.168.1.22`
+* **Server 3 (Meeting Server):** `192.168.1.23`
+* **Server 4 (IVR Server):** `192.168.1.24`
+* **Server 5 (IM Server):** Static Private IP `192.168.1.25`, Static Public IP `104.18.36.110`
+* **Server 6 (DataFlow Server):** Static Private IP `192.168.1.26`
 
-{% hint style="danger" %}
-A server can only deploy one type of PortSIP server at a time. For instance, it's not allowed to deploy both the media server and queue server simultaneously on **Server 1**.
-{% endhint %}
+> **Important**\
+> A single Linux host can deploy **only one PortSIP server role** at a time.\
+> For example, you cannot deploy both a Media Server and a Queue Server on Server 1.
 
-## Setup the PortSIP PBX
+***
 
-Before configuring the cluster servers, please ensure that you have completed the PBX installation and configuration on the **Main Server** by following the guide for [Installation of the PortSIP PBX](/broken/pages/iSgqciZUHcGkgwJ7MeW5) to install it.
+### Set Up the PortSIP PBX on the Main Server
 
-{% hint style="danger" %}
-Note: In this step, just need to install the PBX only, is no need to install the IM server at this stage, as it will be installed later in this guide.
-{% endhint %}
+Before configuring any cluster application servers, complete the PBX installation and initial configuration on the **Main Server** by following the [Installation of the PortSIP PBX](../portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/).
 
-{% hint style="warning" %}
-All commands must be executed in the **`/opt/portsip`** directory.
-{% endhint %}
+> **Note**\
+> In this step, install **only the PBX**.\
+> Do **not** install the IM server yet, it will be installed later in this guide.
 
-## Configure the Firewall
+> **Command Location**\
+> Unless otherwise specified, run all commands from:\
+> `/opt/portsip`
 
-It is necessary to create firewall rules on the **Main Server** that allow the cluster servers to access the PBX server (**Main Server**).&#x20;
+***
 
-To configure these firewall rules, please perform the following commands on the PBX server (**Main Server**).
+### Configure the Firewall on the Main Server
 
-```sh
+You must allow all cluster nodes to access the **PBX server (Main Server)**.
+
+To configure these firewall rules, please execute the following commands on the PBX server (**Main Server**).
+
+```bash
 sudo firewall-cmd --permanent --zone=trusted --add-source=192.168.1.21
 sudo firewall-cmd --permanent --zone=trusted --add-source=192.168.1.22
 sudo firewall-cmd --permanent --zone=trusted --add-source=192.168.1.23
 sudo firewall-cmd --permanent --zone=trusted --add-source=192.168.1.24
 sudo firewall-cmd --permanent --zone=trusted --add-source=192.168.1.25
+sudo firewall-cmd --permanent --zone=trusted --add-source=192.168.1.26
 sudo firewall-cmd --reload
 ```
 
-To verify that the rule has been created correctly, you can use the following command:
+#### Verify Firewall Rules
 
-```sh
+```bash
 sudo firewall-cmd --zone=trusted --list-all
 ```
 
-The correct output should be like below:
+Expected output example:
 
-```sh
+```shellscript
 [ubuntu@localhost ~]$ sudo firewall-cmd --zone=trusted --list-all
 trusted (active)
   target: ACCEPT
   icmp-block-inversion: no
   interfaces: 
-  sources: 192.168.1.21 192.168.1.22 192.168.1.23 192.168.1.24 192.168.1.25
+  sources: 192.168.1.21 192.168.1.22 192.168.1.23 192.168.1.24 192.168.1.25 192.168.1.26
   services: 
   ports: 
   protocols: 
@@ -66,72 +72,90 @@ trusted (active)
   rich rules:
 ```
 
-To allow the entire C class address to access the PBX server (**Main Server**), you can use the following commands:
+#### Optional: Allow the Entire /24 Subnet
 
-```sh
-sudo firewall-cmd --permanent --zone=trusted --add-source=192.168.1.0/24  
+If you want to allow the entire `192.168.1.0/24` subnet:
+
+```bash
+sudo firewall-cmd --permanent --zone=trusted --add-source=192.168.1.0/24
 sudo firewall-cmd --reload
 ```
 
-In the future, if you add more servers to the existing cluster, you will need to create firewall rules to allow those servers’ IP addresses to access the PBX server (**Main Server**), just like the rules mentioned above.
+> **Note**\
+> When you add new servers to the cluster later, you must update firewall rules to allow the new server IP addresses to access the PBX server.
 
-## Configuring the IP Address Whitelist
+***
 
-{% hint style="danger" %}
-This step is mandatory; without it, the service will not work.
-{% endhint %}
+### Configure the IP Whitelist in the PBX
 
-To prevent the PBX from limiting the cluster servers' request rate, we need to add the cluster servers' IPs to the whitelist in the PBX.&#x20;
+This step is **mandatory**. Without it, cluster services may fail due to request rate limiting.
 
-To do this, please follow the below steps:
-
-1. Sign in to the PBX web portal as the System Administrator
-2. Select the menu **IP Blacklist** > **Add**.&#x20;
-3. Enter the cluster server IP as shown in the screenshot below and choose a long **expiration date.**
-4. Repeat the above steps for each cluster server.
+To prevent the PBX from throttling internal cluster traffic, add **each cluster server IP address** to the PBX whitelist.
 
 <figure><img src="../../.gitbook/assets/cluster_ip_whitelist.png" alt=""><figcaption></figcaption></figure>
 
-## Add the Cluster Servers
 
-To add the cluster servers in the web portal, sign in to the PBX Web portal as the system administrator.
 
-### Disable Default Servers
+1. Sign in to the PBX Web Portal as **System Administrator**
+2. Go to **IP Blacklist** > **Add**
+3. Enter the cluster server IP address and select a long expiration date
+4. Repeat for **each cluster server IP address**
 
-The PortSIP PBX installation comes with default media, queue, meeting, and IVR servers. We recommend disabling these default servers so that the **Main Server** only handles SIP signaling, allowing it to support more users and calls.&#x20;
+***
 
-To do this, please select the **Servers** menu, expand each server type(media servers, queue servers, meeting servers, IVR servers), and turn off the default server as the below screenshot shows up.
+### Add the Cluster Servers in the PBX Web Portal
 
-**Note:** The IM Server is no need to disabled.
+Sign in to the PBX Web Portal as a System Administrator, then proceed with the following steps.
+
+#### Disable Default Servers on the Main Server
+
+The PBX installation includes default **Media**, **Queue**, **Meeting**, and **IVR** servers running on the Main Server. For production cluster deployments, PortSIP recommends disabling them so the Main Server focuses on SIP signaling and call control.
+
+1. Go to menu **Servers**
+2. Click on each server type:
+   * Media Servers
+   * Queue Servers
+   * Meeting Servers
+   * IVR Servers
+3. Turn off the default server for each type
 
 <figure><img src="../../.gitbook/assets/disable-default-media-server.png" alt=""><figcaption></figcaption></figure>
 
-### Add Media Server
+> **Note**\
+> The **default IM and Data Flow server** does not need to be disabled.
 
-To add a new media server, select the **Servers > Media Servers** menu, click the **Add** button, enter the server information as shown in the screenshot then click the **OK** button to save it. Please remember the server name "**media-server-1**", we will use it in a later step.
+***
 
-{% hint style="danger" %}
-If your PBX is deployed for internet users to access, it is essential to assign a static public IP to the extended media server. Enter the static IP address as shown in the screenshot below.
-{% endhint %}
+### Media Server
 
-Suggest don't set the Maximum of call sessions to more than 5,000.
+#### Add Media Server in the Web Portal
+
+1. Go to **Servers** > **Media Servers**
+2. Click **Add**
+3. Enter the server information with the server name `media-server-1`, as shown in the screenshot
+4. Click **OK** to save
+
+If your PBX is deployed for internet users to access, it is essential to assign a **static public IP** to the extended media server. Enter the static IP address as shown in the screenshot below.
 
 <figure><img src="../../.gitbook/assets/media-server-1.png" alt=""><figcaption></figcaption></figure>
 
-### Install Media Server
+> **Recommendation**\
+> Do not set **Maximum Call Sessions** higher than **5,000** per media server unless advised by PortSIP support based on sizing validation.
 
-Please go to **Server 1** (whose IP address is **192.168.1.21**) to install the media server.&#x20;
+#### Install Media Server (Server 1)
 
-Make sure you have followed the guide for [Preparing Cluster Servers](preparing-cluster-servers.md) on **Server 1**.
+Go to **Server 1** (whose IP address is **192.168.1.21**) to install the media server.
+
+Make sure you have followed the guide for [Preparing Cluster Servers](https://support.portsip.com/portsip-communications-solution/pbx-cluster-v22/preparing-cluster-servers) on **Server 1**.
 
 To install the media server, execute the following commands and pay close attention to the parameters:
 
 * `-a 192.168.1.21`: This specifies the private IP of **Server 1**.
 * `-x 192.168.1.20`: This specifies the private IP of the PBX Server (**Main Server**).
 * `-s media-server-only`: This indicates that only the media server should be installed.
-* `-n media-server-1`: This specifies the name of the media server, which must be the same as the name entered on the PBX Web portal in the previous step.
+* `-n media-server-1` This specifies the name of the media server, which **must match** the name entered on the PBX Web portal in the previous step.
 
-```sh
+```bash
 cd /opt/portsip
 sudo /bin/sh cluster_ctl.sh \
 run -p /var/lib/portsip \
@@ -142,38 +166,46 @@ run -p /var/lib/portsip \
 -n media-server-1
 ```
 
-{% hint style="danger" %}
-If your media server is hosted on a cloud platform such as AWS or Azure, you will need to create a network rule in the cloud platform to allow the following ports:
+**Cloud Firewall Requirement**
 
-* `35000 - 65000`: UDP
-{% endhint %}
+If the Media Server is hosted in the cloud, such as AWS or Azure, allow: `35000–65000/UDP`
 
-You can repeat the above steps to set up more media servers. Just make sure to use a different IP address and server name for each one.
+**Scaling Tip**
+
+To add more media servers, repeat the process with a unique **server name** and **IP address**.\
+The server name used in the command **must exactly match** the name created in the Web Portal.
 
 {% hint style="danger" %}
 If you set up multiple media servers, they must not use the same server name or IP address. Especially, you must ensure that the server name specified in the commands matches the one entered on the web portal.
 {% endhint %}
 
-### Add Queue Server
+***
 
-To add a new queue server, select the **Servers > Queue Servers** menu, click the **Add** button, enter the server information as shown in the screenshot then click the **OK** button to save it. Please remember the server name "**queue-server-1**", we will use it in a later step.
+### Queue Server
+
+#### Add Queue Server in the Web Portal
+
+1. Go to **Servers** > **Queue Servers**
+2. Click **Add**
+3. Enter the server information with the server name `queue-server-1`, as shown in the screenshot
+4. Click **OK** to save
 
 <figure><img src="../../.gitbook/assets/queue-server-1.png" alt=""><figcaption></figcaption></figure>
 
-### Install Queue Server
+#### Install Queue Server (Server 2)
 
-Please go to **Server 2** (whose IP address is **192.168.1.22**) to install the queue server.&#x20;
+Go to **Server 2** (whose IP address is **192.168.1.22**) to install the queue server.
 
-Make sure you have followed the guide for [Preparing Cluster Servers](preparing-cluster-servers.md) for **Server 2**.
+Make sure you have followed the guide for [Preparing Cluster Servers](https://support.portsip.com/portsip-communications-solution/pbx-cluster-v22/preparing-cluster-servers) for **Server 2**.
 
-&#x20;To install the queue server, execute the following commands and pay close attention to the parameters:
+On **Server 2** (`192.168.1.22`), execute the command below and pay close attention to the parameters:
 
 * `-a 192.168.1.22`: This specifies the private IP on **Server 2**.
 * `-x 192.168.1.20`: This specifies the private IP of the PBX Server (**Main Server**).
 * `-s queue-server-only`: This indicates that only the queue server should be installed.
-* `-n queue-server-1`: This specifies the name of the queue server, which must be the same as the name entered on the PBX Web portal in the previous step.
+* `-n queue-server-1`: This specifies the name of the queue server, which **must match** the name entered on the PBX Web portal in the previous step.
 
-```sh
+```bash
 cd /opt/portsip
 sudo /bin/sh cluster_ctl.sh \
 run -p /var/lib/portsip \
@@ -184,32 +216,42 @@ run -p /var/lib/portsip \
 -n queue-server-1
 ```
 
-You can repeat the above steps to set up more queue servers. Just make sure to use a different IP address and server name for each one.
+**Scaling Tip**
+
+To add more queue servers, repeat the process with a unique **server name** and **IP address**.\
+The server name used in the command **must exactly match** the name created in the Web Portal.
 
 {% hint style="danger" %}
 If you set up multiple queue servers, they must not use the same server name or IP address. Especially, you must ensure that the server name specified in the commands matches the one entered on the web portal.
 {% endhint %}
 
-### Add Meeting Server
+***
 
-To add a new meeting server, select the **Servers > Meeting Servers** menu, click the **Add** button, enter the server information as shown in the screenshot then click the **OK** button to save it. Please remember the server name "**meeting-server-1**", we will use it in a later step.
+### Meeting Server
+
+#### Add Meeting Server in the Web Portal
+
+1. Go to **Servers** > **Meeting Servers**
+2. Click **Add**
+3. Enter the server information with the server name `meeting-server-1`, as shown in the screenshot
+4. Click **OK** to save
 
 <figure><img src="../../.gitbook/assets/meeting-server-1.png" alt=""><figcaption></figcaption></figure>
 
-### Install Meeting Server
+#### Install Meeting Server (Server 3)
 
-Please go to **Server 3** (whose IP address is **192.168.1.23**) to install the meeting server.&#x20;
+Go to **Server 3** (whose IP address is **192.168.1.23**) to install the meeting server.
 
-Make sure you have followed the guide for [Preparing Cluster Servers](preparing-cluster-servers.md) on **Server 3**.
+Make sure you have followed the guide for [Preparing Cluster Servers](https://support.portsip.com/portsip-communications-solution/pbx-cluster-v22/preparing-cluster-servers) on **Server 3**.
 
-&#x20;To install the meeting server, execute the following commands and pay close attention to the parameters:
+To install the meeting server, execute the following commands and pay close attention to the parameters:
 
 * `-a 192.168.1.23`: This specifies the private IP of **Server 3**.
 * `-x 192.168.1.20`: This specifies the private IP of the PBX Server (**Main Server**).
 * `-s meeting-server-only`: This indicates that only the meeting server should be installed.
-* `-n meeting-server-1`: This specifies the name of the meeting server, which must be the same as the name entered on the PBX Web portal in the previous step.
+* `-n meeting-server-1`: This specifies the name of the meeting server, which **must match** the name entered on the PBX Web portal in the previous step.
 
-```sh
+```bash
 cd /opt/portsip
 sudo /bin/sh cluster_ctl.sh \
 run -p /var/lib/portsip \
@@ -220,32 +262,40 @@ run -p /var/lib/portsip \
 -n meeting-server-1
 ```
 
-You can repeat the above steps to set up more meeting servers. Just make sure to use a different IP address and server name for each one.
+**Scaling Tip**
+
+To add more meeting servers, repeat the process with a unique **server name** and **IP address**.\
+The server name used in the command **must exactly match** the name created in the Web Portal.
 
 {% hint style="danger" %}
 If you set up multiple meeting servers, they must not use the same server name or IP address. Especially, you must ensure that the server name specified in the commands matches the one entered on the web portal.
 {% endhint %}
 
-### Add IVR Server
+***
 
-To add a new IVR server, select the **Servers > IVR Servers** menu, click the **Add** button, enter the server information as shown in the screenshot then click the **OK** button to save it. Please remember the server name "**vr-server-1**", we will use it in a later step.
+### IVR (Virtual Receptionist) Server
+
+#### Add IVR Server in the Web Portal
+
+1. Go to **Servers** > **IVR Servers**
+2. Click **Add**
+3. Enter the server information with the server name `vr-server-1`, as shown in the screenshot
+4. Click **OK** to save
 
 <figure><img src="../../.gitbook/assets/vr-server-1.png" alt=""><figcaption></figcaption></figure>
 
-### Install IVR Server
+#### Install IVR Server (Server 4)
 
-Please go to **Server 4** (whose IP address is **192.168.1.24**) to install the IVR server.&#x20;
-
-Make sure you have followed the guide for [Preparing Cluster Servers](preparing-cluster-servers.md) on **Server 4**.
+Make sure you have followed the guide for [Preparing Cluster Servers](https://support.portsip.com/portsip-communications-solution/pbx-cluster-v22/preparing-cluster-servers) on **Server 4**.
 
 To install the IVR server, execute the following commands and pay close attention to the parameters:
 
 * `-a 192.168.1.24`: This specifies the private IP of **Server 4**.
 * `-x 192.168.1.20`: This specifies the private IP of the PBX Server (**Main Server**).
 * `-s vr-server-only`: This indicates that only the meeting server should be installed.
-* `-n vr-server-1`: This specifies the name of the IVR server, which must be the same as the name entered on the PBX Web portal in the previous step.
+* `-n vr-server-1`: This specifies the name of the IVR server, which must match the name entered on the PBX Web portal in the previous step.
 
-```sh
+```bash
 cd /opt/portsip
 sudo /bin/sh cluster_ctl.sh \
 run -p /var/lib/portsip \
@@ -253,20 +303,27 @@ run -p /var/lib/portsip \
 -x 192.168.1.20 \
 -i portsip/pbx:22 \
 -s vr-server-only \
--n vr-server-1
+-n ivr-server-1
 ```
 
-You can repeat the above steps to set up more IVR servers. Just make sure to use a different IP address and server name for each one.
+**Scaling Tip**
+
+To add more IVR servers, repeat the process with a unique **server name** and **IP address**.\
+The server name used in the command **must exactly match** the name created in the Web Portal.
 
 {% hint style="danger" %}
 If you set up multiple IVR servers, they must not use the same server name or IP address. Especially, you must ensure that the server name specified in the commands matches the one entered on the web portal.
 {% endhint %}
 
-### Installing IM Server
+***
 
-Currently, the IM server does not support cluster installations; it can be deployed as a standalone server. It can support up to 50,000 online users with a powerful CPU and memory(16 cores, 16GB).
+### Installing the IM Server
 
-The following hardware specifications are suitable for supporting up to 50,000 users online, with messaging and file sharing:
+At this time, the IM server **does not support clustered deployment** and must be deployed as a standalone server.
+
+With a properly sized server, IM can support up to **50,000 concurrent online users** for messaging and file sharing.
+
+#### Recommended Hardware (Up to 50,000 Online Users)
 
 * **CPU**: 20 cores or higher
 * **Memory**: 16 GB
@@ -275,30 +332,38 @@ The following hardware specifications are suitable for supporting up to 50,000 u
 * **Static private IP**: You must configure a static private IP for this IM server. In this case, we assume it's **192.168.1.25.**
 * **Static public IP:** If your PBX and IM server are located in the cloud for the internet users to access, you must have a static public IP for this IM service. In this case, we assume it's **104.18.36.110.**
 
-#### Generate a Token for the IM Server
+***
 
-* Log in to the PortSIP PBX Web portal as the System Administrator.
-* Go to **Servers > IM Servers**.
-* Select the default server and click **Generate Token**.
-* Copy the generated token for later use.
+#### Generate an IM Token
+
+1. Sign in to the PBX Web Portal as **System Administrator**
+2. Go to **Servers** > **IM Servers**
+3. Select the default server and click **Generate Token**
+4. Copy the token for later use
 
 <figure><img src="../../.gitbook/assets/portsip-pbx-v22-im-token.png" alt=""><figcaption></figcaption></figure>
 
-#### Create and Run Instant Messaging Docker Instance
+***
 
-Use the following command to create the Instant Messaging (IM) service Docker instance in the server which has the IP **192.168.1.25**. Replace each parameter with your actual values:
+#### Create and Run the IM Docker Instance (Server 5)
+
+**Parameter reference**
+
+Use the following command to create the Instant Messaging (IM) service Docker instance in the server that has the IP **192.168.1.25**. Replace each parameter with your actual values:
 
 * **-E**: Specifies that the IM server is installed in extended mode (required).
 * **-p**: Specifies the path for storing IM service data (required).
 * **-a**: Specifies the private IP address of this IM server. If this parameter is omitted, the **-A** parameter must be specified.
 * **-A**: Specifies the public IP address of this IM server. If this parameter is omitted, the **-a** parameter must be specified. If you install the IM server on a **separate server in the cloud, this parameter must be specified**. Otherwise, it can be ignored. In this case is **104.18.36.110**.
 * **-i**: Specifies the PBX Docker image version (required).
-* **-x**: Indicates the main PBX server's IP address (typically the private IP of the main PBX server) (required).
+* **-x**: Indicates the main PBX server's IP address (typically the private IP of the main PBX server) (required).&#x20;
 * **-t**: Provides the token generated and copied in the previous step (required).
 * **-f**: Specifies the path for storing files sent in chats. This path must differ from the one specified with **-p**. If omitted, chat files will be stored in the path specified by **-p**.
 
-{% code overflow="wrap" %}
-```sh
+Example (no separate chat file path):
+
+```bash
+cd /opt/portsip
 sudo /bin/sh im_ctl.sh run -E \
 -p /var/lib/portsip/ \
 -a 192.168.1.25 \
@@ -307,11 +372,11 @@ sudo /bin/sh im_ctl.sh run -E \
 -x 192.168.1.20 \
 -t MJC4NZBLYTGTZTJJNS0ZMWZHLWIXZDCTZJLLMDEWZJHKZTAY
 ```
-{% endcode %}
 
-For example, if you want to store the chat files in the path `/chat/files`, please ensure this path is already existing, then use the below command (please pay attention to the **-f** parameter.) to create the Instant Messaging (IM) service Docker instance on the IM server (IP **192.168.1.25)**. Replace each parameter with your actual values:
+Example (store chat files under `/cha`For example, if you want to store the chat files in the path `/chat/files`, please ensure this path already exists, then use the below command (please pay attention to the **-f** parameter) to create the Instant Messaging (IM) service Docker instance on the IM server (IP **192.168.1.25)**. Replace each parameter with your actual values:
 
-```sh
+```bash
+cd /opt/portsip
 sudo /bin/sh im_ctl.sh run -E \
 -p /var/lib/portsip/ \
 -f /chat/files/ \
@@ -322,80 +387,163 @@ sudo /bin/sh im_ctl.sh run -E \
 -t MJC4NZBLYTGTZTJJNS0ZMWZHLWIXZDCTZJLLMDEWZJHKZTAY
 ```
 
+**Cloud Firewall Requirement (IM)**
+
 {% hint style="danger" %}
 If your Instant Messaging (IM) server is hosted in the cloud (e.g., AWS), you must ensure that TCP port 8887 is open in the cloud firewall rules. The client application requires access to this port in order to send and receive messages.
 {% endhint %}
 
-## Restarting Servers
+***
 
-After completing adding the cluster servers, now go to restart the servers to make them up.
+### Installing the DataFlow Server
 
-### Restart the Main PBX server
+Currently, the DataFlow server **does not support clustered deployment** and must be deployed as a standalone server.
 
-Perform the following command on the PBX Server (**Main Server**) to restart the service.
+DataFlow is built on [ClickHouse](https://www.clickhouse.com). For best performance and stability, follow ClickHouse sizing best practices.
 
-```sh
+#### Minimum Requirements
+
+* **vCPU:** 4 cores
+* **Memory:** 16 GB
+* **Disk:** 128 GB SSD
+
+#### Recommended Requirements
+
+* **vCPU:** 8 cores
+* **Memory:** 32 GB
+* **Disk:** 256 GB+ (NVMe SSD preferred)
+
+#### Sizing Guideline (Large Deployments)
+
+* **vCPU:** ≥ 8
+* **Memory:** `vCPU × 4 GB`
+* **Disk:** Based on expected CDR volume and retention policy
+
+***
+
+#### Generate a DataFlow Token
+
+1. Sign in to the PBX Web Portal as **System Administrator**
+2. Go to **Servers** > **Data Flow**
+3. Select the default server and click **Generate Token**
+4. Copy and securely store the token
+
+<figure><img src="../../.gitbook/assets/data-flow-1.png" alt=""><figcaption></figcaption></figure>
+
+***
+
+#### Create the DataFlow Docker Instance (Server 6)
+
+**Command parameters**
+
+* `-p` : Path for storing Data Flow and ClickHouse data (required)
+* `-d` : ClickHouse Docker image (`portsip/clickhouse:25.8`)
+* `-a` : Private IP address of the Data Flow server
+* `-A` : Public IP address (use if private IP is not available)
+* `-i` : PortSIP PBX Docker image version (required)
+* `-x` : PBX server static private IP address
+
+Example:
+
+```bash
+cd /opt/portsip
+sudo /bin/sh dataflow_ctl.sh run \
+-p /var/lib/portsip/ \
+-a 192.168.1.26 \
+-i portsip/pbx:22 \
+-x 192.168.1.20 \
+-d portsip/clickhouse:25.8
+```
+
+***
+
+#### Operational Notes (DataFlow)
+
+* If the **PBX IP address changes**, you must delete and recreate the existing Data Flow Docker instance.
+* If a **new authentication token** is generated, the Data Flow Docker instance must be deleted and recreated.
+* After upgrading the **PBX to a new version**, you must remove and recreate the Data Flow Docker instance to ensure compatibility.
+
+The above operations **do not affect or erase existing analytics data** stored in ClickHouse.
+
+***
+
+### Restart Services
+
+After adding and installing all cluster servers, restart services in the following order.
+
+#### Restart PBX (On Main Server)
+
+```bash
 cd /opt/portsip
 sudo /bin/sh pbx_ctl.sh restart
 ```
 
-### Restart the Resource Load Balancer
+#### Restart Resource Load Balancer (On Main Server)
 
-Perform the following command on the PBX Server (**Main Server**) to restart the resource load balancer.
-
-```sh
+```bash
 cd /opt/portsip
 sudo /bin/sh pbx_ctl.sh restart -s loadbalancer
 ```
 
-### Restart Media Servers
+#### Restart Media Servers
 
-Go to each media server, and perform the below commands to restart the service.
+On each media server:
 
-```sh
+```bash
 cd /opt/portsip
 sudo /bin/sh cluster_ctl.sh restart -s media-server-only
 ```
 
-### Restart Queue Servers
+#### Restart Queue Servers
 
-Go to each queue server, and perform the below commands to restart the service.
+On each queue server:
 
-```sh
+```bash
 cd /opt/portsip
 sudo /bin/sh cluster_ctl.sh restart -s queue-server-only
 ```
 
-### Restart Meeting Servers
+#### Restart Meeting Servers
 
-Go to each meeting server, and perform the below commands to restart the service.
+On each meeting server:
 
-```sh
+```bash
 cd /opt/portsip
 sudo /bin/sh cluster_ctl.sh restart -s meeting-server-only
 ```
 
-### Restart IVR Servers
+#### Restart IVR Servers
 
-Go to each IVR server, and perform the below commands to restart the service.
+On each IVR server:
 
-```sh
+```bash
 cd /opt/portsip
 sudo /bin/sh cluster_ctl.sh restart -s vr-server-only
 ```
 
-Now all cluster servers have been successfully up, you can check their status on the PBX Web Portal by going to the **Servers** menu,  if everything has been set up correctly, the server status will be displayed as "**Online**".
+#### Restart the IM Server
 
-### Restart the IM Server
+On the IM server (ensure PBX is already running):
 
-Go to the IM server, and perform the below commands to restart the service (**please ensure the Main PBX service is started**).
-
-```sh
+```bash
 cd /opt/portsip
 sudo /bin/sh im_ctl.sh restart
 ```
 
-## SBC Cluster
+#### Restart the Data Flow Server
 
-To deploy the SBC cluster, please follow this topic [Deploy the SBC Cluster](../portsip-pbx-administration-guide/11-deploy-the-sbc-cluster.md).
+On the Data Flow server (ensure PBX is already running):
+
+```bash
+cd /opt/portsip
+sudo /bin/sh dataflow_ctl.sh restart
+```
+
+***
+
+### SBC Cluster
+
+To deploy the SBC cluster, follow the instructions in [Deploy the SBC Cluster](../portsip-pbx-administration-guide/11-deploy-the-sbc-cluster.md).
+
+
 
