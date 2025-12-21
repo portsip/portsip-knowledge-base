@@ -1,117 +1,246 @@
 # Upgrading High Availability Installation
 
-{% hint style="info" %}
+{% hint style="warning" %}
 Before upgrading the PBX HA, please consult with PortSIP support to ensure the versions are compatible.
 {% endhint %}
 
-Please follow the below steps to upgrade your current PBX HA.
+Follow the steps below to upgrade your existing **PortSIP PBX High Availability (HA)** deployment.
 
-{% hint style="danger" %}
-All the below commands must be performed on the pbx01 node, even if it is not the current active node.
-{% endhint %}
+> ⚠️ **IMPORTANT**\
+> All commands in this section **must be executed on the `pbx01` node**, even if `pbx01` is **not** the current active (master) node.
 
-## Back up data
+### Back Up PBX Data
 
-Before upgrading, please back up the PBX data.
+Before upgrading the PortSIP PBX High Availability (HA) deployment, you **must back up all PBX data**.
 
-1. Perform the below command **only** on the  **pbx01** (even if it is not the current active node) to stop the PBX service.
+> ⚠️ **IMPORTANT**\
+> All commands in this section **must be executed on `pbx01`**, even if it is **not** the current active (master) node.
 
-```sh
+***
+
+#### Step 1: Stop the PBX Service
+
+On **`pbx01`**, stop the PBX service under HA control:
+
+```bash
 cd /opt/portsip-pbx-ha-guide && sudo /bin/bash ha_ctl.sh stop -s pbx
 ```
 
-2. Perform the below command only on the **pbx01** to check the current master node.
+This ensures that no new data is written during the backup process.
 
-```sh
+***
+
+#### Step 2: Identify the Current Master Node
+
+On **`pbx01`**, determine which node is currently acting as the master:
+
+```bash
 cd /opt/portsip-pbx-ha-guide && sudo /bin/bash ha_ctl.sh master
 ```
 
-For example, the output below indicates the current master node is **pbx01**.&#x20;
+**Example Output**
 
 <figure><img src="../../../.gitbook/assets/ubuntu-ha-27.png" alt=""><figcaption></figcaption></figure>
 
-3. Back up data: Log in to the current master node, and back up the PBX data directory:`/var/lib/portsip`
+The above output indicates that **`pbx01`** is the current master node.
 
-## Upgrading PortSIP PBX HA v16.x to v22.x
+***
 
-If you are currently running PortSIP PBX v16.x with High Availability (HA), follow these steps to upgrade to the latest version, v22.x.
+#### Step 3: Back Up PBX Data on the Master Node
 
-{% hint style="danger" %}
-Ensure you have backed up the current PBX data directory (`/var/lib/portsip`) as outlined in the backup steps.
-{% endhint %}
+Log in to the **current master node** and back up the PBX data directory:
 
-### **1. Install the New PortSIP PBX v22.x HA**
+```
+/var/lib/portsip
+```
 
-Since PortSIP PBX v22.x HA only supports **Ubuntu 24.04**, you must rebuild the three PBX node servers. Choose one of the following methods:
+Ensure the backup is stored in a secure location with sufficient disk space, and verify that the backup completes successfully before proceeding with the upgrade.
 
-* **Method 1**:\
-  Prepare three new servers running Ubuntu 24.04. These servers must have the **same specifications**, **IP addresses**, and **hostnames** as the current three servers running v16.x. Install PortSIP PBX v22.x HA following the steps outlined in the [**High Availability Installation on Ubuntu**](./) guide.
-* **Method 2**:\
-  Destroy and then completely rebuild the current three servers running Ubuntu 20.04 by reinstalling them with Ubuntu 24.04. Then, install PortSIP PBX v22.x HA following the [**High Availability Installation on Ubuntu**](./) guide.
+Backing up PBX data is a **critical safety step** and must not be skipped. Once the backup is confirmed, you can safely continue with the remaining upgrade procedures.
 
-Choose the method that best suits your requirements to install the new PortSIP PBX v22.x HA.
+***
 
-### **2. Stop the PBX v22.x HA**
+⚠️ **IMPORTANT**\
+All commands in this section **must be executed on the `pbx01` node**, even if `pbx01` is **not** the current active (master) node.
 
-To proceed with the upgrade, stop the PBX service on the v22.x HA environment. Perform the following steps **only on pbx01** (even if it is not the current active node):
+### Upgrading PortSIP PBX High Availability from v16.x to v22.x
 
-1.  Stop the HA services:
+If you are currently running **PortSIP PBX v16.x with High Availability (HA)**, follow the steps below to upgrade to **PortSIP PBX v22.x**.
 
-    ```bash
-    cd /opt/portsip-pbx-ha-guide && sudo /bin/bash ha_ctl.sh stop -s pbx
-    ```
-2.  Verify the current master node:
+> ⚠️ **IMPORTANT**\
+> Before proceeding, ensure that you have **successfully backed up the PBX data directory**:
+>
+> ```
+> /var/lib/portsip
+> ```
+>
+> Refer to the _Back Up PBX Data_ section earlier in this guide.
 
-    ```bash
-    cd /opt/portsip-pbx-ha-guide && sudo /bin/bash ha_ctl.sh master
-    ```
+***
 
-### **3. Migrate Data**
+#### Step 1: Install PortSIP PBX v22.x HA
 
-1. Log in to the current master node of your PortSIP PBX v16.x HA environment.
-2. Copy the backup data from the v16.x environment to the data directory of the v22.x installation (`/var/lib/portsip`).
+PortSIP PBX v22.x HA **only supports Ubuntu 24.04 (64-bit)**.\
+As a result, all PBX HA nodes must be rebuilt before upgrading.
 
-### **4. Start PortSIP PBX v22.x HA**
+Choose **one** of the following methods based on your operational requirements.
 
-Start the upgraded PBX system by running the following command **on pbx01** (even if it is not the current active node):
+***
+
+**Method 1: Deploy New Servers (Recommended)**
+
+1. Prepare **three new servers** running **Ubuntu 24.04**.
+2. Ensure the new servers use:
+   * The **same hardware specifications**
+   * The **same IP addresses**
+   * The **same hostnames** as the existing v16.x HA nodes.
+3. Install **PortSIP PBX v22.x HA** by following the guide: [High Availability Installation on Ubuntu](../../high-availability-v16.x/high-availability-for-on-premise/high-availability-installations-on-ubuntu.md).
+
+This method minimizes risk and allows rollback by keeping the v16.x environment intact.
+
+***
+
+**Method 2: Rebuild Existing Servers**
+
+1. Destroy the existing **Ubuntu 20.04** installations on the three PBX HA nodes.
+2. Reinstall **Ubuntu 24.04** on all three servers.
+3. Install **PortSIP PBX v22.x HA** by following the guide: [High Availability Installation on Ubuntu](../../high-availability-v16.x/high-availability-for-on-premise/high-availability-installations-on-ubuntu.md).
+
+Choose the method that best fits your maintenance window and infrastructure strategy.
+
+***
+
+#### Step 2: Stop the PortSIP PBX v22.x HA Services
+
+Before migrating data, stop the PBX service in the newly installed v22.x HA environment.
+
+> ⚠️ **IMPORTANT**\
+> All commands in this step **must be executed on `pbx01`**, even if it is **not** the current active (master) node.
+
+**Stop the PBX Service**
+
+```bash
+cd /opt/portsip-pbx-ha-guide && sudo /bin/bash ha_ctl.sh stop -s pbx
+```
+
+**Verify the Current Master Node**
+
+```bash
+cd /opt/portsip-pbx-ha-guide && sudo /bin/bash ha_ctl.sh master
+```
+
+This confirms the HA state before data migration.
+
+***
+
+#### Step 3: Migrate PBX Data
+
+1. Log in to the **current master node** of your **PortSIP PBX v16.x HA** environment.
+2. Copy the backed-up PBX data to the v22.x HA installation:
+
+```
+/var/lib/portsip
+```
+
+Ensure that:
+
+* File ownership and permissions are preserved
+* The copy process completes successfully
+* No PBX services are running during the migration
+
+***
+
+#### Step 4: Start PortSIP PBX v22.x HA
+
+Start the upgraded PBX system by running the following command on **`pbx01`** (even if it is not the current active node):
 
 ```bash
 cd /opt/portsip-pbx-ha-guide && sudo /bin/bash ha_ctl.sh start -s pbx
 ```
 
-The PortSIP PBX application will automatically upgrade the data during the startup process.
+During startup:
 
-## Upgrading PortSIP PBX v22.x HA to the Latest Version
+* The PortSIP PBX application will **automatically upgrade the migrated data**
+* Database schemas and internal data structures will be updated as required
 
-If you are currently running the PortSIP PBX v22.x HA, please follow the below steps to upgrade it to the latest version.
+***
 
-### 1. Download and update resources
+#### Post-Upgrade Notes
 
-Perform the below command only on the **pbx01** (even if it is not the current active node):
+* Always access the PBX using the **Virtual IP (VIP)** after the upgrade
+* Verify:
+  * HA status
+  * Call processing
+  * Extensions and trunks
+  * IM and related services
+* Keep the v16.x backup until the v22.x environment is fully validated
 
-```sh
-  cd /opt && sudo rm -rf portsip-pbx-ha-guide-22-online.tar.gz && \
-  sudo wget -N \
-  https://www.portsip.com/downloads/ha/v22/portsip-pbx-ha-guide-22-online.tar.gz \
-  && sudo tar xf portsip-pbx-ha-guide-22-online.tar.gz
+***
+
+### Upgrading PortSIP PBX v22.x High Availability to the Latest Version
+
+If you are currently running **PortSIP PBX v22.x with High Availability (HA)**, follow the steps below to upgrade to the **latest available v22.x release**.
+
+> ⚠️ **IMPORTANT**\
+> All commands in this guide **must be executed on the `pbx01` node**, even if `pbx01` is **not** the current active (master) node.
+
+***
+
+#### Step 1: Download and Update HA Resources
+
+First, download the latest HA resource package and update the local deployment scripts.
+
+Run the following command **on `pbx01`**:
+
+```bash
+cd /opt && sudo rm -rf portsip-pbx-ha-guide-22-online.tar.gz && \
+sudo wget -N \
+https://www.portsip.com/downloads/ha/v22/portsip-pbx-ha-guide-22-online.tar.gz \
+&& sudo tar xf portsip-pbx-ha-guide-22-online.tar.gz
 ```
 
-### **2. Update**
+This ensures that the HA deployment scripts and configuration files are updated to the latest version.
 
-Use the new version image of PortSIP PBX to update the PBX.
+***
 
-{% hint style="danger" %}
-Please contact PortSIP support to obtain the **\<PortSIP PBX new version image>** before upgrading.
-{% endhint %}
+#### Step 2: Upgrade the PortSIP PBX Image
 
-Perform the below command only on the **pbx01** (even if it is not the current active node):
+To upgrade the PBX itself, you must use the **new PortSIP PBX Docker image** corresponding to the latest release.
 
-<pre class="language-sh"><code class="lang-sh"><strong>cd /opt/portsip-pbx-ha-guide/ &#x26;&#x26; /bin/bash update.sh &#x3C;PortSIP PBX new version image>
-</strong></code></pre>
+Once you have the new image name, run the following command **on `pbx01`**:
 
-For example:
-
-```sh
+```bash
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash update.sh portsip/pbx:22
 ```
+
+The upgrade process will:
+
+* Pull the specified PBX image
+* Update the PBX service under HA control
+* Restart the PBX services as required
+
+Allow the process to complete without interruption.
+
+***
+
+#### Post-Upgrade Recommendations
+
+After the upgrade completes:
+
+*   Verify the HA status:
+
+    ```bash
+    cd /opt/portsip-pbx-ha-guide && sudo /bin/bash ha_ctl.sh status
+    ```
+* Verify:
+  * HA status
+  * Call processing
+  * Extensions and trunks
+  * IM and related services
+
+***
+
+
+
+
 
