@@ -493,7 +493,23 @@ Enabling Call Recovery ensures that active calls can be recovered automatically 
 
 With the PortSIP PBX High Availability deployment complete, you are now ready to install the **PortSIP Instant Messaging (IM) Service**.
 
-Please follow the [PortSIP IM Service Installation Guide](scaling-im-server-on-premise-for-high-availability.md) to complete the installation and configuration.
+Please follow the [Scaling IM Server On-Premise for High Availability](scaling-im-server-on-premise-for-high-availability.md) guide to complete the installation and configuration.
+
+***
+
+### Install PortSIP Data Flow Service
+
+With the PortSIP PBX High Availability deployment complete, you are now ready to install the **PortSIP Data Flow Service**.
+
+Please follow the [Scaling IM Server On-Premise for High Availability guide](scaling-im-server-on-premise-for-high-availability.md) to complete the installation and configuration.
+
+***
+
+### Install PortSIP SBC Service
+
+With the PortSIP PBX High Availability deployment complete, you are now ready to install the **PortSIP SBC Service**.
+
+Please follow the [Scaling SBC  On-Premise for High Availability](11-deploy-the-sbc-cluster.md) guide to complete the installation and configuration.
 
 ***
 
