@@ -488,11 +488,81 @@ Enabling Call Recovery ensures that active calls can be recovered automatically 
 
 ***
 
+### Install PortSIP IM Service
+
+With the PortSIP PBX High Availability deployment complete, you are now ready to install the **PortSIP Instant Messaging (IM) Service**.
+
+Please follow the [PortSIP IM Service Installation Guide](scaling-im-server-on-premise-for-high-availability.md) to complete the installation and configuration.
+
+***
+
+### Managing PortSIP PBX High Availability
+
+Once the PortSIP PBX High Availability cluster has been successfully configured, you can manage and monitor the HA environment using the commands described below.
+
+> ⚠️ **IMPORTANT**\
+> All HA management commands **must be executed only on the master node (`pbx01`)**.
+
+#### View PBX HA Status
+
+To check the current status of the PBX HA cluster, run the following command on **`pbx01`**:
+
+```bash
+cd /opt/portsip-pbx-ha-guide && sudo /bin/bash ha_ctl.sh status
+```
+
+#### Expected Output (Healthy HA State)
+
+The following output indicates that the PBX HA cluster is operating correctly and that the master and slave roles are properly assigned:
+
+```
+drbd_attr    (ocf::linbit:drbd-attr):    Started pbx01
+ Master/Slave Set: drbd_devpath-clone [drbd_devpath]
+     Masters: [ pbx01 ]
+     Slaves: [ pbx02 pbx03 ]
+ vip    (ocf::heartbeat:IPaddr2):    Started pbx01
+ src_pkt_ip    (ocf::heartbeat:IPsrcaddr):    Started pbx01
+ datapath_fs    (ocf::heartbeat:Filesystem):    Started pbx01
+ pbx    (ocf::portsip:pbx):    Started pbx01
+```
+
+This output confirms that:
+
+* `pbx01` is currently the **active master node**
+* `pbx02` and `pbx03` are functioning as **standby nodes**
+* The **Virtual IP**, **data path**, and **PBX service** are running on the master node
+* Data replication and HA resource management are functioning normally
+
+***
+
+### Restart the PBX Service
+
+If you need to restart the PBX service (for example, after configuration changes), run the following command on **`pbx01`**:
+
+```bash
+cd /opt/portsip-pbx-ha-guide && sudo /bin/bash ha_ctl.sh restart -s pbx
+```
+
+#### Expected Output
+
+The following output indicates that the PBX service has been successfully restarted under HA control:
+
+```
+try to restart resource pbx
+disable resource pbx
+resource 'pbx' is not running on any node
+enable resource pbx
+```
+
+This confirms that:
+
+* The PBX resource was cleanly stopped
+* HA control temporarily disabled the resource
+* The PBX service was re-enabled and restarted successfully
 
 
-## Installing PortSIP IM Service
 
-You are now ready to install the **PortSIP IM Service**. Please refer to the guide [**Installation of PortSIP IM Server**](/broken/pages/0dejgBCoHao3iAYRNPOC) for detailed steps to complete the installation.
+
 
 ## Managing PBX HA
 
