@@ -49,15 +49,15 @@ The **data volume** is used to store:
 * Log files
 * Instant messaging and chat data
 
-> **Production Recommendation:**\
-> This volume should be sized generously. For real-world deployments, we strongly recommend **500 GB to 1 TB or larger**, depending on call volume, recording retention, and logging policies.
-
 **Important Disk Requirements**
 
 * All PBX nodes **must use identical disk layouts** and **exactly the same volume sizes**.
 * The `/dev/sdb` data volume must remain **uninitialized** and **unused** prior to installation.
 * **Do not format or mount `/dev/sdb` manually.**\
   Initializing this disk will cause the HA installation to fail.
+
+> **Production Recommendation:**\
+> This volume should be sized generously. For real-world deployments, we strongly recommend **500 GB to 1 TB or larger**, depending on call volume, recording retention, and logging policies.
 
 ***
 
