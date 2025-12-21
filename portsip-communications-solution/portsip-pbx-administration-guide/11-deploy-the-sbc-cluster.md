@@ -1,56 +1,119 @@
 # 11 Deploy the SBC Cluster
 
-If your business handles a high volume of WebRTC and MS Teams calls, or if you use an SBC to isolate your PBX, all calls will be routed through the SBC. In such cases, it is recommended to deploy the SBC in a cluster configuration to efficiently manage the call traffic.
+If your deployment handles a high volume of **WebRTC** or **Microsoft Teams** calls, or if you use a Session Border Controller (SBC) to isolate the PBX from external networks, all signaling and media traffic will be routed through the SBC layer.
 
-## Deployment Architecture
+In these scenarios, it is strongly recommended to deploy the SBC in a **clustered configuration**. This approach improves scalability, enhances reliability, and ensures efficient load distribution across SBC nodes.
+
+***
+
+### Deployment Architecture
+
+In a typical architecture, the **PortSIP PBX** is deployed within a protected environment, such as a private VLAN or cloud network. One or more SBC servers are positioned in front of the PBX to:
+
+* Prevent direct user access to the PBX
+* Secure SIP, WebRTC, and Teams traffic
+* Handle NAT traversal, TLS termination, and media anchoring
+* Provide horizontal scalability and high availability
 
 <figure><img src="../../.gitbook/assets/sbc_cluster.png" alt=""><figcaption></figcaption></figure>
 
-As illustrated in the diagram, the PBX is deployed on either a VLAN or a cloud platform. Multiple SBC servers are positioned in front of the PBX to prevent direct access by users.
+All external client traffic (WebRTC browsers, Microsoft Teams, SIP endpoints) is terminated on the SBC cluster before being forwarded to the PBX.
 
-## DNS Configuration
+***
 
-You will need to create DNS records for each SBC server. The DNS records can be of the following types:
+### DNS Configuration
 
-* **A Record**
-* **DNS SRV Record**
+You must create DNS records for each SBC node. The following DNS record types are supported:
 
-For example, assume the SBC servers have the following IP addresses:
+* **A records**
+* **DNS SRV records**
 
-* SBC 1: 72.247.113.11
-* SBC 2: 72.247.113.12
-* SBC 3: 72.247.113.13
+#### Example SBC IP Addresses
 
-You can create the following **A Records** for the SBC servers:
+* SBC 1: `72.247.113.11`
+* SBC 2: `72.247.113.12`
+* SBC 3: `72.247.113.13`
 
-* Resolve **sbc1.sbc.com** to **72.247.113.11**
-* Resolve **sbc2.sbc.com** to **72.247.113.12**
-* Resolve **sbc3.sbc.com** to **72.247.113.13**
+#### Individual A Records
 
-Additionally, you may create records to resolve **sbc.com** to all three SBC IPs:
+Create individual DNS records for each SBC:
 
-* Resolve **sbc.com** to **72.247.113.11**
-* Resolve **sbc.com** to **72.247.113.12**
-* Resolve **sbc.com** to **72.247.113.13**
+* `sbc1.sbc.com` → `72.247.113.11`
+* `sbc2.sbc.com` → `72.247.113.12`
+* `sbc3.sbc.com` → `72.247.113.13`
 
-## Certificates
+#### Shared DNS Record (Load Distribution)
 
-Please purchase a wildcard TLS certificate for the domain **sbc.com** as per the article[ Certificates for TLS/HTTPS/WebRTC](certificates-for-tls-https-webrtc/) guide.
+You may also configure a shared DNS name that resolves to all SBC IP addresses:
 
-## Configuring the SBC
+* `sbc.com` → `72.247.113.11`
+* `sbc.com` → `72.247.113.12`
+* `sbc.com` → `72.247.113.13`
 
-Please follow the instructions in the [**Configuring PortSIP SBC for WebRTC**](9-configuring-portsip-sbc/configuring-sbc-for-webrtc.md) topic to set up each SBC server. However, keep the following points in mind:
+This allows clients to distribute connections across multiple SBC servers using DNS-based load balancing.
 
-* When adding certificates to the SBC, set the **TLS domain** to **sbc.com** and enable the **This is SBC Web Domain Certificate** option.
-* When configuring the **Web Domain** for the SBC, enter **sbc.com** for the Web Domain field.
+***
 
-## Access the SBC
+### TLS Certificates
 
-After completing the setup of the SBC servers, you can access the SBC Web Portal using the following URLs:
+Purchase and install a **wildcard TLS certificate** for the domain:
 
-* To manage SBC 1, use [https://sbc1.sbc.com:8883](https://sbc1.sbc.com:8883)
-* To manage SBC 2, use [https://sbc2.sbc.com:8883](https://sbc1.sbc.com:8883)
-* To manage SBC 3, use [https://sbc3.sbc.com:8883](https://sbc1.sbc.com:8883)
+```
+*.sbc.com
+```
 
-You can access the WebRTC client using this URL: [https://sbc.com:10443/webrtc](https://sbc.com:10443/webrtc).
+Refer to the [Certificates for TLS/HTTPS/WebRTC](certificates-for-tls-https-webrtc/) guide for detailed instructions on certificate requirements and installation.
+
+Using a wildcard certificate ensures:
+
+* Seamless HTTPS and WebRTC access
+* Consistent TLS configuration across all SBC nodes
+* Simplified certificate management in clustered environments
+
+***
+
+### Configuring the SBC
+
+Follow the instructions in [Configuring PortSIP SBC for WebRTC](9-configuring-portsip-sbc/configuring-sbc-for-webrtc.md) to configure each SBC server. In addition, ensure the following settings are applied consistently across all nodes:
+
+#### Certificate Settings
+
+* Set **TLS Domain** to: `sbc.com`
+* Enable **This is SBC Web Domain Certificate**
+
+#### Web Domain Configuration
+
+* Set **Web Domain** to: `sbc.com`
+
+***
+
+### Accessing the SBC
+
+After completing the SBC configuration, you can access each SBC’s web management portal using its dedicated hostname:
+
+* **SBC 1:** `https://sbc1.sbc.com:8883`
+* **SBC 2:** `https://sbc2.sbc.com:8883`
+* **SBC 3:** `https://sbc3.sbc.com:8883`
+
+#### Accessing the WebRTC Client
+
+End users can access the WebRTC client using the shared SBC domain:
+
+```
+https://sbc.com:10443/webrtc
+```
+
+This URL automatically leverages DNS-based distribution to route users to available SBC nodes.
+
+***
+
+### Best Practice Summary
+
+* Always deploy SBCs in a clustered configuration for high-volume WebRTC or Microsoft Teams traffic
+* Use DNS-based load distribution with a shared SBC domain
+* Protect the PBX by placing SBCs in front of it
+* Use a wildcard TLS certificate for consistent WebRTC and HTTPS access
+* Keep all SBC nodes configured identically to ensure predictable behavior
+
+
 
