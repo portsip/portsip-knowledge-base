@@ -12,8 +12,9 @@ The solution includes the following features:
 
 * Full rebrandability
 * Multi-tenant
-* Extended media servers, queue servers, meeting servers, IM servers, and IVR servers for cluster
+* Extended media servers, queue servers, meeting servers, IM server, Data Flow server, and IVR servers for a cluster
 * Dealers management
+* Multiple System Administrators
 * Audio calling and video calling
 * Video meeting
 * Instant messaging and presence (IM\&P)
@@ -26,8 +27,9 @@ The solution includes the following features:
 * Service management (call settings)
 * Audio and video call recording
 * Recordings management
-* AI transcritpion
-* Storing recording files into AWS S3
+* AI transcription
+* Storing recording files in AWS S3
+* Storing recording files in Azure Blob Store
 * Play call recording notification prompt for calls
 * Address books/contact management
 * CRM Integrations
