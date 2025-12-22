@@ -1,19 +1,62 @@
 # 9 Configuring PortSIP SBC
 
-The PortSIP Session Border Controller (PortSIP SBC) provides best-in-class communications security with the convenience of deployment from popular virtual machine platforms such as Azure and AWS. The PortSIP SBC delivers:
+The PortSIP Session Border Controller (PortSIP SBC) delivers best-in-class communications security combined with the flexibility and convenience of software-based deployment on popular virtual machine and cloud platforms such as Microsoft Azure and AWS.
 
-* Full Rebrandability
-* VoIP Security (topology hiding, encryption, protection against Denial of Service attacks, and more)
-* Interoperability with leading PBXs, cloud UC services, cloud contact center services, SIP endpoints, and SIP trunking providers
+### Key Capabilities
+
+PortSIP SBC provides a comprehensive set of enterprise- and carrier-grade features, including:
+
+* **Full rebrandability** for service providers and enterprises
+* **Advanced VoIP security**, including:
+  * SIP topology hiding
+  * Encryption (TLS / SRTP)
+  * Protection against Denial-of-Service (DoS) and other signaling attacks
+* **Broad interoperability** with:
+  * Leading PBXs
+  * Cloud UC platforms
+  * Cloud contact center solutions
+  * SIP endpoints and SIP trunking providers
+* **Microsoft Teams Direct Routing** support
+* **WebRTC** support
+* **Advanced call routing capabilities**
+* **Powerful built-in media services**, including transcoding
+* **Highly efficient architecture** that minimizes resource consumption and reduces deployment costs
+
+***
+
+### Simplified Deployment, Enterprise-Grade Security
+
+PortSIP SBC dramatically simplifies the deployment of robust communications security for:
+
+* SIP trunking services
 * Microsoft Teams Direct Routing
-* WebRTC
-* Advanced call routing features
-* Powerful media services are included
-* Efficient architecture that uses fewer software resources, reducing the cost to deploy
+* Cloud UC and cloud contact center platforms
 
-The PortSIP SBC dramatically simplifies the deployment of robust communications security services for SIP trunking, Microsoft Direct Routing, and cloud UC services. Organizations can deploy the software instantly from virtual machine platforms including Microsoft Hyper-V, VMware, and Linux KVM as well as the Azure and AWS. The SBC protects SIP trunks, SIP endpoints, cloud contact centers, and cloud UC services, including Microsoft Teams Direct Rouing. Since it is software, it easily scales up or down based on the cloud environment or platform attributes you choose. It also includes support for a number of important media services, such as transcoding, that are critical for interoperability.&#x20;
+The SBC can be deployed instantly on a wide range of environments, including:
 
-PortSIP SBC has been independently verified to deliver full protection and performance, even during severe security attacks. That should come as no surprise since PortSIP SBCs are widely deployed across the globe in many of the world’s largest telecom provider networks, PortSIP’s engineering teams understand the importance of scale and resiliency.
+* Microsoft Hyper-V
+* VMware
+* Linux KVM
+* Microsoft Azure
+* Amazon Web Services (AWS)
 
-PortSIP SBC can be deployed as a component of the PortSIP PBX that no need the extra license.
+The SBC protects SIP trunks, SIP endpoints, cloud contact centers, and cloud UC services—including **Microsoft Teams Direct Routing**—while maintaining high performance and reliability.
+
+Because PortSIP SBC is **pure software**, it can **scale up or down easily** based on the characteristics and capacity of your chosen cloud or virtualization platform.
+
+***
+
+### Proven at Scale
+
+PortSIP SBC has been independently verified to deliver full security protection and high performance, even under severe and sustained security attacks.
+
+This proven reliability is the result of real-world deployments across many of the world’s largest telecom provider networks. PortSIP’s engineering teams bring deep expertise in designing systems that prioritize **scalability, resiliency, and carrier-grade reliability**.
+
+***
+
+### Licensing Advantage
+
+PortSIP SBC can be deployed **as an integrated component of the PortSIP PBX** and **does not require an additional license**, providing exceptional value and simplifying both procurement and deployment.
+
+
 
