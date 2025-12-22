@@ -466,12 +466,12 @@ When you sign in to the PBX Web Portal for the first time, the **Setup Wizard** 
 
 In the first step of the Setup Wizard:
 
-* Locate the **Private IPv4** field, enter the **Virtual IP address** `192.168.1.130`
+* Locate the **Private IPv4** field, enter the HA **Virtual IP address** `192.168.1.130`
 * Locate the **Public IPv4** field and enter the public IP address `104.18.36.119`. If your deployment does not use a public IP address, leave this field empty.
 
 If your environment uses a different virtual IP, enter your **actual configured VIP** instead.
 
-<figure><img src="../../../.gitbook/assets/ubuntu-ha-26.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/ha_pbx_wizard_1.png" alt=""><figcaption></figcaption></figure>
 
 Complete the Setup Wizard by following the on-screen instructions.
 
