@@ -158,7 +158,7 @@ Queue Servers follow the same high-availability behavior as IVR Servers:
 
 #### IM Servers (HA)
 
-* IM Servers support up to 50,000 online users per high-performance node
+* IM Server supports up to 50,000 online users per high-performance node
 * In HA deployments, multiple IM Servers ensure uninterrupted messaging services
 * Failures do not disrupt user messaging sessions
 
@@ -166,7 +166,7 @@ Queue Servers follow the same high-availability behavior as IVR Servers:
 
 #### DataFlow Servers (HA)
 
-* DataFlow Servers provide analytics and real-time metrics
+* DataFlow Server provides analytics and real-time metrics
 * Typically deployed on powerful dedicated hardware
 * Designed for continuous availability and high data throughput
 
