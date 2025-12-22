@@ -95,7 +95,6 @@ Run the following commands on each server:
 sudo curl \
 https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/init.sh \
 -o init.sh
-
 sudo /bin/sh init.sh
 ```
 

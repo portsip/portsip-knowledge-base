@@ -1,6 +1,10 @@
 # Scaling Servers On-Premise for High Availability
 
-This guide explains how to configure cluster servers for a **High Availability (HA) PortSIP PBX deployment** designed to operate at very large scale.\
+This guide explains how to configure cluster servers for a **High Availability (HA) PortSIP PBX deployment** designed to operate at very large scale.
+
+<figure><img src="../../../.gitbook/assets/pbx_ha_cluster_diagram.png" alt=""><figcaption></figcaption></figure>
+
+\
 The architecture can support:
 
 * Over 1 million total users
