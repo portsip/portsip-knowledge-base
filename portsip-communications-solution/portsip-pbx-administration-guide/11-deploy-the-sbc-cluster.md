@@ -97,11 +97,7 @@ After completing the SBC configuration, you can access each SBC’s web manageme
 
 #### Accessing the WebRTC Client
 
-End users can access the WebRTC client using the shared SBC domain:
-
-```
-https://sbc.com:10443/webrtc
-```
+End users can access the WebRTC client using the shared SBC domain: https://sbc.com:10443/webrtc
 
 This URL automatically leverages DNS-based distribution to route users to available SBC nodes.
 
