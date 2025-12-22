@@ -60,8 +60,6 @@
     * [Installation PortSIP SBC v11.x](portsip-communications-solution/portsip-pbx-administration-guide/9-configuring-portsip-sbc/installation-portsip-sbc-v11.x.md)
     * [Configuring PortSIP SBC for WebRTC](portsip-communications-solution/portsip-pbx-administration-guide/9-configuring-portsip-sbc/configuring-sbc-for-webrtc.md)
     * [Upgrade to the Latest v11.x Release](portsip-communications-solution/portsip-pbx-administration-guide/9-configuring-portsip-sbc/upgrade-to-the-latest-sbc-release.md)
-    * [Installation PortSIP SBC v10.x](portsip-communications-solution/portsip-pbx-administration-guide/9-configuring-portsip-sbc/installation-portsip-sbc-v10.x.md)
-    * [Upgrade to the Latest v10.x Release](portsip-communications-solution/portsip-pbx-administration-guide/9-configuring-portsip-sbc/upgrade-to-the-latest-v10.x-release.md)
   * [10 Configuring SBC for MS Teams](portsip-communications-solution/portsip-pbx-administration-guide/10-configuring-sbc-for-ms-teams/README.md)
     * [Architecture](portsip-communications-solution/portsip-pbx-administration-guide/10-configuring-sbc-for-ms-teams/architecture.md)
     * [Configuring Microsoft Teams](portsip-communications-solution/portsip-pbx-administration-guide/10-configuring-sbc-for-ms-teams/configuring-microsoft-teams.md)
