@@ -143,108 +143,425 @@ For large-scale and high-availability deployments, we strongly recommend **disab
 
 ***
 
-If you want, next I can:
+### Add a Media Server
 
-### Add Media Server <a href="#add-media-server" id="add-media-server"></a>
+Follow the steps below to add and deploy a new **Media Server** in the HA cluster.
 
-To add a new media server, please follow the steps below:
+#### Step 1: Add the Media Server in the PBX Web Portal
 
-1. Select the **Servers > Media Servers** menu and click the **Add** button.
-2. Enter the server information as shown in the screenshot, and then click the **OK** button to save it. Please remember the server name "**media-server-1**", we will use it in a later step.
-3. If your PBX is deployed for internet users to access, it is **mandatory** to assign a **static public IP** to this extended media server. Enter the static IP address as shown in the screenshot below.
-
-Note: Suggest don't set the maximum of call sessions to more than 5,000.
+1. Sign in to the PBX Web Portal as a System Administrator.
+2. Navigate to **Servers > Media Servers**.
+3. Click **Add**.
+4. Enter the server information as shown in the screenshot, then click **OK** to save.
 
 <figure><img src="../../../.gitbook/assets/media-server-1.png" alt=""><figcaption></figcaption></figure>
 
-4. Run the following command only on the HA PBX node **pbx01**. The process may take some time, so please be patient and wait for it to complete, don't interrupt or reboot.
+> ❗**Important**\
+> Use the server name **`media-server-1`**. This name will be required in a later deployment step.
 
-* **-s media-server-only**: This parameter indicates that only the media server should be installed.
-* **-n media-server-1**: This parameter specifies the name of the media server, which must match the name entered in step 2 above.
-* **-a 192.168.1.21**: This parameter specifies the private IP address of **Server 1** (the extended media server).
+***
 
-```sh
+#### Step 2: Configure the Public IP Address (Required for Internet Access)
+
+If your PBX is deployed to serve **Internet users**, you **must** assign a **static public IP address** to the extended Media Server.
+
+* Enter the static public IP address as shown in the screenshot.
+* Ensure the public IP is correctly routed to the Media Server host.
+
+> ❗**Note**\
+> We recommend **not setting the maximum number of call sessions higher than 5,000** per Media Server to ensure optimal performance and stability.
+
+***
+
+#### Step 3: Deploy the Media Server
+
+Run the following command **only on the HA PBX node (`pbx01`)**.
+
+The deployment process may take some time. **Do not interrupt the process, close the terminal, or reboot the server while it is running.**
+
+```bash
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh run \
 -s media-server-only \
 -n media-server-1 \
 -a 192.168.1.21
 ```
 
-Once the process is completed, the server will appear as **Online** in the PBX web portal under the menu: **Servers > Media Servers**.
+**Parameter Description**
 
-### Add Queue Server <a href="#add-media-server" id="add-media-server"></a>
+* `-s media-server-only`: Installs **only** the Media Server role on the target machine.
+* `-n media-server-1`: Specifies the Media Server name.\
+  This value must exactly match the name entered in the **PBX Web Portal**.
+* `-a 192.168.1.21`: Specifies the **private IP address** of Server 1 (the Media Server host).
 
-To add a new queue server, please follow the below steps:
+***
 
-1. Select the **Servers > Queue Servers** menu and click the **Add** button.
-2. Enter the server information as shown in the screenshot, and then click the **OK** button to save it. Please remember the server name "**queue-server-1**", we will use it in a later step.
+#### Step 4: Verify the Media Server Status
+
+Once the deployment completes successfully:
+
+1. Return to the **PBX Web Portal**.
+2. Navigate to **Servers > Media Servers**.
+3. Confirm that **`media-server-1`** is displayed with the status **Online**.
+
+***
+
+### Add a Queue Server
+
+Follow the steps below to add and deploy a new **Queue Server** in the HA cluster.
+
+#### Step 1: Add the Queue Server in the PBX Web Portal
+
+1. Sign in to the PBX Web Portal as a System Administrator.
+2. Navigate to **Servers > Queue Servers**.
+3. Click **Add**.
+4. Enter the server information as shown in the screenshot, then click **OK** to save.
 
 <figure><img src="../../../.gitbook/assets/queue-server-1.png" alt=""><figcaption></figcaption></figure>
 
-3. Run the following command only on the HA PBX node **pbx01**. The process may take some time, so please be patient and wait for it to complete, don't interrupt or reboot.
+> ❗**Important**\
+> Use the server name **`queue-server-1`**. This name will be required in a later deployment step.
 
-* **-s queue-server-only**: This parameter indicates that only the queue server should be installed.
-* **-n queue-server-1**: This parameter specifies the name of the queue server, which must match the name entered in step 2 above.
-* **-a 192.168.1.22**: This parameter specifies the private IP address of **Server 2** (the extended queue server).
+***
 
-```sh
+#### Step 2: Deploy the Queue Server
+
+Run the following command **only on the HA PBX node (`pbx01`)**.
+
+The deployment process may take some time. **Do not interrupt the process, close the terminal, or reboot the server while it is running.**
+
+```bash
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh run \
 -s queue-server-only \
 -n queue-server-1 \
 -a 192.168.1.22
 ```
 
-Once the process is completed, the server will appear as **Online** in the PBX web portal under the menu: **Servers > Queue Servers**.
+**Parameter Description**
 
-### Add Meeting Server <a href="#add-media-server" id="add-media-server"></a>
+* `-s queue-server-only`: Installs **only** the Queue Server role on the target machine.
+* `-n queue-server-1`: Specifies the Queue Server name.\
+  **This value must exactly match the name entered in the PBX Web Portal.**
+* `-a 192.168.1.22`: Specifies the **private IP address** of Server 2 (the Queue Server host).
 
-To add a new meeting server, please follow the below steps:
+***
 
-1. Select the **Servers > Meeting Servers** menu and click the **Add** button.
-2. Enter the server information as shown in the screenshot, and then click the **OK** button to save it. Please remember the server name "**meeting-server-1**", we will use it in a later step.
+#### Step 3: Verify the Queue Server Status
+
+Once the deployment completes successfully:
+
+1. Return to the **PBX Web Portal**.
+2. Navigate to **Servers → Queue Servers**.
+3. Confirm that **`queue-server-1`** is displayed with the status **Online**.
+
+***
+
+### Add a Meeting Server
+
+Follow the steps below to add and deploy a new **Meeting Server** in the HA cluster.
+
+#### Step 1: Add the Meeting Server in the PBX Web Portal
+
+1. Sign in to the PBX Web Portal as a System Administrator.
+2. Navigate to **Servers > Meeting Servers**.
+3. Click **Add**.
+4. Enter the server information as shown in the screenshot, then click **OK** to save.
 
 <figure><img src="../../../.gitbook/assets/meeting-server-1.png" alt=""><figcaption></figcaption></figure>
 
-3. Run the following command only on the HA PBX node **pbx01**. The process may take some time, so please be patient and wait for it to complete, don't interrupt or reboot.
+> **Important**\
+> Use the server name **`meeting-server-1`**.\
+> This name will be required in a later deployment step.
 
-* **-s meeting-server-only**: This parameter indicates that only the meeting server should be installed.
-* **-n meeting-server-1**: This parameter specifies the name of the meeting server, which must match the name entered in step 2 above.
-* **-a 192.168.1.23**: This parameter specifies the private IP address of **Server 3** (the extended meeting server).
+***
 
-```sh
+#### Step 2: Deploy the Meeting Server
+
+Run the following command **only on the HA PBX node (`pbx01`)**.
+
+The deployment process may take some time. **Do not interrupt the process, close the terminal, or reboot the server while it is running.**
+
+```bash
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh run \
 -s meeting-server-only \
 -n meeting-server-1 \
 -a 192.168.1.23
 ```
 
-Once the process is completed, the server will appear as **Online** in the PBX web portal under the menu: **Servers > Meeting Servers**.
+**Parameter Description**
 
-### Add IVR Server <a href="#add-media-server" id="add-media-server"></a>
+* `-s meeting-server-only`: Installs **only** the Meeting Server role on the target machine.
+* `-n meeting-server-1`: Specifies the Meeting Server name.\
+  **This value must exactly match the name entered in the PBX Web Portal.**
+* `-a 192.168.1.23`: Specifies the **private IP address** of Server 3 (the Meeting Server host).
 
-To add a new IVR server, please follow the below steps:
+***
 
-1. Select the **Servers > IVR Servers** menu and click the **Add** button.
-2. Enter the server information as shown in the screenshot, and then click the **OK** button to save it. Please remember the server name "**vr-server-1**", we will use it in a later step.
+#### Step 3: Verify the Meeting Server Status
+
+Once the deployment completes successfully:
+
+1. Return to the **PBX Web Portal**.
+2. Navigate to **Servers → Meeting Servers**.
+3. Confirm that **`meeting-server-1`** is displayed with the status **Online**.
+
+***
+
+### Add an IVR Server
+
+Follow the steps below to add and deploy a new **IVR Server** in the HA cluster.
+
+#### Step 1: Add the IVR Server in the PBX Web Portal
+
+1. Sign in to the PBX Web Portal as a System Administrator.
+2. Navigate to **Servers > IVR Servers**.
+3. Click **Add**.
+4. Enter the server information as shown in the screenshot, then click **OK** to save.
 
 <figure><img src="../../../.gitbook/assets/vr-server-1.png" alt=""><figcaption></figcaption></figure>
 
-3. Run the following command only on the HA PBX node **pbx01**. The process may take some time, so please be patient and wait for it to complete, don't interrupt or reboot.
+> **Important**\
+> Use the server name **`ivr-server-1`**.\
+> This name will be required in a later deployment step.
 
-* **-s vr-server-only**: This parameter indicates that only the IVR server should be installed.
-* **-n vr-server-1**: This parameter specifies the name of the IVR server, which must match the name entered in step 2 above.
-* **-a 192.168.1.24**: This parameter specifies the private IP address of **Server 4** (the extended IVR server).
+***
 
-```sh
+#### Step 2: Deploy the IVR Server
+
+Run the following command **only on the HA PBX node (`pbx01`)**.
+
+The deployment process may take some time. **Do not interrupt the process, close the terminal, or reboot the server while it is running.**
+
+```bash
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh run \
--s vr-server-only \
--n vr-server-1 \
+-s ivr-server-only \
+-n ivr-server-1 \
 -a 192.168.1.24
 ```
 
-Once the process is completed, the server will appear as **Online** in the PBX web portal under the menu: **Servers > IVR Servers**.
+**Parameter Description**
 
-**Note**: You can repeat the above steps to set up more IVR servers. If you set up multiple servers, they must not use the same server name or IP address. Especially, you must ensure that the server name specified in the commands matches the one entered on the web portal.
+* `-s ivr-server-only`: Installs **only** the IVR Server role on the target machine.
+* `-n ivr-server-1`: Specifies the IVR Server name.\
+  **This value must exactly match the name entered in the PBX Web Portal.**
+* `-a 192.168.1.24`: specifies the **private IP address** of Server 4 (the IVR Server host).
+
+***
+
+#### Step 3: Verify the IVR Server Status
+
+Once the deployment completes successfully:
+
+1. Return to the **PBX Web Portal**.
+2. Navigate to **Servers → IVR Servers**.
+3. Confirm that **`ivr-server-1`** is displayed with the status **Online**.
+
+***
+
+#### Adding Multiple Servers
+
+You can repeat the above steps to deploy **additional servers** for higher capacity or redundancy.
+
+> **Important**\
+> When deploying multiple servers:
+>
+> * Each server **must use a unique server name**.
+> * Each server **must have a unique IP address**.
+> * The server name specified in the deployment command **must exactly match** the name entered in the PBX Web Portal.
+
+***
+
+### Managing Extended Servers
+
+#### Important Notes
+
+* All management commands for extended servers **must be executed on the `pbx01` node**, regardless of whether it is currently the active PBX node.
+* Do **not interrupt**, reboot, or close the terminal while any management or upgrade command is running.
+
+***
+
+#### Supported Operations
+
+The following operations are supported for managing extended servers:
+
+* **start** – Start servers
+* **stop** – Stop servers
+* **restart** – Restart servers
+* **upgrade** – Upgrade servers
+* **rm** – Remove installed servers
+
+***
+
+#### Server Type Filters (`-s` Parameter)
+
+You can optionally manage a specific type of extended server using the `-s` parameter with one of the following values:
+
+* `media-server-only` – Media Servers
+* `queue-server-only` – Queue Servers
+* `meeting-server-only` – Meeting Servers
+* `ivr-server-only` – IVR Servers
+
+***
+
+#### Targeting a Specific Server (`-a` Parameter)
+
+To manage a **specific server instance**, use the `-a` parameter to specify its **private IP address**.
+
+***
+
+#### Managing All Extended Servers
+
+The following commands apply to **all extended servers**, including Media, Queue, Meeting, and IVR servers.
+
+**Start All Extended Servers**
+
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh start
+```
+
+**Stop All Extended Servers**
+
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh stop
+```
+
+**Restart All Extended Servers**
+
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh restart
+```
+
+**Remove All Extended Servers**
+
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh rm
+```
+
+***
+
+#### Managing a Specific Type of Extended Server
+
+To manage **only one type of server** (for example, Media Servers), use the `-s` parameter.
+
+**Start All Media Servers**
+
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh start -s media-server-only
+```
+
+**Stop All Media Servers**
+
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh stop -s media-server-only
+```
+
+**Restart All Media Servers**
+
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh restart -s media-server-only
+```
+
+**Remove All Media Servers**
+
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh rm -s media-server-only
+```
+
+> Replace `media-server-only` with another supported server type as needed.
+
+***
+
+#### Managing a Specific Server Instance by IP
+
+To manage a **specific server instance**, use **both** the `-s` (server type) and `-a` (IP address) parameters.
+
+**Example: Manage a Media Server at `192.168.1.21`**
+
+**Start the Server**
+
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh start \
+-s media-server-only \
+-a 192.168.1.21
+```
+
+**Stop the Server**
+
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh stop \
+-s media-server-only \
+-a 192.168.1.21
+```
+
+**Restart the Server**
+
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh restart \
+-s media-server-only \
+-a 192.168.1.21
+```
+
+**Remove the Server**
+
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh rm \
+-s media-server-only \
+-a 192.168.1.21
+```
+
+> Replace the server type and IP address as required for Queue, Meeting, or IVR servers.
+
+***
+
+### Upgrading Extended Servers
+
+#### Important Notes
+
+* All upgrade commands **must be executed on the `pbx01` node**, even if it is not currently the active node.
+* Before upgrading extended servers, ensure that the PBX HA itself has already been upgraded by following the guide: [Upgrading High Availability Installation](upgrading-high-availability-installation.md)
+* The upgrade process may take some time. **Do not interrupt the process**.
+
+***
+
+### Upgrading All Extended Servers
+
+To upgrade **all extended servers** (Media, Queue, Meeting, and IVR), run:
+
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh upgrade
+```
+
+***
+
+### Upgrading a Specific Type of Extended Server
+
+To upgrade only a specific server type, use the `-s` parameter.
+
+#### Example: Upgrade All Media Servers
+
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh upgrade -s media-server-only
+```
+
+#### Supported Server Types for Upgrade
+
+* `media-server-only` – Upgrade all Media Servers
+* `queue-server-only` – Upgrade all Queue Servers
+* `meeting-server-only` – Upgrade all Meeting Servers
+* `ivr-server-only` – Upgrade all IVR Servers
+
+***
+
+If you want, I can next:
+
+
+
+
+
+
+
+
+
+
 
 ## Managing Extended Servers
 
