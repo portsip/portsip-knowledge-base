@@ -1,9 +1,5 @@
 # Summary of Changes
 
-{% hint style="info" %}
-Please follow the [guide ](upgrade-to-the-latest-sbc-release.md)to upgrading your PortSIP SBC to the latest version.
-{% endhint %}
-
 ### Upgrading PortSIP SBC
 
 Please follow the [official upgrade guide](upgrade-to-the-latest-sbc-release.md) to upgrade your PortSIP SBC to the latest version.

@@ -1,168 +1,206 @@
 # Installation PortSIP SBC v11.x
 
-{% hint style="warning" %}
-If your PortSIP PBX is running v22.x, you will need to install PortSIP SBC v11.x to use the latest WebRTC app.
-{% endhint %}
+> ❗ **Important**\
+> If your PortSIP PBX is running version 22.x, you must install PortSIP SBC version 11.x in order to use the latest WebRTC application.
 
-Before proceeding, please review the following sections carefully:
+### Supported Operating Systems
 
-## Supported OS
+PortSIP SBC supports the following operating systems:
 
-* Debian 11.x, 12.x
-* Ubuntu 22.04, 24.04
-* Windows 10 1903/19H1 or higher, Windows 11
-* Windows Server 2022 or higher
+* **Debian:** 112.x
+* **Ubuntu:** 22.04, 24.04
 
-## Preparing the Server for Installation <a href="#preparing-the-server-for-installation" id="preparing-the-server-for-installation"></a>
+***
 
-Tasks that MUST be completed before installing PortSIP SBC.
+### Preparing the Server for Installation
 
-* **Ensure the server date-time is synced correctly**.
-* For Linux, using the `sudo` to perform the installation is recommended. For Windows, it requires the Administrator user.
-* If the server on which SBC will be installed is located on a LAN, assign &#x61;**`static private IP address`**&#x74;o the PBX server; if it's on a public network, assign &#x61;**`static public IP address`** and a **`static private IP`** to the PBX server.
-* Install all available updates and service packs before installing PortSIP SBC.
-* Do not install **PostgreSQL** on your PortSIP SBC Server.
-* Ensure that all power-saving options for your system and network adapters are disabled (by setting the system to High-Performance mode).
-* Do not install TeamViewer, VPN, or other similar software on the host machine.
-* The PortSIP SBC must not be installed on a host that is a DNS or DHCP server.
-* The below ports must be permitted by your firewall(these ports are required by the PortSIP SBC).
-  * UDP: 5066, 25000-34999
-  * TCP: 5065, 5067, 8883, 10443. please also ensure the above ports have not been used by other applications.
-* If installed on Windows, ensure the **`Windows Firewall`** service has been started.
+The following tasks **must be completed** before installing PortSIP SBC.
 
-{% hint style="warning" %}
-If the PBX runs on a cloud platform such as AWS and the cloud platform has its own firewall, you **must** also open the ports on the cloud platform's firewall.
-{% endhint %}
+#### System Preparation
 
-{% hint style="warning" %}
-All commands must be executed in the **`/opt/portsip`** directory.
-{% endhint %}
+* Ensure the system date and time are correctly synchronized.
+* Linux: Perform installation using a user with `sudo` privileges.
+* Windows: Installation must be performed using the Administrator account.
+* Assign static IP addresses:
+  * If the server is located on a LAN, assign a static private IP address.
+  * If the server is on a public network, assign both a static public IP and a static private IP.
+* Install all available OS updates and service packs before installation.
+* Do not install PostgreSQL on the PortSIP SBC server.
+* Disable all power-saving options for the system and network adapters (set the system to High Performance mode).
+* Do not install TeamViewer, VPN software, or similar tools on the host machine.
+* The PortSIP SBC must not be installed on a server acting as a DNS or DHCP server.
 
-## Prerequisites
+***
 
-Assume that you have successfully installed the PortSIP PBX following the instructions in the [Installation of the PortSIP PBX](../1-installation-of-the-portsip-pbx/) guide.
+### Firewall and Network Requirements
 
-## Install the PortSIP SBC and PBX on the Same Server
+The following ports **must be permitted by the firewall** and **must not be used by other applications**:
 
-The PortSIP SBC can be deployed with the PortSIP PBX on the same server. In this configuration, the PBX handles SIP calling directly, while the SBC provides WebRTC services and enables interworking for Microsoft Teams Direct Routing.
+* **UDP:** 5066, 25000–34999
+* **TCP:** 5065, 5067, 8883, 10443
 
-For this example, assume the following server configuration:
+Additional requirements:
 
-* **Private IP**: 192.168.1.72
-* **Public IP**: 66.175.221.120
-* The domain **uc.portsip.cc** is resolved to the public IP address **66.175.221.120**.
-* A trusted SSL certificate(not self-signed) is installed for the domain **uc.portsip.cc**. Please follow the article [Certificates for TLS/HTTPS/WebRTC](../certificates-for-tls-https-webrtc/) to prepare the certificates.
+*   All commands must be executed in the directory:
 
-### Install PortSIP SBC for Linux
+    ```shellscript
+    /opt/portsip
+    ```
+* If deploying on a cloud platform (such as AWS or Azure), you must also open these ports in the cloud provider’s firewall / security group.
 
-To install the SBC, please perform the below commands:
+***
 
-```shell
+### Prerequisites
+
+This guide assumes that you have already installed the PortSIP PBX by following the guide:
+
+[Installation of the PortSIP PBX](../1-installation-of-the-portsip-pbx/)
+
+***
+
+### Installing PortSIP SBC and PBX on the Same Server
+
+The PortSIP SBC can be deployed on the same server as the PortSIP PBX.
+
+In this configuration:
+
+* The PBX handles SIP calling directly
+* The SBC provides WebRTC services and enables Microsoft Teams Direct Routing
+
+#### Example Server Configuration
+
+* **Private IP:** `192.168.1.72`
+* **Public IP:** `66.175.221.120`
+* **Domain:** `uc.portsip.cc`, Resolved to: `66.175.221.120`
+* A **trusted SSL certificate** (not self-signed) is installed for `uc.portsip.cc`, refer to the guide: [Certificates for TLS / HTTPS / WebRTC](../certificates-for-tls-https-webrtc/)
+
+***
+
+Execute the commands below on the PBX server to install the SBC:
+
+```bash
 cd /opt/portsip
-```
-
-```shell
 sudo /bin/sh sbc_ctl.sh run -p /var/lib/portsip -i portsip/sbc:11
 ```
 
-### Install PortSIP SBC for Windows
+***
 
-You can download the PortSIP SBC installer at [PortSIP Website](https://www.portsip.com/download-portsip-sbc/), just double click the installer and follow the instructions to install it.
+#### Configure the SBC
 
-### Configuring PortSIP SBC
+After installation, follow the guide: [Configure PortSIP SBC on the Same Server as PortSIP PBX](configuring-sbc-for-webrtc.md#configure-portsip-sbc-on-the-same-server-as-portsip-pbx)
 
-Now follow the guide [Configure PortSIP SBC on the Same Server as PortSIP PBX](configuring-sbc-for-webrtc.md#configure-portsip-sbc-on-the-same-server-as-portsip-pbx) to complete the SBC configuration.
+***
 
-## Install the PortSIP SBC on a Separate Server
+### Installing PortSIP SBC on a Separate Server
 
-Typically, the PortSIP SBC is deployed on a separate server from the PortSIP PBX. In this configuration, the SBC acts as a front-end component, while the PBX remains transparent to the end users.
+In most deployments, the **PortSIP SBC** is installed on a **separate server** from the PBX.
 
-Assuming the following server configuration for installation:
+In this architecture:
 
-* **PBX Server (Private IP)**: 192.168.1.72
-* **SBC Server (Private IP)**: 192.168.1.73
-* **SBC Server (Public IP)**: 66.175.221.120
-* The domain **sbc.portsip.cc** is resolved to the SBC server's public IP, **66.175.221.120**.
-* The domain **uc.portsip.cc** is resolved to the PBX server's private IP, **192.168.1.72**. (Note: This step is not necessary for the SBC deployment.)
-* A trusted **Wildcard SSL certificate**(not self-signed) is installed for the domain **portsip.cc**. Please follow the article [Certificates for TLS/HTTPS/WebRTC](../certificates-for-tls-https-webrtc/) to prepare the certificates.
+* The SBC acts as the front-end edge component
+* The PBX remains transparent to end users
 
-### Install PortSIP SBC for Linux
+***
 
-Please follow the below steps to install the PortSIP SBC on that separate server.
+### Example Server Configuration
 
-```sh
-cd /opt/portsip
-```
+* **PBX Server (Private IP):** `192.168.1.72`
+* **SBC Server (Private IP):** `192.168.1.73`
+* **SBC Server (Public IP):** `66.175.221.120`
 
-```sh
+#### Domain Configuration
+
+* **Domain:** `sbc.portsip.cc`, resolved to: `66.175.221.120`
+* A **trusted wildcard SSL certificate** (not self-signed) is installed for `portsip.cc`, refer to: [Certificates for TLS / HTTPS / WebRTC](../certificates-for-tls-https-webrtc/)
+
+***
+
+### Install PortSIP SBC on Linux (Separate Server)
+
+#### Step 1: Initialize the Environment
+
+On the dedicated server used to install the PortSIP SBC, execute the following commands:
+
+```bash
+sudo mkdir -p /opt/portsip
 sudo curl \
-https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/init.sh  \
--o  init.sh
-```
-
-```sh
+https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/init.sh \
+-o init.sh
 sudo /bin/sh init.sh
 ```
 
-Execute the below command to install the `Docker-Compose` environment. If you get the prompt likes`*** cloud.cfg (Y/I/N/O/D/Z) [default=N] ?`, enter the **Y** and then press the **Enter** button.
+***
 
-```sh
+#### Step 2: Install the Docker-Compose Environment
+
+```bash
 cd /opt/portsip
-```
-
-```sh
 sudo /bin/sh install_docker.sh
 ```
 
-Now, execute the following command to create and run the PortSIP SBC Docker instance.
+If prompted with:
 
-```sh
+```
+cloud.cfg (Y/I/N/O/D/Z) [default=N] ?
+```
+
+Enter **Y** and press **Enter**.
+
+***
+
+#### Step 3: Create and Run the SBC Docker Instance
+
+```bash
 sudo /bin/sh sbc_ctl.sh run -p /var/lib/portsip -i portsip/sbc:11
 ```
 
-### Install PortSIP SBC for Windows
+***
 
-You can download the PortSIP SBC installer from the [PortSIP Website](https://www.portsip.com/download-portsip-sbc/). Simply double-click the installer and follow the on-screen instructions to complete the installation.
+#### Configure the SBC
 
-### Configuring PortSIP SBC
+After installation, follow the guide: [Configure PortSIP SBC on a Separate Server](configuring-sbc-for-webrtc.md#configure-portsip-sbc-on-a-separate-server)
 
-Now follow the guide [Configure PortSIP SBC on a Separate Server](configuring-sbc-for-webrtc.md#configure-portsip-sbc-on-a-separate-server) to complete the SBC configuration.
+***
 
-## Managing PortSIP SBC Docker Instance
+### Managing the PortSIP SBC Docker Instance
 
-After successfully installing the SBC, you can use the following commands to manage the PortSIP SBC docker instance.
+After successfully installing the SBC, you can manage the Docker instance using the following commands.
 
-```sh
+```bash
 cd /opt/portsip
 ```
 
-### Show the SBC Docker Instance Status
+#### Show SBC Status
 
-<pre class="language-sh"><code class="lang-sh"><strong>sudo /bin/sh sbc_ctl.sh status
-</strong></code></pre>
+```bash
+sudo /bin/sh sbc_ctl.sh status
+```
 
-### Start the SBC Docker Instance
+#### Start the SBC
 
 ```bash
 sudo /bin/sh sbc_ctl.sh start
 ```
 
-### Stop the SBC Docker Instance
+#### Stop the SBC
 
 ```bash
 sudo /bin/sh sbc_ctl.sh stop
 ```
 
-### Restart the SBC Docker Instance
+#### Restart the SBC
 
 ```bash
 sudo /bin/sh sbc_ctl.sh restart
 ```
 
-### Delete the SBC Docker Instance
+#### Remove the SBC Container
 
-This command will not delete the data of the SBC.
+> This command **does not delete SBC data**.
 
-<pre class="language-bash"><code class="lang-bash"><strong>sudo /bin/sh sbc_ctl.sh rm
-</strong></code></pre>
+```bash
+sudo /bin/sh sbc_ctl.sh rm
+```
+
+
 
