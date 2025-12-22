@@ -4,136 +4,189 @@
 Please follow the [guide ](upgrade-to-the-latest-sbc-release.md)to upgrading your PortSIP SBC to the latest version.
 {% endhint %}
 
-## Changes for Release v11.2.0
+### Upgrading PortSIP SBC
 
-**Date**: Nov 20, 2025
+Please follow the [official upgrade guide](upgrade-to-the-latest-sbc-release.md) to upgrade your PortSIP SBC to the latest version.
 
-The following changes are included in this release:
+> **Important**\
+> Always back up your system and schedule a maintenance window before performing an upgrade.
 
-* Fixed a bug where, if the IM service was installed on a separate server, the WebRTC app would fail to connect to the IM server.
+***
 
-## Changes for Release v11.1.10
+### Version 11.2.1
 
-**Date**: Nov 6, 2025
+**Release Date:** December 19, 2025
 
-The following changes are included in this release:
+**Changes**
 
-* Shipped the new WebRTC app version.
+* Updated the WebRTC application
 
-## Changes for Release v11.1.9
+***
 
-**Date**: July 28, 2025
+### Version 11.2.0
 
-The following changes are included in this release:
+**Release Date:** November 20, 2025
 
-* Fixed the version information display issue.
+**Changes**
 
-## Changes for Release v11.1.8
+* Fixed an issue where the WebRTC app failed to connect to the IM server when the IM service was deployed on a separate server
 
-**Date**: July 22, 2025
+***
 
-The following changes are included in this release:
+### Version 11.1.10
 
-* Added support for **configuring codecs for transcoding**
+**Release Date:** November 6, 2025
 
-## Changes for Release v11.1.1
+**Changes**
 
-**Date**: Jan 13, 2025
+* Released a new version of the WebRTC application
 
-The following changes are included in this release:
+***
 
-* Add some new features for the WebRTC app
-* Fix some bugs of the WebRTC app
+### Version 11.1.9
 
-## Changes for Release v11.0.0
+**Release Date:** July 28, 2025
 
-**Date**: Dec 12, 2024
+**Changes**
 
-The following changes are included in this release:
+* Fixed an issue with incorrect version information display
 
-* Include an all-new PortSIP ONE WebRTC app.
+***
 
-## Changes for Release v10.1.2
+### Version 11.1.8
 
-**Date**: Jun 12, 2024
+**Release Date:** July 22, 2025
 
-The following changes are included in this release:
+**Changes**
 
-* Support the IPv6 client.
+* Added support for configuring codecs used for transcoding
 
-## Changes for Release v10.1.0
+***
 
-**Date**: May 23, 2024
+### Version 11.1.1
 
-The following changes are included in this release:
+**Release Date:** January 13, 2025
 
-* Support transcoding for audio calls.
+**Changes**
 
-## Changes for Release v10.0.10
+* Added new features to the WebRTC application
+* Fixed multiple WebRTC application bugs
 
-**Date**: Mar 11, 2024
+***
 
-The following changes are included in this release:
+### Version 11.0.0
 
-* Updated the WebRTC client App to support the English UK language.
-* Support control of the agent status of the queues
+**Release Date:** December 12, 2024
+
+**Changes**
+
+* Introduced the all-new **PortSIP ONE WebRTC application**
+
+***
+
+### Version 10.1.2
+
+**Release Date:** June 12, 2024
+
+**Changes**
+
+* Added support for IPv6 clients
+
+***
+
+### Version 10.1.0
+
+**Release Date:** May 23, 2024
+
+**Changes**
+
+* Added transcoding support for audio calls
+
+***
+
+### Version 10.0.10
+
+**Release Date:** March 11, 2024
+
+**Changes**
+
+* Updated the WebRTC client to support **UK English**
+* Added support for controlling queue agent status
 * Fixed minor bugs
 
-## Changes for Release v10.0.9
+***
 
-**Date**: Jan 17, 2024
+### Version 10.0.9
 
-The following changes are included in this release:
+**Release Date:** January 17, 2024
 
-* Updated the WebRTC client App to support synchronous the extension status with other Apps and IP Phones
-* Improve performance
+**Changes**
+
+* Updated the WebRTC client to synchronize extension status with other apps and IP phones
+* Performance improvements
 * Fixed minor bugs
 
-## Changes for Release v10.0.6
+***
 
-**Date**: Nov 2, 2023
+### Version 10.0.6
 
-The following changes are included in this release:
+**Release Date:** November 2, 2023
 
-* Support theme
-* Improve performance
+**Changes**
 
-## Changes for Release v10.0.4
+* Added theme support
+* Performance improvements
 
-**Date**: August 3, 2023
+***
 
-The following changes are included in this release:
+### Version 10.0.4
 
-* Fixed a security issue.
-* Fixed a bug where sending DTMF from a WebRTC client caused the timestamp of the RTP event to be incorrect. This may have caused some sensitive servers/trunks to determine repeated DTMF tones.
+**Release Date:** August 3, 2023
 
-## Changes for Release v10.0.3
+**Changes**
 
-**Date**: July 7, 2023
+* Fixed a security vulnerability
+* Fixed an issue where sending DTMF from a WebRTC client caused incorrect RTP event timestamps, which could result in repeated DTMF detection by some SIP servers or trunks
 
-The following changes are included in this release:
+***
 
-* Significant improvement in performance, with support for up to 2,000 simultaneous WebRTC audio calls or 500 simultaneous WebRTC video calls.
-* Enhanced screen-sharing performance in WebRTC with reduced latency.
+### Version 10.0.3
 
-## Changes for Release v10.0.1
+**Release Date:** July 7, 2023
 
-**Date**: March 30, 2023
+**Changes**
 
-The following changes are included in this release:
+* Significant performance improvements:
+  * Up to **2,000 concurrent WebRTC audio calls**
+  * Up to **500 concurrent WebRTC video calls**
+* Improved WebRTC screen-sharing performance with reduced latency
 
-* Change the WebRTC Client URL port to 10443, don't forget to create the firewall rule for port 10443 on TCP.
-* Fixed a crash bug if stopped/restarted SBC when there were connected calls.
+***
 
-## Changes for Release v10.0.0
+### Version 10.0.1
 
-**Date**: January 16, 2023
+**Release Date:** March 30, 2023
 
-The following changes are included in this release.
+**Changes**
 
-* Full Rebrandability
-* Support Microsoft Teams Direct Routing
-* Support WebRTC
-* Interoperability with leading UC/PBX and CC vendors and SIP trunk providers
-* Advanced security for protection against malicious attacks and fraud
+*   Changed the WebRTC client URL port to **10443**
+
+    > Ensure TCP port **10443** is allowed in the firewall
+* Fixed a crash issue when stopping or restarting the SBC while calls were active
+
+***
+
+### Version 10.0.0
+
+**Release Date:** January 16, 2023
+
+**Changes**
+
+* Full rebrandability
+* Microsoft Teams Direct Routing support
+* WebRTC support
+* Interoperability with leading UC, PBX, contact center platforms, and SIP trunk providers
+* Advanced security features for protection against malicious attacks and fraud
+
+
 
