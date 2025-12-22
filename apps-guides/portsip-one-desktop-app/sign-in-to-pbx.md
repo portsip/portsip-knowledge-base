@@ -34,9 +34,9 @@ Within the **Extension** tab of a user’s settings, there are two QR code confi
 
 #### 2. Logging into the PortSIP ONE app
 
-The PortSIP ONE app makes logging in effortless by using a QR code. On the PortSIP ONE login window, click the QR code icon located at the bottom-right corner. Select the QR code option, and then scan the QR code provided by the PBX. The app will log in automatically.
+The PortSIP ONE app makes logging in effortless by using a QR code. On the PortSIP ONE login window, click the QR code icon. Select the QR code option, and then scan the QR code provided by the PBX. The app will log in automatically.
 
-<figure><img src="../../.gitbook/assets/portsip-one-desktop-qrcode.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/portsip_one_login_page_1.png" alt=""><figcaption></figcaption></figure>
 
 ### Logging into the PortSIP ONE app via SSO
 
@@ -54,7 +54,7 @@ Once you have configured the [**Microsoft 365 integration**](../../portsip-commu
    * In the login window, enter your tenant’s **SIP domain** and the **PBX IP address** or **hostname/domain**.
    * Click the **Next** button to proceed.
 
-<figure><img src="../../.gitbook/assets/portsip-one-sso.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/portsip_one_login_page_2.png" alt=""><figcaption></figcaption></figure>
 
 3. **SSO Authentication via Microsoft 365:**
    * If the Microsoft 365 integration is configured correctly, the PortSIP ONE app will detect your tenant and display the Microsoft 365 logo (as shown in the screenshot below).
@@ -94,11 +94,11 @@ At the PortSIP ONE login window, provide the following details:
 
 * **SIP Domain**: Enter the tenant's SIP domain. For this example, the SIP domain is **`test.io`**.
 * **Server Address**: Enter the PBX server's IP address or web domain:
-  * If logging in from the internet, use the public IP (**`66.175.221.12`**`0`).
+  * If logging in from the internet, use the public IP (**`66.175.221.120`**).
   * If logging in from a LAN, use the private IP (**`192.168.1.72`**).
   * Alternatively, you can enter the web domain (**`uc.portsip.cc`**) instead of the IP address.
 
-<figure><img src="../../.gitbook/assets/portsip-one-login1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/portsip_one_login_page_3.png" alt=""><figcaption></figcaption></figure>
 
 Click **Next** after entering this information. If the details are correct, the next window will prompt you to enter user credentials.
 
