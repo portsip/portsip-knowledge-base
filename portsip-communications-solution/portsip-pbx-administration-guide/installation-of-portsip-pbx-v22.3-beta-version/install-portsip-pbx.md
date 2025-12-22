@@ -269,6 +269,8 @@ The transport protocol and port configured here are used by:
 * Desktop and mobile client apps
 * Other SIP endpoints registering to the PBX
 
+Click the OK button to complete the setup wizard.
+
 ***
 
 ### Install the Instant Messaging (IM) Service
