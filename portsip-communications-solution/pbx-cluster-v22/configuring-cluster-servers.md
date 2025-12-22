@@ -404,13 +404,13 @@ DataFlow is built on [ClickHouse](https://www.clickhouse.com). For best performa
 #### Minimum Requirements
 
 * **vCPU:** 4 cores
-* **Memory:** 16 GB
+* **Memory:** 8 GB
 * **Disk:** 128 GB SSD
 
 #### Recommended Requirements
 
 * **vCPU:** 8 cores
-* **Memory:** 32 GB
+* **Memory:** 16 -32 GB
 * **Disk:** 256 GB+ (NVMe SSD preferred)
 
 #### Sizing Guideline (Large Deployments)

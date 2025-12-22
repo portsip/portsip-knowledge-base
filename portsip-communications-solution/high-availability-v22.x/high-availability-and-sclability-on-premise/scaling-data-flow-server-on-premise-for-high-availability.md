@@ -26,7 +26,7 @@ For best performance, ensure your hardware meets or exceeds the specifications b
 **Minimum Requirements**
 
 * **vCPU**: 4 cores
-* **Memory**: 16 GB
+* **Memory**: 8 GB
 * **Disk**: 128 GB SSD
 
 ***
@@ -34,7 +34,7 @@ For best performance, ensure your hardware meets or exceeds the specifications b
 **Recommended Requirements**
 
 * **vCPU**: 8 cores
-* **Memory**: 32 GB
+* **Memory**: 16 - 32 GB
 * **Disk**: 256GB or larger (NVMe SSD preferred)
 
 ***
