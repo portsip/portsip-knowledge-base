@@ -137,7 +137,7 @@ sudo /bin/sh pbx_ctl.sh run \
 
 ***
 
-#### Access the PBX Web Portal
+**Access the PBX Web Portal**
 
 After the installation completes successfully, access the PBX web portal at: https://66.175.221.120:8887
 
@@ -152,16 +152,14 @@ Click on **"Sign in as the administrator or dealer"** to navigate to the adminis
 
 ***
 
-### Step 4: Configure the PortSIP PBX
-
-#### Initial Setup Wizard
+#### Step 4: Configure the PortSIP PBX
 
 For a new installation, the PBX automatically launches a **Setup Wizard** after the first successful login to the PBX web portal.\
 This wizard guides you through the mandatory initial configuration steps.
 
 ***
 
-#### 1. Network Environment
+**1. Network Environment**
 
 In the **Network Environment** step, configure the PBX IP addresses.
 
@@ -192,20 +190,18 @@ The loopback interface (127.0.0.1) is not suitable for a private IP address. Onl
 
 ***
 
-### 2. SSL Certificate
+**2. SSL Certificate**
 
 To enable TLS transport for SIP and provide secure HTTPS access to the PBX Web Portal and REST API, a trusted SSL certificate must be configured during this step.
 
-***
-
-#### Domain Setup
+**Domain Setup**
 
 You must have a **web domain** for the PBX.\
 For example, you can purchase a domain from providers such as **GoDaddy** and point it to your PBX server’s IP address.
 
 ***
 
-#### SSL Certificate Requirements
+**SSL Certificate Requirements**
 
 * A **trusted SSL certificate** is strongly recommended to avoid browser security warnings.
 * Common certificate providers include:
@@ -220,8 +216,6 @@ For example, you can purchase a domain from providers such as **GoDaddy** and po
 
 ***
 
-#### Certificate Preparation
-
 To purchase and prepare an SSL certificate, follow the guide: [Preparing TLS Certificates for TLS/HTTPS/WebRTC](../certificates-for-tls-https-webrtc/).
 
 After completing the steps in that guide, you will have the following certificate files:
@@ -231,7 +225,7 @@ After completing the steps in that guide, you will have the following certificat
 
 ***
 
-#### Configuring the Certificate
+**Configuring the Certificate**
 
 In this guide, we assume the PBX web domain is `uc.portsip.cc`.
 
@@ -243,9 +237,7 @@ In this guide, we assume the PBX web domain is `uc.portsip.cc`.
 
 ***
 
-### 3. Transport Protocol
-
-#### Default Transport Ports
+**3. Transport Protocol**
 
 Click **Add** to create or review the transport protocols. By default, PortSIP PBX uses the following transport ports:
 
@@ -257,7 +249,7 @@ Click **Add** to create or review the transport protocols. By default, PortSIP P
 
 ***
 
-#### Customizing Transport Ports
+**Customizing Transport Ports**
 
 You may change the default transport ports to any values that suit your deployment requirements.
 
@@ -268,7 +260,7 @@ You may change the default transport ports to any values that suit your deployme
 
 ***
 
-#### Firewall and Client Configuration
+**Firewall and Client Configuration**
 
 After adding or modifying a transport protocol:
 
@@ -283,7 +275,7 @@ The transport protocol and port configured here are used by:
 
 ***
 
-### Step 5: Install the Instant Messaging (IM) Service
+#### Step 5: Install the Instant Messaging (IM) Service
 
 Starting with **PortSIP PBX v22.0**, an integrated **Instant Messaging (IM) service** is available, providing modern collaboration features such as:
 
@@ -298,7 +290,7 @@ Please follow the guide below to install and configure the IM service: [Install 
 
 ***
 
-### Step 6: Install the Data Flow Service
+#### Step 6: Install the Data Flow Service
 
 Starting with **PortSIP PBX v22.3.0**, PortSIP introduces the **Data Flow service**, which delivers:
 
@@ -319,9 +311,9 @@ Please follow the guide below to install and configure the Data Flow service: [I
 
 ***
 
-### Step 7: Restart the PBX to Apply the SSL Certificate
+#### Step 7: Restart the PBX to Apply the SSL Certificate
 
-If, in step [2. SSL Certificate](install-portsip-pbx.md#id-2.-ssl-certificate), you uploaded a **trusted SSL certificate** instead of using the default self-signed certificate, you must restart the PBX to apply the changes.
+If in above step **2. SSL Certificate**, you uploaded a **trusted SSL certificate** instead of using the default self-signed certificate, you must restart the PBX to apply the changes.
 
 Run the following commands to restart the PBX:
 
