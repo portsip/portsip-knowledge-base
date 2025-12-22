@@ -1,122 +1,242 @@
 # Configuring PortSIP SBC for WebRTC
 
-After successfully installing the PortSIP SBC following the guide, you can now configure the SBC for the WebRTC feature.
+After successfully installing the **PortSIP SBC**, you can now configure it to enable the **WebRTC** feature.
 
-## Configure PortSIP SBC on the Same Server as PortSIP PBX
+Choose the appropriate configuration method based on your deployment model.
 
-If you installed the PortSIP SBC on the _**same server as the PortSIP PBX**_, please follow the below steps to configure it.
+***
 
-1. Prepare the SSL certificate as outlined in the guide for [TLS Certificates for TLS/HTTPS/WebRTC](../certificates-for-tls-https-webrtc/), You will have the `portsip.pem`  `portsip.key` files.
-2. Open `https://66.175.221.120:8883` in the browser and log in using the credentials `admin/admin`. Just ignore the browser SSL certificate warning and continue processing.
-3.  Choose **Settings > TLS Certificates** from the menu, click the **Add** button:
+### Configure PortSIP SBC on the Same Server as PortSIP PBX
 
-    1. Enter `"SBC Host Name"` for the **Description** field as an example.
-    2. Enter `uc.portsip.cc` for the **TLS Domain.**
-    3. Open the `portsip.pem` file in Windows Notepad and copy its contents into the **Certificate Context** field.&#x20;
-    4. Copy and paste the contents of the `portsip.key` file into the **Private Key Context** field.
-    5. Turn on the option **This is SBC Web Domain Certificate**.&#x20;
+#### Step 1: Prepare the SSL Certificate
 
-    Click **OK** to save the certificate.
-4.  Select **Settings > Network** from the menu, fill in the following fields:&#x20;
+Prepare the SSL certificate as described in the guide [Certificates for TLS / HTTPS / WebRTC](../certificates-for-tls-https-webrtc/).
 
-    1. **Web Domain** with `uc.portsip.cc`
-    2. &#x20;**Private IPv4** with `192.168.1.72`,&#x20;
-    3. **Public IPv4** with `66.175.221.120`.&#x20;
+You should have the following files available:
 
-    By default, the **Create default transports automatically** option is turned on, and the SBC will create the default transports after successfully setting up the SBC IP address. Please keep this option enabled to create the default transports.
-5. The SBC will create the default transports as the below:
-   * **TCP on port 5069**: Used to communicate with PBX
-   * **TLS on port 5067**: Used to communicate with Microsoft Teams
-   * **WSS on port 5065**: Provides WebRTC service
-   * **UDP on port 5066**: Provides standard SIP service\
-     You can turn off the **Create default transports automatically** option to prevent the SBC from automatically creating the default transports, _**but this is not recommended**_.
-6. When you click **OK**, the SBC will restart automatically and immediately log you out.
-7.  Execute the following commands to restart the PBX server:
+* `portsip.pem`
+* `portsip.key`
 
-    1. `cd /opt/portsip`
-    2. ⁣`sudo /bin/sh sbc_ctl.sh restart`&#x20;
+***
 
-    If the server is Windows, simply restart the server directly.
-8. Sign in to the PBX web portal at `https://uc.portsip.cc:8887`&#x20;
-   1. Navigate to the **Advanced > SBC** menu.&#x20;
-   2. Click the **Generate** button to generate the token for the SBC's access.&#x20;
-   3. Click the **Copy** button to copy the token.
-9. Sign in to the SBC Web Portal at `https://uc.portsip.cc:8883`
-   1. Choose **Settings > PBX** from the menu. You need to set up the PBX information here for the SBC to communicate with the PBX.&#x20;
-   2. Paste the copied token into the **PBX Access Token** field.&#x20;
-   3. Enter `192.168.1.72` for the **PBX IPv4 Address** field.&#x20;
+#### Step 2: Sign In to the SBC Web Portal
 
-{% hint style="danger" %}
-If the PBX is deployed in **High Availability (HA)** mode, you must enter the **Virtual IP address** of the PBX in the **PBX IPv4 Address** field.
-{% endhint %}
+1. Open the following URL in your browser: https://66.175.221.120:8883
+2. Log in using the default credentials:
+   * **Username:** `admin`
+   * **Password:** `admin`
+3. Ignore the browser SSL warning and continue.
 
-10. Since the TCP transport is created on port 5063 in the PBX, select **TCP** for **Prefer Transport** to communicate with the PBX
-11. Enter `"5063"` for the **PBX Port**.
-12. Open the URL `https://uc.portsip.cc:10443/webrtc` in your browser, and the WebRTC client will launch. You can scan the user's QR code to register with the PBX and make/receive calls.
+***
 
-## Configure PortSIP SBC on a Separate Server
+#### Step 3: Upload the TLS Certificate
 
-If you installed the PortSIP SBC on _**a separate server from the PortSIP PBX**_, please follow the below steps to configure it.
+1. Navigate to **Settings > TLS Certificates**.
+2. Click **Add**.
+3. Fill in the fields:
+   * **Description:** `SBC Host Name` (example)
+   * **TLS Domain:** `uc.portsip.cc`
+4. Open `portsip.pem` in a text editor and paste its contents into **Certificate Context**.
+5. Open `portsip.key` and paste its contents into **Private Key** Context.
+6. Enable **This is SBC Web Domain Certificate**.
+7. Click **OK** to save.
 
-1. Prepare the SSL certificate as outlined in the guide for [TLS Certificates for TLS/HTTPS/WebRTC](../certificates-for-tls-https-webrtc/), You will have the `portsip.pem`  `portsip.key` files.
-2. Open `https://66.175.221.120:8883` in the browser and log in using the credentials `admin/admin`. Just ignore the browser SSL certificate warning and continue processing.
-3.  Choose **Settings > TLS Certificates** from the menu, click the **Add** button:
+***
 
-    1. Enter `"SBC Host Name"` for the **Description** field as an example.
-    2. Enter `sbc.portsip.cc` for the **TLS Domain.**
-    3. Open the `portsip.pem` file in Windows Notepad and copy its contents into the **Certificate Context** field.&#x20;
-    4. Copy and paste the contents of the `portsip.key` file into the **Private Key Context** field.
-    5. Turn on the option **This is SBC Web Domain Certificate**.&#x20;
+#### Step 4: Configure Network Settings
 
-    Click **OK** to save the certificate.
-4.  Select **Settings > Network** from the menu, fill in the following fields:&#x20;
+1. Navigate to **Settings > Network**.
+2. Configure the following values:
+   * **Web Domain:** `uc.portsip.cc`
+   * **Private IPv4:** `192.168.1.72`
+   * **Public IPv4:** `66.175.221.120`
+3. Keep **Create default transports automatically** enabled.
 
-    1. **Web Domain** with `sbc.portsip.cc`
-    2. &#x20;**Private IPv4** with `192.168.1.73`,&#x20;
-    3. **Public IPv4** with `66.175.221.120`.&#x20;
+The SBC will automatically create the following transports:
 
-    By default, the **Create default transports automatically** option is turned on, and the SBC will create the default transports after successfully setting up the SBC IP address. Please keep this option enabled to create the default transports.
-5. The SBC will create the default transports as the below:
-   * **TCP on port 5069**: Used to communicate with PBX
-   * **TLS on port 5067**: Used to communicate with Microsoft Teams
-   * **WSS on port 5065**: Provides WebRTC service
-   * **UDP on port 5066**: Provides standard SIP service\
-     You can turn off the **Create default transports automatically** option to prevent the SBC from automatically creating the default transports, _**but this is not recommended**_.
-6. When you click **OK**, the SBC will restart automatically and immediately log you out.
-7.  Execute the following commands to restart the PBX server:
+* **TCP 5069** – Communication with PBX
+* **TLS 5067** – Microsoft Teams Direct Routing
+* **WSS 5065** – WebRTC services
+* **UDP 5066** – Standard SIP services
 
-    1. `cd /opt/portsip`
-    2. ⁣`sudo /bin/sh sbc_ctl.sh restart`&#x20;
+> Disabling automatic transport creation is not recommended unless you are performing a custom configuration.
 
-    If the server is Windows, simply restart the server directly.
-8. Sign in to the PBX web portal at `https://uc.portsip.cc:8887`&#x20;
-   1. Navigate to the **Advanced > SBC** menu.&#x20;
-   2. Click the **Generate** button to generate the token for the SBC's access.&#x20;
-   3. Click the **Copy** button to copy the token.
-9. Sign in to the SBC Web Portal at `https://sbc.portsip.cc:8883`
-   1. Choose **Settings > PBX** from the menu. You need to set up the PBX information here for the SBC to communicate with the PBX.&#x20;
-   2. Paste the copied token into the **PBX Access Token** field,&#x20;
-   3. Enter `192.168.1.72` for the **PBX IPv4 Address** field.&#x20;
-   4. Since the TCP transport is created on port 5063 in the PBX, select **TCP** for **Prefer Transport** to communicate with the PBX
-   5. Enter `"5063"` for the **PBX Port**.
-10. Open the URL `https://sbc.portsip.cc:10443/webrtc` in your browser, and the WebRTC client will launch. You can scan the user's QR code to register with the PBX and make/receive calls.
+4. Click **OK**.\
+   The SBC will restart automatically and log you out.
 
-### Add the SBC IP address to the PBX whitelist
+***
 
-To prevent the PBX from limiting the request rate, you need to add the SBC IP address to the whitelist in the PBX.
+#### Step 5: Restart the PBX
 
-1. Sign in to the PBX as the **System Administrator**.
-2. Navigate to the **IP Blacklist** menu and click **Add**.
-3. Enter the SBC IP address, as shown in the screenshot below.
-4. Set a long expiration date for the entry to ensure it remains valid for an extended period.
+Execute the command below to restart the SBC:
+
+```bash
+cd /opt/portsip
+sudo /bin/sh sbc_ctl.sh restart
+```
+
+***
+
+#### Step 6: Generate the SBC Access Token in PBX
+
+1. Sign in to the PBX Web Portal: https://uc.portsip.cc:8887
+2. Navigate to **Servers** > **SBC**.
+3. Click **Generate** to create an access token.
+4. Click **Copy** to copy the token.
+
+***
+
+#### Step 7: Configure PBX Connection in SBC
+
+1. Sign in to the SBC Web Portal: https://uc.portsip.cc:8883
+2. Navigate to **Settings > PBX**.
+3. Configure the following:
+   * **PBX Access Token:** Paste the copied token
+   * **PBX IPv4 Address:** `192.168.1.72`
+     * _(If PBX runs in HA mode, enter the PBX Virtual IP)_
+   * **Prefer Transport:** `TCP`
+   * **PBX Port:** `5063`
+4. Click **OK** to save.
+
+***
+
+#### Step 8: Access the WebRTC Client
+
+Open the following URL in your browser: https://uc.portsip.cc:10443/webrtc, the WebRTC client will launch.\
+Scan the user’s QR code to register with the PBX and place or receive calls.
+
+***
+
+### Configure PortSIP SBC on a Separate Server
+
+Follow these steps if the PortSIP SBC is installed on a separate server from the PortSIP PBX.
+
+#### Step 1: Prepare the SSL Certificate
+
+Prepare the SSL certificate as described in the guide [Certificates for TLS / HTTPS / WebRTC](../certificates-for-tls-https-webrtc/).
+
+You should have the following files ready:
+
+* `portsip.pem`
+* `portsip.key`
+
+A **trusted wildcard SSL certificate** (not self-signed) must be installed for the domain: `portsip.cc`
+
+***
+
+#### Step 2: Sign In to the SBC Web Portal
+
+1. Open the following URL in your browser: https://66.175.221.120:8883
+2. Log in using the default credentials:
+   * **Username:** `admin`
+   * **Password:** `admin`
+3. Ignore the browser SSL certificate warning and continue.
+
+***
+
+#### Step 3: Upload the TLS Certificate
+
+1. Navigate to **Settings > TLS Certificates**.
+2. Click **Add**.
+3. Enter the following values:
+   * **Description:** `SBC Host Name` (example)
+   * **TLS Domain:** `sbc.portsip.cc`
+4. Open the `portsip.pem` file in a text editor and copy its contents into the **Certificate Context** field.
+5. Open the `portsip.key` file and copy its contents into the **Private Key Context** field.
+6. Enable **This is SBC Web Domain Certificate**.
+7. Click **OK** to save the certificate.
+
+***
+
+#### Step 4: Configure Network Settings
+
+1. Navigate to **Settings > Network**.
+2. Configure the following fields:
+   * **Web Domain:** `sbc.portsip.cc`
+   * **Private IPv4:** `192.168.1.73`
+   * **Public IPv4:** `66.175.221.120`
+3. Ensure **Create default transports automatically** is enabled.
+
+When this option is enabled, the SBC automatically creates the following transports:
+
+* **TCP 5069** – Communication with the PBX
+* **TLS 5067** – Microsoft Teams Direct Routing
+* **WSS 5065** – WebRTC services
+* **UDP 5066** – Standard SIP services
+
+> Turning off automatic transport creation is **not recommended** unless you are performing an advanced custom configuration.
+
+4. Click **OK**.
+
+The SBC will **restart automatically** and log you out.
+
+***
+
+#### Step 5: Restart the PBX
+
+After the SBC restarts, restart the PBX to ensure proper connectivity.
+
+```bash
+cd /opt/portsip
+sudo /bin/sh sbc_ctl.sh restart
+```
+
+***
+
+#### Step 6: Generate the SBC Access Token in the PBX
+
+1. Sign in to the PBX Web Portal: https://uc.portsip.cc:8887
+2. Navigate to **Servers > SBC**.
+3. Click **Generate** to create an SBC access token.
+4. Click **Copy** to copy the generated token.
+
+***
+
+#### Step 7: Configure PBX Connection in the SBC
+
+1. Sign in to the SBC Web Portal: https://sbc.portsip.cc:8883
+2. Navigate to **Settings > PBX**.
+3. Configure the following fields:
+   * **PBX Access Token:** Paste the copied token
+   * **PBX IPv4 Address:** `192.168.1.72`
+     * _(If the PBX is deployed in HA mode, enter the PBX **Virtual IP** instead)_
+   * **Prefer Transport:** `TCP`
+   * **PBX Port:** `5063`
+4. Click **OK** to save the configuration.
+
+***
+
+#### Step 8: Access the WebRTC Client
+
+Open the following URL in your browser: https://sbc.portsip.cc:10443/webrtc, the WebRTC client will launch.\
+Scan the user’s QR code to register with the PBX and make or receive calls.
+
+***
+
+#### Step 9: Add the SBC IP Address to the PBX Whitelist
+
+To prevent the PBX from rate-limiting requests from the SBC, you must whitelist the SBC IP address.
 
 <figure><img src="../../../.gitbook/assets/sbc_whitelist.png" alt=""><figcaption></figcaption></figure>
 
-## Check opened firewall ports
 
-The below commands are used to check currently opened ports for PortSIP SBC.
+
+1. Sign in to the **PBX Web Portal** as a **System Administrator**.
+2. Navigate to **IP Blacklist**.
+3. Click **Add**.
+4. Enter the **SBC IP address** (`192.168.1.73` or the public IP if applicable).
+5. Set a **long expiration date**.
+6. Save the configuration.
+
+***
+
+### Check Open Firewall Ports
+
+The following commands can be used to verify which firewall ports are currently open on the server hosting the PortSIP SBC.
 
 ```sh
-firewall-cmd --info-service=portsip-sbc
+sudo firewall-cmd --info-service=portsip-sbc
 ```
+
+
 
