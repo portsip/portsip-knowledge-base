@@ -71,7 +71,7 @@ Download and apply the latest upgrade scripts by running the following commands:
 > This step is **mandatory**, don't skip this step!
 
 ```bash
-cd /opt/portsip && rm -rf *.sh
+sudo rm -rf /opt/portsip/*.sh
 sudo curl \
 https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/init.sh \
 -o init.sh
