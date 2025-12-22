@@ -277,6 +277,7 @@
   * [Calls, Messages, and Voicemails](apps-guides/portsip-one-desktop-app/calls-messages-and-voicemails.md)
   * [Customize Your Caller ID](apps-guides/portsip-one-desktop-app/customize-your-caller-id.md)
   * [SMS and WhatsApp Messaging](apps-guides/portsip-one-desktop-app/sms-and-whatsapp-messaging.md)
+  * [CRM Integrations](apps-guides/portsip-one-desktop-app/crm-integrations.md)
   * [Click to Call](apps-guides/portsip-one-desktop-app/click-to-call.md)
   * [Calling from Another Device](apps-guides/portsip-one-desktop-app/calling-from-another-device.md)
   * [Change Your Call Queue Status](apps-guides/portsip-one-desktop-app/change-your-call-queue-status.md)

@@ -1,14 +1,14 @@
 # Click to Call
 
-## What is Click-to-Call?
+### What is Click-to-Call?
 
 Click-to-call is a feature that allows users to initiate phone calls with a single click, leveraging Voice over Internet Protocol (VoIP) technology to establish the connection between two parties. This feature is also referred to as "click-to-dial" or "one-click calling."
 
 Originally developed for call centers, the click-to-call functionality aimed to streamline outbound calling, minimize dialing errors, and enhance efficiency. Over time, it has evolved to incorporate technologies like WebRTC and browser plugins, making it even more accessible.
 
-## How to set up click-to-call
+### How to set up click-to-call
 
-### Desktop-based calling
+#### Desktop-based calling
 
 * Download and install the PortSIP ONE app on your desktop.&#x20;
 * Sign in to the PortSIP ONE app.
@@ -37,7 +37,7 @@ In the future, if you click a phone number on a web page and the PortSIP ONE app
 
 If the PortSIP ONE app is not running, it will be launched, and after signing in, the phone number will be dialed automatically.
 
-## Set Up Windows Default App for Phone Numbers
+### Set Up Windows Default App for Phone Numbers
 
 If your default phone app is not set to **PortSIP ONE**, follow the steps below to configure it:
 
@@ -48,4 +48,6 @@ If your default phone app is not set to **PortSIP ONE**, follow the steps below 
 5. Select **PortSIP ONE** from the list of available phone apps.
 
 <figure><img src="../../.gitbook/assets/portsip-one-tel-call-3.png" alt="" width="563"><figcaption></figcaption></figure>
+
+
 

@@ -1,10 +1,10 @@
 # Calling from Another Device
 
-## Calling from another device using PortSIP ONE app
+### Calling from another device using PortSIP ONE app
 
 You can manage all your contact details in the **PortSIP ONE** desktop app, but take calls on your mobile phone or desk phone with ease. For example, if you prefer to make calls using your desk phone, you can easily push all outgoing calls to that device with just a few clicks, allowing you to make calls the way you prefer.
 
-## To Enable Calling from Another Device
+### To Enable Calling from Another Device
 
 1. Click on the Setting icon on the left-hand menu, select the **Application** option, then turn on the **Enable calling from another device,** and click **Apply** button to save changes.
 

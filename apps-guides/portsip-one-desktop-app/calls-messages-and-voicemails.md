@@ -1,6 +1,6 @@
 # Calls, Messages, and Voicemails
 
-## How to place calls <a href="#id-2" id="id-2"></a>
+### How to place calls <a href="#id-2" id="id-2"></a>
 
 Upon signing in, click the **Calls** tab to navigate to the Calls page. The page is divided into two distinct sections:
 
@@ -9,7 +9,7 @@ Upon signing in, click the **Calls** tab to navigate to the Calls page. The page
 
 <figure><img src="../../.gitbook/assets/portsip-one-desktop-place-call.png" alt=""><figcaption></figcaption></figure>
 
-### **Placing a call from the calls page**
+#### Placing a call from the calls page
 
 1. Click the **New Call** button. The dial pad will appear.
 2. Enter a valid extension or a phone number.
@@ -17,7 +17,7 @@ Upon signing in, click the **Calls** tab to navigate to the Calls page. The page
 
 <figure><img src="../../.gitbook/assets/portsip-one-desktop-place-call-1.png" alt=""><figcaption></figcaption></figure>
 
-### **Placing a call from contacts**
+#### Placing a call from contacts
 
 1. Click the **New Call** button to open the dial pad window.
 2. Next, click the **Contacts** icon. The dial pad will disappear and be replaced by your contact list.
@@ -26,7 +26,7 @@ Upon signing in, click the **Calls** tab to navigate to the Calls page. The page
 
 <figure><img src="../../.gitbook/assets/portsip-one-desktop-place-call-2.png" alt=""><figcaption></figcaption></figure>
 
-### **Placing a call from the Contacts menu**
+#### Placing a call from the Contacts menu
 
 1. Click **Contacts** in the left menu.
 2. You can filter contacts by **Users**, **Company Contacts**, or **Personal Contacts**.
@@ -34,7 +34,7 @@ Upon signing in, click the **Calls** tab to navigate to the Calls page. The page
 
 <figure><img src="../../.gitbook/assets/portsip-one-desktop-place-call-3.png" alt=""><figcaption></figcaption></figure>
 
-### **Ending a call**
+#### Ending a call
 
 * Press the **Leave** button located at the bottom-right corner to end the current call.
 * Alternatively, press the **End** button located at the top-right corner to terminate the active call.
@@ -43,7 +43,7 @@ Upon signing in, click the **Calls** tab to navigate to the Calls page. The page
 
 <figure><img src="../../.gitbook/assets/portsip-one-desktop-end-call-2.png" alt=""><figcaption></figcaption></figure>
 
-### **Blind transferring a call**
+#### Blind transferring a call
 
 A **Blind Transfer** occurs when you transfer a call to another person without announcing it first. To perform a blind transfer while on an active call:
 
@@ -63,7 +63,7 @@ You can also transfer the call to a receptionist by the number via the **Dial Pa
 2. Enter a valid extension or phone number.
 3. Click the **Dial** button. The transfer will be completed.
 
-### **Attended transferring a call**
+#### Attended transferring a call
 
 An **Attended Transfer** occurs when you announce the call to the recipient before transferring it. To perform an attended transfer while on a call:
 
@@ -78,7 +78,7 @@ An **Attended Transfer** occurs when you announce the call to the recipient befo
 
 <figure><img src="../../.gitbook/assets/portsip-one-desktop-transfer-call-3.png" alt=""><figcaption></figcaption></figure>
 
-### **Transferring a call to voicemail**
+#### Transferring a call to voicemail
 
 A **Direct-to-Voicemail Transfer** is used when you wish to transfer a call directly to another user’s voicemail. To perform a transfer to voicemail while on an active call:
 
@@ -89,7 +89,7 @@ A **Direct-to-Voicemail Transfer** is used when you wish to transfer a call dire
 
 <figure><img src="../../.gitbook/assets/portsip-one-desktop-transfer-call-4.png" alt=""><figcaption></figcaption></figure>
 
-### **Direct parking a call**
+#### Direct parking a call
 
 To park a call to an extension while on an active call:
 
@@ -99,7 +99,7 @@ To park a call to an extension while on an active call:
 
 The call will be parked on that extension.
 
-### **Group parking a call**
+#### Group parking a call
 
 If the user is a member of a park group, they can park a call to the group, allowing group members to retrieve the parked call.
 
@@ -110,7 +110,7 @@ To park a call to the group while on an active call:
 
 The call will be parked to the group if the user is a member of a park group.
 
-### **Retrieving a parked call**
+#### Retrieving a parked call
 
 Once a call is parked to an extension user or a park group, the extension user or group members will receive a notification. As shown in the screenshot below, the **Call HUB** icon on the top title bar will start blinking.
 
@@ -119,7 +119,7 @@ Once a call is parked to an extension user or a park group, the extension user o
 
 <figure><img src="../../.gitbook/assets/portsip-one-desktop-call-retrieve.png" alt=""><figcaption></figcaption></figure>
 
-### **Call Flip**
+#### Call Flip
 
 **Call Flip** allows you to quickly transfer an active call from PortSIP ONE to another endpoint, such as PortSIP ONE mobile or an IP phone. To perform a Call Flip while on an active call:
 
@@ -129,7 +129,7 @@ Once a call is parked to an extension user or a park group, the extension user o
 
 <figure><img src="../../.gitbook/assets/portsip-one-desktop-call-flip.png" alt=""><figcaption></figcaption></figure>
 
-## How to access your voicemail
+### How to access your voicemail
 
 To access your voicemails, click on the **Voicemails** tab. The page is divided into two sections:
 
@@ -138,17 +138,17 @@ To access your voicemails, click on the **Voicemails** tab. The page is divided 
 
 <figure><img src="../../.gitbook/assets/portsip-one-vm.png" alt=""><figcaption></figcaption></figure>
 
-### **Listening to a voicemail**
+#### Listening to a voicemail
 
 1. **Select the Voicemail Message**: In the **Voicemail Window**, click on the desired message. The message details will appear on the right side of the screen.
 2. **Play the Voicemail**: Click the **Play** button to listen to the selected message.
 
-### **Downloading a voicemail message**
+#### Downloading a voicemail message
 
 1. **Download the Message**: In the **Voicemail Details** section, click the **Download** icon button.
 2. **Save the File**: Choose the desired location on your computer to save the `.wav` file and confirm the download.
 
-### **Deleting a voicemail message**
+#### Deleting a voicemail message
 
 1. In the **Voicemail Window**, locate the voicemail message you wish to delete.
 2. Click on the **...** (ellipsis) button located at the upper right corner of the message to open the options menu.
@@ -156,7 +156,7 @@ To access your voicemails, click on the **Voicemails** tab. The page is divided 
 4. **Confirm Deletion**: A confirmation prompt will appear to verify your intention to delete the selected voicemail.
 5. Click **Delete** to confirm. The message will be permanently removed from your voicemail section.
 
-## **Accessing your contacts**
+### Accessing your contacts
 
 To access your contact directory, follow these steps:
 
@@ -174,7 +174,7 @@ To access your contact directory, follow these steps:
 
 <figure><img src="../../.gitbook/assets/portsip-contacts.png" alt=""><figcaption></figcaption></figure>
 
-### **Adding a new contact**
+#### Adding a new contact
 
 To add a new contact to your directory, follow these steps:
 
@@ -187,7 +187,7 @@ Your new contact will now appear in the **My Contacts** table.
 
 <figure><img src="../../.gitbook/assets/portsip-contacts-1.png" alt=""><figcaption></figcaption></figure>
 
-### **Deleting a contact**
+#### Deleting a contact
 
 To delete a contact, follow these steps:
 
@@ -202,7 +202,7 @@ To delete a contact, follow these steps:
 
 <figure><img src="../../.gitbook/assets/portsip-contacts-2.png" alt=""><figcaption></figcaption></figure>
 
-### **Bulk deleting contacts**
+#### Bulk deleting contacts
 
 To efficiently remove multiple contacts at once, follow these steps:
 
@@ -227,7 +227,7 @@ To efficiently remove multiple contacts at once, follow these steps:
 
 <figure><img src="../../.gitbook/assets/portsip-contacts-5.png" alt=""><figcaption></figcaption></figure>
 
-### **Adding a user/contact to favorites**
+#### Adding a user/contact to favorites
 
 To quickly access your most frequently used contacts, you can mark them as favorites. Follow these steps to add a contact to your **Favorites** list:
 
@@ -245,7 +245,7 @@ To quickly access your most frequently used contacts, you can mark them as favor
 Both the extension users and contacts can be favored.
 {% endhint %}
 
-## How to access team messages <a href="#id-6" id="id-6"></a>
+### How to access team messages <a href="#id-6" id="id-6"></a>
 
 PortSIP allows seamless communication within your team through internal extension user chat. If the contact you're messaging isn't an extension user, messages will be sent via SMS, MMS, or a WhatsApp channel, ensuring you're always connected.
 
@@ -258,7 +258,7 @@ To access your team messages, follow these steps:
 
 <figure><img src="../../.gitbook/assets/portsip-one-message.png" alt=""><figcaption></figcaption></figure>
 
-### Sending a new team message
+#### Sending a new team message
 
 There are **three ways** to send a new team message:
 
@@ -287,7 +287,7 @@ There are **three ways** to send a new team message:
 
 Once you’ve entered the chat UI, type your message in the chat window, when you're ready, press **Enter** on your keyboard to send the message. You can also click the arrow icon to send the message.
 
-### Creating a team messaging group
+#### Creating a team messaging group
 
 1. **Navigate to the Messaging Menu:** Go to the **Messaging** menu within the application.
 2. **Create a New Group:** Click on the **New Group** icon. The **New Group** window will appear.
@@ -303,7 +303,7 @@ Once you’ve entered the chat UI, type your message in the chat window, when yo
 
 <figure><img src="../../.gitbook/assets/portsip-one-group-message.png" alt=""><figcaption></figcaption></figure>
 
-### Sending a team message in a group
+#### Sending a team message in a group
 
 1. **Select the Group:** Click on the desired group within the **Team Messaging** window to open the conversation.
 2. **Compose Your Message:** Type your message in the **chat window** field located in the information area.
