@@ -72,12 +72,8 @@ For seamless integration with the HA environment, the Data Flow server must meet
 
 To ensure stable operation and sufficient capacity for growth, we recommend the following disk allocations:
 
-* **System Volume (Linux OS):**
-  * Minimum **64 GB**
-  * Used exclusively for the operating system and system components
-* **Data Volume (PBX Data):**
-  * Minimum **256 GB**
-  * Used for storing call detail records (CDRs), logs, recordings, and messaging data
+* Minimum **128 GB**
+* Used for storing call detail records (CDRs), logs, recordings, and messaging data
 
 If your deployment handles **very large call volumes**, increase the data volume size accordingly, as described in the earlier sections of this guide.
 

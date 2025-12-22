@@ -1,109 +1,155 @@
 # Scaling Servers On-Premise for High Availability
 
-This guide explains how to configure cluster servers for a High Availability (HA) PortSIP PBX deployment, capable of supporting over 1 million users, approximately 50,000 online (registered/signed-in) users, and up to 10,000 simultaneous calls. The setup is also well-suited for high-demand scenarios, including large meetings, IVR, and call queues.
+This guide explains how to configure cluster servers for a **High Availability (HA) PortSIP PBX deployment** designed to operate at very large scale.\
+The architecture can support:
 
-## Prerequisites
+* Over 1 million total users
+* Approximately 50,000 concurrently registered (online) users
+* Up to 10,000 simultaneous calls
 
-Before configuring the cluster servers, please ensure that you have completed the PBX HA installation and configuration on the **Main Server** by following the guide [High Availability Installations on Ubuntu](high-availability-installations-on-ubuntu.md).
+This deployment model is also ideal for **high-demand workloads**, including large meetings, IVR applications, and high-volume call queues.
 
-{% hint style="danger" %}
-Note: In this step, just need to install the PBX only, is no need to install the IM server at this stage, as it will be installed later in this guide.
-{% endhint %}
+***
 
-## Preparing Cluster Servers
+### Prerequisites
 
-We need to prepare the Linux servers for installing the following cluster application servers:
+Before configuring the cluster servers, ensure that you have successfully completed the PBX HA installation and configuration on the **Main Server** by following the guide: [High Availability Installations on Ubuntu](high-availability-installations-on-ubuntu.md)
+
+> ❗ **Note**\
+> At this stage, **only the PBX needs to be installed**.\
+> The **Instant Messaging (IM) server and Data Flow server should not be installed yet**, as it will be deployed later in this guide.
+
+***
+
+### Preparing Cluster Servers
+
+The following Linux servers must be prepared to host the PortSIP cluster application services:
 
 * Media Servers
 * Queue Servers
 * Meeting Servers
-* IVR servers
+* IVR Servers
 
-In this guide, we assume that the following servers are being installed for the cluster:
+#### Example Cluster Topology
 
-* **Main Server**: Install the PBX HA with a **virtual IP address** of **192.168.1.130**.
-* **Server 1**: Install a media server with a private IP address of **192.168.1.21** and a static public IP of **104.101.137.60**.
-* **Server 2**: Install a queue server with an IP address of **192.168.1.22**.
-* **Server 3**: Install a meeting server with an IP address of **192.168.1.23**.
-* **Server 4**: Install an IVR server with an IP address of 1**92.168.1.24**.
+In this guide, the cluster is deployed using the following server layout:
 
-{% hint style="danger" %}
-A server can only deploy one type of PortSIP server at a time. For instance, it's not allowed to deploy both the media server and queue server simultaneously on **Server 1**.
-{% endhint %}
+* **Main Server:** PBX HA with a virtual IP address: `192.168.1.130`
+* **Server 1 – Media Server**
+  * Private IP: `192.168.1.21`
+  * Static Public IP: `104.101.137.60`
+* **Server 2 – Queue Server:** IP address: `192.168.1.22`
+* **Server 3 – Meeting Server:** IP address: `192.168.1.23`
+* **Server 4 – IVR Server:** IP address: `192.168.1.24`
 
-## Supported Linux OS
+> ❗ **Important**\
+> Each server can deploy **only one server role**.\
+> For example, you **must not** deploy both a Media Server and a Queue Server on the same machine.
 
-PortSIP PBX High Availability (HA) and all associated cluster servers require a consistent and compatible Linux environment.
+***
 
-### Operating System Requirements
+### Supported Linux Operating System
 
 * **Supported OS:** Ubuntu 24.04 (64-bit)
-* All servers in the HA cluster **must run the exact same OS version** as the PBX server.
+* **Version Consistency:** All servers in the HA cluster **must run the exact same OS version** as the PBX server.
+
+***
 
 ### User Account Requirements
 
-* All cluster servers must use the **same username and password** as the PBX server.
-* In this guide, the username **`pbx`** is used as an example. The user account **must have `sudo` privileges** to execute administrative commands.
+* All cluster servers must use **the same username and password** as the PBX server.
+* In this guide, the username **`pbx`** is used as an example.
+* The user account **must have sudo privileges** to execute administrative commands.
+
+***
 
 ### Disk Space Recommendations
 
-* **Cluster Servers:** A minimum of **128 GB** of disk space is required. No additional data partition is necessary.
-* **Media Servers (with Call Recording Enabled):** If call recording is enabled, a minimum of **256 GB** of disk space is recommended to accommodate the additional storage requirements.
+* **Cluster Servers:**\
+  Minimum **128 GB** disk space(No separate data partition is required.)
+* **Media Servers with Call Recording Enabled:**\
+  Minimum **256 GB** disk space is recommended to accommodate recording storage.
 
-{% hint style="danger" %}
-When setting up the PBX cluster, please ensure there is sufficient network speed and bandwidth between the servers. Insufficient network resources may cause the PBX to not work as expected.
-{% endhint %}
+***
 
-## **Preparing the Linux Host Machine for Installation**
+### Network Requirements
 
-Tasks that MUST be completed before installing cluster servers.
+When deploying a PBX cluster, ensure **sufficient network bandwidth and low latency** between all servers.
 
-* **Ensure the server date-time is synced correctly**.
-* If the Linux server is on a LAN, assign a **Static Private IP** address.
-* For the **media server cluster**, each media server also needs a **Static Public IP** address if you want the user to call from the Internet.
-* Install all available updates and service packs before installing the cluster server.
+> Insufficient network capacity or unstable connectivity may cause degraded performance or unexpected system behavior.
+
+***
+
+### Preparing the Linux Host Machine for Installation
+
+The following tasks must be completed before installing any cluster server components:
+
+* Ensure the system date and time are correctly synchronized.
+* If the server is on a LAN, assign a static private IP address.
+* For Media Server clusters, each Media Server must also have a static public IP address if it will handle calls from the Internet.
+* Install all available OS updates and service packs.
 * Do not install PostgreSQL on the server.
-* Ensure that all power-saving options for your system and network adapters are disabled (by setting the system to High-Performance mode).
-* Do not install TeamViewer, VPN, or similar software on the host machine.
-* The server must not be installed as a DNS or DHCP server.
+* Disable all power-saving features for the system and network adapters (use High-Performance mode).
+* Do not install TeamViewer, VPN clients, or similar remote access software.
+* The server must not function as a DNS or DHCP server.
 
-## **Set password-free login for all these servers**
+***
 
-{% hint style="danger" %}
-The following commands provided below should only be executed on the PBX HA node "**pbx01**".
-{% endhint %}
 
-The following commands provided below should only be executed on the PBX HA node "**pbx01**".
 
-If you are prompted to choose an option (**yes/no**), please enter **yes**.
 
-```sh
+
+
+
+
+
+### Set Up Password-Free Login for All Cluster Servers
+
+The following commands **must be executed only on the PBX HA primary node (`pbx01`)**.
+
+This step enables password-free SSH access from the PBX HA node to all cluster servers, which is required for automated deployment and management.
+
+If you are prompted to confirm the connection (yes/no), please enter **`yes`**.
+
+```bash
 ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@192.168.1.21
-```
-
-```sh
 ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@192.168.1.22
-```
-
-```sh
 ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@192.168.1.23
-```
-
-```sh
 ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@192.168.1.24
 ```
 
-## Add the Cluster Servers
+***
 
-To add the cluster servers in the web portal, sign in to the **PBX Web portal** as the system administrator.
+### Add the Cluster Servers
 
-### Disable Default Servers <a href="#disable-default-servers" id="disable-default-servers"></a>
+To add the cluster servers, sign in to the **PBX Web Portal** as a **System Administrator**.
 
-The PortSIP PBX installation comes with default media, queue, meeting, and IVR servers. We recommend disabling these default servers so that the **Main Server** only handles SIP signaling, allowing it to support more users and calls.
+From the administration interface, you can register each Media Server, Queue Server, Meeting Server, and IVR Server so they become part of the HA cluster.
 
-To do this, please select the **Servers** menu, expand each server type (media servers, queue servers, meeting servers, IVR servers), and turn off the default server as the below screenshot shows up.
+***
 
-**Note:** The IM server does not need to be disabled.
+### Disable Default Servers on the Main Server
+
+By default, PortSIP PBX installs **local Media, Queue, Meeting, and IVR servers** on the Main Server.
+
+For large-scale and high-availability deployments, we strongly recommend **disabling these default servers** so that the Main Server is dedicated exclusively to **SIP signaling and call control**. This significantly improves scalability and allows the system to support more users and concurrent calls.
+
+#### Steps
+
+1. Go to the **Servers** menu in the PBX Web Portal.
+2. Expand each server category:
+   * Media Servers
+   * Queue Servers
+   * Meeting Servers
+   * IVR Servers
+3. Disable the **default server** in each category, as shown in the screenshot below.
+
+> **Note**\
+> The **Instant Messaging (IM) Server does not need to be disabled** and should remain enabled.
+
+***
+
+If you want, next I can:
 
 <figure><img src="../../../.gitbook/assets/disable-default-media-server.png" alt=""><figcaption></figcaption></figure>
 
