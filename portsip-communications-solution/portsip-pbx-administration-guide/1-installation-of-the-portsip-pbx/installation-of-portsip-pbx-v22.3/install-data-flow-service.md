@@ -37,7 +37,7 @@ For additional reference, see the [**ClickHouse official best practices document
 #### Minimum Requirements
 
 * **vCPU**: 4 cores
-* **Memory**: 16 GB
+* **Memory**: 8 GB
 * **Disk**: 128 GB SSD
 
 ***
@@ -45,7 +45,7 @@ For additional reference, see the [**ClickHouse official best practices document
 #### Recommended Requirements
 
 * **vCPU**: 8 cores
-* **Memory**: 32 GB
+* **Memory**: 16 GB
 * **Disk**: 256GB or larger (NVMe SSD preferred)
 
 ***
