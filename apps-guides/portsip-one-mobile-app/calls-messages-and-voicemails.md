@@ -1,10 +1,10 @@
 # Calls, Messages, and Voicemails
 
-## Mobile App Overview <a href="#id-3" id="id-3"></a>
+### Mobile App Overview <a href="#id-3" id="id-3"></a>
 
-Upon logging in, you will see the dashboard with Messages being the first page you see. Let’s take a look around the mobile client to familiarize yourself with the app.
+Upon logging in, you will see the dashboard with Messages being the first page you see. Let’s take a look around the mobile client to familiarize ourselvesyourself with the app.
 
-### Chat Tab
+#### Chat Tab
 
 The Chat tab is where you will send and receive chat messages and where a list of recent messages will be displayed. Chats are listed chronologically with the newest messages on top. Viewing and sending messages is easy.
 
@@ -14,7 +14,7 @@ The Chat tab is where you will send and receive chat messages and where a list o
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-8.png" alt="" width="375"><figcaption></figcaption></figure>
 
-### Call/History Tab
+#### Call/History Tab
 
 The Calls tab displays all recent calls, including those you made, received, and missed.
 
@@ -24,25 +24,25 @@ The Calls tab displays all recent calls, including those you made, received, and
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-9.png" alt="" width="375"><figcaption></figcaption></figure>
 
-### Contacts Tab
+#### Contacts Tab
 
 The Contacts tab contains all of your saved contacts. It is broken down into five distinct areas. All Contacts, which displays all your saved contacts, and your Company Contacts, which displays contacts listed in your company’s directory.
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-10.png" alt="" width="375"><figcaption></figcaption></figure>
 
-### Keypad Tab
+#### Keypad Tab
 
 The Keypad tab is used to make calls to numbers that have not been saved as contacts. Additionally, it allows you to enter special FAC to perform various actions, such as retrieving group-parked calls or enabling the "Do Not Disturb" feature.
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-11.png" alt="" width="375"><figcaption></figcaption></figure>
 
-### Meetings Tab
+#### Meetings Tab
 
 The Meetings tab is where you can access your upcoming meetings list, join existing meetings, and schedule new ones, allowing you to quickly view and manage your scheduled video conferences.
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-13.png" alt="" width="375"><figcaption></figcaption></figure>
 
-## How to access your Quick Menu <a href="#id-4" id="id-4"></a>
+### How to access your Quick Menu <a href="#id-4" id="id-4"></a>
 
 On the left side of the dashboard, you will see your profile icon displaying your initials. This is the mobile client’s quick menu. To access this menu:
 
@@ -54,13 +54,13 @@ On the left side of the dashboard, you will see your profile icon displaying you
 * Personal information is displayed here, including your name and extension.
 * Here you can mute calls for the mobile app. When this option is enabled, all incoming calls will no longer ring the mobile app but will ring other devices associated with your number or extension.
 
-## How to access your Settings <a href="#id-5" id="id-5"></a>
+### How to access your Settings <a href="#id-5" id="id-5"></a>
 
 To access your settings, from the Quick Menu, click on **Settings**. Here, you have the option to configure the following areas.
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-16.png" alt="" width="375"><figcaption></figcaption></figure>
 
-## How to Place Calls <a href="#id-6" id="id-6"></a>
+### How to Place Calls <a href="#id-6" id="id-6"></a>
 
 There are several ways to place outbound calls using the mobile app.
 
@@ -82,7 +82,7 @@ To place a call using your app:
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-17.png" alt="" width="375"><figcaption></figcaption></figure>
 
-### Blind transferring a call
+#### Blind transferring a call
 
 To transfer a call, during an active call:
 
@@ -95,7 +95,7 @@ To transfer a call, during an active call:
 4. Or you can transfer the call to an ad-hoc number by using the keypad.
 5. Once selected or entered in the dialpad, the call is transferred to the recipient.
 
-### Attended transferring a call
+#### Attended transferring a call
 
 If you are on an active call, you can perform an Attended Transfer to another contact within the company directory or any other number you dial via the keypad.
 
@@ -110,7 +110,7 @@ To do this while on an active call:
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-19.png" alt="" width="375"><figcaption></figcaption></figure>
 
-### Transferring a call to voicemail <a href="#transferring-a-call-to-voicemail" id="transferring-a-call-to-voicemail"></a>
+#### Transferring a call to voicemail <a href="#transferring-a-call-to-voicemail" id="transferring-a-call-to-voicemail"></a>
 
 A **Direct-to-Voicemail Transfer** is used when you wish to transfer a call directly to another user’s voicemail. To perform a transfer to voicemail while on an active call:
 
@@ -119,14 +119,14 @@ A **Direct-to-Voicemail Transfer** is used when you wish to transfer a call dire
 3. From the **Contact Panel**, select the recipient to whom you wish to transfer the call to click on it.
 4. The call will be transferred directly to their voicemail.
 
-### Call on Hold <a href="#id-9" id="id-9"></a>
+#### Call on Hold <a href="#id-9" id="id-9"></a>
 
 To put a call on hold, during an active call:
 
 * Tap **Hold**. The caller will go on hold and hear the on-hold audio based on the Music-on-Hold file that has been set up for your tenant.
 * Tap the **Hold** icon again, the call will be resumed.
 
-### Direct parking a call <a href="#direct-parking-a-call" id="direct-parking-a-call"></a>
+#### Direct parking a call <a href="#direct-parking-a-call" id="direct-parking-a-call"></a>
 
 To park a call to an extension while on an active call:
 
@@ -139,7 +139,7 @@ To park a call to an extension while on an active call:
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-21.png" alt="" width="375"><figcaption></figcaption></figure>
 
-### Group parking a call <a href="#group-parking-a-call" id="group-parking-a-call"></a>
+#### Group parking a call <a href="#group-parking-a-call" id="group-parking-a-call"></a>
 
 If the user is a member of a park group, they can park a call to the group, allowing group members to retrieve the parked call.
 
@@ -150,7 +150,7 @@ To park a call to the group while on an active call:
 
 The call will be parked to the group if the user is a member of a park group. All of the other members of this park group will receive notification and then can simply retrieve the call.
 
-### Retrieving a parked call <a href="#retrieving-a-parked-call" id="retrieving-a-parked-call"></a>
+#### Retrieving a parked call <a href="#retrieving-a-parked-call" id="retrieving-a-parked-call"></a>
 
 Once a call is parked to an extension user or a park group, the extension user or group members will receive a notification. As shown in the screenshot below, the **Call HUB** icon on the top title bar will start blinking with red color.
 
@@ -159,7 +159,7 @@ Once a call is parked to an extension user or a park group, the extension user o
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-22.png.png" alt="" width="375"><figcaption></figcaption></figure>
 
-### Call Flip <a href="#call-flip" id="call-flip"></a>
+#### Call Flip <a href="#call-flip" id="call-flip"></a>
 
 **Call Flip** allows you to quickly transfer an active call from PortSIP ONE to another endpoint, such as PortSIP ONE mobile or an IP phone. To perform a Call Flip while on an active call:
 
@@ -178,7 +178,7 @@ To access your voicemails, click on the **Messages** tab. The page is divided in
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-23.png.png" alt="" width="375"><figcaption></figcaption></figure>
 
-## Accessing your contacts
+### Accessing your contacts
 
 To access your contact directory, follow these steps:
 
@@ -194,7 +194,7 @@ To access your contact directory, follow these steps:
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-24.png" alt="" width="375"><figcaption></figcaption></figure>
 
-### **Adding a new contact** <a href="#adding-a-new-contact" id="adding-a-new-contact"></a>
+#### **Adding a new contact** <a href="#adding-a-new-contact" id="adding-a-new-contact"></a>
 
 To add a new contact to your directory, follow these steps:
 
@@ -207,7 +207,7 @@ Your new contact will now appear in the **My Contacts** table.
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-25.png" alt="" width="375"><figcaption></figcaption></figure>
 
-### **Adding a user/contact to favorites** <a href="#adding-a-user-contact-to-favorites" id="adding-a-user-contact-to-favorites"></a>
+#### **Adding a user/contact to favorites** <a href="#adding-a-user-contact-to-favorites" id="adding-a-user-contact-to-favorites"></a>
 
 To quickly access your most frequently used contacts, you can mark them as favorites. Follow these steps to add a contact to your **Favorites** list:
 
@@ -227,7 +227,7 @@ To quickly access your most frequently used contacts, you can mark them as favor
 Both the extension users and contacts can be favored.
 {% endhint %}
 
-## How to access team messages <a href="#id-6" id="id-6"></a>
+### How to access team messages <a href="#id-6" id="id-6"></a>
 
 PortSIP allows seamless communication within your team through internal extension user chat. If the contact you're messaging isn't an extension user, messages will be sent via SMS, MMS, or a WhatsApp channel, ensuring you're always connected.
 
@@ -242,7 +242,7 @@ To access your team messages, follow these steps:
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-28 (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
-### Sending a new team message <a href="#sending-a-new-team-message" id="sending-a-new-team-message"></a>
+#### Sending a new team message <a href="#sending-a-new-team-message" id="sending-a-new-team-message"></a>
 
 There are two ways to send a new team message:
 
@@ -256,7 +256,7 @@ There are two ways to send a new team message:
    3. Select **Create a message**.
    4. You’ll be redirected to the chat window; compose and send your message.
 
-### Creating a team messaging group <a href="#creating-a-team-messaging-group" id="creating-a-team-messaging-group"></a>
+#### Creating a team messaging group <a href="#creating-a-team-messaging-group" id="creating-a-team-messaging-group"></a>
 
 1. Navigate to **Messaging**.
 2. Tap the **+** icon in the top-right corner to open the menu.

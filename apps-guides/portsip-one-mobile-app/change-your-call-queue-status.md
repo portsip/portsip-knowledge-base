@@ -4,7 +4,7 @@ When your administrator assigns you as an agent to a call queue, you can manage 
 
 When a call enters your assigned call queue and your status is set to **Ready**, you will receive a notification within the app. You can then answer the call directly from the PortSIP ONE app.
 
-## Changing Your Call Queue Status
+### Changing Your Call Queue Status
 
 To manage your call queue status, follow these simple steps:
 
