@@ -137,7 +137,7 @@ sudo /bin/sh pbx_ctl.sh run \
 
 ***
 
-**Access the PBX Web Portal**
+#### Step 4: Configure the PortSIP PBX
 
 After the installation completes successfully, access the PBX web portal at: https://66.175.221.120:8887
 
@@ -152,12 +152,8 @@ Click on **"Sign in as the administrator or dealer"** to navigate to the adminis
 
 ***
 
-#### Step 4: Configure the PortSIP PBX
-
 For a new installation, the PBX automatically launches a **Setup Wizard** after the first successful login to the PBX web portal.\
 This wizard guides you through the mandatory initial configuration steps.
-
-***
 
 **1. Network Environment**
 
