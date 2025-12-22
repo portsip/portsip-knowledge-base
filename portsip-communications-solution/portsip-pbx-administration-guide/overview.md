@@ -1,6 +1,6 @@
 # Overview
 
-## Our product is not built on Asterisk or FreeSwitch.
+### Our product is not built on Asterisk or FreeSwitch.
 
 [PortSIP PBX](https://www.portsip.com/portsip-pbx/) is a software-based VoIP PBX that offers business collaboration solutions. it’s designed for both on-premise and cloud PBX environments, including SBC, audio, video calling, Instant Messaging, presence, rich text chat, Microsoft Teams Direct Routing, WebRTC, sharing screens, sending file, picture, voice, and video messages, and mobile push notifications.&#x20;
 
@@ -87,10 +87,18 @@ The solution includes the following features:
 * Synchronous CDR across apps
 * Free client VoIP SDK
 
-## Deployment Architecture
+### Deployment Architecture
 
 <figure><img src="../../.gitbook/assets/pbx_diagram_v16.drawio.png" alt=""><figcaption></figcaption></figure>
 
-## Design Architecture
+### Design Architecture
 
 <figure><img src="../../.gitbook/assets/design_arch.png" alt=""><figcaption></figcaption></figure>
+
+### Getting Help and Support Resources
+
+[PortSIP Support Center](https://support.portsip.com/)&#x20;
+
+[Submit a request](https://portsip.zendesk.com/hc/en-us/requests/new)
+
+[Email support](mailto:support@portsip.com)

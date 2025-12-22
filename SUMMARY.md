@@ -8,7 +8,6 @@
 * [PortSIP PBX Administration Guide](portsip-communications-solution/portsip-pbx-administration-guide/README.md)
   * [Overview](portsip-communications-solution/portsip-pbx-administration-guide/overview.md)
   * [Summary of Changes](portsip-communications-solution/portsip-pbx-administration-guide/summary-of-changes.md)
-  * [Before Started](portsip-communications-solution/portsip-pbx-administration-guide/before-started.md)
   * [Prepare the AWS Environment for Deployment](portsip-communications-solution/portsip-pbx-administration-guide/prepare-the-aws-environment-for-deployment.md)
   * [1 Installation of the PortSIP PBX](portsip-communications-solution/portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/README.md)
     * [Installation of PortSIP PBX v22.x](portsip-communications-solution/portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.3/README.md)
