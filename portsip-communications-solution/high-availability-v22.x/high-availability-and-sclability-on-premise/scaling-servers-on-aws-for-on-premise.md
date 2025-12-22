@@ -268,9 +268,8 @@ Follow the steps below to add and deploy a new **Meeting Server** in the HA clus
 
 <figure><img src="../../../.gitbook/assets/meeting-server-1.png" alt=""><figcaption></figcaption></figure>
 
-> **Important**\
-> Use the server name **`meeting-server-1`**.\
-> This name will be required in a later deployment step.
+> ❗**Important**\
+> Use the server name **`meeting-server-1`**. This name will be required in a later deployment step.
 
 ***
 
@@ -319,9 +318,8 @@ Follow the steps below to add and deploy a new **IVR Server** in the HA cluster.
 
 <figure><img src="../../../.gitbook/assets/vr-server-1.png" alt=""><figcaption></figcaption></figure>
 
-> **Important**\
-> Use the server name **`ivr-server-1`**.\
-> This name will be required in a later deployment step.
+> ❗**Important**\
+> Use the server name **`ivr-server-1`**. This name will be required in a later deployment step.
 
 ***
 
@@ -517,12 +515,12 @@ cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh rm \
 #### Important Notes
 
 * All upgrade commands **must be executed on the `pbx01` node**, even if it is not currently the active node.
-* Before upgrading extended servers, ensure that the PBX HA itself has already been upgraded by following the guide: [Upgrading High Availability Installation](upgrading-high-availability-installation.md)
+* Before upgrading extended servers, ensure that the PBX HA itself has already been upgraded by following the guide: [Upgrading High Availability Installation](../high-availability-and-scalability-on-aws/upgrading-high-availability-installation.md)
 * The upgrade process may take some time. **Do not interrupt the process**.
 
 ***
 
-### Upgrading All Extended Servers
+#### Upgrading All Extended Servers
 
 To upgrade **all extended servers** (Media, Queue, Meeting, and IVR), run:
 
@@ -532,17 +530,17 @@ cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh upgrade
 
 ***
 
-### Upgrading a Specific Type of Extended Server
+#### Upgrading a Specific Type of Extended Server
 
 To upgrade only a specific server type, use the `-s` parameter.
 
-#### Example: Upgrade All Media Servers
+**Example: Upgrade All Media Servers**
 
 ```bash
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh upgrade -s media-server-only
 ```
 
-#### Supported Server Types for Upgrade
+**Supported Server Types for Upgrade:**
 
 * `media-server-only` – Upgrade all Media Servers
 * `queue-server-only` – Upgrade all Queue Servers
@@ -551,174 +549,5 @@ cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh upgrade -s media-server-onl
 
 ***
 
-If you want, I can next:
 
-
-
-
-
-
-
-
-
-
-
-## Managing Extended Servers
-
-{% hint style="danger" %}
-**Important:**\
-All management commands for extended servers **must be executed on the `pbx01` node**, regardless of whether it is currently the active node.
-{% endhint %}
-
-### Available Operations
-
-The following operations are supported for managing extended servers:
-
-* `start` – Start the servers
-* `stop` – Stop the servers
-* `restart` – Restart the servers
-* `rm` – Remove the installed servers
-
-You can optionally target specific server types using the `-s` parameter, with one of the following values:
-
-* `media-server-only` – Manage all Media Servers
-* `queue-server-only` – Manage all Queue Servers
-* `meeting-server-only` – Manage all Meeting Servers
-* `ivr-server-only` – Manage all IVR Servers
-
-To manage a **specific server instance** by its IP address, use the `-a` parameter.
-
-### Managing All Extended Servers
-
-The following commands apply actions to **all** extended servers(Media servers, Queue Servers, Meeting Servers, IVR Servers):
-
-**Start All:**
-
-```sh
-cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh start
-```
-
-**Stop All:**
-
-```sh
-cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh stop
-```
-
-**Restart All:**
-
-```sh
-cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh restart
-```
-
-**Remove All:**
-
-```sh
-cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh rm
-```
-
-### Managing a Specific Type of Extended Servers
-
-To manage only a **specific type** of extended server (e.g., Media Servers), use the `-s` parameter. Replace `media-server-only` with other supported server types as needed.
-
-**Start All Media Servers:**
-
-```sh
-cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh start -s media-server-only
-```
-
-**Stop All Media Servers:**
-
-```sh
-cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh stop -s media-server-only
-```
-
-**Restart All Media Servers:**
-
-```sh
-cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh restart -s media-server-only
-```
-
-**Remove All Media Servers:**
-
-```sh
-cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh rm -s media-server-only
-```
-
-### Managing a Specific Server Instance by IP
-
-To manage a **specific server instance** (e.g., a Media Server at IP `192.168.1.21`), use both `-s` and `-a` parameters:
-
-**Start Specific Media Server:**
-
-```sh
-cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh start \
--s media-server-only \
--a 192.168.1.21
-```
-
-**Stop Specific Media Server:**
-
-```sh
-cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh stop \
--s media-server-only \
--a 192.168.1.21
-```
-
-**Restart Specific Media Server:**
-
-```sh
-cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh restart \
--s media-server-only \
--a 192.168.1.21
-```
-
-**Remove Specific Media Server:**
-
-```sh
-cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh rm \
--s media-server-only \
--a 192.168.1.21
-```
-
-{% hint style="info" %}
-Replace `media-server-only` with another server type as needed (e.g., `queue-server-only`), and replace `192.168.1.21` with the corresponding server’s IP address.
-{% endhint %}
-
-## Upgrading Servers <a href="#upgrade-server" id="upgrade-server"></a>
-
-{% hint style="danger" %}
-All the below commands must be performed on the pbx01 node, even if it is not the current active node.
-{% endhint %}
-
-Perform the following command only on the HA PBX node **pbx01,** even if it is not the current active node.
-
-First, please ensure you have upgraded the PBX HA as per this guide: [Upgrading High Availability Installation](upgrading-high-availability-installation.md).&#x20;
-
-The upgrading process may take some time—**do not interrupt, reboot, or close the terminal** during execution.
-
-### Upgrading All Extended Servers
-
-If you want to upgrade all extended servers—including the **Media Server**, **Queue Server**, **Meeting Server**, and **IVR Server**—run the following command:
-
-```sh
-cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh upgrade
-```
-
-### Upgrading Specific Types of Extended Servers
-
-If you want to upgrade only a specific type of extended server, use the `-s` parameter to define the server type. For example, to upgrade **all Media Servers**:
-
-```sh
-cd /opt/portsip-pbx-ha-guide/ && \
-/bin/bash extend.sh upgrade -s media-server-only
-```
-
-**Supported Server Types**
-
-In the above command, you can use one of the following values with the `-s` parameter:
-
-* `media-server-only` – Upgrade all Media Servers
-* `queue-server-only` – Upgrade all Queue Servers
-* `meeting-server-only` – Upgrade all Meeting Servers
-* `ivr-server-only` – Upgrade all IVR Servers
 
