@@ -40,7 +40,10 @@ All commands in this section must be executed in the following directory:
 
 #### Update the Installation Scripts
 
-Run the following commands to download and apply the latest upgrade scripts:
+> ❗ **Important**\
+> This step is **mandatory**, don't skip this step!
+
+Run the following commands to download and apply the latest upgrade scripts on every server!
 
 ```bash
 sudo curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.3/init.sh -o init.sh

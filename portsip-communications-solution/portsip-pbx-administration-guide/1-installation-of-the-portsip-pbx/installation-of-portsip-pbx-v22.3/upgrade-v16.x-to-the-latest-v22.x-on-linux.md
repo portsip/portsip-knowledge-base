@@ -67,6 +67,9 @@ Please follow the guide [**Backup and Restore: An Essential Guide**](../../backu
 
 Download and apply the latest upgrade scripts by running the following commands:
 
+> ❗ **Important**\
+> This step is **mandatory**, don't skip this step!
+
 ```bash
 cd /opt/portsip && rm -rf *.sh
 sudo curl \

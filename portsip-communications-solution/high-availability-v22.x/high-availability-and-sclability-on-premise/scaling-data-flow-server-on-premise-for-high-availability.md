@@ -190,12 +190,10 @@ The data flow service deployment **must be initiated from the `pbx01` node** of 
 Example:
 
 ```bash
-cd /opt/portsip
-sudo /bin/sh dataflow_ctl.sh run \
--p /var/lib/portsip/ \
--a 192.168.1.26 \
--i portsip/pbx:22 \
--d portsip/clickhouse:25.8
+cd /opt/portsip-pbx-ha-guide/ && \
+/bin/bash dataflow.sh run \
+-p /var/lib/portsip \
+-a 192.168.1.26 
 ```
 
 #### Operational Notes (Data Flow)

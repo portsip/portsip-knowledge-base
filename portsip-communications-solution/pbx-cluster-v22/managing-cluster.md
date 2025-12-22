@@ -196,6 +196,9 @@ First, follow the guide [Upgrade to the Latest Version Within v22.x ](../portsip
 
 **Step 1: Download the Latest Initialization Script**
 
+> ❗ **Important**\
+> This step is **mandatory**, don't skip this step!
+
 ```bash
 sudo curl \
 https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.3/init.sh \
