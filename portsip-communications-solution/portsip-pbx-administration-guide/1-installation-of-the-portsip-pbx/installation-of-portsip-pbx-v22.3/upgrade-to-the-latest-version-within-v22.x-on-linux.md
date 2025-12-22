@@ -46,7 +46,7 @@ All commands in this section must be executed in the following directory:
 Run the following commands to download and apply the latest upgrade scripts on every server!
 
 ```bash
-sudo curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.3/init.sh -o init.sh
+sudo curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/init.sh -o init.sh
 sudo /bin/sh init.sh
 ```
 
@@ -93,7 +93,7 @@ cd /opt/portsip && sudo /bin/sh im_ctl.sh upgrade -i portsip/pbx:22
 On the IM server, first update the scripts:
 
 ```bash
-sudo curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.3/init.sh -o init.sh
+sudo curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/init.sh -o init.sh
 sudo /bin/sh init.sh
 ```
 
@@ -120,7 +120,7 @@ If you are upgrading from an existing **v22.3.x** release to a **newer v22.x** v
 On the **Data Flow server**, run the following commands:
 
 ```bash
-sudo curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.3/init.sh -o init.sh
+sudo curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/init.sh -o init.sh
 sudo /bin/sh init.sh
 ```
 

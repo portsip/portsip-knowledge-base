@@ -73,7 +73,7 @@ Download and apply the latest upgrade scripts by running the following commands:
 ```bash
 cd /opt/portsip && rm -rf *.sh
 sudo curl \
-https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.3/init.sh \
+https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/init.sh \
 -o init.sh
 sudo /bin/sh init.sh
 ```

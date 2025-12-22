@@ -201,7 +201,7 @@ First, follow the guide [Upgrade to the Latest Version Within v22.x ](../portsip
 
 ```bash
 sudo curl \
-https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.3/init.sh \
+https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/init.sh \
 -o init.sh
 sudo /bin/sh init.sh
 ```
