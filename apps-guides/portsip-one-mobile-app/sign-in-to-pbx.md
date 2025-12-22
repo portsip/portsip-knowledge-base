@@ -2,11 +2,11 @@
 
 Once installed, you can log in using the username and password or by scanning the QR code, or SSO.
 
-## Logging into the PortSIP ONE app via QR code
+### Logging into the PortSIP ONE app via QR code
 
 The PortSIP ONE app makes logging in effortless by using a QR code. Please follow the below steps to process.
 
-### 1. Obtaining a QR code
+#### 1. Obtaining a QR code
 
 If the SMTP server has been configured in PortSIP PBX by the tenant manager, the PBX will automatically email the account information and QR code to the extension user upon successful extension creation.
 
@@ -32,11 +32,11 @@ Within the **Extension** tab of a user’s settings, there are two QR code confi
 
 **Important Note:** If you modify the PBX IP address or adjust either of the above options, you must refresh the QR code by clicking on it to ensure the updated configuration is applied.
 
-### 2. Logging into the PortSIP ONE app
+#### 2. Logging into the PortSIP ONE app
 
-The PortSIP ONE app makes logging in effortless by using a QR code. On the PortSIP ONE login page, tap the QR code icon located in the upper right corner, then scan the QR code provided by the PBX. The app will log in automatically.
+The PortSIP ONE app makes logging in effortless by using a QR code. On the PortSIP ONE login page, tap the QR code icon, then scan the QR code provided by the PBX. The app will log in automatically.
 
-<figure><img src="../../.gitbook/assets/portsip-one-mobile-2.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/portsip_one_mobile_login_1.png" alt=""><figcaption></figcaption></figure>
 
 ## Logging into the PortSIP ONE app via SSO
 
