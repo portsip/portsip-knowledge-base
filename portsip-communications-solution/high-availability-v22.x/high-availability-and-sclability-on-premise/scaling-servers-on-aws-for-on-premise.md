@@ -95,17 +95,9 @@ The following tasks must be completed before installing any cluster server compo
 
 ***
 
-
-
-
-
-
-
-
-
 ### Set Up Password-Free Login for All Cluster Servers
 
-The following commands **must be executed only on the PBX HA primary node (`pbx01`)**.
+The following commands **must be executed only on the PBX HA master node (`pbx01`)**.
 
 This step enables password-free SSH access from the PBX HA node to all cluster servers, which is required for automated deployment and management.
 
@@ -130,11 +122,13 @@ From the administration interface, you can register each Media Server, Queue Ser
 
 ### Disable Default Servers on the Main Server
 
-By default, PortSIP PBX installs **local Media, Queue, Meeting, and IVR servers** on the Main Server.
+By default, PortSIP PBX installs **Media, Queue, Meeting, and IVR servers** on the Main Server.
 
 For large-scale and high-availability deployments, we strongly recommend **disabling these default servers** so that the Main Server is dedicated exclusively to **SIP signaling and call control**. This significantly improves scalability and allows the system to support more users and concurrent calls.
 
 #### Steps
+
+<figure><img src="../../../.gitbook/assets/disable-default-media-server.png" alt=""><figcaption></figcaption></figure>
 
 1. Go to the **Servers** menu in the PBX Web Portal.
 2. Expand each server category:
@@ -145,17 +139,15 @@ For large-scale and high-availability deployments, we strongly recommend **disab
 3. Disable the **default server** in each category, as shown in the screenshot below.
 
 > **Note**\
-> The **Instant Messaging (IM) Server does not need to be disabled** and should remain enabled.
+> The **Instant Messaging (IM) Server and data flow does not need to be disabled** and should remain enabled.
 
 ***
 
 If you want, next I can:
 
-<figure><img src="../../../.gitbook/assets/disable-default-media-server.png" alt=""><figcaption></figcaption></figure>
-
 ### Add Media Server <a href="#add-media-server" id="add-media-server"></a>
 
-To add a new media server, please follow the below steps:
+To add a new media server, please follow the steps below:
 
 1. Select the **Servers > Media Servers** menu and click the **Add** button.
 2. Enter the server information as shown in the screenshot, and then click the **OK** button to save it. Please remember the server name "**media-server-1**", we will use it in a later step.
