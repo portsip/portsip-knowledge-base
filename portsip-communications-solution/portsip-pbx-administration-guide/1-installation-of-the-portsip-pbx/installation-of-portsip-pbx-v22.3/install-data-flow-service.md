@@ -6,10 +6,10 @@ Starting with **PortSIP PBX v22.3**, PortSIP introduces a new component: the **P
 
 The Data Flow service powers the following advanced capabilities:
 
-* **Call Detail Record (CDR) storage and analytics**
-* **Comprehensive call reports**
-* **Real-time data dashboards**
-* **Queue wallboards for contact center operations**
+* Call Detail Record (CDR) storage and analytics
+* Comprehensive call reports
+* Real-time data dashboards
+* Queue wallboards for contact center operations
 
 ClickHouse is optimized for large-scale analytical workloads, capable of handling billions of CDRs and real-time queue or agent activity data with extremely fast query performance. This makes it ideal for service providers and enterprise-grade deployments.
 
