@@ -6,6 +6,8 @@ Once CRM integration is enabled at the **tenant level**, PortSIP ONE automatical
 
 After activation, CRM functionality is applied automatically during inbound and outbound calls, ensuring consistent customer context across the communication lifecycle.
 
+To use PortSIP ONE with CRM integration features, ensure that your tenant administrator has completed the [CRM configuration as described in the CRM Integrations](../../portsip-communications-solution/portsip-pbx-administration-guide/33-crm-integrations/) guide.
+
 ***
 
 ### How CRM Integration Works in PortSIP ONE
