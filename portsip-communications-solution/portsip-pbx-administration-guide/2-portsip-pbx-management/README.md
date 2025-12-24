@@ -121,7 +121,7 @@ You may change these ports if required, provided the selected ports are not alre
 
 ***
 
-### Reboot to Apply SSL Certificate
+### Step 4: Reboot to Apply SSL Certificate
 
 If you uploaded a trusted SSL certificate (instead of using the default self-signed certificate), you must restart the PBX to apply the changes.
 
@@ -132,7 +132,7 @@ cd /opt/portsip
 sudo /bin/sh pbx_ctl.sh restart
 ```
 
-After the restart, access the PBX Web Portal at: https://uc.portsip.cc:8887
+After the restart, you can now access the PBX Web Portal at: https://uc.portsip.cc:8887
 
 ***
 
