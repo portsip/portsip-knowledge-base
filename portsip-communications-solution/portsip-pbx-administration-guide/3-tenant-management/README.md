@@ -1,66 +1,72 @@
 # 3 Tenant Management
 
-After completing the Configuration Wizard, you may manage PortSIP PBX in the Web Portal, such as tenant, user(extension), call routing, call forwarding, feature access code, SIP trunk, queue, ring group, and so on.
+### PortSIP PBX Multi-Tenant Architecture
 
-## Creating Tenant
+**PortSIP PBX** is built on a **true multi-tenant architecture**, purpose-designed for service providers, operators, and enterprises that need to host and manage multiple independent customers on a single, centralized platform.
 
-To create a new tenant, select the left menu **Tenants** and click **Add**.
+Unlike traditional single-tenant PBX deployments, this architecture enables one PortSIP PBX system to securely serve **multiple tenants (customers),** each operating as an independent PBX, while efficiently sharing the same underlying infrastructure.
 
-When creating a tenant, you can specify the tenant profile details such as **Name**, **SIP Domain**, **Office Hours,** and **Storage**.&#x20;
+***
 
-A tenant's profile can be modified after the **System Admin**(admin) signs into the Web Portal. You can also limit the resources the tenant uses by clicking the **General** page. The **Capability** section under this tab allows you to set the maximum extensions, maximum concurrent calls, maximum ring groups, etc.
+### What Is a Tenant?
 
-The **General** page allows you to adjust the following features.
+In PortSIP PBX, a **tenant** represents an independent organization or customer. Each tenant functions as a fully self-contained PBX environment with:
 
-* **Name**: The name to identify that tenant, for example, "**ABC Company"**.
-* **SIP Domain**: The SIP domain for this tenant should be unique and can be a dummy domain that does not require real existence. It is the host part of the extension SIP URI used to distinguish multiple tenants. For example, if you set "**test1.com**" as the SIP domain for tenant A and "**test2.com**" for tenant B, then extension 101 of tenant A has the SIP URI: `sip:101@test1.com`; and extension 101 of tenant B has the SIP URI: `sip:101@test2.com`.
-* **Capability**: Used to set the capabilities for the tenant
+* Its own extensions, users, and tenant administrators
+* Independent call routing, trunks, and numbering plans
+* Dedicated call queues, IVRs, auto attendants, and voicemail
+* Isolated call recordings, CDRs, reports, and analytics
+* Tenant-specific policies, features, and branding
 
-{% hint style="danger" %}
-Don't set the PBX server's IP address as the tenant SIP Domain.
-{% endhint %}
+From the tenant’s perspective, the system behaves exactly like a **dedicated private PBX**, even though it runs on shared infrastructure.
 
-{% hint style="success" %}
-The tenant SIP domain can be any domain, even if it doesn’t actually exist or is unresolvable. It can simply be a dummy domain. It's used to provide a unique SIP address for an extension, thereby distinguishing extensions among different tenants.
-{% endhint %}
+***
 
-The **Options** page allows adjusting the following features.
+### Key Benefits of the Multi-Tenant Design
 
-* **Enable this Tenant**: If this option is deselected, this tenant will be disabled, and all extensions of this tenant will no longer be valid.
-* **Allow concurrent logins**: If this option is selected, the tenant can sign in to the Web Portal from multiple devices. If deselected, once the tenant signs in, the login in another PC/mobile phone will be invalid.
-* **Country**: The country of the tenant
-* **Timezone**: The timezone for the tenant
-* **Currency**: The currency of the tenant
-* **Enable extension audio recording**: If selected, all extension audio calls will be recorded even if the extension has not enabled recording in its profile.
-* **Enable extension video recording**: If selected, all extension video calls will be recorded even if the extension has not enabled recording in its profile.
+#### **True Logical Isolation and Tenant Transparency**
 
-The **Storage** page allows adjusting the storage quotas for Recording files, Voice Mails, and Call Reports:
+Each tenant is **completely isolated and invisible to other tenants** on the platform. Tenants cannot see, access, or interact with any other tenant’s users, data, numbers, or configuration.
 
-* **Disk quota (MB)**: The maximum disk quota allowed for this tenant.
+This **tenant-to-tenant transparency** ensures:
 
-You can set the method for deleting recording files and voice mails in the **Auto Cleaning** section.
+* Strong security and data privacy
+* No risk of configuration leakage or cross-tenant impact
+* A clean, dedicated PBX experience for every customer
 
-## Deactivating Tenant
+For end users and tenant administrators, the presence of other tenants is entirely transparent—they experience the system as if it were deployed exclusively for their organization.
 
-To deactivate an existing tenant, select the left menu option **Tenants**, and all tenants will be listed. Click the **ON/OFF** button in the **Status** column to deactivate/activate that tenant.
+#### **Centralized Management for Service Providers**
 
-## Deleting Tenant
+Service providers can manage all tenants from a **single PortSIP PBX instance**, dramatically reducing operational complexity, infrastructure costs, and maintenance overhead.
 
-To delete an existing tenant, select the left menu option **Tenants**, and all tenants will be listed. Select a tenant, then click the **Delete** button to delete it.
+**Scalable by Design**
 
-{% hint style="info" %}
-Given that a tenant may utilize a significant amount of resources, the process of deleting all resources associated with that tenant could take some time. During this period, the tenant being deleted will continue to appear in the tenant list until the deletion is fully completed.
-{% endhint %}
+The platform is engineered to scale horizontally, allowing service providers to host **tens of thousands of tenants** while maintaining consistent performance and reliability.
 
-## Managing Tenant
+#### **Role-Based Administration**
 
-The System Administrator of PortSIP PBX has the ability to manage tenants, their settings, and extension users. To do this, sign into the PBX Web Portal and navigate to the **Tenants** menu. Select the tenant you wish to manage and click the **Manage** button. This action will allow the System Administrator to assume the role of the tenant’s admin, enabling them to set up or modify the tenant’s settings and manage its extensions.
+PortSIP PBX supports a clear administrative hierarchy:
 
-<figure><img src="../../../.gitbook/assets/manage-tenant.png" alt=""><figcaption></figcaption></figure>
+* **System administrators** manage the global platform and tenants
+* **Tenant administrators** manage only their own organization
 
-Once these tasks are completed, the System Administrator can revert to their original role by clicking on the profile picture located at the top right of the page.&#x20;
+This separation of responsibilities aligns perfectly with Cloud PBX and UCaaS operational models.
 
-This will display a menu where they can select **Switch to Administrator**. This action allows the System Administrator to return to their original role without the need to log out of the tenant account and re-login to the administrator account.
+#### **Ideal for Cloud PBX, UCaaS, and CCaaS**
 
-<figure><img src="../../../.gitbook/assets/manage-tenant-1.png" alt=""><figcaption></figcaption></figure>
+Thanks to its true multi-tenant foundation, PortSIP PBX is ideally suited for delivering:
+
+* Cloud PBX services
+* UCaaS platforms
+* CPaaS and CCaaS solutions
+* Hosted contact center and unified communications services
+
+***
+
+### Summary
+
+PortSIP PBX’s multi-tenant capability is a **core architectural principle**, not an add-on. Each tenant is fully isolated, completely transparent to others, and operates as a dedicated PBX, while service providers benefit from centralized control, scalability, and operational efficiency.
+
+
 
