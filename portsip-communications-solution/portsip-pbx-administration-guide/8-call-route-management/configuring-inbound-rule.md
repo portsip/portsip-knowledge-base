@@ -80,7 +80,7 @@ On the **Office Hours** tab of the inbound rule, you can configure the office ho
 
 In the **Holidays** section, you can select one or more holidays from the tenant's holiday list. During these holidays, any incoming call that matches this inbound rule will be routed to the holiday destination specified in the rule.
 
-For more details, please refer to the section on [**Office Hours and Holiday Schedule**](configuring-inbound-rule.md#office-hours-and-holidays).
+For more details, please refer to the section on [Office Hours and Holiday Schedule](../office-hours-and-holiday-schedule/configuring-office-hours-and-holiday-schedule.md).
 
 <figure><img src="../../../.gitbook/assets/inbound_rule_2.png" alt=""><figcaption></figcaption></figure>
 
