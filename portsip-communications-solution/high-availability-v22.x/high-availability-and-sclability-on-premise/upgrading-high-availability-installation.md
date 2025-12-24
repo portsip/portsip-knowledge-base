@@ -60,9 +60,6 @@ Backing up PBX data is a **critical safety step** and must not be skipped. Once 
 
 ***
 
-> ⚠️ **IMPORTANT**\
-> All commands in this section **must be executed on the `pbx01` node**, even if `pbx01` is **not** the current active (master) node.
-
 ### Upgrading PortSIP PBX v22.x High Availability to the Latest Version
 
 If you are currently running **PortSIP PBX v22.x with High Availability (HA)**, follow the steps below to upgrade to the **latest available v22.x release**.
