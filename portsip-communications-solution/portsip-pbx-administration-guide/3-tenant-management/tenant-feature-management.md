@@ -4,15 +4,11 @@
 
 By enabling or disabling features at the tenant level, service providers can easily implement service tiers, add-on features, or usage-based charging models.
 
-***
-
-### Configurable Tenant Features
-
 The PBX Administrator can activate or deactivate the following features for each tenant.
 
 ***
 
-#### AI Transcription
+### AI Transcription
 
 Controls tenant access to the **AI transcription** feature and its usage limits.
 
@@ -31,7 +27,7 @@ In the **General** tab, scroll to the bottom to locate the **AI Transcription** 
 
 ***
 
-#### App Usage
+### App Usage
 
 Controls how many users within a tenant can register using the **PortSIP ONE UC App** and **PortSIP ONE Teams Phone App**.
 
@@ -54,7 +50,7 @@ Refer to the screenshot below for details.
 
 <figure><img src="../../../.gitbook/assets/tenant_features_3.png" alt=""><figcaption></figcaption></figure>
 
-#### Billing
+### Billing
 
 Controls access to **billing and charging features** for the tenant.
 
@@ -63,7 +59,7 @@ Controls access to **billing and charging features** for the tenant.
 
 ***
 
-#### Call Statistics and Data Analytics
+### Call Statistics and Data Analytics
 
 Controls tenant access to **call statistics and analytics features**, including:
 
@@ -76,7 +72,7 @@ When this option is deactivated, the tenant cannot access any analytics or repor
 
 ***
 
-#### Contact Center
+### Contact Center
 
 Controls access to **Contact Center features**, such as:
 
@@ -88,7 +84,7 @@ When deactivated, all Contact Center–related features are unavailable to the t
 
 ***
 
-#### Message Channels
+### Message Channels
 
 Controls tenant access to **messaging channels**, including:
 
@@ -99,7 +95,7 @@ When this option is deactivated, the tenant cannot configure or use messaging fe
 
 ***
 
-#### Trunks
+### Trunks
 
 Controls whether a tenant can manage its **own SIP trunks**.
 
@@ -110,7 +106,7 @@ This is commonly used when trunks are **centrally managed by the service provide
 
 ***
 
-#### Microsoft Teams
+### Microsoft Teams
 
 Controls access to **Microsoft Teams Direct Routing** configuration.
 
@@ -119,7 +115,7 @@ Controls access to **Microsoft Teams Direct Routing** configuration.
 
 ***
 
-#### CRM Integrations
+### CRM Integrations
 
 Controls access to **CRM integration features**.
 

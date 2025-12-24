@@ -1,7 +1,5 @@
 # 3 Tenant Management
 
-### PortSIP PBX Multi-Tenant Architecture
-
 **PortSIP PBX** is built on a **true multi-tenant architecture**, purpose-designed for service providers, operators, and enterprises that need to host and manage multiple independent customers on a single, centralized platform.
 
 Unlike traditional single-tenant PBX deployments, this architecture enables one PortSIP PBX system to securely serve **multiple tenants (customers),** each operating as an independent PBX, while efficiently sharing the same underlying infrastructure.
