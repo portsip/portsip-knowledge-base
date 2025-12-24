@@ -207,6 +207,7 @@
     * [Upgrading High Availability Installation](portsip-communications-solution/high-availability-v22.x/high-availability-and-scalability-on-aws/upgrading-high-availability-installation.md)
     * [Increase Size of EBS Volume](portsip-communications-solution/high-availability-v22.x/high-availability-and-scalability-on-aws/increase-size-of-ebs-volume.md)
     * [Scaling Servers on AWS for High Availability](portsip-communications-solution/high-availability-v22.x/high-availability-and-scalability-on-aws/scaling-servers-on-aws-for-ha.md)
+    * [Scaling SBC on AWS for High Availability](portsip-communications-solution/high-availability-v22.x/high-availability-and-scalability-on-aws/scaling-sbc-on-aws-for-high-availability.md)
     * [Scaling IM Server on AWS for High Availability](portsip-communications-solution/high-availability-v22.x/high-availability-and-scalability-on-aws/scaling-im-server-on-aws-for-high-availability.md)
     * [Scaling Data Flow Server on AWS for High Availability](portsip-communications-solution/high-availability-v22.x/high-availability-and-scalability-on-aws/scaling-data-flow-server-on-aws-for-high-availability.md)
 * [Tutorials](portsip-communications-solution/tutorials/README.md)

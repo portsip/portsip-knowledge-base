@@ -226,7 +226,7 @@ During startup:
   * HA status
   * Call processing
   * Extensions and trunks
-  * IM and related services
+  * Related services
 * Keep the v16.x backup until the v22.x environment is fully validated
 
 ***
@@ -254,7 +254,7 @@ Follow this guide:
 
 * [Scaling Data Flow Server On-Premise for High Availability](scaling-data-flow-server-on-premise-for-high-availability.md)
 * [Upgrading the IM Server](scaling-im-server-on-premise-for-high-availability.md#upgrading-the-im-server)
-* [Upgrading the SBC S](11-deploy-the-sbc-cluster.md#upgrading-sbc-servers)
+* [Upgrading the SBC Server](11-deploy-the-sbc-cluster.md#upgrading-sbc-servers)
 
 ***
 
