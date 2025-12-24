@@ -60,8 +60,70 @@ Backing up PBX data is a **critical safety step** and must not be skipped. Once 
 
 ***
 
-⚠️ **IMPORTANT**\
-All commands in this section **must be executed on the `pbx01` node**, even if `pbx01` is **not** the current active (master) node.
+> ⚠️ **IMPORTANT**\
+> All commands in this section **must be executed on the `pbx01` node**, even if `pbx01` is **not** the current active (master) node.
+
+### Upgrading PortSIP PBX v22.x High Availability to the Latest Version
+
+If you are currently running **PortSIP PBX v22.x with High Availability (HA)**, follow the steps below to upgrade to the **latest available v22.x release**.
+
+> ⚠️ **IMPORTANT**\
+> All commands in this guide **must be executed on the `pbx01` node**, even if `pbx01` is **not** the current active (master) node.
+
+***
+
+#### Step 1: Download and Update HA Resources
+
+First, download the latest HA resource package and update the local deployment scripts.
+
+Run the following command **on `pbx01`**:
+
+```bash
+cd /opt && sudo rm -rf portsip-pbx-ha-guide-22-online.tar.gz && \
+sudo wget -N \
+https://www.portsip.com/downloads/ha/v22/portsip-pbx-ha-guide-22-online.tar.gz \
+&& sudo tar xf portsip-pbx-ha-guide-22-online.tar.gz
+```
+
+This ensures that the HA deployment scripts and configuration files are updated to the latest version.
+
+***
+
+#### Step 2: Upgrade the PortSIP PBX Image
+
+To upgrade the PBX itself, you must use the **new PortSIP PBX Docker image** corresponding to the latest release.
+
+Once you have the new image name, run the following command **on `pbx01`**:
+
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash update.sh portsip/pbx:22
+```
+
+The upgrade process will:
+
+* Pull the specified PBX image
+* Update the PBX service under HA control
+* Restart the PBX services as required
+
+Allow the process to complete without interruption.
+
+***
+
+#### Post-Upgrade Recommendations
+
+After the upgrade completes:
+
+*   Verify the HA status:
+
+    ```bash
+    cd /opt/portsip-pbx-ha-guide && sudo /bin/bash ha_ctl.sh status
+    ```
+* Verify:
+  * HA status
+  * Call processing
+  * Extensions and trunks
+
+***
 
 ### Upgrading PortSIP PBX High Availability from v16.x to v22.x
 
@@ -174,68 +236,6 @@ During startup:
   * Extensions and trunks
   * IM and related services
 * Keep the v16.x backup until the v22.x environment is fully validated
-
-***
-
-### Upgrading PortSIP PBX v22.x High Availability to the Latest Version
-
-If you are currently running **PortSIP PBX v22.x with High Availability (HA)**, follow the steps below to upgrade to the **latest available v22.x release**.
-
-> ⚠️ **IMPORTANT**\
-> All commands in this guide **must be executed on the `pbx01` node**, even if `pbx01` is **not** the current active (master) node.
-
-***
-
-#### Step 1: Download and Update HA Resources
-
-First, download the latest HA resource package and update the local deployment scripts.
-
-Run the following command **on `pbx01`**:
-
-```bash
-cd /opt && sudo rm -rf portsip-pbx-ha-guide-22-online.tar.gz && \
-sudo wget -N \
-https://www.portsip.com/downloads/ha/v22/portsip-pbx-ha-guide-22-online.tar.gz \
-&& sudo tar xf portsip-pbx-ha-guide-22-online.tar.gz
-```
-
-This ensures that the HA deployment scripts and configuration files are updated to the latest version.
-
-***
-
-#### Step 2: Upgrade the PortSIP PBX Image
-
-To upgrade the PBX itself, you must use the **new PortSIP PBX Docker image** corresponding to the latest release.
-
-Once you have the new image name, run the following command **on `pbx01`**:
-
-```bash
-cd /opt/portsip-pbx-ha-guide/ && /bin/bash update.sh portsip/pbx:22
-```
-
-The upgrade process will:
-
-* Pull the specified PBX image
-* Update the PBX service under HA control
-* Restart the PBX services as required
-
-Allow the process to complete without interruption.
-
-***
-
-#### Post-Upgrade Recommendations
-
-After the upgrade completes:
-
-*   Verify the HA status:
-
-    ```bash
-    cd /opt/portsip-pbx-ha-guide && sudo /bin/bash ha_ctl.sh status
-    ```
-* Verify:
-  * HA status
-  * Call processing
-  * Extensions and trunks
 
 ***
 
