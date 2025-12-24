@@ -1,45 +1,78 @@
 # Increase Size of EBS Volume
 
-With the growth of your business, there might be a need to increase the size of your [EBS ](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html)volume. This would allow your PortSIP PBX HA to support a larger number of users, process more calls, and store more recording files. This guide provides step-by-step instructions on how to increase the size of an AWS [EBS ](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html)volume.
+As your business grows, you may need to **increase the size of the EBS volume** used by PortSIP PBX HA. Expanding the EBS volume allows the system to support more users, handle higher call volumes, and store additional call recordings and data.
 
-## Prerequisites
+This section provides step-by-step instructions for increasing the size of an AWS EBS volume used by a PortSIP PBX HA deployment.
 
-* The PortSIP PBX HA must be successfully configured as in the article: [High Availability Installations on AWS](high-availability-installations-on-aws.md).
+***
 
-## **Back-up EBS**&#x20;
+### Prerequisites
 
-Before you proceed with increasing the size of your EBS volume, it's recommended to create a snapshot of the EBS. This will back up your PBX data, providing a safety net that allows you to roll back if any issues arise during the resizing process.
+Before proceeding, ensure the following requirement is met:
 
-Please follow the below steps to process.
+* The PortSIP PBX HA cluster has been successfully deployed and is operational, as described in the article [High Availability Installations on AWS](https://support.portsip.com/portsip-communications-solution/high-availability-v22.x/high-availability-and-scalability-on-aws/high-availability-installations-on-aws).
 
-* Sign in to the AWS EC2 console.&#x20;
-* In the navigation panel, select **Elastic Block Store**, and choose **Volumes**. &#x20;
-* Find the volume that is being used in HA and select its checkbox.&#x20;
-* Click on **Actions**, then select **Create snapshot**. In the **Description** field, enter **pbx-ha-volumes-backup**.&#x20;
-* Click on **Create snapshot**.
+***
+
+### Back Up the EBS Volume
+
+Before resizing the EBS volume, it is strongly recommended to create a **snapshot backup**. This provides a recovery point in case any issues occur during the resizing process.
+
+#### Create an EBS Snapshot
+
+Follow these steps to create a snapshot:
+
+1. Sign in to the AWS EC2 Console.
+2. In the navigation pane, select **Elastic Block Store > Volumes**.
+3. Locate the EBS volume used by the PBX HA cluster and select its checkbox.
+4. Click **Actions > Create snapshot**.
+5. In the **Description** field, enter: pbx-ha-volumes-backup
+6. Click **Create snapshot**.
 
 <figure><img src="../../../.gitbook/assets/aws-ha-16.png" alt=""><figcaption></figcaption></figure>
 
-## Increase Size of EBS Volume
+***
 
-Please follow the steps below to increase the EBS volume size to **2000GB** as an example:
+### Increase the Size of the EBS Volume
 
-1. Sign in to the AWS EC2 console. In the navigation pane, select **Elastic Block Store**, then choose **Volumes**.&#x20;
-2. Find the volume that is being used in HA and select its checkbox. Click on **Actions**, then select **Modify volume**.&#x20;
-3. The **Modify volume** screen will display the volume ID and the current configuration of the volume, including type, size, input/output operations per second (IOPS), and throughput.&#x20;
-   * For the **Volume type**, do not change the value.
-   * For **Size**, change it to 2000 GB.&#x20;
-   * For **IOPS**, do not change the value.&#x20;
-   * For **Throughput**, do not change the value.&#x20;
-4. Click on **Modify.** When prompted for confirmation, choose **Modify** again.
+The example below demonstrates how to increase the EBS volume size to **2000 GB**.
+
+#### Modify the EBS Volume
+
+1. Sign in to the AWS EC2 Console.
+2. In the navigation pane, select **Elastic Block Store > Volumes**.
+3. Locate the EBS volume used by the HA cluster and select it.
+4. Click **Actions > Modify volume**.
+5. On the **Modify volume** screen:
+   * **Volume type:** Do not change
+   * **Size:** Change to **2000 GB**
+   * **IOPS:** Do not change
+   * **Throughput:** Do not change
+6. Click **Modify**, then click **Modify** again to confirm.
 
 <figure><img src="../../../.gitbook/assets/aws-ha-17.png" alt=""><figcaption></figcaption></figure>
 
-## Extend the File System <a href="#extend-the-file-system" id="extend-the-file-system"></a>
+AWS will begin resizing the volume in the background. This operation typically completes without interrupting service.
 
-Perform the below command on the PBX HA EC2 instance **ip-172-31-16-133** only.
+***
 
-```sh
+### Extend the File System
+
+After the EBS volume size has been increased, you must extend the file system on the PBX HA node to make use of the additional space.
+
+Run the following command **only on the EC2 instance with private IP `172.31.16.133`**:
+
+```bash
 cd /opt/portsip-pbx-ha-guide && /bin/bash extend.sh run -s disk-only
 ```
+
+> ❗ **Important**\
+> This command must be executed **only on the primary PBX HA node (`172.31.16.133`)**.\
+> Running it on other nodes may cause file system inconsistencies.
+
+***
+
+After completing these steps, the PortSIP PBX HA system will be able to use the newly expanded EBS storage without requiring downtime.
+
+
 
