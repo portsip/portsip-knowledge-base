@@ -26,11 +26,11 @@ Once created, a tenant’s profile can be modified at any time by a System Admin
 
 ***
 
-### Tenant General Settings
+#### Tenant General Settings
 
 The **General** tab allows you to define the tenant’s identity and resource limits.
 
-#### Basic Information
+**Basic Information**
 
 * **Name**\
   The display name used to identify the tenant (for example, _ABC Company_).
@@ -48,7 +48,7 @@ The **General** tab allows you to define the tenant’s identity and resource li
     > ❗**Important**\
     > Do **not** configure the PBX server IP address as a tenant SIP domain.
 
-#### Capability (Resource Limits)
+**Capability (Resource Limits)**
 
 The **Capability** section allows you to control how many resources a tenant may consume, including:
 
@@ -62,14 +62,14 @@ The **Capability** section allows you to control how many resources a tenant may
 
 This enables precise capacity control in multi-tenant environments.
 
-#### AI Transcription
+**AI Transcription**
 
 * **AI Transcription:** Enable or disable AI transcription for the tenant.
 * **Daily Transcription Quota:** Define daily usage limits to control costs and resource consumption.
 
 ***
 
-### Tenant Options
+#### Tenant Options
 
 The **Options** tab allows you to configure operational and regional settings.
 
@@ -88,14 +88,14 @@ The **Options** tab allows you to configure operational and regional settings.
 
 ***
 
-### Storage Settings
+#### Storage Settings
 
 The **Storage** tab allows administrators to manage tenant-level storage usage.
 
 * **Disk Quota (MB):** Maximum total storage allocated to the tenant.
 * **Chat File Quota:** Configure chat file limits per user and per tenant.
 
-#### Auto Cleaning
+**Auto Cleaning**
 
 You can define automatic cleanup policies for:
 
@@ -108,7 +108,7 @@ This helps maintain predictable storage usage.
 
 ***
 
-### Apps Control
+#### Apps Control
 
 The **Apps** tab allows you to control which client applications tenant extensions may use:
 
@@ -123,7 +123,7 @@ The **Apps** tab allows you to control which client applications tenant extensio
 
 ***
 
-### Tenant Feature Management
+#### Tenant Feature Management
 
 The **Features** tab allows you to enable or disable major functional modules per tenant, including:
 
