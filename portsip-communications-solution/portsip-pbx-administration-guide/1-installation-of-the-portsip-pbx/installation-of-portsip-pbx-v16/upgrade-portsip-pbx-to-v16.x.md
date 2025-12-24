@@ -18,7 +18,7 @@ All commands must be executed in the **`/opt/portsip`** directory.
 
 ## High Availability Upgrading
 
-If your PortSIP PBX was deployed with High Availability mode, please follow the guide [Upgrading High Availability Installation](../../../../v16.x-legacy/high-availability-v16.x/high-availability-and-scalability-on-aws/upgrading-high-availability-installations.md) to upgrade it.
+If your PortSIP PBX was deployed with High Availability mode, please follow the guide [Upgrading High Availability Installation](../../../../v16.x-maintenance-mode/high-availability-v16.x/high-availability-and-scalability-on-aws/upgrading-high-availability-installations.md) to upgrade it.
 
 ### Step 1 Stop PBX Docker Instance
 
@@ -116,7 +116,7 @@ Your PBX has now been successfully upgraded to the latest version.
 It’s crucial to keep your cluster servers updated in line with the latest PortSIP PBX releases. This ensures that all features function as expected and that your system maintains optimal performance and security.
 {% endhint %}
 
-If you have set up your PBX as a cluster following [this guide](../../../../v16.x-legacy/pbx-cluster/), it’s mandatory to upgrade those servers whenever the PBX is updated. Please refer to the article [Managing Cluster](../../../../v16.x-legacy/pbx-cluster/managing-cluster.md#upgrading-servers) for the upgrade process.
+If you have set up your PBX as a cluster following [this guide](../../../../v16.x-maintenance-mode/pbx-cluster/), it’s mandatory to upgrade those servers whenever the PBX is updated. Please refer to the article [Managing Cluster](../../../../v16.x-maintenance-mode/pbx-cluster/managing-cluster.md#upgrading-servers) for the upgrade process.
 
 ## Upgrading PBX for Windows
 

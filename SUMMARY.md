@@ -253,26 +253,6 @@
 * [What Is a Softphone? Benefits, Features & How It Works](portsip-communications-solution/softphone.md)
 * [What is CCaaS(Contact Center as a Service)?](portsip-communications-solution/ccaas.md)
 
-## V16.x(Legacy)
-
-* [PBX Cluster(v16.x)](v16.x-legacy/pbx-cluster/README.md)
-  * [Topology](v16.x-legacy/pbx-cluster/topology.md)
-  * [Preparing Cluster Servers](v16.x-legacy/pbx-cluster/preparing-cluster-servers.md)
-  * [Configuring Cluster Servers](v16.x-legacy/pbx-cluster/configuring-cluster-servers.md)
-  * [Managing Cluster](v16.x-legacy/pbx-cluster/managing-cluster.md)
-  * [Configuring Cluster Servers for High Availability](v16.x-legacy/pbx-cluster/configuring-cluster-servers-for-portsip-pbx-ha.md)
-* [High Availability (v16.x)](v16.x-legacy/high-availability-v16.x/README.md)
-  * [High Availability for On-Premise](v16.x-legacy/high-availability-v16.x/high-availability-for-on-premise/README.md)
-    * [PortSIP PBX High Availability Architecture](v16.x-legacy/high-availability-v16.x/high-availability-for-on-premise/portsip-pbx-high-availability.md)
-    * [High Availability Installations on Ubuntu](v16.x-legacy/high-availability-v16.x/high-availability-for-on-premise/high-availability-installations-on-ubuntu.md)
-    * [Upgrading High Availability Installation](v16.x-legacy/high-availability-v16.x/high-availability-for-on-premise/upgrading-high-availability-installation.md)
-  * [High Availability and Scalability on AWS](v16.x-legacy/high-availability-v16.x/high-availability-and-scalability-on-aws/README.md)
-    * [PortSIP PBX High Availability Architecture](v16.x-legacy/high-availability-v16.x/high-availability-and-scalability-on-aws/portsip-pbx-high-availability.md)
-    * [High Availability Installations on AWS](v16.x-legacy/high-availability-v16.x/high-availability-and-scalability-on-aws/high-availability-installations-on-aws.md)
-    * [Upgrading High Availability Installations](v16.x-legacy/high-availability-v16.x/high-availability-and-scalability-on-aws/upgrading-high-availability-installations.md)
-    * [Increase Size of EBS Volume](v16.x-legacy/high-availability-v16.x/high-availability-and-scalability-on-aws/increase-size-of-ebs-volume.md)
-    * [Scaling Servers on AWS for HA](v16.x-legacy/high-availability-v16.x/high-availability-and-scalability-on-aws/scaling-servers-on-aws-for-ha.md)
-
 ## Apps Guides
 
 * [PortSIP ONE Desktop App](apps-guides/portsip-one-app/portsip-one-desktop-app.md)
@@ -1001,6 +981,27 @@
   * [How Do Push Notifications Work with PortSIP PBX?](development-portsip/mobile-push-notifications/how-do-push-notifications-work-with-portsip-pbx.md)
   * [Integrating the Push Notifications in Native iOS APP](development-portsip/mobile-push-notifications/implement-the-push-notifications-in-native-ios-app-with-portsip-pbx.md)
   * [Integrating the Push Notifications in Android APP](development-portsip/mobile-push-notifications/implement-push-notifications-in-android-app-with-portsip-pbx.md)
+
+## V16.x(Maintenance Mode)
+
+* [Overview](v16.x-maintenance-mode/overview.md)
+* [PBX Cluster(v16.x)](v16.x-maintenance-mode/pbx-cluster/README.md)
+  * [Topology](v16.x-maintenance-mode/pbx-cluster/topology.md)
+  * [Preparing Cluster Servers](v16.x-maintenance-mode/pbx-cluster/preparing-cluster-servers.md)
+  * [Configuring Cluster Servers](v16.x-maintenance-mode/pbx-cluster/configuring-cluster-servers.md)
+  * [Managing Cluster](v16.x-maintenance-mode/pbx-cluster/managing-cluster.md)
+  * [Configuring Cluster Servers for High Availability](v16.x-maintenance-mode/pbx-cluster/configuring-cluster-servers-for-portsip-pbx-ha.md)
+* [High Availability (v16.x)](v16.x-maintenance-mode/high-availability-v16.x/README.md)
+  * [High Availability for On-Premise](v16.x-maintenance-mode/high-availability-v16.x/high-availability-for-on-premise/README.md)
+    * [PortSIP PBX High Availability Architecture](v16.x-maintenance-mode/high-availability-v16.x/high-availability-for-on-premise/portsip-pbx-high-availability.md)
+    * [High Availability Installations on Ubuntu](v16.x-maintenance-mode/high-availability-v16.x/high-availability-for-on-premise/high-availability-installations-on-ubuntu.md)
+    * [Upgrading High Availability Installation](v16.x-maintenance-mode/high-availability-v16.x/high-availability-for-on-premise/upgrading-high-availability-installation.md)
+  * [High Availability and Scalability on AWS](v16.x-maintenance-mode/high-availability-v16.x/high-availability-and-scalability-on-aws/README.md)
+    * [PortSIP PBX High Availability Architecture](v16.x-maintenance-mode/high-availability-v16.x/high-availability-and-scalability-on-aws/portsip-pbx-high-availability.md)
+    * [High Availability Installations on AWS](v16.x-maintenance-mode/high-availability-v16.x/high-availability-and-scalability-on-aws/high-availability-installations-on-aws.md)
+    * [Upgrading High Availability Installations](v16.x-maintenance-mode/high-availability-v16.x/high-availability-and-scalability-on-aws/upgrading-high-availability-installations.md)
+    * [Increase Size of EBS Volume](v16.x-maintenance-mode/high-availability-v16.x/high-availability-and-scalability-on-aws/increase-size-of-ebs-volume.md)
+    * [Scaling Servers on AWS for HA](v16.x-maintenance-mode/high-availability-v16.x/high-availability-and-scalability-on-aws/scaling-servers-on-aws-for-ha.md)
 
 ## PBX v12.x (EOL) <a href="#pbx_v12" id="pbx_v12"></a>
 
