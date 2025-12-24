@@ -173,7 +173,7 @@ You should choose the appropriate instance type for your business usage.
 
 For higher user volumes and concurrent calls, more CPU and memory resources are required. Therefore, it's important to choose an instance type that is appropriate for your specific needs. Please consider your user volume and call concurrency when selecting your instance type.&#x20;
 
-You can reference the [Hardware Specifications](../../faq/hardware-specifications-for-portsip.md) to choose the instance type.
+You can reference the [Hardware Specifications](../../../portsip-communications-solution/faq/hardware-specifications-for-portsip.md) to choose the instance type.
 
 ### Create a Key pair for login
 
