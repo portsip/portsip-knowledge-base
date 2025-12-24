@@ -1,84 +1,152 @@
 # Scaling Servers on AWS for High Availability
 
-PortSIP PBX offers application server scaling capabilities to accommodate an increasing number of users and calls, thereby catering to your evolving business needs. For more information, please refer to the [PBX Cluster](../../../v16.x-legacy/pbx-cluster/) article.&#x20;
+PortSIP PBX provides flexible application server scaling to support growing numbers of users and concurrent calls, enabling your platform to evolve with business demand.\
+For architectural background and concepts, refer to the PBX Cluster guide.
 
-This guide provides a detailed, step-by-step process for scaling application servers using PortSIP PBX High Availability (HA) on AWS.
+This document provides a step-by-step guide to scaling application servers using PortSIP PBX High Availability (HA) in an AWS EC2 environment to operate at very large scale.
 
-## Prerequisites
+<figure><img src="../../../.gitbook/assets/pbx_ha_cluster_diagram.png" alt=""><figcaption></figcaption></figure>
 
-* The PortSIP PBX HA must be successfully deployed as the article: [High Availability Installations on AWS](high-availability-installations-on-aws.md).
-* Please read the guide [PBX Cluster](../../../v16.x-legacy/pbx-cluster/) before processing.
-* Currently, the PortSIP PBX supports the scale of the following application servers:
-  * Media Server
-  * Queue Server
-  * Meeting Server
-  * IVR Server
-* Each EC2 instance must have a static private IP and can't use DHCP, and the EC2 for the Media Server must associate an elastic IP
+The architecture can support:
 
-{% hint style="danger" %}
-Please don't install multiple application servers on a single EC2 instance.
-{% endhint %}
+* Over 1 million total users
+* Approximately 50,000 concurrently registered (online) users
+* Up to 10,000 simultaneous calls
 
-Preparing the Linux servers(EC2 instances) for installing the application servers, assume we install the following application servers:
+This deployment model is also ideal for **high-demand workloads**, including large meetings, IVR applications, and high-volume call queues.
 
-* **Meeting Server**: The IP is `172.31.16.137` , the hostname is `ip-172-31-16-137`
-* **Queue Server**: The IP is `172.31.16.138` , the hostname is `ip-172-31-16-138`
-* **Media Server**: The IP is `172.31.16.139` , the hostname is `ip-172-31-16-139`. The elastic IP is `54.215.234.52`
-* **IVR Server**: The IP is  `172.31.16.140` , the hostname is `ip-172-31-16-140`
+***
 
-## **Supported Linux OS**
+### Prerequisites <a href="#prerequisites" id="prerequisites"></a>
 
-* Ubuntu 24.04, only supports 64-bit OS.
+Before configuring the cluster servers, ensure that you have successfully completed the PBX HA installation and configuration on the **Main Server** by following the guide: [High Availability Installations on AWS](high-availability-installations-on-aws.md)
 
-## **Preparing the Linux Host Machine for Installation**
+> ❗ **Note** At this stage, only the PBX needs to be installed. The Instant Messaging (IM) server and Data Flow server should not be installed yet, as it will be deployed later in this guide.
 
-Tasks that MUST be completed before installing cluster servers.
+***
 
-* **Ensure the server date-time is synced correctly**.
-* Ensure each EC2 instance has been assigned a **Static Private IP** address.
-* For the **Media Server**, each EC2 instance also needs an **Elastic Public IP** address.
-* Install all available updates and service packs before installing the application server.
-* Do not install PostgreSQL on the Server.
-* Do not install TeamViewer, VPN, or similar software on the host machine.
-* The server must not be installed as a DNS or DHCP server.
-* Must execute all Linux commands as the root user. please `su root` first.
+### Preparing Cluster Servers <a href="#preparing-cluster-servers" id="preparing-cluster-servers"></a>
 
-## **Create EC2 Instances**
+The following Linux servers must be prepared to host the PortSIP cluster application services:
 
-Please follow the below steps to create the EC2 instances for the application servers. The steps are almost the same as the [High Availability Installations on AWS](high-availability-installations-on-aws.md). but please pay attention to the below points。
+* Media Servers
+* Queue Servers
+* Meeting Servers
+* IVR Servers
+
+***
+
+#### Deployment Requirements
+
+* Each application server must be deployed on a dedicated EC2 instance. Do not install multiple application server roles on a single EC2 instance.
+* Each EC2 instance must use a **static private IP address** and an **elastic IP address**. DHCP-assigned IP addresses are not supported.
+
+***
+
+#### Preparing Linux Servers (EC2 Instances)
+
+Prepare the EC2 instances that will host the application servers. In this example, the following application servers are deployed:
+
+* **Meeting Server**
+  * Private IP: `172.31.16.137`
+  * Hostname: `ip-172-31-16-137`
+  * Elastic IP: `54.215.234.53`
+* **Queue Server**
+  * Private IP: `172.31.16.138`
+  * Hostname: `ip-172-31-16-138`
+  * Elastic IP: `54.215.234.54`
+* **Media Server**
+  * Private IP: `172.31.16.139`
+  * Hostname: `ip-172-31-16-139`
+  * Elastic IP: `54.215.234.52`
+* **IVR Server**
+  * Private IP: `172.31.16.140`
+  * Hostname: `ip-172-31-16-140`
+  * Elastic IP: `54.215.234.55`
+
+Ensure all IP addresses are reserved and consistently assigned to their respective EC2 instances.
+
+***
+
+#### Supported Linux Operating System
+
+The following operating system is supported for all application server nodes:
+
+* **Ubuntu 24.04 LTS**
+
+***
+
+### Preparing the Linux Host Machine for Installation
+
+The following tasks **must be completed before installing any PortSIP PBX cluster servers**. Proper preparation ensures system stability, predictable networking behavior, and reliable real-time media performance.
+
+* Ensure the system date and time are correctly synchronized (for example, via NTP).
+* Ensure each EC2 instance is assigned a static private IP address and an elastic IP address.
+* Install all available operating system updates and service packs before installing the PortSIP application servers.
+* Do not install PostgreSQL on the server.
+* Do not install TeamViewer, VPN software, or similar remote-access tools on the host machine.
+* The server must not be configured as a DNS or DHCP server.
+
+***
+
+### Creating EC2 Instances
+
+Follow the steps below to create the EC2 instances for the application servers.\
+The process is largely the same as the [PortSIP PBX High Availability (HA) deployment on AWS](high-availability-installations-on-aws.md), but please pay close attention to the specific configuration details outlined below.
+
+***
 
 ### Meeting Server
 
-* Section **Network settings：**
-  * Select the same VPC and Subnet used in PBX HA nodes.
-  * Select the same security group used in PBX HA nodes.
-  * The **Auto-assign public IP** option must be selected to **Enable**.
-* In the **Advanced network configuration** > **Network interface 1** section, enter the IP **172.31.16.137** for the **Primary IP** field.
+#### Network Settings
+
+* Select the **same VPC and Subnet** used by the PBX HA nodes.
+* Select the **same Security Group** used by the PBX HA nodes.
+* Set **Auto-assign public IP** to **Disable**.
+* Under **Advanced network configuration → Network interface 1**:
+  * Set **Primary IP** to `172.31.16.137`.
+* Associate the Elastic IP with this EC2. For the Elastic IP address is `54.215.234.53`.
+
+***
 
 ### Queue Server
 
-* Section **Network settings:**
-  * Select the same VPC and Subnet used in PBX HA nodes.
-  * Select the same security group used in PBX HA nodes.
-  * The **Auto-assign public IP** option must be selected to **Enable**.
-* In the **Advanced network configuration** > **Network interface 1** section, enter the IP **172.31.16.138** for the **Primary IP** field.
+#### Network Settings
+
+* Select the **same VPC and Subnet** used by the PBX HA nodes.
+* Select the **same Security Group** used by the PBX HA nodes.
+* Set **Auto-assign public IP** to **Disable**.
+* Under **Advanced network configuration → Network interface 1**:
+  * Set **Primary IP** to `172.31.16.138`.
+* Associate the Elastic IP with this EC2. For the Elastic IP address is `54.215.234.54`.
+
+***
 
 ### Media Server
 
-* Section **Network settings:**
-  * Select the same VPC and Subnet used in PBX HA nodes.
-  * Select the same security group used in PBX HA nodes.
-  * The **Auto-assign public IP** option must be selected to **Enable**.
-* In the **Advanced network configuration** > **Network interface 1** section, enter the IP **172.31.16.139** for the **Primary IP** field.
-* Allocate an Elastic IP and associate this Elastic IP address to this EC2 instance for this media server. In this example, it's  **54.215.234.52**.
+#### Network Settings
+
+* Select the **same VPC and Subnet** used by the PBX HA nodes.
+* Select the **same Security Group** used by the PBX HA nodes.
+* Set **Auto-assign public IP** to **Disable**.
+* Under **Advanced network configuration → Network interface 1**:
+  * Set **Primary IP** to `172.31.16.139`.
+* Associate the Elastic IP with this EC2. For the Elastic IP address is `54.215.234.52`.
+
+***
 
 ### IVR Server
 
-* Section **Network settings:**
-  * Select the same VPC and Subnet used in PBX HA nodes.
-  * Select the same security group used in PBX HA nodes.
-  * The **Auto-assign public IP** option must be selected to **Enable**.
-* In the **Advanced network configuration** > **Network interface 1** section, enter the IP **172.31.16.140** for the **Primary IP** field.
+#### Network Settings
+
+* Select the **same VPC and Subnet** used by the PBX HA nodes.
+* Select the **same Security Group** used by the PBX HA nodes.
+* Set **Auto-assign public IP** to **Disable**.
+* Under **Advanced network configuration → Network interface 1**:
+  * Set **Primary IP** to `172.31.16.140`.
+* Associate the Elastic IP with this EC2. For the Elastic IP address is `54.215.234.55`.
+
+***
 
 ## Deploying Meeting Server
 
