@@ -11,11 +11,6 @@ Follow the steps below to upgrade your existing **PortSIP PBX High Availability 
 
 ### Back Up PBX Data
 
-Before upgrading the PortSIP PBX High Availability (HA) deployment, you **must back up all PBX data**.
-
-> ⚠️ **IMPORTANT**\
-> All commands in this section **must be executed on `pbx01`**, even if it is **not** the current active (master) node.
-
 ***
 
 #### Step 1: Stop the PBX Service
