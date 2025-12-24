@@ -94,7 +94,7 @@ Choose **one** of the following methods based on your operational requirements.
    * The **same hardware specifications**
    * The **same IP addresses**
    * The **same hostnames** as the existing v16.x HA nodes.
-3. Install **PortSIP PBX v22.x HA** by following the guide: [High Availability Installation on Ubuntu](../../../v16.x-maintenance-mode/high-availability-v16.x/high-availability-for-on-premise/high-availability-installations-on-ubuntu.md).
+3. Install **PortSIP PBX v22.x HA** by following the guide: [High Availability Installation on Ubuntu](../../../v16.x-legacy/high-availability-v16.x/high-availability-for-on-premise/high-availability-installations-on-ubuntu.md).
 
 This method minimizes risk and allows rollback by keeping the v16.x environment intact.
 
@@ -104,7 +104,7 @@ This method minimizes risk and allows rollback by keeping the v16.x environment 
 
 1. Destroy the existing **Ubuntu 20.04** installations on the three PBX HA nodes.
 2. Reinstall **Ubuntu 24.04** on all three servers.
-3. Install **PortSIP PBX v22.x HA** by following the guide: [High Availability Installation on Ubuntu](../../../v16.x-maintenance-mode/high-availability-v16.x/high-availability-for-on-premise/high-availability-installations-on-ubuntu.md).
+3. Install **PortSIP PBX v22.x HA** by following the guide: [High Availability Installation on Ubuntu](../../../v16.x-legacy/high-availability-v16.x/high-availability-for-on-premise/high-availability-installations-on-ubuntu.md).
 
 Choose the method that best fits your maintenance window and infrastructure strategy.
 

@@ -18,7 +18,7 @@ This guide provides instructions on how to deploy PortSIP PBX HA on the AWS EC2 
 
 **Figure 1-1**   PortSIP PBX HA Architecture
 
-<figure><img src="../../../.gitbook/assets/pbx_aws_ha_diagram.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/pbx_aws_ha_cluster_diagram.png" alt=""><figcaption></figcaption></figure>
 
 ## Pacemaker
 

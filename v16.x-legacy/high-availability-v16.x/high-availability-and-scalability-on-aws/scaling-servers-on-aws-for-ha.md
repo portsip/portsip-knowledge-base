@@ -95,9 +95,9 @@ Please follow the steps below to deploy the Meeting Server.
 
 4. Perform the below commands on the PBX HA node **ip-172-31-16-133** only. The execution may take some time, so patience is required. Please do not interrupt, restart, or shut down while the process is in progress.
 
-* \-s: Specify the service that will be installed. For the meeting server, it should be **meeting-server-only**.
-* \-n: Specify the server name that you entered in the above step 3; In case is **meeting-server-1**.
-* \-a: Specify the server's private IP address, in case it's **172.31.16.137**.
+* -s: Specify the service that will be installed. For the meeting server, it should be **meeting-server-only**.
+* -n: Specify the server name that you entered in the above step 3; In case is **meeting-server-1**.
+* -a: Specify the server's private IP address, in case it's **172.31.16.137**.
 
 ```
 cd /opt/portsip-pbx-ha-guide/ && \
@@ -120,9 +120,9 @@ Please follow the steps below to deploy the Queue Server.
 
 4. Perform the below commands on the PBX HA node **ip-172-31-16-133** only. The execution may take some time, so patience is required. Please do not interrupt, restart, or shut down while the process is in progress.
 
-* \-s: Specify the service that will be installed. For the meeting server, it should be **queue-server-only**.
-* \-n: Specify the server name that you entered in the above step 3; In case is **queue-server-1**.
-* \-a: Specify the server's private IP address, in case it's **172.31.16.138**.
+* -s: Specify the service that will be installed. For the meeting server, it should be **queue-server-only**.
+* -n: Specify the server name that you entered in the above step 3; In case is **queue-server-1**.
+* -a: Specify the server's private IP address, in case it's **172.31.16.138**.
 
 ```
 cd /opt/portsip-pbx-ha-guide/ && \
@@ -145,9 +145,9 @@ Please follow the steps below to deploy the Media Server.
 
 4. Perform the below commands on the PBX HA node **ip-172-31-16-133** only. The execution may take some time, so patience is required. Please do not interrupt, restart, or shut down while the process is in progress.
 
-* \-s: Specify the service that will be installed. For the meeting server, it should be **media-server-only**.
-* \-n: Specify the server name that you entered in the above step 3; In case is **media-server-1**.
-* \-a: Specify the server's private IP address, in case it's **172.31.16.139**.
+* -s: Specify the service that will be installed. For the meeting server, it should be **media-server-only**.
+* -n: Specify the server name that you entered in the above step 3; In case is **media-server-1**.
+* -a: Specify the server's private IP address, in case it's **172.31.16.139**.
 
 ```
 cd /opt/portsip-pbx-ha-guide/ && \
@@ -170,9 +170,9 @@ Please follow the steps below to deploy the IVR Server (Virtual Receptionist).
 
 4. Perform the below commands on the PBX HA node **ip-172-31-16-133** only. The execution may take some time, so patience is required. Please do not interrupt, restart, or shut down while the process is in progress.
 
-* \-s: Specify the service that will be installed. For the meeting server, it should be **vr-server-only**.
-* \-n: Specify the server name that you entered in the above step 3; In case is **vr-server-1**.
-* \-a: Specify the server's private IP address, in case it's **172.31.16.140**.
+* -s: Specify the service that will be installed. For the meeting server, it should be **vr-server-only**.
+* -n: Specify the server name that you entered in the above step 3; In case is **vr-server-1**.
+* -a: Specify the server's private IP address, in case it's **172.31.16.140**.
 
 ```
 cd /opt/portsip-pbx-ha-guide/ && \

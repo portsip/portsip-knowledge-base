@@ -1,13 +1,13 @@
 # Scaling Servers on AWS for High Availability
 
-PortSIP PBX offers application server scaling capabilities to accommodate an increasing number of users and calls, thereby catering to your evolving business needs. For more information, please refer to the [PBX Cluster](../../../v16.x-maintenance-mode/pbx-cluster/) article.&#x20;
+PortSIP PBX offers application server scaling capabilities to accommodate an increasing number of users and calls, thereby catering to your evolving business needs. For more information, please refer to the [PBX Cluster](../../../v16.x-legacy/pbx-cluster/) article.&#x20;
 
 This guide provides a detailed, step-by-step process for scaling application servers using PortSIP PBX High Availability (HA) on AWS.
 
 ## Prerequisites
 
 * The PortSIP PBX HA must be successfully deployed as the article: [High Availability Installations on AWS](high-availability-installations-on-aws.md).
-* Please read the guide [PBX Cluster](../../../v16.x-maintenance-mode/pbx-cluster/) before processing.
+* Please read the guide [PBX Cluster](../../../v16.x-legacy/pbx-cluster/) before processing.
 * Currently, the PortSIP PBX supports the scale of the following application servers:
   * Media Server
   * Queue Server

@@ -1,4 +1,4 @@
-# PBX Cluster
+# PBX Cluster(v16.x)
 
 {% hint style="info" %}
 This topic is only applicable to the PortSIP PBX v16.1 and later versions.

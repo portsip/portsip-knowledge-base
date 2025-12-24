@@ -1,24 +1,56 @@
 # PortSIP PBX High Availability Architecture
 
-Make a high-availability cluster using three PortSIP PBX servers. PortSIP PBX can detect a variety of faults on one PBX server and automatically transfer control to the other server, the established calls will be recovered automatically.
+A **three-node PortSIP PBX high-availability (HA) cluster** provides resilience and service continuity. PortSIP PBX can detect multiple types of node failures and automatically fail over control to another healthy PBX node. When a failover occurs, **established calls are automatically recovered**, minimizing service disruption.
 
-**Figure 1-1**   PortSIP PBX HA Architecture
+**Figure 1-1 PortSIP PBX HA Architecture**
 
-<figure><img src="../../../.gitbook/assets/pbx_aws_ha_diagram.png" alt=""><figcaption></figcaption></figure>
 
-## Pacemaker
 
-The [Pacemaker](http://www.clusterlabs.org/) is a high-availability Cluster Resource Manager (CRM) that can be used to manage resources and ensure that they remain available in the event of a node failure.
+<figure><img src="../../../.gitbook/assets/pbx_aws_ha_cluster_diagram.png" alt=""><figcaption></figcaption></figure>
 
-The PortSIP PBX HA uses the [Pacemaker](http://www.clusterlabs.org/) to do the resource management and monitoring, once the event of PBX node failure, the resources will automatically move to a working node in the cluster.&#x20;
+***
 
-## AWS EBS
+### Pacemaker
 
-Amazon [Elastic Block Store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html) (Amazon EBS) is an easy-to-use, scalable, high-performance block-storage service designed for Amazon [Elastic Compute Cloud](https://aws.amazon.com/ec2/) (Amazon EC2).  It provides block-level storage volumes for use with EC2 instances. EBS volumes behave like raw, unformatted block devices.&#x20;
+[Pacemaker](http://www.clusterlabs.org/) is a high-availability **Cluster Resource Manager (CRM)** used to manage and monitor cluster resources. It ensures that critical services remain available by:
 
-You can mount these volumes as devices on your instances. EBS volumes that are attached to an instance are exposed as storage volumes that persist independently from the life of the instance. You can create a file system on top of these volumes, or use them in any way you would use a block device (such as a hard drive). You can dynamically change the configuration of a volume attached to an instance.
+* Monitoring the health of PBX nodes and cluster resources
+* Detecting failures and triggering failover events
+* Automatically moving PBX resources to a healthy node when a node fails
 
-The[ EBS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html) is utilized in the PortSIP HA scenario to synchronize data (DB, recording files, log files, and prompt files) between the PBX nodes.
+In the PortSIP PBX HA deployment, [Pacemaker](http://www.clusterlabs.org/) is responsible for resource monitoring and failover orchestration, ensuring that services are automatically brought online on an operational node when failures occur.
 
-To connect to the PBX service, all SIP clients (IP Phone, Softphone, Mobile App, WebRTC Client) will access the Virtual IP of PortSIP PBX in the HA scenario.
+***
+
+### AWS EBS
+
+[Amazon EBS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html)(Amazon Elastic Block Store) is a scalable, high-performance block storage service for Amazon EC2. [EBS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html) volumes behave like persistent block devices (similar to physical disks) and can be:
+
+* Attached to EC2 instances as storage devices
+* Formatted with a filesystem and mounted
+* Resized or reconfigured dynamically
+* Retained independently from the lifecycle of an EC2 instance
+
+In the PortSIP PBX HA scenario, **EBS is used to keep critical PBX data synchronized across nodes**, including:
+
+* Databases (DB)
+* Call recordings
+* Log files
+* Prompt and media files
+
+This shared/persistent storage approach allows a standby node to quickly assume service responsibility with the latest data available after failover.
+
+***
+
+### Client Access via Virtual IP
+
+In an HA deployment, all SIP clients—including **IP phones, desktop softphones, mobile apps, and WebRTC clients**—connect to the PBX using the **Virtual IP (VIP)**.
+
+Using a Virtual IP ensures:
+
+* A single, consistent SIP server address for all clients
+* Seamless failover (the VIP moves to the active node)
+* No need to reconfigure endpoints when a node change occurs
+
+
 
