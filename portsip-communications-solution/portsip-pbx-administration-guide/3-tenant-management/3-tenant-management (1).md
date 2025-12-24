@@ -67,6 +67,8 @@ This enables precise capacity control in multi-tenant environments.
 * **AI Transcription:** Enable or disable AI transcription for the tenant.
 * **Daily Transcription Quota:** Define daily usage limits to control costs and resource consumption.
 
+For more details, please refer to [Tenant Feature Management](<3-tenant-management (1).md#tenant-feature-management>).
+
 ***
 
 #### Tenant Options
@@ -121,6 +123,8 @@ The **Apps** tab allows you to control which client applications tenant extensio
 
     Setting a value to **0** means no users in that tenant may use the corresponding app.
 
+For more details, please refer to [Tenant Feature Management](<3-tenant-management (1).md#tenant-feature-management>).
+
 ***
 
 #### Tenant Feature Management
@@ -136,6 +140,8 @@ The **Features** tab allows you to enable or disable major functional modules pe
 * CRM Integration
 
 This provides flexible service packaging for different customer tiers.
+
+For more details, please refer to [Tenant Feature Management](<3-tenant-management (1).md#tenant-feature-management>).
 
 ***
 
