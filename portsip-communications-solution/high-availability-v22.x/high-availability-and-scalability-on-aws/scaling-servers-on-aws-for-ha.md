@@ -531,19 +531,19 @@ cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh upgrade -s media-server-onl
 
 ### Upgrading PortSIP IM Service
 
-Please follow the [Upgrading the IM Server](../high-availability-and-sclability-on-premise/scaling-im-server-on-premise-for-high-availability.md#upgrading-the-im-server) guide to complete the installation and configuration.
+Please follow the Upgrading the IM Server guide to complete the installation and configuration.
 
 ***
 
 ### Upgrading PortSIP Data Flow Service
 
-Please follow the [Upgrading Data Flow Server](../high-availability-and-sclability-on-premise/scaling-data-flow-server-on-premise-for-high-availability.md#upgrade-the-data-flow-server) guide to complete the installation and configuration.
+Please follow the Upgrading Data Flow Server guide to complete the installation and configuration.
 
 ***
 
 ### Upgrading PortSIP SBC Service
 
-Please follow the [Upgrading SBC Servers](../high-availability-and-sclability-on-premise/11-deploy-the-sbc-cluster.md#upgrade-all-sbc-servers) guide to complete the installation and configuration.
+Please follow the Upgrading SBC Servers guide to complete the installation and configuration.
 
 
 
