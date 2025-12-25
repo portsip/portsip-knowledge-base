@@ -86,7 +86,7 @@ The process is largely the same as the [PortSIP PBX High Availability (HA) deplo
 PortSIP PBX High Availability (HA) and all associated servers require a consistent and compatible Linux environment.
 
 * **Supported OS**: Ubuntu 24.04 (64-bit)
-* All servers in the HA cluster, including SBC servers, **must run the exact same OS version** as the PBX server.
+* The IM server **must run the exact same OS version** as the PBX server.
 
 #### Network Settings
 
@@ -100,7 +100,7 @@ PortSIP PBX High Availability (HA) and all associated servers require a consiste
 #### Disk Space Recommendations
 
 * **Minimum required disk space**: 128 GB
-* No separate data partition is required for SBC servers
+* No separate data partition is required fo IM server
 
 ***
 
@@ -205,7 +205,7 @@ The IM service deployment **must be initiated from the `ip-172-31-16-133` node**
 
 #### Deploy IM Service with Default Storage Path
 
-Run the following command on the **pbx01 `ip-172-31-16-133` only**, specifying both the **static private IP** and **elastic IP** of the IM server:
+Run the following command on the **`ip-172-31-16-133` only**, specifying both the **static private IP** and **elastic IP** of the IM server:
 
 ```bash
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash im.sh run \
