@@ -205,9 +205,9 @@ To allow automated management and deployment, configure **password-free SSH acce
 If prompted to confirm the connection (yes/no), type **yes**.
 
 ```bash
-ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@192.168.1.151
-ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@192.168.1.152
-ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@192.168.1.153
+ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@172.31.16.151
+ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@172.31.16.152
+ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@172.31.16.153
 ```
 
 This step is required before deploying or managing SBC servers from the HA controller.
@@ -224,7 +224,7 @@ Run the following command **only on the `ip-172-31-16-133` node** of your PBX HA
 
 ```bash
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash sbc.sh run \
--a 192.168.1.151,192.168.1.152,192.168.1.153 \
+-a 172.31.16.151,172.31.16.152,172.31.16.153 \
 -i portsip/sbc:11
 ```
 
@@ -236,7 +236,7 @@ cd /opt/portsip-pbx-ha-guide/ && /bin/bash sbc.sh run \
     **Example:**
 
     ```
-    -a 192.168.1.151,192.168.1.152,192.168.1.153
+    -a 172.31.16.151,172.31.16.152,172.31.16.153 \
     ```
 *   **`-i`**: Specifies the SBC image version to deploy.
 
@@ -313,14 +313,14 @@ You may manage all SBC servers at once or target specific servers using the `-a`
 
 ```bash
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash sbc.sh start \
--a 192.168.1.151,192.168.1.152,192.168.1.153
+-a 172.31.16.151,172.31.16.152,172.31.16.153
 ```
 
 **Stop All SBC Servers**
 
 ```bash
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash sbc.sh stop \
--a 192.168.1.11,192.168.1.12,192.168.1.13
+-a 192.168.1.151,192.168.1.152,192.168.1.153
 ```
 
 **Restart All SBC Servers**
@@ -334,7 +334,7 @@ cd /opt/portsip-pbx-ha-guide/ && /bin/bash sbc.sh restart \
 
 ```bash
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash sbc.sh rm \
--a 1192.168.1.151,192.168.1.152,192.168.1.153
+-a 192.168.1.151,192.168.1.152,192.168.1.153
 ```
 
 ***

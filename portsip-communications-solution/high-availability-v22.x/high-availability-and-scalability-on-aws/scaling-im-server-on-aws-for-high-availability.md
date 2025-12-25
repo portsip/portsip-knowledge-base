@@ -2,13 +2,13 @@
 
 With a PortSIP PBX High Availability (HA) deployment, the Instant Messaging (IM) Service must be installed on a separate server.
 
-Before proceeding with this guide, ensure that you have successfully completed the PortSIP PBX [High Availability installation on AWS](../../../v16.x-legacy/high-availability-v16.x/high-availability-and-scalability-on-aws/high-availability-installations-on-aws.md).
+Before proceeding with this guide, ensure that you have successfully completed the PortSIP PBX [High Availability installation on AWS.](high-availability-installations-on-aws.md)
 
 ***
 
 ### Install IM Service on a Separate Server
 
-For optimal performance and scalability, the PortSIP IM Service should be deployed on a **dedicated server**, especially in environments with a large number of users exchanging messages and sharing files (including images and attachments).
+For optimal performance and scalability, the PortSIP IM Service should be deployed on a **dedicated EC2 instance**, especially in environments with a large number of users exchanging messages and sharing files (including images and attachments).
 
 #### Recommended Hardware Specifications
 
@@ -29,8 +29,7 @@ The following specifications are suitable for supporting **up to 50,000 concurre
 #### IP Address Requirements
 
 * **Static Private IP:**
-  * Required
-  * Example used in this guide: `192.168.1.25`
+  * Required, example used in this guide: `192.168.1.25`
 * **Static Public IP (Cloud Deployments):**
   * Required if the PBX and IM server are deployed in the cloud and accessed by Internet users
   * Example used in this guide: `104.18.36.110`
