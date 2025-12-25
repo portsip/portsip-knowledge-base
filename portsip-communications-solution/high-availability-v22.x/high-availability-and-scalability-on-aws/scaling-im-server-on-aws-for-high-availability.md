@@ -134,23 +134,9 @@ To ensure consistency and reliable automation across the HA cluster, the IM serv
 
 ### Important Notice
 
-All management and operational commands for **IM server**, must execut the following commands **only on the PBX HA node `ip-172-31-16-133`**., regardless of whether it is currently the active or standby node.
+All management and operational commands for **IM server**, must execut the following commands **only on the PBX HA node `ip-172-31-16-133`**, regardless of whether it is currently the active or standby node.
 
 This ensures configuration consistency and prevents cluster state conflicts.
-
-***
-
-### Enable Password-Free SSH Login
-
-To allow automated management and deployment, configure **password-free SSH access** from the **PBX HA node `ip-172-31-16-133` only** to IM Server.
-
-If prompted to confirm the connection (yes/no), type **yes**.
-
-```bash
-ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@54.215.234.67
-```
-
-This step is required before deploying or managing IM server from the HA controller.
 
 ***
 

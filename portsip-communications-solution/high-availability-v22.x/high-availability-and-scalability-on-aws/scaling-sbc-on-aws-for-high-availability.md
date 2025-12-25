@@ -142,7 +142,7 @@ With this configuration, DNS resolution for `sbc.com` will return all SBC public
 
 ### Configure Security Group Inbound Rules
 
-Modify the **Security Group that attached to all three PBX HA EC2 instances** and add an Inbound Rule that allows traffic from the SBC servers’ E**lastic IP** addresses.
+Modify the **Security Group that attached to all three PBX HA EC2 instances** and add an Inbound Rule that allows traffic from the **SBC servers’ Elastic IP** addresses.
 
 Please follow the screenshot below to add the inbound rule to the Security Group used by the PBX HA servers.
 
@@ -184,25 +184,9 @@ To ensure consistency and reliable automation across the HA cluster, all SBC ser
 
 ### Important Notice
 
-All management and operational commands for **extended servers**, including SBC servers, must execut the following commands **only on the PBX HA node `ip-172-31-16-133`**., regardless of whether it is currently the active or standby node.
+All management and operational commands for **extended servers**, including SBC servers, must execute the following commands **only on the PBX HA node `ip-172-31-16-133`**. Regardless of whether it is currently the active or standby node.
 
 This ensures configuration consistency and prevents cluster state conflicts.
-
-***
-
-### Enable Password-Free SSH Login
-
-To allow automated management and deployment, configure **password-free SSH access** from the **PBX HA node `ip-172-31-16-133` only** to all SBC servers.
-
-If prompted to confirm the connection (yes/no), type **yes**.
-
-```bash
-ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@172.31.16.151
-ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@172.31.16.152
-ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@172.31.16.153
-```
-
-This step is required before deploying or managing SBC servers from the HA controller.
 
 ***
 
@@ -312,21 +296,21 @@ cd /opt/portsip-pbx-ha-guide/ && /bin/bash sbc.sh start \
 
 ```bash
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash sbc.sh stop \
--a 192.168.1.151,192.168.1.152,192.168.1.153
+-a 172.31.16.151,172.31.16.152,172.31.16.153
 ```
 
 **Restart All SBC Servers**
 
 ```bash
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash sbc.sh restart \
--a 192.168.1.151,192.168.1.152,192.168.1.153
+-a 172.31.16.151,172.31.16.152,172.31.16.153
 ```
 
 **Remove All SBC Servers**
 
 ```bash
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash sbc.sh rm \
--a 192.168.1.151,192.168.1.152,192.168.1.153
+-a 172.31.16.151,172.31.16.152,172.31.16.153
 ```
 
 ***
@@ -351,7 +335,7 @@ Run the following command to upgrade all SBC servers:
 
 ```bash
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash sbc.sh upgrade \
--a 192.168.1.151,192.168.1.152,192.168.1.153 \
+-a 172.31.16.151,172.31.16.152,172.31.16.153 \
 -i portsip/sbc:11
 ```
 
