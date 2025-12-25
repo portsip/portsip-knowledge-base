@@ -496,7 +496,7 @@ cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh rm \
 
 #### Important Notes
 
-* All management commands for extended servers **must be executed on** on the PBX HA node **ip-172-31-16-133** only, even if it is not the **current active node**.
+* All management commands for extended servers **must be executed** on the PBX HA node **ip-172-31-16-133** only, even if it is not the **current active node**.
 * Before upgrading extended servers, ensure that the **PBX HA itself has already been upgraded** by following the guide: [Upgrading High Availability Installation](upgrading-high-availability-installation.md)
 * The upgrade process may take some time. **Do not interrupt the process**.
 
@@ -533,19 +533,19 @@ cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh upgrade -s media-server-onl
 
 ### Upgrading PortSIP IM Service
 
-Please follow the Upgrading the IM Server guide to complete the installation and configuration.
+Please follow the [Upgrading the IM Server](scaling-im-server-on-aws-for-high-availability.md#upgrading-the-im-server) guide to complete the installation and configuration.
 
 ***
 
 ### Upgrading PortSIP Data Flow Service
 
-Please follow the Upgrading Data Flow Server guide to complete the installation and configuration.
+Please follow the [Upgrading Data Flow Server](scaling-data-flow-server-on-aws-for-high-availability.md#upgrading-the-data-flow-server) guide to complete the installation and configuration.
 
 ***
 
 ### Upgrading PortSIP SBC Service
 
-Please follow the Upgrading SBC Servers guide to complete the installation and configuration.
+Please follow the [Upgrading SBC Servers](scaling-sbc-on-aws-for-high-availability.md#upgrading-sbc-servers) guide to complete the installation and configuration.
 
 
 
