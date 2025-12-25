@@ -81,6 +81,17 @@ You must configure a **static private IP address** for the Data Flow server.
 
 If a static private IP is not available, the server must have a **static public IP address** and be able to communicate reliably with the PBX server.
 
+#### Configure Cloud Firewall or Network Security Rules
+
+Skip this step if you are **not** deploying in a cloud environment.
+
+If the PBX and Data Flow server are hosted on **AWS, Azure, or Google Cloud**:
+
+* Create a firewall or security group rule allowing **all TCP traffic** from the IM server IP to the PBX server IP.
+
+> ⚠️ **Note**\
+> Restrict this rule to the **internal IP range** of your deployment to maintain security.
+
 ***
 
 ### Step 1: Generate the Data Flow Token
