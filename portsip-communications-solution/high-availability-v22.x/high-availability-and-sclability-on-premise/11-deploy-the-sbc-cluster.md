@@ -87,8 +87,6 @@ For detailed guidance, refer to the document [Certificates for TLS/HTTPS/WebRTC]
 
 Before configuring the SBC cluster servers, ensure that the following prerequisites are met.
 
-#### PBX High Availability Setup
-
 The PortSIP PBX High Availability (HA) installation and configuration must be completed on the Main Server first by following the guide:  [High Availability Installations on Ubuntu](high-availability-installations-on-ubuntu.md).
 
 ***

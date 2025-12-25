@@ -51,18 +51,22 @@ Prepare the EC2 instances that will host the application servers. In this exampl
   * Private IP: `172.31.16.137`
   * Hostname: `ip-172-31-16-137`
   * Elastic IP: `54.215.234.53`
+  * Data Storag&#x65;**:** Minimum 64 GB; recommended 128 GB or higher.
 * **Queue Server**
   * Private IP: `172.31.16.138`
   * Hostname: `ip-172-31-16-138`
   * Elastic IP: `54.215.234.54`
+  * Data Storage: Minimum 64 GB; recommended 128 GB or higher.
 * **Media Server**
   * Private IP: `172.31.16.139`
   * Hostname: `ip-172-31-16-139`
   * Elastic IP: `54.215.234.52`
+  * Data Storage: Minimum 128 GB; recommended 256GB or higher.
 * **IVR Server**
   * Private IP: `172.31.16.140`
   * Hostname: `ip-172-31-16-140`
   * Elastic IP: `54.215.234.55`
+  * Data Storage: Minimum 64 GB; recommended 128 GB or higher.
 
 Ensure all IP addresses are reserved and consistently assigned to their respective EC2 instances.
 
@@ -149,8 +153,6 @@ The process is largely the same as the [PortSIP PBX High Availability (HA) deplo
 ***
 
 ### Configure Security Group Inbound Rules
-
-You must add **inbound rules** to the **Security Group associated with the three PBX HA servers** to allow traffic from the cluster servers to reach the PBX HA nodes.&#x20;
 
 Modify the **Security Group that attached to all three PBX HA EC2 instances** and add an Inbound Rule that allows traffic from the cluster servers’ E**lastic IP** addresses.
 
