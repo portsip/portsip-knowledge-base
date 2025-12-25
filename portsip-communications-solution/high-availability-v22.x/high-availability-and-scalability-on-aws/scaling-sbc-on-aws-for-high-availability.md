@@ -49,7 +49,7 @@ This approach applies equally to **service providers**, **UCaaS platforms**, and
 
 #### Preparing Linux Servers (EC2 Instances)
 
-Prepare the EC2 instances that will host the application servers. In this example, the following application servers are deployed:
+Prepare the EC2 instances that will host the SBC servers. In this example, the following application servers are deployed:
 
 * **SBC Server 1**
   * Private IP: `172.31.16.151`
@@ -65,14 +65,6 @@ Prepare the EC2 instances that will host the application servers. In this exampl
   * Elastic IP: `54.215.234.63`
 
 Ensure all IP addresses are reserved and consistently assigned to their respective EC2 instances.
-
-***
-
-#### Supported Linux Operating System
-
-The following operating system is supported for all application server nodes:
-
-* **Ubuntu 24.04 LTS**
 
 ***
 
@@ -176,7 +168,7 @@ For detailed guidance, refer to the document [Certificates for TLS/HTTPS/WebRTC]
 
 Before configuring the SBC cluster servers, ensure that the following prerequisites are met.
 
-The PortSIP PBX High Availability (HA) installation and configuration must be completed on the Main Server first by following the guide:  [High Availability Installations on Ubuntu](high-availability-installations-on-aws.md).
+The PortSIP PBX High Availability (HA) installation and configuration must be completed on the Main Server first by following the guide:  [High Availability Installations on AWS](high-availability-installations-on-aws.md).
 
 ***
 

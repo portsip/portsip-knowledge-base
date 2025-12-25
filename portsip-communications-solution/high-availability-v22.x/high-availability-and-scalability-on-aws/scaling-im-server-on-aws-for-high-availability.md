@@ -10,99 +10,151 @@ Before proceeding with this guide, ensure that you have successfully completed t
 
 For optimal performance and scalability, the PortSIP IM Service should be deployed on a **dedicated EC2 instance**, especially in environments with a large number of users exchanging messages and sharing files (including images and attachments).
 
-#### Recommended Hardware Specifications
+#### Large-Scale Deployment
 
-The following specifications are suitable for supporting **up to 50,000 concurrent users** with active messaging and file sharing:
+The following specifications are suitable for environments supporting **up to 50,000 concurrent users** with active messaging and file sharing:
 
 * **CPU:** 20 cores or higher
 * **Memory:** 16 GB RAM
 * **Disk:**
   * High I/O performance required
-  * SSD strongly recommended
-  * Minimum 256 GB
+  * **SSD strongly recommended**
+  * Minimum **256 GB**
 * **Network Bandwidth:**
-  * 1 Gbps or higher
-  * Especially important for high message volume and file transfers
+  * **1 Gbps or higher**
+  * Especially important for high message volumes and file transfers
 
 ***
 
-#### IP Address Requirements
+#### Small to Medium Deployment
 
-* **Static Private IP:**
-  * Required, example used in this guide: `192.168.1.25`
-* **Static Public IP (Cloud Deployments):**
-  * Required if the PBX and IM server are deployed in the cloud and accessed by Internet users
-  * Example used in this guide: `104.18.36.110`
+The following specifications are suitable for environments supporting **up to 10,000 concurrent users** with active messaging and file sharing:
+
+* **CPU:** 6–8 cores or higher
+* **Memory:** 16 GB RAM
+* **Disk:**
+  * High I/O performance required
+  * **SSD strongly recommended**
+  * Minimum **256 GB**
+* **Network Bandwidth:**
+  * **100 Mbps or higher**
+  * Especially important for high message volumes and file transfers
+
+***
+
+#### Deployment Requirements
+
+* Each application server must be deployed on a dedicated EC2 instance. Do not install multiple application server roles on a single EC2 instance.
+* Each EC2 instance must use a **static private IP address** and an **elastic IP address**. DHCP-assigned IP addresses are not supported.
+
+***
+
+#### Preparing Linux Servers (EC2 Instances)
+
+Prepare the EC2 instance that will host the IM server. In this example, the following IM server is deployed:
+
+* Private IP: `172.31.16.157`
+* Hostname: `ip-172-31-16-157`
+* Elastic IP: `54.215.234.67`
+
+Ensure all IP addresses are reserved and consistently assigned to their respective EC2 instances.
+
+***
+
+### Preparing the Linux Host Machine for Installation
+
+The following tasks **must be completed before installing any PortSIP PBX cluster servers**. Proper preparation ensures system stability, predictable networking behavior, and reliable real-time media performance.
+
+* Ensure the system date and time are correctly synchronized (for example, via NTP).
+* Ensure each EC2 instance is assigned a **static private IP addres**s and an **elastic IP address**.
+* Install all available operating system updates and service packs before installing the PortSIP application servers.
+* Do not install PostgreSQL on the server.
+* Do not install TeamViewer, VPN software, or similar remote-access tools on the host machine.
+* The server must not be configured as a DNS or DHCP server.
+
+***
+
+### Creating EC2 Instances
+
+Follow the steps below to create the EC2 instances for the application servers.\
+The process is largely the same as the [PortSIP PBX High Availability (HA) deployment on AWS](high-availability-installations-on-aws.md), but please pay close attention to the specific configuration details outlined below.
 
 ***
 
 #### Supported Linux Operating System
 
-To ensure compatibility and stability, all servers in the HA environment must use a consistent Linux OS.
+PortSIP PBX High Availability (HA) and all associated servers require a consistent and compatible Linux environment.
 
-* **Supported OS:** Ubuntu 24.04 (64-bit)
-* The IM server **must run the same OS version** as the PBX HA nodes.
+* **Supported OS**: Ubuntu 24.04 (64-bit)
+* All servers in the HA cluster, including SBC servers, **must run the exact same OS version** as the PBX server.
 
-***
+#### Network Settings
 
-#### User Account Requirements
-
-For seamless integration with the HA environment, the IM server must meet the following user account requirements:
-
-* The IM server **must use the same username and password as the PBX servers**
-* In this guide, the username **`pbx`** is used as an example
-* The user account **must have sudo privileges** to execute administrative commands
-
-***
+* Select the **same VPC and Subnet** used by the PBX HA nodes.
+* Select the **same Security Group** used by the PBX HA nodes.
+* Set **Auto-assign public IP** to **Disable**.
+* Under **Advanced network configuration → Network interface 1**:
+  * Set **Primary IP** to `172.31.16.157` for this EC2 server.
+* Associate the Elastic IP with this EC2 server. For the Elastic IP address example `54.215.234.67`
 
 #### Disk Space Recommendations
 
-* **Minimum disk space:** 128 GB
-* No separate data partition is required
-*   For environments with:
-
-    * Large numbers of users
-    * High message volumes
-    * Frequent file sharing
-
-    Allocate **additional disk space as needed** to accommodate message history and file storage growth.
+* **Minimum required disk space**: 128 GB
+* No separate data partition is required for SBC servers
 
 ***
 
-#### Network Settings Reference
+### Configure Security Group Inbound Rules
 
-This guide assumes the following PBX HA network configuration:
+Modify the **Security Group that attached to all three PBX HA EC2 instances** and add an Inbound Rule that allows traffic from the **IM servers’ Elastic IP** addresses.
 
-* **PBX HA Elastic IP:** `192.168.1.130`
-* **PBX Static Public IP:** `104.18.36.119`
+Please follow the screenshot below to add the inbound rule to the Security Group used by the PBX HA servers.
 
-These values are used when configuring communication between the PBX and the IM service.
-
-***
-
-#### Step 1: Prepare the Linux Server for IM Installation
-
-The following tasks **must be completed before installing the IM service**:
-
-* Ensure the system date and time are correctly synchronized
-* Assign a static private IP address: Example: `192.168.1.25`
-* Assign or route the static public IP address (if applicable): Example: `104.18.36.110`
-* Install all available system updates and service packs
-* Do not install PostgreSQL on the IM server
-* Disable all power-saving features: Set the system to High Performance mode
-* Do not install:
-  * TeamViewer
-  * VPN software
-  * Similar remote-access tools
-* The server must not act as:
-  * DNS server
-  * DHCP server
-
-These requirements ensure optimal performance and avoid conflicts with the IM service.
+<figure><img src="../../../.gitbook/assets/aws_ha_cluster_server_rules-3.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
-#### Step 2: Configure the IP Address Whitelist
+### Prerequisites
+
+Before configuring the IM Server, ensure that the following prerequisites are met.
+
+The PortSIP PBX High Availability (HA) installation and configuration must be completed on the Main Server first by following the guide:  [High Availability Installations on AWS ](high-availability-installations-on-aws.md).
+
+***
+
+### User Account Requirements
+
+To ensure consistency and reliable automation across the HA cluster, the IM server must meet the following user account requirements:
+
+* The server must use the **same username and password** as the PBX server
+* In this guide, the username `pbx` is used as an example
+* The user account **must have sudo privileges** to execute administrative and management commands
+
+***
+
+### Important Notice
+
+All management and operational commands for **IM server**, must execut the following commands **only on the PBX HA node `ip-172-31-16-133`**., regardless of whether it is currently the active or standby node.
+
+This ensures configuration consistency and prevents cluster state conflicts.
+
+***
+
+### Enable Password-Free SSH Login
+
+To allow automated management and deployment, configure **password-free SSH access** from the **PBX HA node `ip-172-31-16-133` only** to IM Server.
+
+If prompted to confirm the connection (yes/no), type **yes**.
+
+```bash
+ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@54.215.234.67
+```
+
+This step is required before deploying or managing IM server from the HA controller.
+
+***
+
+#### Step 1: Configure the IP Address Whitelist
 
 > ⚠️ **IMPORTANT**\
 > This step is **mandatory**.\
@@ -112,10 +164,10 @@ To prevent the PBX from applying request-rate limits to the IM service, you must
 
 #### Whitelist Configuration Steps
 
-1. Sign in to the **PBX Web Portal** as a **System Administrator**
+1. Sign in to the PBX Web Portal as a System Administrator
 2. Navigate to **IP Blacklist**
 3. Click **Add**
-4. Enter the **IM server IP address**
+4. Enter the IM server IP elastic addres&#x73;**: 54.215.234.67**
 5. Set a **long expiration date**
 6. Save the configuration
 
@@ -125,11 +177,11 @@ This ensures uninterrupted communication between the PBX and the IM service.
 
 ***
 
-#### Step 3: Generate a Token for the IM Server
+#### Step 2: Generate a Token for the IM Server
 
 To allow the IM server to securely authenticate with the PortSIP PBX HA cluster, you must generate an IM server token from the PBX Web Portal.
 
-1. Sign in to the **PortSIP PBX HA Web Portal** as a **System Administrator**.
+1. Sign in to the PortSIP PBX HA Web Portal as a System Administrator.
 2. Navigate to **Servers > IM Servers**.
 3. Select the **default IM server**.
 4. Click **Generate Token**.
@@ -139,27 +191,13 @@ The generated token will be used during the IM service installation to establish
 <figure><img src="../../../.gitbook/assets/im_server_update_address_new_token.png" alt=""><figcaption></figcaption></figure>
 
 > ⚠️ **IMPORTANT**\
-> All commands below for extended servers **must be executed on the `pbx01` node**, regardless of whether it is currently the active node.
-
-#### Step 4: Set Up Password-Free SSH Login
-
-To allow the PBX HA cluster to deploy and manage the IM service, configure password-free SSH access to the IM server.
-
-If prompted to confirm the host authenticity (**yes/no**), type **`yes`** and press **Enter**.
-
-Run the following command **from `pbx01`**:
-
-```bash
-ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@192.168.1.25
-```
-
-After this step, `pbx01` will be able to access the IM server without requiring a password.
+> All commands below for extended servers **must be executed on the `ip-172-31-16-133` node**, regardless of whether it is currently the active node.
 
 ***
 
-#### Step 5: Deploy the IM Service
+#### Step 3: Deploy the IM Service
 
-The IM service deployment **must be initiated from the `pbx01` node** of the PBX HA cluster.
+The IM service deployment **must be initiated from the `ip-172-31-16-133` node** of the PBX HA cluster.
 
 > ⚠️ **IMPORTANT**\
 > The deployment process may take several minutes.\
@@ -167,24 +205,24 @@ The IM service deployment **must be initiated from the `pbx01` node** of the PBX
 
 #### Deploy IM Service with Default Storage Path
 
-Run the following command on the **pbx01 node only**, specifying both the **static private IP** and **static public IP** of the IM server:
+Run the following command on the **pbx01 `ip-172-31-16-133` only**, specifying both the **static private IP** and **elastic IP** of the IM server:
 
 ```bash
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash im.sh run \
--a 192.168.1.25 \
--A 104.18.36.110
+-a 172.31.16.157 \
+-A 54.215.234.67
 ```
 
 ***
 
 #### Deploy IM Service with a Custom File Storage Path (Optional)
 
-Run the following command on the **pbx01 node only i**f you want to store IM chat messages and shared files in a custom directory. Use the **`-f`** parameter:
+Run the following command on the **`ip-172-31-16-133`  node only i**f you want to store IM chat messages and shared files in a custom directory. Use the **`-f`** parameter:
 
 ```bash
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash im.sh run \
--a 192.168.1.25 \
--A 104.18.36.110 \
+-a 172.31.16.157 \
+-A 54.215.234.67 \
 -f /data/im
 ```
 
@@ -195,16 +233,8 @@ Ensure that the specified directory exists and has sufficient disk space and app
 #### Parameter Reference
 
 * **`-a`**: Static private IP address of the IM server
-* **`-A`**: Static public IP address of the IM server
+* **`-A`**: Elastic IP address of the IM server
 * **`-f`** _(Optional), &#x63;_&#x75;stom directory for storing IM chat messages and shared files
-
-***
-
-#### Deployment Verification
-
-If the deployment is successful, the **PBX Web Portal** will display the IM server’s IP address under the **IM Servers** section, confirming that the IM service is correctly registered and connected to the PBX HA cluster.
-
-<figure><img src="../../../.gitbook/assets/im_server_update_address.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="danger" %}
 If your network infrastructure includes an additional firewall, ensure that **TCP port 8887** is allowed in the firewall rules. Client applications require access to this port to **send and receive instant messages**.
@@ -217,7 +247,7 @@ If your network infrastructure includes an additional firewall, ensure that **TC
 All IM server management operations are performed using the `im.sh` script provided with the PortSIP PBX HA deployment.
 
 > ⚠️ **IMPORTANT**\
-> All commands in this section **must be executed on the `pbx01` node**, regardless of which PBX node is currently active.
+> All commands in this section **must be executed on the `ip-172-31-16-133` node**, regardless of which PBX node is currently active.
 
 ***
 
@@ -235,7 +265,7 @@ The following operations are supported for managing the IM server:
 
 #### IM Server Management Commands
 
-Run the appropriate command on **`pbx01`** based on the required operation.
+Run the appropriate command on **`ip-172-31-16-133`** based on the required operation.
 
 **Start the IM Server**
 
@@ -272,13 +302,13 @@ cd /opt/portsip-pbx-ha-guide/ && /bin/bash im.sh rm
 Follow the steps below to upgrade the IM server in a PortSIP PBX HA environment.
 
 > ⚠️ **IMPORTANT**\
-> All upgrade steps **must be performed on the `pbx01` node**, even if `pbx01` is not the current active PBX node.
+> All upgrade steps **must be performed on the `ip-172-31-16-133` node**, even if **`ip-172-31-16-133`** is not the current active PBX node.
 
 #### Prerequisites
 
 Before upgrading the IM server:
 
-* Ensure that the PBX HA cluster has already been upgraded by following the guide: [Upgrading High Availability Installation](../high-availability-and-sclability-on-premise/upgrading-high-availability-installation.md)&#x20;
+* Ensure that the PBX HA cluster has already been upgraded by following the guide: [Upgrading High Availability Installation ](upgrading-high-availability-installation.md)
 * Ensure the PBX HA cluster is operating normally
 
 ***
@@ -294,7 +324,7 @@ Before upgrading the IM server:
 
 #### Step 2: Upgrade the IM Server
 
-On **`pbx01`**, run the following command to upgrade the IM service:
+On **`ip-172-31-16-133`**, run the following command to upgrade the IM service:
 
 ```bash
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash im.sh upgrade
