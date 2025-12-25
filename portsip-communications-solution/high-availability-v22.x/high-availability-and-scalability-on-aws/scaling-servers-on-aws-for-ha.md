@@ -148,23 +148,49 @@ The process is largely the same as the [PortSIP PBX High Availability (HA) deplo
 
 ***
 
-## Deploying Meeting Server
+### Configure Security Group Inbound Rules
 
-Please follow the steps below to deploy the Meeting Server.
+You must add **inbound rules** to the **Security Group associated with the three PBX HA servers** to allow traffic from the cluster servers to reach the PBX HA nodes.&#x20;
 
-1. Sign in to the PortSIP BPX web portal as the system administrator.
-2. Select the menu **Servers > Meeting Servers**.
-3. Click the **Add** button, enter the server information as shown in the screenshot, and then click the **OK** button to save it. Please remember the server name **meeting-server-1**, we will use it in a later step.
+Modify the **Security Group that attached to all three PBX HA EC2 instances** and add an Inbound Rule that allows traffic from the cluster servers’ E**lastic IP** addresses.
+
+Please follow the screenshot below to add the inbound rule to the Security Group used by the PBX HA servers.
+
+<figure><img src="../../../.gitbook/assets/aws_ha_cluster_server_rules-1.png" alt=""><figcaption></figcaption></figure>
+
+***
+
+### Deploying the Meeting Server
+
+Follow the steps below to deploy the **Meeting Server** in your PortSIP PBX HA environment.
+
+#### Step 1: Add the Meeting Server in the PBX Web Portal
+
+1. Sign in to the PortSIP PBX Web Portal as a System Administrator.
+2. Navigate to **Servers > Meeting Servers**.
+3. Click **Add**, enter the server information as shown in the screenshot, and then click **OK** to save the configuration.
+4. **Important:** Please note the server name **`meeting-server-1`**. This name will be used in a later step.
 
 <figure><img src="../../../.gitbook/assets/aws_ha_extend_meeting_1.png" alt=""><figcaption></figcaption></figure>
 
-4. Perform the below commands on the PBX HA node **ip-172-31-16-133** only. The execution may take some time, so patience is required. Please do not interrupt, restart, or shut down while the process is in progress.
+***
 
-* -s: Specify the service that will be installed. For the meeting server, it should be **meeting-server-only**.
-* -n: Specify the server name that you entered in the above step 3; In case is **meeting-server-1**.
-* -a: Specify the server's private IP address, in case it's **172.31.16.137**.
+#### Step 2: Deploy the Meeting Server Service
 
-```sh
+Perform the following commands **only on the PBX HA node `ip-172-31-16-133`**.
+
+> ❗ **Important**
+>
+> * The deployment process may take some time to complete.
+> * **Do not interrupt**, restart, or shut down the server while the process is running.
+
+**Command Parameters**
+
+* `-s`: Specifies the service to be installed. For the Meeting Server, use: **meeting-server-only**
+* `-n`: Specifies the server name configured in Step 1. In this example: **meeting-server-1**
+* `-a`: Specifies the **private IP address** of the Meeting Server. In this example: **172.31.16.137**
+
+```shellscript
 cd /opt/portsip-pbx-ha-guide/ && \
 /bin/bash extend.sh run -s meeting-server-only \
 -n meeting-server-1 \
@@ -173,149 +199,351 @@ cd /opt/portsip-pbx-ha-guide/ && \
 
 This server status will be **Online** in the PBX Web Portal after it's successfully installed.
 
-## Deploying Queue Server
+***
 
-Please follow the steps below to deploy the Queue Server.
+### Deploying the Queue Server
 
-1. Sign in to the PortSIP BPX web portal as the system administrator.
-2. Select the menu **Servers > Queue Servers**.
-3. Click the **Add** button, enter the server information as shown in the screenshot, and then click the **OK** button to save it. Please remember the server name **queue-server-1**, we will use it in a later step.
+Follow the steps below to deploy the **Queue Server** in your PortSIP PBX High Availability environment.
+
+#### Step 1: Add the Queue Server in the PBX Web Portal
+
+1. Sign in to the PortSIP PBX Web Portal as a System Administrator.
+2. Navigate to **Servers > Queue Servers**.
+3. Click **Add**, enter the server information as shown in the screenshot, and then click **OK** to save the configuration.
+4. **Important:** Please note the server name **`queue-server-1`**, as it will be used in a later step.
 
 <figure><img src="../../../.gitbook/assets/aws_ha_extend_queue_1.png" alt=""><figcaption></figcaption></figure>
 
-4. Perform the below commands on the PBX HA node **ip-172-31-16-133** only. The execution may take some time, so patience is required. Please do not interrupt, restart, or shut down while the process is in progress.
+***
 
-* -s: Specify the service that will be installed. For the meeting server, it should be **queue-server-only**.
-* -n: Specify the server name that you entered in the above step 3; In case is **queue-server-1**.
-* -a: Specify the server's private IP address, in case it's **172.31.16.138**.
+#### Step 2: Deploy the Queue Server Service
 
-```sh
+Run the following commands **only on the PBX HA node `ip-172-31-16-133`**.
+
+> ❗**Important**
+>
+> * The deployment process may take some time to complete.
+> * **Do not interrupt**, restart, or shut down the server while the process is in progress.
+
+**Command Parameters**
+
+* `-s`: Specifies the service to be installed. For the Queue Server, use: **queue-server-only**
+* `-n`: Specifies the server name configured in Step 1. In this example: **queue-server-1**
+* `-a`: Specifies the **private IP address** of the Queue Server. In this example: **172.31.16.138**
+
+```bash
 cd /opt/portsip-pbx-ha-guide/ && \
-/bin/bash extend.sh run -s queue-server-only \
--n queue-server-1 \
--a 172.31.16.138
+/bin/bash extend.sh run \
+  -s queue-server-only \
+  -n queue-server-1 \
+  -a 172.31.16.138
 ```
 
 This server status will be **Online** in the PBX Web Portal after it's successfully installed.
 
-## Deploying Media Server
+***
 
-Please follow the steps below to deploy the Media Server.
+### Deploying the Media Server
 
-1. Sign in to the PortSIP BPX web portal as the system administrator.
-2. Select the menu **Servers > Media Servers**.
-3. Click the **Add** button, enter the server information as shown in the screenshot, and then click the **OK** button to save it. Please remember the server name **media-server-1**, we will use it in a later step.
+Follow the steps below to deploy the **Media Server** in your PortSIP PBX High Availability environment. The Media Server is responsible for handling RTP media processing and therefore plays a critical role in call quality and scalability.
+
+#### Step 1: Add the Media Server in the PBX Web Portal
+
+1. Sign in to the PortSIP PBX Web Portal as a System Administrator.
+2. Navigate to **Servers > Media Servers**.
+3. Click **Add**, enter the server information as shown in the screenshot, and then click **OK** to save the configuration.
+4. **Important:** Please note the server name **`media-server-1`**, as it will be used in a later step.
 
 <figure><img src="../../../.gitbook/assets/aws_ha_extend_media_1.png" alt=""><figcaption></figcaption></figure>
 
-4. Perform the below commands on the PBX HA node **ip-172-31-16-133** only. The execution may take some time, so patience is required. Please do not interrupt, restart, or shut down while the process is in progress.
+***
 
-* -s: Specify the service that will be installed. For the meeting server, it should be **media-server-only**.
-* -n: Specify the server name that you entered in the above step 3; In case is **media-server-1**.
-* -a: Specify the server's private IP address, in case it's **172.31.16.139**.
+#### Step 2: Deploy the Media Server Service
 
-```sh
+Run the following commands **only on the PBX HA node `ip-172-31-16-133`**.
+
+> ❗**Important**
+>
+> * The deployment process may take some time to complete.
+> * **Do not interrupt**, restart, or shut down the server while the process is in progress.
+
+**Command Parameters**
+
+* `-s`: Specifies the service to be installed. For the Media Server, use: **media-server-only**
+* `-n`: Specifies the server name configured in Step 1. In this example: **media-server-1**
+* `-a`: Specifies the **private IP address** of the Media Server. In this example: 1**72.31.16.139**
+
+```bash
 cd /opt/portsip-pbx-ha-guide/ && \
-/bin/bash extend.sh run -s media-server-only \
--n media-server-1 \
--a 172.31.16.139
+/bin/bash extend.sh run \
+  -s media-server-only \
+  -n media-server-1 \
+  -a 172.31.16.139
 ```
 
 This server status will be **Online** in the PBX Web Portal after it's successfully installed.
 
-## Deploying IVR Server
+***
 
-Please follow the steps below to deploy the IVR Server (Virtual Receptionist).
+### Deploying the IVR Server (Virtual Receptionist)
 
-1. Sign in to the PortSIP BPX web portal as the system administrator.
-2. Select the menu **Servers > IVR Servers**.
-3. Click the **Add** button, enter the server information as shown in the screenshot, and then click the **OK** button to save it. Please remember the server name **ivr-server-1**, we will use it in a later step.
+Follow the steps below to deploy the **IVR Server (Virtual Receptionist)** in your PortSIP PBX High Availability environment. The IVR Server is responsible for auto attendants, voice menus, and call routing logic.
 
-<figure><img src="../../../.gitbook/assets/aws_ha_extend_ivr_1.png" alt=""><figcaption></figcaption></figure>
+#### Step 1: Add the IVR Server in the PBX Web Portal
 
-4. Perform the below commands on the PBX HA node **ip-172-31-16-133** only. The execution may take some time, so patience is required. Please do not interrupt, restart, or shut down while the process is in progress.
+1. Sign in to the PortSIP PBX Web Portal as a System Administrator.
+2. Navigate to **Servers > IVR Servers**.
+3. Click **Add**, enter the server information as shown in the screenshot, and then click **OK** to save the configuration.
+4. **Important:** Please note the server name **`ivr-server-1`**, as it will be used in a later step.
 
-* -s: Specify the service that will be installed. For the meeting server, it should be **vr-server-only**.
-* -n: Specify the server name that you entered in the above step 3; In case is **vr-server-1**.
-* -a: Specify the server's private IP address, in case it's **172.31.16.140**.
+***
 
-```sh
+#### Step 2: Deploy the IVR Server Service
+
+Run the following commands **only on the PBX HA node `ip-172-31-16-133`**.
+
+> ❗**Important**
+>
+> * The deployment process may take some time to complete.
+> * **Do not interrupt**, restart, or shut down the server while the process is in progress.
+
+**Command Parameters**
+
+* `-s`: Specifies the service to be installed. For the IVR Server, use: **vr-server-only**
+* `-n`: Specifies the server name configured in Step 1. In this example: **ivr-server-1**
+* `-a`: Specifies the **private IP address** of the IVR Server. In this example: **172.31.16.140**
+
+```bash
 cd /opt/portsip-pbx-ha-guide/ && \
-/bin/bash extend.sh run -s vr-server-only \
--n vr-server-1 \
--a 172.31.16.140
+/bin/bash extend.sh run \
+  -s vr-server-only \
+  -n ivr-server-1 \
+  -a 172.31.16.140
 ```
 
 This server status will be **Online** in the PBX Web Portal after it's successfully installed.
 
-## Configuring the IP Address Whitelist
+***
 
-{% hint style="danger" %}
-This step is mandatory; without it, the service will not work.
-{% endhint %}
+### Configuring the IP Address Whitelist
 
-To prevent the PBX from limiting the cluster servers' request rate, we need to add the cluster servers' IPs to the whitelist in the PBX.&#x20;
+> ❗**Mandatory Step**\
+> This configuration is **required**. If the cluster servers’ IP addresses are not added to the whitelist, the services **will not function correctly**.
 
-To do this, please follow the below steps:
+To prevent the PBX from rate-limiting requests originating from the cluster servers, you must add each cluster server’s IP address to the PBX IP whitelist.
 
-1. Sign in as the System Administrator
-2. Select the menu **IP Blacklist** > **Add**.&#x20;
-3. Enter the cluster server IP, as shown in the screenshot below, and choose a long **expiration date.**
-4. Repeat the above steps for each cluster server.
+***
+
+#### Configuration Steps
+
+1. Sign in to the PortSIP PBX Web Portal as a System Administrator.
+2. Navigate to **IP Blacklist**.
+3. Click **Add**.
+4. Enter the **cluster server’s IP address**, as shown in the screenshot below.
+5. Set a **long expiration date** (or the maximum allowed value).
+6. Click **OK** to save the entry.
+7. Repeat the above steps for **each cluster server**.
 
 <figure><img src="../../../.gitbook/assets/aws_cluster_ip_whitelist.png" alt=""><figcaption></figcaption></figure>
 
-## Managing Servers
+***
 
-Perform the below commands on the PBX HA node **ip-172-31-16-133** only, even if it is not the **current active node**.
+### Managing Extended Servers
 
-In the below media server example commands, use the parameter **-s** to specify the service name. PortSIP PBX supports these services:
+#### Important Notes
 
-* media-server-only
-* queue-server-only
-* meeting-server-only
-* vr-server-only
+* All management commands for extended servers **must be executed on** on the PBX HA node **ip-172-31-16-133** only, even if it is not the **current active node**.
+* Do **not interrupt**, reboot, or close the terminal while any management or upgrade command is running.
 
-You can replace the **media-server-only** with another service name, such as mentioned above, and you also need to replace the **-a 172.31.16.139** with a corresponding server IP address.
+***
 
-### Upgrade Server
+#### Supported Operations
 
-First, please ensure you have upgraded the PBX HA as per this guide: [Upgrading High Availability Installation](upgrading-high-availability-installation.md). After that, perform the below command to upgrade the server:
+The following operations are supported for managing extended servers:
 
-```sh
-cd /opt/portsip-pbx-ha-guide/ && \
-/bin/bash extend.sh run -s media-server-only \
--n media-server-1 \
--a 172.31.16.139
+* **start** – Start servers
+* **stop** – Stop servers
+* **restart** – Restart servers
+* **upgrade** – Upgrade servers
+* **rm** – Remove installed servers
+
+***
+
+#### Server Type Filters (`-s` Parameter)
+
+You can optionally manage a specific type of extended server using the `-s` parameter with one of the following values:
+
+* `media-server-only` – Media Servers
+* `queue-server-only` – Queue Servers
+* `meeting-server-only` – Meeting Servers
+* `ivr-server-only` – IVR Servers
+
+***
+
+#### Targeting a Specific Server (`-a` Parameter)
+
+To manage a **specific server instance**, use the `-a` parameter to specify its **private IP address**.
+
+***
+
+#### Managing All Extended Servers
+
+The following commands apply to **all extended servers**, including Media, Queue, Meeting, and IVR servers.
+
+**Start All Extended Servers**
+
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh start
 ```
 
-### Start Server
+**Stop All Extended Servers**
 
-```sh
- cd /opt/portsip-pbx-ha-guide/ && \
- /bin/bash extend.sh start -s media-server-only -a 172.31.16.139
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh stop
 ```
 
-### Restart Server
+**Restart All Extended Servers**
 
-```sh
- cd /opt/portsip-pbx-ha-guide/ && \
- /bin/bash extend.sh restart -s media-server-only -a 172.31.16.139
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh restart
 ```
 
-### Stop Server
+**Remove All Extended Servers**
 
-```sh
- cd /opt/portsip-pbx-ha-guide/ && \
-  /bin/bash extend.sh stop -s media-server-only -a 172.31.16.139
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh rm
 ```
 
-### Remove Server
+***
 
-```sh
- cd /opt/portsip-pbx-ha-guide/ && \
- /bin/bash extend.sh rm -s media-server-only -a 172.31.16.139
+#### Managing a Specific Type of Extended Server
+
+To manage **only one type of server** (for example, Media Servers), use the `-s` parameter.
+
+**Start All Media Servers**
+
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh start -s media-server-only
 ```
+
+**Stop All Media Servers**
+
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh stop -s media-server-only
+```
+
+**Restart All Media Servers**
+
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh restart -s media-server-only
+```
+
+**Remove All Media Servers**
+
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh rm -s media-server-only
+```
+
+> Replace `media-server-only` with another supported server type as needed.
+
+***
+
+#### Managing a Specific Server Instance by IP
+
+To manage a **specific server instance**, use **both** the `-s` (server type) and `-a` (IP address) parameters.
+
+**Example:** Manage a Media Server at **172.31.16.137.**
+
+**Start the Server**
+
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh start \
+-s media-server-only \
+-a 172.31.16.137
+```
+
+**Stop the Server**
+
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh stop \
+-s media-server-only \
+-a 172.31.16.137
+```
+
+**Restart the Server**
+
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh restart \
+-s media-server-only \
+-a 172.31.16.137
+```
+
+**Remove the Server**
+
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh rm \
+-s media-server-only \
+-a 172.31.16.137
+```
+
+> ❗Replace the server type and IP address as required for Queue, Meeting, or IVR servers.
+
+***
+
+### Upgrading Extended Servers
+
+#### Important Notes
+
+* All management commands for extended servers **must be executed on** on the PBX HA node **ip-172-31-16-133** only, even if it is not the **current active node**.
+* Before upgrading extended servers, ensure that the **PBX HA itself has already been upgraded** by following the guide: [Upgrading High Availability Installation](upgrading-high-availability-installation.md)
+* The upgrade process may take some time. **Do not interrupt the process**.
+
+***
+
+#### Upgrading All Extended Servers
+
+To upgrade **all extended servers** (Media, Queue, Meeting, and IVR), run:
+
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh upgrade
+```
+
+***
+
+#### Upgrading a Specific Type of Extended Server
+
+To upgrade only a specific server type, use the `-s` parameter.
+
+**Example: Upgrade All Media Servers**
+
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh upgrade -s media-server-only
+```
+
+**Supported Server Types for Upgrade:**
+
+* `media-server-only` – Upgrade all Media Servers
+* `queue-server-only` – Upgrade all Queue Servers
+* `meeting-server-only` – Upgrade all Meeting Servers
+* `ivr-server-only` – Upgrade all IVR Servers
+
+***
+
+### Upgrading PortSIP IM Service
+
+Please follow the [Upgrading the IM Server](../high-availability-and-sclability-on-premise/scaling-im-server-on-premise-for-high-availability.md#upgrading-the-im-server) guide to complete the installation and configuration.
+
+***
+
+### Upgrading PortSIP Data Flow Service
+
+Please follow the [Upgrading Data Flow Server](../high-availability-and-sclability-on-premise/scaling-data-flow-server-on-premise-for-high-availability.md#upgrade-the-data-flow-server) guide to complete the installation and configuration.
+
+***
+
+### Upgrading PortSIP SBC Service
+
+Please follow the [Upgrading SBC Servers](../high-availability-and-sclability-on-premise/11-deploy-the-sbc-cluster.md#upgrade-all-sbc-servers) guide to complete the installation and configuration.
 
 
 
