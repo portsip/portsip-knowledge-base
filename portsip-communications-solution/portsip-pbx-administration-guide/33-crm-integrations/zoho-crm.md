@@ -45,7 +45,7 @@ The PortSIP PBX Zoho CRM integration is supported for the following Zoho CRM edi
 
 ### Step 1: Configure the Zoho Application
 
-1. Sign in to the **Zoho Developer Console**.
+1. Sign in to the [Zoho Developer Console](https://accounts.zoho.com/developerconsole).
 2. Click **Add Client**.
 3. Select **Server-based Applications** as the client type.
 4. Enter a **Client Name**, for example: `PortSIP PBX Integration`
