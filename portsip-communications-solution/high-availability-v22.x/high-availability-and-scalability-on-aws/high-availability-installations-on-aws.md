@@ -63,9 +63,7 @@ This ensures all PBX nodes have access to the most up-to-date data during failov
 
 An **AWS Elastic IP (EIP),** a static public IP address serves as the **single external access point** for the PBX system.
 
-The Elastic IP is always mapped to the **currently active PBX node**.
-
-#### Client Access
+The Elastic IP is always mapped to the **currently active PBX node,** in this example, it's **54.151.30.9**.
 
 The Elastic IP is used by:
 

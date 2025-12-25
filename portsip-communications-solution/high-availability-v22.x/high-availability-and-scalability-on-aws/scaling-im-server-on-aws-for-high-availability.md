@@ -73,7 +73,7 @@ For seamless integration with the HA environment, the IM server must meet the fo
 
 This guide assumes the following PBX HA network configuration:
 
-* **PBX HA Virtual IP:** `192.168.1.130`
+* **PBX HA Elastic IP:** `192.168.1.130`
 * **PBX Static Public IP:** `104.18.36.119`
 
 These values are used when configuring communication between the PBX and the IM service.
