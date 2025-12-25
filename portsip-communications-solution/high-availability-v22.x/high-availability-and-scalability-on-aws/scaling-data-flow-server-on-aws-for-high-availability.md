@@ -2,7 +2,7 @@
 
 With a PortSIP PBX High Availability (HA) deployment, the Data Flow Service must be installed on a separate server.
 
-Before proceeding with this guide, ensure that you have successfully completed the PortSIP PBX [High Availability installation on AWS](../../../v16.x-legacy/high-availability-v16.x/high-availability-and-scalability-on-aws/high-availability-installations-on-aws.md).
+Before proceeding with this guide, ensure that you have successfully completed the PortSIP PBX [High Availability installation on AWS.](https://support.portsip.com/portsip-communications-solution/high-availability-v22.x/high-availability-and-scalability-on-aws/high-availability-installations-on-aws)
 
 ***
 
@@ -49,15 +49,6 @@ For large or high-volume environments, use the following guideline:
 
 ***
 
-#### Supported Linux Operating System
-
-To ensure compatibility and stability, all servers in the HA environment must use a consistent Linux OS.
-
-* **Supported OS:** Ubuntu 24.04 (64-bit)
-* The Data Flow server **must run the same OS version** as the PBX HA nodes.
-
-***
-
 #### User Account Requirements
 
 For seamless integration with the HA environment, the Data Flow server must meet the following user account requirements:
@@ -79,15 +70,22 @@ If your deployment handles **very large call volumes**, increase the data volume
 
 ***
 
-#### Network Requirements <a href="#network-requirements" id="network-requirements"></a>
+### Deployment Requirements
 
-**Static IP Address**
+* Each application server must be deployed on a dedicated EC2 instance. Do not install multiple application server roles on a single EC2 instance.
+* Each EC2 instance must use a **static private IP address** and an **elastic IP address**. DHCP-assigned IP addresses are not supported.
 
-You must configure a **static private IP address** for the Data Flow server.
+***
 
-* Example private IP: `192.168.1.26`
+#### Preparing Linux Servers (EC2 Instances)
 
-If a static private IP is not available, the server must have a **static public IP address** and be able to communicate reliably with the PBX server.
+Prepare the EC2 instance that will host the Data Flow server. In this example, the following Data Flow server is deployed:
+
+* Private IP: `172.31.16.158`
+* Hostname: `ip-172-31-16-158`
+* Elastic IP: `54.215.234.68`
+
+Ensure all IP addresses are reserved and consistently assigned to their respective EC2 instances.
 
 ***
 
@@ -96,7 +94,7 @@ If a static private IP is not available, the server must have a **static public 
 The following tasks **must be completed before installing the Data Flow service**:
 
 * Ensure the system date and time are correctly synchronized
-* Assign a static private IP address: Example: `192.168.1.26`
+* Assign a static private IP address: Example: `172.31.16.158`
 * Install all available system updates and service packs
 * Do not install PostgreSQL on the **Data Flow** server
 * Disable all power-saving features: Set the system to High Performance mode
@@ -112,6 +110,56 @@ These requirements ensure optimal performance and avoid conflicts with the Data 
 
 ***
 
+### Creating EC2 Instances
+
+Follow the steps below to create the EC2 instances for the Data Flow server.
+
+\
+The process is largely the same as the [PortSIP PBX High Availability (HA) deployment on AWS](high-availability-installations-on-aws.md), but please pay close attention to the specific configuration details outlined below.
+
+***
+
+#### Supported Linux Operating System
+
+PortSIP PBX High Availability (HA) and all associated servers require a consistent and compatible Linux environment.
+
+* **Supported OS**: Ubuntu 24.04 (64-bit)
+* The IM server **must run the exact same OS version** as the PBX server.
+
+#### Network Settings
+
+* Select the **same VPC and Subnet** used by the PBX HA nodes.
+* Select the **same Security Group** used by the PBX HA nodes.
+* Set **Auto-assign public IP** to **Disable**.
+* Under **Advanced network configuration → Network interface 1**:
+  * Set **Primary IP** to `172.31.16.158` for this EC2 server.
+* Associate the Elastic IP with this EC2 server. For the Elastic IP address example `54.215.234.68`
+
+#### Disk Space Recommendations
+
+* **Minimum required disk space**: 128 GB
+* No separate data partition is required for the Data Flow Server
+
+***
+
+### Configure Security Group Inbound Rules
+
+Modify the **Security Group that is attached to all three PBX HA EC2 instances** and add an Inbound Rule that allows traffic from the **Data Flow servers’ Elastic IP** 54.215.234.68 addresses.
+
+Please follow the screenshot below to add the inbound rule to the Security Group used by the PBX HA servers.
+
+<figure><img src="../../../.gitbook/assets/aws_ha_cluster_server_rules-3.png" alt=""><figcaption></figcaption></figure>
+
+***
+
+### Prerequisites
+
+Before configuring the Data Flow Server, ensure that the following prerequisites are met.
+
+The PortSIP PBX High Availability (HA) installation and configuration must be completed on the Main Server first by following the guide:  [High Availability Installations on AWS](high-availability-installations-on-aws.md).
+
+***
+
 #### Step 2: Configure the IP Address Whitelist
 
 > ⚠️ **IMPORTANT**\
@@ -122,7 +170,7 @@ To prevent the PBX from applying request-rate limits to the  Data Flow service, 
 
 #### Whitelist Configuration Steps
 
-1. Sign in to the **PBX Web Portal** as a **System Administrator**
+1. Sign in to the PBX Web Portal as a System Administrator
 2. Navigate to **IP Blacklist**
 3. Click **Add**
 4. Enter the Data Flow **server IP address**
@@ -139,7 +187,7 @@ This ensures uninterrupted communication between the PBX and the data flow servi
 
 To allow the Data Flow server to securely authenticate with the PortSIP PBX HA cluster, you must generate a Data Flow server token from the PBX Web Portal.
 
-1. Sign in to the **PortSIP PBX Web Portal** as a **System Administrator**.
+1. Sign in to the PortSIP PBX Web Portal as a System Administrator.
 2. Navigate to **Servers > Data Flow**.
 3. Select the **default Data Flow** **server**.
 4. Click **Generate Token**.
@@ -151,25 +199,11 @@ The generated token will be used during the Data Flow service installation to es
 > ⚠️ **IMPORTANT**\
 > All commands below for extended servers **must be executed on the `pbx01` node**, regardless of whether it is currently the active node.
 
-#### Step 4: Set Up Password-Free SSH Login
-
-To allow the PBX HA cluster to deploy and manage the Data Flow service, configure password-free SSH access to the Data Flow server.
-
-If prompted to confirm the host authenticity (**yes/no**), type **`yes`** and press **Enter**.
-
-Run the following command **from `pbx01`**:
-
-```bash
-ssh-copy-id -i ~/.ssh/id_rsa.pub pbx@192.168.1.26
-```
-
-After this step, `pbx01` will be able to access the Data Flow server without requiring a password.
-
 ***
 
 #### Step 5: Deploy the Data Flow Service
 
-The data flow service deployment **must be initiated from the `pbx01` node** of the PBX HA cluster.
+The data flow service deployment **must be initiated from the `ip-172-31-16-133` node** of the PBX HA cluster.
 
 > ⚠️ **IMPORTANT**\
 > The deployment process may take several minutes.\
@@ -180,7 +214,7 @@ The data flow service deployment **must be initiated from the `pbx01` node** of 
 * `-p` : Path for storing Data Flow and ClickHouse data (required)
 * `-d` : ClickHouse Docker image (`portsip/clickhouse:25.8`)
 * `-a` : Private IP address of the Data Flow server
-* `-A` : Public IP address (used if private IP is not available)
+* `-A` : Elastic IP address
 * `-i` : PortSIP PBX Docker image version (required)
 
 Example:
@@ -189,7 +223,8 @@ Example:
 cd /opt/portsip-pbx-ha-guide/ && \
 /bin/bash dataflow.sh run \
 -p /var/lib/portsip \
--a 192.168.1.26 
+-a 172.31.16.158 \
+-A 54.215.234.68
 ```
 
 #### Operational Notes (Data Flow)
@@ -225,7 +260,7 @@ The following operations are supported for managing the data flow server:
 
 #### Data Flow Server Management Commands
 
-Run the appropriate command on **`pbx01`** based on the required operation.
+Run the appropriate command on **`ip-172-31-16-133`** node based on the required operation.
 
 **Start the Data Flow Server**
 
@@ -262,13 +297,13 @@ cd /opt/portsip-pbx-ha-guide/ && /bin/bash dataflow.sh rm
 Follow the steps below to upgrade the Data Flow server in a PortSIP PBX HA environment.
 
 > ⚠️ **IMPORTANT**\
-> All upgrade steps **must be performed on the `pbx01` node**, even if `pbx01` is not the current active PBX node.
+> All upgrade steps **must be performed on the `ip-172-31-16-133` node**, even if `pbx01` is not the current active PBX node.
 
 #### Prerequisites
 
 Before upgrading the Data Flow server:
 
-* Ensure that the PBX HA cluster has already been upgraded by following the guide: [Upgrading High Availability Installation](../high-availability-and-sclability-on-premise/upgrading-high-availability-installation.md)&#x20;
+* Ensure that the PBX HA cluster has already been upgraded by following the guide: [Upgrading High Availability Installation ](upgrading-high-availability-installation.md)
 * Ensure the PBX HA cluster is operating normally
 
 ***

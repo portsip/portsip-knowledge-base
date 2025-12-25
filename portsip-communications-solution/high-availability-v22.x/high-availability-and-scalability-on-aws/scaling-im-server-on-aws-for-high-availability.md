@@ -76,7 +76,9 @@ The following tasks **must be completed before installing any PortSIP PBX cluste
 
 ### Creating EC2 Instances
 
-Follow the steps below to create the EC2 instances for the application servers.\
+Follow the steps below to create the EC2 instances for the IM server.
+
+\
 The process is largely the same as the [PortSIP PBX High Availability (HA) deployment on AWS](high-availability-installations-on-aws.md), but please pay close attention to the specific configuration details outlined below.
 
 ***
@@ -100,17 +102,17 @@ PortSIP PBX High Availability (HA) and all associated servers require a consiste
 #### Disk Space Recommendations
 
 * **Minimum required disk space**: 128 GB
-* No separate data partition is required fo IM server
+* No separate data partition is required for IM server
 
 ***
 
 ### Configure Security Group Inbound Rules
 
-Modify the **Security Group that attached to all three PBX HA EC2 instances** and add an Inbound Rule that allows traffic from the **IM servers’ Elastic IP** addresses.
+Modify the **Security Group that is attached to all three PBX HA EC2 instances** and add an Inbound Rule that allows traffic from the **IM servers’ Elastic IP** addresses.
 
 Please follow the screenshot below to add the inbound rule to the Security Group used by the PBX HA servers.
 
-<figure><img src="../../../.gitbook/assets/aws_ha_cluster_server_rules-3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/aws_ha_cluster_server_rules-3 (1).png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -192,6 +194,9 @@ The IM service deployment **must be initiated from the `ip-172-31-16-133` node**
 #### Deploy IM Service with Default Storage Path
 
 Run the following command on the **`ip-172-31-16-133` only**, specifying both the **static private IP** and **elastic IP** of the IM server:
+
+* `-a` : Private IP address of the IM server
+* `-A` : Elastic IP address
 
 ```bash
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash im.sh run \
