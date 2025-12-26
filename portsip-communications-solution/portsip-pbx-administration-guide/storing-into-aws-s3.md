@@ -1,133 +1,193 @@
 # Storing Into AWS S3
 
-With PortSIP PBX, you can configure your system to store call recordings and compositions directly to your own Amazon Web Services (AWS) S3 bucket, instead of using local disk storage. This guide will walk you through setting up your AWS account or project to leverage this feature.
+With [PortSIP PBX](https://www.portsip.com/portsip-pbx), you can configure the system to store call recordings and related media assets directly in your own Amazon Web Services (AWS) [Amazon S3](https://aws.amazon.com/s3/) bucket, instead of using local disk storage on the PBX server.
 
-**Note:** Once external S3 storage is enabled, PortSIP PBX will stop storing uploaded files (such as voice prompts, profile pictures, and audio/video recordings) on the local disk. You will then be responsible for managing the security and lifecycle of your recorded content.
+This approach is recommended for customers who require scalable storage, centralized data management, or strict compliance with regulatory and data residency requirements.
 
-Use this feature if you need to comply with regulatory requirements that prohibit reliance on third-party storage solutions.
+This guide walks you through the required AWS-side preparation to enable S3-based storage for PortSIP PBX.
 
-{% hint style="danger" %}
-**Warning:** Please be aware of the following considerations when configuring Amazon S3 storage for your recordings:
+***
 
-* Once Amazon S3 storage is activated, historical recordings stored on the local disk of the PBX server will no longer be accessible. Additionally, previously uploaded prompt files for queues, voicemail, IVR, other voice announcements, logos, user profile images, and the QR codes will need to be re-uploaded. Therefore, it is recommended to configure Amazon S3 storage immediately after completing the PBX installation. vice versa for the switch from S3 to local disk.
-* Once the "**Store to S3**" option is activated, do not disable it. Disabling this feature will prevent the PBX from accessing historical recordings and will disrupt the process of storing new recordings on Amazon S3.
-{% endhint %}
+### Important Notes
 
-## Prerequisites
+* Once **external S3 storage** is enabled, PortSIP PBX will **no longer store uploaded files on the local disk**.
+* You will be fully responsible for:
+  * Access control and security policies
+  * Data retention and lifecycle management
+  * Backup and compliance of stored media
 
-* Debian 11/12, Ubuntu 22.04/24.04, 64-bit
-* PortSIP PBX deployed on AWS EC2
-* AWS EC2 instance(s) located in the same region as your S3 bucket
+Uploaded content affected by this change includes (but is not limited to):
 
-## Step 1: Create an IAM group and user <a href="#create-an-iam-group-and-user" id="create-an-iam-group-and-user"></a>
+* Call recordings and voicemail recordings
+* Voice prompts and IVR announcements
+* Queue and system audio files
+* User profile images and tenant logos
+* QR codes and other uploaded media assets
 
-1. Navigate to the **Identity and Access Management (IAM)** menu, select **Access Management**, and then click on the **Add User** button.&#x20;
-2. Input a name for the user, such as **s3store**, select **Programmatic Access**, and then click **Next**.
+> ❗**Use this feature when your organization must avoid reliance on third-party hosted storage or needs full ownership and governance of recorded communications.**
+
+***
+
+### ⚠️ Warnings and Best Practices
+
+Please carefully review the following considerations **before enabling Amazon S3 storage**:
+
+1. **Irreversible Access to Historical Data**\
+   Once Amazon S3 storage is enabled:
+   * Existing recordings stored on the PBX local disk will no longer be accessible.
+   * All previously uploaded media (queue prompts, voicemail greetings, IVR audio, system announcements, logos, profile images, and QR codes) **must be re-uploaded**.
+2. **Enable S3 Storage Early**\
+   To avoid data migration issues, it is **strongly recommended** to configure Amazon S3 storage **immediately after completing the PBX installation**, before uploading any production media or recordings.
+3. **Do Not Toggle the Storage Mode**\
+   After the **“Store to S3”** option is enabled:
+   * **Do not disable it**.
+   * Disabling S3 storage will prevent access to historical recordings and disrupt the creation of new recordings.
+   * The same caution applies when switching **from S3 back to local disk storage**.
+
+***
+
+### Step 1: Create an IAM Group and User
+
+1. Navigate to the **Identity and Access Management (IAM)** menu, select **Access Management**, and then click **Add User**.
+2. Enter a user name (for example, `s3store`), select **Programmatic Access**, and then click **Next**.
 
 ![](../../.gitbook/assets/iam_s3.png)
 
-3\. Click on the **Create group** button to create a new group.
+3.  Click **Create group** to create a new IAM group.&#x20;
+
+    You may choose to add this user to an existing group instead of creating a new one; however, the existing group **must be granted the AmazonS3FullAccess permission**.
 
 ![](../../.gitbook/assets/iam_s3_group.png)
 
-{% hint style="info" %}
-You can choose to add this user to an existing group rather than create a new group but must grant **AmazonS3FullAccess** permission to this existing group.
-{% endhint %}
-
-4\. Enter a name for the group, for example, **portsip-pbx-s3**, Choose **AmazonS3FullAccess** Policy name, and click the **Create group** button.
+4. Enter a group name (for example, `portsip-pbx-s3`), select the **AmazonS3FullAccess** policy, and click **Create group**.
 
 ![](../../.gitbook/assets/iam_s3_2.png)
 
-5. Once the group is successfully created, select it and click the **Next** button. You have the option to add tags to this user, or you can simply skip this step by clicking the **Next** button.
-6. After the user is successfully added, make sure to note down the **Access Key ID** and **Secret Access Key** as shown.
+5. Once the group is successfully created, select it and click **Next**. You may optionally add tags to the user, or skip this step by clicking **Next**.
+6. After the user is successfully created, make sure to record the **Access Key ID and Secret Access Key** as shown.\
+   These credentials will be required later, and the secret access key cannot be retrieved again.
 
 ![](../../.gitbook/assets/iam_s3_1.png)
 
-## Step 2: Create an S3 bucket <a href="#create-s3-bucket" id="create-s3-bucket"></a>
+***
 
-* Navigate to the **Amazon S3** menu and click on the **Create Bucket** button to establish the S3 service that PortSIP PBX will utilize for storing recording files. Please pay attention to the **Buket name**, **AWS Region**, and the **Object Ownership** as the below screenshot.&#x20;
-* The AWS Region must be chosen as the same region with your PBX installed. Remember to make note of the following, which you will need later:
-  * The _bucket-name_.&#x20;
-  * The _bucket-region_. This is the AWS region where your S3 bucket is located.
-* Click on the **Create** button then the S3 bucket will be created.
+### Step 2: Create an S3 Bucket
+
+1. Navigate to the **Amazon S3** menu and click **Create bucket** to create the S3 storage that **PortSIP PBX** will use to store recording files. Pay close attention to the **Bucket name**, **AWS Region**, and **Object Ownership** settings, as shown in the screenshot below.
+2. The **AWS Region must be the same region** where your PBX is deployed. Make sure to record the following information, as it will be required later:
+   * **Bucket name**
+   * **Bucket region** (the AWS region where the S3 bucket is located)
+3. Click **Create bucket** to complete the process. The S3 bucket will then be created successfully.
 
 <figure><img src="../../.gitbook/assets/aws3-1.png" alt=""><figcaption></figcaption></figure>
 
-## Step 3: Modify the PortSIP PBX settings <a href="#change-the-portsip-pbx-settings" id="change-the-portsip-pbx-settings"></a>
+***
 
-Open the settings file:
+### Step 3: Modify the PortSIP PBX Settings
 
-* On Linux is  `/var/lib/portsip/pbx/system.ini`
-* On Windows is  `c:/programdata/portsip/pbx/system.ini`
+#### Open the Configuration File
 
-In the section **apigateway**, modify the value of the key **storage** to **s3** as shown below.
+Edit the `system.ini` configuration file on the server where PortSIP PBX is installed:
 
-```
+* &#x20;`/var/lib/portsip/pbx/system.ini`
+
+> ❗Ensure you open the file with administrative/root privileges.
+
+***
+
+#### Configure the API Gateway Storage Backend
+
+Locate the `[apigateway]` section and set the `storage` parameter to `s3`, as shown below:
+
+```ini
 [apigateway]
-storage=s3
+storage = s3
 ```
 
-Edit the section **storage.s3** as shown below.
+***
 
-```
+#### Configure Amazon S3 Storage Settings
+
+Edit (or add) the `[storage.s3]` section with your Amazon S3 configuration details:
+
+```ini
 [storage.s3]
-endpoint =  http://s3.region-code.amazonaws.com
-cred_id = Access key ID
-cred_secret = Secret access key
+endpoint = http://s3.region-code.amazonaws.com
+cred_id = <Access key ID>
+cred_secret = <Secret access key>
 region = region-code
 bucket = portsip-pbx-storage
 ```
 
-* **endpoint**: This is an HTTP URL, replace the **region-code** with the actual region name. For example, if the EC2 and S3 region name is **us-west-1**, then it will be http://s3.**us-west-1**.amazonaws.com.
+**Parameter Descriptions**
 
-```
-[storage.s3]
-endpoint =  http://s3.us-west-1.amazonaws.com
-cred_id = Access key ID
-cred_secret = Secret access key
-region = us-west-1
-bucket = portsip-pbx-storage
-```
+*   **endpoint**\
+    The Amazon S3 service endpoint URL. Replace `region-code` with your actual AWS region.\
+    For example, if your EC2 instance and S3 bucket are in `us-west-1`:
 
-Region names can be found via this page: [https://docs.aws.amazon.com/general/latest/gr/rande.html](https://docs.aws.amazon.com/general/latest/gr/rande.html)
+    ```ini
+    endpoint = http://s3.us-west-1.amazonaws.com
+    ```
 
-{% hint style="info" %}
-If your EC2 and S3 are in the China region, in the endpoint URL the **amazonaws.com** should be **amazonaws.com.cn**.
-{% endhint %}
+    If your EC2 and S3 services are located in **AWS China regions**, use the `.com.cn` domain:
 
-* **cred\_id**: It's the **Access key ID** of the IAM user noted whilst creating the IAM user.
-* **cred\_secret**: It's the **Secret access key** of the IAM user noted whilst creating the IAM user.
-* **region**: The region name (region code) of the EC2 instance and S3. For example, if the region is us-west-2 then use the actual region name to replace it.
-* **bucket**: The bucket name of S3. In this example, it's **portsip-pbx-storage**.
+    ```
+    amazonaws.com.cn
+    ```
+* **cred\_id**\
+  The **Access Key ID** of the IAM user created for S3 access.
+* **cred\_secret**\
+  The **Secret Access Key** of the same IAM user.
+* **region**\
+  The AWS region code where both the EC2 instance and S3 bucket reside (for example, `us-west-2`).
+* **bucket**\
+  The name of the Amazon S3 bucket used by PortSIP PBX (for example, `portsip-pbx-storage`).
 
-### Configuring S3 Path Style
+> ❗A complete list of AWS region codes is available here:\
+> [https://docs.aws.amazon.com/general/latest/gr/rande.html](https://docs.aws.amazon.com/general/latest/gr/rande.html)
 
-Amazon S3 supports two URL styles for accessing stored objects: **Path-Style** and **Virtual-Hosted–Style**. By default, PortSIP PBX uses **Path-Style** URLs to ensure compatibility with certain AWS S3-compatible private storage services.
+***
 
-According to AWS best practices, **Virtual-Hosted–Style** is the preferred URL format. If you wish to configure PortSIP PBX to use **Virtual-Hosted–Style** with AWS S3, you can add a line into the **\[storage.s3]** section as below:
+#### Configure S3 URL Style (Path-Style vs Virtual-Hosted–Style)
 
-* To use Path-Style (default, recommended for S3-compatible services):  \
-  `path_style = true`
-* To use Virtual-Hosted–Style (recommended for official AWS S3):  \
-  `path_style = false`&#x20;
+Amazon S3 supports two URL styles for accessing objects:
 
-After modifying the parameters for **AWS S3**, save the changes made to **system.ini**. You will then need to restart the PortSIP PBX for the changes to take effect.
+* Path-Style URLs
+* Virtual-Hosted–Style URLs
 
-## Step 4: Restart the PortSIP PBX
+By default, **PortSIP PBX uses Path-Style URLs** to ensure compatibility with AWS S3–compatible private object storage services.
 
-### Linux
+**URL Style Configuration**
 
-&#x20;Restart the PBX by performing the following commands:
+You can explicitly control the URL style by adding the `path_style` parameter to the `[storage.s3]` section:
 
-```sh
+*   Path-Style (default, recommended for S3-compatible storage services)
+
+    ```ini
+    path_style = true
+    ```
+*   Virtual-Hosted–Style (recommended for official AWS S3)
+
+    ```ini
+    path_style = false
+    ```
+
+> ❗According to AWS best practices, **Virtual-Hosted–Style** URLs are preferred when using official Amazon S3.
+
+***
+
+### Apply the Configuration
+
+After completing the configuration:
+
+1. Save the changes to `system.ini`.
+2. **Restart the PortSIP PBX service** to apply the new settings.
+
+```shellscript
 cd /opt/portsip && sudo /bin/sh pbx_ctl.sh restart
 ```
 
-### Windows
-
-Restart the Windows Server directly.
-
-
+> ❗The updated S3 storage configuration will not take effect until the PBX service has been restarted.
 
 
 
