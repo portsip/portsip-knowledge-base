@@ -144,7 +144,7 @@ bucket = portsip-pbx-storage
 
 ***
 
-#### Configure S3 URL Style (Path-Style vs Virtual-Hosted–Style)
+#### Configure S3 URL Style (Optional)
 
 Amazon S3 supports two URL styles for accessing objects:
 
