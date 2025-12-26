@@ -75,8 +75,8 @@ Please carefully review the following considerations **before enabling Amazon S3
 
 1. Navigate to the **Amazon S3** menu and click **Create bucket** to create the S3 storage that **PortSIP PBX** will use to store recording files. Pay close attention to the **Bucket name**, **AWS Region**, and **Object Ownership** settings, as shown in the screenshot below.
 2. The **AWS Region must be the same region** where your PBX is deployed. Make sure to record the following information, as it will be required later:
-   * **Bucket name**
-   * **Bucket region** (the AWS region where the S3 bucket is located)
+   * Bucket name
+   * Bucket region (the AWS region where the S3 bucket is located)
 3. Click **Create bucket** to complete the process. The S3 bucket will then be created successfully.
 
 <figure><img src="../../.gitbook/assets/aws3-1.png" alt=""><figcaption></figcaption></figure>
@@ -91,11 +91,7 @@ Edit the `system.ini` configuration file on the server where PortSIP PBX is inst
 
 * &#x20;`/var/lib/portsip/pbx/system.ini`
 
-> ❗Ensure you open the file with administrative/root privileges.
-
-***
-
-#### Configure the API Gateway Storage Backend
+> ❗Ensure you open the file with the written privileges.
 
 Locate the `[apigateway]` section and set the `storage` parameter to `s3`, as shown below:
 
