@@ -39,10 +39,11 @@ Please carefully review the following considerations **before enabling Amazon S3
 2. **Enable S3 Storage Early**\
    To avoid data migration issues, it is **strongly recommended** to configure Amazon S3 storage **immediately after completing the PBX installation**, before uploading any production media or recordings.
 3. **Do Not Toggle the Storage Mode**\
-   After the **“Store to S3”** option is enabled:
+   After configured the AWS S3 storage with PortSIP PBX:
    * **Do not disable it**.
    * Disabling S3 storage will prevent access to historical recordings and disrupt the creation of new recordings.
    * The same caution applies when switching **from S3 back to local disk storage**.
+4. We recommend deploying the PortSIP PBX on AWS EC2 to get the best performance
 
 ***
 

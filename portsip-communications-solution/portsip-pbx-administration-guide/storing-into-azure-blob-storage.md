@@ -1,93 +1,158 @@
 # Storing Into Azure Blob Storage
 
-With PortSIP PBX, you can configure your system to store call recordings and compositions directly to your own Azure Blob Storage, instead of using local disk storage. This guide will walk you through setting up your Azure account or project to leverage this feature.
+With [PortSIP PBX](https://www.portsip.com/portsip-pbx), you can configure the system to store call recordings and related media assets directly in your own Azure Blob Storage, instead of using local disk storage on the PBX server.
 
-**Note:** Once external Azure Blob Storage is enabled, PortSIP PBX will stop storing uploaded files (such as voice prompts, profile pictures, and audio/video recordings) on the local disk. You will then be responsible for managing the security and lifecycle of your recorded content.
+This approach is recommended for customers who require scalable storage, centralized data management, or strict compliance with regulatory and data residency requirements.
 
-Use this feature if you need to comply with regulatory requirements that prohibit reliance on third-party storage solutions.
+This guide walks you through the required Azure-side preparation to enable Azure Blob Storage based storage for PortSIP PBX.
 
-{% hint style="danger" %}
-**Warning:** Please be aware of the following considerations when configuring Azure Blob Storage for your recordings:
+***
 
-* Once Amazon **Azure Blob Storage** is activated, historical recordings stored on the local disk of the PBX server will no longer be accessible. Additionally, previously uploaded prompt files for queues, voicemail, IVR, other voice announcements, logos, user profile images, and QR codes will need to be re-uploaded. Therefore, it is recommended to configure **Azure Blob Storage** immediately after completing the PBX installation. Vice versa for the switch from the **Azure Blob Storage** to the local disk.
-* Once the "**Azure Blob Storage**" option is activated, do not disable it. Disabling this feature will prevent the PBX from accessing historical recordings and will disrupt the process of storing new recordings on Azure Blob Storage.
-{% endhint %}
+### Important Notes
 
-## Prerequisites
+* Once **external Azure storage** is enabled, PortSIP PBX will **no longer store uploaded files on the local disk**.
+* You will be fully responsible for:
+  * Access control and security policies
+  * Data retention and lifecycle management
+  * Backup and compliance of stored media
 
-* Debian 11/12, Ubuntu 22.04/24.04, 64-bit
-* We recommend deploying the PortSIP PBX on Azure to get the best performance
+Uploaded content affected by this change includes (but is not limited to):
 
-## Step 1: Create Storage Account <a href="#create-an-iam-group-and-user" id="create-an-iam-group-and-user"></a>
+* Call recordings and voicemail recordings
+* Voice prompts and IVR announcements
+* Queue and system audio files
+* User profile images and tenant logos
+* QR codes and other uploaded media assets
 
-1. Sign the [Azure web portal](https://portal.azure.com/).
-2. Select the menu Storage accounts, then click **Create**.
+> ❗**Use this feature when your organization must avoid reliance on third-party hosted storage or needs full ownership and governance of recorded communications.**
+
+***
+
+### ⚠️ Warnings and Best Practices
+
+Please carefully review the following considerations **before enabling Amazon S3 storage**:
+
+1. **Irreversible Access to Historical Data**\
+   Once Azure Blob Storage is enabled:
+   * Existing recordings stored on the PBX local disk will no longer be accessible.
+   * All previously uploaded media (queue prompts, voicemail greetings, IVR audio, system announcements, logos, profile images, and QR codes) **must be re-uploaded**.
+2. **Enable Azure Blob Storage Early**\
+   To avoid data migration issues, it is **strongly recommended** to configure Azure Blob Storage **immediately after completing the PBX installation**, before uploading any production media or recordings.
+3. **Do Not Toggle the Storage Mode**\
+   After configured the Azure Blob Storage with PortSIP PBX:
+   * **Do not disable it**.
+   * Disabling Azure Blob Storage will prevent access to historical recordings and disrupt the creation of new recordings.
+   * The same caution applies when switching **from Azure Blob Storage back to local disk storage.**
+4. We recommend deploying the PortSIP PBX on Azure to get the best performance
+
+***
+
+### Step 1: Create an Azure Storage Account
+
+1. Sign in to the [Azure web portal](https://portal.azure.com/).
+2. From the left-hand navigation menu, select **Storage accounts**, then click **Create**.
 
 <figure><img src="../../.gitbook/assets/azure-storage-1.png" alt=""><figcaption></figcaption></figure>
 
-3. In the **Basic** tab, fill in the **Storage Account Name** field and note down it, as you will need it in a later step.
-4. For the **Primary Service**, select **Azure Blob Storage** **or Azure Data Lake Storage Gen 2**.
-5. Follow the page instructions and select the appropriate values for the remaining fields.
-6. Click the **Next** button to complete the creation process.
+3. On the **Basics** tab, enter a value for **Storage account name**. Make a note of this name, you will need it in a later step.
+4. Under **Primary service**, select one of the following options:
+   * Azure Blob Storage
+   * Azure Data Lake Storage Gen2
+5. Follow the on-screen instructions and select the appropriate values for the remaining fields based on your deployment requirements.
+6. Click **Next**, review your configuration, and complete the storage account creation process.
 
 <figure><img src="../../.gitbook/assets/azure-storage-2.png" alt=""><figcaption></figcaption></figure>
 
-## Step 2: Create the Container <a href="#change-the-portsip-pbx-settings" id="change-the-portsip-pbx-settings"></a>
+***
 
-Now, follow these steps to create the storage container:
+### Step 2: Create the Storage Container
 
-1. Double-click the **Storage Account** you created in the previous steps.
-2. In the **Data Storage** menu, click **+ Container**.
+Follow the steps below to create a container within the Azure Storage Account:
+
+1. Open the **Storage account** that you created in the previous step.
+2. In the **Data storage** section, select **Containers**, then click **+ Container**.
 
 <figure><img src="../../.gitbook/assets/azure-storage-3.png" alt=""><figcaption></figcaption></figure>
 
-3. Enter a name for the container, make a note of the container name, and click the **Create** button.
+3. Enter a **container name**. Make a note of this name, as it will be required in a later configuration step.
+4. Click **Create** to complete the container creation.
 
 <figure><img src="../../.gitbook/assets/azure-storage-4.png" alt=""><figcaption></figcaption></figure>
 
-## Step 3: Retrieve the Access Key <a href="#change-the-portsip-pbx-settings" id="change-the-portsip-pbx-settings"></a>
+***
 
-1. Navigate to the **Security + Networking** menu.
-2. There are two keys available. Click **Show** for either key, then copy it.
+### Step 3: Retrieve the Access Key
+
+1. Open the **Storage account** you created earlier.
+2. In the left-hand menu, navigate to **Security + networking**, then select **Access keys**.
+3. Two access keys are available. Click **Show** next to either key, then **copy the key value** for later use.
 
 <figure><img src="../../.gitbook/assets/azure-storage-5.png" alt=""><figcaption></figcaption></figure>
 
-## Step 4: Modify the PortSIP PBX settings <a href="#change-the-portsip-pbx-settings" id="change-the-portsip-pbx-settings"></a>
+> ❗**Best Practice**\
+> Keep the unused key as a backup to allow seamless key rotation without service interruption.
 
-Open the settings file:
+***
 
-* On Linux is  `/var/lib/portsip/pbx/system.ini`
-* On Windows is  `c:/programdata/portsip/pbx/system.ini`
+### Step 4: Modify the PortSIP PBX Settings
 
-In the section **apigateway**, modify the value of the key **storage** to **azure** as shown below.
+#### Open the Configuration File
 
-```
+Edit the `system.ini` file on the server where PortSIP PBX is installed:
+
+* `/var/lib/portsip/pbx/system.ini`
+
+> ❗Ensure the file is opened with administrative/root privileges.
+
+Locate the `[apigateway]` section and set the `storage` parameter to `azure`:
+
+```ini
 [apigateway]
-storage=azure
+storage = azure
 ```
 
-Edit the section **storage.azure** as shown below.
+***
 
-```
+#### Configure Azure Blob Storage Settings
+
+Edit (or add) the `[storage.azure]` section as shown below:
+
+```ini
 [storage.azure]
-account_name = Storage account name
-account_key = Access key of your Azure Blob Storage
-container = Container name
+account_name = <Storage account name>
+account_key  = <Azure Blob Storage access key>
+container    = <Container name>
 ```
 
-After modifying the parameters for **Azure Block Storage**, save the changes made to **system.ini**. You will then need to restart the PortSIP PBX for the changes to take effect.
+**Parameter Descriptions**
 
-## Step 5: Restart the PortSIP PBX
+* **account\_name:** The name of the Azure Storage Account created earlier.
+* **account\_key:** The access key retrieved from the Azure Storage Account (**Access keys** section).
+* **container:** The name of the Azure Blob Storage container created in the previous step.
 
-### Linux
+***
 
-Restart the PBX by performing the following commands:
+#### Apply the Configuration
 
-```sh
+After completing the Azure storage configuration:
+
+1. Save the changes to `system.ini`.
+2. Restart the PortSIP PBX service for the changes to take effect.
+
+***
+
+### Apply the Configuration
+
+After completing the configuration:
+
+1. Save the changes to `system.ini`.
+2. **Restart the PortSIP PBX service** to apply the new settings.
+
+```shellscript
 cd /opt/portsip && sudo /bin/sh pbx_ctl.sh restart
 ```
 
-### Windows
+> ❗The updated Azure Blob Storage configuration will not take effect until the PBX service has been restarted.
 
-Restart the Windows Server directly.
+
 
