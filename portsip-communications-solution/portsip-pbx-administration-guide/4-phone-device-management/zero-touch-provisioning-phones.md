@@ -1,89 +1,186 @@
 # Zero Touch Provisioning Phones
 
-Zero Touch Provisioning (ZTP) enables IP phones and devices to self-configure out of the box, eliminating the need for manual setup.
+### Zero Touch Provisioning (ZTP) Overview
 
-When IP phones are shipped directly from the factory, each device has a unique MAC address. PortSIP PBX uses this MAC address to associate the phone with its configuration file URL, storing it on the vendor’s RPS server. Once the phone is plugged in and connected to the internet, it retrieves the configuration URL from the vendor’s RPS server, connects to PortSIP PBX, downloads its configuration, and registers automatically.
+**Zero Touch Provisioning (ZTP)** enables IP phones and devices to **self-configure out of the box**, eliminating the need for manual setup.
 
-## **How ZTP Works**
+When IP phones are shipped directly from the factory, each device has a **unique MAC address**. **PortSIP PBX** uses this MAC address to associate the phone with its **configuration file URL**, which is stored on the **vendor’s Remote Provisioning Server (RPS)**.
 
-1. **Order Placement**: The PBX service provider orders IP phones from the seller. The seller ships the phones to end users (via DHL, FedEx, etc.) and sends the phones' MAC addresses to the provider.
-2. **Configuration Setup**: The PBX service provider configures user extension accounts and phone MAC addresses by importing a CSV file. PortSIP PBX automatically saves the MAC addresses and configuration URLs to the vendor’s RPS server.
-3. **Automatic Provisioning**: When users receive and connect the IP phones, the devices reach out to the vendor’s RPS server, retrieve their configuration file URLs, and download the configuration from PortSIP PBX. The phones register automatically, completing the setup.
+Once the phone is plugged in and connected to the internet, it automatically:
 
-With ZTP, deploying IP phones is seamless and efficient. Follow the steps below to get your phones up and running in no time.
+* Retrieves the configuration URL from the vendor’s RPS server
+* Connects to PortSIP PBX
+* Downloads its configuration
+* Registers to the PBX without any user interaction
 
-## Prerequisites
+***
 
-In this example, we’ll demonstrate how to use Zero Touch Provisioning (ZTP) for five IP phones of the **Fanvil X303** model. These phones are shipped directly to users, and we already have the MAC addresses for all five devices. The MAC addresses are as follows:
+### How Zero Touch Provisioning Works
 
-* CC-5E-F8-41-B7-A1
-* CC-5E-F8-41-B7-A2
-* CC-5E-F8-41-B7-A3
-* CC-5E-F8-41-B7-A4
-* CC-5E-F8-41-B7-A5
+#### Step 1: Order Placement
 
-## Export a Template File
+* The PBX service provider orders IP phones from the vendor or reseller.
+* The seller ships the phones directly to end users (for example, via DHL or FedEx).
+* The seller provides the **MAC addresses** of the phones to the service provider.
 
-Please follow the below steps:
+***
 
-### Create a user with phone provisioning information for the template
+#### Step 2: Configuration Setup
 
-1. Create a user with the IP Phone by selecting the menu **Call Manager > Users** and clicking the **Add** button.&#x20;
-2. Enter the **username**, **password**, **email**, and **extension number**, **extension password**, then click the **PHONE PROVISIONING** tab.
-3. On the **PHONE PROVISIONING** tab, click the **Add Phone** button, and select the phone model, in this case, **Fanvil X303.** Enter the phone's MAC address, in this case, **CC-5E-F8-41-B7-A1**.
-4. Configure the necessary parameters for this phone, and please pay attention to the **Network** combo box. Please choose the appropriate network interface. If the PBX is on the internet, you will need to choose the **Web Domain** or **Public IPv4** here. If you have a PortSIP SBC configured, you can also choose the **SBC base domain or IP address**.
-5. Choose the appropriate transport for the IP phone that will be used to register to PBX.
-6. Ensure the **Save to RPS** is turned on.
-7. Click the **OK** button to save the changes.
+* The service provider creates user extension accounts.
+* Phone MAC addresses are associated with users by **importing a CSV file**.
+* PortSIP PBX automatically writes each phone’s **configuration URL** to the vendor’s **RPS server**.
 
-### Export the user as a template file
+***
 
-1. **Navigate to Export Users**
-   * Go to **Call Manager > Users** in the PortSIP PBX interface.
-2. **Export User Data**
-   * Click the **Export** button to download a CSV file containing user and phone information.
+#### Step 3: Automatic Provisioning
 
-## Edit the template file
+* When users receive and connect their IP phones:
+  * The phone contacts the vendor’s RPS server
+  * Retrieves its configuration file URL
+  * Downloads the configuration from PortSIP PBX
+  * Registers automatically
 
-* **Open the CSV File**
-  * Locate and open the CSV file. You will see a row corresponding to the user you created earlier.
-* **Modify the Details for the Second User**
-  * Update the following fields for the second user:
-    * Name
-    * Password
-    * Extension number
-    * Extension password
-    * IP Phone MAC address (e.g., **CC-5E-F8-41-B7-A2**)
-* **Add Additional Users**
-  * Copy the line for the existing user and paste it to add rows for the remaining three users.
-  * Update the following details for each new user:
-    * Name
-    * Password
-    * Extension number
-    * Extension password
-    * IP Phone MAC address
-  * Ensure you **do not include the user and MAC address for CC-5E-F8-41-B7-A1**, as it is already configured in the PBX.
-* **Save the CSV File**
-  * Once all changes are made, save the file. The file is now ready for import.
+With ZTP, large-scale IP phone deployments become **fast, reliable, and error-free**.
+
+***
+
+### Prerequisites
+
+In this example, we demonstrate **Zero Touch Provisioning (ZTP)** using **five IP phones of the Fanvil X303 model**.
+
+* Phones are shipped directly to end users
+* The MAC addresses are already known
+
+**MAC addresses used in this example:**
+
+* `CC-5E-F8-41-B7-A1`
+* `CC-5E-F8-41-B7-A2`
+* `CC-5E-F8-41-B7-A3`
+* `CC-5E-F8-41-B7-A4`
+* `CC-5E-F8-41-B7-A5`
+
+***
+
+### Exporting a Template File
+
+#### Create a User with Phone Provisioning Information
+
+1. Sign in to the **PortSIP PBX Web Portal**.
+2. Navigate to **Call Manager > Users** and click **Add**.
+3. Enter:
+   * Username
+   * Password
+   * Email
+   * Extension number
+   * Extension password
+4. Open the **PHONE PROVISIONING** tab.
+5. Click **Add Phone** and configure:
+   * **Phone model:** Fanvil X303
+   * **MAC address:** `CC-5E-F8-41-B7-A1`
+6. Configure the required parameters:
+   * **Network interface**
+     * If the PBX is internet-facing, choose **Web Domain** or **Public IPv4**
+     * If an SBC is deployed, choose the **SBC base domain or IP**
+   * **Transport protocol** used for SIP registration
+7. Ensure **Save to RPS** is enabled.
+8. Click **OK** to save the configuration.
+
+***
+
+#### Export the User as a Template File
+
+1. Go to **Call Manager > Users**.
+2. Click **Export**.
+3. Download the generated **CSV file**, which contains user and phone provisioning data.
+
+***
+
+### Editing the Template File
+
+#### Open the CSV File
+
+* Locate and open the exported CSV file.
+* Identify the row corresponding to the user you created.
+
+***
+
+#### Modify Details for Additional Users
+
+For the **second user**, update the following fields:
+
+* Username
+* Password
+* Extension number
+* Extension password
+* IP phone MAC address (for example, `CC-5E-F8-41-B7-A2`)
+
+***
+
+#### Add Remaining Users
+
+1. Copy the existing row.
+2. Paste it to create rows for the remaining users.
+3. Update the following fields for each new user:
+   * Username
+   * Password
+   * Extension number
+   * Extension password
+   * IP phone MAC address
+
+> ❗ **Important**\
+> Do **not** include the user and MAC address `CC-5E-F8-41-B7-A1`, as it is already configured in the PBX.
+
+***
+
+#### Save the CSV File
+
+* After completing all changes, save the CSV file.
+* The file is now ready for import.
 
 <figure><img src="../../../.gitbook/assets/zoro-touch-user.png" alt=""><figcaption><p>Copy users and change the name, password, extension number, extension password, and phone MAC address</p></figcaption></figure>
 
-{% hint style="danger" %}
-You can use the same password and extension password for all users without modifying them, but this is not recommended.
-{% endhint %}
+> ❗ **Security Recommendation**\
+> Although the same password and extension password can be reused, this is **not recommended**.\
+> Use **unique credentials** for each user to reduce security risks.
 
-## **Importing Users with Phone Information**
+***
 
-1. **Import Users**
-   * Navigate to **Call Manager > Users** and click the **Import** button to import users along with their phone information into PortSIP PBX.
-2. **Configuration URL Registration**
-   * After a successful import, PortSIP PBX automatically writes the IP phone configuration URL to the vendor’s RPS server.
-3. **Automatic Phone Provisioning**
-   * Once users receive their IP phones and connect them to the internet:
-     * The phones reach out to the vendor’s RPS server to retrieve the configuration file URL.
-     * The devices then download the configuration file from PortSIP PBX and register with the system automatically.
+### Importing Users with Phone Information
 
-This seamless process ensures all users and phones are provisioned efficiently and effortlessly.
+#### Import Users
 
-Please also reference the article [Bulk Importing Users and Auto Provisioning IP Phones](bulk-importing-users-and-auto-provisioning-ip-phones.md).
+1. Navigate to **Call Manager > Users**.
+2. Click **Import**.
+3. Upload the edited CSV file to import users and their phone provisioning data.
+
+***
+
+### Configuration URL Registration
+
+After a successful import:
+
+* PortSIP PBX automatically writes each IP phone’s **configuration URL** to the vendor’s **RPS server**
+* No manual interaction with the RPS platform is required
+
+***
+
+### Automatic Phone Provisioning
+
+Once users receive their IP phones and connect them to the internet:
+
+* Phones contact the vendor’s RPS server
+* Retrieve their configuration file URLs
+* Download the configuration from PortSIP PBX
+* Register automatically to the system
+
+This seamless process ensures **fast, consistent, and large-scale deployments** with minimal operational effort.
+
+***
+
+### Additional Reference
+
+For more information, please also refer to: [Bulk Importing Users and Auto Provisioning IP Phones](bulk-importing-users-and-auto-provisioning-ip-phones.md).
+
+
 
