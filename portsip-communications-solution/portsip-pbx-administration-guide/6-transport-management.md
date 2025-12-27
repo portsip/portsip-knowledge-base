@@ -1,42 +1,82 @@
 # 6 Transport Management
 
-After completing the **Setup Wizard**, you may manage your PortSIP PBX in the Web Portal.
+After completing the **Setup Wizard**, you can manage your **PortSIP PBX** through the **Web Portal**.
 
-The PortSIP PBX supports a wide range of transports, including UDP, TCP, and TLS for SIP signaling. You need to configure the transport and set the ports to use when listening for SIP signaling.
+PortSIP PBX supports multiple SIP signaling transports, including **UDP**, **TCP**, and **TLS**. You must configure which transports and ports the PBX listens on to accept SIP registrations and calls.
 
-{% hint style="info" %}
-Only System Administrators are allowed to create or delete SIP transport. When deleting, at least one transport must be left around.
-{% endhint %}
+> ❗ **Important**\
+> Only **System Administrators** are allowed to create or delete SIP transports.\
+> When deleting transports, **at least one transport must always remain configured**.
 
-The default transport has been configured with the **Setup Wizard**. To make changes, you need to sign in to the PBX Web Portal as the **System Admin** and select the **Call Manager > Transports** menu. Click the **Add** button to add a new transport.
+The Setup Wizard configures a **default transport** automatically. To modify or add transports, sign in to the PBX Web Portal as a **System Administrator** and navigate to: **Call Manager > Transports**
 
-{% hint style="danger" %}
-Once you add a new transport, you have to change the firewall rule to allow that transport port. The IP Phone client app will connect to the PBX via transport and port.
+Click **Add** to create a new transport.
 
-If the PBX runs on a cloud platform such as AWS and the cloud platform has its own firewall, you **must** also open the ports on the cloud platform's firewall.
-{% endhint %}
+***
 
+### Firewall Considerations
 
+When you add a new SIP transport, you **must** update firewall rules to allow traffic on the selected port.
 
-## Add UDP/TCP transport
+* IP phones and client applications connect to the PBX using the configured **transport protocol and port**
+* If the PBX is deployed on a cloud platform such as **Amazon Web Services (AWS)**, you must:
+  * Open the port on the **OS-level firewall**
+  * Open the same port in the **cloud platform firewall** (for example, AWS Security Groups)
 
-To add UDP/TLS/TCP transport:
+Failure to do so will result in **registration failures and call setup issues**.
 
-* Click the **Add** button, and choose UDP/TLS/TCP in the **Transport protocol** box. The default transport port for UDP/TLS/TCP is 5060/5061/5063. You may specify another port as you like, but the port must not be in use by other applications
-* Click the **OK** button to add the transport.
+***
 
-## Add TLS transport
+### Adding UDP, TCP, or TLS Transports
 
-First of all, prepare the certificate files. Please refer to "[Preparing TLS Certificates for TLS/HTTPS/WebRTC](certificates-for-tls-https-webrtc/)" to purchase a certificate file from a trusted third-party provider for your PBX **Web Domain** (assuming you purchased the certificate for the domain **uc.portsip.cc**).
+To add a new SIP transport:
 
-* Click the **Add** button and choose **TLS** in the **Transport protocol** box. The default transport port for TLS is 5061. You may specify another port as you like, but the port must not be in use by other applications.
-* Click the **OK** button to add the transport.
+1. Navigate to **Call Manager > Transports**.
+2. Click **Add**.
+3. In the **Transport protocol** field, select **UDP**, **TCP**, or **TLS**.
+4. Specify a listening port:
+   * Default ports:
+     * UDP: `5060`
+     * TLS: `5061`
+     * TCP: `5063`
+   * You may choose a different port if required, provided it is **not already in use**.
+5. Click **OK** to add the transport.
 
-## Configure Firewall Rule
+***
 
-If you created your own transport rather than using the default transport, you must open the transport port on the firewall with the commands listed below.
+### Adding a TLS Transport (Secure SIP)
 
-For example, if you created a **UDP** transport on port **5066**, **TCP** transport on port **5071**, **TLS** transport on port **5072**, and **WSS** transport on port **5075**, please execute the below commands.
+Before adding a TLS transport, you must prepare **TLS certificate files**.
+
+Refer to [Preparing TLS Certificates](certificates-for-tls-https-webrtc/preparing-tls-certificates.md) to obtain a certificate from a trusted third-party provider for your PBX Web Domain (for example: `uc.portsip.cc`).
+
+To add the TLS transport:
+
+1. Navigate to **Call Manager > Transports**.
+2. Click **Add**.
+3. Select **TLS** as the transport protocol.
+4. Specify the listening port (default: `5061`).
+5. Click **OK** to save the configuration.
+
+> ❗ **Best Practice**\
+> TLS is strongly recommended for deployments exposed to the public internet to protect SIP credentials and signaling traffic.
+
+***
+
+### Configuring Firewall Rules (Linux / firewalld)
+
+If you create **custom transport ports** instead of using the default ones, you must explicitly open those ports on the firewall.
+
+#### Example Scenario
+
+You created the following transports:
+
+* UDP on port `5066`
+* TCP on port `5071`
+* TLS on port `5072`
+* WSS on port `5075`
+
+Run the following commands on the PBX server:
 
 ```bash
 firewall-cmd --permanent --service=portsip-pbx --add-port=5066/udp --set-description="PortSIP PBX"
@@ -46,9 +86,20 @@ firewall-cmd --permanent --service=portsip-pbx --add-port=5075/tcp --set-descrip
 firewall-cmd --reload
 ```
 
-{% hint style="danger" %}
-If the PBX runs on a cloud platform such as AWS and the cloud platform has its own firewall, you **must** also open the ports on the cloud platform's firewall.
-{% endhint %}
+> ❗ **Important**\
+> Opening the OS firewall alone is **not sufficient** for cloud deployments.\
+> You must also open the same ports in the **cloud platform firewall**, such as **AWS Security Groups**.
+
+***
+
+### Summary
+
+* SIP transports define **how** and **where** the PBX listens for signaling traffic
+* Only **System Administrators** can manage transports
+* Always ensure:
+  * At least **one transport** remains configured
+  * Firewall rules are updated at both the **OS** and **cloud** levels
+* Use **TLS** wherever possible for secure, internet-facing deployments
 
 
 
