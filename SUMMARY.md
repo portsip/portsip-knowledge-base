@@ -27,7 +27,7 @@
   * [4 Phone Device Management](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/README.md)
     * [Managing Phones](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/managing-phones.md)
     * [Auto Provisioning Security](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/auto-provisioning-security.md)
-    * [Custom IP Phone Template](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/custom-ip-phone-template.md)
+    * [Customing IP Phone Template](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/custom-ip-phone-template.md)
     * [Bulk Importing Users and Auto Provisioning IP Phones](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/bulk-importing-users-and-auto-provisioning-ip-phones.md)
     * [Zero Touch Provisioning Phones](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/zero-touch-provisioning-phones.md)
     * [Provision Phone Using PnP](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/provision-phone-using-pnp.md)

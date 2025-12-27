@@ -1,89 +1,173 @@
-# Custom IP Phone Template
+# Customing IP Phone Template
 
-PortSIP PBX allows you to customize the IP Phone template, which will give you a unique user experience and your own brand of the IP Phone.
+PortSIP PBX allows you to customize IP phone provisioning templates, enabling you to deliver a branded user experience and apply your own corporate identity to supported IP phones.
 
-## Copy Base Template
+By creating custom templates, service providers and enterprises can present IP phones under their own brand while maintaining full provisioning and management functionality.
+
+***
+
+### Copying a Base Phone Template
+
+1. Sign in to the PortSIP PBX Web Portal as the System Administrator.
+2. Navigate to **Advanced > Phone Templates**.
+3. From the **Select a Template** drop-down list, choose the **default template** you want to copy.
+4. Verify that the phone models you intend to customize are included in the selected template.
+5. Click **Copy**, enter a **new template name**, and click **OK**.
+
+A new, editable phone template is created and ready for customization.
 
 <figure><img src="../../../.gitbook/assets/phone_template_1.png" alt=""><figcaption></figcaption></figure>
 
-1. Sign in as the System Administrator, and go to the menu **Advanced > Phone Templates**.
-2. Select the default template from the drop-down **Select a Template** that you want to make a copy of.
-3. Ensure that the models for which a custom template shall be created are listed within this template.
-4. Click the **Copy** button and give it a new name, then click **OK**.&#x20;
+***
 
-You will get a new phone template that allows you to edit.&#x20;
+### Editing the Custom Phone Template
 
-You can edit the below items to make the custom phone template work.
+After copying the template, you can edit the following sections to apply your branding:
 
-* Edit the name: change the `<name>` section to your branding name, for example, **PortSIP IP Phone**.
-* In the `models` section, edit the model that is defined in the "**ua=xxx**", this is not mandatory.
-* In the `models` section, edit the model description. In this example, we change the branding name for each model. For example, change **Fanvil V62** to **PortSIP V62**, change **Fanvil 65** to **PortSIP V65**.
-* Edit the **description** section to your branding name.
-* Usually, the template has a section like the one below. Just change the name to your branding name. For this example, we changed it to **PortSIP Phone**.
+#### Template Name
+
+* Update the `<name>` section to reflect your brand\
+  **Example:** `PortSIP IP Phone`
+
+***
+
+#### Models Section (Optional)
+
+* Update the `ua=xxx` value if required (not mandatory).
+* Edit the **model description** to match your branding.
+
+**Example changes:**
+
+* `Fanvil V62` → `PortSIP V62`
+* `Fanvil V65` → `PortSIP V65`
+
+***
+
+#### Description Section
+
+* Update the template description to your branding name.
+
+***
+
+#### Friendly Device Name
+
+Most templates include a section similar to the following:
 
 ```xml
-  <data>
-    <device>
-      <type>phone</type>
-      <!-- Friendly Name -->
-      <field name="Name">PortSIP Phone</field>
+<data>
+  <device>
+    <type>phone</type>
+    <!-- Friendly Name -->
+    <field name="Name">PortSIP Phone</field>
 ```
 
-### SNOM Phone
+* Replace the **friendly name** with your branded phone name.
 
-{% hint style="danger" %}
-If you copy a template from the SNOM phone template, please follow the below instruction to add a line to the custom template.
-{% endhint %}
+***
 
-Since the SNOM phone requires a configuration file named in uppercase letters of the MAC address, we need to add a line to the custom template if the base template is SNOM. This is because we don’t know if the custom template was copied from the SNOM phone.
+### SNOM Phone Templates (Special Requirement)
 
-```
+If your custom template is copied from a **SNOM** base template, you must add an additional tag.
+
+SNOM phones require configuration files named using **uppercase MAC addresses**. Because it is not always obvious whether a template originated from a SNOM base, you must explicitly declare the original brand.
+
+#### Required SNOM Tag
+
+Add the following line to the custom template:
+
+```xml
 <original_brand>snom</original_brand>
 ```
 
-Please see the example in the below screenshot shown.
+> ❗ **Important**\
+> This tag is required for proper provisioning of SNOM phones.\
+> Without it, SNOM devices may fail to download or apply configuration files correctly.
+
+Please refer to the example shown in the screenshot for reference.
 
 <figure><img src="../../../.gitbook/assets/custom_snom.png" alt=""><figcaption></figcaption></figure>
 
-## Save Changes
+***
 
-Click the **Save** button once completed the above changes, you will get a new template as the below screenshot.
+### Saving the Custom Template
 
-<figure><img src="../../../.gitbook/assets/phone_template_2.png" alt=""><figcaption></figcaption></figure>
+1. After completing all required edits, click **Save**.
+2. The new custom template will appear in the template list.
 
-Now when a tenant performs auto-provision of an IP Phone for a user, the custom-branded IP Phones are listed as shown in the screenshot below.
+When a tenant performs **auto-provisioning** for an IP phone, the **custom-branded phone models** will now be available for selection.
 
-<figure><img src="../../../.gitbook/assets/phone_template_3.png" alt=""><figcaption></figcaption></figure>
+***
 
-Choose a phone model that you would like to provision for a user and [process it as a normal phone template](./).
+### Provisioning Phones with the Custom Template
 
-<figure><img src="../../../.gitbook/assets/phone_template_4.png" alt=""><figcaption></figcaption></figure>
+* Select the desired **custom-branded phone model**
+* Provision the device using the same workflow as a standard phone template
 
-## **Making Changes**
+No additional steps are required during user or extension provisioning.
 
-Keep in mind that any changes made to a template in the PBX Web portal will affect the IP Phones. Therefore it is advised to test template changes with a sample device in a non-production environment first.
+***
 
-The content sent to an IP phone will start just after this string within the template:
+### Making Changes to Templates
 
-**\<!\[CDATA\[**
+Any changes made to a phone template in the **PBX Web Portal** will directly affect IP phones.
 
-Any information above this is to do with the Web portal and should not be touched. Any mistake in this area will result in the inability to list the custom template in the Web Portal and extension settings may not be accessible anymore. The last working copy might need to be restored or the extension must be deleted completely.
+> ❗ **Important**\
+> Always test template changes using a **sample device in a non-production environment** before deploying them system-wide.
 
-## Precautions&#x20;
+***
 
-* Avoid duplicates of the same instruction (provisioning parameter) to the device.&#x20;
-* Refer to the vendor’s provisioning guide or ask for PortSIP support.
-* If a value should be changed from B to default device value A, do not just delete the provisioning entry. Set it actively back to A.&#x20;
-* If in doubt, contact the IP phone vendor for more information or ask for PortSIP support.
+#### Template Content Boundaries
 
-## Yealink Phone-Specific Template Changes <a href="#h.3ifas3c43rjk" id="h.3ifas3c43rjk"></a>
+Within the template file:
 
-Unlike most other phones, Yealink phones require two configuration files for provisioning and therefore have two `<![CDATA[` sections within one template generating two files.
+* The provisioning content starts **after** the following marker:
 
-* The first `<![CDATA[` section is the device defaults as **model** and refers to file-names like y0000000000xx.cfg where xx is a model-specific identifier defined by Yealink and must not be changed. These are further referred to as `y-files`.
-* The second `<![CDATA[` section is for the "device" mac-specific configuration itself containing user-specific information like extension number.
+```xml
+<![CDATA[
+```
 
-You must edit the information for both `<![CDATA[` sections.
+* All content **above** this marker is used by the **PBX Web Portal** and **must not be modified**.
+
+> ❗ **Critical Warning**\
+> Editing content above `<![CDATA[` may cause:
+>
+> * The custom template to disappear from the Web Portal
+> * Extension settings to become inaccessible
+> * The need to restore a backup or delete and recreate extensions
+
+***
+
+### Provisioning Precautions and Best Practices
+
+* Avoid **duplicate provisioning parameters** for the same device.
+* Always refer to the **vendor’s official provisioning guide**.
+* If a value must be reverted to the device default, **explicitly set it back**—do not simply delete the parameter.
+* When unsure, contact the **IP phone vendor** or **PortSIP support** for guidance.
+
+***
+
+### Yealink Phone-Specific Template Behavior
+
+Yealink phones differ from most vendors and require **two configuration files** during provisioning.
+
+As a result, Yealink templates contain **two `<![CDATA[` sections**, each generating a separate configuration file.
+
+#### Yealink Provisioning Structure
+
+1. **First `<![CDATA[` section (Y-files)**
+   * Device default configuration
+   *   Uses filenames such as:
+
+       ```
+       y0000000000xx.cfg
+       ```
+   * The `xx` value is a **model-specific identifier** defined by Yealink and **must not be changed**
+2. **Second `<![CDATA[` section**
+   * MAC-specific configuration
+   * Contains **user-specific data**, such as extension number and credentials
+
+> ❗ **Important**\
+> When modifying Yealink templates, you must review and update **both `<![CDATA[` sections** to ensure consistent and correct provisioning behavior.
 
 
 
