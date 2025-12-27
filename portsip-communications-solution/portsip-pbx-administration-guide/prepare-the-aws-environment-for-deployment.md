@@ -101,7 +101,7 @@ After completing the network and storage configuration, click **Launch instance*
 
 ***
 
-#### Step 7: Configure the Security Group
+### Step 6: Configure the Security Group
 
 1. Navigate to **EC2 > Instances** and select your newly created instance.
 2. Scroll down to the **Security** tab to view the associated security group\
@@ -153,7 +153,7 @@ After adding all required rules, click **Save rules** to apply the changes.
 
 ***
 
-### Step 8: Allocate and Associate an Elastic IP
+### Step 7: Allocate and Associate an Elastic IP
 
 A static public IP address is required to ensure that SIP devices, SIP trunk providers, and external services can consistently reach your PortSIP PBX. On Amazon Web Services, this is achieved using an Elastic IP (EIP).
 
@@ -211,7 +211,7 @@ You can use this **Elastic IP** to:
 
 ***
 
-### Step 9: Verification
+### Step 8: Verification
 
 After associating the **Elastic IP** and applying the required **security group rules**, verify that your AWS environment is correctly prepared for the PortSIP PBX deployment.
 
