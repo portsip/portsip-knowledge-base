@@ -1,30 +1,51 @@
 # Managing Phones
 
-[PortSIP PBX](https://www.portsip.com/portsip-pbx/) provides an easy way to monitor and manage your phones and softphones throughout your network. The **Call Manager > Phones** menu in the [PortSIP PBX](https://www.portsip.com/portsip-pbx/) Web Portal allows you to:
+PortSIP PBX provides a centralized and efficient way to monitor, manage, and secure IP phones and softphones across your network.
 
-* View all the phones in the network, including IP and MAC.
-* View all PortSIP Clients connected in softphone mode.
-* Check the firmware version that the phone is running.
-* Remotely reboot one or all of the phones.
-* Re-provision the phones.
-* Launch the admin interface of the phone.
-* Monitor the security of the extension password and PIN. Weak extension passwords and PINs are the most common cause of security breaches.
+The Call **Manager > Phones** menu in the PortSIP PBX Web Portal allows administrators to:
 
-## **Adding Phones**
+* View all phones on the network, including IP addresses and MAC addresses
+* View all PortSIP clients connected in softphone mode
+* Check the firmware version currently running on each phone
+* Remotely reboot one or multiple phones
+* Re-provision phones to apply updated configurations
+* Launch the phone’s web-based administration interface
+* Monitor the security strength of extension passwords and PINs
 
-You can add phones to [PortSIP PBX](https://www.portsip.com/portsip-pbx/) in the following ways:
+> ❗ **Important**\
+> Weak extension passwords and PINs are one of the **most common causes of PBX security breaches**.\
+> Regularly review phone and extension security settings to reduce the risk of unauthorized access and toll fraud.
 
-* [Plug and Play - Plug in the phone in the local LAN](provision-phone-using-pnp.md)
-* [By RPS - for remote phones](provision-phone-using-pnp.md)
+***
 
-## **Changing Phone Settings**
+### Adding Phones
 
-Changes made to the phone configuration from the **User**, **Extension**, **and Phone Provisioning** tabs for certain users, you can force the IP Phone to pick up the new configuration immediately by re-provision.&#x20;
+You can add phones to PortSIP PBX using the following methods:
 
-If you need to re-provision the phones, for example after you have made configuration changes:
+* **Plug and Play (PnP)**\
+  Simply connect the IP phone to the local LAN. The PBX will automatically detect and provision the device.
+* **Remote Provisioning Service (RPS)**\
+  Use RPS to provision phones that are located **outside the local network**, such as remote or home-office devices.
 
-1. Select menu **Call Manager > Phones**.
-2. Choose a provisioned phone that you wish to re-provision.
-3. Click the **Reprovision** button.
-4. If the phone needs a reboot, it will be done automatically.
-5. The new configurations will be provisioned automatically.
+***
+
+### Changing Phone Settings
+
+Configuration changes made under the **User**, **Extension**, or **Phone Provisioning** tabs are not applied to IP phones immediately. To force a phone to retrieve the updated configuration, you must **re-provision** the device.
+
+#### Re-provisioning a Phone
+
+Use re-provisioning when configuration changes have been made and need to take effect immediately:
+
+1. Navigate to **Call Manager > Phones**.
+2. Select the provisioned phone you want to update.
+3. Click **Reprovision**.
+
+* If a reboot is required, the phone will **restart automatically**.
+* The updated configuration will be **downloaded and applied automatically**.
+
+> ❗ **Important**\
+> Re-provisioning ensures configuration consistency and is recommended after changes to **extensions, codecs, SIP credentials, or security settings**.
+
+
+
