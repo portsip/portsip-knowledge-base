@@ -1,57 +1,133 @@
 # PnP Auto Provisioning IP Phone Multicast Debug
 
-To enable your PortSIP PBX to answer PnP requests for provisioning purposes, the following requirements must be met:&#x20;
+To enable **PortSIP PBX** to answer PnP provisioning requests, **all** of the following requirements must be met:
 
-* PortSIP PBX must be able to join the multicast group
-* The IP Phone and PBX must be in the same local LAN subnet&#x20;
-* The network switch/router must support MultiCast&#x20;
-* Your IP Phone must support PnP provisioning
+* The **PortSIP PBX must be able to join the multicast group**
+* The **IP phone and PBX must be on the same local LAN subnet**
+* The **network switch/router must support multicast**
+* The **IP phone must support PnP provisioning**
 
-## PortSIP PBX Must be Able to Join the Multicast Group
+> ❗ **Important**\
+> PnP provisioning relies on **SIP multicast discovery**. If any requirement above is not satisfied, automatic discovery will fail and the phone must be provisioned manually.
 
-&#x20;Depending on the network order of the interface PortSIP PBX may not be able to listen for multicast events. Note: Unused LAN Adapters, WiFi and Bluetooth must be disabled and can not be used to join Multicastevents.
+***
 
-## On Windows
+### PortSIP PBX Must Be Able to Join the Multicast Group
 
-To validate that PortSIP PBX is ready to listen for phone requests open the CMD command prompt and type:
+Depending on the **network interface order**, PortSIP PBX may not be able to listen for multicast events.
 
-`Netsh interface ipv4 show join`&#x20;
+> ❗ **Important**\
+> **Unused LAN adapters, Wi-Fi, and Bluetooth interfaces must be disabled.**\
+> These interfaces cannot be used to join multicast events and may prevent the PBX from listening on the correct network interface.
 
-You should see the joins on the network interface. Below is an example of a system with 4 NICs to the IP address 224.0.1.75 (marked in green).
+***
+
+#### Verify Multicast Membership on Windows
+
+1. Open the **Command Prompt** as Administrator.
+2.  Run the following command:
+
+    ```cmd
+    netsh interface ipv4 show join
+    ```
+3. Verify that the multicast address **224.0.1.75** appears on the correct network interface.
+
+If your interface does **not** list this address, the PBX is **not ready** for PnP provisioning.
 
 <figure><img src="../../../.gitbook/assets/phone_pnp_multicast.png" alt=""><figcaption></figcaption></figure>
 
-If your network interface does not list this address you are not ready to provision your IP phone via PnP.&#x20;
+***
 
-To resolve it, please follow up below steps:
+#### Fix Multicast Issues on Windows (Interface Metric Adjustment)
 
-* Open **Control Panel** > **Network and Internet** > **Network Connections**.
-* Select the network adapter interface, right-click it, and choose **Properties**, select the **Internet Protocol Version 4 (TCP/IP)**.
-* Click on **Properties**, then select **Advanced**. Edit the **Default Gateways** and try setting the **Metric** to the following suggested values one at a time. After each change, reboot the server and check if the joins are visible.
-  * 1
-  * 10
-  * 12
-  * 15
-  * 20
+1. Open **Control Panel > Network and Internet > Network Connections**.
+2. Right-click the active network adapter and select **Properties**.
+3. Select **Internet Protocol Version 4 (TCP/IPv4)** → **Properties** → **Advanced**.
+4. Edit the **Default Gateway Metric** and try the following values **one at a time**:
+   * `1`
+   * `10`
+   * `12`
+   * `15`
+   * `20`
+5. After each change:
+   * Reboot the server
+   * Re-run `netsh interface ipv4 show join`
+   * Confirm the multicast join appears
 
 <figure><img src="../../../.gitbook/assets/phone_pnp_multicast1.png" alt="" width="308"><figcaption></figcaption></figure>
 
-## On Linux
+***
 
-Connect via SSH to the PBX server and switch to **root**. Enter the command `netstat -g` and check if **sip.mcast.net** is listed for the application interfaces.
+#### Verify Multicast Membership on Linux
+
+1. Connect to the PBX server via **SSH**.
+2. Switch to the root user.
+3.  Run the following command:
+
+    ```bash
+    netstat -g
+    ```
+4. Verify that **`sip.mcast.net`** is listed on the active application interfaces.
+
+If it is not listed, the PBX is not receiving multicast traffic and cannot support PnP discovery.
 
 <figure><img src="../../../.gitbook/assets/phone_pnp_multicast2.png" alt=""><figcaption></figcaption></figure>
 
-## IP Phone and PBX Must be in the Same Local LAN Subnet
+***
 
-As PnP provisioning relies on Multicast message exchange it is mandatory that the phone must be in the same local subnet as the PortSIP PBX.&#x20;
+### IP Phone and PBX Must Be in the Same Local LAN Subnet
 
-* Will Work: PBX 192.168.1.1 Mask: 255.255.255.0; Phone 192.168.1.28 Mask:255.255.255.0&#x20;
-* Will Not Work: PBX 192.168.0.1 Mask: 255.255.255.0; Phone 192.168.1.28 Mask: 255.255.255.0(other subnet)
+PnP provisioning **requires multicast message exchange**, which does **not** cross subnets.
 
-## IP Phone Must Support PnP Provisioning
+#### Supported Example (Will Work)
 
-&#x20;The actual IP phone must also do its part to announce its presence in the network. However, some firmware versions in the past have shown us that this was not operational to its full extent. Therefore, the phone shall in case it does not work and all aspects above are covered, manually update to the latest supported firmware to ensure PnP functionality.
+* PBX: `192.168.1.1` / `255.255.255.0`
+* Phone: `192.168.1.28` / `255.255.255.0`
+
+#### Unsupported Example (Will Not Work)
+
+* PBX: `192.168.0.1` / `255.255.255.0`
+* Phone: `192.168.1.28` / `255.255.255.0` _(different subnet)_
+
+> ❗ **Important**\
+> VLANs, routed networks, or NAT boundaries will prevent multicast discovery.\
+> Phones in these environments must be provisioned using **manual provisioning links**.
+
+***
+
+### Network Infrastructure Must Support Multicast
+
+* Switches and routers must allow **multicast traffic**
+* IGMP snooping or multicast filtering must be configured correctly
+* Multicast must not be blocked by firewall rules
+
+> ❗ **Best Practice**\
+> In enterprise environments, verify multicast behavior with your network team before deploying PnP at scale.
+
+***
+
+### IP Phone Must Support PnP Provisioning
+
+The IP phone firmware must support **PnP multicast announcements**.
+
+> ❗ **Important**\
+> Some older phone firmware versions do not fully implement PnP discovery.\
+> If discovery fails and all other requirements are met, **upgrade the phone to the latest supported firmware** and retry.
+
+***
+
+### Summary
+
+For successful PnP provisioning:
+
+* The PBX must correctly **join the multicast group**
+* Phones and PBX must share the **same LAN subnet**
+* The network must **permit multicast traffic**
+* IP phones must support **PnP and run compatible firmware**
+
+When these conditions are met, IP phones will be discovered automatically and can be provisioned quickly through the **PortSIP PBX Web Portal**.
+
+
 
 
 
