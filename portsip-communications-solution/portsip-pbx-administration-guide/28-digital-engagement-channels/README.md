@@ -1,20 +1,48 @@
 # 28 Digital Engagement Channels
 
-In today’s business landscape, digital communication has become essential, providing customers with numerous ways to ask questions, provide feedback, and share their positive experiences. PortSIP Digital Engagement enables seamless connections between you and your clients across multiple channels, ensuring you never miss important interactions.
+In today’s business environment, digital communication is no longer optional—it is essential. Customers expect to interact with businesses through multiple digital channels to ask questions, share feedback, and engage in real-time conversations. Organizations that fail to meet these expectations risk missed opportunities and diminished customer satisfaction.
 
-Let’s explore the capabilities available in each of our supported channels, all of which deliver around-the-clock self-service automation and enable live agent engagement for an exceptional customer experience.
+PortSIP Digital Engagement enables seamless, omnichannel communication between your business and your customers. By unifying multiple digital channels into a single platform, PortSIP ensures that no customer interaction is overlooked—whether it is handled through automated self-service or live agent engagement.
 
-## Supported Channels
+Each supported channel is designed to deliver:
 
-PortSIP currently supports the following channels, with plans to expand in the future:
+* **24/7 self-service automation** for common inquiries
+* **Efficient escalation to live agents** when human assistance is required
+* A **consistent, high-quality customer experience** across all touchpoints
 
-### **SMS**
+***
 
-Business text messaging allows you to send short messages (SMS) from your business phone number directly to your contact’s phone number. Unlike team or instant messaging, which occurs within threads or channels and does not require phone numbers, SMS creates a direct, personal line of communication.
+### Supported Channels
 
-PortSIP PBX integrates with leading [SMS providers ](../../configuring-sip-trunks/)to enhance customer communications through business SMS. This allows you to send impactful SMS campaigns that drive engagement and open a two-way communication channel to respond to customer inquiries seamlessly.
+PortSIP currently supports the following digital engagement channels, with additional channels planned for future releases:
 
-### **WhatsApp**
+***
 
-PortSIP’s WhatsApp integration enables you to automate responses to frequently asked questions, provide answers to common queries, and manage even complex workflows through the customer’s WhatsApp client. For sessions requiring live assistance, you can effortlessly route customers to the appropriate agent using the Dialpad Digital Engagement interface.
+#### SMS
+
+SMS (Short Message Service) enables businesses to send and receive text messages directly from their business phone numbers to customers’ mobile phones. Unlike internal team messaging or instant messaging platforms—which operate within apps, threads, or channels—SMS establishes a **direct, personal communication channel** using standard phone numbers.
+
+PortSIP PBX integrates with leading [SMS service providers](../../configuring-sip-trunks/), allowing organizations to:
+
+* Send and receive business text messages from their PBX numbers
+* Launch outbound SMS campaigns to increase customer engagement
+* Enable **two-way SMS conversations** for customer inquiries, confirmations, and notifications
+
+This integration allows businesses to extend traditional voice services into a modern, text-based communication experience while maintaining centralized control within the PBX.
+
+***
+
+#### WhatsApp
+
+PortSIP’s WhatsApp integration enables businesses to engage customers through one of the world’s most widely used messaging platforms. It supports both **automated and agent-assisted interactions**, allowing organizations to scale customer engagement efficiently.
+
+With WhatsApp integration, you can:
+
+* Automatically respond to frequently asked questions
+* Provide instant answers to common customer inquiries
+* Orchestrate complex customer journeys using workflow automation
+
+When a conversation requires human assistance, customers can be **seamlessly routed to the appropriate live agent** through the Digital Engagement interface, ensuring a smooth transition from automation to personalized support.
+
+
 
