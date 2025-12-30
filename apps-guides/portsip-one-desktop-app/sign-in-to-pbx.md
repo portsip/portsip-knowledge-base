@@ -4,6 +4,8 @@ To download the latest version of PortSIP ONE for Windows desktop, visit the [Po
 
 This guide applies to both **PortSIP ONE for Windows** and **PortSIP ONE WebRTC**.
 
+***
+
 ### Logging into the PortSIP ONE app via QR code
 
 The PortSIP ONE app makes logging in effortless by using a QR code. Please follow the below steps to process.
@@ -32,11 +34,15 @@ Within the **Extension** tab of a user’s settings, there are two QR code confi
 
 **Important Note:** If you modify the PBX IP address or adjust either of the above options, you must refresh the QR code by clicking on it to ensure the updated configuration is applied.
 
+***
+
 #### 2. Logging into the PortSIP ONE app
 
 The PortSIP ONE app makes logging in effortless by using a QR code. On the PortSIP ONE login window, click the QR code icon. Select the QR code option, and then scan the QR code provided by the PBX. The app will log in automatically.
 
 <figure><img src="../../.gitbook/assets/portsip_one_login_page_1.png" alt=""><figcaption></figcaption></figure>
+
+***
 
 ### Logging into the PortSIP ONE app via SSO
 
@@ -68,6 +74,8 @@ Once you have configured the [**Microsoft 365 integration**](../../portsip-commu
    * After successfully logging into Microsoft 365, the PortSIP ONE app will automatically log you into the PortSIP PBX.
 
 <figure><img src="../../.gitbook/assets/portsip-one-sso-2.png" alt=""><figcaption></figcaption></figure>
+
+***
 
 ### Logging into the PortSIP ONE app manually
 
