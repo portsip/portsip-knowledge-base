@@ -8,12 +8,11 @@ Before proceeding with this guide, ensure that you have successfully completed t
 
 ### Install Data Flow Service on a Separate Server
 
-The **PortSIP Data Flow Service**—a high-performance analytics engine built on **ClickHouse**.
+The **PortSIP Data Flow Service,** a high-performance analytics engine built on **ClickHouse**.
 
 The Data Flow service powers the following advanced capabilities:
 
 * Call Detail Record (CDR) storage and analytics
-* Comprehensive call reports
 * Real-time data dashboards
 * Queue wallboards for contact center operations
 
