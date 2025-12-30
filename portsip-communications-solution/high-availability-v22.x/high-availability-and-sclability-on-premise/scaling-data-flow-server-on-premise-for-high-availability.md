@@ -13,7 +13,6 @@ The **PortSIP Data Flow Service**—a high-performance analytics engine built on
 The Data Flow service powers the following advanced capabilities:
 
 * Call Detail Record (CDR) storage and analytics
-* Comprehensive call reports
 * Real-time data dashboards
 * Queue wallboards for contact center operations
 
