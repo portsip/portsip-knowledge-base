@@ -65,8 +65,8 @@ Perform the following commands to download the installation scripts.
 
 ```sh
 mkdir -p /opt/portsip-trace && cd /opt/portsip-trace
-curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/new/install_docker.sh -o install_docker.sh
-curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/new/trace_ctl.sh -o trace_ctl.sh
+curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/install_docker.sh -o install_docker.sh
+curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/trace_ctl.sh -o trace_ctl.sh
 ```
 
 ### Install the Docker Environment
