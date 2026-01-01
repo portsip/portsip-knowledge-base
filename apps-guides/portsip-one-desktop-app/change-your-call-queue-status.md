@@ -1,25 +1,69 @@
 # Change Your Call Queue Status
 
-When your administrator assigns you as an agent to a call queue, you can manage your call queue status directly within the **PortSIP ONE** app.&#x20;
+### Managing Call Queue Status
 
-When a call enters your assigned call queue and your status is set to **Ready**, you will receive a notification within the app. You can then answer the call directly from the PortSIP ONE app.
+When your administrator assigns you as an **agent** to a call queue, you can manage your **call queue status** directly within the **PortSIP ONE** app.
+
+When a call enters a queue you are assigned to and your status is set to **Ready**, you will receive an in-app notification and can answer the call directly from PortSIP ONE.
+
+***
 
 ### Changing Your Call Queue Status
 
-To manage your call queue status, follow these simple steps:
+Follow the steps below to manage your agent status and queue participation.
 
-1. **Locate the Queues Status Icon**\
-   In the app’s **title bar**, you will see the **Queues Status Icon**. This icon displays your current status and lists all the call queues you are a part of.
-2. **Open the Status Menu**\
-   Click on the **Queues Status Icon**. A menu window will appear, showing your current status and providing available options to change it.
-3. **Select a New Status**\
-   From the **Agent Status** dropdown, select your desired status. This status will be applied to all queues you are currently logged into (joined).
-4. **Log In or Log Out of Individual Queues**\
-   In the list of queues, each one has a **Switch ON/OFF Option**. Log in or Log out a queue by toggling it on or off.
+#### 1. Locate the Queue Status Icon
 
-{% hint style="info" %}
-**Note:** Changing your agent status will only apply to the queues you are currently logged into.
-{% endhint %}
+In the app’s **title bar**, locate the **Queue Status** icon.\
+This icon displays your current agent status and provides access to the list of call queues you are assigned to.
+
+***
+
+#### 2. Open the Status Menu
+
+Click the **Queue Status** icon.\
+A menu will appear showing:
+
+* Your current **agent status**
+* The list of call queues you are logged into
+* Available options to update your status
+
+***
+
+#### 3. Select an Agent Status
+
+From the **Agent Status** drop-down list, select the desired status (for example, _Ready_ or _Not Ready_).
+
+> **Important**\
+> The selected agent status applies to **all call queues** you are currently logged into.
+
+***
+
+#### 4. Log In or Log Out of Individual Queues
+
+In the queue list, each queue includes an **ON/OFF toggle**:
+
+* Toggle **ON** to log in to a queue
+* Toggle **OFF** to log out of a queue
+
+Changes take effect immediately.
 
 <figure><img src="../../.gitbook/assets/poprtsip_one_queues.png" alt=""><figcaption></figcaption></figure>
+
+***
+
+### Expected Behavior
+
+* When your status is **Ready** and you are logged into a queue, incoming queue calls will be delivered to you.
+* When your status is **Not Ready**, queue calls will not be routed to you, even if you are logged into the queue.
+* Logging out of a specific queue prevents calls from that queue only.
+
+***
+
+> **Note**\
+> Available agent statuses and queue access are controlled by administrator-defined policies.
+
+
+
+
 
