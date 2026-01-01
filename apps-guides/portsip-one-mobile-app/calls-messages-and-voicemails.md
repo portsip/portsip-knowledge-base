@@ -1,32 +1,78 @@
 # Calls, Messages, and Voicemails
 
-### Mobile App Overview <a href="#id-3" id="id-3"></a>
+### Mobile App Overview
 
-Upon logging in, you will see the dashboard with Messages being the first page you see. Let’s take a look around the mobile client to familiarize ourselvesyourself with the app.
+After signing in, the **Messages dashboard** is displayed by default. This is the first screen you see when you open the mobile app.\
+Use this dashboard to quickly access your recent conversations and navigate the app.
 
-#### Chat Tab
+***
 
-The Chat tab is where you will send and receive chat messages and where a list of recent messages will be displayed. Chats are listed chronologically with the newest messages on top. Viewing and sending messages is easy.
+### Chat Tab
 
-1. To continue a chat, open the message field and continue that conversation.
-2. To start a new chat, tap the **+** icon in the upper right corner, then choose the menu item from the popup menu.
-3. Tap the Contacts tab, then tap a user, in the user details page, tap the message icon to start the chat.
+The **Chat** tab is where you send and receive chat messages. It displays a list of your recent conversations, sorted chronologically with the **most recent messages at the top**.
+
+Messaging is designed to be simple and intuitive.
+
+#### Continue an Existing Chat
+
+1. Open an existing conversation from the chat list.
+2. Tap the **message field** and continue the conversation.
+
+***
+
+#### Start a New Chat
+
+You can start a new chat in multiple ways:
+
+**Option 1: From the Chat tab**
+
+1. Tap the **+** icon in the upper-right corner.
+2. Select the desired option from the pop-up menu.
+
+**Option 2: From Contacts**
+
+1. Tap the **Contacts** tab.
+2. Select a user.
+3. On the user details page, tap the **Message** icon to start a chat.
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-8.png" alt="" width="375"><figcaption></figcaption></figure>
 
-#### Call/History Tab
+***
 
-The Calls tab displays all recent calls, including those you made, received, and missed.
+### Calls / History Tab
 
-1. To view only the calls you’ve missed, tap the **Calls** tab at the bottom of the application.
-2. Then tap the **Missed** tab.
-3. You can also initiate a new call from this page by tapping the **New Call** icon.
+The **Calls** tab displays your recent call history, including **incoming**, **outgoing**, and **missed** calls.
+
+#### View Missed Calls
+
+To view only missed calls:
+
+1. Tap the **Calls** tab at the bottom of the app.
+2. Tap **Missed**.
+
+Only calls you did not answer will be displayed.
+
+***
+
+#### Place a New Call
+
+You can also start a new call directly from the Calls tab:
+
+1. Tap the **New Call** icon.
+2. Select a contact or enter a phone number to place the call.
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-9.png" alt="" width="375"><figcaption></figcaption></figure>
 
-#### Contacts Tab
+***
 
-The Contacts tab contains all of your saved contacts. It is broken down into five distinct areas. All Contacts, which displays all your saved contacts, and your Company Contacts, which displays contacts listed in your company’s directory.
+### Contacts Tab
+
+The **Contacts** tab contains all of your saved contacts and is organized into **five distinct sections**.
+
+* **All Contacts**\
+  Displays all contacts you have saved.
+* **Company Contacts**\
+  Displays contacts from your company’s internal directory.
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-10.png" alt="" width="375"><figcaption></figcaption></figure>
 

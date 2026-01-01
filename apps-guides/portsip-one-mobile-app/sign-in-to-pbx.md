@@ -38,6 +38,8 @@ The PortSIP ONE app makes logging in effortless by using a QR code. On the PortS
 
 <figure><img src="../../.gitbook/assets/portsip_one_mobile_login_1.png" alt="" width="563"><figcaption></figcaption></figure>
 
+***
+
 ### Logging into the PortSIP ONE app via SSO
 
 Once you have configured the [**Microsoft 365 integration**](../../portsip-communications-solution/portsip-pbx-administration-guide/integrations/) and synced Microsoft 365 users with PortSIP PBX users, you can log into the **PortSIP ONE app** using your Microsoft 365 credentials.
@@ -69,6 +71,8 @@ Once you have configured the [**Microsoft 365 integration**](../../portsip-commu
    * After successfully logging into Microsoft 365, the PortSIP ONE app will automatically log you into the PortSIP PBX.
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-5.png" alt="" width="375"><figcaption></figcaption></figure>
+
+***
 
 ### Logging into the PortSIP ONE app manually
 

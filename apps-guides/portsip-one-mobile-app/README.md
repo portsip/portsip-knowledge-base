@@ -1,22 +1,44 @@
 # PortSIP ONE Mobile App
 
-{% hint style="info" %}
-The PortSIP ONE app is compatible only with PortSIP PBX version 22.0 or higher. It does **not** support PortSIP PBX version 16.x.
-{% endhint %}
+The **PortSIP ONE app** is compatible only with **PortSIP PBX version 22.0 or later**.\
+It does **not** support PortSIP PBX version **16.x**.
 
-PortSIP ONE is a versatile app that lets you manage your calling service from your computer, browser, or mobile device. With it, you can make and receive calls, send and receive text messages, engage in group chats and sharing with colleagues and contacts, view customer contact history, manage call forwarding settings, and access voicemails—all in one convenient platform.
+PortSIP ONE is a versatile unified communications app that allows you to manage your calling service from your **desktop computer**, **web browser**, or **mobile device**. With a single application, you can:
 
-The all-new PortSIP ONE App is one easy-to-use and secure app you can use to call, message, meet, and get work done:
+* Make and receive calls
+* Send and receive text messages
+* Participate in group chats and share information with colleagues and contacts
+* View customer contact history
+* Manage call forwarding settings
+* Access voicemail messages
 
-* It brings everyone together to do exceptional work.
-* It makes you smarter; it’s personalized to you.
-* It gives you options to choose how you work.
+All communication features are delivered through one secure, easy-to-use platform.
 
-## Downloading from the App Store or Google Play Store
+***
 
-You can also download the application by searching the App Store or Google Play Store from your mobile device. Search **PortSIP ONE** to install it.
+### Why PortSIP ONE
 
-You can also download them from the [PortSIP website](https://www.portsip.com/download-portsip-one/).
+The all-new PortSIP ONE app is designed to help you **call, message, meet, and get work done**—all from one place:
+
+* **Brings everyone together** to collaborate and deliver exceptional work
+* **Adapts to you**, with a personalized user experience
+* **Gives you flexibility**, allowing you to choose how and where you work
+
+***
+
+### Downloading PortSIP ONE
+
+#### Mobile Devices
+
+You can download PortSIP ONE directly from your mobile device:
+
+* Open the **App Store** (iOS) or **Google Play Store** (Android)
+* Search for **PortSIP ONE**
+* Download and install the app
+
+#### PortSIP Website
+
+You can also download the latest versions of PortSIP ONE from the [PortSIP website](https://www.portsip.com/download-portsip-one/), which provides installers and links for supported platforms.
 
 
 
