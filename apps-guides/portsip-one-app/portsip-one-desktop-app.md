@@ -1,20 +1,46 @@
 # PortSIP ONE Desktop App
 
-{% hint style="info" %}
-The PortSIP ONE app is compatible only with PortSIP PBX version 22.0 or higher. It does **not** support PortSIP PBX version 16.x.
-{% endhint %}
+The **PortSIP ONE app** is compatible only with **PortSIP PBX version 22.0 or later**.\
+It does **not** support PortSIP PBX version **16.x**.
 
-PortSIP ONE is a versatile app that lets you manage your calling service from your computer, browser, or mobile device. With it, you can make and receive calls, send and receive text messages, engage in group chats and sharing with colleagues and contacts, view customer contact history, manage call forwarding settings, and access voicemails—all in one convenient platform.
+PortSIP ONE is a versatile unified communications app that allows you to manage your business communications from your **desktop computer**, **web browser**, or **mobile device**. Using a single application, you can:
 
-The all-new PortSIP ONE App is one easy-to-use and secure app you can use to call, message, meet, and get work done:
+* Make and receive voice calls
+* Send and receive text messages
+* Participate in group chats and share information with colleagues and contacts
+* View customer contact history
+* Configure and manage call forwarding
+* Access voicemail messages
+* View CRM data and AI-generated call transcriptions
 
-* It brings everyone together to do exceptional work.
-* It makes you smarter; it’s personalized to you.
-* It gives you options to choose how you work.
+All communication and collaboration features are delivered through one secure, integrated platform.
 
-## Download and Installation
+***
 
-To download the latest version of PortSIP ONE for Windows desktop, visit the [PortSIP website](https://www.portsip.com/download-portsip-one/). The application is provided as an MSI installer. Simply double-click the downloaded file to start the installation process.
+### Why PortSIP ONE
 
-This guide applies to both **PortSIP ONE for Windows** and **PortSIP ONE WebRTC**.
+The all-new PortSIP ONE app is designed to be **simple, secure, and flexible**, enabling you to call, message, meet, and get work done efficiently:
+
+* **Brings people together** to collaborate and deliver exceptional work
+* **Adapts to you**, with a personalized user experience
+* **Gives you flexibility**, allowing you to choose how and where you work
+* **Integrates seamlessly** with CRM systems and AI transcription features
+
+***
+
+### Download and Installation
+
+To download the latest version of **PortSIP ONE for Windows**, visit the [PortSIP website](https://www.portsip.com/portsip-one).
+
+* The Windows desktop app is provided as an MSI installer.
+* Double-click the downloaded MSI file and follow the on-screen instructions to complete the installation.
+
+***
+
+> ❗**Note**\
+> This guide applies to both **PortSIP ONE for Windows (desktop)** and **PortSIP ONE WebRTC (browser-based)**.
+
+
+
+
 
