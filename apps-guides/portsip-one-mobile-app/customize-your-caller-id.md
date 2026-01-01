@@ -70,6 +70,25 @@ To adjust your Caller ID before placing a call:
 
 ***
 
+### Adjust Caller ID from Call History or Contacts
+
+You can change the outbound Caller ID before placing a call directly from **Call History** or **Contacts**.
+
+#### To adjust the Caller ID:
+
+1. Open the **Calls** tab or the **Contacts** tab.
+2. **Long-press** a call entry or contact.
+
+<figure><img src="../../.gitbook/assets/portsip_one_customize_id_2.png" alt="" width="375"><figcaption></figcaption></figure>
+
+3. Tap the **drop-down arrow** in the **From** combo box.
+4. Select the desired **Caller ID**.
+5. Tap the **Phone** icon to place the call using the selected Caller ID.
+
+<figure><img src="../../.gitbook/assets/portsip_one_customize_id_1.png" alt="" width="375"><figcaption></figcaption></figure>
+
+***
+
 ### Block Your Caller ID
 
 In some situations, you may want to hide your caller ID when placing a call.
