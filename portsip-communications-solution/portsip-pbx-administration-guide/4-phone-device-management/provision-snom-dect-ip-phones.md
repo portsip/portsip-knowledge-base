@@ -210,6 +210,9 @@ This procedure can be performed **only after**:
 * The base station has been provisioned by PortSIP PBX
 * The handsets have been successfully registered (paired)
 
+> ❗**Important**\
+> Before performing the upgrade, ensure the handset is placed in the **charging cradle** and the battery level is **above 50%**.
+
 ***
 
 ### Check the Current Handset Firmware Version
@@ -225,56 +228,24 @@ This procedure can be performed **only after**:
 1. Open a web browser and enter the **IP address of the DECT base station**.
 2. Log in to the web interface:
    * **Username:** `admin`
-   * **Password:** The password you configured when adding the DECT phone to PortSIP PBX
+   * **Password:** The password you configured when [adding the DECT phone to PortSIP PBX](provision-snom-dect-ip-phones.md#add-a-dect-phone-in-portsip-pbx)
 3. Navigate to the **Firmware Update** tab.
-4.  In the **Firmware update server address** field, enter:
-
-    ```
-    http://dect.snom.com
-    ```
+4. In the **Firmware update server address** field, enter: [http://dect.snom.com](http://dect.snom.com/)
 5. Verify that the handset model appears in the **Type** field\
    (for example, **M70**).
 6. Enter the required firmware information:
    * **Required Version:** `670`
    * **Required Branch:** `201` _(or the latest branch available for your handset model)_
+
+<figure><img src="../../../.gitbook/assets/snom-dect-6.png" alt=""><figcaption></figcaption></figure>
+
 7. Click **Start Update**.
-
-***
-
-### Firmware Upgrade Process
 
 * The firmware update will begin shortly after you start the process.
 * The handset may reboot automatically during the upgrade.
 
-***
-
-> **Important**\
+> ❗**Important**\
 > Do not power off, reset, or disconnect the DECT base station or handset while the firmware upgrade is in progress. Interrupting the process may cause the handset to become unusable.
 
-## &#x20;<a href="#h.7owi2rene301" id="h.7owi2rene301"></a>
 
-## &#x20;<a href="#h.7owi2rene301" id="h.7owi2rene301"></a>
-
-## &#x20;<a href="#h.7owi2rene301" id="h.7owi2rene301"></a>
-
-## Upgrading SNOM Handsets Firmware <a href="#h.7owi2rene301" id="h.7owi2rene301"></a>
-
-To upgrade the device's firmware, the handset must be connected to the DECT base station as an extension. This step can only be performed after the base has been upgraded and provisioned, and the handsets have been paired. Here are the steps to check the firmware of your SNOM handset and perform the upgrade:
-
-1. Press the **Menu** key on your handset.
-2. Navigate to **Settings > Status > Handset status**.
-3. The **SW version** indicates your device’s current firmware.
-4. Open your web browser and navigate to your phone’s IP address.
-5. Log in to your account (the default username is admin, and the password is that you set in the step [**Add a DECT Phone in PortSIP PBX**](provision-snom-dect-ip-phones.md#add-a-dect-phone-in-portsip-pbx)).
-6. Navigate to the **Firmware Update** tab.
-7. In the **Firmware update server address** field, enter [http://dect.snom.com](http://dect.snom.com). The model of the connected handset will be displayed in the **Type** field (for example, M70).
-
-<figure><img src="../../../.gitbook/assets/snom-dect-6.png" alt=""><figcaption></figcaption></figure>
-
-8. In the **Required Versio**n field, enter **670**, and in the **Required branch** field, enter the number of the latest firmware, which is 201.
-9. After entering a valid firmware number, press **Start Update**.
-
-{% hint style="danger" %}
-Before performing the upgrade, ensure that the handset is placed in the charging cradle and is charged to over 50%.
-{% endhint %}
 
