@@ -1,97 +1,206 @@
 # Provision Fanvil DECT IP Phones
 
-From the v22 version, PortSIP supports the Fanvil LINKVIL DECT IP Phones.
+### Supported Fanvil DECT IP Phone Models
 
-## Supported Fanvil DECT IP Phone Models
+This guide applies to the following **Fanvil DECT models**:
 
-This guide applies to the following models:
+* **W710D**
+* **W710H**
 
-* W710D
-* W710H
+***
 
-## Factory Reset the Fanvil DECT System <a href="#h.7dibl1nchwtg" id="h.7dibl1nchwtg"></a>
+### Factory Reset the Fanvil DECT System
 
-1. Hold the device button for at least 10 seconds.
+It is recommended to factory reset the DECT system before provisioning or upgrading firmware.
+
+#### Reset Using the Hardware Button
+
+1. Press and hold the **Reset** button on the device for **at least 10 seconds**.
 2. Release the button.
-3. The device will now proceed to reset and reboot.
+3. The device will reset and reboot automatically.
 
-You can also click the Reset To Factory Settings button to reset the system by navigating to the menu **System > Configurations > Reset Devices > Reset.**
+***
 
-## Upgrade the DECT Base and Handsets to the Latest Firmware <a href="#h.i1ns9ummsm0r" id="h.i1ns9ummsm0r"></a>
+#### Reset via Web Interface (Alternative Method)
 
-Ensure that the DECT device and handsets are running on the latest firmware. To check which firmware the phones are running:
+You can also perform a factory reset from the web interface:
+
+1. Sign in to the **Fanvil DECT Manager** web portal.
+2. Navigate to **System > Configurations > Reset Devices > Reset**.
+3. Click **Reset to Factory Settings**.
+
+***
+
+### Upgrade the DECT Base and Handsets to the Latest Firmware
+
+Before provisioning with PortSIP PBX, ensure that both the **DECT base station** and **handsets** are running the **latest supported firmware**.
 
 <figure><img src="../../../.gitbook/assets/fanvil-dectp-1.png" alt=""><figcaption></figcaption></figure>
 
-You can follow the below steps to upgrade the firmware:
+***
 
-1. Access the [official Fanvil website](https://www.fanvil.com/service/doc/index.html) and then click **Software**. Select your phone model and download the latest Firmware image file.
-2. Sign in to your Fanvil DECT Manager web portal in the browser.
-3. Navigate to **System > Upgrade > Software Upgrade > System Image File**.
-4. Click **Select** choose the firmware image file saved from the Fanvil website, and press **Upload**.
-5. If using the Fanvil W710H repeat this step for all the Fanvil Base Stations you will connect to the DECT Manager.
+#### Download the Firmware
 
-You can also upgrade the handset firmware in the same steps.
+1. Visit the **official Fanvil website**.
+2. Go to **Software**.
+3. Select your **Fanvil DECT model**.
+4. Download the latest **firmware image file**.
+
+***
+
+#### Upgrade the DECT Base Station Firmware
+
+1. Open a web browser and sign in to the **Fanvil DECT Manager** web interface.
+2. Navigate to **System > Upgrade > Software Upgrade > System Image File**.
+3. Click **Select**, choose the downloaded firmware image file, then click **Upload**.
+4. Wait for the upgrade process to complete. The device may reboot automatically.
 
 <figure><img src="../../../.gitbook/assets/fanvil-dect-2.png" alt=""><figcaption></figcaption></figure>
 
-## Add a DECT Phone in PortSIP PBX
+***
 
-Please follow the below steps to add the DECT phone to the PortSIP PBX.
+#### Multiple Base Stations (W710H)
 
-1. Sign in to the PortSIP PBX web portal and navigate to **Call Manager > DECT Phones** from the menu.
-2. Click on the **Add** button. A popup window will appear.
-3. In this window, select your phone model and enter the MAC address of the phone, then click the **OK** button.
-4. Provide a user-friendly name for this DECT phone.
-5. In the **Network** field, select the network interface that the DECT Phone will use.
-6. In the **Country/Region** field, select the specified country and region (the handle needs to be consistent with the base station).
-7. Choose the transport protocol that the phone will use to send and receive SIP messages with the PBX.
-8. If your PBX has internet access, please enable the **Save to RPS** option.
+If you are using **Fanvil W710H**:
+
+* Repeat the firmware upgrade process for **each base station** connected to the DECT Manager.
+
+***
+
+#### Upgrade Handset Firmware
+
+Handset firmware can be upgraded using the **same procedure**:
+
+1. Navigate to **System > Upgrade > Software Upgrade > System Image File**.
+2. Upload the handset firmware image.
+3. Start the upgrade process and allow the handset to reboot if prompted.
+
+> ❗**Important**\
+> Before performing the upgrade, ensure the handset is placed in the **charging cradle** and the battery level is **above 50%**.
+
+***
+
+### Add a DECT Phone in PortSIP PBX
+
+Follow the steps below to add a **DECT phone** to **PortSIP PBX**.
+
+#### To add a DECT phone:
+
+1. Sign in to the PortSIP PBX Web Portal.
+2. Navigate to **Call Manager > DECT Phones**.
+3. Click **Add**.\
+   The **Add DECT Phone** window appears.
+4. Select the **phone model** and enter the **MAC address** of the DECT base station.
+5. Click **OK**.
+6. Enter a **descriptive name** for the DECT phone to help identify it easily.
+7. In the **Network** field, select the **network interface** the DECT phone will use.
+8.  In the **Country/Region** field, select the appropriate **country and region**.
+
+    > The selected country/region **must match the configuration of the DECT base station**.
+9. Select the **transport protocol** the phone will use to send and receive SIP signaling with the PBX (for example, **UDP**, **TCP**, or **TLS**).
+10. If your PBX is deployed in the cloud, enable **Save to RPS**.
 
 <figure><img src="../../../.gitbook/assets/fanvil-dect-3.png" alt=""><figcaption></figcaption></figure>
 
-## Assign Users to the Handsets <a href="#h.ipuczchjqkl4" id="h.ipuczchjqkl4"></a>
+***
 
-Next, you'll need to assign users to the handsets. Here's how you can do it:
+### Assign Users to Handsets
 
-1. Click on the **Users** tab.
-2. For each handset, select the users you want to assign.
+After adding the DECT phone, you need to assign users to the handsets.
 
-Next, you'll need to assign users to the handsets. Here's how you can do it:
+#### To assign users to handsets:
+
+1. Click the **Users** tab.
+2. For each handset, select the **user(s)** you want to assign.
 
 <figure><img src="../../../.gitbook/assets/fanvil-dect-4.png" alt=""><figcaption></figcaption></figure>
 
-## Auto Provision Handsets by RPS
+***
 
-If your PBX installation is in the cloud and you have turned on the **Save to RPS** to configure the DECT phone in the above step&#x73;**,** the DECT phone will download the configuration file and provision handsets, the handsets of this DECT phone station will register to the PortSIP PBX automatically.
+### Auto-Provision Handsets via RPS
 
-## Provision Handsets Manually
+If your PortSIP PBX is deployed in the **cloud** and you enabled **Save to RPS** when configuring the DECT phone in the previous steps, handset provisioning is performed automatically.
 
-If your PBX installation is on-premise without internet access or you turned off the **Save to RPS** option, you will need to follow the below steps to provision handsets:
+With **Save to RPS** enabled:
 
-1. Click the menu **Call Manager > DECT Phones**, and double the DECT phone.
-2. Copy the provisioning link.
+* The DECT base station downloads its **configuration file** from the vendor’s **Remote Provisioning Server (RPS)**.
+* The base station automatically provisions all associated **handsets**.
+* All handsets registered to this DECT base station are **automatically registered with PortSIP PBX**, without manual configuration.
+
+***
+
+### Manually Provision Handsets
+
+If your PortSIP PBX is deployed **on-premises without Internet access**, or if you **disabled the Save to RPS option**, you must provision the DECT handsets manually.
+
+#### To manually provision handsets:
+
+1. Sign in to the PortSIP PBX Web Portal.
+2. Navigate to **Call Manager > DECT Phones**.
+3. **Double-click** the DECT phone you want to provision.
+4. **Copy the provisioning URL**.
 
 <figure><img src="../../../.gitbook/assets/fanvil-dect-5.png" alt=""><figcaption></figcaption></figure>
 
-3. Enter the DECT base station's IP address in the web browser and open it.
-4. In the menu **System > Auto Provision > Static Provisioning Server**, enter the provisioning link copied in **Server Address** and enter {mac}.cfg in **Configuration File Name**.
-5. Press the **Apply** button to save the link and then press the button **Auto Provision Now**.
+***
 
-## Pair the Handset to the DECT Base Station
+#### Configure the DECT Base Station
 
-1. **Open the DECT Base Station’s Web Interface:**
-   * Enter the DECT Base Station's IP address in your web browser to access the interface.
-   * In the menu, go to **Handset > Maintenance**, then click **Add**.
-2. **Enter Handset Details:**
-   * Input the **IPUI** of the handset and assign a friendly name.
-   * Select the corresponding extension number for the handset and click the confirm.
-3. **Ensure Consistent Country and Region Settings:**
-   * The country and region selected for the handset(W601D) must match the settings of the base station. Once the selection is made, the system will restart.
-4. **Connect to the Base Station:**
-   * Navigate to **Menu > Networks > Available Networks**.
-   * Click **Scan** to search for available networks, then connect to the specified base station.
-   * Enter the password and click **Confirm** to complete the pairing.
+5. Open a web browser and enter the **IP address of the DECT base station**.
+6. Sign in to the DECT base station web interface.
+7. Navigate to **System > Auto Provision > Static Provisioning Server**.
+8. Configure the following fields:
+   * **Server Address**: Paste the copied **provisioning URL**
+   *   **Configuration File Name**: Enter
+
+       ```
+       {mac}.cfg
+       ```
+9. Click **Apply** to save the settings.
+10. Click **Auto Provision Now** to start the provisioning process.
+
+***
+
+### Pair the Handset with the DECT Base Station
+
+Follow the steps below to pair a handset with the DECT base station.
+
+#### Step 1: Open the DECT Base Station Web Interface
+
+1. Open a web browser.
+2. Enter the **IP address of the DECT base station** to access its web interface.
+
+***
+
+#### Step 2: Add the Handset on the Base Station
+
+1. In the web interface, navigate to **Handset > Maintenance**.
+2. Click **Add**.
+3. Enter the following handset details:
+   * **IPUI** of the handset
+   * A **friendly name** to identify the handset
+4. Select the corresponding **extension number** for the handset.
+5. Click **Confirm** to save the settings.
+
+***
+
+#### Step 3: Verify Country and Region Settings
+
+Ensure that the **Country/Region** selected for the handset (for example, **W601D**) matches the configuration of the DECT base station.
+
+> **Important**\
+> If the country or region setting is changed, the system will **restart automatically**.
+
+***
+
+#### Step 4: Connect the Handset to the Base Station
+
+1. On the handset, navigate to **Menu > Networks > Available Networks**.
+2. Tap **Scan** to search for available DECT networks.
+3. Select the target **base station** from the list.
+4. Enter the **password**, then tap **Confirm** to complete the pairing.
 
 <figure><img src="../../../.gitbook/assets/fanvil-dect-6..png" alt=""><figcaption></figcaption></figure>
+
+
 
