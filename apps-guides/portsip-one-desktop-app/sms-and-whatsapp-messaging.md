@@ -1,12 +1,15 @@
 # SMS and WhatsApp Messaging
 
-PortSIP offers external SMS, MMS, and WhatsApp features, as well as PBX extensions internal chat—allowing you to keep your lines of communication open from anywhere within PortSIP.
+PortSIP provides **external SMS, MMS, and WhatsApp messaging**, as well as **internal PBX extension chat**, allowing you to communicate seamlessly with customers and colleagues—all within the PortSIP platform.
 
-### SMS/MMS feature
+***
 
-#### Setup SMS/MMS features
+### SMS and MMS Messaging
 
-The SMS/MMS feature requires your trunk provider to support it. Currently, PortSIP PBX has integrated the SMS feature as well with the below trunk providers:
+#### Prerequisites
+
+The SMS/MMS feature requires support from your **SIP trunk provider**.\
+PortSIP PBX currently supports SMS integration with the following trunk providers:
 
 * [Configuring Quest Blue SIP Trunk](https://support.portsip.com/portsip-communications-solution/configuring-sip-trunks/questblue-sip-trunk)
 * [Configuring Twilio SIP Trunk](https://support.portsip.com/portsip-communications-solution/configuring-sip-trunks/twilio-sip-trunk)
@@ -20,19 +23,45 @@ The SMS/MMS feature requires your trunk provider to support it. Currently, PortS
 * [VoiceMeUp Trunk](https://support.portsip.com/portsip-communications-solution/configuring-sip-trunks/voicemeup-sip-trunk)
 * [Configuring Bandwidth SIP Trunk](../../portsip-communications-solution/configuring-sip-trunks/bandwidth-sip-trunk/)
 
-If the tenant administrator is successfully configured for the SMS integration as the above guides, then the users can use the PortSIP ONE app to send & receive the SMS/MMS.
+> **Important**\
+> SMS/MMS messaging is available only after the **tenant administrator** completes the required SMS configuration for the selected trunk provider.
 
-#### Using SMS/MMS feature
+***
 
-Please follow the guide [SMS Channel](../../portsip-communications-solution/portsip-pbx-administration-guide/28-digital-engagement-channels/sms-channel.md) to use the SMS/MMS feature in the PortSIP ONE app.
+#### Configuring SMS/MMS
 
-### WhatsApp messaging feature
+Configure SMS/MMS by following the corresponding trunk-specific guide listed above.\
+Once the integration is successfully completed at the tenant level, **end users can send and receive SMS/MMS messages using the PortSIP ONE app**.
 
-The PortSIP WhatsApp integration allows you to easily answer your customers through their WhatsApp client. When a customer session requires agent assistance, you can go ahead and route to the right agent for live support with your ring group/queue agent. Images, file sharing, and even location are available when communicating with your customers.
+***
 
-### Using  WhatsApp messaging feature
+#### Using SMS/MMS
 
-Please follow the guide [WhatsApp Channel](../../portsip-communications-solution/portsip-pbx-administration-guide/28-digital-engagement-channels/whatsapp-channel.md) to use the SMS/MMS feature in the PortSIP ONE app.
+To learn how to send and receive SMS and MMS messages in the PortSIP ONE app, refer to:
+
+[**SMS Channel User Guide**](../../portsip-communications-solution/portsip-pbx-administration-guide/28-digital-engagement-channels/sms-channel.md)
+
+***
+
+### WhatsApp Messaging
+
+The PortSIP WhatsApp integration allows you to **communicate directly with customers using their WhatsApp client**. When a conversation requires live assistance, sessions can be routed to the appropriate **ring group or queue agent** for real-time support.
+
+The WhatsApp channel supports:
+
+* Text messaging
+* Image and file sharing
+* Location sharing
+
+***
+
+#### Using WhatsApp Messaging
+
+To learn how to use WhatsApp messaging in the PortSIP ONE app, refer to:
+
+[**WhatsApp Channel User Guide**](../../portsip-communications-solution/portsip-pbx-administration-guide/28-digital-engagement-channels/whatsapp-channel.md)
+
+
 
 
 

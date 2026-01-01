@@ -2,8 +2,6 @@
 
 **Caller ID** allows call recipients to see who is calling before they answer. A properly configured Caller ID improves call recognition, professionalism, and trust, especially for outbound business calls.
 
-***
-
 ### Default Caller ID Behavior
 
 By default, PortSIP PBX automatically determines the outbound Caller ID based on the system configuration.\
