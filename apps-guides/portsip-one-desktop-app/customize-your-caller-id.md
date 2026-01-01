@@ -93,55 +93,87 @@ Caller ID can also be selected directly from a contact’s details view before p
 
 <figure><img src="../../.gitbook/assets/caller_id_2.png" alt=""><figcaption></figcaption></figure>
 
-#### Adjust caller ID from a conversation thread  <a href="#adjust-caller-id-from-a-conversation-thread" id="adjust-caller-id-from-a-conversation-thread"></a>
+***
 
-Caller ID can also be customized in the SMS/WhatsApp conversation thread view.&#x20;
+### Adjust Caller ID from a Conversation Thread
 
-From the conversation thread view in the PortSIP ONE app:
+Caller ID can also be selected directly from an **SMS or WhatsApp conversation thread** before placing a call. This allows users to maintain context and present the appropriate outbound identity when transitioning from messaging to voice.
 
-1. Click the drop-down option beside the **Phone** icon&#x20;
-2. Navigate to the **From** section
-3. Choose an outbound caller ID
-4. Click the **Phone** icon to call
+#### To adjust Caller ID from a conversation thread:
+
+1. Open the **SMS or WhatsApp conversation thread** in the **PortSIP ONE** app. The conversation history and call options are displayed.
+2. Click the **drop-down arrow** next to the **Phone** icon. Additional calling options become available.
+3. In the **From** section, select the desired **Outbound Caller ID**. The selected Caller ID is applied to the call.
+4. Click the **Phone** icon to place the call. The call is initiated using the selected Caller ID.
+
+> ❗**Note**\
+> Available Caller ID options are controlled by administrator-defined policies. If a Caller ID is not selectable, it may be restricted at the extension, group, or company level.
 
 <figure><img src="../../.gitbook/assets/caller_id_3.png" alt=""><figcaption></figcaption></figure>
 
-### Block your caller ID <a href="#block-your-caller-id" id="block-your-caller-id"></a>
+***
 
-There may be a time when you need to block your caller ID.&#x20;
+### Blocking Your Caller ID
 
-#### To block caller ID when placing a call from the Keypad
+In some situations, you may want to hide your caller ID when placing a call. PortSIP ONE allows you to block your caller ID from multiple call entry points.
 
-1. Click the **Drop-Down icon** alongside the **Call as**
-2. Select **Block caller ID**
+***
+
+#### Block Caller ID from the Keypad
+
+1. Open the **Keypad** in the PortSIP ONE app.
+2. Click the **drop-down icon** next to **Call as**.
+3. Select **Block Caller ID**.
 
 <figure><img src="../../.gitbook/assets/caller_id_4.png" alt=""><figcaption></figcaption></figure>
 
-#### To block caller ID from the contact details view
+#### Block Caller ID from the Contact Details View
 
-1. Click the drop-down arrow icon beside the **Phone** icon&#x20;
-2. Navigate to the **From** section
-3. Choose **Block caller ID**
+1. Open the desired **contact**.
+2. Click the **drop-down arrow** next to the **Phone** icon.
+3. Navigate to the **From** section.
+4. Select **Block Caller ID**.
 
 <figure><img src="../../.gitbook/assets/caller_id_5.png" alt=""><figcaption></figcaption></figure>
 
-#### Block caller ID from a conversation thread  <a href="#adjust-caller-id-from-a-conversation-thread" id="adjust-caller-id-from-a-conversation-thread"></a>
+#### Block Caller ID from a Conversation Thread
 
-1. Click the drop-down option beside the **Phone** icon&#x20;
-2. Navigate to the **From** section
-3. Choose **Block caller ID**
+1. Open the **SMS or WhatsApp conversation**.
+2. Click the **drop-down arrow** next to the **Phone** icon.
+3. Navigate to the **From** section.
+4. Select **Block Caller ID**.
 
 <figure><img src="../../.gitbook/assets/caller_id_6.png" alt=""><figcaption></figcaption></figure>
 
-### Let the PBX Decide on Delivery Caller ID
+***
 
-If you prefer not to manually select the caller ID when placing a call, you can configure it to use the **Server delivery caller ID**.
+### Let the PBX Decide the Outbound Caller ID
+
+If you prefer not to manually select a caller ID when placing a call, you can configure the app to let the **PBX automatically determine the outbound caller ID**.
 
 <figure><img src="../../.gitbook/assets/caller_id_7.png" alt=""><figcaption></figcaption></figure>
 
-In the **From** section, choose the **Server delivery caller ID** option. With this setting, when the app places the call and route through the SIP trunk,  the PBX will automatically select the appropriate caller ID based on its configuration.
+#### To use the PBX-selected caller ID:
 
-For further details on how the PBX determines the outbound caller ID, please refer to the article: [**Handle Outbound Calls Through SIP Trunk**](../../portsip-communications-solution/portsip-pbx-administration-guide/7-trunk-management/handle-outbound-calls-through-sip-trunk.md#outboundcallerid), which explains how the PBX dynamically chooses the correct caller ID.
+1.  In the **From** section, select **Server delivery caller ID**.
 
-Note: This logic is typically applied to desk IP phones as well, which always follow this automatic caller ID selection process.
+    When this option is enabled, the app places the call through the SIP trunk, and the **PBX automatically selects the appropriate outbound caller ID** based on its routing and trunk configuration.
+
+***
+
+#### How the PBX Determines the Caller ID
+
+For details on how the PBX selects the outbound caller ID, see [Handle Outbound Calls Through SIP Trunk](../../portsip-communications-solution/portsip-pbx-administration-guide/7-trunk-management/handle-outbound-calls-through-sip-trunk.md#outboundcallerid).
+
+\
+This article explains how the PBX dynamically chooses the correct caller ID based on system configuration, routing rules, and trunk settings.
+
+***
+
+> ❗**Note**\
+> This automatic caller ID selection logic is also typically used by **desk IP phones**, which always rely on the PBX to determine the outbound caller ID.
+
+
+
+
 
