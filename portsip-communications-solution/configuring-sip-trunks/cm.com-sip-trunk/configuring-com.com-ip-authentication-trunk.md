@@ -9,8 +9,7 @@ Before proceeding with trunk configuration, ensure that you have purchased at le
 To enable inbound calling, you must first complete the required configuration on the CM.com platform.
 
 1. Sign in to your [CM.com](https://www.cm.com) account.
-2. Follow the CM.com guide to configure inbound DIDs:\
-   [How do I configure a DDI for incoming calls?](https://knowledgecenter.cm.com/knowledge-center/communications-platform/sip-trunking/ddi-numbers/how-do-i-configure-a-ddi-for-incoming-calls)
+2. Follow the CM.com guide to configure inbound DIDs: [How do I configure a DDI for incoming calls?](https://knowledgecenter.cm.com/knowledge-center/communications-platform/sip-trunking/ddi-numbers/how-do-i-configure-a-ddi-for-incoming-calls)
 3. Confirm that the DID is active and ready for SIP trunking.
 
 Once completed, continue with the trunk configuration in PortSIP PBX.
@@ -19,7 +18,7 @@ Once completed, continue with the trunk configuration in PortSIP PBX.
 
 ### Configure a CM.com IP Authentication Trunk in PortSIP PBX
 
-You can configure CM.com as an **IP-Based Trunk** at the **system administrator** level. After configuration, this trunk can be shared with one or more tenants.
+You can configure [CM.com](https://www.cm.com) as an **IP-Based Trunk** at the **system administrator** level. After configuration, this trunk can be shared with one or more tenants.
 
 ***
 
@@ -52,7 +51,7 @@ Click **Next** to continue.
 * **Max Concurrent Calls**\
   Set the maximum number of concurrent calls allowed on this trunk. Adjust this value based on your CM.com subscription and expected traffic.
 
-> **Recommendation**\
+> ❗**Recommendation**\
 > Keep the default values for other options unless you have specific requirements.
 
 Click **Next** to continue.
@@ -66,6 +65,8 @@ Click **Next** to continue.
 1. Assign the trunk to one or more **tenants**.
 2. Configure the **DID Pool**(DID numbers) using the CM.com DIDs you purchased.
 
+> ❗**Important**
+>
 > A DID number can be assigned to **only one tenant**.
 
 A tenant assigned to this trunk can:
@@ -101,14 +102,14 @@ For example:
 
 ### Expected Result
 
-* The CM.com IP-based trunk is successfully created.
+* The [CM.com](https://www.cm.com) IP-based trunk is successfully created.
 * The trunk status displays **Registered**\
   &#xNAN;_(IP-Based Trunks always show “Registered” in PortSIP PBX)_.
 * Assigned tenants can immediately use the configured DIDs for inbound and outbound calls.
 
 ***
 
-> **Note**\
+> ❗**Note**\
 > Ensure that CM.com allows traffic from your PBX IP address when using IP authentication.
 
 

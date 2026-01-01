@@ -191,6 +191,7 @@
   * [CM.COM SIP Trunk](portsip-communications-solution/configuring-sip-trunks/cm.com-sip-trunk/README.md)
     * [Purchase a DID on CM.com Platform](portsip-communications-solution/configuring-sip-trunks/cm.com-sip-trunk/purchase-a-did-on-cm.com-platform.md)
     * [Configuring COM.com IP Authentication Trunk](portsip-communications-solution/configuring-sip-trunks/cm.com-sip-trunk/configuring-com.com-ip-authentication-trunk.md)
+    * [Configuring CM.com Register Authentication Trunk](portsip-communications-solution/configuring-sip-trunks/cm.com-sip-trunk/configuring-cm.com-register-authentication-trunk.md)
     * [Configuring Outbound & Inbound Calls](portsip-communications-solution/configuring-sip-trunks/cm.com-sip-trunk/configuring-outbound-and-inbound-calls.md)
     * [Flowroute SMS Integration](portsip-communications-solution/configuring-sip-trunks/cm.com-sip-trunk/flowroute-sms-integration.md)
   * [Gamma SIP Trunk](portsip-communications-solution/configuring-sip-trunks/gamma-sip-trunk.md)

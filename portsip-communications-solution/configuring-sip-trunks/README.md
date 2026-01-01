@@ -10,7 +10,6 @@ SIP is the foundation of **Voice over IP (VoIP)** communications, and **SIP Trun
 
 PortSIP PBX supports a wide range of **mainstream SIP trunk providers worldwide**, including but not limited to:
 
-*
 * [Vonage](https://www.vonage.com/)
 * [QuestBlue](https://questblue.com/)
 * [VoIP.ms](https://voip.ms/)
