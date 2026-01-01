@@ -1,51 +1,77 @@
 # Click to Call
 
-### What is Click-to-Call?
+**Click-to-Call** is a feature that allows users to initiate a phone call with a single click. It leverages **Voice over Internet Protocol (VoIP)** technology to establish a call between two parties and is also commonly known as **click-to-dial** or **one-click calling**.
 
-Click-to-call is a feature that allows users to initiate phone calls with a single click, leveraging Voice over Internet Protocol (VoIP) technology to establish the connection between two parties. This feature is also referred to as "click-to-dial" or "one-click calling."
+Originally designed for call centers, click-to-call helped streamline outbound calling, reduce dialing errors, and improve agent efficiency. Over time, it has evolved to support modern technologies such as **WebRTC** and **browser-based integrations**, making it widely accessible for everyday business communications.
 
-Originally developed for call centers, the click-to-call functionality aimed to streamline outbound calling, minimize dialing errors, and enhance efficiency. Over time, it has evolved to incorporate technologies like WebRTC and browser plugins, making it even more accessible.
+***
 
-### How to set up click-to-call
+### Setting Up Click-to-Call
 
-#### Desktop-based calling
+#### Desktop-Based Calling
 
-* Download and install the PortSIP ONE app on your desktop.&#x20;
-* Sign in to the PortSIP ONE app.
+Follow these steps to enable click-to-call on your desktop:
 
-When you click on telephone numbers while browsing the web (e.g., in Google Chrome, Edge, or Firefox), you will be prompted to select an application to place the call.
+1. **Download and install** the **PortSIP ONE** app on your desktop.
+2. **Sign in** to the PortSIP ONE app.
+3. While browsing the web, click a **telephone number** (for example, in Google Chrome, Microsoft Edge, or Mozilla Firefox).
+4.  When prompted, choose an application to place the call.
 
-For instance, as shown in the screenshot below, you can check the option **"Always allow** [**www.portsip.com**](http://www.portsip.com) **to open links of this type in the associated app"** to automatically open phone links from that website in your designated calling app (where "[www.portsip.com](http://www.portsip.com)" is the website you clicked the phone number on).&#x20;
+    You may select the option:\
+    &#xNAN;**“Always allow this site to open links of this type in the associated app.”**
+
+    This ensures that phone numbers clicked on that website (for example, [_www.portsip.com_](http://www.portsip.com)) automatically open in your selected calling app.
 
 <figure><img src="../../.gitbook/assets/portsip-one-tel-call-1.png" alt=""><figcaption></figcaption></figure>
 
-After clicking the **Open** **Pick an app button** in the above step, the **Windows Default Apps** settings window will appear, as shown below.
+***
 
-To set the PortSIP ONE app as your default for telephone numbers, follow these steps:
+#### Setting PortSIP ONE as the Default Calling App (Windows)
 
-1. Select the **PortSIP ONE app** from the list of available apps.
-2. Check the box labeled **"Always use this app"** to make it the default.
-3. Click **OK** to confirm your selection.
+After clicking **Open** or **Pick an app** in the previous step, the **Windows Default Apps** settings window will appear.
 
-Once completed, Windows will set the PortSIP ONE app as the default application for dialing telephone numbers.
+To set PortSIP ONE as the default app for telephone numbers:
+
+1. Select **PortSIP ONE** from the list of available applications.
+2. Check **Always use this app**.
+3. Click **OK** to confirm.
+
+Once completed, Windows will assign **PortSIP ONE** as the default application for dialing telephone numbers.
 
 <figure><img src="../../.gitbook/assets/portsip-one-tel-call-2.png" alt="" width="295"><figcaption></figcaption></figure>
 
-Now, the PortSIP ONE app will automatically dial the phone number.&#x20;
+***
 
-In the future, if you click a phone number on a web page and the PortSIP ONE app is already signed in, it will automatically dial the number for you.
+#### Expected Behavior
 
-If the PortSIP ONE app is not running, it will be launched, and after signing in, the phone number will be dialed automatically.
+* Clicking a phone number on a web page automatically launches **PortSIP ONE** and places the call.
+* If PortSIP ONE is already running and signed in, the call is placed immediately.
+* If PortSIP ONE is not running, it will launch automatically. After you sign in, the phone number will be dialed without further action.
 
-### Set Up Windows Default App for Phone Numbers
+***
 
-If your default phone app is not set to **PortSIP ONE**, follow the steps below to configure it:
+> **Note**\
+> Click-to-call behavior depends on your operating system’s default app settings and browser permissions. Administrator policies may also affect call routing and outbound caller ID behavior.
 
-1. Click the **Start** menu and select **Settings**.
-2. Click **Apps**, then choose **Default apps**.
+***
+
+### Set PortSIP ONE as the Default App for Phone Numbers (Windows)
+
+If PortSIP ONE is not currently set as your default phone application, follow the steps below to configure it.
+
+#### To set the default app for phone numbers:
+
+1. Click the **Start** menu and open **Settings**.
+2. Select **Apps**, then click **Default apps**.
 3. Scroll down and select **Default apps by protocol**.
-4. Locate **TEL** (URL:Tel Protocol) and click the button labeled **"Choose a default"**.
-5. Select **PortSIP ONE** from the list of available phone apps.
+4. Locate **TEL (URL: Tel Protocol)**.
+5. Click **Choose a default**.
+6. Select **PortSIP ONE** from the list of available applications.
+
+***
+
+> **Expected Result**\
+> Phone numbers (tel: links) clicked in web browsers or other applications will automatically open in **PortSIP ONE** and initiate a call.
 
 <figure><img src="../../.gitbook/assets/portsip-one-tel-call-3.png" alt="" width="563"><figcaption></figcaption></figure>
 
