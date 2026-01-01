@@ -76,26 +76,62 @@ The **Contacts** tab contains all of your saved contacts and is organized into *
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-10.png" alt="" width="375"><figcaption></figcaption></figure>
 
-#### Keypad Tab
+***
 
-The Keypad tab is used to make calls to numbers that have not been saved as contacts. Additionally, it allows you to enter special FAC to perform various actions, such as retrieving group-parked calls or enabling the "Do Not Disturb" feature.
+### Keypad Tab
+
+The **Keypad** tab is used to place calls to phone numbers that are not saved in your contacts.
+
+In addition to dialing numbers, the Keypad allows you to dial **Feature Access Codes (FACs)** to perform specific actions, such as:
+
+* Retrieving **group-parked calls**
+* Enabling or disabling **Do Not Disturb (DND)**
+
+
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-11.png" alt="" width="375"><figcaption></figcaption></figure>
 
-#### Meetings Tab
+***
 
-The Meetings tab is where you can access your upcoming meetings list, join existing meetings, and schedule new ones, allowing you to quickly view and manage your scheduled video conferences.
+### Meetings Tab
+
+The **Meetings** tab lets you view and manage your video meetings in one place. From this tab, you can:
+
+* View a list of **upcoming meetings**
+* **Join** existing meetings
+* **Schedule** new meetings
+
+This centralized view allows you to quickly access and manage your scheduled video conferences.
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-13.png" alt="" width="375"><figcaption></figcaption></figure>
 
-### How to access your Quick Menu <a href="#id-4" id="id-4"></a>
+***
 
-On the left side of the dashboard, you will see your profile icon displaying your initials. This is the mobile client’s quick menu. To access this menu:
+### Accessing the Quick Menu
 
-* Tap your **Profile** icon, and the menu window will appear.
+On the left side of the dashboard, you will see your **profile icon**, which displays your initials. This icon provides access to the mobile app’s **Quick Menu**.
+
+#### To access the Quick Menu:
+
+1. Tap your **Profile** icon.
+2. The Quick Menu will open.
+
+From the Quick Menu, you can manage the following settings and information:
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-15.png" alt="" width="375"><figcaption></figcaption></figure>
 
+**Change Your Presence Status**
+
+* Tap your **presence status** to change your availability (for example, _Available_, _Busy_, or _Do Not Disturb_).
+
+**View Personal Information**
+
+* Your **name** and **extension number** are displayed for quick reference.
+
+**Mute Calls on the Mobile App**
+
+* Enable **Mute Calls** to stop incoming calls from ringing on the mobile app.
+* When this option is enabled, incoming calls will continue to ring on **other devices** associated with your number or extension (such as desk phones or desktop apps).
 * Change your presence status: tap the presence status and you can change your status
 * Personal information is displayed here, including your name and extension.
 * Here you can mute calls for the mobile app. When this option is enabled, all incoming calls will no longer ring the mobile app but will ring other devices associated with your number or extension.
@@ -106,53 +142,73 @@ To access your settings, from the Quick Menu, click on **Settings**. Here, you h
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-16.png" alt="" width="375"><figcaption></figcaption></figure>
 
-### How to Place Calls <a href="#id-6" id="id-6"></a>
+### How to Place Calls
 
-There are several ways to place outbound calls using the mobile app.
+There are several ways to place outbound calls using the **PortSIP ONE mobile app**.
 
-To place a call from a contact:
+***
 
-1. Find the contact in either your Favorites list or by searching your Contacts.
-2. Tap their name.
-3. Tap the **Call** icon under the profile picture or tap the Call icon next to a phone number you want to call.
+#### Place a Call from a Contact
 
-You can also initiate a call from a Chat Message. From the chat window:
+1. Find the contact in your **Favorites** list or search within **Contacts**.
+2. Tap the contact’s **name**.
+3. Tap the **Call** icon below the profile picture, or tap the **Call** icon next to the specific phone number you want to dial.
 
-* Tap the **Call Phone** or **Camera** icon.
+***
 
-To place a call using your app:
+#### Place a Call from a Chat
 
-1. Select the **Keypad** tab from the Main Menu.
-2. Enter a phone number.
-3. Tap on the **Dial** button.
+1. Open the chat conversation.
+2. Tap the **Phone** icon to place a voice call, or tap the **Camera** icon to start a video call.
+
+***
+
+#### Place a Call Using the Keypad
+
+1. Select the **Keypad** tab from the main menu.
+2. Enter the phone number.
+3. Tap the **Dial** button to place the call.
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-17.png" alt="" width="375"><figcaption></figcaption></figure>
 
-#### Blind transferring a call
+***
 
-To transfer a call, during an active call:
+### Blind Transfer a Call
 
-1. Tap **Transfer** icon.
-2. Select **Transfer**.
+A **blind transfer** sends the call directly to another party without speaking to them first.
+
+#### To perform a blind transfer:
+
+1. During an active call, tap the **Transfer** icon.
+2. Select **Blind Transfer**.
+3. Choose the transfer destination:
+   * **Transfer to a contact or extension**\
+     Search for and tap the contact or extension from your contacts list.
+   * **Transfer to an external number**\
+     Enter the number using the **Keypad**.
+4. Once the destination is selected or entered, the call is transferred immediately.
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-18.png" alt="" width="375"><figcaption></figcaption></figure>
 
-3. You can transfer the call to a contact/extension user within the contacts list by searching and tapping the contact you wish to transfer the call to.
-4. Or you can transfer the call to an ad-hoc number by using the keypad.
-5. Once selected or entered in the dialpad, the call is transferred to the recipient.
 
-#### Attended transferring a call
 
-If you are on an active call, you can perform an Attended Transfer to another contact within the company directory or any other number you dial via the keypad.
+***
 
-To do this while on an active call:
+### Attended Transfer a Call
 
-1. Tap **Transfer**.
-2. Click **Attended Transfer**.
-3. You can transfer the call to a contact/extension user within the contacts list by searching and tapping the contact you wish to transfer the call to.
-4. Or you can transfer the call to an ad-hoc number by using the keypad.
-5. Enter the number to call it.
-6. Once the third-party answers,  the **Attend transfer** icon will flash,   you can then press it to complete the transfer.
+An **attended transfer** (also known as a consultative transfer) allows you to speak with the recipient **before** completing the transfer.
+
+#### To perform an attended transfer:
+
+1. During an active call, tap the **Transfer** icon.
+2. Select **Attended Transfer**.
+3. Choose the transfer destination:
+   * **Transfer to a contact or extension**\
+     Search for and tap the contact or extension from the contacts list.
+   * **Transfer to an external number**\
+     Enter the number using the **Keypad**, then place the call.
+4. When the third party answers, the **Attended Transfer** icon will begin flashing.
+5. Tap the **Attended Transfer** icon to complete the transfer.
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-19.png" alt="" width="375"><figcaption></figcaption></figure>
 
