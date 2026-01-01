@@ -193,7 +193,7 @@
     * [Configuring COM.com IP Authentication Trunk](portsip-communications-solution/configuring-sip-trunks/cm.com-sip-trunk/configuring-com.com-ip-authentication-trunk.md)
     * [Configuring CM.com Register Authentication Trunk](portsip-communications-solution/configuring-sip-trunks/cm.com-sip-trunk/configuring-cm.com-register-authentication-trunk.md)
     * [Configuring Outbound & Inbound Calls](portsip-communications-solution/configuring-sip-trunks/cm.com-sip-trunk/configuring-outbound-and-inbound-calls.md)
-    * [Flowroute SMS Integration](portsip-communications-solution/configuring-sip-trunks/cm.com-sip-trunk/flowroute-sms-integration.md)
+    * [COM.COM SMS Integration](portsip-communications-solution/configuring-sip-trunks/cm.com-sip-trunk/com.com-sms-integration.md)
   * [Gamma SIP Trunk](portsip-communications-solution/configuring-sip-trunks/gamma-sip-trunk.md)
   * [Aire Networks SIP Trunk](portsip-communications-solution/configuring-sip-trunks/aire-networks-sip-trunk.md)
   * [SMSGlobal SIP Trunk](portsip-communications-solution/configuring-sip-trunks/smsglobal-sip-trunk.md)

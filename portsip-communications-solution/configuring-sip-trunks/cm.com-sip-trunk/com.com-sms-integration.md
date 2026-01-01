@@ -1,4 +1,4 @@
-# Flowroute SMS Integration
+# COM.COM SMS Integration
 
 Before proceeding with the next steps, you need to [purchase a DID on the Flowroute platform](../flowroute-sip-trunk/purchase-a-did-on-flowroute-platform.md) with the SMS feature activated.
 
@@ -48,8 +48,8 @@ Please follow the below steps:
 1. In the PortSIP PBX Web portal, navigate to the left menu, select **SMS/MMS**, and click the **Add** button.&#x20;
 2. Choose your configured Flowroute Trunk:
    * **Sender ID**: If you want to use the Sender ID that you created in the Flowroute platform, please enter that Sender ID in this field. Otherwise, leave it empty, and the PortSIP PBX will use the DID number you configured for that Flowroute trunk as the Sender ID.
-   * **Access Key**: Enter the **Access Key** you obtained in the [Obtaining the Access Key and Secret Key](flowroute-sms-integration.md#id-2.-obtaining-the-access-key-and-secret-key) step.
-   * **Secret Key**: Enter the **Secret Key** you obtained in the [Obtaining the Access Key and Secret Key](flowroute-sms-integration.md#id-2.-obtaining-the-access-key-and-secret-key) step.
+   * **Access Key**: Enter the **Access Key** you obtained in the [Obtaining the Access Key and Secret Key](com.com-sms-integration.md#id-2.-obtaining-the-access-key-and-secret-key) step.
+   * **Secret Key**: Enter the **Secret Key** you obtained in the [Obtaining the Access Key and Secret Key](com.com-sms-integration.md#id-2.-obtaining-the-access-key-and-secret-key) step.
 
 <figure><img src="../../../.gitbook/assets/flowroute_trunk_6.png" alt=""><figcaption></figcaption></figure>
 
