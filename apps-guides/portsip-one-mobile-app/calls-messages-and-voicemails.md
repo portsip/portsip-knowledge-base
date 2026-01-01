@@ -212,167 +212,294 @@ An **attended transfer** (also known as a consultative transfer) allows you to s
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-19.png" alt="" width="375"><figcaption></figcaption></figure>
 
-#### Transferring a call to voicemail <a href="#transferring-a-call-to-voicemail" id="transferring-a-call-to-voicemail"></a>
+***
 
-A **Direct-to-Voicemail Transfer** is used when you wish to transfer a call directly to another user’s voicemail. To perform a transfer to voicemail while on an active call:
+### Transfer a Call to Voicemail
 
-1. Click the **Transfer** button.
+A **Direct-to-Voicemail Transfer** allows you to send a call directly to another user’s voicemail without ringing their phone.
+
+#### To transfer a call to voicemail:
+
+1. During an active call, tap the **Transfer** icon.
 2. Select **Transfer to Voicemail**.
-3. From the **Contact Panel**, select the recipient to whom you wish to transfer the call to click on it.
-4. The call will be transferred directly to their voicemail.
+3. From the **Contacts** panel, select the recipient.
+4. The call is transferred directly to the recipient’s voicemail.
 
-#### Call on Hold <a href="#id-9" id="id-9"></a>
+***
 
-To put a call on hold, during an active call:
+### Place a Call on Hold
 
-* Tap **Hold**. The caller will go on hold and hear the on-hold audio based on the Music-on-Hold file that has been set up for your tenant.
-* Tap the **Hold** icon again, the call will be resumed.
+You can temporarily place a call on hold during an active conversation.
 
-#### Direct parking a call <a href="#direct-parking-a-call" id="direct-parking-a-call"></a>
+#### To place a call on hold:
 
-To park a call to an extension while on an active call:
+1. During an active call, tap **Hold**.
+   * The caller is placed on hold and hears the **Music on Hold** configured for your tenant.
+2. Tap **Hold** again to resume the call.
 
-1. Click the **Transfer** button, and select **Park**.
+***
+
+### Directly Parking a Call
+
+**Direct Call Parking** allows you to park an active call on a specific extension so that the call can be retrieved by that user.
+
+#### To park a call on an extension:
+
+1. During an active call, tap the **Transfer** icon.
+2. Select **Park**.
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-20.png" alt="" width="375"><figcaption></figcaption></figure>
 
-2. From the **Contact Panel**, select the recipient to whom you wish to park the call and click on their name.&#x20;
-3. The call will be parked on that extension, the extension which the call is parked on he will received the notification, or you can copy the retrieve code and share to him, then he can dial the `*881004` to retrieve the call.
+3. From the **Contacts** panel, select the extension on which you want to park the call.
+
+The call is parked on the selected extension. The user associated with that extension will receive a notification.
+
+You can also **copy the retrieval code** and share it with the user.\
+The user can retrieve the parked call by dialing the provided retrieval code (for example, **\*881004**).
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-21.png" alt="" width="375"><figcaption></figcaption></figure>
 
-#### Group parking a call <a href="#group-parking-a-call" id="group-parking-a-call"></a>
+***
 
-If the user is a member of a park group, they can park a call to the group, allowing group members to retrieve the parked call.
+### Group Parking a Call
 
-To park a call to the group while on an active call:
+**Group Call Parking** allows you to park a call to a **park group**, enabling any member of the group to retrieve the call.
 
-1. Click the **Transfer** button.
+> **Prerequisite**\
+> You must be a member of a park group to use this feature.
+
+#### To park a call to a group:
+
+1. During an active call, tap the **Transfer** icon.
 2. Select **Group Park**.
 
-The call will be parked to the group if the user is a member of a park group. All of the other members of this park group will receive notification and then can simply retrieve the call.
+The call is parked to the group. All members of the park group receive a notification and can retrieve the call.
 
-#### Retrieving a parked call <a href="#retrieving-a-parked-call" id="retrieving-a-parked-call"></a>
+***
 
-Once a call is parked to an extension user or a park group, the extension user or group members will receive a notification. As shown in the screenshot below, the **Call HUB** icon on the top title bar will start blinking with red color.
+### Retrieving a Parked Call
 
-1. Click the **HUD** icon. The parked call will appear in the list.
-2. Click the **Retrieve** button to easily retrieve the call.
+When a call is parked on an extension or park group, the intended recipient(s) will be notified.
+
+#### To retrieve a parked call from the app:
+
+1. When a call is parked, the **Call Hub** icon in the top title bar will begin flashing **red**.
+2. Tap the **Call Hub** icon.
+3. Locate the parked call in the list.
+4. Tap **Retrieve** to answer the call.
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-22.png.png" alt="" width="375"><figcaption></figcaption></figure>
 
-#### Call Flip <a href="#call-flip" id="call-flip"></a>
+***
 
-**Call Flip** allows you to quickly transfer an active call from PortSIP ONE to another endpoint, such as PortSIP ONE mobile or an IP phone. To perform a Call Flip while on an active call:
+### Expected Behavior
 
-1. Click the **Transfer** button.
+* Parked calls are held until retrieved by an authorized extension or group member.
+* Notifications are sent to the target extension or park group members immediately.
+* Retrieval codes can be shared to allow manual retrieval via the keypad.
+
+***
+
+### Call Flip
+
+**Call Flip** allows you to move an active call from the PortSIP ONE app to another registered device, such as the **PortSIP ONE mobile app** or an **IP phone**, without disconnecting the call.
+
+#### To perform a Call Flip:
+
+1. During an active call, tap the **Transfer** icon.
 2. Select **Flip**.
-3. Your other devices (e.g., PortSIP ONE mobile or IP phone) will ring. Simply answer the call on the other device.
+3. Your other registered devices will start ringing.
+4. Answer the call on the device you want to continue the conversation on.
 
-### How to access your voicemail <a href="#how-to-access-your-voicemail" id="how-to-access-your-voicemail"></a>
+***
 
-To access your voicemails, click on the **Messages** tab. The page is divided into some sections:
+> **Expected Result**\
+> The call is seamlessly transferred to the selected device, and the original device is disconnected from the call.
 
-1. Messages: This area displays your team messages with other extensions.
-2. SMS: This area displays your SMS with contacts.
-3. WhatsApp: This area displays your WhatsApp messages with contacts.
-4. Voicemail: This area displays your voicemails.
+***
+
+### Accessing Your Voicemail
+
+You can access your voicemails directly from the **Messages** tab.
+
+#### To view your voicemails:
+
+1. Tap the **Messages** tab.
+2. The Messages screen is divided into the following sections:
+   * **Messages** – Displays internal team messages with other extensions.
+   * **SMS** – Displays SMS conversations with contacts.
+   * **WhatsApp** – Displays WhatsApp conversations with contacts.
+   * **Voicemail** – Displays your voicemail messages.
+3. Tap **Voicemail** to listen to, manage, or delete your voicemail messages.
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-23.png.png" alt="" width="375"><figcaption></figcaption></figure>
 
-### Accessing your contacts
+***
 
-To access your contact directory, follow these steps:
+### Accessing Your Contacts
 
-1. **Open the Contacts Tab**\
-   Tap the **Contacts** tab at the bottom navigation menu.
-2. **Explore the Contacts Page**
-   * **All**: Shows all your contacts in one list.
-   * **Favorites**: Displays your favorite contacts, including both extension users and general contacts.
-   * **Users**: Lists all extension users within your organization.
-   * **Company**: Displays company-wide contacts.
-   * **Personal**: Contains your private, personal contacts.
-   * **Device**: Shows contacts stored locally on your mobile device.
+Follow the steps below to access and browse your contact directory in the PortSIP ONE mobile app.
+
+#### Open the Contacts Tab
+
+1. Tap the **Contacts** tab in the bottom navigation bar.
+
+***
+
+#### Explore the Contacts Page
+
+The Contacts page is organized into the following sections:
+
+* **All：** Displays all contacts in a single list.
+* **Favorites:** Shows your favorite contacts, including both **extension users** and **external contacts**.
+* **Users:** Lists all **extension users** within your organization.
+* **Company:** Displays **company-wide contacts** shared across the organization.
+* **Personal:** Contains your **private, personal contacts**.
+* **Device:** Shows contacts stored locally on your **mobile device**.
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-24.png" alt="" width="375"><figcaption></figcaption></figure>
 
-#### **Adding a new contact** <a href="#adding-a-new-contact" id="adding-a-new-contact"></a>
+***
 
-To add a new contact to your directory, follow these steps:
+### Adding a New Contact
 
-1. Navigate to the **Contacts** tab. Tap the **+Contact** icon at the top bar to open the contact creation window.
-2. **Enter Contact Information:** In the **Add Contact** window, fill in the necessary details in the appropriate fields.
-3. If you are a tenant administrator with the necessary permissions to access Company Contacts, you have the option to save a new contact to either **Company Contacts** or **Personal Contacts** by tapping the Title. This allows you to manage contacts effectively based on their intended usage and accessibility.
-4. **Save the Contact:** After entering all required information, click the **Save** button.
+Follow the steps below to add a new contact to your directory in the PortSIP ONE mobile app.
 
-Your new contact will now appear in the **My Contacts** table.
+#### To add a new contact:
+
+1. Open the **Contacts** tab.
+2. Tap the **+ Contact** icon in the top bar to open the **Add Contact** screen.
+3.  Enter the contact details in the appropriate fields.
+
+    * If you are a **tenant administrator** with permission to manage **Company Contacts**, tap **Title** to choose where the contact is saved:
+      * **Company Contacts**, or
+      * **Personal Contacts**
+
+    This allows you to control contact visibility and access based on your organization’s needs.
+4. Tap **Save** to create the contact. The new contact is saved successfully and appears in your **Contacts** list.
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-25.png" alt="" width="375"><figcaption></figcaption></figure>
 
-#### **Adding a user/contact to favorites** <a href="#adding-a-user-contact-to-favorites" id="adding-a-user-contact-to-favorites"></a>
+***
 
-To quickly access your most frequently used contacts, you can mark them as favorites. Follow these steps to add a contact to your **Favorites** list:
+### Add a Contact to Favorites
 
-1. Click on the **Contacts** tab located in the main navigation menu.
-   * Select the **Users,** **Company,** or **Personal** tab to view your contact list.
-2. **Select the contact:** Locate the contact you wish to favor, and tap on the contact to view the details.
-3. Tap the start icon at the upper right corner.
+You can mark frequently used contacts as **Favorites** to access them more quickly.
+
+#### To add a contact to Favorites:
+
+1. Tap the **Contacts** tab in the main navigation menu.
+2. Select **Users**, **Company**, or **Personal** to view the desired contact list.
+3. Tap the contact you want to add to Favorites to open the contact details.
+4. Tap the **Star** icon in the upper-right corner.
+
+When selected, the star turns **solid yellow (⭐)**, indicating the contact has been added to your Favorites list.
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-26.png" alt="" width="375"><figcaption></figcaption></figure>
 
-4. Once tapped, a **solid yellow star (⭐)** will appear to confirm that the contact has been successfully added to your **Favorites** list.
-5. **Unfavorite a contact:** To remove a contact from your **Favorites**, follow the same steps. The yellow star will disappear, indicating that the contact is no longer in your favorites.
+***
+
+### Remove a Contact from Favorites
+
+To remove a contact from Favorites, repeat the same steps and tap the **Star** icon again.
+
+* The star will no longer be highlighted, indicating the contact has been removed from Favorites.
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-27.png" alt="" width="375"><figcaption></figcaption></figure>
 
-{% hint style="info" %}
-Both the extension users and contacts can be favored.
-{% endhint %}
+***
 
-### How to access team messages <a href="#id-6" id="id-6"></a>
+### Accessing Team Messages
 
-PortSIP allows seamless communication within your team through internal extension user chat. If the contact you're messaging isn't an extension user, messages will be sent via SMS, MMS, or a WhatsApp channel, ensuring you're always connected.
+PortSIP enables seamless internal communication through **extension-based team messaging**.\
+If the person you are messaging is **not** an extension user, messages are automatically delivered through **SMS**, **MMS**, or **WhatsApp**, ensuring uninterrupted communication.
 
-To access your team messages, follow these steps:
+#### To access your team messages:
 
-1. **Navigate to the Messaging Tab:** Click on the **Messaging** tab in the main navigation menu.
-2. **Understand the Messaging Interface:** The page is divided into four sections:
-   * **Messages**: This is where your team messages are displayed. Messages are usually sorted by date and recipient in chronological order. You can tap the message to view the message details and reply to it.
-   * **SMS**: This is where your SMS messages are displayed. Messages are usually sorted by date and recipient in chronological order. you can tap the message to view the message details and reply to it.
-   * **WhatsApp**: This is where your WhatsApp messages are displayed. Messages are usually sorted by date and recipient in chronological order. You can tap the message to view the message details and reply to it.
-   * **Voicemail**: This is where your Voicemail messages are displayed. Messages are usually sorted by date and recipient in chronological order. You can tap the message to view the message details and play them.
+1. Tap the **Messaging** tab in the main navigation menu.
+2. The Messaging screen is divided into the following sections:
+   * **Messages**\
+     Displays internal team messages with other extension users.\
+     Conversations are sorted chronologically by date. Tap a conversation to view and reply.
+   * **SMS**\
+     Displays SMS conversations with external contacts.\
+     Messages are sorted chronologically. Tap a conversation to view and reply.
+   * **WhatsApp**\
+     Displays WhatsApp conversations with contacts.\
+     Messages are sorted chronologically. Tap a conversation to view and reply.
+   * **Voicemail**\
+     Displays your voicemail messages.\
+     Tap a voicemail to view details and play the recording.
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-28 (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
-#### Sending a new team message <a href="#sending-a-new-team-message" id="sending-a-new-team-message"></a>
+***
 
-There are two ways to send a new team message:
+### Sending a New Team Message
 
-1. **From the Contacts Menu**
-   1. Go to **Contacts** and select the desired extension user.
-   2. Tap the user’s name; you’ll be taken to the chat window.
-   3. Compose and send your message.
-2. **Using the New Message Button**
-   1. Navigate to **Messaging**.
-   2. Tap the **+** icon in the top-right corner to open the menu.
-   3. Select **Create a message**.
-   4. You’ll be redirected to the chat window; compose and send your message.
+You can send a new team message in two ways.
 
-#### Creating a team messaging group <a href="#creating-a-team-messaging-group" id="creating-a-team-messaging-group"></a>
+#### Option 1: From Contacts
+
+1. Go to **Contacts**.
+2. Select the desired **extension user**.
+3. Tap the user’s name to open the chat window.
+4. Compose and send your message.
+
+***
+
+#### Option 2: Using the New Message Button
 
 1. Navigate to **Messaging**.
-2. Tap the **+** icon in the top-right corner to open the menu.
-3. **Create a New Group:** Choose  **Create a group**. The **New Group** window will appear.
-4. **Name and Customize the Group:**
-   * Enter a name for your group chat.
-   * Optionally, add a description for the group to provide more context.
-5. **Add Group Members:**
-   * After naming the group, click the **Next** button to proceed.
-   * From the **Extension Users** list, select the members you want to add to the group.
-   * Once you've selected all desired members, click **Create** to finalize the group creation.
-6. **Finish and View the Group:** Once the group is created, you will see it listed in the **Messaging** window. You can edit it to upload the picture for the group.
+2. Tap the **+** icon in the top-right corner.
+3. Select **Create a message**.
+4. You will be redirected to the chat window.
+5. Compose and send your message.
+
+***
+
+### Creating a Team Messaging Group
+
+Group chats allow multiple extension users to collaborate in a single conversation.
+
+#### To create a group chat:
+
+1. Navigate to **Messaging**.
+2. Tap the **+** icon in the top-right corner.
+3. Select **Create a group**.\
+   The **New Group** window appears.
+
+***
+
+#### Name and Customize the Group
+
+1. Enter a **group name**.
+2. (Optional) Add a **description** to provide context.
+3. Tap **Next** to continue.
+
+***
+
+#### Add Group Members
+
+1. From the **Extension Users** list, select the members you want to include.
+2. After selecting all desired members, tap **Create** to finalize the group.
+
+***
+
+#### Finish and Manage the Group
+
+* The newly created group appears in the **Messaging** list.
+* You can edit the group later to **upload a group picture** or update details.
 
 <figure><img src="../../.gitbook/assets/portsip-one-mobile-29 (2).png" alt="" width="375"><figcaption></figcaption></figure>
+
+***
+
+### Expected Behavior
+
+* Team messages are delivered instantly to extension users.
+* Group chats allow real-time collaboration among multiple users.
+* Messaging channels (Messages, SMS, WhatsApp, Voicemail) remain clearly separated for easy navigation.
 
 
 
