@@ -81,7 +81,7 @@ Before provisioning your SNOM DECT system with PortSIP PBX, ensure the base stat
 
 ***
 
-> **Important**\
+> ❗**Important**\
 > The firmware upgrade process may take several minutes.\
 > **Do not power off, restart, or interrupt** the base station during the upgrade.
 
