@@ -1,65 +1,109 @@
 # Configuring Private RPS Account
 
-PortSIP PBX allows customers to configure their own private RPS (Remote Provisioning Server) accounts for auto-provisioning IP phones. This feature simplifies device management and enhances security by giving customers direct control over their IP phone configurations.
+PortSIP PBX allows customers to configure their own **private Remote Provisioning Server (RPS)** accounts for automatic IP phone provisioning.\
+Using a private RPS simplifies device management and improves security by giving you direct control over IP phone provisioning credentials and workflows.
 
-Follow these steps to configure your private RPS account:
+***
 
-1. **Locate the Configuration File**
-   * **Linux**: Open the file located at `/var/lib/portsip/pbx/system.ini`.
-   * **Windows**: Open the file located at `C:\ProgramData\PortSIP\PBX\system.ini`.
-2. **Modify the Configuration**\
-   Append the following sections to the file, corresponding to the IP phone brands you wish to configure and save the changes.
+### Prerequisites
+
+* Administrator access to the PBX host
+* RPS credentials provided by the IP phone vendor(s) you plan to use
+* Permission to restart PBX services
+
+***
+
+### Step 1: Locate the Configuration File
+
+Open the **system.ini** file on your PBX server:
+
+* **Linux:** `/var/lib/portsip/pbx/system.ini`
+
+***
+
+### Step 2: Add RPS Configuration
+
+Append the relevant sections below to **system.ini**, based on the IP phone brands you want to configure.\
+Save the file after making your changes.
+
+#### Yealink
 
 ```ini
 [yealink]
 accesskey_id = xxxx
 accesskey_secret = xxxx
+```
 
+#### ALE (Alcatel-Lucent Enterprise)
+
+```ini
 [ale]
 accesskey_id = xxxx
 accesskey_secret = xxxx
+```
 
+#### Grandstream
+
+```ini
 [grandstream]
 username = xxxx
-password = xxxx 
-# The value for the password key should be: sha256(md5(password))
+password = xxxx
+# The value of the password field must be: sha256(md5(password))
 api_id = xxxx
 api_secret = xxxx
 site_id = xxxx
+```
 
+#### Fanvil
+
+```ini
 [fanvil]
 username = xxxx
 password = xxxx
-#The value for the password key should be: md5(md5(password))
+# The value of the password field must be: md5(md5(password))
+```
 
+#### Htek
+
+```ini
 [htek]
 username = xxxx
 password = xxxx
+```
 
+#### Snom
+
+```ini
 [snom]
 username = xxxx
 password = xxxx
 ```
 
-3.  **Restarting the Service**
+***
 
-    To apply the changes, you need to restart the service. Follow the instructions below based on your operating system:
+> **Security Note**\
+> Always follow the vendor-specific password hashing requirements exactly.\
+> Storing improperly hashed passwords will cause provisioning failures.
 
-    #### **For Linux**
+***
 
-    1.  Open a terminal and navigate to the PortSIP directory:
+### Step 3: Restart the Provisioning Service
 
-        ```bash
-        cd /opt/portsip
-        ```
-    2.  Restart the provisioning service with the following command:
+After updating the configuration file, restart the provisioning service to apply the changes.
 
-        ```bash
-        sudo /sh/bin/pbx_ctl.sh restart -s portsip.provision
-        ```
+#### Linux
 
-    #### **For Windows**
+1. Open a terminal.
+2.  Navigate to the PortSIP directory:
 
-    1. Open the **Windows Services Manager**.
-    2. Locate the service named **PortSIP Auto Provisioning**.
-    3. Restart the service by right-clicking on it and selecting **Restart**.
+    ```bash
+    cd /opt/portsip
+    ```
+3.  Restart the provisioning service:
+
+    ```bash
+    sudo /bin/sh pbx_ctl.sh restart -s portsip.provision
+    ```
+
+
+
