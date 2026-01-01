@@ -1,55 +1,95 @@
 # Customize Your Caller ID
 
-**Caller ID** is an essential feature that allows recipients to see the caller’s information before answering a call. It enhances communication transparency and professionalism within your organization.
+**Caller ID** allows call recipients to see who is calling before they answer. A properly configured Caller ID improves call recognition, professionalism, and trust, especially for outbound business calls.
 
-### Default caller ID settings
+***
 
-By default, the **PortSIP PBX** system determines the outbound Caller ID based on the PBX configuration. This ensures consistency and accuracy in the information displayed to call recipients.
+### Default Caller ID Behavior
 
-### Customizing caller ID
+By default, PortSIP PBX automatically determines the outbound Caller ID based on the system configuration.\
+This ensures that outbound calls present consistent, accurate, and policy-compliant caller information to recipients.
 
-While the default settings provide a standardized Caller ID, there are scenarios where you might need to customize it for specific calls or globally across your organization. PortSIP PBX offers flexibility in adjusting Caller ID settings both on a per-call basis and globally.
+***
 
-**Note:** Administrators have the ability to restrict certain Caller ID modifications across the entire office to maintain control and security over outbound call information.
+### Customizing Caller ID
 
-#### Set your caller ID
+While the default Caller ID configuration meets most requirements, there are situations where you may want to customize it—either for specific calls or across the organization.
 
-A user’s **outbound Caller ID** can be configured in several places within the **PortSIP PBX** system. The settings are applied based on the following hierarchy:
+PortSIP PBX provides flexible Caller ID controls that allow customization:
 
-1. **Extension-Specific Settings:**
-   * The **outbound Caller ID** can be set individually for each user under their **Extension** settings. This allows for personalized Caller ID information for specific users.
-2. **User Group Settings:**
-   * The **outbound Caller ID** can also be configured at the **user group** level. If the user belongs to a specific group, the group’s Caller ID setting will take precedence over individual user settings unless overridden.
-3. **Company-Wide Settings:**
-   * The **outbound Caller ID** can be defined at the **Company** level, under **Company > Outbound Caller ID**. This setting will apply to all users who do not have specific Caller ID settings at the extension or group level.
+* **Globally**, at the company level
+* **Per group**, for departments or teams
+* **Per user**, for individual extensions
+* **Per call**, when placing a call from supported clients
 
-#### Adjust your caller ID <a href="#adjust-your-caller-id" id="adjust-your-caller-id"></a>
+> ❗**Note**\
+> System administrators can restrict which Caller ID values are allowed. This helps prevent misuse, spoofing, or non-compliant outbound calling, and ensures alignment with company security and regulatory policies.
 
-Your caller ID can be adjusted in three places: on the **Keypad,** in the **Conversation Thread,** and on our **mobile apps** (both [iOS ](https://www.portsip.com/portsip-one/)and [Android](https://www.portsip.com/portsip-one/)).
+***
 
-Currently, caller ID cannot be updated via desk IP phones.
+### Caller ID Configuration Priority
 
-#### Adjust caller ID from the dialer pad <a href="#adjust-caller-id-from-the-main-dialer" id="adjust-caller-id-from-the-main-dialer"></a>
+A user’s outbound Caller ID can be configured in multiple locations. When multiple settings exist, **PortSIP PBX applies them using the following priority order (highest to lowest):**
 
-To adjust your caller ID from your keypad:
+#### 1. Extension-Level Settings
 
-1. Click the **Keypad** icon from the title bar
-2. Click the Arrow icon in the "**Call as**"&#x20;
-3. Choose caller ID in the drop-down
-4. Enter the number or contact you'd like to call, then press enter to start dialing
+Caller ID can be defined individually for each extension.\
+This allows personalized outbound Caller ID values for specific users.
+
+#### 2. User Group Settings
+
+Caller ID can be configured at the **User Group** level.\
+If a user belongs to a group with a defined Caller ID, the group setting takes precedence over the extension-level setting (unless explicitly overridden).
+
+#### 3. Company-Level Settings
+
+Caller ID can be defined globally in the PortSIP PBX web portal under: **Company > Outbound Caller ID**
+
+This setting applies to all users who do not have a specific Caller ID configured at the extension or group level.
+
+***
+
+### Adjusting Caller ID When Placing a Call
+
+In addition to administrative configuration, users can adjust the Caller ID **at the time of dialing**, depending on the client being used.
+
+Caller ID can be adjusted from:
+
+* The **Keypad**
+* The **Conversation Thread**
+* **PortSIP mobile apps**  ([iOS ](https://www.portsip.com/portsip-one/)and [Android](https://www.portsip.com/portsip-one/)).
+
+> ❗**Limitation**\
+> Caller ID selection is **not currently supported on desk IP phones**.
+
+***
+
+### Adjust Caller ID from the Keypad
+
+Use the following steps to select a Caller ID before making a call:
+
+1. Click the **Keypad** icon in the application title bar. The dialing keypad opens.
+2. Click the **arrow icon** next to **Call as**. A drop-down list of available Caller ID options appears.
+3. Select the desired **Caller ID number** from the list. The selected Caller ID is applied to the call.
+4. Enter the destination number or select a contact, then press **Enter** to start dialing. Then the call is placed using the selected Caller ID.
 
 <figure><img src="../../.gitbook/assets/caller_id_1.png" alt=""><figcaption></figcaption></figure>
 
-#### Adjust caller ID from a contact details view  <a href="#adjust-caller-id-from-a-conversation-thread" id="adjust-caller-id-from-a-conversation-thread"></a>
+***
 
-Caller ID can also be customized in the contact details view.&#x20;
+### Adjust Caller ID from the Contact Details View
 
-From the contact details view in the PortSIP ONE app:
+Caller ID can also be selected directly from a contact’s details view before placing a call. This allows you to choose the most appropriate outbound Caller ID for the specific contact you are calling.
 
-1. Click the drop-down arrow icon beside the **Phone** icon&#x20;
-2. Navigate to the **From** section
-3. Choose an outbound caller ID
-4. Click the **Phone** icon to call
+#### To adjust Caller ID from the contact details view:
+
+1. Open the **Contact Details** view in the **PortSIP ONE** app. The contact’s information and available actions are displayed.
+2. Click the **drop-down arrow** next to the **Phone** icon. Additional calling options are shown.
+3. In the **From** section, select the desired **Outbound Caller ID**. The selected Caller ID is applied to the call.
+4. Click the **Phone** icon to place the call. The call is initiated using the selected Caller ID.
+
+> ❗**Note**\
+> The available Caller ID options depend on your administrator’s configuration and any company-wide restrictions applied to outbound calling.
 
 <figure><img src="../../.gitbook/assets/caller_id_2.png" alt=""><figcaption></figcaption></figure>
 
