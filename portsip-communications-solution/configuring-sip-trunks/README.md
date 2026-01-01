@@ -1,13 +1,16 @@
 # Configuring SIP Trunks
 
-{% hint style="info" %}
-This guide is only applicable for the PortSIP PBX v22 or higher.
-{% endhint %}
+**SIP trunking** is used for call setup, management, and teardown. It is flexible, reliable, and lightweight, allowing you to focus on your business rather than underlying telephony complexities.
 
-SIP trunking is used for call setup, management, and teardown. It’s flexible, reliable, and quite lightweight. This means you can focus on your business instead of the technicalities. SIP is the basis for VoIP communications, and SIP Trunking is used to provide VoIP connectivity through a PBX.
+SIP is the foundation of **Voice over IP (VoIP)** communications, and **SIP Trunking** enables VoIP connectivity through a PBX by connecting your system to external carriers and service providers.
 
-PortSIP PBX supports a wide range of mainstream SIP trunk providers worldwide. This includes, but is not limited to, the following:
+***
 
+### Supported SIP Trunk Providers
+
+PortSIP PBX supports a wide range of **mainstream SIP trunk providers worldwide**, including but not limited to:
+
+*
 * [Vonage](https://www.vonage.com/)
 * [QuestBlue](https://questblue.com/)
 * [VoIP.ms](https://voip.ms/)
@@ -25,6 +28,12 @@ PortSIP PBX supports a wide range of mainstream SIP trunk providers worldwide. T
 * [Aire Networks](https://airenetworks.es/)
 * [CM.com](https://www.cm.com/)
 * [VoiceMeUp](https://www.voicemeup.com/)
+* [SIPTRUNK](https://www.sipturnk.com)
+* [SMSGlobal](https://www.smsglobal.com/)
+
+***
+
+### SMS-Enabled SIP Trunk Providers
 
 The PortSIP PBX has integrated the SMS feature as well with the following trunk providers:
 
@@ -39,6 +48,12 @@ The PortSIP PBX has integrated the SMS feature as well with the following trunk 
 * [Configuring Wavix SIP Trunk](wavix-sip-trunk/)
 * [Configuring VoIP Innovation SIP Trunk](voip-innovations-sip-trunk/)
 * [Configuring Aire Networks Trunk](aire-networks-sip-trunk.md)
-* Configuring CM.com Trunk
+* [Configuring CM.com Trunk](cm.com-sip-trunk/)
 * [Configuring VoiceMeUp Trunk](voicemeup-sip-trunk.md)
+* [Configuring SIPTRUNK Trunk](siptrunk.com-sip-trunk/)
+* [Configuring SMSBlobal Trunk](smsglobal-sip-trunk.md)
+
+
+
+
 
