@@ -1,4 +1,4 @@
-# CM.COM SMS Integration
+# SIPTRUNK SMS Integration
 
 Before proceeding with the next steps, ensure that you have [purchased an SMS-enabled DID number on the CM.com platform](../cm.com-sip-trunk/purchase-a-did-on-cm.com-platform.md).
 
@@ -65,7 +65,7 @@ Follow the steps below to configure SMS using the **CM.com** trunk:
      * If you have configured a **Sender ID in the CM.com platform**, enter it here.
      * If left empty, PortSIP PBX will use the **DID number associated with the CM.com trunk** as the Sender ID.
    * **Product Token**\
-     Enter the **Product Token** obtained in the [Obtaining the Product Token](cm.com-sms-integration.md#obtain-the-product-token) step.
+     Enter the **Product Token** obtained in the [Obtaining the Product Token](siptrunk-sms-integration.md#obtain-the-product-token) step.
 5. Click **OK** to save the configuration.
 
 After saving, you will be redirected to the **SMS/MMS list** page.

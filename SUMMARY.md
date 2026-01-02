@@ -194,7 +194,7 @@
     * [Configuring SIPTRUNK IP Authentication Trunk](portsip-communications-solution/configuring-sip-trunks/siptrunk-sip-trunk/configuring-siptrunk-ip-authentication-trunk.md)
     * [Configuring SIPTRUNK Register Authentication Trunk](portsip-communications-solution/configuring-sip-trunks/siptrunk-sip-trunk/configuring-siptrunk-register-authentication-trunk.md)
     * [Configuring Outbound & Inbound Calls](portsip-communications-solution/configuring-sip-trunks/siptrunk-sip-trunk/configuring-outbound-and-inbound-calls.md)
-    * [CM.COM SMS Integration](portsip-communications-solution/configuring-sip-trunks/siptrunk-sip-trunk/cm.com-sms-integration.md)
+    * [SIPTRUNK SMS Integration](portsip-communications-solution/configuring-sip-trunks/siptrunk-sip-trunk/siptrunk-sms-integration.md)
   * [Gamma SIP Trunk](portsip-communications-solution/configuring-sip-trunks/gamma-sip-trunk.md)
   * [Aire Networks SIP Trunk](portsip-communications-solution/configuring-sip-trunks/aire-networks-sip-trunk.md)
   * [SMSGlobal SIP Trunk](portsip-communications-solution/configuring-sip-trunks/smsglobal-sip-trunk.md)
