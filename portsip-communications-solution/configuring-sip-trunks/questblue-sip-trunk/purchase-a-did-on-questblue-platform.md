@@ -1,18 +1,29 @@
 # Purchase a DID on QuestBlue Platform
 
-Before placing or receiving a call, you need to have an active DID or a dozen DID numbers on your QuestBlue account. If you already have an active number on your QuestBlue account, the below steps are optional.
+Before placing or receiving calls, you must have **at least one active DID (Direct Inward Dialing) number** on your QuestBlue account.\
+If you already have one or more active DIDs, you may skip this section.
 
-To purchase a DID on your QuestBlue account:
+### Purchase a DID from QuestBlue
 
-1. Log in to your account on the [QuestBlue ](https://customer.questblue.com/)platform
-2. Click on **Telphone Numbers > Order Telphone Numbers** menu in the[ left-hand menu](https://customer.questblue.com/did/order/)
-3. Search the numbers and click **Order** to buy the DID number in&#x20;
-4. You can see all purchased numbers in the menu **Telphone Numbers > Telphone Numbers.**
+To purchase a DID number on your QuestBlue account, follow these steps:
+
+1. **Sign in** to your account on the [QuestBlue ](https://customer.questblue.com/)platform.
+2. From the left-hand navigation menu, go to **Telephone Numbers > Order Telephone Numbers**.
+3. **Search for available numbers**, then click **Order** to purchase the desired DID.
+4. After the purchase is complete, you can view all your DID numbers under **Telephone Numbers > Telephone Numbers**.
 
 <figure><img src="../../../.gitbook/assets/questblue-fig1.png" alt=""><figcaption></figcaption></figure>
 
-After purchasing the DID, you can follow one of the guides to configure the trunk with PortSIP PBX.
+***
+
+### Next Steps
+
+Once the DID number has been successfully purchased, follow one of the guides below to configure the QuestBlue trunk in PortSIP PBX:
 
 * [Configuring QuestBlue IP Authentication Trunk](configuring-questblue-ip-authentication-trunk.md)
-* [Configuring QuestBlue Register AuthenticationTrunk](configuring-questblue-register-authentication-trunk.md)
+* [Configuring QuestBlue Register Authenti](configuring-questblue-register-authentication-trunk.md)
+
+
+
+
 
