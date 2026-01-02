@@ -102,6 +102,8 @@ Follow these steps:
 
 <figure><img src="../../../.gitbook/assets/questblue-fig17.png" alt=""><figcaption></figcaption></figure>
 
+***
+
 #### Configure the SMS Webhook
 
 4. On the **SMS Settings** page:
@@ -110,6 +112,8 @@ Follow these steps:
 5. Click **Update Settings** to save the configuration.
 
 <figure><img src="../../../.gitbook/assets/questblue-fig18.png" alt=""><figcaption></figcaption></figure>
+
+***
 
 ### Verify the Configuration
 
