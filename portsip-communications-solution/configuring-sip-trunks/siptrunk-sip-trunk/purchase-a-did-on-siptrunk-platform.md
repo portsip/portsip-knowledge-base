@@ -3,7 +3,7 @@
 Before you can place or receive calls, you must have at least **one active DID** (or multiple DID numbers) on your [**SIPTRUNK** ](https://www.siptrunk.com)account.
 
 > **Note**\
-> If you already have active DID numbers on your CM.com account, you can skip this section and proceed directly to trunk configuration.
+> If you already have active DID numbers on your SIPTRUNK account, you can skip this section and proceed directly to trunk configuration.
 
 ***
 

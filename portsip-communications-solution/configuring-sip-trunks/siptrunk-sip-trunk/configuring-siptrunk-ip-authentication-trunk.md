@@ -1,24 +1,29 @@
 # Configuring SIPTRUNK IP Authentication Trunk
 
-Before proceeding with trunk configuration, ensure that you have purchased at least one DID on the [CM.com](https://www.cm.com) platform.
+Before proceeding with trunk configuration, ensure that you have purchased at least one DID on the [SIPTRUNK ](https://www.siptrunk.com)platform.
 
 ***
 
-### CM.com Setup Guide
+### SIPTRUNK Setup Guide
 
-To enable inbound calling, you must first complete the required configuration on the CM.com platform.
+To enable inbound calling, you must first complete the required configuration on the SIPTRUNK platform.
 
-1. Sign in to your [CM.com](https://www.cm.com) account.
-2. Follow the CM.com guide to configure inbound DIDs: [How do I configure a DDI for incoming calls?](https://knowledgecenter.cm.com/knowledge-center/communications-platform/sip-trunking/ddi-numbers/how-do-i-configure-a-ddi-for-incoming-calls)
-3. Confirm that the DID is active and ready for SIP trunking.
+1. Sign in to your [SIPTRUNK ](https://login.siptrunk.com/)account.
+2.  &#x20;Your SIP trunk will also need to be configured via the customer portal. Refer to this article on [How to Set Up IP Auth](https://support.siptrunk.com/hc/en-us/articles/38765554523547) for complete details.&#x20;
+
+    &#x20;
+
+    **IMPORTANT**: You must implement the following whitelisting requirements detailed in the article [Interconnecting with SIPTRUNK](https://support.siptrunk.com/hc/en-us/articles/38762945316379).
+
+    &#x20;
 
 Once completed, continue with the trunk configuration in PortSIP PBX.
 
 ***
 
-### Configure a CM.com IP Authentication Trunk in PortSIP PBX
+### Configure a SIPTRUNK IP Authentication Trunk in PortSIP PBX
 
-You can configure [CM.com](https://www.cm.com) as an **IP-Based Trunk** at the **system administrator** level. After configuration, this trunk can be shared with one or more tenants.
+You can configure SIPTRUNK as an **IP-Based Trunk** at the **system administrator** level. After configuration, this trunk can be shared with one or more tenants.
 
 ***
 
@@ -36,20 +41,19 @@ You can configure [CM.com](https://www.cm.com) as an **IP-Based Trunk** at the *
 
 Configure the trunk with the following settings:
 
-* **Name**: Enter a friendly name for the trunk (for example, `CM.com SIP Trunk`)
-* **Brand**: Select **CM.com**
-* **Hostname or IP Address**: 178.22.58.10
+* **Name**: Enter a friendly name for the trunk (for example, `SIPTRUNK Trunk`)
+* **Brand**: Select **SIPTRUNK**
 
 Click **Next** to continue.
 
-<figure><img src="../../../.gitbook/assets/cm.com_trunk_1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/SIPTRUNK.com_1.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
 #### Step 3: Configure Trunk Options
 
 * **Max Concurrent Calls**\
-  Set the maximum number of concurrent calls allowed on this trunk. Adjust this value based on your CM.com subscription and expected traffic.
+  Set the maximum number of concurrent calls allowed on this trunk. Adjust this value based on your SIPTRUNK subscription and expected traffic.
 
 > ❗**Recommendation**\
 > Keep the default values for other options unless you have specific requirements.
@@ -63,7 +67,7 @@ Click **Next** to continue.
 #### Step 4: Assign the Trunk to Tenants and Configure the DID Pool
 
 1. Assign the trunk to one or more **tenants**.
-2. Configure the **DID Pool**(DID numbers) using the CM.com DIDs you purchased.
+2. Configure the **DID Pool**(DID numbers) using the SIPTRUNK DIDs you purchased.
 
 > ❗**Important**
 >
@@ -96,13 +100,13 @@ For example:
 
 1. Click **OK** to save the trunk configuration.
 
-<figure><img src="../../../.gitbook/assets/cm.com_trunk_2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/SIPTRUNK.com_2.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
 ### Expected Result
 
-* The [CM.com](https://www.cm.com) IP-based trunk is successfully created.
+* The [SIPTURNK ](https://www.siptrunk.com)P-based trunk is successfully created.
 * The trunk status displays **Registered**\
   &#xNAN;_(IP-Based Trunks always show “Registered” in PortSIP PBX)_.
 * Assigned tenants can immediately use the configured DIDs for inbound and outbound calls.
@@ -110,8 +114,8 @@ For example:
 ***
 
 > ❗**Note**\
-> Ensure that CM.com allows traffic from your PBX IP address when using IP authentication.
+> Ensure that SIPTRUNK allows traffic from your PBX IP address when using IP authentication.
 
+Now you can follow the article on [Configuring inbound and outbound calls](configuring-outbound-and-inbound-calls.md).
 
-
-Now you can follow the article on [Configuring inbound and outbound calls](../cm.com-sip-trunk/configuring-outbound-and-inbound-calls.md).<br>
+<br>
