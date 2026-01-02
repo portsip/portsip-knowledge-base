@@ -113,8 +113,8 @@ To send an SMS to a phone number that is not saved as a contact:
 
 <figure><img src="../../.gitbook/assets/portsip_pbx_sms3.png" alt=""><figcaption></figcaption></figure>
 
-1. Type and send your message.
-2. You can also select the destination phone number and specify the sender's number that will appear to the recipient.
+5. Type and send your message.
+6. You can also select the destination phone number and specify the sender's number that will appear to the recipient.
 
 
 

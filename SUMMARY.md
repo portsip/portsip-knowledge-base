@@ -197,7 +197,7 @@
     * [SIPTRUNK SMS Integration](portsip-communications-solution/configuring-sip-trunks/siptrunk-sip-trunk/siptrunk-sms-integration.md)
   * [Gamma SIP Trunk](portsip-communications-solution/configuring-sip-trunks/gamma-sip-trunk.md)
   * [Aire Networks SIP Trunk](portsip-communications-solution/configuring-sip-trunks/aire-networks-sip-trunk.md)
-  * [SMSGlobal SIP Trunk](portsip-communications-solution/configuring-sip-trunks/smsglobal-sip-trunk.md)
+  * [SMSGlobal Trunk](portsip-communications-solution/configuring-sip-trunks/smsglobal-trunk.md)
   * [VoiceMeUp SIP Trunk](portsip-communications-solution/configuring-sip-trunks/voicemeup-sip-trunk.md)
     * [Configuring VoiceMeUp Trunk](portsip-communications-solution/configuring-sip-trunks/voicemeup-sip-trunk/configuring-voicemeup-trunk.md)
     * [VoiceMeUp SMS Integration](portsip-communications-solution/configuring-sip-trunks/voicemeup-sip-trunk/voicemeup-sms-integration.md)
