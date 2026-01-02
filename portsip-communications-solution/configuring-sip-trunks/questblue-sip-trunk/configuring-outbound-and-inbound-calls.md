@@ -16,7 +16,7 @@ You can access a tenant in one of the following ways:
 
 * Sign in directly as a **Tenant Administrator** to manage settings for that tenant.
 
-> **Note**\
+> ❗**Note**\
 > For more information about tenant access and roles, see [Tenant Management](../../portsip-pbx-administration-guide/3-tenant-management/).
 
 ***
@@ -53,7 +53,7 @@ Depending on your users’ dialing habits, you may need to **modify the dialed n
 
 For example, if users typically dial **US national numbers** without a country code, you can configure the outbound rule to **prepend the country code `1`** to all dialed numbers before routing the call to QuestBlue.
 
-> **Best Practice**\
+> ❗**Best Practice**\
 > Normalizing numbers to **E.164 format** (for example, `+1XXXXXXXXXX`) improves compatibility with SIP trunks and ensures consistent caller ID and routing behavior.
 
 <figure><img src="../../../.gitbook/assets/questblue-fig10.png" alt=""><figcaption></figcaption></figure>

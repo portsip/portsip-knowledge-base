@@ -4,60 +4,120 @@
 As you are looking to integrate SMS, It is required that for outbound messaging, you must also register a Brand and Campaign through your QuestBlue customer portal as required by the TCR.
 {% endhint %}
 
-Before proceeding with the next steps, you need to [purchase a DID on the QuestBlue platform](purchase-a-did-on-questblue-platform.md) with the SMS/MMS enabled.
+### Prerequisite: Purchase an SMS/MMS-Enabled DID
 
-## Obtain the QuestBlue API Key
+Before proceeding, ensure that you have [purchased a DID on the QuestBlue platform with SMS/MMS capability enabled](purchase-a-did-on-questblue-platform.md).\
+This is required for PortSIP PBX to send and receive SMS or MMS messages through QuestBlue.
 
-You need to take the QuestBlue API key for the PortSIP PBX to send the SMS/MMS. Please follow the below steps:
+***
 
-1. Login to the [QuestBlue ](https://customer.questblue.com/)online account
-2. Navigate the menu API Management, and note the **QB API Key**.
+### Obtain the QuestBlue API Key
+
+PortSIP PBX uses the **QuestBlue API key** to authenticate and send SMS/MMS messages.
+
+To retrieve your QuestBlue API key, follow these steps:
+
+1. Sign in to your [QuestBlue online account](https://customer.questblue.com/).
+2. Navigate to **API Management**.
+3. Locate and securely record the **QB API Key**.
+
+> ❗**Security Note**\
+> Treat the API key as sensitive credentials. Do not share it publicly, and store it securely. If the key is compromised, regenerate it immediately from the QuestBlue portal.
 
 <figure><img src="../../../.gitbook/assets/questblue-fig15.png" alt=""><figcaption></figcaption></figure>
 
-## Configure SMS with QuestBlue Trunk in PortSIP PBX
+***
 
-Before configuring SMS in PortSIP PBX, you must have already configured a QuestBlue SIP trunk using one of the following guides:
+### Configure SMS with a QuestBlue Trunk in PortSIP PBX
+
+Before configuring SMS in PortSIP PBX, ensure that a **QuestBlue SIP trunk** has already been configured using **one of the following guides**:
 
 * [Configuring QuestBlue Register Based Trunk](configuring-questblue-register-authentication-trunk.md)
 * [Configuring QuestBlue IP Based Trunk](configuring-questblue-register-authentication-trunk.md)
 
-### Sign in PortSIP PBX Web Portal
+***
 
-You can sign in to the PortSIP PBX Web portal using one of the following methods:
+#### Sign in to the PortSIP PBX Web Portal
 
-1. Sign in as the PBX system administrator, navigate to the **Tenants** menu, choose a tenant, and click the **Manage** button to switch to that tenant.
-2. Sign in as a tenant admin to manage the tenant.
+You can access the tenant configuration in one of the following ways:
 
-For more details please reference [Tenant Management](../../portsip-pbx-administration-guide/3-tenant-management/).
+**Option 1: Sign in as System Administrator**
 
-### Add an SMS configuration
+1. Sign in to the PortSIP PBX Web Portal as a **System Administrator**.
+2. Navigate to **Tenants**.
+3. Select the desired tenant and click **Manage** to switch to that tenant’s administration context.
 
-Please follow the below steps:
+**Option 2: Sign in as Tenant Administrator**
 
-1. In the PortSIP PBX Web portal, navigate to the left menu, select **SMS/MMS**, and click the **Add** button.&#x20;
-2. Choose your configured QuestBlue Trunk :
-   * **User**: Enter your QuestBlue Username here.
-   * **Password**: Enter your QuestBlue password.
-   * **Security Key**: Paste your copied [QuestBlue QB API Key](questblue-sms-integration.md#obtain-the-questblue-api-key) here.
+* Sign in directly as a **Tenant Administrator** to manage the tenant.
+
+> ❗**Note**\
+> For more information about tenant roles and access, see [Tenant Management](../../portsip-pbx-administration-guide/3-tenant-management/).
+
+***
+
+### Add an SMS Configuration
+
+Follow these steps to configure SMS/MMS using the QuestBlue trunk:
+
+1. In the PortSIP PBX Web Portal, navigate to **SMS/MMS** from the left-hand menu.
+2. Click **Add**.
+3. From the **Trunk** drop-down list, select your **QuestBlue trunk**.
+4. Enter the QuestBlue credentials:
+   * **User**: Enter your QuestBlue username.
+   * **Password**: Enter your QuestBlue account password.
+   * **Security Key**: Paste the [QuestBlue QB API Key](questblue-sms-integration.md#obtain-the-questblue-api-key) obtained earlier.
+5. Click **OK** to save the configuration.
 
 <figure><img src="../../../.gitbook/assets/questblue-fig16.png" alt=""><figcaption></figcaption></figure>
 
-3. Click **OK** to be brought to the SMS/MMS list page. You can select that SMS configuration, then press the **Copy Webhook** button to copy the Webhook URL. Or Double-click the SMS configuration to edit the SMS configuration, in the details copy the Webhook URL.
+***
 
-## Configure the SMS in QuestBlue
+#### Copy the Webhook URL
 
-1. Log in to your [QuestBlue account](https://customer.questblue.com/)
-2. Navigate to the menu **Messaging > SMS Settings**, the DIDs are listed, and click the pencil icon next to the DID that you want to enable the SMS.
+After the SMS configuration is created:
+
+* You will be returned to the **SMS/MMS list** page.
+* Select the SMS configuration and click **Copy Webhook** to copy the Webhook URL.
+
+Alternatively:
+
+* Double-click the SMS configuration to open its details page, then copy the **Webhook URL** from there.
+
+> ❗**Important**\
+> The Webhook URL is required for QuestBlue to deliver inbound SMS/MMS messages to PortSIP PBX. Do not modify this URL unless instructed.
+
+***
+
+### Configure SMS in the QuestBlue Platform
+
+To enable inbound SMS delivery to PortSIP PBX, you must configure the SMS webhook for the DID on the QuestBlue platform.
+
+Follow these steps:
+
+1. Sign in to your [QuestBlue account](https://customer.questblue.com/).
+2. Navigate to **Messaging > SMS Settings**.
+   * A list of SMS-enabled DIDs will be displayed.
+3. Click the **Edit (pencil)** icon next to the DID for which you want to enable SMS.
 
 <figure><img src="../../../.gitbook/assets/questblue-fig17.png" alt=""><figcaption></figcaption></figure>
 
-3. In the SMS Settings page, choose **Post SMS to URL** from the combo box, and paste the PortSIP PBX Webhook URL to **URL to post SMS Message** field.
-4. Click **Update Settings**.
+#### Configure the SMS Webhook
+
+4. On the **SMS Settings** page:
+   * From the **SMS Handling** (or equivalent) drop-down list, select **Post SMS to URL**.
+   * In the **URL to post SMS Message** field, paste the **PortSIP PBX Webhook URL** that you copied earlier.
+5. Click **Update Settings** to save the configuration.
 
 <figure><img src="../../../.gitbook/assets/questblue-fig18.png" alt=""><figcaption></figcaption></figure>
 
-## Verify Configuration
+### Verify the Configuration
 
-Now you can [create the outbound and inbound rules](configuring-outbound-and-inbound-calls.md) in PortSIP PBX for sending and receiving SMS/MMS using the QuestBlue Trunk, just like you create the rules for making and receiving calls.
+At this point, the QuestBlue SMS/MMS integration is complete.
+
+You can now [create outbound and inbound rules](configuring-outbound-and-inbound-calls.md) in PortSIP PBX to send and receive SMS/MMS messages using the QuestBlue trunk—just as you would configure rules for outbound and inbound voice calls.
+
+
+
+
 
