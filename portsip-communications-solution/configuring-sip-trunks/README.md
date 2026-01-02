@@ -49,8 +49,8 @@ The PortSIP PBX has integrated the SMS feature as well with the following trunk 
 * [Configuring Aire Networks Trunk](aire-networks-sip-trunk.md)
 * [Configuring CM.com Trunk](cm.com-sip-trunk/)
 * [Configuring VoiceMeUp Trunk](voicemeup-sip-trunk.md)
-* [Configuring SIPTRUNK Trunk](/broken/pages/Phu9SCAydgnnn0XFx6EQ)
-* [Configuring SMSBlobal Trunk](/broken/pages/JxjvpU3FvBpE2jnO7xWW)
+* [Configuring SIPTRUNK Trunk](siptrunk-sip-trunk/)
+* [Configuring SMSGlobal Trunk](smsglobal-trunk.md)
 
 
 

@@ -1,18 +1,20 @@
 # QuestBlue SIP Trunk
 
-{% hint style="info" %}
-This guide is only applicable for the PortSIP PBX v22 or higher.
-{% endhint %}
+[QuestBlue SIP Trunking](https://questblue.com/sip-trunking/) enables businesses to achieve high-quality voice communications with a pay-as-you-go pricing model, helping reduce costs by eliminating charges for unused minutes.
 
-[QuestBlue’s SIP Trunking](https://questblue.com/sip-trunking/) allows businesses to enjoy enhanced voice quality and pay-as-you-go pricing, saving on unused minutes.
+PortSIP PBX provides built-in integration with QuestBlue SIP Trunking for both voice calls and SMS/MMS, allowing administrators to configure and deploy services quickly and easily.
 
-PortSIP PBX integrated the [QuestBlue SIP trunking](https://questblue.com/sip-trunking/) for calls and SMS/MMS that allows you to set up easily.
+***
 
-This article includes the following topics:
+### Topics Covered in This Guide
+
+This guide covers the following configuration topics:
 
 * [Purchase a DID on QuestBlue Platform](purchase-a-did-on-questblue-platform.md)
 * [Configuring QuestBlue IP Authentication Trunk](configuring-questblue-ip-authentication-trunk.md)
 * [Configuring QuestBlue Register AuthenticationTrunk](configuring-questblue-register-authentication-trunk.md)
 * [Configuring Outbound & Inbound Calls](configuring-outbound-and-inbound-calls.md)
 * [QuestBlue SMS Integration](questblue-sms-integration.md)
+
+
 
