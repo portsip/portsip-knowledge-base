@@ -1,87 +1,122 @@
 # Aire Networks SIP Trunk
 
-[Aire Networks](https://airenetworks.es/) is a leading wholesale telecommunications operator in the Spanish market that belongs to Grupo Aire. Aire Networks Trunk SIP Trunks allows you to send SMS to your customers from the PortSIP ONE app for market campaigns. This guide will demonstrate how to configure the Aire Networks SIP Trunk to send the SMS.
+[Aire Networks](https://airenetworks.es/) is a leading wholesale telecommunications operator in the Spanish market and part of Grupo Aire.
 
-Configuring the Aire Networks SIP trunk into your PortSIP PBX is straightforward. Please follow the steps below:
+Using the Aire Networks SIP Trunk, you can send SMS messages to your customers directly from the PortSIP ONE app, enabling use cases such as marketing campaigns and customer notifications.
 
-## Sign Up and Purchase
+This guide explains how to configure the Aire Networks SIP Trunk in PortSIP PBX to enable outbound SMS.
 
-You will need to contact Aire Networks to purchase the account and receive the credentials. Typically you will have the following details:
+***
 
-* Username
-* Password
-* Sender ID
+### Sign Up and Purchase
 
-## Configuring Aire Networks Trunk in PortSIP PBX
+To get started, contact **Aire Networks** to purchase an account and obtain your SMS credentials.
 
-To add a trunk, follow these steps:
+Typically, you will receive the following information:
 
-1. Navigate to **Call Manager > Trunks**, then click the arrow button to select the Register Based Trunk to add.
-2. Enter a friendly name for the trunk.
-3. From the **Brand** combo box, choose **Aire Networks**, keep the default settings.
+* **Username**
+* **Password**
+* **Sender ID**
+
+Keep these details available, as they are required during the SMS configuration process.
+
+***
+
+### Configure the Aire Networks SIP Trunk in PortSIP PBX
+
+Follow the steps below to add the Aire Networks SIP trunk.
+
+#### Add a Register-Based Trunk
+
+1. Sign in to the PortSIP PBX Web Portal.
+2. Navigate to **Call Manager > Trunks**.
+3. Click the **Add** button and select **Register Based Trunk**.
+4. Enter a **friendly name** for the trunk.
+5. From the **Brand** drop-down list, select **Aire Networks** and keep the default settings.
 
 <figure><img src="../../.gitbook/assets/air_network_trunk_1.png" alt=""><figcaption></figcaption></figure>
 
-4. Click the **Next** button, enter _**any string**_ for the **Username/Authentication Name** and **password**, and click the **Next** button and keep all the default settings.
-5. If you are using the **System Admin** to add this trunk, in the last step for the **Tenants**, please select one or more tenants to grant them access to this trunk so they can use the Aire Networks Trunk to send the SMS.&#x20;
+6. Click **Next**, then:
+   * Enter any value for **Username / Authentication Name**.
+   * Enter any value for **Password**.
+7. Click **Next** again and keep all remaining settings at their default values.
+8. If you are logged in as a **System Administrator**, select one or more **tenants** in the final step to grant them access to this trunk.
+9. Click **OK** to complete the trunk setup.
 
 <figure><img src="../../.gitbook/assets/air_network_trunk_2.png" alt=""><figcaption></figcaption></figure>
 
-Click the OK button to complete the trunk setup.
+***
 
-## Add an SMS Configuration
+### Add an SMS Configuration
 
-Please follow the below steps:
+After the trunk is configured, add an SMS configuration for Aire Networks.
 
-1. In the PortSIP PBX web portal, navigate to the left menu, select **SMS/MMS**, and click the **Add** button.&#x20;
-2. Choose your configured Aire Networks trunk and enter the following values:
-   * **Sender ID**: The sender ID you received from Aire Networks
-   * **Username**: Paste your Aire Networks SMS account username here.
-   * **Password**: Paste your Aire Networks SMS password username here.
+1. In the **PortSIP PBX Web Portal**, navigate to **SMS/MMS**.
+2. Click **Add**.
+3. Select your configured **Aire Networks Trunk**.
+4. Enter the following values:
+   * **Sender ID**\
+     Enter the Sender ID provided by Aire Networks.
+   * **Username**\
+     Enter your Aire Networks **SMS account username**.
+   * **Password**\
+     Enter your Aire Networks **SMS account password**.
+5. Click **OK** to save the configuration and return to the **SMS/MMS list** page.
 
 <figure><img src="../../.gitbook/assets/air_network_trunk_3.png" alt=""><figcaption></figcaption></figure>
 
-3. Click **OK** to be brought to the SMS/MMS list page.&#x20;
+***
 
-## Granting SMS Permissions to an Extension
+### Grant SMS Permissions to an Extension
 
-By default, extensions are not permitted to send SMS. To enable an extension to send outbound SMS, the tenant administrator must grant permission. Follow these steps to allow SMS for an extension:
+By default, extensions are **not allowed to send SMS**. A tenant administrator must explicitly enable this permission.
 
-1. Sign in to the PortSIP PBX web portal.
-2. Navigate to **Call Manager > Users**, double-click the desired extension, and go to the **Extension** tab.
-3. Under the **Send SMS/MMS** option, since AireNetworks SMS always sends the SMS by Sender ID, you must choose **Allow Send SMS with Sender ID**.&#x20;
+1. Sign in to the **PortSIP PBX Web Portal** as a tenant administrator.
+2. Navigate to **Call Manager > Users**.
+3. Double-click the target extension and open the **Extension** tab.
+4.  Under **Send SMS/MMS**, select: **Allow Send SMS with Sender ID**
 
-Refer to the screenshot below for further guidance.
+    > ❗Aire Networks always sends SMS messages using the configured **Sender ID**, so this option is required.
+5. Save the changes.
 
 <figure><img src="../../.gitbook/assets/air_network_trunk_4.png" alt=""><figcaption></figcaption></figure>
 
-## Sending an SMS to a Contact
+***
 
-To send an SMS to a contact using the PortSIP ONE app:
+### Send an SMS to a Contact (PortSIP ONE App)
 
-1. **Open Contacts**: In the PortSIP ONE app, go to the **Contacts** menu, select a contact, and click the SMS icon to open the SMS chat UI.
+To send an SMS to an existing contact:
 
-
+1. Open the **PortSIP ONE** app.
+2. Go to **Contacts**.
+3. Select a contact and click the **SMS** icon to open the chat window.
 
 <figure><img src="../../.gitbook/assets/portsip_pbx_sms1.png" alt=""><figcaption></figcaption></figure>
 
-2. **Send SMS**: Type your message as you would in a regular chat. You can also select the destination number and the sender's number to display to the recipient.
+4. Type your message and send it.&#x20;
+5. You can also select the destination number and the sender's number to display to the recipient.
 
 <figure><img src="../../.gitbook/assets/portsip_pbx_sms2.png" alt=""><figcaption></figcaption></figure>
 
-## Sending an SMS Directly to a Phone Number
+***
 
-To send an SMS directly to a contact's phone number using the PortSIP ONE app, follow these steps:
+### Send an SMS Directly to a Phone Number
 
-1. Click the **+** button at the top of the PortSIP ONE app and select **Send a Message**.
-2. In the pop-up window:
-   * You can choose an extension (to send an IM) or an existing contact to send the SMS.
-   * To send an SMS directly to a number, simply enter the phone number in the provided field.
-3. Click the green message icon to open the SMS chat interface.
+To send an SMS to a phone number that is not saved as a contact:
+
+1. Open the **PortSIP ONE** app.
+2. Click the **+** button at the top of the app and select **Send a Message**.
+3. In the dialog:
+   * Choose an extension (for internal IM), **or**
+   * Enter a phone number directly to send an SMS.
+4. Click the **message icon** to open the SMS chat interface.
 
 <figure><img src="../../.gitbook/assets/portsip_pbx_sms3.png" alt=""><figcaption></figcaption></figure>
 
-4. Send SMS:
-   * Type your message in the chat window, just as you would in a regular chat.
-   * You can also select the destination phone number and specify the sender's number that will appear to the recipient.
+1. Type and send your message.
+2. You can also select the destination phone number and specify the sender's number that will appear to the recipient.
+
+
+
+
 
