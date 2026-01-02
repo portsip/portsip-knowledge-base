@@ -23,11 +23,11 @@ To integrate [CM.com](https://cm.com) with PortSIP PBX, complete the following s
 
 This article includes the following configuration topics:
 
-* Purchase a DID on the CM.com Platform
-* Configure CM.com IP Authentication Trunk
-* Configure CM.com Register Authentication Trunk
-* Configure Outbound and Inbound Calls
-* CM.com SMS Integration
+* [Purchase a DID on the CM.com Platform](purchase-a-did-on-cm.com-platform.md)
+* [Configure CM.com IP Authentication Trunk](configuring-cm.com-ip-authentication-trunk.md)
+* [Configure CM.com Register Authentication Trunk](configuring-cm.com-register-authentication-trunk.md)
+* [Configure Outbound and Inbound Calls](configuring-outbound-and-inbound-calls.md)
+* [CM.com SMS Integration](cm.com-sms-integration.md)
 
 ***
 

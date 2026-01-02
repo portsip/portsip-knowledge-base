@@ -1,4 +1,4 @@
-# Configuring COM.com IP Authentication Trunk
+# Configuring CM.com IP Authentication Trunk
 
 Before proceeding with trunk configuration, ensure that you have purchased at least one DID on the [CM.com](https://www.cm.com) platform.
 
@@ -114,4 +114,4 @@ For example:
 
 
 
-Now you can follow the article on [Configuring inbound and outbound calls](../flowroute-sip-trunk/configuring-outbound-and-inbound-calls.md).<br>
+Now you can follow the article on [Configuring inbound and outbound calls](configuring-outbound-and-inbound-calls.md).<br>

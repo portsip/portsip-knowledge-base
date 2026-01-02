@@ -144,7 +144,7 @@ Click **OK** to save the settings. The trunk configuration is now complete.
 > ❗**Note**\
 > Ensure that your CM.com SIP credentials are correct and that outbound network access from the PBX is allowed.
 
-Now you can follow the article to [Configuring inbound and outbound calls.](../questblue-sip-trunk/configuring-outbound-and-inbound-calls.md)
+Now you can follow the article to [Configuring inbound and outbound calls](configuring-outbound-and-inbound-calls.md).
 
 
 
