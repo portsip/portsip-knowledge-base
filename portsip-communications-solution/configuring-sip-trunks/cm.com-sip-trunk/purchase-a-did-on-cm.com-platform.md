@@ -24,8 +24,8 @@ After the DID numbers are successfully purchased and activated, you can proceed 
 
 ### Next Step
 
-* Configure CM.com IP Authentication Trunk
-* Configure CM.com Register Authentication Trunk
+* [Configure CM.com IP Authentication Trunk](configuring-cm.com-ip-authentication-trunk.md)
+* [Configure CM.com Register Authentication Trunk](configuring-cm.com-register-authentication-trunk.md)
 
 This step configures PortSIP PBX to use CM.com for outbound and inbound calling.
 
