@@ -15,7 +15,7 @@ Before proceeding with the next steps, ensure that you have [purchased an SMS-en
 
 ### Obtain Integration Details from CM.com
 
-To integrate the CM.com SMS Gateway with PortSIP PBX, you must obtain a **Product Token**, which is used to authenticate communication between PortSIP PBX and the CM.com platform.
+To integrate the CM.com SMS with PortSIP PBX, you must obtain a **Product Token**, which is used to authenticate communication between PortSIP PBX and the CM.com platform.
 
 #### Obtain the Product Token
 

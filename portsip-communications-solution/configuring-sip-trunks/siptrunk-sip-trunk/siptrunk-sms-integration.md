@@ -1,6 +1,6 @@
 # SIPTRUNK SMS Integration
 
-Before proceeding with the next steps, ensure that you have [purchased an SMS-enabled DID number on the CM.com platform](../cm.com-sip-trunk/purchase-a-did-on-cm.com-platform.md).
+Before proceeding with the next steps, ensure that you have [purchased an SMS-enabled DID number on the SIPTRUNK platform](purchase-a-did-on-siptrunk-platform.md).
 
 > **Important — U.S. A2P 10DLC Compliance**
 >
@@ -9,32 +9,30 @@ Before proceeding with the next steps, ensure that you have [purchased an SMS-en
 > * This requirement applies **only to A2P messaging** (application-generated messages sent to users).
 > * It does **not** apply to **P2P (Person-to-Person)** messaging.
 >
-> Make sure your messaging use case is properly registered and approved on the CM.com platform before sending production SMS traffic.
+> Make sure your messaging use case is properly registered and approved on the **SIPTRUNK** platform before sending production SMS traffic.
 
 ***
 
-### Obtain Integration Details from CM.com
+### Obtain Integration Details from SIPTRUNK
 
-To integrate the CM.com SMS Gateway with PortSIP PBX, you must obtain a **Product Token**, which is used to authenticate communication between PortSIP PBX and the CM.com platform.
+To integrate the SIPTRUNK SMS with PortSIP PBX, you must obtain an **Access Key** and **Secret Key**, which are used to authenticate communication between PortSIP PBX and the SIPTRUNK platform.
 
-#### Obtain the Product Token
+#### Obtain the Keys
 
-1. Sign in to the **CM.com platform**.
-2. Follow the CM.com guide [Where can I find my Product Token?](https://knowledgecenter.cm.com/knowledge-center/communications-platform/sms/business-messaging-api/where-can-i-find-my-product-token)
-3. Copy the **Product Token** and keep it available for later configuration in PortSIP PBX.
+1. Sign in to the SIPTRUNK platform.
+2. Follow the SIPTRUNK guide [Textable SMS App Configuration](https://support.siptrunk.com/hc/en-us/articles/38757133932059-Textable-SMS-App-Configuration).
+3. Copy the **Access Key** and **Secret Key** and keep it available for later configuration in PortSIP PBX.
 
-The Product Token is required to securely authenticate API requests between **PortSIP PBX** and **CM.com**.
-
-<figure><img src="https://knowledgecenter.cm.com/__attachments/a_b5d762b6e9ae0ce92a6d36734ddfbaba1433594ba72824d7284fb196bd87fddb/10ce4d9b-d8c6-4430-bea7-2143a1ac0ddb-image.png?cb=bfe14c727eb0de8229a622ad1c758263" alt=""><figcaption></figcaption></figure>
+The **Access Key** and **Secret Key** are required to securely authenticate API requests between **PortSIP PBX** and **SIPTRUNK.**
 
 ***
 
-### Configure SMS with a CM.com Trunk in PortSIP PBX
+### Configure SMS with a SIPTRUNK Trunk in PortSIP PBX
 
-Before configuring SMS in PortSIP PBX, ensure that you have already configured a CM.com SIP trunk using one of the following guides:
+Before configuring SMS in PortSIP PBX, ensure that you have already configured a SIPTRUNK trunk using one of the following guides:
 
-* [Configuring a CM.com IP Authentication Trunk](../cm.com-sip-trunk/configuring-cm.com-ip-authentication-trunk.md)
-* [Configuring a CM.com Register Authentication Trunk](../cm.com-sip-trunk/configuring-cm.com-register-authentication-trunk.md)
+* [Configuring a SIP TRUNK IP Authentication Trunk](configuring-siptrunk-ip-authentication-trunk.md)
+* [Configuring a SIP TRUNK Register Authentication Trunk](configuring-siptrunk-register-authentication-trunk.md)
 
 ***
 
@@ -53,24 +51,24 @@ For more information, refer to [Tenant Management](../../portsip-pbx-administrat
 
 ### Add an SMS Configuration
 
-Follow the steps below to configure SMS using the **CM.com** trunk:
+Follow the steps below to configure SMS using the **SIPTRUNK** trunk:
 
 1. Sign in to the PortSIP PBX Web Portal.
 2. From the left-hand menu, navigate to **SMS/MMS**.
 3. Click **Add**.
 4. Configure the following settings:
    * **Trunk**\
-     Select your previously configured **CM.com Trunk**.
+     Select your previously configured **SIPTRUNK Trunk**.
    * **Sender ID**
-     * If you have configured a **Sender ID in the CM.com platform**, enter it here.
-     * If left empty, PortSIP PBX will use the **DID number associated with the CM.com trunk** as the Sender ID.
-   * **Product Token**\
-     Enter the **Product Token** obtained in the [Obtaining the Product Token](siptrunk-sms-integration.md#obtain-the-product-token) step.
+     * If you have configured a **Sender ID in the SIPTRUNK  platform**, enter it here.
+     * If left empty, PortSIP PBX will use the **DID number associated with the SIPTRUNK  trunk** as the Sender ID.
+   * **Access Key** and **Secret Key**\
+     Enter the **Access Key** and **Secret Key** obtained in the [Obtaining the Keys](siptrunk-sms-integration.md#obtain-integration-details-from-siptrunk) step.
 5. Click **OK** to save the configuration.
 
 After saving, you will be redirected to the **SMS/MMS list** page.
 
-<figure><img src="../../../.gitbook/assets/cm.com_trunk_sms_1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/SIPTRUNK.com_7.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -81,14 +79,24 @@ To complete the integration:
 * Select the SMS configuration you just created and click **Copy Webhook**, **or**
 * Double-click the SMS configuration and manually copy the **Webhook URL**.
 
-This Webhook URL is required for receiving inbound SMS/MMS messages from the CM.com platform.
+This Webhook URL is required for receiving inbound SMS/MMS messages from the **SIPTRUNK** platform.
 
-#### Configure the Webhook in the CM.com Portal
+#### Configure the Webhook in the SIPTRUNK Portal
 
-* Log in to the [CM.com Portal](https://www.google.com/search?q=https://gateway.cm.com/\&authuser=2), navigate to the **SMS channel** settings.
-* Configure the **Webhook URL** by pasting the Webhook copied from **PortSIP PBX**.
-* Set the HTTP method to **POST**.
-* Save the configuration.
+1. Sign in to the **SIPTRUNK Customer Portal**.
+2. Navigate to the **Messaging** tab.
+3. Click **Webhooks**.
+4. Click **Create New Webhook**.
+5. In the **URL** field, paste the **Webhook URL** copied from **PortSIP PBX**.
+6. In the **Description** field, enter a meaningful name for the webhook.
+7. Submit the form to create the webhook.
+8. Once the webhook is created, assign it to the appropriate **DID number** using the available dropdown list.
+
+This webhook enables SIPTRUNK to deliver inbound SMS events to PortSIP PBX.
+
+For more detailed information, refer to the SIPTRUNK documentation:
+
+* [Textable SMS App Configuration](https://support.siptrunk.com/hc/en-us/articles/38757133932059-Textable-SMS-App-Configuration)
 
 ***
 
@@ -96,7 +104,7 @@ This Webhook URL is required for receiving inbound SMS/MMS messages from the CM.
 
 Once the SMS configuration is complete:
 
-* [Create Outbound Rules and Inbound Rules](../cm.com-sip-trunk/configuring-outbound-and-inbound-calls.md) in PortSIP PBX for sending and receiving SMS/MMS using the CM.com trunk.
+* [Create Outbound Rules and Inbound Rules](configuring-outbound-and-inbound-calls.md) in PortSIP PBX for sending and receiving SMS/MMS using the **SIPTRUNK** trunk.
 * The rule creation process is the same as configuring call routing rules.
 
 
