@@ -1,6 +1,6 @@
 # Configuring QuestBlue IP Authentication Trunk
 
-Before proceeding with the next steps, ensure that **at least one DID has been purchased** on the QuestBlue platform.
+Before proceeding with the next steps, ensure that at least one DID has been [purchased on the QuestBlue platform](purchase-a-did-on-questblue-platform.md).
 
 ### Create a SIP Trunk on the QuestBlue Platform
 
@@ -43,7 +43,7 @@ You can repeat these steps to assign additional DIDs to the same or different SI
 
 The **QuestBlue IP Authentication Trunk** corresponds to an **IP-Based Trunk** in PortSIP PBX.
 
-> **Note**\
+> ❗**Note**\
 > IP-Based Trunks must be configured at the **System Administrator** level. Once created, the trunk can be shared with one or more tenants.
 
 #### Step 1: Create the IP-Based Trunk
@@ -87,7 +87,7 @@ Click **Next** to continue.
 1. Assign this trunk to one or more tenants.
 2. Provide QuestBlue DID numbers to each tenant using the **DID Pool**.
 
-> **Important**
+> ❗**Important**
 >
 > * Each DID can be assigned to **only one tenant**.
 
@@ -108,8 +108,6 @@ The DID pool can include a single number, multiple numbers, ranges, or a combina
 16468097065-16468097066;16468097069
 16468097065-16468097066;16468097070-16468097080
 ```
-
-Click **OK** to save the configuration.
 
 Click **OK** to save the configuration.
 
