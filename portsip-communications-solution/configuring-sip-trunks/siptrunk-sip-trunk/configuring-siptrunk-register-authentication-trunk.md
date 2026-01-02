@@ -1,16 +1,15 @@
 # Configuring SIPTRUNK Register Authentication Trunk
 
-Before proceeding with trunk configuration, ensure that you have purchased at least one DID on the [CM.com](https://www.cm.com) platform.
+Before proceeding with trunk configuration, ensure that you have purchased at least one DID on the [SIPTRUNK ](https://www.siptrunk.com)platform.
 
 ***
 
-### CM.com Setup Guide
+### SIPTRUNK Setup Guide
 
-To enable inbound calling, you must first complete the required configuration on the CM.com platform.
+To enable inbound calling, you must first complete the required configuration on the SIPTRUNK platform.
 
-1. Sign in to your [CM.com](https://www.cm.com) account.
-2. Follow the CM.com guide to configure inbound DIDs: [How do I configure a DDI for incoming calls?](https://knowledgecenter.cm.com/knowledge-center/communications-platform/sip-trunking/ddi-numbers/how-do-i-configure-a-ddi-for-incoming-calls)
-3. Confirm that the DID is active and ready for SIP trunking.
+1. Sign in to your [SIPTRUNK ](https://login.siptrunk.com/)account.
+2. &#x20;Your SIP trunk will also need to be configured via the customer portal. You must implement the following whitelisting requirements detailed in the article [Interconnecting with SIPTRUNK](https://support.siptrunk.com/hc/en-us/articles/38762945316379).
 
 Once completed, continue with the trunk configuration in PortSIP PBX.
 
@@ -18,7 +17,7 @@ Once completed, continue with the trunk configuration in PortSIP PBX.
 
 ### Configure a Register-Based Trunk in PortSIP PBX
 
-A **CM.com Registration Trunk** corresponds to a **Register-Based Trunk** in **PortSIP PBX**.
+A **SIPTRUNK Registration Trunk** corresponds to a **Register-Based Trunk** in **PortSIP PBX**.
 
 You can configure a Register-Based Trunk at **either** of the following levels:
 
@@ -48,9 +47,9 @@ Configure the following fields:
 * **Name**\
   Enter a friendly name for the trunk.
 * **Brand**\
-  Select **CM.com**.
+  Select **SIPTRUNK**.
 *   **DID Pool** _(Tenant Admin level only)_\
-    If you are configuring this Register-Based Trunk at the **Tenant Admin level**, you must define the **CM.com DID numbers** for this trunk.
+    If you are configuring this Register-Based Trunk at the **Tenant Admin level**, you must define the **SIPTRUNK DID numbers** for this trunk.
 
     The tenant can:
 
@@ -69,7 +68,7 @@ Configure the following fields:
 
 Click **Next** to continue.
 
-<figure><img src="../../../.gitbook/assets/cm_trunk_reg_1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/SIPTRUNK.com_3.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -78,7 +77,7 @@ Click **Next** to continue.
 Enter the registration credentials provided by CM.com:
 
 * **Authentication Name**\
-  Enter the **CM.com SIP trunk username** configured on the CM.com platform\
+  Enter the **SIPTRUNK username** configured on the **SIPTRUNK** platform\
   (for example: `portsipuser`).
 * **Password**\
   Enter the **SIP trunk password** obtained from the CM.com platform.
@@ -137,14 +136,14 @@ Click **OK** to save the settings. The trunk configuration is now complete.
 * PortSIP PBX successfully registers the trunk with the **CM.com** platform.
 * On the **Trunks** page, the trunk status is displayed as **Online**.
 
-<figure><img src="../../../.gitbook/assets/cm_trunk_reg_3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/SIPTRUNK.com_2.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
 > ❗**Note**\
-> Ensure that your CM.com SIP credentials are correct and that outbound network access from the PBX is allowed.
+> Ensure that your **SIPTRUNK** SIP credentials are correct and that outbound network access from the PBX is allowed.
 
-Now you can follow the article to [Configuring inbound and outbound calls](../cm.com-sip-trunk/configuring-outbound-and-inbound-calls.md).
+Now you can follow the article to [Configuring inbound and outbound calls](configuring-outbound-and-inbound-calls.md).
 
 
 

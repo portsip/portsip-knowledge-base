@@ -28,7 +28,7 @@ Outbound Rules determine how extensions place outbound calls through trunks.
 <figure><img src="../../../.gitbook/assets/wavix-fig21.png" alt=""><figcaption></figcaption></figure>
 
 6. Scroll to **Place outbound calls using the following trunk routes**.
-7. Click the **Add** icon, select the **Twilio Trunk**, and then save the rule.
+7. Click the **Add** icon, select the **CM.com Trunk**, and then save the rule.
 
 <figure><img src="../../../.gitbook/assets/cm.com_trunk_rule_1.png" alt=""><figcaption></figcaption></figure>
 
@@ -69,7 +69,7 @@ Inbound Rules define how incoming calls from trunks are routed to extensions, ri
 7. Specify the **destination extension** (or other target) to route incoming calls to.
 8. Click **OK** to save the rule.
 
-<figure><img src="../../../.gitbook/assets/cm.com_trunk_rule_3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/cm.com_trunk_rule_3 (1).png" alt=""><figcaption></figcaption></figure>
 
 ***
 

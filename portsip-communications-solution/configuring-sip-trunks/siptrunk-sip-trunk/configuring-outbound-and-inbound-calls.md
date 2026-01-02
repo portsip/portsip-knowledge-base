@@ -28,9 +28,9 @@ Outbound Rules determine how extensions place outbound calls through trunks.
 <figure><img src="../../../.gitbook/assets/wavix-fig21.png" alt=""><figcaption></figcaption></figure>
 
 6. Scroll to **Place outbound calls using the following trunk routes**.
-7. Click the **Add** icon, select the **Twilio Trunk**, and then save the rule.
+7. Click the **Add** icon, select the **SIPTRUNK Trunk**, and then save the rule.
 
-<figure><img src="../../../.gitbook/assets/cm.com_trunk_rule_1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/SIPTRUNK.com_4.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -49,7 +49,7 @@ Depending on your users’ dialing habits, you may need to:
 
 For example, if users typically dial U.S. domestic numbers without the leading country code, you can configure the rule to automatically **prepend `1`** to all dialed numbers.
 
-<figure><img src="../../../.gitbook/assets/cm.com_trunk_rule_2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/SIPTRUNK.com_5.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -69,7 +69,7 @@ Inbound Rules define how incoming calls from trunks are routed to extensions, ri
 7. Specify the **destination extension** (or other target) to route incoming calls to.
 8. Click **OK** to save the rule.
 
-<figure><img src="../../../.gitbook/assets/cm.com_trunk_rule_3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/SIPTRUNK.com_6.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
