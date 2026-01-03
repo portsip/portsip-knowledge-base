@@ -61,7 +61,7 @@ This section defines where outbound calls from PortSIP PBX are sent to Twilio.
 3. Click **Show localized URIs**, then **copy the listed URI values**.
    * These localized URIs will be required later when configuring the trunk in **PortSIP PBX**.
 
-> **Important**\
+> ❗**Important**\
 > Make sure to save the full Termination SIP URI information. It will be referenced directly in the PortSIP PBX trunk configuration.
 
 <figure><img src="../../../.gitbook/assets/twilio-fig14.png" alt=""><figcaption></figcaption></figure>
@@ -75,7 +75,7 @@ This section defines where outbound calls from PortSIP PBX are sent to Twilio.
 3. Add the **public IP address of your PortSIP PBX**.
    * This IP address can be found on the **PortSIP PBX Web Portal Home** page.
 
-> **Security Best Practice**\
+> ❗**Security Best Practice**\
 > Using an IP ACL ensures that only your PBX is authorized to send SIP traffic to Twilio.
 
 <figure><img src="../../../.gitbook/assets/twilio-fig6.png" alt="" width="563"><figcaption></figcaption></figure>
@@ -87,7 +87,7 @@ This section defines where outbound calls from PortSIP PBX are sent to Twilio.
 1. In the **Credential List** section, create a **username and password** pair.
 2. Save the credentials.
 
-> **Note**\
+> ❗**Note**\
 > These credentials will also be used later when configuring the **Twilio trunk in PortSIP PBX**.
 
 3. Click **Create** to save the Termination configuration.
@@ -121,7 +121,7 @@ sip:pbx.portsip.com;edge=EDGE_LOCATION
 
 #### Example (Edge Location: Ashburn)
 
-> **Note**\
+> ❗**Note**\
 > Do **not** include curly braces `{}` in the actual configuration.
 
 ```
@@ -183,12 +183,12 @@ Enter the following information:
 *   **Brand**\
     Select **Twilio Interconnect**.
 
-    > **Important**\
+    > ❗**Important**\
     > Selecting the correct brand ensures proper trunk behavior and option defaults.
 *   **DID Pool** _(Tenant Admin level only)_\
     If configuring this trunk at the **Tenant Administrator level**, specify the Twilio DID numbers assigned to this tenant.
 
-    > **Important**
+    > ❗**Important**
     >
     > The tenant can use **only the DID numbers in its DID pool** to:
     >
@@ -238,7 +238,7 @@ Click **Next** to continue.
 *   **Need Registration**\
     **Disable** this option.
 
-    > Twilio Interconnect trunks do **not** accept SIP `REGISTER` messages.
+    > ❗Twilio Interconnect trunks do **not** accept SIP `REGISTER` messages.
 * **Max Concurrent Calls**\
   Defines the maximum number of simultaneous calls that PortSIP PBX can establish using this trunk.
   * Adjust this value based on your Twilio Interconnect capacity and expected traffic.
@@ -253,13 +253,13 @@ Click **Next** to continue.
 
 #### Step 5: Assign Tenants and DID Pool _(System Admin level only)_
 
-> **Note**\
+> ❗**Note**\
 > This step is available **only** when configuring the trunk at the **System Administrator level**.
 
 1. Assign the trunk to one or more tenants.
 2. Provide Twilio DID numbers to each tenant using the **DID Pool**.
 
-> **Important**
+> ❗**Important**
 >
 > * Each DID can be assigned to **only one tenant**.
 > * A tenant can use **only the DID numbers in its DID pool** to:

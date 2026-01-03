@@ -20,7 +20,7 @@ Follow these steps in the [Twilio Console](https://console.twilio.com/):
    * **Account SID**
    * **Auth Token**
 
-> **Security Note**\
+> ❗**Security Note**\
 > The Auth Token is a sensitive credential. Store it securely and do not share it publicly. If it is compromised, regenerate it immediately from the Twilio Console.
 
 <figure><img src="../../../.gitbook/assets/twilio-fig23.png" alt=""><figcaption></figcaption></figure>
@@ -78,7 +78,7 @@ You can access the tenant configuration in one of the following ways:
 
 * Sign in directly as a **Tenant Administrator** to manage the tenant.
 
-> **Note**\
+> ❗**Note**\
 > For more information about tenant roles and access, refer to [Tenant Management](../../portsip-pbx-administration-guide/3-tenant-management/).
 
 ***
@@ -115,7 +115,7 @@ Alternatively:
 
 * Double-click the SMS configuration to open its details page, then copy the **Webhook URL** from there.
 
-> **Important**\
+> ❗**Important**\
 > The Webhook URL is required for Twilio to deliver inbound SMS messages to PortSIP PBX.\
 > Do not modify this URL unless instructed, and update it in Twilio if the URL changes.
 
@@ -144,7 +144,7 @@ Follow these steps in the **Twilio Console**:
 5. Paste the **PortSIP PBX Webhook URL** that you copied earlier from the PortSIP PBX SMS configuration.
 6. Save the changes.
 
-> **Important**\
+> ❗**Important**\
 > This webhook allows Twilio to forward inbound SMS messages to PortSIP PBX.\
 > If the webhook URL is incorrect or missing, inbound SMS will not be delivered.
 
@@ -158,7 +158,7 @@ Follow these steps in the **Twilio Console**:
 8. Enable the region(s) or country codes where you intend to send SMS messages.
    * Messages will fail if the destination country or region is not permitted.
 
-> **Best Practice**\
+> ❗**Best Practice**\
 > Enable only the regions you need to reduce the risk of unauthorized or unintended SMS traffic.
 
 <figure><img src="../../../.gitbook/assets/twilio-fig27.png" alt=""><figcaption></figcaption></figure>

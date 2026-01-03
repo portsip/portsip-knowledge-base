@@ -16,7 +16,7 @@ You can access a tenant in one of the following ways:
 
 * Sign in directly as a **Tenant Administrator** to manage that tenant.
 
-> **Note**\
+> ❗**Note**\
 > For more information about tenant roles and access control, refer to [Tenant Management](../../portsip-pbx-administration-guide/3-tenant-management/).
 
 ***
@@ -56,7 +56,7 @@ Depending on your users’ dialing habits, you may need to strip leading digits 
 
 If users typically dial US domestic numbers in national format (10 digits), you can configure the outbound rule to **prepend `1`** to all dialed numbers before routing the call to the trunk.
 
-> **Best Practice**\
+> ❗**Best Practice**\
 > Normalizing outbound numbers to **E.164 format** improves compatibility with SIP trunks and ensures consistent routing and caller ID behavior.
 
 
