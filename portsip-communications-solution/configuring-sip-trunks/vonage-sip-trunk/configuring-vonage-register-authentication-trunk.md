@@ -268,7 +268,7 @@ This step appears **only** when the trunk is created at the **System Administrat
 
 ### Next Steps
 
-The Vonage IP Authentication Trunk is now ready for use.
+The Vonage Register Authentication Trunk is now ready for use.
 
 You can proceed to:
 

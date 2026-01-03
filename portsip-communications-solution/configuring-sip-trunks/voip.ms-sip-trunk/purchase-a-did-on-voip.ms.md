@@ -1,8 +1,12 @@
 # Purchase a DID on VoIP.ms
 
-Before placing or receiving a call, you need to have an active DID or a dozen DID numbers on your VoIP.ms account. If you already have DID numbers on your VoIP.ms account, the below steps are optional.
+Before placing or receiving calls, you must have **at least one active DID** (or multiple DIDs) on your VoIP.ms account.
 
-To purchase a DID on your VoIP.MS account:
+If you already have active DID numbers on your VoIP.ms account, you may **skip this section** and proceed to trunk configuration.
+
+***
+
+### Steps to Purchase a DID
 
 1. Log in to your account on [VoIP.ms](https://voip.ms/signin/index.php)
 2. Click on **Order DIS(s)** under **DID numbers** in the top menu
@@ -12,5 +16,17 @@ To purchase a DID on your VoIP.MS account:
 
 <figure><img src="../../../.gitbook/assets/voip.ms-fig1.png" alt=""><figcaption></figcaption></figure>
 
-After purchasing the DID, you can follow the guide [Configuring VoIP.ms Register Based Trunk](configuring-voip.ms-register-based-trunk.md) to configure the trunk with PortSIP PBX.
+***
+
+### Next Steps
+
+After purchasing your DID number(s), proceed with trunk configuration:
+
+* [Configuring VoIP.ms Register-Based Trunk](configuring-voip.ms-register-based-trunk.md)
+
+Once the trunk is configured in PortSIP PBX, you can create inbound and outbound rules to begin making and receiving calls.
+
+
+
+
 

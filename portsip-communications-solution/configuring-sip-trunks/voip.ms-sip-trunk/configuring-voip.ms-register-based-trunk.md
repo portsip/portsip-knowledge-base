@@ -2,99 +2,245 @@
 
 Before proceeding with the next steps, you need to [purchase a DID on the VoIP.ms](purchase-a-did-on-voip.ms.md).
 
-## Create a SIP Trunk on the VoIP.ms Platform
+***
 
-To create a new SIP trunk on the VoIP.ms platform:
+### Create a SIP Trunk on the VoIP.ms Platform
 
-1. Go to **Main Menu** and click **Account settings**
-2. Under the **Inbound Settings** tab:
-   * &#x20;Protocol: Select SIP&#x20;
-   * Device Type: Select IP PBX Server, then apply the change.
+#### Step 1: Configure Inbound Settings
+
+1. Log in to your VoIP.ms account.
+2. Navigate to **Main Menu > Account Settings**.
+3. Open the **Inbound Settings** tab.
+4. Configure the following options:
+   * **Protocol**: Select **SIP**
+   * **Device Type**: Select **IP PBX Server**
+5. Click **Apply Changes** to save the settings.
 
 <figure><img src="../../../.gitbook/assets/voip.ms-fig2.png" alt=""><figcaption></figcaption></figure>
 
-### Link DIDs to Main Account
+#### Step 2: Link DIDs to the Main Account
 
-You need to make sure that the DIDs ordered are linked to your Main Account.&#x20;
+To ensure calls are correctly routed to PortSIP PBX, your DID numbers must be linked to the **Main Account**.
 
-1. Navigate to the menu **DID Numbers > Manage DID(s)**.&#x20;
-2. Click on the Edit DID icon and make sure that the routing points to SIP/IAX and your main account.
+1. Navigate to **DID Numbers > Manage DID(s)**.
+2. Locate the DID you want to configure and click the **Edit DID** (pencil) icon.
+3. Verify the routing configuration:
+   * **Routing**: Select **SIP/IAX**
+   * **Account**: Ensure the DID is linked to your **Main Account**
+4. Save the changes.
 
 <figure><img src="../../../.gitbook/assets/voip.ms-fig3.png" alt=""><figcaption></figcaption></figure>
 
-### Collecting Settings for PortSIP PBX
+#### Step 3: Collect Required Settings for PortSIP PBX
 
-In order to be able to register and operate the trunk in your PortSIP PBX, you will to gather some information that will be needed in the configuration of the trunk in PortSIP PBX.
+Before configuring the Register-Based Trunk in PortSIP PBX, gather the following information from your VoIP.ms account.
 
-* Username: The username for registering the trunk can be found under the **Main Menu > Account Information.**
+**SIP Registration Credentials**
+
+* **Username**\
+  Found under **Main Menu > Account Information**.
+* **Password**
+  * Sent to you by VoIP.ms during account registration, **or**
+  * Can be changed by navigating to **Main Menu > Account Settings > Security**
+
+> **Security Note**\
+> Treat the SIP password as sensitive credentials. Use a strong password and store it securely.
 
 <figure><img src="../../../.gitbook/assets/voip.ms-fig4.png" alt=""><figcaption></figcaption></figure>
 
-* Password: The trunk password can be found in the email you received from VoIP.ms during the registration process. You can also change the password by navigating to the menu **Main Menu > Account Settings > Security**.
-* DID numbers: The DID numbers can be seen by navigating to the menu **DID Numbers > Manage DID(s).**
-* Registrar for North America: If you are located in North America, navigate to **Main Menu > Account Settings > Default DID Routing**, select the **United States** tab, and make a note of the selected server. In this example, the server is **sanjose2.voip.ms**.
+**DID Numbers**
+
+* Navigate to **DID Numbers > Manage DID(s)**.
+* Make a note of the DID number(s) that will be used for inbound and outbound calling.
+
+**SIP Registrar (Server Address)**
+
+VoIP.ms uses different SIP registrars depending on your geographic location.
+
+* **North America**
+  1. Navigate to **Main Menu > Account Settings > Default DID Routing**.
+  2. Select the **United States** tab.
+  3.  Note the selected server.\
+      **Example:**
+
+      ```
+      sanjose2.voip.ms
+      ```
 
 <figure><img src="../../../.gitbook/assets/voip.ms-fig5.png" alt=""><figcaption></figcaption></figure>
 
-* Registrar for overseas: If you are located outside North America, go to **Main Menu > Account Settings > Default DID Routing**, click the **International** tab, and make a note of the selected server. In this example, the server is **sydney1.voip.ms**.
+* **Outside North America**
+  1. Navigate to **Main Menu > Account Settings > Default DID Routing**.
+  2. Select the **International** tab.
+  3.  Note the selected server.\
+      **Example:**
+
+      ```
+      sydney1.voip.ms
+      ```
+
+> **Best Practice**\
+> Always use the registrar closest to your PortSIP PBX location to minimize latency and improve call quality.
 
 <figure><img src="../../../.gitbook/assets/voip.ms-trunk1.png" alt=""><figcaption></figcaption></figure>
 
-## Configuring Trunk with PortSIP PBX
+***
 
-The Register Based VoIP.ms trunk refers to the **Register Based Trunk** in PortSIP PBX. You can configure the Register Based Trunk at either the PortSIP PBX **system administrator level** or the **Tenant Admin level**:
+### Configure a Register-Based Trunk with PortSIP PBX
 
-* If configured at the system administrator level, you can share this trunk with tenants.
-* If configured at the tenant admin level, this trunk can only be used by the tenant itself.
+VoIP.ms uses **SIP registration** for PBX integration. In PortSIP PBX, this corresponds to a **Register-Based Trunk**.
 
-Please follow the below steps:
+You can configure a Register-Based Trunk at **either** of the following levels:
 
-1. Sign in to the PortSIP PBX Web Portal as a System Administrator or Tenant Admin. Navigate to the left menu and select **Call Manager > Trunks**.&#x20;
-2. Click the **Add** button to open a menu. From the menu, choose **Register Based Trunk**.
+* **System Administrator level**
+  * The trunk can be **shared with one or more tenants**
+* **Tenant Administrator level**
+  * The trunk is **dedicated to a single tenant** and cannot be shared
+
+***
+
+#### Step 1: Create a Register-Based Trunk
+
+1. Sign in to the **PortSIP PBX Web Portal** as a **System Administrator** or **Tenant Administrator**.
+2. From the left navigation menu, go to **Call Manager > Trunks**.
+3. Click **Add** to open the trunk type menu.
+4. Select **Register Based Trunk**.
 
 <figure><img src="../../../.gitbook/assets/add-register-trunk.png" alt=""><figcaption></figcaption></figure>
 
-3. Enter the trunk name and choose the brand:
-   * **Name**: Enter a friendly name for the trunk.
-   * **Brand**: Select VoIP.ms from the Brand field.
-   * **DID Pool**: This step is only for you at the _**Tenant admin Level**_ to configure this **Register Based Trunk**, you will need to set up your VoIP.ms DID numbers for this DID pool for this trunk.&#x20;
-     * This tenant can only use the DID numbers within the DID pool range to create inbound and outbound rules and configure the outbound caller ID for extensions.
-     * The DID pool can consist of a single number, a range of numbers, or a combination of both. For example:
-       * `13322496213`
-       * `13322496213;13322496215`
-       * `13322496213-13322496215;16468097069`&#x20;
-       * `13322496213-13322496215;16468097069-16468097079`
+***
+
+#### Step 2: Configure Basic Trunk Settings
+
+On the **Basic Settings** page, configure the following fields:
+
+* **Name**\
+  Enter a friendly and descriptive name (for example, `VoIPms-Register-Trunk`).
+* **Brand**\
+  Select **VoIP.ms**.
+*   **DID Pool** _(Tenant Administrator level only)_\
+    Configure the VoIP.ms DID numbers assigned to this tenant.
+
+    * The tenant can use **only** these DIDs to:
+      * Create inbound and outbound rules
+      * Configure outbound caller ID for extensions
+
+    **DID Pool Format Examples:**
+
+    ```
+    13322496213
+    13322496213;13322496215
+    13322496213-13322496215;16468097069
+    13322496213-13322496215;16468097069-16468097079
+    ```
+*   **Hostname or Address**\
+    Enter the VoIP.ms SIP registrar noted earlier, for example:
+
+    ```
+    sanjose2.voip.ms
+    ```
+*   **Associated IP Addresses**\
+    VoIP.ms operates multiple points of presence. Add the VoIP.ms server IP addresses in **CIDR format**.
+
+    * Traffic originating from these IPs is trusted as VoIP.ms traffic.
+    * This prevents PortSIP PBX **anti-hacking mechanisms** from blocking legitimate calls.
+
+    > **Reference**\
+    > For the full list of VoIP.ms server IPs, refer to the [official VoIP.ms documentation](https://wiki.voip.ms/article/Servers).
+
+5. Click **Next** to continue.
 
 <figure><img src="../../../.gitbook/assets/voip.ms-flig6.png" alt=""><figcaption></figcaption></figure>
 
-3. Hostname or Address: For this field, enter **sanjose2.voip.ms** that you noted in the[ Collecting Settings for PortSIP PBX](configuring-voip.ms-register-based-trunk.md#collecting-settings-for-portsip-pbx).
-4. Associated IP Addresses: [VoIP.ms](http://www.voip.ms/) offers many different points of presence, please add the the server IPs to the Associated IP Address with CIDR format. All traffic originating from these IP addresses will be recognized as VoIP.ms trunk and the anti-hacking algorithms will not come into effect. For more information on the IPs related to our servers, click [here](https://wiki.voip.ms/article/Servers).
-5. Click the **Next** button, and provide the **SIP trunk authentication name** and **password** set up for the SIP  trunk on the VoIP.ms platform([Collecting Settings for PortSIP PBX](configuring-voip.ms-register-based-trunk.md#collecting-settings-for-portsip-pbx)).&#x20;
+***
+
+#### Step 3: Configure SIP Authentication Credentials
+
+Enter the SIP registration credentials from VoIP.ms, which you set up in [Step 3: Collect Required Settings for PortSIP PBX](configuring-voip.ms-register-based-trunk.md#step-3-collect-required-settings-for-portsip-pbx):
+
+* **Authentication Name**\
+  Enter the VoIP.ms username.
+* **Password**\
+  Enter the VoIP.ms SIP password.
+
+6. Click **Next** to continue.
+
+> **Important**\
+> Ensure these credentials exactly match the values configured in your VoIP.ms account.
 
 <figure><img src="../../../.gitbook/assets/wavix-fig18.png" alt=""><figcaption></figcaption></figure>
 
-7. Click the **Next** button, you can adjust the options for the trunk.
-   * &#x20;**Max Concurrent Calls:** This field sets the maximum number of calls that PortSIP can establish with this trunk. You can adjust it to an appropriate value.
-   * We recommend keeping the default settings for other options unless you have specific requirements.
+***
+
+#### Step 4: Configure Trunk Options
+
+On the **Options** page:
+
+* **Max Concurrent Calls**\
+  Set the maximum number of simultaneous calls allowed on this trunk.
+  * This should align with your VoIP.ms service plan and expected call volume.
+* **Other Options**\
+  Leave the default values unless you have specific codec, routing, or interoperability requirements.
+
+> **Recommendation**\
+> Default settings are suitable for most VoIP.ms deployments.
+
+7. Click **Next** to proceed.
+
+
 
 <figure><img src="../../../.gitbook/assets/registration-trunk-options.png" alt=""><figcaption></figcaption></figure>
 
-8. This step is only available when configuring the Register-Based Trunk at the _**System Administrator Level**_. Click the **Next** button to assign this trunk to the tenants and provide your VoIP.MS DIDs/Numbers to them with the DID Pool (DID numbers).  A DID can be only assigned to one tenant.
+***
 
-* A tenant assigned to this trunk can only use the DID numbers within the DID pool range to create inbound and outbound rules and configure the outbound caller ID for extensions.
-* DID Pool: The DID pool can consist of a single number, a range of numbers, or a combination of both. For example:
-  * `13322496213`
-  * `13322496213;13322496215`
-  * `13322496213-13322496215;16468097069`&#x20;
-  * `13322496213-13322496215;16468097069-16468097079`
+#### Step 5: Assign Tenants and DID Pool
+
+This step appears **only** when the trunk is created at the **System Administrator level**.
+
+1. Assign one or more tenants to use this trunk.
+2. Configure the **DID Pool** for each tenant.
+3. Click **OK** to save the configuration.
+
+**DID Pool Rules**
+
+* Each **DID can be assigned to only one tenant**
+* Tenants can use only their assigned DIDs to:
+  * Create inbound and outbound rules
+  * Configure outbound caller ID for extensions
+
+**DID Pool Format Examples:**
+
+```
+13322496213
+13322496213;13322496215
+13322496213-13322496215;16468097069
+13322496213-13322496215;16468097069-16468097079
+```
 
 <figure><img src="../../../.gitbook/assets/voip.ms-flig7.png" alt=""><figcaption></figcaption></figure>
 
-Click the **OK** button to save the changes, the trunk configuration is completed.
+***
 
-Once the PortSIP PBX successfully registers this trunk to the VoIP.ms platform, in the trunk list page you will see the status displayed as **Registered**.
+#### Expected Result:
+
+* PortSIP PBX registers the trunk to the VoIP.ms platform.
+* On the **Trunks** list page, the trunk status displays as **Online**.
 
 <figure><img src="../../../.gitbook/assets/voip.ms-flig8.png" alt=""><figcaption></figcaption></figure>
 
-Now you can follow the article to [Configuring inbound and outbound calls.](configuring-outbound-and-inbound-calls.md)
+***
+
+### Next Steps
+
+The VoIP.ms Register Authentication Trunk is now ready for use.
+
+You can proceed to:
+
+* Configure outbound call routing rules
+* Configure inbound DID routing
+* Assign outbound caller IDs
+
+Refer to the next guide section: [Configuring Outbound & Inbound Calls](../vonage-sip-trunk/configuring-outbound-and-inbound-calls.md).
+
+
 
