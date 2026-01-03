@@ -43,7 +43,7 @@ Before configuring the Register-Based Trunk in PortSIP PBX, gather the following
   * Sent to you by VoIP.ms during account registration, **or**
   * Can be changed by navigating to **Main Menu > Account Settings > Security**
 
-> **Security Note**\
+> ❗**Security Note**\
 > Treat the SIP password as sensitive credentials. Use a strong password and store it securely.
 
 <figure><img src="../../../.gitbook/assets/voip.ms-fig4.png" alt=""><figcaption></figcaption></figure>
@@ -79,7 +79,7 @@ VoIP.ms uses different SIP registrars depending on your geographic location.
       sydney1.voip.ms
       ```
 
-> **Best Practice**\
+> ❗**Best Practice**\
 > Always use the registrar closest to your PortSIP PBX location to minimize latency and improve call quality.
 
 <figure><img src="../../../.gitbook/assets/voip.ms-trunk1.png" alt=""><figcaption></figcaption></figure>
@@ -145,7 +145,7 @@ On the **Basic Settings** page, configure the following fields:
     * Traffic originating from these IPs is trusted as VoIP.ms traffic.
     * This prevents PortSIP PBX **anti-hacking mechanisms** from blocking legitimate calls.
 
-    > **Reference**\
+    > ❗**Reference**\
     > For the full list of VoIP.ms server IPs, refer to the [official VoIP.ms documentation](https://wiki.voip.ms/article/Servers).
 
 5. Click **Next** to continue.
@@ -165,7 +165,7 @@ Enter the SIP registration credentials from VoIP.ms, which you set up in [Step 3
 
 6. Click **Next** to continue.
 
-> **Important**\
+> ❗**Important**\
 > Ensure these credentials exactly match the values configured in your VoIP.ms account.
 
 <figure><img src="../../../.gitbook/assets/wavix-fig18.png" alt=""><figcaption></figcaption></figure>
@@ -182,7 +182,7 @@ On the **Options** page:
 * **Other Options**\
   Leave the default values unless you have specific codec, routing, or interoperability requirements.
 
-> **Recommendation**\
+> ❗**Recommendation**\
 > Default settings are suitable for most VoIP.ms deployments.
 
 7. Click **Next** to proceed.

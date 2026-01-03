@@ -64,7 +64,7 @@ Depending on your users’ dialing habits, you may need to **strip leading digit
 **Example**\
 If users dial US domestic numbers in national format (10 digits), configure the rule to **prepend `1`** before sending the call to the trunk.
 
-> **Best Practice**\
+> ❗**Best Practice**\
 > Normalizing outbound numbers to **E.164 format** improves SIP trunk compatibility, routing accuracy, and caller ID consistency.
 
 <figure><img src="../../../.gitbook/assets/voip.ms-flig10.png" alt=""><figcaption></figcaption></figure>

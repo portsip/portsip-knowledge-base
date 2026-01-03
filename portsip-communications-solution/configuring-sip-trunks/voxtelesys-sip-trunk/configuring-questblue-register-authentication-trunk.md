@@ -19,7 +19,7 @@ These values are required for the **Register-Based Trunk** configuration in Port
    * **Username**
    * **Password**
 
-> **Note**\
+> ❗**Note**\
 > These credentials will be used by PortSIP PBX to register to the Voxtelesys SIP trunk.\
 > Keep them secure and do not share them publicly.
 
@@ -34,7 +34,7 @@ You can now proceed to configure the trunk in **PortSIP PBX**.
 
 The **Voxtelesys Registration Trunk** corresponds to a **Register-Based Trunk** in PortSIP PBX.
 
-> **Important**
+> ❗**Important**
 >
 > * The Register-Based Trunk can be configured at either the **System Administrator** level or the **Tenant Administrator** level.
 > * If configured at the **System Administrator** level, the trunk can be **shared with multiple tenants**.
@@ -63,7 +63,7 @@ Enter the following information:
 *   **DID Pool** _(Tenant Admin level only)_\
     If configuring this trunk at the **Tenant Administrator** level, specify the Voxtelesys DID numbers assigned to this tenant.
 
-    > **Important**
+    > ❗**Important**
     >
     > The tenant can use **only the DID numbers in its DID pool** to:
     >
@@ -123,7 +123,7 @@ This step is available **only** when configuring the trunk at the **System Admin
 1. Assign the trunk to one or more tenants.
 2. Provide Voxtelesys DID numbers to each tenant using the **DID Pool**.
 
-> **Important**
+> ❗**Important**
 >
 > * Each DID can be assigned to **only one tenant**.
 > * A tenant can use **only the DID numbers in its DID pool** to:

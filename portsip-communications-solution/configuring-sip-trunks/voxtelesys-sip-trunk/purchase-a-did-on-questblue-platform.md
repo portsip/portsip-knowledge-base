@@ -10,7 +10,7 @@ If you already have one or more active DIDs, you may skip this section.
 1. Sign in to your [Voxtelesys ](https://portal.voxtelesys.net/)account.
 2. Navigate to **Phone Numbers > Number Ordering**.
 
-> **Note**\
+> ❗**Note**\
 > You can also purchase DIDs by following the official Voxtelesys guide: [Order/Add DIDs.](https://voxtelesys.com/tutorial/voxtelesys-portal-order-add-dids)
 
 ***

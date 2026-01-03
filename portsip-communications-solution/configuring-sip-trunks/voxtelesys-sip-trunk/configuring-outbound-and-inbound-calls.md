@@ -66,7 +66,7 @@ Depending on your users’ dialing habits, you may need to **normalize dialed nu
 
 For example, if users typically dial **US domestic numbers** in national format (10 digits), you can configure the outbound rule to **prepend `1`** to all dialed numbers.
 
-> **Best Practice**\
+> ❗**Best Practice**\
 > Normalizing outbound numbers to **E.164 format** (for example, `+13322496213`) improves SIP trunk compatibility, routing accuracy, and caller ID consistency.
 
 <figure><img src="../../../.gitbook/assets/voxtelesys-fig19.png" alt=""><figcaption></figcaption></figure>

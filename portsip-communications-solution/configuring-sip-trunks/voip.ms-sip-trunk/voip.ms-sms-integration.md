@@ -19,7 +19,7 @@ If you have not already created an API password, follow these steps.
 4. Enter a value in the **API Password** field.
 5. Click **Save API Password**.
 
-> **Important**
+> ❗**Important**
 >
 > * The API password is shown **only once** when it is created.
 > * Copy and store it securely—you will need it later when configuring SMS in PortSIP PBX.
@@ -51,7 +51,7 @@ You can access the tenant configuration using one of the following methods.
 
 * Sign in directly as a **Tenant Administrator** to manage the tenant.
 
-> **Note**\
+> ❗**Note**\
 > For more information about roles and permissions, refer to [Tenant Management](../../portsip-pbx-administration-guide/3-tenant-management/).
 
 ***

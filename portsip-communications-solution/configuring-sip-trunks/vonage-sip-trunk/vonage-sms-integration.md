@@ -16,7 +16,7 @@ PortSIP PBX uses the **Vonage API Key and API Secret** to send SMS and MMS messa
    * **API Key**
    * **API Secret**
 
-> **Important**\
+> ❗**Important**\
 > Treat the API Key and API Secret as **sensitive credentials**. Do not share them publicly or commit them to source control.
 
 <figure><img src="../../../.gitbook/assets/vonage-fig4.png" alt=""><figcaption></figcaption></figure>
@@ -43,7 +43,7 @@ You can manage SMS/MMS settings at the tenant level using one of the following m
 * **Tenant Administrator**
   * Sign in directly as a **Tenant Administrator** for the tenant.
 
-> **Reference**\
+> ❗**Reference**\
 > For more details, see [Tenant Management](../../portsip-pbx-administration-guide/3-tenant-management/).
 
 ***
@@ -115,7 +115,7 @@ You can configure the webhook at either the **account level** or the **number le
 
 You can define a **unique inbound SMS webhook** for a specific number.
 
-> **Important**\
+> ❗**Important**\
 > A number-level webhook **takes precedence** over the account-level webhook.
 
 1. Navigate to [Your Numbers](https://dashboard.nexmo.com/your-numbers).
