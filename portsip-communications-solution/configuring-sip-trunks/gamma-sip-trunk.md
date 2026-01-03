@@ -1,48 +1,122 @@
 # Gamma SIP Trunk
 
-[Gamma ](https://gammagroup.co/products/sip-trunking-call-management/)is the UK’s leading SIP Trunks provider. Gamma SIP Trunks connect your cloud PBX and on-premise PBX phone system directly into the Gamma network via an internet connection to carry and terminate your calls across the public telephone network.
+[Gamma ](https://gammagroup.co/products/sip-trunking-call-management/)is the UK’s leading SIP trunk provider. [Gamma SIP Trunks](https://gammagroup.co/products/sip-trunking-call-management/) connect cloud PBX and on-premises PBX systems directly to the Gamma network over an Internet connection, enabling call origination and termination on the public telephone network (PSTN).
 
-Configuring the [Gamma SIP trunk](https://gammagroup.co/products/sip-trunking-call-management/) into your PortSIP PBX is straightforward. Please follow the steps below:
+Configuring a Gamma SIP trunk in PortSIP PBX is straightforward. Follow the steps below.
 
-1. **Sign Up and Purchase**: Create an account with [Gamma ](https://gammagroup.co/products/sip-trunking-call-management/)and purchase your DID numbers.
-2. **Configure the Gamma Trunk**: Follow the instructions in the [Configuring the SIP Trunk](../portsip-pbx-administration-guide/7-trunk-management/configuring-sip-trunk.md) guide to set up the Gamma trunk. Note that the Gamma trunk is classified as an IP-Based Trunk.
-3. **Set Up Inbound Rules**: After successfully adding the Gamma trunk as an **IP-Based Trunk** in PortSIP, you can [create inbound rules](../portsip-pbx-administration-guide/8-call-route-management/configuring-inbound-rule.md) to route incoming calls from Gamma.
+***
 
-For outbound calls, Gamma requires specific configurations. Ensure to review the settings carefully.
+### Step 1: Sign Up and Purchase Numbers
 
-## Adjust Outbound Parameters
+* Create an account with [Gamma](https://gammagroup.co/products/sip-trunking-call-management/).
+* Purchase your **DID numbers** from Gamma.
+* Ensure your PortSIP PBX has a **static public IP address**, as Gamma uses **IP-based authentication**.
 
-Double-click the configured Gamma trunk, click on the **Outbound Parameters** tab, and Adjust the following parameters:
+***
 
-### Contact: User part
+### Step 2: Configure the Gamma Trunk in PortSIP PBX
 
-Choose `"OutboundCallerID" Outbound caller Id taken from Web Portal` for this field.
+1. Sign in to the PortSIP PBX Web Portal as System Administrator.
+2. Navigate to **Call Manager > Trunks**.
+3. Click **Add** and select **IP Based Trunk**.
+
+> **Note**\
+> Gamma SIP trunks are configured in PortSIP PBX as **IP-Based Trunks** (not Register-Based Trunks).
+
+4. Complete the basic trunk settings according to the **Configuring the SIP Trunk** guide:
+   * Trunk name (for example, `Gamma-IP-Trunk`)
+   * Brand: **Gamma**
+   * Hostname or IP address: Provided by Gamma
+5. Save the trunk configuration.
+
+\
+The Gamma trunk appears in the trunk list with the status **Online** (expected for IP-Based Trunks).
+
+***
+
+### Step 3: Set Up Inbound Rules
+
+After the Gamma trunk is successfully added:
+
+1. Navigate to **Call Manager > Inbound Rules**.
+2. Click **Add**.
+3. Select the **Gamma IP-Based Trunk**.
+4. Enter the **DID or DID range** provided by Gamma.
+5. Choose the destination (extension, ring group, queue, etc.).
+6. Save the rule.
+
+***
+
+### Step 4: Adjust Outbound Parameters (Required for Gamma)
+
+Gamma requires specific SIP header formatting for outbound calls. You must adjust the **Outbound Parameters** of the trunk.
+
+#### Steps
+
+1. Navigate to **Call Manager > Trunks**.
+2. **Double-click** the configured **Gamma trunk**.
+3. Open the **Outbound Parameters** tab.
+4. Configure the following fields:
+
+**Contact: User part**\
+Select **OutboundCallerID**\
+&#xNAN;_(Outbound caller ID taken from the PortSIP Web Portal)_
 
 <figure><img src="../../.gitbook/assets/gamma-1.png" alt="" width="563"><figcaption></figcaption></figure>
 
-### From: User part
-
-Choose `"OutboundCallerID" Outbound caller Id taken from Web Portal` for this field.
+**From: User part**\
+Select **OutboundCallerID**\
+&#xNAN;_(Outbound caller ID taken from the PortSIP Web Portal)_
 
 <figure><img src="../../.gitbook/assets/gamma-2.png" alt="" width="563"><figcaption></figcaption></figure>
 
-### P-Asserted-Identity: User part
+**P-Asserted-Identity: User part**\
+Select **OutboundCallerID**\
+&#xNAN;_(Outbound caller ID taken from the PortSIP Web Portal)_
 
-Choose `"OutboundCallerID" Outbound caller Id taken from Web Portal` for this field.
-
-### P-Asserted-Identity: Host part
-
-Choose `"TrunkHostPort" Trunk host/port` for this field.
+**P-Asserted-Identity: Host part**\
+Select **TrunkHostPort**\
+&#xNAN;_(Trunk host and port)_
 
 <figure><img src="../../.gitbook/assets/gamma-3.png" alt="" width="563"><figcaption></figcaption></figure>
 
-## Set Up Outbound Caller ID
+5. Save the changes.
 
-Gamma trunks require the CLI presentation (outbound caller ID) to be in E164 format. When setting the Outbound Caller ID for an extension, ensure the number is prefixed with a `+`. Refer to the screenshot below for a visual guide.
+> **Important**\
+> These settings are **mandatory** for Gamma to correctly identify and accept outbound calls.
+
+***
+
+### Step 5: Set Up Outbound Caller ID (CLI)
+
+Gamma requires the **CLI (Outbound Caller ID)** to be presented in **E.164 format**.
+
+* The number **must include a leading `+`**
+*   Example (UK):
+
+    ```
+    +4415154108
+    ```
+
+When configuring the **Outbound Caller ID** for an extension in PortSIP PBX, ensure the number is entered in this format.
 
 <figure><img src="../../.gitbook/assets/gamma-4.png" alt=""><figcaption></figcaption></figure>
 
-## Create Outbound Rules
+***
 
-Now, you can [create the outbound rules](../portsip-pbx-administration-guide/8-call-route-management/configuring-outbound-rule.md) for the Gamma trunk to make outbound calls.
+### Step 6: Create Outbound Rules
+
+You can now configure outbound call routing:
+
+1. Navigate to **Call Manager > Outbound Rules**.
+2. Click **Add**.
+3. Define the dialing conditions (number patterns, call type, etc.).
+4. Select the **Gamma trunk** as the outbound route.
+5. Save the rule.
+
+For more details, please refer to [Call Route Management](../portsip-pbx-administration-guide/8-call-route-management/).
+
+
+
+
 
