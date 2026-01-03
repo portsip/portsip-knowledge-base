@@ -14,6 +14,8 @@ To create a new SIP trunk on the **Telnyx** platform, follow these steps.
 
 <figure><img src="../../../.gitbook/assets/telnyx-fig3.png" alt=""><figcaption></figcaption></figure>
 
+***
+
 #### Step 2: Configure Basic Connection Settings
 
 4. Enter a **friendly name** for the SIP connection.
@@ -23,6 +25,8 @@ To create a new SIP trunk on the **Telnyx** platform, follow these steps.
 
 <figure><img src="../../../.gitbook/assets/telnyx-fig4.png" alt=""><figcaption></figcaption></figure>
 
+***
+
 #### Step 3: Add Your PBX IP Address
 
 7. In the **Connection Details** page, click **Add IP Address**.
@@ -30,6 +34,8 @@ To create a new SIP trunk on the **Telnyx** platform, follow these steps.
 9. Specify your PortSIP PBX SIP signaling port (typically `5060`).
 
 <figure><img src="../../../.gitbook/assets/telnyx-fig5.png" alt=""><figcaption></figcaption></figure>
+
+***
 
 #### Step 4: Assign DID Numbers
 
@@ -76,7 +82,7 @@ The **Telnyx IP Authentication Trunk** corresponds to an **IP-Based Trunk** in P
 
 ***
 
-### Step 1: Create the IP-Based Trunk
+#### Step 1: Create the IP-Based Trunk
 
 1. Sign in to the PortSIP PBX Web Portal as a **System Administrator**.
 2. From the left-hand navigation menu, go to **Call Manager > Trunks**.
@@ -156,9 +162,11 @@ In the trunk list, you will see the status displayed as **Online** (for IP Based
 
 <figure><img src="../../../.gitbook/assets/telnyx-fig9.png" alt=""><figcaption></figcaption></figure>
 
-You can now proceed to [Configuring Outbound & Inbound Calls](configuring-outbound-and-inbound-calls.md) to complete your call routing setup in PortSIP PBX.
+***
 
+### Next Steps
 
+You can now proceed to [Configuring Outbound & Inbound Calls](configuring-outbound-and-inbound-calls.md) to complete your call routing setup.
 
 
 
