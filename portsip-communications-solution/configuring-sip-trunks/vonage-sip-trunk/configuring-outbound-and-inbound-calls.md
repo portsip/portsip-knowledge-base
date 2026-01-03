@@ -2,50 +2,108 @@
 
 You need to sign in to the PortSIP PBX web portal to create the outbound and inbound rules for making & receiving calls.
 
-## Sign in PortSIP PBX Web Portal
+### Sign in to the PortSIP PBX Web Portal
 
-You can sign in to the PortSIP PBX Web portal using one of the following methods:
+To configure outbound and inbound call routing, you must first sign in to the PortSIP PBX Web Portal.
 
-1. Sign in as the PBX system administrator, navigate to the **Tenants** menu, choose a tenant, and click the **Manage** button to switch to that tenant.
-2. Sign in as a tenant admin to manage the tenant.
+You can access a tenant in one of the following ways:
 
-For more details please reference [Tenant Management](../../portsip-pbx-administration-guide/3-tenant-management/).
+#### Option 1: Sign in as System Administrator
 
-## Configure Outbound Rules
+1. Sign in to the PortSIP PBX Web Portal as a **System Administrator**.
+2. Navigate to **Tenants**.
+3. Select the desired tenant and click **Manage** to switch to that tenant’s administration context.
 
-### Add Outbound Rule in PortSIP PBX
+#### Option 2: Sign in as Tenant Administrator
 
-In order to place outbound calls you need to configure Outbound Rules. Go to **Call Manager > Outbound Rules** in the left hand side menu and click the **Add** button:
+* Sign in directly as a **Tenant Administrator** to manage that tenant.
 
-1. Give your Outbound Rule a name
-2. Set up at least one condition for this outbound rule in the section **Apply this rule to the following calls.**
+> ❗**Note**\
+> For more information about tenant roles and access control, refer to [Tenant Management](../../portsip-pbx-administration-guide/3-tenant-management/).
+
+***
+
+### Configure Outbound Rules
+
+Outbound Rules determine how outbound calls are routed and which trunk is used when users place calls.
+
+#### Add an Outbound Rule
+
+1. In the PortSIP PBX Web Portal, navigate to **Call Manager > Outbound Rules**.
+2. Click **Add**.
+3. Configure the following settings:
+   * **Name**\
+     Enter a descriptive name for the outbound rule.
+   * **Apply this rule to the following calls**\
+     Define at least **one condition** (for example, number patterns or call types) that determines when this rule is applied.
 
 <figure><img src="../../../.gitbook/assets/questblue-fig8.png" alt=""><figcaption></figcaption></figure>
 
-3. Scroll to the Place outbound calls using the following trunk routes section, click the Add icon, then select **QuestBlue Trunk** and save the Outbound Rule.
+#### Select the Trunk Route
 
-<figure><img src="../../../.gitbook/assets/questblue-fig9.png" alt=""><figcaption></figcaption></figure>
+5. Scroll to **Place outbound calls using the following trunk routes**.
+6. Click the **Add (+)** icon.
+7. Select the **Vonage trunk**, then save the outbound rule.
 
-### Number Format
+<figure><img src="../../../.gitbook/assets/vonage_trunk_rule_1.png" alt=""><figcaption></figcaption></figure>
 
-Depending on your users’ dialing habits, you may want to strip some of the leading digits or prepend the country code. For example, the below configuration can be used to prepend all dialed numbers with the leading 1 in case your users are accustomed to US domestic numbers in the national format.
+#### Number Format (Optional)
 
-<figure><img src="../../../.gitbook/assets/questblue-fig10.png" alt=""><figcaption></figcaption></figure>
+Depending on user dialing habits, you may need to modify the dialed number format before sending calls to the SIP trunk.
 
-## Configure Inbound Rules
+Common use cases include:
 
-### Add Inbound Rule in PortSIP PBX
+* Stripping leading digits
+* Prepending a country code
 
-In order to receive inbound calls you need to configure Inbound Rules. Go to **Call Manager > Outbound Rules** in the left hand side menu and click the **Add** button:
+**Example:**\
+If users dial U.S. domestic numbers without the country code, you can configure the rule to **prepend `1`** to all outbound numbers so they are sent in the correct E.164 format.
 
-1. Give your Inbound Rule a name
-2. Click the **Choose a Trunk** button to select the trunk
-3. Enter the number for **DID/DDI Number or Number Range** field, the entered number must be in the DID pool range of the selected trunk
-4. Set the extension to route calls to.
+> **Best Practice**\
+> Ensure the final number format matches the requirements of your SIP trunk provider.
 
-<figure><img src="../../../.gitbook/assets/questblue-fig11.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/vonage_trunk_rule_2.png" alt=""><figcaption></figcaption></figure>
 
-Click **OK** to save the rule. Depending on your business needs, you may set specific office hours for the rule and route calls to different extensions, and voice mailbox or automatically drop the call based on the schedule. Please reference the article [Office Hours and Holiday Schedule](../../portsip-pbx-administration-guide/office-hours-and-holiday-schedule/) for more details.
+***
 
-For more details about the outbound and inbound rules configuration, please refer to the article [Call Route Management](../../portsip-pbx-administration-guide/8-call-route-management/).
+### Configure Inbound Rules
+
+Inbound Rules define how incoming calls (DIDs/DDIs) are routed to extensions, ring groups, queues, or other destinations.
+
+#### Add an Inbound Rule
+
+1. Navigate to **Call Manager > Inbound Rules**.
+2. Click **Add**.
+3. Configure the following settings:
+   * **Name**\
+     Enter a descriptive name for the inbound rule.
+   * **Choose a Trunk**\
+     Select the SIP trunk associated with the inbound calls.
+   * **DID/DDI Number or Number Range**\
+     Enter a single number or number range.
+     * The entered value **must be within the DID pool** assigned to the selected trunk.
+   * **Destination**\
+     Select the extension (or other destination) to which inbound calls should be routed.
+4. Click **OK** to save the inbound rule.
+
+<figure><img src="../../../.gitbook/assets/vonage_trunk_rule_3.png" alt=""><figcaption></figcaption></figure>
+
+***
+
+### Advanced Routing Options (Optional)
+
+Depending on your business requirements, you can further enhance the inbound rule by:
+
+* Defining **office hours** or schedules
+* Routing calls to **different destinations** based on time of day
+* Sending calls to **voicemail** outside business hours
+* Automatically **rejecting or dropping calls** when appropriate
+
+For more details, refer to the article [Office Hours and Holiday Schedule](../../portsip-pbx-administration-guide/office-hours-and-holiday-schedule/).
+
+For comprehensive information about inbound and outbound routing behavior, see [Call Route Management](../../portsip-pbx-administration-guide/8-call-route-management/).
+
+
+
+
 
