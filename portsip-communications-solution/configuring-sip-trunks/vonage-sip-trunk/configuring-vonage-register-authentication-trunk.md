@@ -2,116 +2,281 @@
 
 Before proceeding with the next steps, you need to [purchase a DID on the Vonage platform](purchase-a-did-on-vonage-platform.md).
 
-## Create a SIP Trunk on the Vonage platform
+### Create a SIP Trunk on the Vonage Platform
 
 You can also reference the [Vonage documentation for configuring the SIP Trunk](https://developer.vonage.com/en/sip/sip-dashboard?source=sip).
 
-To create a new SIP trunk on the Vonage platform:
+***
 
-1. Navigate to the menu **Build & Manage > SIP**.&#x20;
-2. By default, Vonage has created a SIP trunk for you. You can click the settings icon to adjust its settings or click **Create New** to set up a new SIP trunk. In this guide, we will demonstrate how to create a new trunk.
-3. Click **Create New** and enter a domain for your trunk, such as “portsip,” and click **Create**.
+#### Step 1: Create a New SIP Trunk
+
+1. Sign in to the **Vonage Dashboard**.
+2. Navigate to **Build & Manage > SIP**.
+3. By default, Vonage provides a pre-created SIP trunk.
+   * You may click the **Settings** icon to modify it, or
+   * Click **Create New** to create a new SIP trunk.
+4. In this guide, we will create a new SIP trunk.
+5. Click **Create New**, enter a domain name for the trunk (for example, `portsip`), and then click **Create**.
 
 <figure><img src="../../../.gitbook/assets/vonage-fig10.png" alt=""><figcaption></figcaption></figure>
 
-4. Once the SIP trunk is successfully created, you will automatically be directed to the trunk details page.
+***
+
+#### Step 2: Configure Outbound Calling (Register Authentication)
+
+1. Once the SIP trunk is successfully created, you are automatically redirected to the **Trunk Details** page.
 
 <figure><img src="../../../.gitbook/assets/vonage-fig11.png" alt=""><figcaption></figcaption></figure>
 
-5. Click **Add Authentication** under the **Outbound Calling** section you will be redirected to the **Authentication** page, under **User Key and Secret** section, enter the values for the **User Key** and **Secret** fields, then press the **+** button. Please make sure to note these values, as they will be needed for authentication from your PortSIP PBX later.
+2. On the **Trunk Details** page, locate the **Outbound Calling** section.
+3. Click **Add Authentication**.\
+   You will be redirected to the **Authentication** page.
+4. Under the **User Key and Secret** section:
+   * Enter a value for **User Key**
+   * Enter a value for **Secret**
+   * Click the **+** button to add the credentials
+
+> **Important**
+>
+> * Be sure to **record the User Key and Secret**, as they will be required later when configuring the SIP trunk in **PortSIP PBX**.
+> * These credentials function as SIP registration credentials.
 
 <figure><img src="../../../.gitbook/assets/vonage-fig12.png" alt=""><figcaption></figcaption></figure>
 
-6. After adding the User Key and Secret, the **User Key and Secret** section will display as enabled in green, indicating that the register authentication is enabled.&#x20;
+6.  After the User Key and Secret are added, the section appears **enabled (green)**, indicating that **register-based authentication** is active.
 
-{% hint style="danger" %}
-If you have added the User Key and Secret for authentication, you must not add the Access Control List (ACL), as they cannot be enabled simultaneously.
-{% endhint %}
+    > **Important**
+    >
+    > * **User Key / Secret authentication and Access Control List (ACL) authentication cannot be enabled at the same time.**
+    > * If you use **User Key and Secret**, **do not configure ACL-based IP authentication** for this trunk.
 
 <figure><img src="../../../.gitbook/assets/vonage-fig13.png" alt=""><figcaption></figcaption></figure>
 
-7. Click **Back**. On the trunk details page, you will see that Outbound Calling is displayed as ready. Please copy and note the Vonage SIP trunk's domain, in this case, they are below, you can pick up one near your PortSIP PBX location:
-   * portsip.sip-us.vonage.com
-   * portsip.sip-eu.vonage.com
-   * portsip.sip-ap.vonage.com
+7. Click **Back** to return to the **Trunk Details** page.
+
+***
+
+#### Step 3: Note the Vonage SIP Trunk Domain
+
+1. On the Trunk Details page, **Outbound Calling** should now display a status of **Ready**.
+2. Copy and save the **Vonage SIP trunk domain**.\
+   Select the domain closest to your PortSIP PBX location to minimize latency:
+
+* `portsip.sip-us.vonage.com`
+* `portsip.sip-eu.vonage.com`
+* `portsip.sip-ap.vonage.com`
+
+You will need this domain when configuring the **Register-Based Trunk** in PortSIP PBX.
 
 <figure><img src="../../../.gitbook/assets/vonage-fig14.png" alt=""><figcaption></figcaption></figure>
 
-8. Under the **Inbound Calling** section, add the URI so that the Vonage SIP trunk knows how to route inbound calls to your PortSIP PBX. Simply input the priority(0-100), such as 1, and enter the URI, which is your PortSIP PBX IP address or domain (e.g., 44.242.60.185 or pbx.portsip.com).
-   * **Priority**: Set the **priority** of the SIP trunk using unique numbers from 0 to 100. Vonage will process calls based on the set priority, with 0 being the highest priority. Keep in mind that if the priority values are not unique, Vonage cannot guarantee the delivery of calls according to the priority.
-   * **Timeout**: Set a timeout for the SIP URI in the text box next to it. The accepted values range from 2000 ms to 20000 ms. If no value is entered, Vonage will use a default timeout of 5000 ms.
-   * **TLS**: Vonage supports TLS for forwarded calls. To enable this, please check the TLS box in the SIP URI section. By default, traffic is sent to the port `5061`. for example, if you enabled the TLS, and your PortSIP PBX listened on port 5063 for TLS, you need to add the URI `44.242.60.185:5063`.
-   * **SRTP**: Vonage will also encrypt media using SRTP if necessary. To do that please check the SRTP box in SIP URI section.
+***
+
+#### Step 4: Configure Inbound Calling (SIP URI Routing)
+
+To allow Vonage to route inbound calls to your PortSIP PBX, configure a SIP URI.
+
+1. In the **Inbound Calling** section, add a new SIP URI with the following parameters:
+   *   **Priority**\
+       Enter a unique value between **0 and 100** (for example, `1`).
+
+       * `0` is the **highest priority**
+       * Each SIP URI must have a **unique priority value**
+
+       > **Note**\
+       > If priority values are not unique, Vonage cannot guarantee inbound call routing order.
+   * **URI**\
+     Enter your PortSIP PBX **public IP address or domain name**, for example:
+     * `44.242.60.185`
+     * `pbx.portsip.com`
+   * **Timeout**\
+     Enter a value between **2000 ms and 20000 ms**.
+     * If left empty, Vonage uses the default timeout of **5000 ms**.
+   * **TLS (Optional)**
+     * Enable this option if your PortSIP PBX is configured to receive SIP signaling over **TLS**.
+     * By default, Vonage sends TLS traffic to **port 5061**.
+     *   If your PortSIP PBX listens on a different TLS port (for example, `5063`), include it in the URI:
+
+         ```
+         44.242.60.185:5063
+         ```
+   * **SRTP (Optional)**
+     * Enable this option to allow **secure media encryption (SRTP)**.
+     * SRTP is recommended when TLS is enabled for SIP signaling.
 
 <figure><img src="../../../.gitbook/assets/vonage-fig15.png" alt=""><figcaption></figcaption></figure>
 
-9. Click the **+** button to add the URI. Once added, the URI will be successfully displayed.
+2. Click the **+** button to add the SIP URI.\
+   The SIP URI is listed under the **Inbound Calling** section, indicating that inbound call routing is configured.
 
 <figure><img src="../../../.gitbook/assets/vonage-fig16.png" alt=""><figcaption></figcaption></figure>
 
-10. Add one or multiple numbers to this SIP Trunk by clicking the **Link all...** or **Link** button Link numbers section. If there are no numbers, you can buy them, and it will redirect you to the buy number portal. In the numbers dashboard, you can easily filter, link, and unlink multiple numbers.
+***
+
+#### Step 5: Link Phone Numbers to the SIP Trunk
+
+1. In the **Link Numbers** section:
+   * Click **Link all…** to associate all available numbers, or
+   * Click **Link** to select specific numbers.
+2. If no numbers are available:
+   * Click **Buy Numbers** to open the Vonage number purchasing portal.
+3. In the **Numbers Dashboard**, you can filter, link, or unlink numbers as needed.
 
 <figure><img src="../../../.gitbook/assets/vonage-fig17.png" alt=""><figcaption></figcaption></figure>
 
-11. Once the number is successfully linked, Vonage will display the information indicating that you are ready to receive calls.
+4. Once numbers are successfully linked, Vonage displays a confirmation indicating that the SIP trunk is **ready to receive inbound calls**.
 
 <figure><img src="../../../.gitbook/assets/vonage-fig18.png" alt=""><figcaption></figcaption></figure>
 
-## Configure Register Based Trunk in PortSIP PBX
+***
 
-The **Vonage Registration** trunk refers to the **Register Based Trunk** in PortSIP PBX. You can configure the Register Based Trunk at either the PortSIP PBX **system administrator level** or the **Tenant Admin level**:
+### Configure a Register-Based Trunk in PortSIP PBX
 
-* If configured at the system administrator level, you can share this trunk with tenants.
-* If configured at the tenant admin level, this trunk can only be used by the tenant itself.
+In PortSIP PBX, a Vonage Registration Trunk corresponds to a Register-Based Trunk, where the PBX authenticates to Vonage using SIP credentials (User Key and Secret).
 
-Please follow the below steps:
+You can configure a Register-Based Trunk at **either** of the following levels:
 
-1. Sign in to the PortSIP PBX Web Portal as a System Administrator or Tenant Admin. Navigate to the left menu and select **Call Manager > Trunks**.&#x20;
-2. Click the **Add** button to open a menu. From the menu, choose **Register Based Trunk**.
+* **System Administrator level**
+  * The trunk can be **shared with one or more tenants**
+* **Tenant Administrator level**
+  * The trunk is **dedicated to a single tenant** and cannot be shared
+
+***
+
+#### Step 1: Create a Register-Based Trunk
+
+1. Sign in to the PortSIP PBX Web Portal as a **System Administrator** or **Tenant Administrator**.
+2. From the left navigation menu, go to **Call Manager > Trunks**.
+3. Click **Add** to open the trunk type menu.
+4. Select **Register Based Trunk**.
 
 <figure><img src="../../../.gitbook/assets/add-register-trunk.png" alt=""><figcaption></figcaption></figure>
 
-3. Enter the trunk name and choose the brand:
-   * **Name**: Enter a friendly name for the trunk.
-   * **Brand**: Select **Vonage** for this field.
-   * **DID Pool**: This step is only for you at the _**Tenant admin Level**_ to configure this **Register Based Trunk**,  you will need to set up your Vonage DID numbers for this DID pool for this trunk.
-     * This tenant can only use the DID numbers within the DID pool range to create inbound and outbound rules and configure the outbound caller ID for extensions.
-     * &#x20;The DID pool can consist of a single number, a range of numbers, or a combination of both. For example:
-       * `12057494879`
-       * `12057494879-12057494880`
-       * `12057494879-12057494880;12057494885`&#x20;
-       * `12057494879-12057494880;12057494890-12057494899`
-   * **Hostname or IP Address**: Paste the Vonage SIP trunk domain that you copied in previous steps
+***
+
+#### Step 2: Configure Basic Trunk Settings
+
+On the **Basic Settings** page, configure the following fields:
+
+* **Name**\
+  Enter a friendly and descriptive name (for example, `Vonage-Register-Trunk`).
+* **Brand**\
+  Select **Vonage**.
+*   **DID Pool** _(Tenant Administrator level only)_
+
+    * Configure the Vonage DID numbers assigned to this tenant.
+    * The tenant can use **only** the DIDs in this pool to:
+      * Create inbound and outbound rules
+      * Configure outbound caller ID for extensions
+
+    **DID Pool Format Examples:**
+
+    ```
+    12057494879
+    12057494879-12057494880
+    12057494879-12057494880;12057494885
+    12057494879-12057494880;12057494890-12057494899
+    ```
+*   **Hostname or IP Address**\
+    Paste the **Vonage SIP trunk domain** copied earlier, for example:
+
+    ```
+    portsip.sip-us.vonage.com
+    ```
+
+5. Click **Next** to continue.
 
 <figure><img src="../../../.gitbook/assets/vonage-fig19.png" alt=""><figcaption></figcaption></figure>
 
-4. Click the **Next** button, and set up the trunk credentials.
-   * **Authentication name**: Enter the User Key that you created in Vonage Trunk previously
-   * **Password**: Enter the Secret that you created in Vonage Trunk previously
+***
+
+#### Step 3: Configure Trunk Authentication Credentials
+
+On the **Authentication** page, enter the SIP registration credentials created on the Vonage platform:
+
+* **Authentication Name**\
+  Enter the **User Key** from the Vonage SIP trunk.
+* **Password**\
+  Enter the **Secret** from the Vonage SIP trunk.
+
+6. Click **Next** to continue.
+
+> **Important**\
+> These credentials are used by PortSIP PBX to register with Vonage.\
+> Ensure they match exactly with the values configured on the Vonage platform.
 
 <figure><img src="../../../.gitbook/assets/vonage-fig20.png" alt=""><figcaption></figcaption></figure>
 
-5. Click the **Next** button, you can adjust the options for the trunk.
-   * &#x20;**Max Concurrent Calls:** This field sets the maximum number of calls that PortSIP can establish with this trunk. You can adjust it to an appropriate value.
-   * We recommend keeping the default settings for other options unless you have specific requirements.
+***
+
+#### Step 4: Configure Trunk Options
+
+On the **Options** page:
+
+* **Max Concurrent Calls**\
+  Set the maximum number of simultaneous calls allowed on this trunk.
+  * This should align with your Vonage service limits and expected traffic.
+* **Other Options**\
+  Leave the default values unless you have specific requirements related to codecs, routing, or interoperability.
+
+> **Recommendation**\
+> The default settings are suitable for most deployments and provide optimal compatibility with Vonage.
+
+7. Click **Next** to proceed.
 
 <figure><img src="../../../.gitbook/assets/registration-trunk-options.png" alt=""><figcaption></figcaption></figure>
 
-6. This step is only available when configuring the Register-Based Trunk at the _**System Administrator Level**_. Click the **Next** button to assign this trunk to the tenants and provide your Vonage DIDs/Numbers to them with the DID Pool (DID numbers).  A DID can be only assigned to one tenant.
-   * A tenant assigned to this trunk can only use the DID numbers within the DID pool range to create inbound and outbound rules and configure the outbound caller ID for extensions.
-   * DID Pool: The DID pool can consist of a single number, a range of numbers, or a combination of both. For example:
-     * `12057494879`
-     * `12057494879-12057494880`
-     * `12057494879-12057494880;12057494885`&#x20;
-     * `12057494879-12057494880;12057494890-12057494899`
+***
+
+#### Step 5: Assign Tenants and Configure DID Pool
+
+This step appears **only** when the trunk is created at the **System Administrator level**.
+
+1. Assign one or more tenants to use this trunk.
+2. Configure the **DID Pool** for each tenant.
+
+**DID Pool Rules**
+
+* Each **DID can be assigned to only one tenant**
+* A tenant can use only the DIDs assigned to it to:
+  * Create inbound and outbound rules
+  * Configure outbound caller ID for extensions
+
+3. Click **OK** to save the configuration.
+
+**DID Pool Format Examples:**
+
+```
+12057494879
+12057494879-12057494880
+12057494879-12057494880;12057494885
+12057494879-12057494880;12057494890-12057494899
+```
 
 <figure><img src="../../../.gitbook/assets/vonage-fig21.png" alt=""><figcaption></figcaption></figure>
 
-Click the **OK** button to save the changes, the trunk configuration is completed.
+***
 
-Once the PortSIP PBX successfully registers this trunk to the Vonage platform, you will see the status displayed as **Registered** on the trunk list page.
+#### Expected Result
+
+* PortSIP PBX initiates SIP registration to the Vonage platform.
+* Once registration is successful, the trunk status displays as **Online** on the trunk list page.
 
 <figure><img src="../../../.gitbook/assets/vonage-fig22.png" alt=""><figcaption></figcaption></figure>
 
-Now you can follow the article to [Configuring Outbound & Inbound Calls](configuring-outbound-and-inbound-calls.md).
+***
+
+### Next Steps
+
+The Vonage IP Authentication Trunk is now ready for use.
+
+You can proceed to:
+
+* Configure outbound call routing rules
+* Configure inbound DID routing
+* Assign outbound caller IDs
+
+Refer to the next guide section: [Configuring Outbound & Inbound Calls](configuring-outbound-and-inbound-calls.md).
+
+
 
