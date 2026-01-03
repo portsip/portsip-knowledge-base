@@ -38,7 +38,7 @@ To place outbound calls, you must create at least one **Outbound Rule**.
 
 ***
 
-#### Step 3: Select the Trunk Route
+#### Step 2: Select the Trunk Route
 
 5. Scroll to **Place outbound calls using the following trunk routes**.
 6. Click the **Add (+)** icon.
@@ -49,7 +49,7 @@ To place outbound calls, you must create at least one **Outbound Rule**.
 
 ***
 
-#### Step 4: Configure Number Format (Optional)
+#### Step 3: Configure Number Format (Optional)
 
 Ensure that dialed numbers match one of the supported formats:
 
@@ -92,7 +92,7 @@ To receive inbound calls, you must configure at least one **Inbound Rule**.
 
 ***
 
-#### Step 4: (Optional) Configure Time-Based Routing
+#### Step 3: (Optional) Configure Time-Based Routing
 
 Depending on your business requirements, you can further enhance the inbound rule by:
 

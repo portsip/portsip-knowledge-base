@@ -4,62 +4,119 @@ Before proceeding with the next steps, you need to[ purchase a DID on the VoIP.m
 
 The VoIP.ms SMS service has some limitations. Please refer to this link for more details: [Service Limitations](https://wiki.voip.ms/article/SMS-MMS#Service_Limitations).
 
-## Set an API Password
+***
 
-If you don’t already have an API Password set up, please follow these steps to generate one:
+### Set an API Password in VoIP.ms
 
-1. Log in to your VoIP.ms client portal.
+PortSIP PBX uses the **VoIP.ms API Password** to send and receive SMS/MMS messages.\
+If you have not already created an API password, follow these steps.
+
+#### Step 1: Enable the VoIP.ms API
+
+1. Sign in to the **VoIP.ms Client Portal**.
 2. Navigate to **Main Menu > SOAP and REST/JSON API**.
-3. If the API is not already enabled, click on **Enable the API**.
-4. Enter a password in the **API Password** field, then click **Save API Password**.
-5. Make sure to note down the API Password for future reference.
+3. If the API is not enabled, click **Enable the API**
+4. Enter a value in the **API Password** field.
+5. Click **Save API Password**.
+
+> **Important**
+>
+> * The API password is shown **only once** when it is created.
+> * Copy and store it securely—you will need it later when configuring SMS in PortSIP PBX.
+> * If the password is lost, you must **generate a new one**.
 
 <figure><img src="../../../.gitbook/assets/voip.ms-flig12.png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="danger" %}
-When you set up the API Password, be sure to copy and store it in a secure place, as it won't be visible again after generation. It will only be available to be copied once it is set up. If you lost your API Password, you need to set up a new one.
-{% endhint %}
+***
 
-## Configure SMS with VoIP.ms Trunk in PortSIP PBX
+### Configure SMS with VoIP.ms Trunk in PortSIP PBX
 
-Before configuring SMS in PortSIP PBX, you must have already configured a VoIP.ms SIP trunk using one of the following guides:
+Before configuring SMS in PortSIP PBX, ensure that a **VoIP.ms SIP trunk** has already been configured.
 
 * [Configuring VoIP.ms Register Authentication Trunk](configuring-voip.ms-register-based-trunk.md)
 
-### Sign in PortSIP PBX Web Portal
+***
 
-You can sign in to the PortSIP PBX Web portal using one of the following methods:
+### Sign in to the PortSIP PBX Web Portal
 
-1. Sign in as the PBX system administrator, navigate to the **Tenants** menu, choose a tenant, and click the **Manage** button to switch to that tenant.
-2. Sign in as a tenant admin to manage the tenant.
+You can access the tenant configuration using one of the following methods.
 
-For more details please reference [Tenant Management](../../portsip-pbx-administration-guide/3-tenant-management/).
+#### Option 1: Sign in as System Administrator
 
-### Add an SMS configuration
+1. Sign in to the PortSIP PBX Web Portal as a **System Administrator**.
+2. Navigate to **Tenants**.
+3. Select a tenant and click **Manage** to switch to that tenant.
 
-Please follow the below steps:
+#### Option 2: Sign in as Tenant Administrator
 
-1. In PortSIP PBX Web portal, navigate to the left menu, select **SMS/MMS**, and click the **Add** button.&#x20;
-2. Choose your configured VoIP.ms Trunk:
-   * **Username:** Enter your VoIP.ms account username (usually your email address) that you use to log in to the VoIP.ms web portal
-   * **Password**: Paste your copied VoIP.ms API Password here
+* Sign in directly as a **Tenant Administrator** to manage the tenant.
+
+> **Note**\
+> For more information about roles and permissions, refer to [Tenant Management](../../portsip-pbx-administration-guide/3-tenant-management/).
+
+***
+
+### Add an SMS Configuration in PortSIP PBX
+
+#### Step 1: Create the SMS Configuration
+
+1. In the PortSIP PBX Web Portal, navigate to **SMS/MMS**.
+2. Click **Add**.
+3. Select your configured **VoIP.ms trunk**.
+4. Configure the following fields:
+   * **Username**
+     * Enter your **VoIP.ms account username** (usually your login email).
+   * **Password**
+     * Paste the **VoIP.ms API Password** created earlier.
 
 <figure><img src="../../../.gitbook/assets/voip.ms-flig14.png" alt=""><figcaption></figcaption></figure>
 
-3. Click **OK** to be brought to the SMS/MMS list page. You can select that SMS configuration and click the **Copy Webhook** button to copy it. Or Double-click the SMS configuration you created and copy the Webhook URL.
-4. Go to your VoIP.ms client portal and navigate to **DID Number > Manage DIDs**
-5. Click the yellow pencil Edit button of your DID you wish to use for SMS
-6. &#x20;Scroll down to the SMS section until you see the Message Service (SMS/MMS) section.
-7. Enable the SMS/MMS service.
-8. In the **SMS/MMS Webhook URL** field, paste the Webhook URL you copied from PortSIP PBX
-9. Select if you wish to send and receive SMS/MMS messages in the NANPA or E164 format.
-   * E164: To send an SMS or MMS with this format, you will need to include `+` sign and the country code for every message
-   * NANPA: To send an SMS or MMS with this format, you only need to enter the 10-digit number without the country code.
-10. Press the button **Click here to apply changes** then you get it done.
+***
+
+#### Step 2: Copy the Webhook URL
+
+6. You will be redirected to the **SMS/MMS list** page.
+7. Copy the **Webhook URL** using one of the following methods:
+   * Select the SMS configuration and click **Copy Webhook**.
+   * Or, double-click the SMS configuration and copy the **Webhook URL** from the details page.
+
+***
+
+### Configure SMS Settings in VoIP.ms
+
+#### Step 1: Assign the Webhook URL to the DID
+
+1. Sign in to the **VoIP.ms Client Portal**.
+2. Navigate to **DID Numbers > Manage DIDs**.
+3. Click the **Edit (yellow pencil)** icon next to the DID you want to use for SMS.
+4. Scroll down to the **Message Service (SMS/MMS)** section.
+5. Enable the **SMS/MMS** service.
+6. In the **SMS/MMS Webhook URL** field, paste the **Webhook URL** copied from PortSIP PBX.
+
+***
+
+#### Step 2: Select the SMS Number Format
+
+7. Choose the SMS/MMS number format:
+
+* **E.164 format**
+  * Messages must include the `+` sign and country code
+  * Example: `+13322496213`
+* **NANPA format**
+  * Messages use a 10-digit number without country code
+  * Example: `3322496213`
+
+8. Click **Click here to apply changes** to save the configuration.
 
 <figure><img src="../../../.gitbook/assets/voip.ms-flig13.png" alt=""><figcaption></figcaption></figure>
 
-## Verify Configuration
+***
 
-Now you can [create the outbound and inbound rules](configuring-outbound-and-inbound-calls.md) in PortSIP PBX for sending and receiving SMS/MMS using VoIP.ms Trunk, just like you create the rules for making and receiving calls.
+### Verify the Configuration
+
+At this point, the VoIP.ms SMS/MMS integration is complete.
+
+You can now [create outbound and inbound rules](configuring-outbound-and-inbound-calls.md) in PortSIP PBX to send and receive SMS/MMS messages using the VoIP.ms trunk, just as you would configure rules for voice calls.
+
+
 
