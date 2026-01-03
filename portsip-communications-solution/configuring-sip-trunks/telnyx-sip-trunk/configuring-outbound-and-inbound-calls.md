@@ -4,7 +4,7 @@ You need to sign in to the PortSIP PBX web portal to create the outbound and inb
 
 ### Sign in to the PortSIP PBX Web Portal
 
-To configure **outbound and inbound call routing**, you must first sign in to the **PortSIP PBX Web Portal**.
+To configure outbound and inbound call routing, you must first sign in to the PortSIP PBX Web Portal.
 
 You can access a tenant in one of the following ways:
 
@@ -18,7 +18,7 @@ You can access a tenant in one of the following ways:
 
 * Sign in directly as a **Tenant Administrator** to manage the tenant.
 
-> **Note**\
+> ❗**Note**\
 > For more information about tenant roles and access control, refer to [Tenant Management](../../portsip-pbx-administration-guide/3-tenant-management/).
 
 ***
@@ -61,7 +61,7 @@ Depending on your users’ dialing habits, you may need to **normalize dialed nu
 
 For example, if users typically dial **US domestic numbers** without a country code, you can configure the outbound rule to **prepend `1`** to all dialed numbers.
 
-> **Best Practice**\
+> ❗**Best Practice**\
 > Normalizing outbound numbers to **E.164 format** (for example, `+13322496213`) improves SIP trunk compatibility, routing accuracy, and caller ID consistency.
 
 <figure><img src="../../../.gitbook/assets/telnyx-fig16.png" alt=""><figcaption></figcaption></figure>

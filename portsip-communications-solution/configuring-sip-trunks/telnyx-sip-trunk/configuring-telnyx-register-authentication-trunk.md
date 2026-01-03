@@ -28,7 +28,7 @@ To create a new SIP trunk on the **Telnyx** platform using **credential-based au
 4. Click **Create**.&#x20;
    * You will be redirected to the **Connection Details** page.
 
-> **Note**\
+> ❗**Note**\
 > After the trunk is configured in PortSIP PBX, you can return to this page and click **Check Registration Status** to verify whether PortSIP PBX is successfully registered to the Telnyx trunk.
 
 <figure><img src="../../../.gitbook/assets/telnyx-fig11.png" alt=""><figcaption></figcaption></figure>
@@ -74,7 +74,7 @@ Follow these steps:
 
 The **Register Authentication Telnyx trunk** corresponds to a **Register-Based Trunk** in PortSIP PBX.
 
-> **Important**\
+> ❗**Important**\
 > Register-Based Trunks **must be configured at the System Administrator level**.\
 > Once successfully configured, the trunk can be **shared with one or more tenants**.
 
@@ -102,7 +102,7 @@ Enter the following information:
 *   **DID Pool** _(Tenant Admin level only)_\
     If this trunk is being configured at the **Tenant Administrator level**, specify the Telnyx DID numbers assigned to this tenant.
 
-    > **Important**
+    > ❗**Important**
     >
     > The tenant can use **only the DID numbers in its DID pool** to:
     >
@@ -153,13 +153,13 @@ Click **Next** to continue.
 
 #### Step 5: Assign Tenants and DID Pool _(System Admin level only)_
 
-> **Note**\
+> ❗**Note**\
 > This step is available **only** when configuring the trunk at the **System Administrator level**.
 
 1. Assign the trunk to one or more tenants.
 2. Provide Telnyx DID numbers to each tenant using the **DID Pool**.
 
-> **Important**
+> ❗**Important**
 >
 > * Each DID can be assigned to **only one tenant**.
 > * A tenant can use **only the DID numbers in its DID pool** to:
@@ -193,8 +193,6 @@ Click **OK** to save the configuration.
 ### Next Steps
 
 You can now proceed to [Configuring Outbound & Inbound Calls](configuring-outbound-and-inbound-calls.md) to complete your call routing setup.
-
-
 
 
 

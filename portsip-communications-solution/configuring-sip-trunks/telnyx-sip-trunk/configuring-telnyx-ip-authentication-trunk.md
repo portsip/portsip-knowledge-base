@@ -76,7 +76,7 @@ Follow these steps:
 
 The **Telnyx IP Authentication Trunk** corresponds to an **IP-Based Trunk** in PortSIP PBX.
 
-> **Important**\
+> ❗**Important**\
 > IP-Based Trunks **must be configured at the System Administrator level**.\
 > Once created, the trunk can be **shared with one or more tenants**.
 
@@ -128,7 +128,7 @@ Click **Next** to continue.
 1. Assign the trunk to one or more tenants.
 2. Provide Telnyx DID numbers to each tenant using the **DID Pool**.
 
-> **Important**
+> ❗**Important**
 >
 > * Each DID can be assigned to **only one tenant**.
 > * A tenant assigned to this trunk can use **only the DID numbers in its DID pool** to:
