@@ -2,6 +2,8 @@
 
 You need to sign in to the PortSIP PBX web portal to create the outbound and inbound rules for making & receiving calls.
 
+***
+
 ### Sign in to the PortSIP PBX Web Portal
 
 To configure outbound and inbound call routing, you must first sign in to the PortSIP PBX Web Portal.
