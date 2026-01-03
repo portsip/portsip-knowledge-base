@@ -2,120 +2,207 @@
 
 Before proceeding with the next steps, you need to [purchase a DID on the Voxtelesys platform](purchase-a-did-on-questblue-platform.md).
 
-## Create a SIP Trunk on the Voxtelesys platform
+### Create a SIP Trunk on the Voxtelesys platform
 
-Navigate to the menu **SIP Trunks,** we can see and manage our Inbound and Outbound SIP Trunks. These trunks are internal work for Voxtelesys, and they are created automatically.&#x20;
+In the Voxtelesys portal, SIP trunks are managed under **SIP Trunks**.\
+These trunks are automatically created by Voxtelesys and used internally for routing.
+
+* **Inbound Trunk**
+  * Handles calls and SMS from Voxtelesys to PortSIP PBX
+* **Outbound Trunk**
+  * Handles calls and SMS from PortSIP PBX to Voxtelesys
+
+You do not need to manually create these trunks.\
+Instead, you must **authorize your PBX IP address** on both the inbound and outbound trunk groups.
 
 <figure><img src="../../../.gitbook/assets/voxtelesys-fig5.png" alt=""><figcaption></figcaption></figure>
 
-* **Inbound**: The Inbound trunk means the Call/SMS is from the Voxteleys to PortSIP PBX.
-* **Outbound**: The Outbound trunk means the Call/SMS is from the PortSIP PBX to Voxtelesys.
+***
 
-### Add IP Address to the Outbound Trunk Group
+#### Add PBX IP Address to the Outbound Trunk Group
 
-Please follow the below steps to add the PBX IP Address to the Outbound Trunk Group.
+The Outbound Trunk Group is used for outbound calls and SMS from PortSIP PBX.
 
-1. Select the **Outbound Trunk Group**.
-2. Navigate to the **IP Addresses** tab.
-3. Click the green `+` **sign** to add a new IP address.
+1. Navigate to **SIP Trunks**.
+2. Select the **Outbound Trunk Group**.
+3. Open the **IP Addresses** tab.
+4. Click the **green (+)** icon to add a new IP address.
 
 <figure><img src="../../../.gitbook/assets/voxtelesys-fig6.png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="info" %}
-Your outbound trunk group is used for outbound calling.
-{% endhint %}
+5. Configure the following fields:
 
-Fill in the following information:
+* **IP**
+  * Enter your **PortSIP PBX static public IP address**.
+* **Tech Prefix**
+  * Leave set to **none** (default).
+  * Use only if you need a prefix for advanced SIP routing scenarios.
+* **Enabled**
+  * Check this option to enable the IP address.
 
-* **IP**: Enter your PortSIP PBX static public IP address
-* **Tech Prefix**: Set to "none" by default. If you want to add a prefix for another SIP Trunk, add it here.
-* **Enabled**: Check this box to enable this IP address.
+6. Save the changes.
 
 <figure><img src="../../../.gitbook/assets/voxtelesys-fig7.png" alt="" width="563"><figcaption></figcaption></figure>
 
-### Add IP Address to the Inbound Trunk Group
+***
 
-Please follow the below steps to add the PBX IP Address to the Inbound Trunk Group.
+#### Add PBX IP Address to the Inbound Trunk Group
 
-1. Select the **Inbound Trunk Group**.
+The **Inbound Trunk Group** is used for **inbound calls and SMS** from Voxtelesys to PortSIP PBX.
+
+1. In the **SIP Trunks** section, select the **Inbound Trunk Group**.
 2. Navigate to the **Routing** tab.
-3. Click the green `+` **sign** to add a new IP address.
+3. Click the **green (+)** icon to add a new route.
 
 <figure><img src="../../../.gitbook/assets/voxtelesys-fig8.png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="info" %}
-Your inbound trunk group is used for inbound calling and may have multiple routes, so make sure you are on the correct route.
-{% endhint %}
+1. Enter a **friendly name** for the route.
+2. Click **Confirm** to create the route.
+3. Double-click the newly created route to expand it.
+4. Click the **Edit (pencil)** icon.
+5. Configure the following fields:
 
-4. Give a friendly name to the route and press **Confirm**. The route will be created.
-5. Double-click the newly added route to expand it.
-6. Click the pencil **Edit** icon to modify the route settings.
-7. Fill in the following information:
-   * **Priority**: Adjust the priority level of this route.
-   * **Destination Type**: Set this to **Customer IP**.
-   * **Destination**: Enter your PortSIP PBX static public IP address.
+* **Priority**
+  * Set the priority level for this route.
+* **Destination Type**
+  * Select **Customer IP**.
+* **Destination**
+  * Enter your **PortSIP PBX static public IP address**.
+
+6. Save the route configuration.
 
 <figure><img src="../../../.gitbook/assets/voxtelesys-fig10.png" alt=""><figcaption></figcaption></figure>
 
-You can adjust the inbound route priority as below:
+If multiple inbound routes exist, you can adjust the inbound route priority as below:
 
-1. Press the **Edit Priorities** button to adjust the routes' priorities.
-2. Change the Customer IP's position with the priority drop-down menu to change how Voxtelesys reaches your PortSIP PBX.
+1. Click **Edit Priorities**.
+2. Use the priority drop-down list to adjust the **Customer IP** route position.
+3. Click **Confirm Changes** to apply the updated priority order.
 
-Click on **Confirm Changes** to complete the process.1
+***
 
-## Assign DID to a SIP Trunk
+### Assign DID Numbers to a SIP Trunk
 
-To assign the DID to a SIP trunk, please follow the below steps:&#x20;
+After purchasing DID numbers on **Voxtelesys**, you must assign them to the appropriate SIP trunk.
 
-1. Navigate to the menu **Telphone Numbers > Telphone Numbers**, you can see all active DIDs.
-2. Click the **pen icon** next to a DID. In the popup window, select the desired trunk from the **Trunk** field combo box to assign the DID to it.
-3. Click **Submit** to save changes.
-4. You can repeat the above steps to assign more DIDs.
+#### Step 1: Assign a DID to the Trunk
 
-## Configure IP Authentication Trunk in PortSIP PBX
+1. Sign in to your **Voxtelesys** account.
+2. Navigate to **Telephone Numbers > Telephone Numbers**.
+3. Locate the DID you want to assign.
+4. Click the **Edit (pen)** icon next to the DID.
+5. In the popup window, select the desired **SIP Trunk** from the **Trunk** drop-down list.
+6. Click **Submit** to save the changes.
 
-The IP Authentication Voxtelesys trunk refers to the **IP Based Trunk** in PortSIP PBX.&#x20;
+Repeat these steps to assign additional DID numbers as needed.
 
-You must configure the **IP Based Trunk** at the PortSIP PBX system administrator level. Once successfully configured, you can share this trunk with tenants.
+***
 
-Please follow the below steps:
+### Configure an IP Authentication Trunk in PortSIP PBX
 
-1. Sign in to the PortSIP PBX Web Portal as a System Administrator. Navigate to the left menu and select **Call Manager > Trunks**.&#x20;
-2. Click the **Add** button to open a menu. From the menu, choose **IP Based Trunk**.
+The **Voxtelesys IP Authentication Trunk** corresponds to an **IP-Based Trunk** in PortSIP PBX.
+
+> **Important**\
+> IP-Based Trunks **must be configured at the System Administrator level**.\
+> Once configured, the trunk can be **shared with one or more tenants**.
+
+***
+
+#### Step 1: Create the IP-Based Trunk
+
+1. Sign in to the **PortSIP PBX Web Portal** as a **System Administrator**.
+2. Navigate to **Call Manager > Trunks**.
+3. Click **Add**, then select **IP Based Trunk**.
 
 <figure><img src="../../../.gitbook/assets/add-ip-trunk.png" alt=""><figcaption></figcaption></figure>
 
-3. Enter the trunk name and choose the brand:
-   * **Name**: Enter a friendly name for the trunk.
-   * **Brand**: Select **Voxtelesys** from the Brand field
-   * Hostname or IP address: Enter the IP `23.155.16.10` for this field.
+***
+
+#### Step 2: Configure Basic Trunk Settings
+
+Enter the following information:
+
+* **Name**\
+  Enter a friendly name for the trunk (for example, `Voxtelesys-IP-Trunk`).
+* **Brand**\
+  Select **Voxtelesys** from the Brand list.
+*   **Hostname or IP Address**\
+    Enter the Voxtelesys SIP IP address:
+
+    ```
+    23.155.16.10
+    ```
+
+Click **Next** to continue.
 
 <figure><img src="../../../.gitbook/assets/voxtelesys-fig11.png" alt=""><figcaption></figcaption></figure>
 
-3. Click the **Next** button, you can adjust the options for the trunk.
-   * &#x20;**Max Concurrent Calls:** This field sets the maximum number of calls that PortSIP can establish with this trunk. You can adjust it to an appropriate value.
-   * We recommend keeping the default settings for other options unless you have specific requirements.
+***
+
+#### Step 3: Configure Call Capacity
+
+* **Max Concurrent Calls**\
+  Defines the maximum number of simultaneous calls that PortSIP PBX can establish through this trunk.
+  * Adjust this value according to your Voxtelesys service plan and expected traffic.
+
+Leave all other options at their default values unless you have specific requirements.
+
+Click **Next** to continue.
 
 <figure><img src="../../../.gitbook/assets/ip-trunk-options.png" alt=""><figcaption></figcaption></figure>
 
-3. Click the **Next** button to assign this trunk to the tenants and provide your Voxtelesys DIDs/Numbers to them with the DID Pool (DID numbers).  A DID can be only assigned to one tenant.
+***
 
-A tenant assigned to this trunk can only use the DID numbers within the DID pool range to create inbound and outbound rules and configure the outbound caller ID for extensions.
+#### Step 4: Assign Tenants and DID Pool
+
+1. Assign the trunk to one or more tenants.
+2. Provide Voxtelesys DID numbers to each tenant using the **DID Pool**.
+
+> **Important**
+>
+> * Each DID can be assigned to **only one tenant**.
+> * A tenant can use **only the DID numbers in its DID pool** to:
+>   * Create inbound and outbound call rules
+>   * Configure outbound caller IDs for extensions
+
+**DID Pool Format Examples**
+
+```
+16468097065
+16468097065;16468097066
+16468097065-16468097066;16468097069
+16468097065-16468097066;16468097070-16468097080
+```
+
+Click **OK** to save the configuration.
 
 <figure><img src="../../../.gitbook/assets/wavix-fig17.png" alt=""><figcaption></figcaption></figure>
 
-* DID Pool: The DID pool can consist of a single number, a range of numbers, or a combination of both. For example:
-  * `16468097065`
-  * `16468097065;16468097066`
-  * `16468097065-16468097066;16468097069`&#x20;
-  * `16468097065-16468097066;16468097070-16468097080`
+***
 
-Click the **OK** button to save the changes. The trunk configuration is now complete.
+#### Expected Result
 
-In the trunk list, you will see the status displayed as **Registered** (for IP Based Trunk it always displays Registered).
+* The Voxtelesys IP-Based trunk is successfully created.
+* The trunk status displays **Online** in the trunk list\
+  &#xNAN;_(this is expected behavior for IP-Based Trunks)_.
 
 <figure><img src="../../../.gitbook/assets/voxtelesys-fig12.png" alt=""><figcaption></figcaption></figure>
 
-Now you can follow the article to [Configuring inbound and outbound calls](configuring-outbound-and-inbound-calls.md).
+***
+
+### Next Steps
+
+The Vonage IP Authentication Trunk is now ready for use.
+
+You can proceed to:
+
+* Configure outbound call routing rules
+* Configure inbound DID routing
+* Assign outbound caller IDs
+
+Refer to the next guide section: [Configuring Outbound & Inbound Calls](configuring-outbound-and-inbound-calls.md).
+
+
+
+
 
