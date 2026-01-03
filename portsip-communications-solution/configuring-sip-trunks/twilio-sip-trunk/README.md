@@ -12,15 +12,17 @@ This guide is only applicable for the PortSIP PBX v22 or higher.
 
 <figure><img src="../../../.gitbook/assets/twilio-fig1.png" alt=""><figcaption></figcaption></figure>
 
+***
 
+PortSIP PBX integrates with Twilio Elastic SIP Trunking to support voice calls and SMS/MMS messaging, enabling quick and straightforward deployment.
 
-PortSIP PBX integrated the [Twilio Elastic SIP trunking ](https://www.twilio.com/docs/sip-trunking)for calls and SMS/MMS that allows you to set up easily.
-
-This article includes the following topics:
+This article covers the following topics:
 
 * [Purchase a DID on the Twilio Platform](purchase-a-did-on-the-twilio.md)
 * [Configuring Twilio Register Based Trunk](configuring-twilio-register-based-trunk.md)
 * [Configuring Twilio Interconnect Trunk](configuring-twilio-interconnect-trunk.md)
 * [Configuring Outbound & Inbound Calls](configuring-outbound-and-inbound-calls.md)
 * [Twilio SMS Integration](twilio-sms-integration.md)
+
+
 
