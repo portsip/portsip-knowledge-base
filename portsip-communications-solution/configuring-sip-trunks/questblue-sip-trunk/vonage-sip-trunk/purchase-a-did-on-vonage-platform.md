@@ -13,7 +13,7 @@ If you already have one or more active DIDs, you may skip this section.
    * **SMS** capability is optional—select it only if you plan to use SMS/MMS services.
 5. Click **Buy** to complete the purchase.
 
-<figure><img src="../../../.gitbook/assets/vonage-fig1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/vonage-fig1.png" alt=""><figcaption></figcaption></figure>
 
 ***
 

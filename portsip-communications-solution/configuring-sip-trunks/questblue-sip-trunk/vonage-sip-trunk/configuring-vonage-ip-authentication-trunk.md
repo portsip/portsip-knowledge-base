@@ -18,11 +18,11 @@ You can also refer to the [official Vonage documentation](https://developer.vona
 4. In this guide, we will create a new SIP trunk.
 5. Click **Create New**, enter a domain name for the trunk (for example, `portsip`), and then click **Create**.
 
-<figure><img src="../../../.gitbook/assets/vonage-fig10.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/vonage-fig10.png" alt=""><figcaption></figcaption></figure>
 
 6. Once the SIP trunk is successfully created, you are automatically redirected to the **Trunk Details** page.
 
-<figure><img src="../../../.gitbook/assets/vonage-fig11.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/vonage-fig11.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -36,7 +36,7 @@ You can also refer to the [official Vonage documentation](https://developer.vona
    * **Range**: Enter `32` (single IP address)
 4. Save the configuration.
 
-<figure><img src="../../../.gitbook/assets/vonage-fig23.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/vonage-fig23.png" alt=""><figcaption></figcaption></figure>
 
 6.  The **Access Control List (ACL)** section will appear **enabled (green)**, indicating that **IP-based authentication** is active.
 
@@ -45,7 +45,7 @@ You can also refer to the [official Vonage documentation](https://developer.vona
     > * **ACL (IP authentication) and User Key / Secret authentication are mutually exclusive.**
     > * If you enable ACL authentication, **do not configure a User Key and Secret**, as both methods cannot be enabled at the same time.
 
-<figure><img src="../../../.gitbook/assets/vonage-fig24.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/vonage-fig24.png" alt=""><figcaption></figcaption></figure>
 
 7. Click **Back** to return to the **Trunk Details** page.
 
@@ -64,7 +64,7 @@ Choose the domain closest to your PortSIP PBX location for optimal latency:
 
 You will need this domain when configuring the SIP trunk in **PortSIP PBX**.
 
-<figure><img src="../../../.gitbook/assets/vonage-fig25.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/vonage-fig25.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -100,12 +100,12 @@ To allow Vonage to route inbound calls to your PortSIP PBX, you must configure a
      * Enable this option to allow **secure media encryption (SRTP)**.
      * This is recommended when using TLS for SIP signaling.
 
-<figure><img src="../../../.gitbook/assets/vonage-fig15.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/vonage-fig15.png" alt=""><figcaption></figcaption></figure>
 
 2. Click the **+** button to add the SIP URI.\
    The SIP URI is displayed in the **Inbound Calling** section, indicating that inbound call routing is configured.
 
-<figure><img src="../../../.gitbook/assets/vonage-fig16.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/vonage-fig16.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -118,11 +118,11 @@ To allow Vonage to route inbound calls to your PortSIP PBX, you must configure a
    * Click **Buy Numbers**, which redirects you to the Vonage number purchasing portal.
 3. In the **Numbers Dashboard**, you can filter, link, or unlink numbers as needed.
 
-<figure><img src="../../../.gitbook/assets/vonage-fig17.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/vonage-fig17.png" alt=""><figcaption></figcaption></figure>
 
 4. Once numbers are successfully linked, Vonage will display a status indicating that the SIP trunk is ready to receive inbound calls.
 
-<figure><img src="../../../.gitbook/assets/vonage-fig18.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/vonage-fig18.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -146,7 +146,7 @@ You can configure an IP-Based Trunk at **either** of the following levels:
 3. Click **Add** to open the trunk type menu.
 4. Select **IP Based Trunk**.
 
-<figure><img src="../../../.gitbook/assets/add-ip-trunk.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/add-ip-trunk.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -167,7 +167,7 @@ On the **Basic Settings** page, configure the following fields:
 
 5. Click **Next** to continue.
 
-<figure><img src="../../../.gitbook/assets/vonage-fig26.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/vonage-fig26.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -186,7 +186,7 @@ On the **Options** page:
 
 6. Click **Next** to proceed.
 
-<figure><img src="../../../.gitbook/assets/registration-trunk-options.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/registration-trunk-options.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -231,7 +231,7 @@ It is **not available** when the trunk is created at the Tenant Administrator le
 
 3. Click **OK** to save the configuration.
 
-<figure><img src="../../../.gitbook/assets/vonage-fig21.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/vonage-fig21.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -244,7 +244,7 @@ It is **not available** when the trunk is created at the Tenant Administrator le
 > For **IP-Based Trunks**, the status always displays as **Online**.\
 > This is expected behavior and does **not** indicate SIP registration in the traditional sense.
 
-<figure><img src="../../../.gitbook/assets/vonage-fig22.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/vonage-fig22.png" alt=""><figcaption></figcaption></figure>
 
 ***
 

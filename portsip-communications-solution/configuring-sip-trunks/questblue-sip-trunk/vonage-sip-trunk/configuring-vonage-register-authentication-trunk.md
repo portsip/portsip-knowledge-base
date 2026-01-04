@@ -18,7 +18,7 @@ You can also reference the [Vonage documentation for configuring the SIP Trunk](
 4. In this guide, we will create a new SIP trunk.
 5. Click **Create New**, enter a domain name for the trunk (for example, `portsip`), and then click **Create**.
 
-<figure><img src="../../../.gitbook/assets/vonage-fig10.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/vonage-fig10.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -26,7 +26,7 @@ You can also reference the [Vonage documentation for configuring the SIP Trunk](
 
 1. Once the SIP trunk is successfully created, you are automatically redirected to the **Trunk Details** page.
 
-<figure><img src="../../../.gitbook/assets/vonage-fig11.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/vonage-fig11.png" alt=""><figcaption></figcaption></figure>
 
 2. On the **Trunk Details** page, locate the **Outbound Calling** section.
 3. Click **Add Authentication**.\
@@ -41,7 +41,7 @@ You can also reference the [Vonage documentation for configuring the SIP Trunk](
 > * Be sure to **record the User Key and Secret**, as they will be required later when configuring the SIP trunk in **PortSIP PBX**.
 > * These credentials function as SIP registration credentials.
 
-<figure><img src="../../../.gitbook/assets/vonage-fig12.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/vonage-fig12.png" alt=""><figcaption></figcaption></figure>
 
 6.  After the User Key and Secret are added, the section appears **enabled (green)**, indicating that **register-based authentication** is active.
 
@@ -50,7 +50,7 @@ You can also reference the [Vonage documentation for configuring the SIP Trunk](
     > * **User Key / Secret authentication and Access Control List (ACL) authentication cannot be enabled at the same time.**
     > * If you use **User Key and Secret**, **do not configure ACL-based IP authentication** for this trunk.
 
-<figure><img src="../../../.gitbook/assets/vonage-fig13.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/vonage-fig13.png" alt=""><figcaption></figcaption></figure>
 
 7. Click **Back** to return to the **Trunk Details** page.
 
@@ -68,7 +68,7 @@ You can also reference the [Vonage documentation for configuring the SIP Trunk](
 
 You will need this domain when configuring the **Register-Based Trunk** in PortSIP PBX.
 
-<figure><img src="../../../.gitbook/assets/vonage-fig14.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/vonage-fig14.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -104,12 +104,12 @@ To allow Vonage to route inbound calls to your PortSIP PBX, configure a SIP URI.
      * Enable this option to allow **secure media encryption (SRTP)**.
      * SRTP is recommended when TLS is enabled for SIP signaling.
 
-<figure><img src="../../../.gitbook/assets/vonage-fig15.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/vonage-fig15.png" alt=""><figcaption></figcaption></figure>
 
 2. Click the **+** button to add the SIP URI.\
    The SIP URI is listed under the **Inbound Calling** section, indicating that inbound call routing is configured.
 
-<figure><img src="../../../.gitbook/assets/vonage-fig16.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/vonage-fig16.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -122,11 +122,11 @@ To allow Vonage to route inbound calls to your PortSIP PBX, configure a SIP URI.
    * Click **Buy Numbers** to open the Vonage number purchasing portal.
 3. In the **Numbers Dashboard**, you can filter, link, or unlink numbers as needed.
 
-<figure><img src="../../../.gitbook/assets/vonage-fig17.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/vonage-fig17.png" alt=""><figcaption></figcaption></figure>
 
 4. Once numbers are successfully linked, Vonage displays a confirmation indicating that the SIP trunk is **ready to receive inbound calls**.
 
-<figure><img src="../../../.gitbook/assets/vonage-fig18.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/vonage-fig18.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -150,7 +150,7 @@ You can configure a Register-Based Trunk at **either** of the following levels:
 3. Click **Add** to open the trunk type menu.
 4. Select **Register Based Trunk**.
 
-<figure><img src="../../../.gitbook/assets/add-register-trunk.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/add-register-trunk.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -186,7 +186,7 @@ On the **Basic Settings** page, configure the following fields:
 
 5. Click **Next** to continue.
 
-<figure><img src="../../../.gitbook/assets/vonage-fig19.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/vonage-fig19.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -205,7 +205,7 @@ On the **Authentication** page, enter the SIP registration credentials created o
 > These credentials are used by PortSIP PBX to register with Vonage.\
 > Ensure they match exactly with the values configured on the Vonage platform.
 
-<figure><img src="../../../.gitbook/assets/vonage-fig20.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/vonage-fig20.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -224,7 +224,7 @@ On the **Options** page:
 
 7. Click **Next** to proceed.
 
-<figure><img src="../../../.gitbook/assets/registration-trunk-options.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/registration-trunk-options.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -253,7 +253,7 @@ This step appears **only** when the trunk is created at the **System Administrat
 12057494879-12057494880;12057494890-12057494899
 ```
 
-<figure><img src="../../../.gitbook/assets/vonage-fig21.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/vonage-fig21.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -262,7 +262,7 @@ This step appears **only** when the trunk is created at the **System Administrat
 * PortSIP PBX initiates SIP registration to the Vonage platform.
 * Once registration is successful, the trunk status displays as **Online** on the trunk list page.
 
-<figure><img src="../../../.gitbook/assets/vonage-fig22.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/vonage-fig22.png" alt=""><figcaption></figcaption></figure>
 
 ***
 

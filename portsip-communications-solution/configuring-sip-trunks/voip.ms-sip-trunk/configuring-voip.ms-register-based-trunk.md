@@ -240,7 +240,7 @@ You can proceed to:
 * Configure inbound DID routing
 * Assign outbound caller IDs
 
-Refer to the next guide section: [Configuring Outbound & Inbound Calls](../vonage-sip-trunk/configuring-outbound-and-inbound-calls.md).
+Refer to the next guide section: [Configuring Outbound & Inbound Calls](../questblue-sip-trunk/vonage-sip-trunk/configuring-outbound-and-inbound-calls.md).
 
 
 
