@@ -1,35 +1,78 @@
 # Purchase a DID on Bandwidth Platform
 
-Before placing or receiving a call, you need to have an active DID or a dozen DID numbers on your Bandwidth account. If you already have an active number on your Bandwidth account, the below steps are optional.
+Before placing or receiving calls, you must have **at least one active DID** (or multiple DIDs) on your Bandwidth account.
 
-## Creating Your Bandwidth Account
+> **Note**\
+> If you already have active phone numbers on your Bandwidth account, you can skip the DID purchase steps and proceed directly to trunk configuration.
 
-### **1. Create Your Bandwidth Account**
+***
 
-**Sign in** to your Bandwidth portal using the credentials provided during the sign-up process. If you don't have an account, you'll need to contact Bandwidth to create one.
+### Create and Configure Your Bandwidth Account
 
-### **2. Set Up Sub-Account and Location**
+#### Step 1: Create Your Bandwidth Account
 
-* After signing in, click on **“View Account”** and select **“Sub-Accounts”** from the top menu.
-* Click **“Create Sub-Account”** and complete the required information to set up your sub-account.
-* Navigate to **“Locations”** from the top menu to create a new location for your sub-account.
+* Sign in to the **Bandwidth Portal** using the credentials provided during the sign-up process.
+* If you do not yet have an account, contact Bandwidth to request account creation.
 
-### **3. Configure SIP Settings**
+***
 
-* Under the **“Voice”** menu, scroll down to the **“Origination Settings”** section.
-* In the **“Voice IP Addresses / DNS Hosts”** field, enter your static public IP address and SIP port.
-* Contact your account administrator to add your public IP address to the **“Termination Settings”**. You can proceed with other configurations while waiting for this update.
+#### Step 2: Create a Sub-Account and Location
 
-### **4. Configure Phone Numbers**
+1. After signing in, click **View Account**.
+2. From the top menu, select **Sub-Accounts**.
+3. Click **Create Sub-Account** and complete the required information.
+4. From the top menu, select **Locations**.
+5. Create a **new location** for the sub-account.
 
-* Click on **“Numbers”** in the top menu, and select the desired type of numbers based on your preferences.
-* During the checkout process, make sure to assign the phone numbers to your sub-account and location.
+> **Best Practice**\
+> Bandwidth uses **sub-accounts and locations** to control number assignment and routing. Each SIP trunk should be associated with the correct location.
 
-### **5. Finalizing Setup**
+***
 
-Once your SIP trunk is ready, Bandwidth will provide you with a **pair of IP addresses**. Make sure to note them down for future reference.
+#### Step 3: Configure SIP Settings
 
-After purchasing the DID, you can follow one of the guides to configure the trunk with PortSIP PBX.
+1. Navigate to the **Voice** menu.
+2. Scroll to the **Origination Settings** section.
+3. In **Voice IP Addresses / DNS Hosts**, enter:
+   * Your **static public IP address**
+   * The **SIP port** used by your PortSIP PBX
+4. Contact your Bandwidth account administrator to add your public IP address to the **Termination Settings**.
+
+> **Note**\
+> You can continue with other configuration steps while waiting for Bandwidth to complete the termination IP update.
+
+***
+
+#### Step 4: Configure and Purchase Phone Numbers (DIDs)
+
+1. Click **Numbers** in the top menu.
+2. Select the desired **number type** (for example, local or toll-free).
+3. During checkout:
+   * Assign the phone numbers to the correct **sub-account**
+   * Assign them to the appropriate **location**
+
+**Expected Result**
+
+* The purchased DIDs are active and associated with the correct sub-account and location.
+
+***
+
+#### Step 5: Finalize Setup
+
+* Once your SIP trunk configuration is approved, Bandwidth will provide a pair of IP addresses for trunk connectivity.
+* Record these IP addresses, you will need them when configuring the SIP trunk in PortSIP PBX.
+
+***
+
+### Next Step
+
+After purchasing and preparing your DIDs, proceed to configure the SIP trunk in PortSIP PBX:
 
 * [Configuring Bandwidth IP Authentication Trunk](configuring-bandwidth-ip-authentication-trunk.md)
+
+
+
+
+
+
 
