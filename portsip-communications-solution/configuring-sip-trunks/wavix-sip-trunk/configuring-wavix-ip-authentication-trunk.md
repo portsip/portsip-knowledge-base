@@ -185,7 +185,7 @@ Click **OK** to save the trunk configuration.
 After saving:
 
 * The trunk will appear in the **Trunks list**.
-*   The **Status** will display **Registered**.
+*   The **Status** will display **Online**.
 
     > This is expected behavior for IP-Based Trunks and does not indicate SIP registration in the traditional sense.
 

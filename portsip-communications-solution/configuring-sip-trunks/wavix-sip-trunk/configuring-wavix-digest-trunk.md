@@ -2,86 +2,218 @@
 
 Before proceeding with the next steps, you need to [purchase a DID on the Wavix platform](purchase-a-did-on-wavix-platform.md).
 
-## Create a SIP Trunk on the Wavix platform
+### Create a SIP Trunk on the Wavix Platform (Digest Authentication)
 
-To create a new SIP trunk on the Wavix platform
+Follow the steps below to create a new SIP trunk on the Wavix platform using **Digest (username/password) authentication**.
 
-1. Select **Trunks** under **Numbers & trunks** in the top menu
-2. Click the **Create new** button
-3. Select **Digest** under the **Authentication method**
-4. Specify the SIP trunk name, set the SIP trunk password, and select one of the DIDs on your account as Caller ID.
+***
+
+#### Procedure
+
+1. **Sign in to the Wavix Platform**\
+   Log in to your Wavix account using administrator credentials.
+2. **Navigate to SIP Trunks**\
+   From the top menu, select **Numbers & Trunks**, then click **Trunks**.
+3. **Create a New SIP Trunk**\
+   Click **Create New**.
+4. **Select Authentication Method**\
+   Choose **Digest** as the authentication method.
+5. **Configure Basic Trunk Settings**
+   * **SIP Trunk Name**\
+     Enter a descriptive name to identify this trunk.
+   * **SIP Trunk Password**\
+     Set a strong password. This password will be required when configuring the trunk in PortSIP PBX.
+   * **Caller ID**\
+     Select one of the DIDs on your Wavix account to be used as the default outbound caller ID.
 
 <figure><img src="../../../.gitbook/assets/wavix-fig2.png" alt="" width="563"><figcaption></figcaption></figure>
 
-5. Optionally you can set max outbound call duration, max number of simultaneous calls via the SIPtrunk, and max call cost. If these parameters are not set, global account limits apply.
-6. Click **Create**
+6. **(Optional) Configure Usage Limits**\
+   You may optionally configure the following limits for this SIP trunk:
 
-After the SIP trunk is successfully created, it will appear on the list of SIP trunks on your account.
+* **Maximum outbound call duration**
+* **Maximum number of simultaneous calls**
+* **Maximum call cost**
+
+> **Note**\
+> If these parameters are not configured, the **global account limits** defined on your Wavix account will apply.
+
+7. **Create the SIP Trunk**\
+   Click **Create** to complete the configuration.
+
+***
+
+#### Result
+
+* After the SIP trunk is successfully created, it will appear in the **SIP Trunks list** in your Wavix account.
 
 <figure><img src="../../../.gitbook/assets/wavix-fig3.png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="info" %}
-for security reasons, all new Wavix accounts can place only 2 simultaneous calls. In case you’d like to adjust the limit, reach out to your account manager or email support@wavix.com
-{% endhint %}
+***
 
-{% hint style="danger" %}
-Please be advised that your 5-digit SIP trunk username is generated automatically and displayed in the SIP trunk ID column.
-{% endhint %}
+#### Important Security and Capacity Notes
 
-## Configure Digest Trunk in PortSIP PBX
+> **Security Policy – Concurrent Call Limit**\
+> For security reasons, **new Wavix accounts are limited to 2 simultaneous calls by default**.
 
-The Digest Wavix trunk refers to the **Register Based Trunk** in PortSIP PBX.&#x20;
+* To increase the concurrent call limit:
+  * Contact your **Wavix account manager**, or
+  * Email **support@wavix.com** with your request.
 
-You can configure the Register Based Trunk at either the PortSIP PBX **system administrator level** or the **Tenant Admin level**:
+> **Security Recommendation**\
+> Store the SIP trunk username and password securely, and avoid reusing credentials across multiple systems.
 
-* If configured at the system administrator level, you can share this trunk with tenants.
-* If configured at the tenant admin level, this trunk can only be used by the tenant itself.
+***
 
-Please follow the below steps:
+### Configure Digest Authentication Trunk in PortSIP PBX
 
-1. Sign in to the PortSIP PBX Web Portal as a System Administrator or Tenant Admin. Navigate to the left menu and select **Call Manager > Trunks**.&#x20;
-2. Click the **Add** button to open a menu. From the menu, choose **Register Based Trunk**.
+A Wavix Digest Authentication trunk is configured as a **Register-Based Trunk** in **PortSIP PBX**.
+
+You can create a Register-Based Trunk at **either** of the following levels:
+
+* **System Administrator level**\
+  The trunk can be shared with multiple tenants.
+* Tenant Administrator level\
+  The trunk is available only to that tenant.
+
+***
+
+#### Step 1: Open the Trunks Configuration Page
+
+1. Sign in to the PortSIP PBX Web Portal as a **System Administrator** or **Tenant Admin**.
+2. Navigate to **Call Manager > Trunks**.
+
+***
+
+#### Step 2: Add a Register-Based Trunk
+
+1. Click **Add** to open the trunk type menu.
+2. Select **Register Based Trunk**.
 
 <figure><img src="../../../.gitbook/assets/add-register-trunk.png" alt=""><figcaption></figcaption></figure>
 
-3. Enter the trunk name and choose the brand:
-   * **Name**: Enter a friendly name for the trunk.
-   * **Brand**: Select one of the Wavix trunks from the Brand field, such as **Wavix - US**.
-   * **DID Pool**: This step is only for you at the _**Tenant admin Level**_ to configure this **Register Based Trunk**,  you will need to set up your Wavix DID numbers for this DID pool for this trunk.
-     * This tenant can only use the DID numbers within the DID pool range to create inbound and outbound rules and configure the outbound caller ID for extensions.
-     * &#x20;The DID pool can consist of a single number, a range of numbers, or a combination of both. For example:
-       * `16468097065`
-       * `16468097065-16468097066`
-       * `16468097065-16468097066;16468097069`&#x20;
-       * `16468097065-16468097066;16468097070-16468097080`
+***
+
+#### Step 3: Configure Basic Trunk Information
+
+Configure the following fields:
+
+* **Name**\
+  Enter a descriptive name for the trunk (for example, `Wavix-US-Digest-Trunk`).
+* **Brand**\
+  Select the appropriate Wavix brand (for example, **Wavix – US**).
+
+***
+
+#### Step 4: Configure the DID Pool (Tenant Admin Only)
+
+> **Note**\
+> This step applies **only** when configuring the trunk at the **Tenant Admin level**.
+
+* Define the **DID Pool** for this tenant.
+* The tenant can use **only the DIDs in this pool** for:
+  * Inbound rules
+  * Outbound rules
+  * Outbound caller ID configuration
+
+**DID Pool format examples:**
+
+```
+16468097065
+16468097065-16468097066
+16468097065-16468097066;16468097069
+16468097065-16468097066;16468097070-16468097080
+```
+
+Click **Next** to continue.
 
 <figure><img src="../../../.gitbook/assets/wavix-fig14.png" alt=""><figcaption></figcaption></figure>
 
-4. Click the **Next** button, and provide the **SIP trunk ID** and **password** set up for the SIP  trunk on the Wavix platform.&#x20;
+***
+
+#### Step 5: Configure SIP Authentication
+
+Enter the credentials created on the Wavix platform:
+
+* **SIP Trunk ID**\
+  The 5-digit SIP trunk username generated by Wavix.
+* **Password**\
+  The SIP trunk password configured in the Wavix portal.
+
+Click **Next**.
 
 <figure><img src="../../../.gitbook/assets/wavix-fig18.png" alt=""><figcaption></figcaption></figure>
 
-5. Click the **Next** button, you can adjust the options for the trunk.
-   * &#x20;**Max Concurrent Calls:** This field sets the maximum number of calls that PortSIP can establish with this trunk. You can adjust it to an appropriate value.
-   * We recommend keeping the default settings for other options unless you have specific requirements.
+***
+
+#### Step 6: Configure Trunk Options
+
+* **Max Concurrent Calls**\
+  Sets the maximum number of simultaneous calls PortSIP PBX can establish using this trunk.\
+  Adjust this value according to your Wavix account limits.
+
+> **Recommendation**\
+> Keep all other settings at their default values unless you have specific routing or interoperability requirements.
+
+Click **Next**.
 
 <figure><img src="../../../.gitbook/assets/registration-trunk-options.png" alt=""><figcaption></figcaption></figure>
 
-6. This step is only available when configuring the Register-Based Trunk at the _**System Administrator Level**_. Click the **Next** button to assign this trunk to the tenants and provide your Wavix DIDs/Numbers to them with the DID Pool (DID numbers).  A DID can be only assigned to one tenant.
-   * A tenant assigned to this trunk can only use the DID numbers within the DID pool range to create inbound and outbound rules and configure the outbound caller ID for extensions.
-   * DID Pool: The DID pool can consist of a single number, a range of numbers, or a combination of both. For example:
-     * `16468097065`
-     * `16468097065;16468097066`
-     * `16468097065-16468097066;16468097069`&#x20;
-     * `16468097065-16468097066;16468097070-16468097080`
+***
+
+#### Step 7: Assign Tenants and DID Numbers (System Admin Only)
+
+> **Note**\
+> This step is available **only** when configuring the trunk at the **System Administrator level**.
+
+* Assign the trunk to one or more tenants.
+* Configure the **DID Pool** for each tenant.
+
+> **Important**
+>
+> * Each DID can be assigned to **only one tenant**.
+> * Tenants can use **only their assigned DID pool** for inbound routing, outbound routing, and outbound caller ID.
+
+**DID Pool format examples:**
+
+```
+16468097065
+16468097065;16468097066
+16468097065-16468097066;16468097069
+16468097065-16468097066;16468097070-16468097080
+```
 
 <figure><img src="../../../.gitbook/assets/wavix-fig17.png" alt=""><figcaption></figcaption></figure>
 
-Click the **OK** button to save the changes, the trunk configuration is completed.
+Click **OK** to save the trunk configuration.
 
-Once the PortSIP PBX successfully registers this trunk to the Wavix platform, in the trunk list page you will see the status displayed as **Registered**.
+***
+
+### Verification
+
+After PortSIP PBX successfully registers the trunk with Wavix:
+
+* The trunk appears in the **Trunks list**
+* The **Status** displays **Online**
+
+> **Expected Outcome**\
+> “Online” confirms that PortSIP PBX has successfully authenticated with the Wavix SIP platform using Digest authentication.
 
 <figure><img src="../../../.gitbook/assets/wavix-fig19.png" alt=""><figcaption></figcaption></figure>
 
-Now you can follow the article to [Configuring inbound and outbound calls](configuring-outbound-and-inbound-calls.md).
+***
+
+### Next Steps
+
+You can now proceed to:
+
+* Configure inbound call routing
+* Configure outbound call routing
+* Assign outbound caller IDs and test call flows
+
+Continue with the next guide: [Configuring inbound and outbound calls](configuring-outbound-and-inbound-calls.md).
+
+
+
+
 

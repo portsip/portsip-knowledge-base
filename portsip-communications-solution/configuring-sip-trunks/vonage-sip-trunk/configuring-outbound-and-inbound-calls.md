@@ -43,9 +43,9 @@ Outbound Rules determine how outbound calls are routed and which trunk is used w
 
 #### Select the Trunk Route
 
-5. Scroll to **Place outbound calls using the following trunk routes**.
-6. Click the **Add (+)** icon.
-7. Select the **Vonage trunk**, then save the outbound rule.
+1. Scroll to **Place outbound calls using the following trunk routes**.
+2. Click the **Add (+)** icon.
+3. Select the **Vonage trunk**, then save the outbound rule.
 
 <figure><img src="../../../.gitbook/assets/vonage_trunk_rule_1.png" alt=""><figcaption></figcaption></figure>
 
