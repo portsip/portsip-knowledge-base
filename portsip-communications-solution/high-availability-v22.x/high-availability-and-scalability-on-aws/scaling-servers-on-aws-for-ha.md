@@ -173,7 +173,7 @@ Follow the steps below to deploy the **Meeting Server** in your PortSIP PBX HA e
 3. Click **Add**, enter the server information as shown in the screenshot, and then click **OK** to save the configuration.
 4. **Important:** Please note the server name **`meeting-server-1`**. This name will be used in a later step.
 
-<figure><img src="../../../.gitbook/assets/aws_ha_extend_meeting_1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/portsip_pbx_aws_ha_meeting_server_1.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -194,9 +194,10 @@ Perform the following commands **only on the PBX HA node `ip-172-31-16-133`**.
 
 ```shellscript
 cd /opt/portsip-pbx-ha-guide/ && \
-/bin/bash extend.sh run -s meeting-server-only \
--n meeting-server-1 \
--a 172.31.16.137
+/bin/bash extend.sh run \
+    -s meeting-server-only \
+    -n meeting-server-1 \
+    -a 172.31.16.137
 ```
 
 This server status will be **Online** in the PBX Web Portal after it's successfully installed.
@@ -214,7 +215,7 @@ Follow the steps below to deploy the **Queue Server** in your PortSIP PBX High A
 3. Click **Add**, enter the server information as shown in the screenshot, and then click **OK** to save the configuration.
 4. **Important:** Please note the server name **`queue-server-1`**, as it will be used in a later step.
 
-<figure><img src="../../../.gitbook/assets/aws_ha_extend_queue_1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/portsip_pbx_aws_ha_queue_server_1.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -236,9 +237,9 @@ Run the following commands **only on the PBX HA node `ip-172-31-16-133`**.
 ```bash
 cd /opt/portsip-pbx-ha-guide/ && \
 /bin/bash extend.sh run \
-  -s queue-server-only \
-  -n queue-server-1 \
-  -a 172.31.16.138
+    -s queue-server-only \
+    -n queue-server-1 \
+    -a 172.31.16.138
 ```
 
 This server status will be **Online** in the PBX Web Portal after it's successfully installed.
@@ -256,7 +257,7 @@ Follow the steps below to deploy the **Media Server** in your PortSIP PBX High A
 3. Click **Add**, enter the server information as shown in the screenshot, and then click **OK** to save the configuration.
 4. **Important:** Please note the server name **`media-server-1`**, as it will be used in a later step.
 
-<figure><img src="../../../.gitbook/assets/aws_ha_extend_media_1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/portsip_pbx_aws_ha_media_server_1.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -278,9 +279,9 @@ Run the following commands **only on the PBX HA node `ip-172-31-16-133`**.
 ```bash
 cd /opt/portsip-pbx-ha-guide/ && \
 /bin/bash extend.sh run \
-  -s media-server-only \
-  -n media-server-1 \
-  -a 172.31.16.139
+    -s media-server-only \
+    -n media-server-1 \
+    -a 172.31.16.139
 ```
 
 This server status will be **Online** in the PBX Web Portal after it's successfully installed.
@@ -297,6 +298,8 @@ Follow the steps below to deploy the **IVR Server (Virtual Receptionist)** in yo
 2. Navigate to **Servers > IVR Servers**.
 3. Click **Add**, enter the server information as shown in the screenshot, and then click **OK** to save the configuration.
 4. **Important:** Please note the server name **`ivr-server-1`**, as it will be used in a later step.
+
+<figure><img src="../../../.gitbook/assets/portsip_pbx_aws_ha_ivr_server_1.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -318,9 +321,9 @@ Run the following commands **only on the PBX HA node `ip-172-31-16-133`**.
 ```bash
 cd /opt/portsip-pbx-ha-guide/ && \
 /bin/bash extend.sh run \
-  -s vr-server-only \
-  -n ivr-server-1 \
-  -a 172.31.16.140
+    -s vr-server-only \
+    -n ivr-server-1 \
+    -a 172.31.16.140
 ```
 
 This server status will be **Online** in the PBX Web Portal after it's successfully installed.

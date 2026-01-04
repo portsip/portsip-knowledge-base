@@ -172,11 +172,15 @@ To prevent the PBX from applying request-rate limits to the  Data Flow service, 
 1. Sign in to the PBX Web Portal as a System Administrator
 2. Navigate to **IP Blacklist**
 3. Click **Add**
-4. Enter the Data Flow **server IP address**
+4. Enter the Data Flow **Elastic IP address**
 5. Set a **long expiration date**
 6. Save the configuration
 
-<figure><img src="../../../.gitbook/assets/data_flow_whitelist_1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/portsip_pbx_aws_ha_dataflow_whiteliist_1.png" alt=""><figcaption></figcaption></figure>
+
+7. Repeat the above steps to add the Data Flow server private IP `172.31.16.158` to the whitelist.
+
+<figure><img src="../../../.gitbook/assets/portsip_pbx_aws_ha_dataflow_whiteliist_2.png" alt=""><figcaption></figcaption></figure>
 
 This ensures uninterrupted communication between the PBX and the data flow service.
 
@@ -200,7 +204,7 @@ The generated token will be used during the Data Flow service installation to es
 
 ***
 
-#### Step 5: Deploy the Data Flow Service
+#### Step 4: Deploy the Data Flow Service
 
 The data flow service deployment **must be initiated from the `ip-172-31-16-133` node** of the PBX HA cluster.
 

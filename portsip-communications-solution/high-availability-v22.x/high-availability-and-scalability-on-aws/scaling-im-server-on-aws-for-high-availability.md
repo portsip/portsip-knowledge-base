@@ -136,7 +136,7 @@ To ensure consistency and reliable automation across the HA cluster, the IM serv
 
 ### Important Notice
 
-All management and operational commands for **IM server**, must execut the following commands **only on the PBX HA node `ip-172-31-16-133`**, regardless of whether it is currently the active or standby node.
+All management and operational commands for **IM server**, must execute the following commands **only on the PBX HA node `ip-172-31-16-133`**, regardless of whether it is currently the active or standby node.
 
 This ensures configuration consistency and prevents cluster state conflicts.
 
@@ -157,9 +157,13 @@ To prevent the PBX from applying request-rate limits to the IM service, you must
 3. Click **Add**
 4. Enter the IM server IP elastic addres&#x73;**: 54.215.234.67**
 5. Set a **long expiration date**
-6. Save the configuration
+6. Save the configuration]
 
-<figure><img src="../../../.gitbook/assets/im_server_whitelist.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/portsip_pbx_aws_ha_im_whiteliist_1.png" alt=""><figcaption></figcaption></figure>
+
+7. Repeat the above steps to add the IM server private IP `172.31.16.157` to the whitelist.
+
+<figure><img src="../../../.gitbook/assets/portsip_pbx_aws_ha_im_whiteliist_2.png" alt=""><figcaption></figcaption></figure>
 
 This ensures uninterrupted communication between the PBX and the IM service.
 

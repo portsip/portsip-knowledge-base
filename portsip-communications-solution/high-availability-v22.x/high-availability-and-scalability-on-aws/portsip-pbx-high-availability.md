@@ -4,8 +4,6 @@ A **three-node PortSIP PBX high-availability (HA) cluster** provides resilience 
 
 **Figure 1-1 PortSIP PBX HA Architecture**
 
-
-
 <figure><img src="../../../.gitbook/assets/pbx_aws_ha_cluster_diagram.png" alt=""><figcaption></figcaption></figure>
 
 ***
@@ -42,14 +40,14 @@ This shared/persistent storage approach allows a standby node to quickly assume 
 
 ***
 
-### Client Access via Virtual IP
+### Client Access via Elastic IP
 
-In an HA deployment, all SIP clients—including **IP phones, desktop softphones, mobile apps, and WebRTC clients**—connect to the PBX using the **Virtual IP (VIP)**.
+In an HA deployment, all SIP clients—including **IP phones, desktop softphones, mobile apps, and WebRTC clients**—connect to the PBX using the **Elastic IP.**
 
-Using a Virtual IP ensures:
+Using an Elastic IP ensures:
 
 * A single, consistent SIP server address for all clients
-* Seamless failover (the VIP moves to the active node)
+* Seamless failover (the Elastic IP moves to the active node)
 * No need to reconfigure endpoints when a node change occurs
 
 

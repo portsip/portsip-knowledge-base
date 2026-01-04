@@ -163,8 +163,8 @@ After upgrading your PortSIP PBX environment, follow the appropriate guides belo
 
 After completing the PBX upgrade, you must install both the **IM Service** and the **Data Flow Service** by following these guides:
 
-* [Scaling IM Server on AWS for High Availability](scaling-sbc-on-aws-for-high-availability.md)
-* [Scaling Data Flow Server On-Premise for High Availability](scaling-im-server-on-aws-for-high-availability.md)
+* [Scaling IM Server on AWS for High Availability](scaling-im-server-on-aws-for-high-availability.md)
+* [Scaling Data Flow Server On-Premise for High Availability](scaling-data-flow-server-on-aws-for-high-availability.md)
 * [Upgrading the SBC Server](scaling-sbc-on-aws-for-high-availability.md#upgrading-sbc-servers)
 
 ***

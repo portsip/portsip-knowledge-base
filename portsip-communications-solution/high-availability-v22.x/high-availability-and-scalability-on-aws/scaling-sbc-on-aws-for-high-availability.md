@@ -55,7 +55,7 @@ Prepare the EC2 instances that will host the SBC servers. In this example, the f
   * Private IP: `172.31.16.151`
   * Hostname: `ip-172-31-16-151`
   * Elastic IP: `54.215.234.61`
-* **SBC 1Server 2**
+* **SBC Server 2**
   * Private IP: `172.31.16.152`
   * Hostname: `ip-172-31-16-152`
   * Elastic IP: `54.215.234.62`

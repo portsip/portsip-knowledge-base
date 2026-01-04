@@ -91,8 +91,6 @@ If the active node becomes unavailable:
 
 Any calls that were established on the failed primary node are **automatically restored** by the standby node, ensuring minimal disruption to ongoing communications.
 
-English.
-
 ***
 
 ### Notes
@@ -737,17 +735,17 @@ After the restart, you can now access the PBX Web Portal at: https://uc.portsip.
 
 ### Install PortSIP IM Service <a href="#install-portsip-im-service" id="install-portsip-im-service"></a>
 
-With the PortSIP PBX High Availability deployment complete, you are now ready to install the **PortSIP Instant Messaging (IM) Service**.
+With the PortSIP PBX High Availability deployment complete, you are now ready to install the PortSIP Instant Messaging (IM) Service.
 
-Please follow the Scaling IM Server on AWS for High Availability guide to complete the installation and configuration.
+Please follow the [Scaling IM Server on AWS for High Availability](scaling-im-server-on-aws-for-high-availability.md) guide to complete the installation and configuration.
 
 ***
 
 ### Install PortSIP Data Flow Service <a href="#install-portsip-data-flow-service" id="install-portsip-data-flow-service"></a>
 
-With the PortSIP PBX High Availability deployment complete, you are now ready to install the **PortSIP Data Flow Service**.
+With the PortSIP PBX High Availability deployment complete, you are now ready to install the PortSIP Data Flow Service.
 
-Please follow the Scaling Data Flow Server on AWS for High Availability guide to complete the installation and configuration.
+Please follow the [Scaling Data Flow Server on AWS for High Availability](scaling-data-flow-server-on-aws-for-high-availability.md) guide to complete the installation and configuration.
 
 ***
 
