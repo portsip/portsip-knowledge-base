@@ -1,22 +1,50 @@
 # Purchase a DID on Wavix Platform
 
-Before placing or receiving a call, you need to have an active DID or a dozen DID numbers on your Wavix account. If you already have an active number on your Wavix account, the below steps are optional.
+Before placing or receiving calls through Wavix, you must have at least one active DID (Direct Inward Dialing number) associated with your Wavix account.\
+If you already have one or more active DIDs, you may skip this section and proceed directly to trunk configuration.
 
-To purchase a DID on your Wavix account:
+***
 
-1. Log in to your account on [Wavix platform](https://app.wavix.com/auth/sign)
-2. Click on **Buy** under **Numbers & trunks** in the top menu
-3. Select a country and region you wish to purchase a DID in
-4. Choose a specific number or numbers and click the **Buy Now** button
-5. You will be redirected to the Cart where you can confirm your choice and check out the DID(s).
+### Purchase a DID on the Wavix Platform
+
+Follow the steps below to purchase a DID number from Wavix:
+
+1. **Sign in to the Wavix Platform**\
+   Log in to your [Wavix account](https://app.wavix.com/auth/sign) using your administrator credentials.
+2. **Navigate to DID Purchase**\
+   From the top menu, go to **Numbers & Trunks**, then click **Buy**.
+3. **Select Location**\
+   Choose the **country** and **region** where you want to purchase a DID.
+4. **Choose a Number**\
+   Select one or more available DID numbers, then click **Buy Now**.
+5. **Confirm and Check Out**\
+   You will be redirected to the **Cart** page. Review your selection and complete the checkout process to finalize the purchase.
 
 <figure><img src="../../../.gitbook/assets/wavix-fig1.png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="danger" %}
-Some DIDs may require proof of local address and other documents before they can be activated. To enable these DIDs to receive inbound calls, upload the documents required, and wait until they are approved by the Wavix Number Provisioning team.
-{% endhint %}
+***
 
-After purchasing the DID, you can follow one of the guides to configure the trunk with PortSIP PBX.
+### Important Notes on DID Activation
+
+> **Note**\
+> Some DIDs require **local regulatory documentation** (such as proof of address, business registration, or identity documents) before they can be activated.
+
+* Upload the required documents in the Wavix portal as prompted.
+* Inbound calling will remain unavailable until the documents are reviewed and approved.
+* Approval is handled by the **Wavix Number Provisioning team** and may take additional time depending on the country.
+
+***
+
+### Next Steps
+
+Once your DID is successfully purchased and activated, proceed to configure the SIP trunk in PortSIP PBX using one of the following guides:
 
 * [Configuring Wavix IP Authentication Trunk](configuring-wavix-ip-authentication-trunk.md)
 * [Configuring Wavix Digest Trunk](configuring-wavix-digest-trunk.md)
+
+After trunk configuration, you can continue with inbound and outbound call routing and SMS/MMS setup as needed.
+
+
+
+
+

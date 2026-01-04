@@ -1,16 +1,12 @@
 # Wavix SIP Trunk
 
-{% hint style="info" %}
-This guide is only applicable for the PortSIP PBX v22 or higher.
-{% endhint %}
+[Wavix ](https://www.wavix.com/sip-trunk)is a global SIP trunk provider that offers a robust set of voice calling and SMS/MMS messaging services, delivering the reliability and scalability required for modern business communications.
 
-[Wavix ](https://www.wavix.com/sip-trunk)is a SIP trunk provider, it provides a robust set of calling, SMS/MMS features, and reliability that enhances your communications.
+One of the key advantages of using Wavix SIP trunking is its extensive global reach. Wavix provides connectivity in over 170 countries, enabling businesses to make and receive calls worldwide while allowing customers to reach your organization at local calling rates, regardless of location.
 
-One of the primary advantages of trunking with Wavix is its greatly expanded geographic reach. Wavix provides connectivity across 170+ countries, allowing you to make and receive calls around the world. Your callers and customers worldwide can connect with your business at local rates.
+PortSIP PBX natively integrates with [Wavix SIP trunking](https://www.wavix.com/sip-trunk) for both voice calls and SMS/MMS, allowing you to configure and deploy services quickly and efficiently without complex customization.
 
-PortSIP PBX integrated the [Wavix SIP trunking](https://www.wavix.com/sip-trunk) for calls and SMS/MMS that allows you to set up easily.
-
-This article includes the following topics:
+This guide covers the following topics:
 
 * [Purchase a DID on Wavix Platform](purchase-a-did-on-wavix-platform.md)
 * [Configuring Wavix IP Authentication Trunk](configuring-wavix-ip-authentication-trunk.md)
