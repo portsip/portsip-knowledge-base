@@ -1,22 +1,26 @@
 # Flowroute SIP Trunk
 
-{% hint style="info" %}
-This guide is only applicable for the PortSIP PBX v22 or higher.
-{% endhint %}
-
 [Flowroute](https://flowroute.com/) is one of the world’s first software-centric carriers and enables users to enhance and create new services without complexity. With their HyperNetwork™ they are able to mesh multiple networks into a single telecom network providing their customers with superior reliability, reach, and simplicity.
 
-**PortSIP's** calling and SMS features allow users to select [Flowroute](https://flowroute.com/) as their service provider within the configuration settings, ensuring full utilization of both calling and messaging services. To successfully integrate [Flowroute](https://flowroute.com/) service with PortSIP PBX, users must follow these essential steps:
+PortSIP PBX natively integrates with Flowroute SIP trunking to support voice calling and SMS/MMS messaging. Within the PortSIP PBX configuration, users can select Flowroute as their service provider to fully utilize both calling and messaging services.
 
-1. **Obtain a Flowroute Account:** Begin by creating an account with [Flowroute](https://flowroute.com/) to access their services.
-2. **Log In and Configure Settings:** After account creation, log in to your [Flowroute](https://flowroute.com/) account to set up the necessary configurations for seamless integration with PortSIP PBX.
+To successfully integrate Flowroute with PortSIP PBX, you must complete the following high-level steps:
 
-PortSIP PBX integrated the [Flowroute](https://flowroute.com/) SIP trunking for calls and SMS/MMS that allows you to set up easily.
+1. **Obtain a Flowroute Account**\
+   Create an account with Flowroute to gain access to SIP trunking and messaging services.
+2. **Log In and Configure Flowroute Settings**\
+   After account creation, sign in to your Flowroute portal and complete the required configurations for voice and SMS/MMS services.
+3. **Configure Integration in PortSIP PBX**\
+   Set up the Flowroute SIP trunk and messaging integration in the PortSIP PBX Web Portal.
 
-This article includes the following topics:
+***
+
+### Topics Covered in This Article
 
 * [Purchase a DID on the Flowroute Platform](purchase-a-did-on-flowroute-platform.md)
 * [Configuring Flowroute IP Authentication Trunk](configuring-flowroute-ip-authentication-trunk.md)
 * [Configuring Outbound & Inbound Calls](configuring-outbound-and-inbound-calls.md)
 * [Flowroute SMS Integration](flowroute-sms-integration.md)
+
+
 

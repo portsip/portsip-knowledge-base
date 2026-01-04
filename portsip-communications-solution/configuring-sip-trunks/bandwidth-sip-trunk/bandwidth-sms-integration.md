@@ -145,7 +145,7 @@ Inbound SMS messages are delivered to PortSIP PBX through a webhook.
 
 At this point, the Bandwidth SMS/MMS integration is complete.
 
-You can now [create outbound and inbound rules](configuring-outbound-and-inbound-calls.md) in PortSIP PBX to send and receive SMS/MMS messages using the VoIP.ms trunk, just as you would configure rules for voice calls.
+You can now [create outbound and inbound rules](configuring-outbound-and-inbound-calls.md) in PortSIP PBX to send and receive SMS/MMS messages using the Bandwidth trunk, just as you would configure rules for voice calls.
 
 
 

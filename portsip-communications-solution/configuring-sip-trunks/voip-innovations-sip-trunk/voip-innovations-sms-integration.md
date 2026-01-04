@@ -151,9 +151,9 @@ Each SMS-enabled DID must be associated with the PortSIP PBX webhook on the VoIP
 
 ### Verify the Configuration
 
-At this point, the Twilio SMS/MMS integration is complete.
+At this point, the VoIP Innovations SMS/MMS integration is complete.
 
-You can now [create outbound and inbound rules](configuring-outbound-and-inbound-calls.md) in PortSIP PBX to send and receive SMS/MMS messages using the Twilio trunk—just as you would configure rules for outbound and inbound voice calls.
+You can now [create outbound and inbound rules](configuring-outbound-and-inbound-calls.md) in PortSIP PBX to send and receive SMS/MMS messages using the VoIP Innovations trunk, just as you would configure rules for outbound and inbound voice calls.
 
 
 

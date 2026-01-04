@@ -19,7 +19,7 @@ PortSIP PBX uses the **Vonage API Key and API Secret** to send SMS and MMS messa
 > ❗**Important**\
 > Treat the API Key and API Secret as **sensitive credentials**. Do not share them publicly or commit them to source control.
 
-<figure><img src="../../../../.gitbook/assets/vonage-fig4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/vonage-fig4.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -44,7 +44,7 @@ You can manage SMS/MMS settings at the tenant level using one of the following m
   * Sign in directly as a **Tenant Administrator** for the tenant.
 
 > ❗**Reference**\
-> For more details, see [Tenant Management](../../../portsip-pbx-administration-guide/3-tenant-management/).
+> For more details, see [Tenant Management](../../portsip-pbx-administration-guide/3-tenant-management/).
 
 ***
 
@@ -67,12 +67,12 @@ Follow the steps below to create an SMS/MMS configuration.
    * **Secret**\
      Enter the Vonage [API Secret obtained earlier](vonage-sms-integration.md#obtain-the-vonage-api-key).
 
-<figure><img src="../../../../.gitbook/assets/vonage-fig27.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/vonage-fig27.png" alt=""><figcaption></figcaption></figure>
 
 4. Click **OK** to save the configuration.
 5. You are redirected to the **SMS/MMS list** page, and the new SMS configuration is displayed.
 
-<figure><img src="../../../../.gitbook/assets/vonage-fig28.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/vonage-fig28.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -107,7 +107,7 @@ You can configure the webhook at either the **account level** or the **number le
    * **Inbound SMS webhooks**: Paste the PortSIP PBX SMS Webhook URL
 4. Click **Save changes**.
 
-<figure><img src="../../../../.gitbook/assets/vonage-fig29.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/vonage-fig29.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -122,12 +122,12 @@ You can define a **unique inbound SMS webhook** for a specific number.
 2. Locate the number you want to configure.
 3. Click the **pencil icon** in the **Manage** column.
 
-<figure><img src="../../../../.gitbook/assets/vonage-fig30.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/vonage-fig30.png" alt=""><figcaption></figcaption></figure>
 
 4. In the pop-up configuration window, set the **Inbound SMS Webhook URL**.
 5. Click **Save** before closing the window.
 
-<figure><img src="../../../../.gitbook/assets/vonage-fig31.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/vonage-fig31.png" alt="" width="563"><figcaption></figcaption></figure>
 
 ***
 
@@ -135,7 +135,7 @@ You can define a **unique inbound SMS webhook** for a specific number.
 
 At this point, the Vonage SMS/MMS integration is complete.
 
-You can now [create outbound and inbound rules](../../twilio-sip-trunk/configuring-outbound-and-inbound-calls.md) in PortSIP PBX to send and receive SMS/MMS messages using the Vonage trunk—just as you would configure rules for outbound and inbound voice calls.
+You can now [create outbound and inbound rules](../twilio-sip-trunk/configuring-outbound-and-inbound-calls.md) in PortSIP PBX to send and receive SMS/MMS messages using the Vonage trunk—just as you would configure rules for outbound and inbound voice calls.
 
 
 

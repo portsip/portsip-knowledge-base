@@ -2,76 +2,214 @@
 
 Before proceeding with the next steps, you need to purchase a DID on the [Flowroute ](https://www.flowroute.com)platform.
 
-## Flowroute Setup Guide
+This section explains how to configure **IP Authentication** and **Inbound Routes** in the Flowroute portal so the trunk can successfully interoperate with PortSIP PBX.
 
-To configure the Flowroute trunk in the PortSIP PBX, there are two key sections to configure in the Flowroute portal: **Inbound Routes** and **IP Authentication**.
+***
 
-### IP Authentication Configuration
+### Configure IP Authentication
 
-In the **IP Authentication** section, you'll need to set up the public static IP address of your PortSIP PBX system. Additionally, this section will provide the **SIP Host** for your trunk, as well as the **Call Prefix**. The Call Prefix will be used later when configuring the outbound routes on your PBX.
+The **IP Authentication** section defines which PBX is allowed to send and receive SIP traffic and provides key information used later in PortSIP PBX.
+
+#### Steps
+
+1. Log in to your Flowroute portal.
+2. Navigate to the **IP Authentication** section.
+3. Add the **public static IP address** of your PortSIP PBX server.
+
+After configuring IP authentication, Flowroute will provide:
+
+* **SIP Host** for the trunk
+* **Call Prefix**
+
+> **Important**\
+> Make a note of the **Call Prefix**. You will need it later when configuring **Outbound Rules** in PortSIP PBX.
 
 <figure><img src="../../../.gitbook/assets/flowroute_trunk_1 (1).png" alt=""><figcaption></figcaption></figure>
 
-### Configuring the Inbound Routes
+***
 
-In the **Inbound Routes** section, you’ll need to create a route pointing to your PortSIP PBX server. To do this:
+### Configure Inbound Routes
 
-* Select the **Host** route type.
-* In the **Route** field, enter the IP address of your server in the format:\
-  `sip:1.2.3.4:5060`(Replace "1.2.3.4" with your actual PBX Server static public IP.)
+Inbound routes define where incoming calls from Flowroute are delivered.
 
-If your SIP trunk is using a port other than the default port 5060, be sure to use the correct port in the format:\
-`sip:1.2.3.4:5081`(for example).
+#### Steps
 
-Also, in the **Edge Strategy** drop-down, select the **SIP Proxy** host you noted from the **IP Authentication** section.&#x20;
+1. In the Flowroute portal, navigate to **Inbound Routes**.
+2. Create a new inbound route.
+3. Set the **Route Type** to **Host**.
+4.  In the **Route** field, enter your PortSIP PBX address using the following format:
+
+    ```
+    sip:<PBX-IP>:<PORT>
+    ```
+
+    **Example (default SIP port):**
+
+    ```
+    sip:1.2.3.4:5060
+    ```
+
+    **Example (custom SIP port):**
+
+    ```
+    sip:1.2.3.4:5081
+    ```
+
+    > Replace `1.2.3.4` with the **actual static public IP address** of your PBX.
+5. In the **Edge Strategy** drop-down list, select the **SIP Proxy Host** noted earlier in the **IP Authentication** section.
+6. Save the inbound route.
 
 <figure><img src="../../../.gitbook/assets/flowroute_trunk_2 (1).png" alt=""><figcaption></figcaption></figure>
 
-### Associating DIDs with Inbound Routes
+***
 
-Lastly, go to the **DIDs** section in the portal and ensure your **DIDs** are associated with the correct inbound routes. This step is crucial to ensure that calls to your DIDs are properly routed to your PBX.
+### Associate DIDs with Inbound Routes
 
-## Configure IP Authentication Trunk in PortSIP PBX
+To ensure inbound calls reach your PBX, each DID must be linked to the correct inbound route.
 
-You must configure the [Flowroute ](https://www.flowroute.com)as **IP Based Trunk** at the PortSIP PBX system administrator level. Once successfully configured, you can share this trunk with tenants.
+#### Steps
 
-Please follow the below steps:
+1. In the Flowroute portal, navigate to the **DIDs** section.
+2. Select your purchased DID(s).
+3. Associate the DID(s) with the **inbound route** you just created.
+4. Save the changes.
 
-1. Sign in to the PortSIP PBX Web Portal as a System Administrator. Navigate to the left menu and select **Call Manager > Trunks**.&#x20;
-2. Click the **Add** button to open a menu. From the menu, choose **IP Based Trunk**.
+***
+
+### Configure an IP Authentication Trunk in PortSIP PBX
+
+To integrate Flowroute with PortSIP PBX, you must configure Flowroute as an **IP-Based Trunk** at the **System Administrator** level.\
+Once configured, the trunk can be **shared with one or more tenants**.
+
+***
+
+#### Step 1: Create an IP-Based Trunk
+
+1. Sign in to the PortSIP PBX Web Portal as a **System Administrator**.
+2. From the left-hand navigation menu, go to:\
+   **Call Manager > Trunks**
+3. Click **Add**.
+4. From the menu, select **IP Based Trunk**.
 
 <figure><img src="../../../.gitbook/assets/add-ip-trunk.png" alt=""><figcaption></figcaption></figure>
 
-3. Enter the trunk name and choose the brand:
-   * **Name**: Enter a friendly name for the trunk.
-   * **Brand**: Select **Flowroute**.
-   * **Hostname or IP address**: us-west-or.sip.flowroute.com.
-   * Associated IP Addresses: Please contact your[ Flowroute Support Team ](https://flowroute.com/contact-us/)to obtain the IP addresses of the Flowroute trunk. Usually, it comes with one or more IP addresses. Please add them to the **Associated IP Addresses**. For example, 210.82.221.12 and 210.82.221.13.
+***
+
+#### Step 2: Configure Basic Trunk Settings
+
+Enter the following information:
+
+* **Name**\
+  Enter a friendly name for the trunk\
+  (for example, _Flowroute-Trunk_).
+* **Brand**\
+  Select **Flowroute**.
+*   **Hostname or IP Address**\
+    Enter the Flowroute SIP host:
+
+    ```
+    us-west-or.sip.flowroute.com
+    ```
+*   **Associated IP Addresses**
+
+    * Contact [Flowroute Support](https://flowroute.com/contact-us/) to obtain the IP addresses for your SIP trunk.
+    * Flowroute typically provides **one or more IP addresses**.
+    * Add all provided IP addresses in this field.
+
+    **Example:**
+
+    ```
+    210.82.221.12
+    210.82.221.13
+    ```
+
+5. Click **Next**.
 
 <figure><img src="../../../.gitbook/assets/flowroute_trunk_3 (1).png" alt=""><figcaption></figcaption></figure>
 
-4. Click the **Next** button, you can adjust the options for the trunk.
-   * &#x20;**Max Concurrent Calls:** This field sets the maximum number of calls that PortSIP can establish with this trunk. You can adjust it to an appropriate value.
-   * We recommend keeping the default settings for other options unless you have specific requirements.
+***
+
+#### Step 3: Configure Trunk Options
+
+1. Review the trunk options.
+2. Configure the following field if required:
+   * **Max Concurrent Calls**\
+     Sets the maximum number of simultaneous calls PortSIP PBX can establish using this trunk.\
+     Adjust this value according to your capacity planning and Flowroute service agreement.
+
+> **Best Practice**\
+> Keep all other options at their default values unless Flowroute has provided specific requirements.
+
+3. Click **Next**.
 
 <figure><img src="../../../.gitbook/assets/ip-trunk-options.png" alt=""><figcaption></figcaption></figure>
 
-5. Click the **Next** button to assign this trunk to the tenants and provide your Flowroute DIDs/Numbers to them with the DID Pool (DID numbers). A DID can be only assigned to one tenant.
+***
 
-A tenant assigned to this trunk can only use the DID numbers within the DID pool range to create inbound and outbound rules and configure the outbound caller ID for extensions.
+#### Step 4: Assign Tenants and Configure the DID Pool
+
+1. Select one or more **tenants** to grant access to this trunk.
+2. Configure the **DID Pool** to assign Flowroute DIDs to tenants.
+
+> **Important**
+>
+> * Each DID can be assigned to **only one tenant**.
+> * A tenant can use **only the DIDs in its assigned DID Pool** to:
+>   * Create inbound rules
+>   * Create outbound rules
+>   * Configure outbound caller ID for extensions
+
+**DID Pool Format Examples**
+
+*   Single number
+
+    ```
+    16468097065
+    ```
+*   Multiple individual numbers
+
+    ```
+    16468097065;16468097066
+    ```
+*   Range of numbers
+
+    ```
+    16468097065-16468097066
+    ```
+*   Combination of ranges and individual numbers
+
+    ```
+    16468097065-16468097066;16468097070-16468097080
+    ```
+
+3. Click **OK** to save the configuration.
 
 <figure><img src="../../../.gitbook/assets/wavix-fig17.png" alt=""><figcaption></figcaption></figure>
 
-* DID Pool: The DID pool can consist of a single number, a range of numbers, or a combination of both. For example:
-  * `16468097065`
-  * `16468097065;16468097066`
-  * `16468097065-16468097066;16468097069`&#x20;
-  * `16468097065-16468097066;16468097070-16468097080`
+***
 
-Click the **OK** button to save the changes. The trunk configuration is now complete.
+#### Expected Result
 
-In the trunk list, you will see the status displayed as **Registered** (for IP Based Trunk it always displays Registered).
+* The Flowroute IP-Based Trunk is created successfully.
+* In the trunk list, the status displays as **Online.**\
+  (for IP-Based Trunks, the status always shows _On line_).
 
 <figure><img src="../../../.gitbook/assets/flowroute_trunk_4 (1).png" alt=""><figcaption></figcaption></figure>
 
-Now you can follow the article to [Configuring inbound and outbound calls](configuring-outbound-and-inbound-calls.md).<br>
+***
+
+### Next Steps
+
+The VoIP.ms Register Authentication Trunk is now ready for use.
+
+You can proceed to:
+
+* Configure outbound call routing rules
+* Configure inbound DID routing
+* Assign outbound caller IDs
+
+Refer to the next guide section: [Configuring Outbound & Inbound Calls](configuring-outbound-and-inbound-calls.md).
+
+
+
+<br>
