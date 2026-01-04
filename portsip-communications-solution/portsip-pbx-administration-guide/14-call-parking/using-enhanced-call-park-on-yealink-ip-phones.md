@@ -4,15 +4,16 @@ This article explains how to use the PortSIP PBX’s uniquely enhanced call park
 
 ## Supported Yealink IP Phone Models
 
-* T3X series, download the firmware:
+* T3x series, download the firmware:
   * [T31(T30,T30P,T31G,T31P,T33P,T33G)-124.86.0.163-muti.rom](https://yealink7-my.sharepoint.com/:u:/g/personal/jim_jia_yealink7_onmicrosoft_com/EW8MO9Pup05Mu3Fd8CIqpVUBKFAQ_15J0_EC-epILVQQlA?e=evSJJt)
   * [T31(T30,T30P,T31G,T31P,T33P,T33G)-124.86.0.118-muti.rom](https://dmfile.yealinkops.com/firmware/b842ee3ae2e94aa2b8450314b6867aba/1670571390494/T31\(T30,T30P,T31G,T31P,T33P,T33G\)-124.86.0.118.rom)&#x20;
-* T4X series, download the firmware:&#x20;
+* T4x series, download the firmware:&#x20;
   * [T46U(T43U,T46U,T41U,T48U,T42U,T44U,T44W)-108.86.0.164.rom](https://yealink7-my.sharepoint.com/:u:/g/personal/jim_jia_yealink7_onmicrosoft_com/EeK1bPv1h2VDnwzjGYwXY9cBD6g5sv8BUHRQg-9LWQppKQ?e=vkbFqs)
   * [T46U(T43U,T46U,T41U,T48U,T42U,T44U,T44W)-108.86.0.118.rom](https://dmfile.yealinkops.com/firmware/18facaab3c9c479e86e1707970ebe6fb/1670571333242/T46U\(T43U,T46U,T41U,T48U,T42U\)-108.86.0.118.rom)
-* T5X series, download the firmware:&#x20;
+* T5x series, download the firmware:&#x20;
   * [T54W(T57W,T53W,T53,T53C,T54,T57)-96.86.0.163.rom](https://yealink7-my.sharepoint.com/:u:/g/personal/jim_jia_yealink7_onmicrosoft_com/EevWwF0-xKNKgnwOB17mctUBLNnWQpQzuPfKehj8r0e4BQ?e=vj12dh)
   * [T54W(T57W,T53W,T53,T53C,T54,T57)-96.86.0.118.rom](https://dmfile.yealinkops.com/firmware/821074fc924f43a8ad2fe494a0a5cae9/1670571488097/T54W\(T57W,T53W,T53,T53C,T54,T57\)-96.86.0.118.rom)
+* T7x, T8x serries, download the firmawre from yearlink website.
 
 ## Supported PortSIP PBX Version
 
