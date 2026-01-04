@@ -1,106 +1,214 @@
 # Configuring VoiceMeUp Trunk
 
-[VoiceMeUp](https://www.voicemeup.com/index.html) is a VoIP service provider available to commercial customers anywhere in the world. VoiceMeUp SIP Trunks connect your cloud PBX and on-premise PBX phone system directly into the VoiceMeUp network via an internet connection to carry and terminate your calls across the public telephone network.
+Configuring the [VoiceMeUp SIP trunk](https://www.voicemeup.com/index.html) in PortSIP PBX is straightforward. Follow the steps below to complete the setup.
 
-Configuring the [VoiceMeUp SIP trunk](https://www.voicemeup.com/index.html) into your PortSIP PBX is straightforward. Please follow the steps below.
+***
 
-## Sign Up and Purchase DID Numbers
+### Prerequisite: Sign Up and Purchase DID Numbers
 
-You will need to contact [VoiceMeUp](https://www.voicemeup.com/index.html) to sign up for the account and purchase the DID numbers. Typically, you will receive the below information:
+Before configuring the trunk, you must contact **VoiceMeUp** to create an account and purchase DID numbers.
 
-* **Trunk username**: The username for authentication with the VoiceMeUp trunk
-* **Trunk Password**: The password for authentication with the VoiceMeUp trunk
+After signup, you will typically receive the following credentials:
 
-## Configure VoiceMeUp Trunk in PortSIP PBX
+* **Trunk Username** – Used for SIP authentication with the VoiceMeUp trunk
+* **Trunk Password** – Used for SIP authentication with the VoiceMeUp trunk
 
-You can configure the VoiceMeUp SIP trunk as Register Based Trunk at either the PortSIP PBX **system administrator level** or the **Tenant Admin level**:
+Keep these details available—you will need them during trunk configuration.
 
-* If configured at the system administrator level, you can share this trunk with tenants.
-* If configured at the tenant admin level, this trunk can only be used by the tenant itself.
+***
 
-Please follow the below steps:
+### Configure the VoiceMeUp Trunk in PortSIP PBX
 
-1. Sign in to the PortSIP PBX Web Portal as a System Administrator or Tenant Admin. Navigate to the left menu and select **Call Manager > Trunks**.&#x20;
-2. Click the **Add** button to open a menu. From the menu, choose **Register Based Trunk**.
+VoiceMeUp SIP trunks are configured as **Register-Based Trunks** in PortSIP PBX.\
+You can configure the trunk at either level:
+
+* **System Administrator level**
+  * The trunk can be **shared with one or more tenants**
+* **Tenant Administrator level**
+  * The trunk can be used **only by that tenant**
+
+***
+
+#### Step 1: Create a Register-Based Trunk
+
+1. Sign in to the **PortSIP PBX Web Portal** as a **System Administrator** or **Tenant Admin**.
+2. From the left-hand navigation menu, go to:\
+   **Call Manager > Trunks**
+3. Click **Add**.
+4. From the menu, select **Register Based Trunk**.
 
 <figure><img src="../../../.gitbook/assets/add-register-trunk.png" alt=""><figcaption></figcaption></figure>
 
-3. Enter the trunk name and choose the brand:
-   * **Name**: Enter a friendly name for the trunk.
-   * **Brand**: Select **VoiceMeUp** for this field.
-   * **DID Pool**: This step is only for you at the _**Tenant admin Level**_ to configure this **Register Based Trunk**,  you will need to set up your **VoiceMeUp** DID numbers for this DID pool for this trunk.
-     * This tenant can only use the DID numbers within the DID pool range to create inbound and outbound rules and configure the outbound caller ID for extensions.
-     * &#x20;The DID pool can consist of a single number, a range of numbers, or a combination of both. For example:
-       * `16468097065`
-       * `16468097065-16468097066`
-       * `16468097065-16468097066;16468097069`&#x20;
-       * `16468097065-16468097066;16468097070-16468097080`
+***
+
+#### Step 2: Configure Basic Trunk Settings
+
+Enter the following information:
+
+* **Name**\
+  Enter a friendly name for the trunk\
+  (for example, _VoiceMeUp-Trunk_).
+* **Brand**\
+  Select **VoiceMeUp**.
+* **DID Pool** _(Tenant Admin level only)_
+  * Configure the VoiceMeUp DID numbers assigned to this tenant.
+  * The tenant can use **only the DIDs in this DID Pool** to:
+    * Create inbound rules
+    * Create outbound rules
+    * Configure outbound caller ID for extensions
+
+**DID Pool format examples:**
+
+```
+16468097065
+16468097065-16468097066
+16468097065-16468097066;16468097069
+16468097065-16468097066;16468097070-16468097080
+```
+
+5. Click **Next**.
 
 <figure><img src="../../../.gitbook/assets/voicemeuo_trunk_1.png" alt=""><figcaption></figcaption></figure>
 
-4. Click the **Next** button, and set up the trunk credentials.
-   * Authentication name: Enter the username of the VoiceMeUp trunk.
-   * Password: The password of the VoiceMeUp trunk.
+***
+
+#### Step 3: Configure Trunk Credentials
+
+1. Enter the authentication details provided by VoiceMeUp:
+   * **Authentication Name**\
+     Enter the **VoiceMeUp trunk username**.
+   * **Password**\
+     Enter the **VoiceMeUp trunk password**.
+2. Click **Next**.
 
 <figure><img src="../../../.gitbook/assets/voicemeuo_trunk_2.png" alt=""><figcaption></figcaption></figure>
 
-5. Click the **Next** button, you can adjust the options for the trunk.
-   * &#x20;**Max Concurrent Calls:** This field sets the maximum number of calls that PortSIP can establish with this trunk. You can adjust it to an appropriate value.
-   * We recommend keeping the default settings for other options unless you have specific requirements.
+***
+
+#### Step 4: Configure Trunk Options
+
+1. Review the trunk options.
+2. Configure the following field if required:
+   * **Max Concurrent Calls**\
+     Sets the maximum number of simultaneous calls PortSIP PBX can establish using this trunk.\
+     Adjust this value according to your service agreement with VoiceMeUp.
+
+> **Best Practice**\
+> Keep all other options at their default values unless VoiceMeUp has provided specific requirements.
+
+3. Click **Next**.
 
 <figure><img src="../../../.gitbook/assets/registration-trunk-options.png" alt=""><figcaption></figcaption></figure>
 
-6. This step is only available when configuring the Register-Based Trunk at the _**System Administrator Level**_. Click the **Next** button to assign this trunk to the tenants and provide your VoiceMeUp DIDs/Numbers to them with the DID Pool (DID numbers). A DID can be only assigned to one tenant.
-   * A tenant assigned to this trunk can only use the DID numbers within the DID pool range to create inbound and outbound rules and configure the outbound caller ID for extensions.
-   * DID Pool: The DID pool can consist of a single number, a range of numbers, or a combination of both. For example:
-     * `16468097065`
-     * `16468097065;16468097066`
-     * `16468097065-16468097066;16468097069`&#x20;
-     * `16468097065-16468097066;16468097070-16468097080`
+***
+
+#### Step 5: Assign Tenants and DID Pool (System Admin Only)
+
+This step is **available only when configuring the trunk at the System Administrator level**.
+
+1. Select one or more **tenants** to grant access to the trunk.
+2. Configure the **DID Pool** for each tenant.
+
+> **Important**
+>
+> * Each DID can be assigned to **only one tenant**.
+> * A tenant can use **only the DIDs in its assigned DID Pool**.
+
+**DID Pool format examples:**
+
+```
+16468097065
+16468097065;16468097066
+16468097065-16468097066;16468097069
+16468097065-16468097066;16468097070-16468097080
+```
+
+3. Click **OK** to save the configuration.
 
 <figure><img src="../../../.gitbook/assets/voicemeuo_trunk_3.png" alt=""><figcaption></figcaption></figure>
 
-Click the **OK** button to save the changes; the trunk configuration is completed.
+***
 
-Once the PortSIP PBX successfully registers this trunk to the VoiceMeUp platform, in the trunk list page you will see the status displayed as **Registered**.
+#### Expected Result
+
+* The VoiceMeUp trunk is successfully created.
+* Once PortSIP PBX registers with the VoiceMeUp platform, the trunk status displays as **Online** on the trunk list page.
 
 <figure><img src="../../../.gitbook/assets/voicemeuo_trunk_4.png" alt=""><figcaption></figcaption></figure>
 
-## Adjust Outbound Parameters
+***
 
-For outbound calls, VoiceMeUp requires specific configurations. Ensure to review the settings carefully.
+### Adjust Outbound Parameters for the VoiceMeUp Trunk
 
-Double-click the configured VoiceMeUp trunk, click on the **Outbound Parameters** tab, and adjust the following parameters:
+For outbound calls, VoiceMeUp requires specific SIP header mappings to ensure correct caller ID presentation. Review and configure these settings carefully.
 
-### Contact: User part
+***
 
-Choose `"OutboundCallerID" Outbound caller Id taken from Web Portal` for this field.
+#### Step 1: Configure Outbound Parameters
+
+1. In the **PortSIP PBX Web Portal**, navigate to **Call Manager > Trunks**.
+2. **Double-click** the configured **VoiceMeUp trunk**.
+3. Open the **Outbound Parameters** tab.
+4.  Configure the following fields:
+
+    **Contact: User part**
+
+    * Choose `OutboundCallerID`\
+      &#xNAN;_(Outbound caller ID taken from the Web Portal)_
 
 <figure><img src="../../../.gitbook/assets/gamma-1.png" alt="" width="563"><figcaption></figcaption></figure>
 
-### From: User part
+**From: User part**
 
-Choose `"OutboundCallerID" Outbound caller Id taken from Web Portal` for this field.
+* Choose `OutboundCallerID`\
+  &#xNAN;_(Outbound caller ID taken from the Web Portal)_
 
 <figure><img src="../../../.gitbook/assets/gamma-2.png" alt="" width="563"><figcaption></figcaption></figure>
 
-### P-Asserted-Identity: User part
+**P-Asserted-Identity: User part**
 
-Choose `"OutboundCallerID" Outbound caller Id taken from Web Portal` for this field.
+* Choose `OutboundCallerID`\
+  &#xNAN;_(Outbound caller ID taken from the Web Portal)_
 
-### P-Asserted-Identity: Host part
+**P-Asserted-Identity: Host part**
 
-Choose `"TrunkHostPort" Trunk host/port` for this field.
+* Choose `TrunkHostPort`\
+  &#xNAN;_(Trunk host and port information)_
 
 <figure><img src="../../../.gitbook/assets/gamma-3.png" alt="" width="563"><figcaption></figcaption></figure>
 
-## Set Up Outbound Caller ID
+***
 
-VoiceMeUp trunk requires the CLI presentation (outbound caller ID) to be in E164 format. When setting the Outbound Caller ID for an extension, ensure the number is prefixed with a `+`. Refer to the screenshot below for a visual guide.
+### Set Up Outbound Caller ID (CLI)
+
+VoiceMeUp requires the **CLI (outbound caller ID)** to be in **E.164 format**.
+
+#### Requirements
+
+* The outbound caller ID **must be prefixed with `+`**
+*   Example:
+
+    ```
+    +16468097065
+    ```
+
+When configuring the outbound caller ID for an extension in PortSIP PBX, ensure the number follows this format.
 
 <figure><img src="../../../.gitbook/assets/voicemeuo_trunk_5.png" alt=""><figcaption></figcaption></figure>
 
-## Create Outbound Rules
+***
 
-Now you can follow the article [Configuring inbound and outbound calls](../questblue-sip-trunk/configuring-outbound-and-inbound-calls.md) for the VoiceMeUp trunk to make outbound calls.
+### Next Steps
+
+The Bandwidth Register Authentication Trunk is now ready for use.
+
+You can proceed to:
+
+* Configure outbound call routing rules
+* Configure inbound DID routing
+* Assign outbound caller IDs
+
+Refer to the next guide: [Route Management](../../portsip-pbx-administration-guide/8-call-route-management/).<br>
+
+
 

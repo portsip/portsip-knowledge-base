@@ -21,7 +21,7 @@ You can access a tenant in one of the following ways:
 * Sign in directly as a **Tenant Administrator** to manage that tenant.
 
 > ❗**Note**\
-> For more information about tenant roles and access control, refer to [Tenant Management](../../portsip-pbx-administration-guide/3-tenant-management/).
+> For more information about tenant roles and access control, refer to [Tenant Management](../../../portsip-pbx-administration-guide/3-tenant-management/).
 
 ***
 
@@ -39,7 +39,7 @@ Outbound Rules determine how outbound calls are routed and which trunk is used w
    * **Apply this rule to the following calls**\
      Define at least **one condition** (for example, number patterns or call types) that determines when this rule is applied.
 
-<figure><img src="../../../.gitbook/assets/questblue-fig8.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/questblue-fig8.png" alt=""><figcaption></figcaption></figure>
 
 #### Select the Trunk Route
 
@@ -47,7 +47,7 @@ Outbound Rules determine how outbound calls are routed and which trunk is used w
 2. Click the **Add (+)** icon.
 3. Select the **Vonage trunk**, then save the outbound rule.
 
-<figure><img src="../../../.gitbook/assets/vonage_trunk_rule_1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/vonage_trunk_rule_1.png" alt=""><figcaption></figcaption></figure>
 
 #### Number Format (Optional)
 
@@ -64,7 +64,7 @@ If users dial U.S. domestic numbers without the country code, you can configure 
 > **Best Practice**\
 > Ensure the final number format matches the requirements of your SIP trunk provider.
 
-<figure><img src="../../../.gitbook/assets/vonage_trunk_rule_2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/vonage_trunk_rule_2.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -88,7 +88,7 @@ Inbound Rules define how incoming calls (DIDs/DDIs) are routed to extensions, ri
      Select the extension (or other destination) to which inbound calls should be routed.
 4. Click **OK** to save the inbound rule.
 
-<figure><img src="../../../.gitbook/assets/vonage_trunk_rule_3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/vonage_trunk_rule_3.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -101,9 +101,9 @@ Depending on your business requirements, you can further enhance the inbound rul
 * Sending calls to **voicemail** outside business hours
 * Automatically **rejecting or dropping calls** when appropriate
 
-For more details, refer to the article [Office Hours and Holiday Schedule](../../portsip-pbx-administration-guide/office-hours-and-holiday-schedule/).
+For more details, refer to the article [Office Hours and Holiday Schedule](../../../portsip-pbx-administration-guide/office-hours-and-holiday-schedule/).
 
-For comprehensive information about inbound and outbound routing behavior, see [Call Route Management](../../portsip-pbx-administration-guide/8-call-route-management/).
+For comprehensive information about inbound and outbound routing behavior, see [Call Route Management](../../../portsip-pbx-administration-guide/8-call-route-management/).
 
 
 
