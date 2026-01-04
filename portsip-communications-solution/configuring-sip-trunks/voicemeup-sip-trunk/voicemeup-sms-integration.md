@@ -1,120 +1,216 @@
 # VoiceMeUp SMS Integration
 
-Before proceeding with the next steps, you need to purchase a DID on the VoiceMeUp platform with the SMS/MMS enabled.
-
-## Purchase DID Numbers
-
-Log in to the [VoiceMeUp customer portal](https://clients.voicemeup.com/v3/login) and complete the following settings:
-
 {% hint style="warning" %}
 According to US legislation (A2P 10DLC SMS), 10DLC (10-digit Long Code) phone numbers that are used for A2P (Application-to-Person) messaging MUST be registered, otherwise SMS messages sent to US numbers from the unregistered 10DLC numbers will be blocked.
 
 If your business communicates with US-based customers, you should contact the SMS service provider to complete 10DLC registration for your DID number to avoid disruption in message delivery.
 {% endhint %}
 
-1. In the left-hand menu, navigate to **Services > DID Numbers**.
-2. Click the **New** button located at the top of the page.
-3. In the pop-up window, select either **SMS Only** or **MMS/SMS** as the desired option.
-4. Click the **Submit** button to complete the process.
+***
+
+### Purchase DID Numbers on the VoiceMeUp Platform
+
+Follow the steps below to purchase a DID with SMS/MMS enabled.
+
+#### Step 1: Sign In to the VoiceMeUp Customer Portal
+
+1. Log in to the [VoiceMeUp customer portal](https://clients.voicemeup.com/v3/login) using your account credentials.
+2. From the left-hand navigation menu, go to: **Services > DID Numbers**
+3. Click **New** at the top of the page.
+
+***
+
+#### Step 2: Enable SMS/MMS for the DID
+
+1. In the pop-up window, select one of the following options:
+   * `SMS Only`, or `MMS/SMS`
+2. Click **Submit** to complete the process.
 
 <figure><img src="../../../.gitbook/assets/voicemeuo_trunk_6.png" alt="" width="563"><figcaption></figcaption></figure>
 
-## Obtain the VoiceMeUp Account Info
+***
 
-Please follow the below steps to create the user, and then you can use it in the PortSIP PBX to integrate the VoiceMeUp SMS API.
+### Obtain VoiceMeUp Account Information for SMS API Integration
 
-* Navigate to the menu Account < Users & Access, and then click the New button.
-* Configure the account information and enable API access for the account.
-  * User type: Choose Standard.
-  * Username: Enter a name, for example, **portsip**. Note it down, as you will need it later.
+To integrate the VoiceMeUp SMS API with PortSIP PBX, you must create a VoiceMeUp user account with API access and retrieve an Auth Token.
 
-Once the account is created successfully, you are redirected to the user account list.
+***
 
-* Navigate to the account's details page and obtain the Auth Token for the integration.
+#### Step 1: Access the Users & Access Section
 
-To integrate the VoiceMeUp SMS API with PortSIP PBX, follow these steps to create a user account with API access and retrieve the necessary authentication token:
+1. Log in to your VoiceMeUp account.
+2. From the main menu, navigate to: **Account > Users & Access**
 
-1. **Access the Users & Access Section**:
-   * Log in to your VoiceMeUp account.
-   * Navigate to **Account** > **Users & Access** from the main menu.
-2. **Create a New User**:
-   * Click the **New** button to initiate the creation of a new user account.
-   * In the account information form, provide the following details:
-     * **User Type**: Select **Standard**.
-     * **Username**: Enter a desired username (e.g., `portsip`). Ensure you note this username for later use.
-     * **First Name**, **Last Name**, and **Email**: Fill in the appropriate details.
-   * Navigate to the **Access** tab.
-     * Click the **Regenerate the Token** button to generate a new Auth Token.
-     * Copy the Auth Token by clicking the copy icon next to the token field. Store this token securely, as it will be required for integration.
-   * Click the **Save** button to finalize the creation of the new user account.
+***
 
-By completing these steps, you will have established a user account with API access and obtained the necessary Auth Token to integrate the VoiceMeUp SMS API with your PortSIP PBX system.
+#### Step 2: Create a New User with API Access
 
-In the future, you can retrieve the access token as below:
+1. Click **New** to create a new user.
+2. In the **Account Information** section, configure the following fields:
+   * **User Type**\
+     Select `Standard`.
+   *   **Username**\
+       Enter a username (for example, `portsip`).
 
-* On the user account list page
-* Locate the user and click the **Edit** button to access the account details.
-* In the **Access** tab, copy the Auth Token by clicking the copy icon. Ensure this token is stored securely for integration purposes.
+       > **Important**: Note this username—you will need it later in PortSIP PBX.
+   * **First Name / Last Name / Email**\
+     Enter the appropriate details.
+3. Navigate to the **Access** tab.
+4. Click **Regenerate Token** to generate a new **Auth Token**.
+5. Click the **copy icon** to copy the Auth Token.
+6. Store the token securely.
+7. Click **Save** to complete user creation.
+
+***
+
+#### Step 3: Obtain the Auth Token
+
+After the user account is created:
+
+* You are redirected to the **Users & Access list**.
+* Open the newly created user’s **details page**.
+* In the **Access** tab, locate and copy the **Auth Token**.
+
+> **Security Best Practice**\
+> Treat the Auth Token as a sensitive credential.\
+> Do not expose it publicly or store it in plaintext files.
+
+***
+
+#### Retrieve the Auth Token Later
+
+If you need to retrieve the Auth Token in the future:
+
+1. Log in to the **VoiceMeUp customer portal**.
+2. Navigate to **Account > Users & Access**.
+3. Locate the user account and click **Edit**.
+4. Open the **Access** tab.
+5. Click the **copy icon** next to the **Auth Token**.
 
 <figure><img src="../../../.gitbook/assets/voicemeuo_trunk_7.png" alt=""><figcaption></figcaption></figure>
 
-## Configure SMS with VoiceUpMe Trunk in PortSIP PBX
+***
 
-Before you begin configuring SMS in PortSIP PBX, ensure that you have already set up a **VoiceMeUp SIP trunk**. You can follow the appropriate guide to configure the trunk.
+### Configure SMS with the VoiceMeUp Trunk in PortSIP PBX
 
-* [Configuring VoiceMeUp Trunk](configuring-voicemeup-trunk.md)
+This section explains how to configure SMS integration in PortSIP PBX using a VoiceMeUp SIP trunk.
 
-### Sign in to the PortSIP PBX Web Portal
+***
 
-To configure SMS integration, sign in to the **PortSIP PBX Web Portal** using one of the following methods:
+#### Prerequisite
 
-* **Sign in as the PBX System Administrator**:
-  * Navigate to the **Tenants** menu.
-  * Choose the desired tenant.
-  * Click the **Manage** button to switch to that tenant’s settings.
-* **Sign in as a Tenant Administrator**: If you are a tenant admin, sign in directly to manage the tenant’s settings.
+Before configuring SMS, ensure that:
 
-For more details on managing tenants, refer to the [Tenant Management](../../portsip-pbx-administration-guide/3-tenant-management/) guide.
+* A VoiceMeUp SIP trunk has already been configured in PortSIP PBX: [Configuring VoiceMeUp Trunk](configuring-voicemeup-trunk.md)
+* A VoiceMeUp user account with API access has been created
+* You have obtained the Username and Auth Token from VoiceMeUp
 
-### Add an SMS Configuration
+***
 
-Follow these steps to configure SMS in the PortSIP PBX Web Portal:
+#### Sign in to the PortSIP PBX Web Portal
 
-1. **Navigate to SMS/MMS Settings**:
-   * In the PortSIP PBX Web Portal, go to the left-hand menu and select **SMS/MMS**.
-   * Click the **Add** button to create a new configuration.
-2. **Select the Trunk**: From the list, choose the **VoiceMeUp** trunk that you previously configured.
-3. **Configure SMS Settings**:
-   * **Sender ID**: (Optional)\
-     If you want to send SMS with a custom **Sender ID**, enter the **Sender ID** created in the VoiceMeUp platform. Leave this field blank if no Sender ID is required.
-   * **Username**: Paste the **VoiceMeUp username** created in the earlier steps (e.g., `portsip`).
-   * **Auth Token**: Paste the **VoiceMeUp Auth Token** obtained during user creation.
-4. **Save the Configuration**: After entering the required information, click **Save** to apply the configuration.
+To configure SMS integration, sign in to the PortSIP PBX Web Portal using one of the following methods:
+
+**Option 1: PBX System Administrator**
+
+1. Sign in as a **PBX System Administrator**.
+2. Navigate to **Tenants**.
+3. Select the target tenant.
+4. Click **Manage** to switch to that tenant’s settings.
+
+**Option 2: Tenant Administrator**
+
+* Sign in directly as a **Tenant Administrator** to manage the tenant’s settings.
+
+> **Note**\
+> For more details, see [Tenant Management](../../portsip-pbx-administration-guide/3-tenant-management/).
+
+***
+
+### Add an SMS Configuration in PortSIP PBX
+
+#### Step 1: Create the SMS Configuration
+
+1. In the PortSIP PBX Web Portal, navigate to: **SMS/MMS**
+2. Click **Add** to create a new SMS configuration.
+3. From the trunk list, select the **VoiceMeUp Trunk**.
+
+***
+
+#### Step 2: Configure SMS Settings
+
+Configure the following fields:
+
+* **Sender ID** _(Optional)_
+  * Enter the Sender ID created on the VoiceMeUp platform if you want to use a custom sender.
+  * Leave this field empty to use the **DID associated with the VoiceMeUp trunk**.
+* **Username**
+  * Enter the **VoiceMeUp username** created earlier\
+    (for example, `portsip`).
+* **Auth Token**
+  * Enter the **Auth Token** obtained when creating the VoiceMeUp user account.
+
+4. Click **OK** to save the configuration.
 
 <figure><img src="../../../.gitbook/assets/voicemeuo_trunk_8.png" alt=""><figcaption></figcaption></figure>
 
-5. Click **OK** to be brought to the SMS/MMS list page. You can select that SMS configuration, then press the **Copy Webhook** button to copy the Webhook URL. Or Double-click the SMS configuration to edit the SMS configuration, in the details copy the Webhook URL.
+***
 
-## Configure the Webhook in VoiceMeUp
+#### Step 3: Copy the PortSIP PBX Webhook URL
 
-1. Log in to the [VoiceMeUp customer portal](https://clients.voicemeup.com/v3/login) and navigate to **Services > DID Numbers**.
-2. Edit the DID number you want to use for receiving SMS.
-3. In the **Available Options** section, ensure the **SMS/MMS** option is enabled.
-4. Paste the Webhook URL you copied from the PortSIP PBX configuration into the **Callback URL** field.
+Inbound SMS messages are delivered to PortSIP PBX through a webhook.
+
+1. On the **SMS/MMS** list page, select the SMS configuration you just created.
+2. Click **Copy Webhook**,\
+   **or**
+3. Double-click the SMS configuration, open its details, and copy the **Webhook URL**.
+
+> You will need this Webhook URL to complete the SMS callback configuration on the **VoiceMeUp** platform.
+
+***
+
+### Configure the Webhook in VoiceMeUp
+
+This section explains how to configure the **SMS/MMS webhook** in the VoiceMeUp portal so inbound messages are delivered to PortSIP PBX.
+
+***
+
+#### Step 1: Open the DID Configuration
+
+1. Log in to the VoiceMeUp customer portal.
+2. From the left-hand navigation menu, go to: **Services > DID Numbers**
+3. Locate the DID you want to use for receiving SMS/MMS.
+4. Click **Edit** to open the DID configuration.
+
+***
+
+#### Step 2: Enable SMS/MMS and Configure the Webhook
+
+1. In the **Available Options** section:
+   * Ensure **SMS/MMS** is **enabled**.
+   * Paste the **Webhook URL** copied from the PortSIP PBX SMS configuration into the **Callback URL** field.
 
 <figure><img src="../../../.gitbook/assets/voicemeuo_trunk_9 (1).png" alt=""><figcaption></figcaption></figure>
 
-5. In the next section, navigate to the **SMS/MMS Options** tab. Enable the **SMS/MMS for this DID** option, and paste the Webhook URL you copied from the PortSIP PBX configuration into the **Callback URL (Webhook)** field.
+2. Navigate to the **SMS/MMS Options** tab.
+3. Enable the option **SMS/MMS for this DID**.
+4. Paste the **same Webhook URL** into the **Callback URL (Webhook)** field.
+5. Click **Save** to apply the changes.
+
+> **Note**\
+> Using the same Webhook URL in both sections ensures that all inbound SMS/MMS messages are correctly delivered to PortSIP PBX.
 
 <figure><img src="../../../.gitbook/assets/voicemeuo_trunk_10.png" alt=""><figcaption></figcaption></figure>
 
-6. Click the **Save** button to apply your changes.
+***
 
-Congratulations! You have successfully configured SMS integration with VoiceMeUp.
+### Verify the Configuration
 
-## Verify Configuration
+At this point, the VoiceMeUp SMS/MMS integration is complete.
 
-Now you can [create the outbound and inbound](../twilio-sip-trunk/configuring-outbound-and-inbound-calls.md) rules in PortSIP PBX for sending and receiving SMS/MMS using the VoiceMeUpTrunk, just like you create the rules for making and receiving calls.
+You can now [create outbound and inbound rules ](../../portsip-pbx-administration-guide/8-call-route-management/)in PortSIP PBX to send and receive SMS/MMS messages using the VoiceMeUp trunk, just as you would configure rules for outbound and inbound voice calls.
+
+
 
 
 

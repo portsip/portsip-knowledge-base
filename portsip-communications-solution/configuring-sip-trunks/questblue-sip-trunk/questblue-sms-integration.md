@@ -119,7 +119,7 @@ Follow these steps:
 
 At this point, the QuestBlue SMS/MMS integration is complete.
 
-You can now [create outbound and inbound rules](configuring-outbound-and-inbound-calls.md) in PortSIP PBX to send and receive SMS/MMS messages using the QuestBlue trunk—just as you would configure rules for outbound and inbound voice calls.
+You can now [create outbound and inbound rules](configuring-outbound-and-inbound-calls.md) in PortSIP PBX to send and receive SMS/MMS messages using the QuestBlue trunk, just as you would configure rules for outbound and inbound voice calls.
 
 
 
