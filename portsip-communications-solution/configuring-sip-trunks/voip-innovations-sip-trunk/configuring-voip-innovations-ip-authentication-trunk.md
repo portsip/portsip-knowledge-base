@@ -2,46 +2,126 @@
 
 Before proceeding with the next steps, you need to purchase a DID on the [VoIP Innovations](purchase-a-did-on-voip-innovations-platform.md) platform.
 
-## Configure IP Authentication Trunk in PortSIP PBX
+***
 
-You must configure the VoIP Innovations as **IP Based Trunk** at the PortSIP PBX system administrator level. Once successfully configured, you can share this trunk with tenants.
+### Configure a VoIP Innovations IP Authentication Trunk in PortSIP PBX
 
-Please follow the below steps:
+Before proceeding, ensure that you have **purchased at least one DID** on the VoIP Innovations platform.
 
-1. Sign in to the PortSIP PBX Web Portal as a System Administrator. Navigate to the left menu and select **Call Manager > Trunks**.&#x20;
-2. Click the **Add** button to open a menu. From the menu, choose **IP Based Trunk**.
+VoIP Innovations must be configured as an **IP-Based Trunk** at the **PortSIP PBX System Administrator** level.\
+Once configured, the trunk can be **shared with one or more tenants**, and DIDs can be assigned through a **DID Pool**.
+
+***
+
+#### Step 1: Create the IP-Based Trunk
+
+1. Sign in to the **PortSIP PBX Web Portal** as a **System Administrator**.
+2. From the left-hand menu, navigate to:\
+   **Call Manager > Trunks**
+3. Click **Add** to open the trunk type menu.
+4. Select **IP Based Trunk**.
 
 <figure><img src="../../../.gitbook/assets/add-ip-trunk.png" alt=""><figcaption></figcaption></figure>
 
-3. Enter the trunk name and choose the brand:
-   * **Name**: Enter a friendly name for the trunk.
-   * **Brand**: Select **VoIP Innovations**.
+***
+
+#### Step 2: Configure Basic Trunk Settings
+
+1. Enter the trunk details:
+   * **Name**\
+     Enter a friendly name for the trunk (for example, _VoIP Innovations Trunk_).
+   * **Brand**\
+     Select **VoIP Innovations**.
+2. Click **Next**.
 
 <figure><img src="../../../.gitbook/assets/vi_trunk_1.png" alt="" width="563"><figcaption></figcaption></figure>
 
-4. Click the **Next** button, you can adjust the options for the trunk.
-   * &#x20;**Max Concurrent Calls:** This field sets the maximum number of calls that PortSIP can establish with this trunk. You can adjust it to an appropriate value.
-   * We recommend keeping the default settings for other options unless you have specific requirements.
+***
+
+#### Step 3: Configure Trunk Options
+
+1. Review the trunk options and adjust settings as needed.
+2. Configure the following field if required:
+   * **Max Concurrent Calls**\
+     Defines the maximum number of simultaneous calls PortSIP PBX can establish using this trunk.\
+     Set this value according to your capacity planning and service agreement with VoIP Innovations.
+
+> **Best Practice**\
+> Keep all other options at their default values unless you have specific requirements provided by VoIP Innovations.
+
+3. Click **Next**.
 
 <figure><img src="../../../.gitbook/assets/ip-trunk-options.png" alt=""><figcaption></figcaption></figure>
 
-5. Click the **Next** button to assign this trunk to the tenants and provide your VoIP Innovations DIDs/Numbers to them with the DID Pool (DID numbers). A DID can be only assigned to one tenant.
+***
 
-A tenant assigned to this trunk can only use the DID numbers within the DID pool range to create inbound and outbound rules and configure the outbound caller ID for extensions.
+#### Step 4: Assign the Trunk to Tenants and Configure the DID Pool
+
+1. Select one or more **tenants** to grant access to this trunk.
+2. Configure the **DID Pool** to assign VoIP Innovations numbers to tenants.
+
+> **Important**
+>
+> * Each DID can be assigned to **only one tenant**.
+> * A tenant can use **only the DIDs in its assigned DID Pool** to:
+>   * Create inbound rules
+>   * Create outbound rules
+>   * Configure outbound caller ID for extensions
+
+**DID Pool Format Examples**
+
+The DID Pool can include:
+
+*   A single number
+
+    ```
+    16468097065
+    ```
+*   Multiple individual numbers
+
+    ```
+    16468097065;16468097066
+    ```
+*   A range of numbers
+
+    ```
+    16468097065-16468097066
+    ```
+*   A combination of ranges and individual numbers
+
+    ```
+    16468097065-16468097066;16468097070-16468097080
+    ```
+
+3. Click **OK** to save the configuration.
 
 <figure><img src="../../../.gitbook/assets/wavix-fig17.png" alt=""><figcaption></figcaption></figure>
 
-* DID Pool: The DID pool can consist of a single number, a range of numbers, or a combination of both. For example:
-  * `16468097065`
-  * `16468097065;16468097066`
-  * `16468097065-16468097066;16468097069`&#x20;
-  * `16468097065-16468097066;16468097070-16468097080`
+***
 
-Click the **OK** button to save the changes. The trunk configuration is now complete.
+#### Expected Result
 
-In the trunk list, you will see the status displayed as **Registered** (for IP Based Trunk it always displays Registered).
+* The VoIP Innovations trunk is created successfully.
+* In the trunk list, the trunk status displays as **Online.**\
+  (for **IP-Based Trunks**, the status always shows _Online_).
 
 <figure><img src="../../../.gitbook/assets/vi_trunk_2.png" alt=""><figcaption></figcaption></figure>
 
-Now you can follow the article on [Configuring inbound and outbound calls](configuring-outbound-and-inbound-calls.md).
+***
+
+### Next Steps
+
+The Vonage IP Authentication Trunk is now ready for use.
+
+You can proceed to:
+
+* Configure outbound call routing rules
+* Configure inbound DID routing
+* Assign outbound caller IDs
+
+Refer to the next guide section: [Configuring inbound and outbound calls](configuring-outbound-and-inbound-calls.md).
+
+
+
+
 
