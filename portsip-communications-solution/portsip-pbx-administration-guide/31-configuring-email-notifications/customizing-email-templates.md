@@ -92,9 +92,11 @@ Before using an HTML template in production, it is recommended to preview it usi
 
 This allows you to verify formatting, layout, and variable placement before applying the template in PortSIP PBX.
 
+***
+
 ### Default HTML Templates
 
-PortSIP provides a set of **default HTML email templates** that you can use as a starting point.
+PortSIP provides a set of [default HTML email templates](https://github.com/portsip/templates/tree/master/email) that you can use as a starting point.
 
 You are welcome to download these templates and customize them to meet your branding and notification requirements. These templates are designed to demonstrate best practices and help you get started quickly.
 

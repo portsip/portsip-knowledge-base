@@ -16,6 +16,9 @@ These variables are available in all email notification templates.
 **%%TENANT\_NAME%%**\
 The name of the tenant that is sending the email.
 
+**%%PBX\_WEB\_DOMAIN%%**\
+The PBX web portal domain (FQDN).
+
 ***
 
 ### Reset Password
@@ -49,6 +52,9 @@ The PBX web portal domain (FQDN).
 **%%AUTH\_CODE%%**\
 A one-time authentication code used for 2FA verification.
 
+**%%PBX\_WEB\_DOMAIN%%**\
+The PBX web portal domain (FQDN).
+
 ***
 
 ### Call Reports
@@ -63,6 +69,9 @@ The name of the generated call report.
 
 **%%CALLREPORT\_LINK%%**\
 A download link for the generated call report.
+
+**%%PBX\_WEB\_DOMAIN%%**\
+The Fully Qualified Domain Name (FQDN) of the PBX web portal.
 
 ***
 
@@ -85,6 +94,9 @@ The URL used to join the meeting.
 **%%DIAL\_NUMBER%%**\
 The dial-in phone number for the meeting.
 
+**%%PBX\_WEB\_DOMAIN%%**\
+The Fully Qualified Domain Name (FQDN) of the PBX web portal.
+
 ***
 
 ### Low Disk Space Alert
@@ -99,6 +111,9 @@ The amount of disk space currently in use.
 
 **%%FREE\_SIZE%%**\
 The remaining available disk space.
+
+**%%PBX\_WEB\_DOMAIN%%**\
+The Fully Qualified Domain Name (FQDN) of the PBX web portal.
 
 ***
 
@@ -115,6 +130,9 @@ The number that initiated the emergency call.
 **%%CALLEE\_NUMBER%%**\
 The emergency destination number that was called.
 
+**%%PBX\_WEB\_DOMAIN%%**\
+The Fully Qualified Domain Name (FQDN) of the PBX web portal.
+
 ***
 
 ### License Limit Reached
@@ -126,6 +144,9 @@ The date and time when the license limit was reached.
 
 **%%LICENSE\_TYPE%%**\
 The type of license that has reached its limit.
+
+**%%PBX\_WEB\_DOMAIN%%**\
+The Fully Qualified Domain Name (FQDN) of the PBX web portal.
 
 ***
 
@@ -148,6 +169,9 @@ The queue extension number.
 **%%CALLER\_NUMBER%%**\
 The original caller’s phone number.
 
+**%%PBX\_WEB\_DOMAIN%%**\
+The Fully Qualified Domain Name (FQDN) of the PBX web portal.
+
 ***
 
 ### Failed Queue Callback
@@ -169,6 +193,9 @@ The queue extension number.
 **%%CALLER\_NUMBER%%**\
 The original caller’s phone number.
 
+**%%PBX\_WEB\_DOMAIN%%**\
+The Fully Qualified Domain Name (FQDN) of the PBX web portal.
+
 ***
 
 ### Lost Queue Call
@@ -186,6 +213,9 @@ The queue extension number.
 
 **%%CALLER\_NUMBER%%**\
 The caller’s phone number for the abandoned call.
+
+**%%PBX\_WEB\_DOMAIN%%**\
+The Fully Qualified Domain Name (FQDN) of the PBX web portal.
 
 ***
 
