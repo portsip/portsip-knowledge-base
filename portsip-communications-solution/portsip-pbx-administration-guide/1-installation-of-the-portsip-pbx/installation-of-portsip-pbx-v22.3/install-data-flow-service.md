@@ -8,7 +8,7 @@ The Data Flow service powers the following advanced capabilities:
 
 * [Call Detail Record (CDR) storage and analytics](../../20-cdr-and-call-recordings/cdr.md)
 * [Comprehensive call reports](../../21-call-reports/call-reports.md)
-* Real-time data dashboards
+* [Real-time data dashboards](../../16-call-queue/live-wallboards.md)
 * [Queue wallboards for contact center operations](../../16-call-queue/live-wallboards.md)
 
 ClickHouse is optimized for large-scale analytical workloads, capable of handling billions of CDRs and real-time queue or agent activity data with extremely fast query performance. This makes it ideal for service providers and enterprise-grade deployments.
@@ -196,10 +196,10 @@ Command parameters:
 
 * `-p` : Path for storing Data Flow and ClickHouse data (required)
 * `-d` : ClickHouse Docker image (`portsip/clickhouse:25.8`)
-* `-a` : Private IP address of the Data Flow server
-* `-A` : Public IP address (use if private IP is not available)
+* `-a` : **Private IP address** of the Data Flow server
+* `-A` : Public IP address (**only use if the server has no private IP**)
 * `-i` : PortSIP PBX Docker image version (required)
-* `-x` : PBX server IP address
+* `-x` : PBX server **private IP address**
   * If PBX is deployed in **HA mode**, use the **Virtual IP (VIP)**
 
 Example command:
