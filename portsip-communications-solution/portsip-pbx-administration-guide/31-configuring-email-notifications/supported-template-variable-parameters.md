@@ -267,6 +267,8 @@ Variables used in the welcome email for a newly created extension:
   Extension SIP password.
 * `%%VOICEMAIL_PIN%%`\
   Voicemail PIN.
+* `%%EMAIL_ADDRESS%%`\
+  The user's email adress.
 * `%%DOMAIN%%`\
   Tenant SIP domain.
 * `%%PBX_WEB_DOMAIN%%`\
