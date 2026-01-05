@@ -205,6 +205,8 @@ Variables used when a shared voicemail is received:
   Caller phone number.
 * `%%VOICEMAIL_NAME%%`\
   Name of the shared voicemail box.
+* `%%VOICEMAIL_DOWNLOAD_URL%%`\
+  Direct download link for the voicemail file.
 
 ***
 
