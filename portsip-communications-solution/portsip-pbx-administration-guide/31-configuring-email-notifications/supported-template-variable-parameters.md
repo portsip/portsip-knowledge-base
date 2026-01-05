@@ -1,9 +1,10 @@
 # Supported Template Variable Parameters
 
-Below is a list of all available template variables that can be used when customizing email templates.
+### Available Email Template Variables
 
-You can access email template configuration in the PortSIP PBX Web Portal under:
+Below is a complete list of template variables that can be used when customizing email templates in PortSIP PBX.
 
+You can configure email templates in the PortSIP PBX Web Portal under:\
 **Advanced > Email Templates**
 
 ***
@@ -12,300 +13,365 @@ You can access email template configuration in the PortSIP PBX Web Portal under:
 
 These variables are available in all email notification templates.
 
-* `%%TENANT_NAME%%`\
-  The name of the tenant sending the email.
+**%%TENANT\_NAME%%**\
+The name of the tenant that is sending the email.
 
 ***
 
 ### Reset Password
 
-Variables used in password reset email notifications:
+Variables used in password reset email notifications.
 
-* `%%DISPLAY_NAME%%`\
-  Display name of the extension user who receives the password reset email.
-* `%%PBX_WEB_DOMAIN%%`\
-  Fully Qualified Domain Name (FQDN) of the PBX web portal.
-* `%%RESET_PASSWORD_LINK%%`\
-  Secure link the user clicks to reset their password.
+**%%DISPLAY\_NAME%%**\
+The display name of the extension user who receives the password reset email.
+
+**%%PBX\_WEB\_DOMAIN%%**\
+The Fully Qualified Domain Name (FQDN) of the PBX web portal.
+
+**%%RESET\_PASSWORD\_LINK%%**\
+A secure link that the user clicks to reset their password.
 
 ***
 
 ### 2FA Verification
 
-Variables used in Two-Factor Authentication (2FA) emails:
+Variables used in Two-Factor Authentication (2FA) verification emails.
 
-* `%%DISPLAY_NAME%%`\
-  Display name of the extension user.
-* `%%EXTENSION_NUMBER%%`\
-  Extension number of the user.
-* `%%PBX_WEB_DOMAIN%%`\
-  PBX web portal domain (FQDN).
-* `%%AUTH_CODE%%`\
-  One-time authentication code for 2FA verification.
+**%%DISPLAY\_NAME%%**\
+The display name of the extension user.
+
+**%%EXTENSION\_NUMBER%%**\
+The extension number of the user.
+
+**%%PBX\_WEB\_DOMAIN%%**\
+The PBX web portal domain (FQDN).
+
+**%%AUTH\_CODE%%**\
+A one-time authentication code used for 2FA verification.
 
 ***
 
 ### Call Reports
 
-Variables used in call report generation emails:
+Variables used in call report generation emails.
 
-* `%%CALLREPORT_TYPE%%`\
-  Type of call report.
-* `%%CALLREPORT_NAME%%`\
-  Name of the generated call report.
-* `%%CALLREPORT_LINK%%`\
-  Download link for the generated call report.
+**%%CALLREPORT\_TYPE%%**\
+The type of call report generated.
+
+**%%CALLREPORT\_NAME%%**\
+The name of the generated call report.
+
+**%%CALLREPORT\_LINK%%**\
+A download link for the generated call report.
 
 ***
 
 ### Meeting Invitation
 
-Variables used in meeting invitation emails:
+Variables used in meeting invitation emails.
 
-* `%%TOPIC%%`\
-  Meeting subject or topic.
-* `%%TIME%%`\
-  Scheduled meeting time.
-* `%%PASSWORD%%`\
-  Meeting access password.
-* `%%JOIN_LINK%%`\
-  URL used to join the meeting.
-* `%%DIAL_NUMBER%%`\
-  Dial-in phone number for the meeting.
+**%%TOPIC%%**\
+The meeting subject or topic.
+
+**%%TIME%%**\
+The scheduled meeting time.
+
+**%%PASSWORD%%**\
+The meeting access password.
+
+**%%JOIN\_LINK%%**\
+The URL used to join the meeting.
+
+**%%DIAL\_NUMBER%%**\
+The dial-in phone number for the meeting.
 
 ***
 
 ### Low Disk Space Alert
 
-Variables used in disk usage warning emails:
+Variables used in disk usage warning emails.
 
-* `%%DATE_TIME%%`\
-  Date and time when the alert was triggered.
-* `%%USED_SIZE%%`\
-  Amount of disk space currently in use.
-* `%%FREE_SIZE%%`\
-  Remaining available disk space.
+**%%DATE\_TIME%%**\
+The date and time when the alert was triggered.
+
+**%%USED\_SIZE%%**\
+The amount of disk space currently in use.
+
+**%%FREE\_SIZE%%**\
+The remaining available disk space.
 
 ***
 
 ### Emergency Call Made
 
-Variables used in emergency call notifications:
+Variables used in emergency call notification emails.
 
-* `%%DATE_TIME%%`\
-  Date and time when the emergency call was placed.
-* `%%CALLER_NUMBER%%`\
-  The number that initiated the emergency call.
-* `%%CALLEE_NUMBER%%`\
-  Emergency destination number.
+**%%DATE\_TIME%%**\
+The date and time when the emergency call was placed.
+
+**%%CALLER\_NUMBER%%**\
+The number that initiated the emergency call.
+
+**%%CALLEE\_NUMBER%%**\
+The emergency destination number that was called.
 
 ***
 
 ### License Limit Reached
 
-Variables used when a license limit is reached:
+Variables used when a license limit is reached.
 
-* `%%DATE_TIME%%`\
-  Date and time the license limit was reached.
-* `%%LICENSE_TYPE%%`\
-  Type of license that has reached its limit.
+**%%DATE\_TIME%%**\
+The date and time when the license limit was reached.
+
+**%%LICENSE\_TYPE%%**\
+The type of license that has reached its limit.
 
 ***
 
 ### Queue Callback Scheduled
 
-Variables used in queue callback success notifications:
+Variables used in queue callback success notifications.
 
-* `%%DATE_TIME%%`\
-  Date and time of the callback were scheduled.
-* `%%CALL_BACK_NUMBER%%`\
-  Phone number used for the callback.
-* `%%QUEUE_NAME%%`\
-  Name of the queue.
-* `%%QUEUE_NUMBER%%`\
-  Queue extension number.
-* `%%CALLER_NUMBER%%`\
-  Original caller number.
+**%%DATE\_TIME%%**\
+The date and time when the callback was scheduled.
+
+**%%CALL\_BACK\_NUMBER%%**\
+The phone number used for the callback.
+
+**%%QUEUE\_NAME%%**\
+The name of the queue.
+
+**%%QUEUE\_NUMBER%%**\
+The queue extension number.
+
+**%%CALLER\_NUMBER%%**\
+The original caller’s phone number.
 
 ***
 
 ### Failed Queue Callback
 
-Variables used in queue callback failure notifications:
+Variables used in queue callback failure notifications.
 
-* `%%DATE_TIME%%`\
-  Date and time when the callback failed.
-* `%%CALL_BACK_NUMBER%%`\
-  Callback phone number.
-* `%%QUEUE_NAME%%`\
-  Queue name.
-* `%%QUEUE_NUMBER%%`\
-  Queue extension number.
-* `%%CALLER_NUMBER%%`\
-  Original caller number.
+**%%DATE\_TIME%%**\
+The date and time when the callback failed.
+
+**%%CALL\_BACK\_NUMBER%%**\
+The callback phone number.
+
+**%%QUEUE\_NAME%%**\
+The name of the queue.
+
+**%%QUEUE\_NUMBER%%**\
+The queue extension number.
+
+**%%CALLER\_NUMBER%%**\
+The original caller’s phone number.
 
 ***
 
 ### Lost Queue Call
 
-Variables used when a queue call is abandoned:
+Variables used when a queue call is abandoned.
 
-* `%%DATE_TIME%%`\
-  Date and time when the call was lost.
-* `%%QUEUE_NAME%%`\
-  Queue name.
-* `%%QUEUE_NUMBER%%`\
-  Queue extension number.
-* `%%CALLER_NUMBER%%`\
-  Caller number of the abandoned call.
+**%%DATE\_TIME%%**\
+The date and time when the call was lost.
+
+**%%QUEUE\_NAME%%**\
+The name of the queue.
+
+**%%QUEUE\_NUMBER%%**\
+The queue extension number.
+
+**%%CALLER\_NUMBER%%**\
+The caller’s phone number for the abandoned call.
 
 ***
 
 ### Queue SLA Breach
 
-Variables used in queue SLA breach notifications:
+Variables used in queue SLA breach notification emails.
 
-* `%%DATE_TIME%%`\
-  Date and time the SLA breach occurred.
-* `%%CALLER_NUMBER%%`\
-  Caller number associated with the breach.
-* `%%QUEUE_NAME%%`\
-  Queue name.
-* `%%QUEUE_NUMBER%%`\
-  Queue extension number.
-* `%%BREACHSLANO%%`\
-  Total number of calls when the SLA breach occurred.
-* `%%WAITSESSIONNO%%`\
-  Number of callers waiting in the queue.
-* `%%SLA_TIME%%`\
-  Configured SLA time threshold for the queue.
+**%%DATE\_TIME%%**\
+The date and time when the SLA breach occurred.
+
+**%%CALLER\_NUMBER%%**\
+The caller’s phone number associated with the breach.
+
+**%%QUEUE\_NAME%%**\
+The name of the queue.
+
+**%%QUEUE\_NUMBER%%**\
+The queue extension number.
+
+**%%BREACHSLANO%%**\
+The total number of calls when the SLA breach occurred.
+
+**%%WAITSESSIONNO%%**\
+The number of callers waiting in the queue at the time of the breach.
+
+**%%SLA\_TIME%%**\
+The configured SLA time threshold for the queue.
 
 ***
 
 ### User Recharge
 
-Variables used in extension user recharge or payment notifications:
+Variables used in extension user recharge or payment notification emails.
 
-* `%%DATE_TIME%%`\
-  Date and time of the recharge.
-* `%%PAYMENT_AMOUNT%%`\
-  Recharge or payment amount.
-* `%%DISPLAY_NAME%%`\
-  Display name of the extension user.
+**%%DATE\_TIME%%**\
+The date and time of the recharge or payment.
+
+**%%PAYMENT\_AMOUNT%%**\
+The recharge or payment amount.
+
+**%%DISPLAY\_NAME%%**\
+The display name of the extension user.
 
 ***
 
 ### New Shared Voicemail Received
 
-Variables used when a shared voicemail is received:
+Variables used when a new shared voicemail is received.
 
-* `%%DATE_TIME%%`\
-  Date and time the voicemail was received.
-* `%%CALLER_EXTENSION_NUMBER%%`\
-  Caller phone number.
-* `%%VOICEMAIL_NAME%%`\
-  Name of the shared voicemail box.
-* `%%VOICEMAIL_DOWNLOAD_URL%%`\
-  Direct download link for the voicemail file.
+**%%DATE\_TIME%%**\
+The date and time when the voicemail was received.
+
+**%%CALLER\_EXTENSION\_NUMBER%%**\
+The caller’s phone number.
+
+**%%VOICEMAIL\_NAME%%**\
+The name of the shared voicemail box.
+
+**%%VOICEMAIL\_DOWNLOAD\_URL%%**\
+A direct download link for the voicemail file.
 
 ***
 
 ### Trunk Max Concurrent Calls Reached
 
-Variables used when a trunk reaches its concurrency limit:
+Variables used when a trunk reaches its maximum concurrent call limit.
 
-* `%%DATE_TIME%%`\
-  Date and time the limit was reached.
-* `%%TENANT_NAME%%`\
-  Tenant name.
-* `%%TRUNK_NAME%%`\
-  Trunk name.
-* `%%TRUNK_MAX_CONCURRENT_CALLS%%`\
-  Configured maximum concurrent call limit.
+**%%DATE\_TIME%%**\
+The date and time when the limit was reached.
+
+**%%TENANT\_NAME%%**\
+The tenant name.
+
+**%%TRUNK\_NAME%%**\
+The trunk name.
+
+**%%TRUNK\_MAX\_CONCURRENT\_CALLS%%**\
+The configured maximum number of concurrent calls for the trunk.
 
 ***
 
 ### SIP Trunk Connected
 
-Variables used when a SIP trunk connects successfully:
+Variables used when a SIP trunk successfully connects.
 
-* `%%DATE_TIME%%`\
-  Date and time of the connection.
-* `%%TRUNK_NAME%%`\
-  Trunk name.
-* `%%PBX_WEB_DOMAIN%%`\
-  PBX web portal domain (FQDN).
+**%%DATE\_TIME%%**\
+The date and time of the connection.
+
+**%%TRUNK\_NAME%%**\
+The trunk name.
+
+**%%PBX\_WEB\_DOMAIN%%**\
+The PBX web portal domain (FQDN).
 
 ***
 
 ### SIP Trunk Disconnected
 
-Variables used when a SIP trunk disconnects:
+Variables used when a SIP trunk disconnects.
 
-* `%%DATE_TIME%%`\
-  Date and time of the disconnection.
-* `%%TRUNK_NAME%%`\
-  Trunk name.
-* `%%PBX_WEB_DOMAIN%%`\
-  PBX web portal domain (FQDN).
-* `%%STATUS_CODE%%`\
-  SIP response or error code.
+**%%DATE\_TIME%%**\
+The date and time of the disconnection.
+
+**%%TRUNK\_NAME%%**\
+The trunk name.
+
+**%%PBX\_WEB\_DOMAIN%%**\
+The PBX web portal domain (FQDN).
+
+**%%STATUS\_CODE%%**\
+The SIP response or error code indicating the disconnection reason.
 
 ***
 
 ### Extension Information for New User Created
 
-Variables used in the welcome email for a newly created extension:
+Variables used in the Welcome Email sent when a new extension is created.
 
-* `%%DISPLAY_NAME%%`\
-  User display name.
-* `%%USER_NAME%%`\
-  Login username.
-* `%%USER_PASSWORD%%`\
-  User login password.
-* `%%EXTENSION_NUMBER%%`\
-  Extension number.
-* `%%EXTENSION_PASSWORD%%`\
-  Extension SIP password.
-* `%%VOICEMAIL_PIN%%`\
-  Voicemail PIN.
-* `%%EMAIL_ADDRESS%%`\
-  The user's email adress.
-* `%%DOMAIN%%`\
-  Tenant SIP domain.
-* `%%PBX_WEB_DOMAIN%%`\
-  PBX web portal domain (FQDN).
-* `%%SIP_PUBLIC_IP%%`\
-  SIP server public IPv4 address.
-* `%%SIP_PRIVATE_IP%%`\
-  SIP server private IPv4 address.
-* `%%SIP_PUBLIC_IPV6%%`\
-  SIP server public IPv6 address.
-* `%%SIP_PRIVATE_IPV6%%`\
-  SIP server private IPv6 address.
-* `%%UDP_PORT%%`\
-  SIP UDP port.
-* `%%TCP_PORT%%`\
-  SIP TCP port.
-* `%%TLS_PORT%%`\
-  SIP TLS port.
-* `%%QR_CODE_URL%%`\
-  QR code URL for client app login.
+**%%DISPLAY\_NAME%%**\
+The user’s display name.
+
+**%%USER\_NAME%%**\
+The login username.
+
+**%%USER\_PASSWORD%%**\
+The user’s login password.
+
+**%%EXTENSION\_NUMBER%%**\
+The extension number.
+
+**%%EXTENSION\_PASSWORD%%**\
+The SIP password for the extension.
+
+**%%VOICEMAIL\_PIN%%**\
+The voicemail PIN.
+
+**%%EMAIL\_ADDRESS%%**\
+The user’s email address.
+
+**%%DOMAIN%%**\
+The tenant SIP domain.
+
+**%%PBX\_WEB\_DOMAIN%%**\
+The PBX web portal domain (FQDN).
+
+**%%SIP\_PUBLIC\_IP%%**\
+The public IPv4 address of the SIP server.
+
+**%%SIP\_PRIVATE\_IP%%**\
+The private IPv4 address of the SIP server.
+
+**%%SIP\_PUBLIC\_IPV6%%**\
+The public IPv6 address of the SIP server.
+
+**%%SIP\_PRIVATE\_IPV6%%**\
+The private IPv6 address of the SIP server.
+
+**%%UDP\_PORT%%**\
+The SIP UDP listening port.
+
+**%%TCP\_PORT%%**\
+The SIP TCP listening port.
+
+**%%TLS\_PORT%%**\
+The SIP TLS listening port.
+
+**%%QR\_CODE\_URL%%**\
+The QR code URL used for client app login.
 
 ***
 
 ### New Voicemail Received
 
-Variables used when a new voicemail is received:
+Variables used when a new voicemail is received.
 
-* `%%DATE_TIME%%`\
-  Date and time the voicemail was received.
-* `%%CALLER_EXTENSION_NUMBER%%`\
-  Caller phone number.
-* `%%VOICEMAIL_NAME%%`\
-  Voicemail box name.
-* `%%VOICEMAIL_DOWNLOAD_URL%%`\
-  Direct download link for the voicemail file.
+**%%DATE\_TIME%%**\
+The date and time when the voicemail was received.
+
+**%%CALLER\_EXTENSION\_NUMBER%%**\
+The caller’s phone number.
+
+**%%VOICEMAIL\_NAME%%**\
+The voicemail box name.
+
+**%%VOICEMAIL\_DOWNLOAD\_URL%%**\
+A direct download link for the voicemail file.
 
 
 

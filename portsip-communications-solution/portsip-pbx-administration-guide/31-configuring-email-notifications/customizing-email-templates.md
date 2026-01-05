@@ -2,39 +2,52 @@
 
 ### Introduction to Email Templates
 
-PortSIP PBX allows you to **customize email notification templates**, giving you full control over the content and appearance of system-generated emails.
+PortSIP PBX allows you to customize email notification templates, giving you full control over the content, appearance, and sender details of system-generated emails.
 
-With this powerful feature, you can tailor every email template in PortSIP PBX to match your organization’s needs and branding. You can add your own logos or branding text, include links to important resources, and personalize messages using recipient-specific information and other dynamic fields.
+With this feature, you can tailor each email template to match your organization’s branding, tone, and operational requirements. For example, you can:
 
-For example, you can customize the default **Welcome Email Template,** the email sent when a new extension is created, to include your own messaging, custom links, and even modify the **From (Display Name)** or dynamically insert the recipient’s **first and last name** based on their extension settings.
+* Add your own logos or branding text
+* Include links to internal or external resources
+* Personalize messages using recipient-specific information and other dynamic fields
 
-In the following example, we’ll walk through how to modify the Welcome Email Template to:
+A common use case is customizing the **Welcome Email**, which is automatically sent when a new extension is created. You can modify this template to include your own messaging, custom links, and dynamic content such as the recipient’s first and last name. You can also customize the **From (Display Name)** shown to recipients.
 
-* Set a custom sender name, and
-* Automatically include the recipient’s first and last name in the email content.
+In the following sections, you will learn how to:
+
+* Set a custom sender display name
+* Automatically insert the recipient’s first and last name into the email content
 
 ***
 
 ### Add a Display Name to Your Email
 
-You can configure a custom sender display name for outgoing emails by editing the email template.
+You can configure a custom **sender display name** for outgoing emails by editing the email template.
 
-Follow the steps below:
+#### Steps
 
-1. Navigate to **Advanced > Email Templates**.
-2. Select the email template you want to modify.
-3. In the **Mail From** field, enter the desired sender display name.
-4. Click **Save**.
+1. Sign in to the PortSIP PBX Web Portal.
+2. Navigate to **Advanced > Email Templates**.
+3. Select the email template you want to modify.
+4. In the **Mail From** field, enter the desired sender display name.
+5. Click **Save**.
 
-The value entered in **Mail From** appears as the **From** name in the Welcome Email and other emails that use this template.
+#### Result
 
-#### Using a dynamic sender name
+The value entered in the **Mail From** field appears as the **From** name in the Welcome Email and in any other notifications that use this template.
 
-You can use the variable:
+***
 
-* `%%TENANT_NAME%%`
+### Using a Dynamic Sender Name
 
-When this variable is used in the **Mail From** field, the PBX automatically replaces it with the tenant’s name, allowing the sender's display name to match the tenant dynamically.
+PortSIP PBX supports dynamic values in the **Mail From** field.
+
+You can use the following variable:
+
+```
+%%TENANT_NAME%%
+```
+
+When this variable is used, the PBX automatically replaces it with the tenant’s name at runtime. This allows the sender display name to dynamically match the tenant without requiring manual changes to the template.
 
 <figure><img src="../../../.gitbook/assets/custom_email_template.png" alt=""><figcaption></figcaption></figure>
 
@@ -44,39 +57,46 @@ When this variable is used in the **Mail From** field, the PBX automatically rep
 
 By default, PortSIP PBX sends email notifications in **plain-text format**.
 
-You can freely edit the content in the template editor—add or remove text, reorder sections, and adjust any of the supported **template variables** to suit your requirements.
+You can freely edit the template content using the built-in editor. This includes:
 
-A full list of supported template variables is available here:
+* Adding or removing text
+* Reordering sections
+* Inserting or removing supported template variables
 
-**Supported Template Variable Parameters**
+This flexibility allows you to tailor the Welcome Email to match your organization’s messaging and onboarding requirements.
+
+A complete list of supported variables is available here:\
+[Supported Template Variable Parameters](supported-template-variable-parameters.md)
 
 ***
 
 ### Customize Email Notifications Using HTML Templates
 
-PortSIP PBX supports sending email notifications in **HTML format**, allowing you to create more visually appealing and professional-looking emails.
+PortSIP PBX also supports **HTML-formatted email notifications**, allowing you to create more visually appealing and professional emails.
 
-You can create your own HTML page that includes the supported **template variables**, then copy and paste the HTML source code into the template editor. You are free to modify the layout, styling, and content as needed.
+You can:
+
+* Design your own HTML email template
+* Include any supported template variables
+* Copy and paste the HTML source code directly into the template editor
+
+You are free to modify the **layout, styling, and content** to suit your branding and communication standards.
 
 <figure><img src="../../../.gitbook/assets/custom_email_template_1.png" alt=""><figcaption></figcaption></figure>
 
-To verify and preview your HTML email before using it, you can paste the HTML source code into an online editor such as:
+#### Tip: Preview Your HTML Email
+
+Before using an HTML template in production, it is recommended to preview it using an online HTML editor, such as:
 
 [HTML Code Editor – Instant Preview](https://htmlcodeeditor.com/)
 
-***
+This allows you to verify formatting, layout, and variable placement before applying the template in PortSIP PBX.
 
-#### Default HTML templates
+### Default HTML Templates
 
 PortSIP provides a set of **default HTML email templates** that you can use as a starting point.
 
-You are welcome to download these templates and customize them to suit your branding and notification requirements.
-
-
-
-
-
-
+You are welcome to download these templates and customize them to meet your branding and notification requirements. These templates are designed to demonstrate best practices and help you get started quickly.
 
 
 
