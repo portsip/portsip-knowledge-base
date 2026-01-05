@@ -130,7 +130,7 @@ To enable email notifications:
 * The **email server** must be properly configured
 * The **notification option** must be enabled
 
-For detailed instructions, refer to [**Configuring Email Notifications**](../configuring-email-notifications.md).
+For detailed instructions, refer to [**Configuring Email Notifications**](../31-configuring-email-notifications/).
 
 ***
 

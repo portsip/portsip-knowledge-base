@@ -159,7 +159,7 @@ Sometimes, you may encounter error messages when trying to log in to the PortSIP
   * Check your server’s disk space usage.
   * As a temporary solution, you can free space by deleting archived log files with the `.gz` extension in the `/var/lib/portsip/pbx/log` directory.
   * For a permanent solution, consider increasing your disk size.
-  * To receive alerts before running out of space, enable email notifications by referring to the [Configuring Email Notifications](../portsip-pbx-administration-guide/configuring-email-notifications.md) guide.
+  * To receive alerts before running out of space, enable email notifications by referring to the [Configuring Email Notifications](../portsip-pbx-administration-guide/31-configuring-email-notifications/) guide.
 * **Error: Login failed, authentication error. (UNAUTHORIZED)**
   * This indicates that your username or password is incorrect. Verify your credentials and try again.
 * **Error: No tenant information found by provided SIP domain (404)**
