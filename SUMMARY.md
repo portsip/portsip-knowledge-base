@@ -122,6 +122,7 @@
     * [Configure System Email Notifications](portsip-communications-solution/portsip-pbx-administration-guide/31-configuring-email-notifications/configure-system-email-notifications.md)
     * [Configure Tenant Email Notificationis](portsip-communications-solution/portsip-pbx-administration-guide/31-configuring-email-notifications/configure-tenant-email-notificationis.md)
     * [Customizing Email Templates](portsip-communications-solution/portsip-pbx-administration-guide/31-configuring-email-notifications/customizing-email-templates.md)
+    * [Supported Template Variable Parameters](portsip-communications-solution/portsip-pbx-administration-guide/31-configuring-email-notifications/supported-template-variable-parameters.md)
   * [32 Night Mode](portsip-communications-solution/portsip-pbx-administration-guide/32-night-mode.md)
   * [33 CRM Integrations](portsip-communications-solution/portsip-pbx-administration-guide/33-crm-integrations/README.md)
     * [ZOHO CRM](portsip-communications-solution/portsip-pbx-administration-guide/33-crm-integrations/zoho-crm.md)
