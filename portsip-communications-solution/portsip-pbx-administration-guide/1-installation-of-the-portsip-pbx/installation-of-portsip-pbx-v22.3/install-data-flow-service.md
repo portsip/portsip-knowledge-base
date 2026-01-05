@@ -2,7 +2,7 @@
 
 ### Instructions
 
-Starting with **PortSIP PBX v22.3**, PortSIP introduces a new component: the **PortSIP Data Flow Service**—a high-performance analytics engine built on **ClickHouse**.
+Starting with **PortSIP PBX v22.3**, PortSIP introduces a new component: the **PortSIP Data Flow Service,** a high-performance analytics engine built on **ClickHouse**.
 
 The Data Flow service powers the following advanced capabilities:
 
@@ -83,7 +83,7 @@ If a static private IP is not available, the server must have a **static public 
 
 #### Configure Cloud Firewall or Network Security Rules
 
-Skip this step if you are **not** deploying in a cloud environment.
+Skip this step if you are **not** deploying in a **cloud environment.**
 
 > ❗**Important**\
 > Restrict this rule to the **internal IP range** of your deployment to maintain security.
@@ -91,7 +91,7 @@ Skip this step if you are **not** deploying in a cloud environment.
 If the PBX and Data Flow server are hosted on **AWS, Azure, or Google Cloud**:
 
 * Ensure the Data Flow server is within the same **VPC/VNet/VLAN**
-* Create a firewall or security group rule allowing **all TCP traffic** from the **Data Flow server private IP** to the PBX server IP.
+* Create a **firewall or security group rule** allowing **all TCP traffic** from the **Data Flow server private IP** to the PBX server IP.
 
 > ⚠️ **Note**\
 > Restrict this rule to the **internal IP range** of your deployment to maintain security.
