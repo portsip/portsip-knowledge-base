@@ -90,7 +90,7 @@ Skip this step if you are **not** deploying in a cloud environment.
 
 If the PBX and Data Flow server are hosted on **AWS, Azure, or Google Cloud**:
 
-* Ensure the Data Flow server is within the same **VPC/VNet/LAN**
+* Ensure the Data Flow server is within the same **VPC/VNet/VLAN**
 * Create a firewall or security group rule allowing **all TCP traffic** from the **Data Flow server private IP** to the PBX server IP.
 
 > ⚠️ **Note**\
