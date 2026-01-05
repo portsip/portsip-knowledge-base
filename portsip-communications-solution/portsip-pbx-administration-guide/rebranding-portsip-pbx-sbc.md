@@ -47,7 +47,7 @@ PortSIP PBX allows you to customize the IP Phone template, which will give you a
 
 ### Email Notification Template
 
-One of the features of the PortSIP PBX is the ability to customize Email Templates. Please refer to this article: [Configuring Email Notifications](31-configuring-email-notifications/#custom-email-notification-template).
+One of the features of the PortSIP PBX is the ability to customize Email Templates. Please refer to this article: [Configuring Email Notifications](configuring-email-notifications.md#custom-email-notification-template).
 
 ## Rebranding PortSIP SBC
 

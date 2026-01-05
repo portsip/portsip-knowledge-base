@@ -64,17 +64,5 @@ The following tenant-level email notifications are supported and will be sent to
 * **When a queue call is lost**\
   Sends an email notification when a call is abandoned in a queue.
 
-***
-
-
-
-## Custom Email Notification Template
-
-PortSIP PBX offers the ability to customize email templates. From the **Advanced > Email Templates** menu, you can fully modify the email templates used within the system.
-
-For example, you can customize the default **Welcome Email Template** (the email sent when a new extension is created). You can add your own text, include personalized links, and even modify the sender’s name to display your own name, or the first and last name of the user, as configured in their extension settings.
-
-<figure><img src="../../../.gitbook/assets/email_template.png" alt=""><figcaption></figcaption></figure>
-
 
 
