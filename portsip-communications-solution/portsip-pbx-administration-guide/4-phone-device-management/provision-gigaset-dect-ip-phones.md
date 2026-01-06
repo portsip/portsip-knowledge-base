@@ -1,14 +1,16 @@
-# Provision GigaseDECT IP Phones
+# Provision Gigaset DECT IP Phones
 
 ### Supported Gigaset DECT IP Phone Models
 
 This guide applies to the following models:
 
-* **N510**
 * **N610**
 * **N670**
-* **N720**
 * **N870**
+
+> ❗ Note
+>
+> For the **N610** and **N670**, this guide applies **only to the “Regular” role** and **does not cover the “Internal Telephony” role**.
 
 ***
 
