@@ -93,7 +93,7 @@ The solution includes the following features:
 
 ### Design Architecture
 
-<figure><img src="../../.gitbook/assets/design_arch.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/portsip_pbx_arch_2026.png" alt=""><figcaption></figcaption></figure>
 
 ### Getting Help and Support Resources
 
@@ -102,3 +102,8 @@ The solution includes the following features:
 [Submit a request](https://portsip.zendesk.com/hc/en-us/requests/new)
 
 [Email support](mailto:support@portsip.com)
+
+
+
+
+

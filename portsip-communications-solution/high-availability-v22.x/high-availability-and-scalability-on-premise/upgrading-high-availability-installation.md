@@ -243,7 +243,7 @@ After completing the PBX upgrade, you must install both the **IM Service** and t
 
 * [Scaling IM Server On-Premise for High Availability](scaling-im-server-on-premise-for-high-availability.md)
 * [Scaling Data Flow Server On-Premise for High Availability](scaling-data-flow-server-on-premise-for-high-availability.md)
-* [Upgrading the SBC Server](11-deploy-the-sbc-cluster.md#upgrading-sbc-servers)
+* [Upgrading the SBC Server](scaling-sbc-on-premise-for-high-availability.md#upgrading-sbc-servers)
 
 ***
 
@@ -254,7 +254,7 @@ Follow this guide:
 
 * [Scaling Data Flow Server On-Premise for High Availability](scaling-data-flow-server-on-premise-for-high-availability.md)
 * [Upgrading the IM Server](scaling-im-server-on-premise-for-high-availability.md#upgrading-the-im-server)
-* [Upgrading the SBC Server](11-deploy-the-sbc-cluster.md#upgrading-sbc-servers)
+* [Upgrading the SBC Server](scaling-sbc-on-premise-for-high-availability.md#upgrading-sbc-servers)
 
 ***
 
@@ -265,7 +265,7 @@ Follow these guides:
 
 * [Upgrading the IM Server](scaling-im-server-on-premise-for-high-availability.md#upgrading-the-im-server)
 * [Upgrading the Data Flow Server](scaling-data-flow-server-on-premise-for-high-availability.md#upgrade-the-data-flow-server)
-* [Upgrading the SBC Server](11-deploy-the-sbc-cluster.md#upgrading-sbc-servers)
+* [Upgrading the SBC Server](scaling-sbc-on-premise-for-high-availability.md#upgrading-sbc-servers)
 
 ***
 

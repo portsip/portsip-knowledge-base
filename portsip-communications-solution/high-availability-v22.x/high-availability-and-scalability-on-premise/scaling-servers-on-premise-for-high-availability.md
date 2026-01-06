@@ -392,7 +392,7 @@ Please follow the [Scaling Data Flow Server On-Premise for High Availability](sc
 
 With the PortSIP PBX High Availability deployment complete, if you **have not installed the PortSIP SBC service yet**,   you are now ready to install the PortSIP SBC Service.
 
-Please follow the [Scaling SBC  On-Premise for High Availability](11-deploy-the-sbc-cluster.md) guide to complete the installation and configuration.
+Please follow the [Scaling SBC  On-Premise for High Availability](scaling-sbc-on-premise-for-high-availability.md) guide to complete the installation and configuration.
 
 ***
 
@@ -591,7 +591,7 @@ Please follow the [Upgrading Data Flow Server](scaling-data-flow-server-on-premi
 
 ### Upgrading PortSIP SBC Service
 
-Please follow the [Upgrading SBC Servers](11-deploy-the-sbc-cluster.md#upgrade-all-sbc-servers) guide to complete the installation and configuration.
+Please follow the [Upgrading SBC Servers](scaling-sbc-on-premise-for-high-availability.md#upgrade-all-sbc-servers) guide to complete the installation and configuration.
 
 
 

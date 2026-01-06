@@ -90,7 +90,7 @@ sudo /bin/sh init.sh
 
 > **Important**\
 > If your deployment uses **PBX High Availability (HA)**, do **not** follow this section.\
-> Instead, refer to [**Upgrading PortSIP PBX HA v16.x to v22.x.**](../../../high-availability-v22.x/high-availability-and-sclability-on-premise/upgrading-high-availability-installation.md#upgrading-portsip-pbx-ha-v16.x-to-v22.x)
+> Instead, refer to [**Upgrading PortSIP PBX HA v16.x to v22.x.**](../../../high-availability-v22.x/high-availability-and-scalability-on-premise/upgrading-high-availability-installation.md#upgrading-portsip-pbx-ha-v16.x-to-v22.x)
 
 This guide applies **only to standalone PBX deployments**.
 

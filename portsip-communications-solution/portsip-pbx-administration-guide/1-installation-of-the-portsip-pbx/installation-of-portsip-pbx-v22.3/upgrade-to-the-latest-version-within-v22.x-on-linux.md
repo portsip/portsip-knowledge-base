@@ -23,7 +23,7 @@ Please follow the guide [**Backup and Restore: An Essential Guide**](../../backu
 
 ### High Availability Upgrade
 
-If your PortSIP PBX is deployed in High Availability (HA) mode, follow the guide [**Upgrading High Availability Installation**](../../../high-availability-v22.x/high-availability-and-sclability-on-premise/upgrading-high-availability-installation.md).
+If your PortSIP PBX is deployed in High Availability (HA) mode, follow the guide [**Upgrading High Availability Installation**](../../../high-availability-v22.x/high-availability-and-scalability-on-premise/upgrading-high-availability-installation.md).
 
 > ❗ **Important**\
 > Do **not** use this standard upgrade procedure for HA deployments.
