@@ -130,8 +130,8 @@ This ensures that calls are handled appropriately outside of normal business hou
 
 PortSIP PBX also allows you to use a **Feature Access Code (FAC, default is \*16)** to toggle **Night Mode** on or off.
 
-* If tenant global Night Mode is currently disabled, dialing this FAC enables it.
-* If tenant global Night Mode is currently enabled, dialing this FAC disables it.
+* If tenant-level Night Mode is currently disabled, dialing this FAC enables it.
+* If tenant-level Night Mode is currently enabled, dialing this FAC disables it.
 
 To enable or disable Night Mode for a **specific service**, dial **\*16xxx**, where **xxx** is the number of the ring group, virtual receptionist, or queue.
 
