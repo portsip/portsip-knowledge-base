@@ -43,6 +43,9 @@ Starting with v22.x, PortSIP PBX introduces new default Feature Access Codes (FA
 * If a conflict exists, the **upgrade process will fail**.
 * To avoid upgrade issues, review and modify **any conflicting custom FACs** before proceeding.
 
+> ❗ **Important**\
+> Follow every step in this guide in order. Do not skip any steps unless the guide explicitly says you can.
+
 ***
 
 ### Backup
@@ -62,6 +65,9 @@ Please follow the guide [**Backup and Restore: An Essential Guide**](../../backu
 * All commands must be executed in the `/opt/portsip` directory.
 
 ***
+
+> ❗ **Important**\
+> Follow every step in this guide in order. Do not skip any steps unless the guide explicitly says you can.
 
 ### Update the Upgrade Scripts
 

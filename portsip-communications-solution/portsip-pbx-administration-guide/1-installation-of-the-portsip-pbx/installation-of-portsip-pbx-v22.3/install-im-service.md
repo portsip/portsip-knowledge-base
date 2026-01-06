@@ -23,6 +23,9 @@ All commands must be executed in the **`/opt/portsip`** directory.
 
 ### Install IM Service on the Same Server as PortSIP PBX
 
+> ❗ **Important**\
+> Follow every step in this guide in order. Do not skip any steps unless the guide explicitly says you can.
+
 Follow the steps below to install the **PortSIP Instant Messaging (IM) Server** on the **same server** as the PortSIP PBX.
 
 #### Step 1: Generate a Token for the IM Server
@@ -74,6 +77,9 @@ You can now proceed to Step 6: [Install the Data Flow Service](../../installatio
 ***
 
 ### Install IM Service on a Separate Server
+
+> ❗ **Important**\
+> Follow every step in this guide in order. Do not skip any steps unless the guide explicitly says you can.
 
 For optimal performance and scalability, it is recommended to install the PortSIP Instant Messaging (IM) service on a separate server, especially in deployments with a large number of users or heavy usage of chat and file-sharing features (including files and images).
 

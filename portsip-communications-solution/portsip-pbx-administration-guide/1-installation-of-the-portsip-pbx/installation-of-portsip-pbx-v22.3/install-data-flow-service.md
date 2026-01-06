@@ -71,6 +71,9 @@ The following operating systems are officially supported:
 
 ***
 
+> ❗ **Important**\
+> Follow every step in this guide in order. Do not skip any steps unless the guide explicitly says you can.
+
 ### Network Requirements
 
 #### Static IP Address

@@ -32,6 +32,9 @@ If your PortSIP PBX is deployed in High Availability (HA) mode, follow the guide
 
 ### Upgrading Within v22.x
 
+> ❗ **Important**\
+> Follow every step in this guide in order. Do not skip any steps unless the guide explicitly says you can.
+
 All commands in this section must be executed in the following directory:
 
 ```bash

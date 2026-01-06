@@ -68,6 +68,9 @@ The following ports **must be allowed by the firewall** and **must not be used b
 
 ### Installing PortSIP PBX
 
+> ❗ **Important**\
+> Follow every step in this guide in order. Do not skip any steps unless the guide explicitly says you can.
+
 #### Step 1: Download Installation Scripts
 
 Run the following commands to download the installation scripts and initialize the environment:

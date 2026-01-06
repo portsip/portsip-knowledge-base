@@ -6,6 +6,7 @@ This guide applies to the following models:
 
 * **N610**
 * **N670**
+* **N770**
 * **N870**
 
 > ❗ Note
