@@ -4,7 +4,7 @@
 
 PortSIP PBX can be installed on **Ubuntu** and **Debian** Linux operating systems.
 
-* Debian: 12(recommend)
+* Debian: 12
 * Ubuntu: 22.04, 24.04(recommended)
 
 ***
@@ -42,6 +42,6 @@ If you are currently running **PortSIP PBX v16.x** and plan to upgrade to the la
 
 Ensure all required services (PBX core, IM service, and Data Flow service, if deployed) are upgraded in the correct order.
 
-> **Recommendation**\
+> ❗**Recommendation**\
 > Always back up configuration files, call data, and databases before performing any upgrade. For production environments, perform upgrades during a maintenance window and validate services after completion
 
