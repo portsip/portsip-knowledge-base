@@ -4,8 +4,8 @@
 
 PortSIP PBX can be installed on **Ubuntu** and **Debian** Linux operating systems.
 
-* Debian: 12
 * Ubuntu: 22.04, 24.04(recommended)
+* Debian: 12
 
 ***
 
