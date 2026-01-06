@@ -38,7 +38,7 @@
     * [Provisioning Cisco 79xx IP Phones](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/provisioning-cisco-79xx-ip-phones.md)
     * [Provision Fanvil DECT IP Phones](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/provision-fanvil-dect-ip-phones.md)
     * [Provision Yealink DECT IP Phones](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/provision-yealink-dect-ip-phones.md)
-    * [Provision SNOM DECT IP Phones](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/provision-snom-dect-ip-phones.md)
+    * [Provision Snom DECT IP Phones](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/provision-snom-dect-ip-phones.md)
     * [Provision Gigaset DECT IP Phones](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/provision-gigasedect-ip-phones.md)
     * [Configuring Private RPS Account](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/configuring-private-rps-account.md)
   * [5 User Management](portsip-communications-solution/portsip-pbx-administration-guide/5-user-management/README.md)

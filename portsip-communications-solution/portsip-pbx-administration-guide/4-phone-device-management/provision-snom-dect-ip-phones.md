@@ -1,6 +1,6 @@
-# Provision SNOM DECT IP Phones
+# Provision Snom DECT IP Phones
 
-### Supported SNOM DECT Models
+### Supported Snom DECT Models
 
 This guide applies to the following SNOM DECT base stations:
 
@@ -11,13 +11,13 @@ This guide applies to the following SNOM DECT base stations:
 
 ***
 
-### Factory Reset the SNOM DECT System
+### Factory Reset the Snom DECT System
 
 Before provisioning, it is recommended to reset both the **base station** and **handsets** to factory defaults.
 
 ***
 
-#### Reset the SNOM DECT Base Station
+#### Reset the Snom DECT Base Station
 
 _(M300, M400, M700, M900)_
 
@@ -28,7 +28,7 @@ After the restart, the base station is restored to factory default settings.
 
 ***
 
-#### Reset SNOM DECT Handsets
+#### Reset Snom DECT Handsets
 
 _(M25, M65, M70, M80, M85, M90)_
 
@@ -179,7 +179,7 @@ After configuring the DECT phone in PortSIP PBX, you must enter the **provisioni
 
 ***
 
-### Register SNOM Handsets and Assign Users
+### Register Snom Handsets and Assign Users
 
 After completing the configuration, register the SNOM handsets with the DECT base station and assign them to users.\
 Register the handsets **in the same numerical order** used during the configuration process.
@@ -201,7 +201,7 @@ Repeat the steps above for each handset you want to register with the base stati
 
 ***
 
-### Upgrade SNOM Handset Firmware
+### Upgrade Snom Handset Firmware
 
 To upgrade a SNOM handset’s firmware, the handset must already be **paired with the DECT base station** and **registered as an extension**.\
 This procedure can be performed **only after**:
