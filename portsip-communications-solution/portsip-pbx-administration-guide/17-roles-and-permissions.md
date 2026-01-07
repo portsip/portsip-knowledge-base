@@ -1,49 +1,132 @@
 # 17 Roles and Permissions
 
-Use PortSIP Roles and Permissions to provide role-based control over the functions accessible to your users. Each role includes a set of permissions that defines how much of the PortSIP PBX a user can access.&#x20;
+### Roles and Permissions Overview
 
-PortSIP PBX offers four ready-to-use, standard roles for common positions, such as administrator, and user that come with the appropriate permissions already defined. For more specialized needs, you can easily create your own custom roles and specify the permissions you want. You can use both standard and custom roles with your users.
+PortSIP Roles and Permissions provide role-based control over the features and functions that users can access in the PortSIP PBX.
 
-## Benefits of Roles and Permissions
+Each role includes a predefined set of permissions that determines the scope of access available to a user. By assigning roles, administrators can efficiently control who can view, configure, and manage different parts of the system.
 
-### Onboard new users faster, and with fewer errors
+PortSIP PBX includes **ready-to-use standard roles** for common positions, such as administrators and end users, with appropriate permissions already configured. For more specialized requirements, you can also create **custom roles** and define exactly which permissions they include. Both standard and custom roles can be assigned to users.
 
-* Save time and effort by associating new users with roles from the start. With roles, you no longer have to set up each new user one by one, manually applying the same permission set over and over to each user as you add them into the system. Roles can be created for functions or positions in the company with all the appropriate permissions built in.
-* Four standard, ready-to-use roles make it a cinch to quickly grant the right level of system access to many users at the same time, virtually eliminating the errors that can happen when permissions are set individually.
-* Use bulk upload options and templates to conveniently update and assign roles to users across the entire organization.
+***
 
-### Incorporate stronger security and controls over user access to the system
+### Benefits of Roles and Permissions
 
-* Role-based access controls act like an extra layer of security to help you enforce company security policies by giving you complete oversight into which permissions are in use. With roles, the same level of access is unilaterally given to every user assigned to that role, greatly reducing the chances of producing outlier users with unauthorized levels of access.
-* Custom roles support countless permission combinations, extending your range of granular control over how users can access PortSIP PBX features. For each role, you can select the precise permissions you want to grant, and update your selections at any time.
-* Roles give you the flexibility to respond quickly to business needs. You can remove or add roles as you need them or modify existing ones to match new requirements.
+#### Faster, Error-Free User Onboarding
 
-### Easily delegate administrator activities with admin roles
+Roles simplify user onboarding by allowing administrators to assign a predefined permission set when creating users.
 
-* Use admin roles to distribute administrative responsibilities among select users across your team or organization.
-* Assign admin roles for specific functions, like billing tasks or tenant management, while restricting administrator-level changes to other parts of your PortSIP PBX.
-* Custom admin roles, constructed with more granular permissions, can help you easily delegate specialized authority or jurisdiction to other admins.
+Instead of configuring permissions individually for each new user, you can assign a role that already includes the required access. This approach reduces manual effort and minimizes configuration errors.
 
-## What are the four standard roles?
+Standard roles make it easy to grant the correct level of system access to multiple users at once, significantly reducing the risk of inconsistent or incorrect permissions.
 
-There are two admin roles and two user roles. Each role has appropriate permissions already included. The roles are:
+You can also use bulk upload options and templates to efficiently assign roles to users across the organization.
 
-* System Admin: Access to all PortSIP features and apps, with the highest permissions
-* Tenant Admin: Access to tenant scope settings and user settings only
-* Standard (International): Access to their own user settings and international calling
-* Standard: Access to their own user settings and domestic calling
+***
 
-## How do custom roles work?
+#### Stronger Security and Access Control
 
-* You can create custom roles for every business need, from company-level positions to specialized functions or jurisdictions. For each role, select the permissions you want the role to have, such as access to phone settings but not to others. Keep adding permissions until you reach the limit of features you want the role to access. Now, whenever you have a user who requires the same set of permissions, you can assign that role to the user, without having to select the permissions all over again.
+Role-based access control (RBAC) adds an extra layer of security by ensuring users only have access to the features required for their responsibilities.
 
-## Predefined User Roles and Permissions
+All users assigned to the same role receive an identical permission set, reducing the risk of unauthorized or inconsistent access.
 
-There are 5 **predefined roles** — those with a built-in set of permissions that can be readily assigned by administrators. Permissions granted to these roles cannot be modified.<br>
+Custom roles allow granular control over system access. You can define precise permission combinations and update them at any time to match evolving security or operational requirements.
 
-{% hint style="info" %}
-Standard is assigned to new users by default.
-{% endhint %}
+Roles also make it easier to adapt to organizational changes by allowing you to add, remove, or modify roles as business needs change.
+
+***
+
+#### Delegated Administration with Admin Roles
+
+Admin roles allow you to distribute administrative responsibilities across your organization without granting full system access.
+
+You can assign admin roles for specific functions, such as billing or tenant management, while restricting access to other administrative areas.
+
+Custom admin roles provide fine-grained control, enabling you to delegate specialized administrative authority while maintaining overall system security.
+
+***
+
+### Standard Roles in PortSIP PBX
+
+PortSIP PBX includes a set of **standard roles**, consisting of **three system administrator roles** and **three tenant user roles**. Each role includes a predefined set of permissions.
+
+***
+
+#### System Administrators
+
+System Administrator roles provide access to system-level configuration and management.
+
+For details about System Administrator roles and permissions, see [Administrator Management](2-portsip-pbx-management/administrator-management.md).
+
+***
+
+**Tenant User Roles**
+
+Tenant user roles control access within a specific tenant. Permissions are limited to tenant-level settings and assigned user functions.
+
+**Admin**
+
+Full administrative access within the tenant. This role allows the user to manage tenant settings, users, and features.
+
+**Queue Supervisor (Queue Manager)**
+
+Access limited to queue management. This role is intended for users responsible for monitoring and managing call queues.
+
+**Standard (International)**
+
+Access to personal user settings and international calling.
+
+**Standard**
+
+Access to personal user settings and domestic calling.
+
+***
+
+### Custom Roles
+
+Custom roles allow you to define permission sets for specific business functions, departments, or jurisdictions.
+
+When creating a custom role, select the exact permissions you want to grant, such as access to phone settings while restricting access to administrative features. You can continue adding permissions until the role includes only the intended scope of access.
+
+Once created, the role can be assigned to any user who requires the same permissions, eliminating the need to repeatedly configure permissions for individual users.
+
+***
+
+### Predefined Roles and Permissions
+
+PortSIP PBX also includes **predefined roles** with built-in permission sets that can be assigned by administrators.
+
+Permissions for predefined roles **cannot be modified**.
+
+#### View Predefined Roles
+
+1. Sign in to the PBX Web Portal.
+2. Go to **Advanced > Roles**.
+
+***
+
+### Permissions Overview
+
+Permissions control access to features and configuration options within the PBX Web Portal.
+
+Administrators grant permissions to allow users to view or modify specific features. In some cases, permissions can be assigned to enable management of individual system components.
+
+You may need to adjust permissions when, for example:
+
+* A user needs to manage other users.
+* A user needs to configure or manage SIP trunks.
+
+***
+
+### Access and Manage Permissions
+
+1. Sign in to the PBX Web Portal.
+2. Go to **Advanced > Roles**.
+3. Double-click a role to view its permissions.
+
+Some permissions depend on others and cannot be disabled until the related permissions are disabled first.
+
+<br>
 
 
 
