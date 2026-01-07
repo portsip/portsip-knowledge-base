@@ -134,14 +134,16 @@ Some permissions depend on others and cannot be disabled until the related permi
 
 The following section provides a **detailed explanation of each user permission**, including access levels and functional scope.
 
-#### System.Information
+#### User Voicemail
 
 * **View Only**\
-  Allows viewing system status, version information, license details, and basic platform health data. No configuration changes are permitted.
+  Allows access to view the extension user's voicemail.
+* **Full Access**\
+  Allows configuring, deleting the extension user's voicemail.
 
 ***
 
-#### Analytics
+#### User Meeting
 
 * **View Only**\
   Allows access to dashboards and reports for monitoring system usage, call statistics, and performance metrics.
@@ -150,7 +152,7 @@ The following section provides a **detailed explanation of each user permission*
 
 ***
 
-#### System.Dealers
+#### User Call Log
 
 * **View Only**\
   Allows viewing dealers and associated information without making changes.
@@ -159,7 +161,7 @@ The following section provides a **detailed explanation of each user permission*
 
 ***
 
-#### System.Tenants
+#### User.Recordings
 
 * **View Only**\
   Allows viewing tenant information and configuration details without modification.
@@ -168,7 +170,7 @@ The following section provides a **detailed explanation of each user permission*
 
 ***
 
-#### Integrations
+#### Features
 
 * **View Only**\
   Allows viewing configured integrations and their status.
@@ -177,7 +179,7 @@ The following section provides a **detailed explanation of each user permission*
 
 ***
 
-#### System.Devices
+#### Trunk
 
 * **View Only**\
   Allows viewing of the phone device templates.
@@ -195,7 +197,7 @@ The following section provides a **detailed explanation of each user permission*
 
 ***
 
-#### Features
+#### Integrations
 
 * **View Only**\
   Allows viewing system features such as Audit Trail, Events.
@@ -213,7 +215,7 @@ The following section provides a **detailed explanation of each user permission*
 
 ***
 
-#### Roles
+#### CRM Contacts
 
 * **View Only**\
   Allows viewing existing roles and their assigned permissions.
@@ -222,12 +224,100 @@ The following section provides a **detailed explanation of each user permission*
 
 ***
 
-#### Users
+#### Company
 
 * **View Only**\
   Allows viewing of administrators and related information.
 * **Full Access**\
   Allows creating, editing, disabling, and deleting administrators, and managing their settings.
+
+***
+
+#### Analytics
+
+* **View Only**\
+  Allows viewing of administrators and related information.
+* **Full Access**\
+  Allows creating, editing, disabling, and deleting administrators, and managing their settings.
+
+***
+
+#### Company Recordings
+
+* **View Only**\
+  Allows viewing of administrators and related information.
+* **Full Access**\
+  Allows creating, editing, disabling, and deleting administrators, and managing their settings.
+
+***
+
+#### Company Call Sessions
+
+* **View Only**\
+  Allows viewing of administrators and related information.
+* **Full Access**\
+  Allows creating, editing, disabling, and deleting administrators, and managing their settings.
+
+***
+
+#### Company Contacts
+
+* **View Only**\
+  Allows viewing of administrators and related information.
+* **Full Access**\
+  Allows creating, editing, disabling, and deleting administrators, and managing their settings.
+
+***
+
+#### Phone System
+
+* **View Only**\
+  Allows viewing of administrators and related information.
+* **Full Access**\
+  Allows creating, editing, disabling, and deleting administrators, and managing their settings.
+
+***
+
+#### Company Call Sessions
+
+* **View Only**\
+  Allows viewing of administrators and related information.
+* **Full Access**\
+  Allows creating, editing, disabling, and deleting administrators, and managing their settings.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
