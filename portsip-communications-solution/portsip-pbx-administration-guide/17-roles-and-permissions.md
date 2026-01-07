@@ -130,254 +130,196 @@ Some permissions depend on others and cannot be disabled until the related permi
 
 ***
 
-### List of User Permissions <a href="#content-section--0-0--list-title" id="content-section--0-0--list-title"></a>
+### User Permissions
 
-The following section provides a **detailed explanation of each user permission**, including access levels and functional scope.
-
-#### User Voicemail
-
-* **View Only**\
-  Allows access to view the extension user's voicemail.
-* **Full Access**\
-  Allows configuring, deleting the extension user's voicemail.
+This section describes each user permission, including its access level and functional scope.
 
 ***
 
-#### User Meeting
+#### User Voicemail
 
-* **View Only**\
-  Allows access to dashboards and reports for monitoring system usage, call statistics, and performance metrics.
-* **Full Access**\
-  Allows configuring analytics settings, creating or modifying reports, dashboards, filters, and exporting data.
+**View Only**\
+Allows viewing the extension user’s voicemail.
+
+**Full Access**\
+Allows configuring and deleting the extension user’s voicemail.
+
+***
+
+#### User Meetings
+
+**View Only**\
+Allows viewing information about meetings created from the PortSIP ONE app.
+
+**Full Access**\
+Allows viewing, editing, and deleting meetings created from the PortSIP ONE app.
 
 ***
 
 #### User Call Log
 
-* **View Only**\
-  Allows viewing dealers and associated information without making changes.
-* **Full Access**\
-  Allows creating, editing, disabling, or deleting dealers and managing dealer-related settings.
+**View Only**\
+Allows viewing the extension user’s call log.
+
+**Full Access**\
+Allows viewing and managing the extension user’s call log.
 
 ***
 
-#### User.Recordings
+#### User Recordings
 
-* **View Only**\
-  Allows viewing tenant information and configuration details without modification.
-* **Full Access**\
-  Allows creating, editing, disabling, and deleting tenants, as well as managing tenant-level settings.
+**View Only**\
+Allows viewing the extension user’s call recordings.
+
+**Full Access**\
+Allows managing the extension user’s call recordings.
 
 ***
 
 #### Features
 
-* **View Only**\
-  Allows viewing configured integrations and their status.
-* **Full Access**\
-  Allows configuring, modifying, enabling, or disabling integrations with external systems and services.
+**Audit**\
+Allows viewing audit logs.
+
+**Events**\
+Allows viewing event logs.
 
 ***
 
 #### Trunk
 
-* **View Only**\
-  Allows viewing of the phone device templates.
-* **Full Access**\
-  Allows adding and editing phone device templates.
+**View Only**\
+Allows viewing trunk information.
 
-***
-
-#### Trunks
-
-* **View Only**\
-  Allows viewing trunk configurations, status, and usage information.
-* **Full Access**\
-  Allows creating, editing, enabling, disabling, and deleting trunks settings.
+**Full Access**\
+Allows viewing and managing trunk settings.
 
 ***
 
 #### Integrations
 
-* **View Only**\
-  Allows viewing system features such as Audit Trail, Events.
-* **Full Access**\
-  Allows managing system features such as Audit Trail, Events.
+**View Only**\
+Allows viewing integrations such as CRM, Microsoft 365, and Google Workspace.
 
-***
-
-#### System Settings
-
-* **View Only**\
-  Allows viewing global system configuration and parameters.
-* **Full Access**\
-  Allows modifying global system settings that affect platform behavior and services.
+**Full Access**\
+Allows configuring integrations such as CRM, Microsoft 365, and Google Workspace.
 
 ***
 
 #### CRM Contacts
 
-* **View Only**\
-  Allows viewing existing roles and their assigned permissions.
-* **Full Access**\
-  Allows creating, editing, and deleting roles and configuring permission assignments.
+**View Only**\
+Allows viewing and searching CRM contacts.
+
+**Full Access**\
+Allows viewing, searching, creating, and editing CRM contacts.
 
 ***
 
-#### Company
+#### Company (Tenant)
 
-* **View Only**\
-  Allows viewing of administrators and related information.
-* **Full Access**\
-  Allows creating, editing, disabling, and deleting administrators, and managing their settings.
+**View Only**\
+Allows viewing tenant information.
+
+**Full Access**\
+Allows managing and configuring tenant settings.
 
 ***
 
 #### Analytics
 
-* **View Only**\
-  Allows viewing of administrators and related information.
-* **Full Access**\
-  Allows creating, editing, disabling, and deleting administrators, and managing their settings.
+**View Only**\
+Allows viewing analytics data, including reports, call history, call recordings, and external message history.
+
+**Full Access**\
+Allows managing analytics data, including reports, call history, call recordings, and external message history.
 
 ***
 
 #### Company Recordings
 
-* **View Only**\
-  Allows viewing of administrators and related information.
-* **Full Access**\
-  Allows creating, editing, disabling, and deleting administrators, and managing their settings.
+**View Only**\
+Allows viewing all call recordings within the tenant.
+
+**Full Access**\
+Allows managing all call recordings within the tenant.
 
 ***
 
 #### Company Call Sessions
 
-* **View Only**\
-  Allows viewing of administrators and related information.
-* **Full Access**\
-  Allows creating, editing, disabling, and deleting administrators, and managing their settings.
+**View Only**\
+Allows viewing active call sessions within the tenant.
+
+**Full Access**\
+Allows managing active call sessions within the tenant, such as ending calls.
 
 ***
 
 #### Company Contacts
 
-* **View Only**\
-  Allows viewing of administrators and related information.
-* **Full Access**\
-  Allows creating, editing, disabling, and deleting administrators, and managing their settings.
+**View Only**\
+Allows viewing company contacts within the tenant.
+
+**Full Access**\
+Allows viewing, searching, creating, and editing company contacts within the tenant.
 
 ***
 
 #### Phone System
 
-* **View Only**\
-  Allows viewing of administrators and related information.
-* **Full Access**\
-  Allows creating, editing, disabling, and deleting administrators, and managing their settings.
+**View Only**\
+Allows viewing phone system settings.
+
+**Full Access**\
+Allows managing and configuring phone system settings.
 
 ***
 
-#### Company Call Sessions
+#### Call Policies
 
-* **View Only**\
-  Allows viewing of administrators and related information.
-* **Full Access**\
-  Allows creating, editing, disabling, and deleting administrators, and managing their settings.
+**Domestic Calls**\
+Allows making domestic calls.
 
+**Internal Calls**\
+Allows making internal calls.
 
+**International Calls**\
+Allows making international calls.
 
+***
 
+#### Billing
 
+**View Only**\
+Allows viewing billing settings.
 
+**Full Access**\
+Allows managing and configuring billing settings.
 
+***
 
+#### Roles
 
+**View Only**\
+Allows viewing roles.
 
+**Full Access**\
+Allows creating, editing, configuring, and deleting roles.
 
+***
 
+#### Users
 
+**View Only**\
+Allows viewing extension users.
 
+**Full Access**\
+Allows creating, editing, and deleting extension users.
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### General
-
-The voicemail access permissions.
-
-<table><thead><tr><th>Permission</th><th>Description</th><th data-hidden></th></tr></thead><tbody><tr><td>Voicemail View Only</td><td>View and listen/play voicemail</td><td></td></tr><tr><td>Voicemail Full Access</td><td>View, delete, and listen/play voicemail</td><td></td></tr></tbody></table>
-
-### Trunk
-
-Let the user manage the SIP trunk.
-
-<table><thead><tr><th>Permission</th><th>Description</th><th data-hidden></th></tr></thead><tbody><tr><td>View Only</td><td>View the trunks, and create inbound &#x26; outbound rules based on the trunk</td><td></td></tr><tr><td>Full Access</td><td>View the trunks and create inbound and outbound rules based on them. You can also add, modify, or delete trunks.</td><td></td></tr></tbody></table>
-
-### Company
-
-The permissions for managing the tenant.
-
-<table><thead><tr><th>Permission</th><th>Description</th><th data-hidden></th></tr></thead><tbody><tr><td>View Only</td><td>View the setings in tenant scope .</td><td></td></tr><tr><td>Full Access</td><td>View the settings within the tenant scope and make changes to them as needed.</td><td></td></tr></tbody></table>
-
-### Company Call Log
-
-<table><thead><tr><th>Permission</th><th>Description</th><th data-hidden></th></tr></thead><tbody><tr><td>CDR View Only</td><td>View all CDR of the tenant</td><td></td></tr><tr><td>CDR Full Access</td><td>Full access the CDR of the tenant</td><td></td></tr><tr><td>Recording View Only</td><td>View all recordings of the tenant</td><td></td></tr><tr><td>Recording Full Access</td><td>You have full access to the recordings of the tenant, including the ability to download, play and delete them.</td><td></td></tr></tbody></table>
-
-### Features
-
-<table><thead><tr><th>Permission</th><th>Description</th><th data-hidden></th></tr></thead><tbody><tr><td>Audit Trail</td><td>Access the audit logs</td><td></td></tr><tr><td>Events</td><td>Access the events information</td><td></td></tr></tbody></table>
-
-### Phone System
-
-<table><thead><tr><th>Permission</th><th>Description</th><th data-hidden></th></tr></thead><tbody><tr><td>View Only</td><td>View the call-related settings, including forwarding rules and FAC (Feature Access Codes), among others.</td><td></td></tr><tr><td>Full Access</td><td>View the call-related settings, including forwarding rules and FAC (Feature Access Codes), among others. You also have the ability to make changes to these settings</td><td></td></tr></tbody></table>
-
-### User Management
-
-<table><thead><tr><th>Permission</th><th>Description</th><th data-hidden></th></tr></thead><tbody><tr><td>Roles</td><td>Manage the roles</td><td></td></tr><tr><td>Users</td><td>Manage the users</td><td></td></tr></tbody></table>
-
-### User Call Log
-
-<table><thead><tr><th>Permission</th><th>Description</th><th data-hidden></th></tr></thead><tbody><tr><td>CDR View Only</td><td>View all CDR of a user</td><td></td></tr><tr><td>CDR Full Access</td><td>Full access the CDR of a user</td><td></td></tr><tr><td>Recording View Only</td><td>View all recordings of a user</td><td></td></tr><tr><td>Recording Full Access</td><td>Full access the recordings of a user</td><td></td></tr></tbody></table>
-
-### Call Policies
-
-<table><thead><tr><th>Permission</th><th>Description</th><th data-hidden></th></tr></thead><tbody><tr><td>Domestic Calls</td><td>Has ability to make domestic calls</td><td></td></tr><tr><td>Internal Calls</td><td>Has ability to make internal calls</td><td></td></tr><tr><td>International Calls</td><td>Has ability to make international calls</td><td></td></tr></tbody></table>
-
-### Analytics
-
-<table><thead><tr><th>Permission</th><th>Description</th><th data-hidden></th></tr></thead><tbody><tr><td>Call Report View Only</td><td>View and download the call reports</td><td></td></tr><tr><td>Call Report Full Access</td><td>Generate, view, and download the call reports</td><td></td></tr></tbody></table>
-
-### Billing
-
-<table><thead><tr><th>Permission</th><th>Description</th><th data-hidden></th></tr></thead><tbody><tr><td>View Only</td><td>View the billing settings, billing rules</td><td></td></tr><tr><td>Full Access</td><td>View the billing settings and rules. You also have the ability to change these settings and create, modify, or delete billing rules</td><td></td></tr></tbody></table>
 
 
 
