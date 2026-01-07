@@ -126,28 +126,118 @@ You may need to adjust permissions when, for example:
 
 Some permissions depend on others and cannot be disabled until the related permissions are disabled first.
 
-<br>
+<table><thead><tr><th width="286">Role</th><th>Description</th><th data-hidden></th></tr></thead><tbody><tr><td>SystemAdmin</td><td>Full system access. On Initial setup, the PBX maintainer.</td><td></td></tr><tr><td>Admin</td><td><ul><li>Full Virtual PBX (for a tenant) access</li><li>All settings of the tenant</li><li>Plus Standard International</li></ul></td><td></td></tr><tr><td>QueueManager</td><td><ul><li>Managing and confining queues</li><li>View trunks</li><li>User management functions for all Users</li><li>Company reporting functionality</li><li>Plus Standard International</li><li>CDR log and Company reporting functionality</li></ul></td><td></td></tr><tr><td>StandardInternationalUser</td><td>User-level access with international dialing access. </td><td></td></tr><tr><td>StandardUser</td><td>User-level access without international dialing access, but has domestic calls. This is the default role assigned to new Users.</td><td></td></tr></tbody></table>
+
+***
+
+### List of User Permissions <a href="#content-section--0-0--list-title" id="content-section--0-0--list-title"></a>
+
+The following section provides a **detailed explanation of each user permission**, including access levels and functional scope.
+
+#### System.Information
+
+* **View Only**\
+  Allows viewing system status, version information, license details, and basic platform health data. No configuration changes are permitted.
+
+***
+
+#### Analytics
+
+* **View Only**\
+  Allows access to dashboards and reports for monitoring system usage, call statistics, and performance metrics.
+* **Full Access**\
+  Allows configuring analytics settings, creating or modifying reports, dashboards, filters, and exporting data.
+
+***
+
+#### System.Dealers
+
+* **View Only**\
+  Allows viewing dealers and associated information without making changes.
+* **Full Access**\
+  Allows creating, editing, disabling, or deleting dealers and managing dealer-related settings.
+
+***
+
+#### System.Tenants
+
+* **View Only**\
+  Allows viewing tenant information and configuration details without modification.
+* **Full Access**\
+  Allows creating, editing, disabling, and deleting tenants, as well as managing tenant-level settings.
+
+***
+
+#### Integrations
+
+* **View Only**\
+  Allows viewing configured integrations and their status.
+* **Full Access**\
+  Allows configuring, modifying, enabling, or disabling integrations with external systems and services.
+
+***
+
+#### System.Devices
+
+* **View Only**\
+  Allows viewing of the phone device templates.
+* **Full Access**\
+  Allows adding and editing phone device templates.
+
+***
+
+#### Trunks
+
+* **View Only**\
+  Allows viewing trunk configurations, status, and usage information.
+* **Full Access**\
+  Allows creating, editing, enabling, disabling, and deleting trunks settings.
+
+***
+
+#### Features
+
+* **View Only**\
+  Allows viewing system features such as Audit Trail, Events.
+* **Full Access**\
+  Allows managing system features such as Audit Trail, Events.
+
+***
+
+#### System Settings
+
+* **View Only**\
+  Allows viewing global system configuration and parameters.
+* **Full Access**\
+  Allows modifying global system settings that affect platform behavior and services.
+
+***
+
+#### Roles
+
+* **View Only**\
+  Allows viewing existing roles and their assigned permissions.
+* **Full Access**\
+  Allows creating, editing, and deleting roles and configuring permission assignments.
+
+***
+
+#### Users
+
+* **View Only**\
+  Allows viewing of administrators and related information.
+* **Full Access**\
+  Allows creating, editing, disabling, and deleting administrators, and managing their settings.
 
 
 
-To view the predefined roles, sign in to the PBX Web portal, then go to **Advanced > Roles**.
 
-<table><thead><tr><th width="286">Role</th><th>Description</th><th data-hidden></th></tr></thead><tbody><tr><td>SystemAdmin</td><td>Full system access. On Initial setup, the PBX maintainer.</td><td></td></tr><tr><td>Admin</td><td><ul><li>Full Virtual PBX (for a tenant) access</li><li>Billing functions plus Manager functions</li><li>User management functions for all Users</li><li>Company reporting functionality</li><li>Plus Standard International</li></ul></td><td></td></tr><tr><td>QueueManager</td><td><ul><li>Managing and confining queues</li><li>View trunks</li><li>User management functions for all Users</li><li>Company reporting functionality</li><li>Plus Standard International</li><li>CDR log and Company reporting functionality</li></ul></td><td></td></tr><tr><td>StandardInternationalUser</td><td>User-level access with international dialing access. </td><td></td></tr><tr><td>StandardUser</td><td>User-level access without international dialing access but has domestic calls. This is the default role assigned to new Users.</td><td></td></tr></tbody></table>
 
-## List of User Permissions <a href="#content-section--0-0--list-title" id="content-section--0-0--list-title"></a>
 
-Permissions determine access and the ability to modify functions and features in products such as the Web Portal. Administrators may allow users to enable changes to these products by granting them permissions. You may also grant permissions to users to change a specific feature. You may want to modify permissions if, for example:
 
-* A user needs to access or modify user information for other users.
-* A user needs to manage the SIP trunk.
 
-\
-To access permissions:
 
-1. Go to the  Web portal and sign in.
-2. Click on the menu **Advanced > Roes**, then double-click a role. Permissions are listed in the page.
 
-Some permissions depend on other permissions, and can’t be disabled until other permissions have been disabled first.
 
 ### General
 
