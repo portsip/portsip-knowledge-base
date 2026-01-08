@@ -1,10 +1,42 @@
 # Summary of Changes
 
-{% hint style="info" %}
+{% hint style="warning" %}
 Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.3/upgrade-to-the-latest-version-within-v22.x-on-linux.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
-## Changes for Release v22.3.21
+### Changes for Release v22.3.21
+
+**Date:** January 8, 2026
+
+***
+
+#### Improvements
+
+1. **SIP Trunk Messaging**\
+   The PBX no longer adds the custom `X-Info` header when sending SIP messages to trunks, improving interoperability with SIP trunk providers.
+2. **Trace Server Scalability**\
+   Optimized the delivery of SIP messages to the Trace Server under high call volumes, improving performance and stability in large scale environments.
+3. **Outbound Rule Matching**\
+   Enhanced outbound routing rules to support match conditions using a single “+”, simplifying international number matching.
+4. **Night Mode Status Visibility**\
+   Ring Groups, IVRs, and Queues with Night Mode enabled are now highlighted in red on the list page, making their status immediately visible to administrators.
+5. **Microsoft 365 Synchronization**\
+   Improved Microsoft 365 user synchronization for tenants with a large number of users, reducing the probability of sync timeouts.
+6. **CRM Caller Matching**\
+   Optimized call matching when multiple CRM contacts share the same phone number, improving accuracy in CRM integrations.
+
+***
+
+#### Bug Fixes
+
+1. **NAT and LAN Trunk Call Disconnection**\
+   Fixed an issue where calls could disconnect after 32 seconds when:
+   * A SIP trunk was deployed with the PBX, both on the LAN, and
+   * The PBX was configured with a NAT-mapped public IP
+
+***
+
+### Changes for Release v22.3.21
 
 Date: December 19, 2025
 
@@ -125,7 +157,7 @@ For details on REST API updates in v22.3.20, please refer to the [**REST API Cha
 
 ***
 
-## Changes for Release v22.2.25
+### Changes for Release v22.2.25
 
 Date: November 21, 2025
 
@@ -146,7 +178,7 @@ This version fixed a bug where, if the IM service was installed on a separate se
 
 ***
 
-## Changes for Release v22.2.23
+### Changes for Release v22.2.23
 
 Date: November 6, 2025
 
@@ -171,7 +203,7 @@ Date: November 6, 2025
 
 ***
 
-## Changes for Release v16.4.8
+### Changes for Release v16.4.8
 
 Date: November 6, 2025
 
@@ -188,7 +220,7 @@ Date: November 6, 2025
 
 ***
 
-## Changes for Release v22.2.22
+### Changes for Release v22.2.22
 
 Date: October 15, 2025
 
@@ -208,7 +240,7 @@ Date: October 15, 2025
 
 ***
 
-## Changes for Release v22.2.21
+### Changes for Release v22.2.21
 
 Date: September 28, 2025
 
@@ -225,7 +257,7 @@ Date: September 28, 2025
 
 ***
 
-## Changes for Release v22.2.20
+### Changes for Release v22.2.20
 
 Date: September 18, 2025
 
@@ -242,7 +274,7 @@ Date: September 18, 2025
 
 ***
 
-## Changes for Release v16.4.7
+### Changes for Release v16.4.7
 
 Date: September 10, 2025
 
@@ -252,7 +284,7 @@ Date: September 10, 2025
 
 ***
 
-## Changes for Release v22.2.19
+### Changes for Release v22.2.19
 
 Date: August 21, 2025
 
@@ -267,7 +299,7 @@ Date: August 21, 2025
 
 ***
 
-## Changes for Release v22.2.18
+### Changes for Release v22.2.18
 
 Date: August 6, 2025
 
@@ -281,7 +313,7 @@ Date: August 6, 2025
 
 ***
 
-## Changes for Release v16.4.6
+### Changes for Release v16.4.6
 
 Date: August 1, 2025
 
@@ -291,7 +323,7 @@ Date: August 1, 2025
 
 ***
 
-## Changes for Release v22.2.17 <a href="#changes-for-release-v22.2.17" id="changes-for-release-v22.2.17"></a>
+### Changes for Release v22.2.17 <a href="#changes-for-release-v22.2.17" id="changes-for-release-v22.2.17"></a>
 
 Date: July 28, 2025
 
@@ -315,16 +347,16 @@ Date: July 28, 2025
 
 ***
 
-## Changes for Release v16.4.5
+### Changes for Release v16.4.5
 
 Date: July 1, 2025
 
-**Enhancements**
+#### Enhancements
 
 * Reimplemented the webhook engine to enhance performance.
 * Optimized system file cleanup operations. Cleanup time can now be configured (e.g., 2:00 AM) via `system.ini`. See the guide: [Configure File Vacuum Time](../faq/configure-files-vacuum-time.md).
 
-**Bug Fixes**
+#### Bug Fixes
 
 * Fixed a call routing issue where a SIP trunk call, auto-answered by a queue, could fail to offer the call to an agent if the trunk delayed a reply with an ACK.
 * Fixed an issue where queue agents or ring group members could remain in the "ON CALL" status without active calls under certain conditions.
@@ -337,7 +369,7 @@ Date: July 1, 2025
 
 ***
 
-## Changes for Release v22.2.14
+### Changes for Release v22.2.14
 
 Date: Jun 12, 2025
 
@@ -345,12 +377,12 @@ Date: Jun 12, 2025
 If you are upgrading from a version earlier than v22.2.11. You must update the SBC web portal with the new token.
 {% endhint %}
 
-### Enhancements
+#### Enhancements
 
 * Improved Recording File Upload Performance: Added new parameters in system.ini to configure the number of threads used for uploading call recordings to AWS S3 or Azure Blob Storage. This enhancement significantly improves upload speed and efficiency.
 * Optimized CDR Generation for Declined Queue Calls: Prevent generating excessive Call Detail Records (CDRs) when an agent in the queue declines a call with SIP response 488.
 
-### Bug Fixes
+#### Bug Fixes
 
 * Fixed an issue where call reports for ring groups were not generated correctly.
 * Resolved a problem where importing extension users with IP Phone provisioning, or creating an extension with auto auto-provisioned phone, could cause the provisioning process to fail.
@@ -359,7 +391,7 @@ If you are upgrading from a version earlier than v22.2.11. You must update the S
 
 ***
 
-## Changes for Release v22.2.11
+### Changes for Release v22.2.11
 
 Date: May 15, 2025
 
@@ -367,7 +399,7 @@ Date: May 15, 2025
 After upgrading from a previous version to v22.2.x, the SBC token is automatically regenerated. To ensure continued functionality, you must update the SBC web portal with the new token.
 {% endhint %}
 
-### New Features and Enhancements
+#### New Features and Enhancements
 
 * Added **night mode support** for Queues, Ring Groups, and Virtual Receptionists. When night mode is active, calls are forwarded to a predefined destination.
 * Enabled **BLF key integration for night mode** on supported IP phones, allowing activation and deactivation via BLF key press.
@@ -398,7 +430,7 @@ After upgrading from a previous version to v22.2.x, the SBC token is automatical
   * Adding ring group or queue information to the `Remote-Party-ID` header.
 * Added an SRTP policy option in the SBC web portal to control whether SRTP information is included in the SDP.
 
-### Bug Fixes
+#### Bug Fixes
 
 * Fixed an issue where **emergency calls should not be billed**.
 * Fixed a bug where WhatsApp trunks always appeared offline.
@@ -414,7 +446,7 @@ After upgrading from a previous version to v22.2.x, the SBC token is automatical
 * Corrected an issue where calls were still being routed to an outdated IP/port of an Accept Register Trunk after registration refresh.
 * Fixed a bug in PortSIP ONE app where switching between Wi-Fi and mobile networks during a call caused disconnection.
 
-### REST API Changes
+#### REST API Changes
 
 **New Endpoints**
 
@@ -471,11 +503,11 @@ After upgrading from a previous version to v22.2.x, the SBC token is automatical
 
 ***
 
-## Changes for Release v22.1.7
+### Changes for Release v22.1.7
 
 Date: Feb 27, 2025
 
-### New Features & Enhancements
+#### New Features & Enhancements
 
 * **OAuth Integration with Microsoft 365 and Google Workspace**\
   PBX system administrators and tenants can now authenticate email notifications using OAuth for Gmail and Microsoft 365 accounts.
@@ -510,12 +542,12 @@ Date: Feb 27, 2025
 * **Web Portal Optimization**\
   The web portal has been optimized to enhance usability and provide a more intuitive user interface, improving the overall user experience.
 
-### Bug Fixes
+#### Bug Fixes
 
 1. **Trunk ACK Delay Handling**\
    Fixed a bug where slow ACK responses from the trunk to the PBX prevented calls from being offered to queue agents.
 
-### REST API Changes
+#### REST API Changes
 
 * **New Endpoint:** `/api/external_messages` – Allows querying of SMS and WhatsApp message histories.
 * **New Endpoint:** `/api/user/external_messages` – Allows querying of the current user’s SMS and WhatsApp message histories.
@@ -525,7 +557,7 @@ Date: Feb 27, 2025
 
 ***
 
-## Changes for Release v22.0.42
+### Changes for Release v22.0.42
 
 Date: Jan 16, 2025
 
@@ -533,13 +565,13 @@ Date: Jan 16, 2025
 * Resolved an issue where inbound calls to a queue via a trunk were not routed to an agent if the trunk’s ACK response was delayed.&#x20;
 * Corrected a bug where the outbound caller ID specified in a REST API call was not properly recorded in the CDR.
 
-### REST API Changes
+#### REST API Changes
 
 * Added `/api/calllogs`to query the CDR logs.
 
 ***
 
-## Changes for Release v22.0.39
+### Changes for Release v22.0.39
 
 Date: Jan 2, 2025
 
@@ -550,7 +582,7 @@ Date: Jan 2, 2025
 
 ***
 
-## Changes for Release v22.0.38
+### Changes for Release v22.0.38
 
 Date: Dec 12, 2024
 
@@ -569,7 +601,7 @@ Date: Dec 12, 2024
 * Language support: Japanese language support
 * WSI Pub/Sub integration: Provides **global\_\*** event notifications for system integration
 
-### REST API Changes
+#### REST API Changes
 
 * Removed `/api/login/by_extension`.
 * Removed `/api/tenants/:id/dealer`.
@@ -687,7 +719,7 @@ Date: Dec 12, 2024
 
 ***
 
-## Changes for Release v16.4.4
+### Changes for Release v16.4.4
 
 Date: Nov 25, 2024
 
@@ -702,7 +734,7 @@ Date: Nov 25, 2024
 
 ***
 
-## Changes for Release v16.4.3
+### Changes for Release v16.4.3
 
 Date: Sep 10, 2024
 
@@ -712,7 +744,7 @@ Date: Sep 10, 2024
 
 ***
 
-## Changes for Release v16.4.2
+### Changes for Release v16.4.2
 
 Date: Jul 24, 2024
 
@@ -728,7 +760,7 @@ Date: Jul 24, 2024
 
 ***
 
-## Changes for Release v16.4.1
+### Changes for Release v16.4.1
 
 Date: Jun 12, 2024
 
@@ -742,7 +774,7 @@ The following changes are included in this release:
 
 ***
 
-## Changes for Release v16.4.0
+### Changes for Release v16.4.0
 
 Date: May 23, 2024
 
@@ -754,13 +786,13 @@ The following changes are included in this release:
 * Limited the file name size to a maximum of 128 characters when uploading the voice prompt files.
 * Support French and Russian languages.
 
-### REST API Changes
+#### REST API Changes
 
 1. Updated `/api/mobile_push` series API, removed `android_server_key`, `android_sender_id`, added `android_service_account` to specify the the contents of **Firebase Cloud Messaging service account JSON file**.
 
 ***
 
-## Changes for Release v16.3.0
+### Changes for Release v16.3.0
 
 Date: Mar 11, 2024
 
@@ -781,7 +813,7 @@ The following changes are included in this release:
 * Fix a bug count the concurrent calls are incorrect on a trunk for some special scenarios.
 * Support the English UK language.
 
-### REST API Changes
+#### REST API Changes
 
 * &#x20; Remove `GET /api/token`.
 * &#x20; Remove `POST /api/token/refresh`.
@@ -805,7 +837,7 @@ The following changes are included in this release:
 
 ***
 
-## Changes for Release v16.2.0
+### Changes for Release v16.2.0
 
 Date: Jan 18, 2024
 
@@ -838,7 +870,7 @@ The following changes are included in this release:
 
 ***
 
-## Changes for Release v16.1.0
+### Changes for Release v16.1.0
 
 Date: Nov 2, 2023
 
@@ -892,7 +924,7 @@ The following changes are included in this release:
 
 ***
 
-## Changes for Release v16.0.4
+### Changes for Release v16.0.4
 
 **Date**: August 8, 2023
 
@@ -901,7 +933,7 @@ The following changes are included in this release:
 
 ***
 
-## Changes for Release v16.0.3
+### Changes for Release v16.0.3
 
 **Date**: July 17 2023
 
@@ -918,7 +950,7 @@ The following changes are included in this release:
 
 ***
 
-## Changes for Release v16.0.2
+### Changes for Release v16.0.2
 
 **Date**: June 1, 2023
 
@@ -937,7 +969,7 @@ The following changes are included in this release:
 
 ***
 
-## Changes for Release v16.0.1
+### Changes for Release v16.0.1
 
 **Date**: March 30, 2023
 
@@ -968,7 +1000,7 @@ The following changes are included in this release:
 
 ***
 
-## Changes for Release v16.0.0
+### Changes for Release v16.0.0
 
 **Date**: January 16, 2023
 
