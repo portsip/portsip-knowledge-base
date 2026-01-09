@@ -97,6 +97,7 @@ You can verify whether your SSL certificate is trusted and includes the complete
 * [SSL Checker](https://www.sslchecker.com/sslchecker)
 * [SSL Shopper](https://www.sslshopper.com/ssl-checker.html)
 * [Key CDN SSL Checker](https://tools.keycdn.com/ssl)
+* [SSL Certificate Key Matcher](https://www.sslshopper.com/certificate-key-matcher.html)
 
 If your certificate is not a full-chain SSL certificate, contact your SSL certificate provider to have it corrected.
 
