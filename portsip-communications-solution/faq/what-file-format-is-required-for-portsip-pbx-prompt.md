@@ -1,31 +1,73 @@
 # What File Format Is Required for PortSIP PBX Prompt?
 
-PortSIP PBX accepts the file format as  **WAV file in PCM, 16kHz/32kHz/48 kHz, 16-bit, Mono**. This file format is applicable to the following applications:
+### Supported Audio File Format
 
-* Virtual Receptionist
+PortSIP PBX supports **WAV audio files** using the following specifications:
+
+* **Codec:** PCM (uncompressed)
+* **Sample rate:** 16 kHz, 32 kHz, or 48 kHz
+* **Bit depth:** 16-bit
+* **Channels:** Mono
+
+Only audio files that meet these requirements can be uploaded and used as system prompts.
+
+***
+
+### Applicable Features
+
+The supported audio file format applies to the following PortSIP PBX features:
+
+* Virtual Receptionist (IVR)
 * Call Queue
 * Conference
 * Voicemail
-* Conference
-* MOH
+* Music on Hold (MOH)
 * Call Parking
 
-## Converting Unsupported Audio Files to WAV Format
+***
 
-To convert an unsupported audio file for the PortSIP PBX prompt file, you can follow these steps:
+### Converting Unsupported Audio Files to WAV Format
 
-1. Download and install the free [Audacity ](https://www.audacityteam.org/download/windows/)audio editor software.
-2. Launch [Audacity](https://www.audacityteam.org/download/windows/), navigate to the menu **File >  Open**. Choose the file you wish to convert.
-3. Once the file is open, click the menu **File > Export Audio**.
-4. In the **Export Audio** window, under the **Audio options** section：
-   * Choose the **Mono** for the **Channels** option.
-   * Select either 16000 Hz, 32000 Hz, or 48000 Hz for the **Sample Rate**.
-   * For the **Encoding** option, choose **Signed 16-bit PCM**.
-5. Finally, click the **Export** button to save your converted WAV file.
+If your audio file does not meet the required format, you must convert it before uploading it to PortSIP PBX.
 
-This process will ensure your audio file is compatible with the PortSIP PBX system.
+The steps below use [Audacity](https://www.audacityteam.org/download/windows/), a free and widely available audio editor.
+
+***
+
+#### Prerequisites
+
+* [Audacity ](https://www.audacityteam.org/download/windows/)is installed on your computer
+* The source audio file you want to convert
+
+***
+
+#### Step-by-Step Instructions
+
+1. **Install Audacity**\
+   Download and install the free Audacity audio editor.
+2. **Open the audio file**
+   * Launch Audacity.
+   * Go to **File > Open**, then select the audio file you want to convert.
+3. **Export the file as WAV**
+   * Go to **File > Export Audio**.
+4. **Configure the export settings**\
+   In the **Export Audio** window, under **Audio Options**:
+   * **Channels:** Select **Mono**
+   * **Sample Rate:** Choose **16000 Hz**, **32000 Hz**, or **48000 Hz**
+   * **Encoding:** Select **Signed 16-bit PCM**
+5. **Save the converted file**\
+   Click **Export** to save the WAV file to your computer.
+
+***
+
+#### Expected Outcome
+
+* The exported WAV file fully complies with PortSIP PBX audio requirements.
+* The file can be uploaded and used successfully as a prompt in supported PBX features.
 
 <figure><img src="../../.gitbook/assets/portsip-pbx-convert-wav-file.png" alt=""><figcaption></figcaption></figure>
+
+
 
 
 
