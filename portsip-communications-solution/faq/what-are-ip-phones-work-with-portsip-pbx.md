@@ -1,58 +1,103 @@
 # What are IP Phones Work with PortSIP PBX?
 
-## Fanvil
+PortSIP PBX supports a wide range of IP phones from leading manufacturers. The following vendors and device series are officially supported.
 
-* Fanvil V Series
-* Fanvil X and XU Series
-* Fanvil Hotel Series
-* Fanvil i Series
-* Fanvil C Series
-* Fanvil PA, GA Series
-* Fanvil A Series
-* Fanvil W Series
-* Fanvil FH Series
+***
 
-The Fanvil Phones also support the PortSIP enhanced park feature, please reference this article: [Using Enhanced Call Park on Fanvil IP Phones](https://support.portsip.com/portsip-pbx-administration-guide/14-call-parking/using-enhanced-call-park-on-fanvil-ip-phones).
+### Fanvil
 
-## Yealink
+* V Series
+* X and XU Series
+* Hotel Series
+* i Series
+* C Series
+* PA and GA Series
+* A Series
+* W Series
+* FH Series
+* LINKVIL DECT Phones
 
-* Yealink T5 Series
-* Yealink T4 Series
-* Yealink T3 Series
-* Yealink T2 Series
-* Yealink C Series
+Fanvil phones also support the PortSIP Enhanced Call Park feature.\
+Refer to the article: [_Using Enhanced Call Park on Fanvil IP Phones_](../portsip-pbx-administration-guide/14-call-parking/using-enhanced-call-park-on-fanvil-ip-phones.md).
 
-The Yealink Phones also support the PortSIP enhanced park feature, please reference this article: [Using Enhanced Call Park on Yealink IP Phones](https://support.portsip.com/portsip-pbx-administration-guide/14-call-parking/using-enhanced-call-park-on-yealink-ip-phones).
+***
 
-## Dinstar
+### Yealink
 
-* Dinstar C Series
+* T5 Series
+* T4 Series
+* T3 Series
+* T2 Series
+* C Series
+* T7 Series
+* T8 Series
 
-The Dinstar Phones also support the PortSIP enhanced park feature, please reference this article: [Using Enhanced Call Park on Dinstar IP Phones](https://support.portsip.com/portsip-pbx-administration-guide/14-call-parking/using-enhanced-call-park-on-dinstar-ip-phones).
+Yealink phones also support the PortSIP Enhanced Call Park feature.\
+Refer to the article: [_Using Enhanced Call Park on Yealink IP Phones_](../portsip-pbx-administration-guide/14-call-parking/using-enhanced-call-park-on-yealink-ip-phones.md).
 
-## SNOM
+***
 
-* Snom D8 Series
-* Snom D7 Series
-* Snom D3 Series
-* Snom M Series
+### Dinstar
 
-## Avaya
+* C Series
 
-* Avaya J Series
+Dinstar phones also support the PortSIP Enhanced Call Park feature.\
+Refer to the article: [_Using Enhanced Call Park on Dinstar IP Phones_](../portsip-pbx-administration-guide/14-call-parking/using-enhanced-call-park-on-dinstar-ip-phones.md).
 
-## ALE
+***
 
-* ALE H Series
-* ALE M Series
-* ALE 8 Series
+### Snom
 
-## GrandStream
+* D8 Series
+* D7 Series
+* D3 Series
+* M Series
 
-* GrandStream GXP Series
-* GrandStream GRP Series
-* GrandStream GSC Series
-* GrandStream GDS Series
+Snom phones also support the PortSIP Enhanced Call Park feature.\
+Refer to the article: [_Using Enhanced Call Park on Snom IP Phones_](../portsip-pbx-administration-guide/14-call-parking/using-enhanced-call-park-on-snom-ip-phones.md).
+
+***
+
+### Avaya
+
+* J Series
+
+***
+
+### ALE (Alcatel-Lucent Enterprise)
+
+* H Series
+* M Series
+* 8 Series
+
+***
+
+### Grandstream
+
+* GXP Series
+* GRP Series
+* GSC Series
+* GDS Series
+
+Grandstream phones also support the PortSIP Enhanced Call Park feature.\
+Refer to the article: [_Using Enhanced Call Park on Greanstream IP Phones_](../portsip-pbx-administration-guide/14-call-parking/using-enhanced-call-park-on-grandstream-ip-phones.md).
+
+***
+
+### Gigaset
+
+* P7x Series
+* P8x Series
+* N5x Series
+* N6x Series
+* N7x Series
+* N8x Series
+
+***
+
+### Intelbras
+
+* TIP1xx Series
 
 
 

@@ -1,24 +1,86 @@
 # What is the DID Pool?
 
-The DID pool is a DID numbers range of a specified SIP trunk which is configured in the PortSIP PBX.
+A **DID Pool** is a defined range of **DID/DDI numbers** associated with a specific **SIP trunk** in PortSIP PBX.
 
-Since the PortSIP PBX is a multi-tenant PBX design for the cloud PBX provider and UCaaS provider. If more than one tenant set up the trunk from the same trunk provider in the PBX, and sets the same DID number for the inbound rule, when a call is arriving at the PBX, the PBX does not know which tenant should route the call to; and when an extension of a tenant makes the call to the trunk, set the outbound caller ID which belongs to another tenant, will cause problems there.
+Because PortSIP PBX is a **true multi-tenant platform** designed for **Cloud PBX and UCaaS service providers**, multiple tenants may configure trunks from the same SIP trunk provider within a single PBX system.
 
-To avoid the problems above, PortSIP PBX introduced the DID pool concept.
+Without proper isolation, this can lead to routing and caller ID conflicts, such as:
 
-The usage of DID pool with the ability to add a range of DID numbers instead of the addition of N DIDs. DID range could be split into subranges that might consist of either individual numbers or smaller subranges.
+* Multiple tenants configuring the **same DID number** in inbound rules, making it unclear which tenant should receive an incoming call.
+* A tenant using an **outbound caller ID** that belongs to another tenant, causing incorrect caller identification or call rejection by the trunk provider.
 
-Ranges, subranges, or individual numbers could be assigned to the tenant, then the tenant can create the call routing rules base on the assigned trunk and DID numbers which are in the DID pool range.
+***
 
-## Format of the DID Pool
+### Why DID Pool Is Required
 
-The PortSIP PBX separated the multiple DID/DDI numbers by a semicolon, following formats are allowed:
+To prevent these conflicts, PortSIP PBX introduces the **DID Pool** mechanism.
 
-* 33802000-33803000;33806000-33807000;33809122
-* 33802000
-* 33802000;33802010;33802112
-* 33806000-33807000;33809122
-* 33802000-33803000;33806000-33807000
+The DID Pool ensures that:
 
-Please remove the leading `+`, `0` or `00` from the DID number before entering it.
+* DID numbers are **uniquely allocated per tenant**
+* Inbound call routing is **deterministic and unambiguous**
+* Outbound caller IDs are restricted to **authorized numbers only**
+
+This design is mandatory for large-scale, multi-tenant Cloud PBX and UCaaS environments.
+
+***
+
+### How DID Pools Work
+
+Instead of adding DID numbers individually, the DID Pool allows you to define **ranges of DID numbers** for a SIP trunk.
+
+Key capabilities include:
+
+* Adding **large DID ranges** efficiently
+* Splitting a range into **subranges or individual numbers**
+* Assigning ranges, subranges, or individual DIDs to specific tenants
+
+Once assigned, a tenant can:
+
+* Configure inbound call routing rules
+* Set outbound caller IDs\
+  using **only the DID numbers allocated to them from the DID Pool**
+
+***
+
+### DID Pool Format
+
+PortSIP PBX supports multiple formats for defining DID Pools.\
+Multiple entries must be separated by a **semicolon (`;`)**.
+
+#### Supported Formats
+
+```
+33802000-33803000;33806000-33807000;33809122
+33802000
+33802000;33802010;33802112
+33806000-33807000;33809122
+33802000-33803000;33806000-33807000
+```
+
+#### Format Rules
+
+* A **single DID number** can be specified directly
+* A **DID range** is defined using a hyphen (`-`)
+* Multiple numbers or ranges must be separated by semicolons (`;`)
+
+***
+
+### Important Notes
+
+* **Remove any leading `+`, `0`, or `00`** from DID numbers before entering them into the DID Pool.
+* Ensure DID ranges do not overlap across tenants to avoid routing conflicts.
+* DID Pool assignments are enforced at both **inbound routing** and **outbound caller ID validation**.
+
+***
+
+### Expected Outcome
+
+With DID Pools correctly configured:
+
+* Incoming calls are routed to the **correct tenant**
+* Outbound calls use **valid, tenant-owned caller IDs**
+* The PBX operates safely and predictably in a **multi-tenant cloud environment**
+
+
 
