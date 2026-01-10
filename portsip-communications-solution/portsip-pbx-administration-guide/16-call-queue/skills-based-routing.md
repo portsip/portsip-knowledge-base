@@ -1,101 +1,197 @@
 # Skills-Based Routing
 
-Every call center agent has heard of irate customer stories. To avoid frustrating customers, a call center must make sure that the client’s concern is resolved as quickly and efficiently as possible. One way to do this is to ensure agents with the right skills address the customer’s problem.
+### Overview
 
-That is where skills-based routing comes in handy. Let’s go over what skills-based routing is and how it can help improve your contact center. We’ll also get into how you can build an effective skills-based routing strategy for your own team.
+Every call center agent has encountered irate customer situations. To reduce customer frustration, a contact center must resolve issues **quickly and accurately**. One of the most effective ways to achieve this is ensuring that calls are handled by agents with the **right skills**.
 
-## What Is Skills-based Routing?
+This is where **skills-based routing** becomes essential.
 
-Skill-based routing (or skill-based distribution) is a call routing strategy where customers are assigned to agents with the most relevant skills for handling their concerns. For example, Spanish-speaking customers are sent to agents that can speak Spanish.
+***
 
-The PortSIP PBX includes Skills-Based Routing, moving incoming queue calls to agents in the next skill group if members of the previous skill group(s) are busy, unavailable, or logged out. For example, a contact center can assign its support agents to increase skill groups based on their expertise. In this way, incoming calls are first assigned to agents in the skill group that has the highest skill level and when not available, move on to the less experienced agents(lower skill level) in subsequent skill groups.
+### What Is Skills-Based Routing?
 
-With this routing system, the customer won’t have to deal with agents who aren’t equipped with the skills required to assist them, reducing the chances of them being angry.
+**Skills-based routing** (also known as skill-based distribution) is a call routing strategy that assigns incoming calls to agents based on the skills most relevant to the customer’s needs.
 
-## Route Call By Caller Language
+**Example:**\
+Spanish-speaking customers are routed to agents who speak Spanish.
 
-You can create multiple inbound rules based on the same DID number with a trunk, but all these inbound rules must have a different CID number mask.
+PortSIP PBX supports Skills-Based Routing by automatically routing incoming queue calls to agents in the **highest-skill group first**. If no agents in that group are available (busy, unavailable, or logged out), the call is routed to agents in **lower skill groups**.
 
-**Example**:&#x20;
+This ensures:
 
-You have the DID **`00442012345670`**. Create two inbound rules:&#x20;
+* Customers are handled by qualified agents
+* Call resolution times are reduced
+* Customer frustration is minimized
 
-1. The CID for the first rule is **`0044**********`**, the DID number mask is **`442012345670`**, and the call is routed to "**English Support Queue 8000**";&#x20;
-2. The CID for the second rule is **`0033*********`**, the DID number mask is **`442012345670`**, and the call is routed to "**French Support Queue 9000**".
+***
 
-Now let all English-speaking employees be agents of **English Support Queue 8000**, and let all French-speaking employees be agents of **French Support Queue 9000**. When the caller calls  **00442012345670**, callers from the UK will be routed to **call queue 8000** to talk with an English agent, and callers from France will be routed to **call queue 9000** to talk with a French agent.
+### Route Calls by Caller Language
 
-## Route Call By VIP
+You can route calls by language using **Inbound Rules** based on the caller ID (CID) mask.
 
-PortSIP PBX provides the **VIP Caller** feature, making VIP customers feel special when trying to connect to the PortSIP PBX contact center. When the VIP call was determined, the queue always gave the top priority to the caller and pushed them to the front of the queue.
+#### Example Scenario
 
-* Click the menu **Contact Center > VIP Numbers**, and click the **Add** button
-* **Enabled:** turn on/off
-* Enter the VIP customer phone number
-* **Description:** A descriptive name for the VIP Caller being entered. For example, enter **Microsoft team** as the description for the VIP caller
-* Set up how long the VIP number validity
+DID number: **00442012345670**
 
-{% hint style="info" %}
-The VIP list is global validity for all queues in the tenant scope
-{% endhint %}
+Create two inbound rules using the same DID but different CID masks:
 
-## **Exclusive Agent**
+* **Rule 1**
+  * CID mask: `0044**********`
+  * DID mask: `442012345670`
+  * Route to: **English Support Queue (8000)**
+* **Rule 2**
+  * CID mask: `0033*********`
+  * DID mask: `442012345670`
+  * Route to: **French Support Queue (9000)**
 
-In some scenarios, for the special industry callers in the contact center, we will need special agents who have rich special industry knowledge and skills to serve them.
+Assign English-speaking agents to queue **8000** and French-speaking agents to queue **9000**.
 
-PortSIP PBX provides the **Exclusive Agent** feature, which allows setting up one or more agents from the queue as **Exclusive Agents** for the special callers; once the call comes from these callers, the queue will distribute the call to the **exclusive agent,** giving it the highest priority if the agent is ready (idle); of course, if all exclusive agents are busy / Not Ready / signed out, the call will be distributed to other agents.
+**Result:**
 
-{% hint style="danger" %}
-The Exclusive Agent feature cannot be applied to the queue when the Ring Strategy is configured to Ring Simultaneously.
-{% endhint %}
+* Calls from the UK are routed to English-speaking agents
+* Calls from France are routed to French-speaking agents
 
-* Click the menu **Contact Center > Exclusive Agent**, and click the **Add** button
-* **Description**: A descriptive name for the exclusive agent being entered. For example, enter **XXX Bank** as the description for the bank caller.
-* **Caller number**: Enter the caller number who will be assigned the exclusive agents. Once the call comes from this caller, the call will be distributed to the exclusive agent with the highest priority. You can add more caller numbers by clicking the **Add** button.
-* **Call Queue:** choose the queue member from the queues to set up as an exclusive agent
+***
 
-{% hint style="info" %}
-If the call does not come from the specified caller numbers, the exclusive agent works as the normal agent.
-{% endhint %}
+### Route Calls by VIP Priority
 
-## Route Call By Agent Skill Level
+PortSIP PBX provides a **VIP Caller** feature to prioritize high-value customers.
 
-PortSIP PBX currently supports the following skill base routing strategies:
+When a VIP call is detected:
 
-* Skill Based Routing Prioritized Hunt: Ring each available agent in the queue serially in the configured order. Assign the call to agents in the highest level skill group first. If the call is not answered in the current skill group, move on to less experienced agents in subsequent skill groups.
-* Skill Based Routing Cyclic Hunt: Ring each available agent in the queue serially. Ring the agent who hasn't been rung from a call from this queue in the longest amount of time first. Assign the call to agents in the highest level skill group first. If the call is not answered in the current skill group, move on to less experienced agents in subsequent skill groups.
-* Skill Based Routing Least Worked Hunt: Ring each available agent in the queue serially. Ring the agent who hasn't answered a call from this queue in the longest amount of time first. Assign the call to agents in the highest level skill group first. If the call is not answered in the current skill group, move on to less experienced agents in subsequent skill groups.
+* The caller is placed at the **front of the queue**
+* The call is always handled with **highest priority**
 
-When adding the agents to the queue, you can specify the skill level for each agent, a bigger number means a higher level.
+#### Configure VIP Callers
+
+1. Navigate to **Contact Center > VIP Numbers**.
+2. Click **Add**.
+3. Configure the following fields:
+   * **Enabled** – Turn VIP handling on or off
+   * **VIP Number** – Enter the customer phone number
+   * **Description** – Friendly name (for example, _Microsoft Team_)
+   * **Validity Period** – Define how long the VIP entry remains active
+
+> ❗**Note**\
+> The VIP list applies globally to **all queues within the tenant**.
+
+***
+
+### Exclusive Agent Routing
+
+Some callers—such as those from specialized industries—require agents with **specific domain expertise**.
+
+The **Exclusive Agent** feature allows you to assign one or more agents as **priority handlers** for specific callers.
+
+#### How Exclusive Agent Routing Works
+
+* When a call arrives from a configured caller number:
+  * The call is routed to an exclusive agent with **highest priority**
+* If all exclusive agents are **busy, not ready, or signed out**:
+  * The call is routed to other available agents in the queue
+
+> ❗**Limitation**\
+> Exclusive Agent routing is **not supported** when the queue Ring Strategy is set to **Ring Simultaneously**.
+
+#### Configure Exclusive Agents
+
+1. Navigate to **Contact Center > Exclusive Agent**.
+2. Click **Add**.
+3. Configure the following:
+   * **Description** – For example, _XXX Bank_
+   * **Caller Number** – Caller numbers eligible for exclusive handling
+   * **Call Queue** – Select the queue and assign exclusive agents
+
+If the call does **not** match the configured caller numbers, the agent behaves as a normal queue agent.
+
+***
+
+### Route Calls by Agent Skill Level
+
+PortSIP PBX supports multiple **skill-based routing strategies** within call queues:
+
+* **Skill-Based Routing – Prioritized Hunt**\
+  Agents are rung serially in a configured order, starting with the highest skill group.
+* **Skill-Based Routing – Cyclic Hunt**\
+  Agents are rung serially, prioritizing the agent who has not been rung for the longest time, starting with the highest skill group.
+* **Skill-Based Routing – Least Worked Hunt**\
+  Agents are rung serially, prioritizing the agent who has answered the fewest calls, starting with the highest skill group.
+
+When adding agents to a queue, you assign a **skill level**:
+
+* Higher number = higher skill level
 
 <figure><img src="../../../.gitbook/assets/skill_based_routing_1.png" alt=""><figcaption></figcaption></figure>
 
-## Last Called Agent Routing
+***
 
-**Last Called Agent Routing** is a feature that routes a customer call to the agent who last spoke with that customer (last called agent or LCA routing).&#x20;
+### Last Called Agent Routing (LCA)
 
-PortSIP PBX has an option **Last Called Agent Routing** in the call queue that allows you to enable or disable this feature.
+**Last Called Agent Routing** routes repeat callers to the agent who last handled their call.
 
-Here’s a summary of the scenario:
+#### How It Works
 
-1. A customer calls the contact center and the call is routed to an agent.
-2. The agent ID and the call time are saved to the customer contact information in the PortSIP PBX database.
-3. A future call from the same customer can be routed to the same agent.
-4. If **Last Called Agent Routing** is enabled and the customer calls again, the call is routed to that agent.
-5. If that agent is unavailable, the call is routed to another appropriate agent.
+1. A customer calls the contact center.
+2. The PBX stores the agent ID and call time.
+3. When the same customer calls again:
+   * The call is routed to the **same agent**, if available
+4. If the agent is unavailable:
+   * The call is routed to another suitable agent
 
-{% hint style="danger" %}
-The Last Called Agent Routing feature cannot be applied to the queue when the Ring Strategy is configured to Ring Simultaneously.
-{% endhint %}
+> ❗**Limitation**\
+> LCA routing is **not supported** when the queue Ring Strategy is set to **Ring Simultaneously**.
 
-## **Harass Numbers**
+***
 
-Spam calls are the plague of all businesses, especially contact centers, PortSIP PBX provides two ways to prevent spam calls.
+### Harass Numbers (Spam Call Protection)
 
-* A global **Number Blacklist**, will reject the call silently if the caller is in the number blacklist. You can add the blacklisted number by selecting the menu **Blacklist and Codes > Number Blacklist**.
-* **Harass Number:** PortSIP PBX also provides the **Harass Number** feature to prevent spam calls only for the Call Queue. The harass number is defined as having two levels.
-  1. if a caller is determined in **Harass Number** **Level 1**, the preset prompt file will be played to alert the caller, and if the caller presses button **1** the call will hang up, press **2** the call will continue.
-  2. If a caller is determined in **Harass Number** **Level 2**, the preset prompt file will be played to alert the caller, and the call will be hung up automatically after the play is finished.
+Spam calls are a major issue for contact centers. PortSIP PBX provides **two layers** of protection.
 
-The harass number feature can be enabled or disabled in the menu **Contact Center > Harass Number Level 1** and **Harass Number Level 2**, click the **Global Settings** to turn on or off the **Enable level 1 Harass Number** and **Enable level 2 Harass Number** options, and upload the prompt files.
+#### Global Number Blacklist
+
+* Calls from blacklisted numbers are **silently rejected**
+* Configure under **Blacklist and Codes > Number Blacklist**
+
+***
+
+#### Harass Number (Queue-Specific Protection)
+
+Harass Numbers apply **only to Call Queues** and operate in two levels:
+
+**Level 1 Harass Number**
+
+* A warning prompt is played
+* Caller options:
+  * Press **1** – Hang up
+  * Press **2** – Continue the call
+
+**Level 2 Harass Number**
+
+* A warning prompt is played
+* The call is **automatically disconnected** after playback
+
+#### Configure Harass Numbers
+
+1. Navigate to:
+   * **Contact Center > Harass Number Level 1**
+   * **Contact Center > Harass Number Level 2**
+2. Open **Global Settings**
+3. Enable or disable:
+   * **Enable Level 1 Harass Number**
+   * **Enable Level 2 Harass Number**
+4. Upload the corresponding prompt files
+
+***
+
+### Best Practices
+
+* Use **skills-based routing** to reduce call transfers and improve first-call resolution
+* Combine **VIP routing** with **exclusive agents** for premium customers
+* Enable **LCA routing** to improve customer continuity
+* Use **harass number protection** to reduce spam without blocking legitimate callers
+* Avoid **Ring Simultaneously** when advanced routing logic is required
+
+
+
+
 

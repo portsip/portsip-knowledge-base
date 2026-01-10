@@ -31,7 +31,7 @@ To enable call monitoring:
 2. Navigate to **Contact Center > Monitor Service**.
 3. Turn on the **Enable Monitor** option.
 
-> **Note**\
+> ❗**Note**\
 > The default monitoring service number is **888**.\
 > It is strongly recommended **not to change this number**.
 
@@ -119,7 +119,7 @@ Supervisors can also start monitoring with a specific mode directly:
 * **Barge-break**:\
   \*63601\*4
 
-> **Tip**\
+> ❗**Tip**\
 > The exact Feature Access Codes (FACs) can be reviewed or customized under\
 > **Advanced > Feature Access Codes**.
 

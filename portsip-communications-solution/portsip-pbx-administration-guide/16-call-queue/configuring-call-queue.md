@@ -130,7 +130,7 @@ To enable email notifications:
 * The **email server** must be properly configured
 * The **notification option** must be enabled
 
-For detailed instructions, refer to [**Configuring Email Notifications**](../configuring-email-notifications.md).
+For detailed instructions, refer to [Configuring Email Notifications](../configuring-email-notifications.md).
 
 ***
 
@@ -143,8 +143,8 @@ The outbound caller ID may **replace certain SIP headers or fields**, depending 
 
 For more details, refer to:
 
-* [**Outbound Parameters**](../7-trunk-management/)
-* [**Handle Outbound Calls Through SIP Trunk**](../7-trunk-management/handle-outbound-calls-through-sip-trunk.md)
+* [Outbound Parameters](../7-trunk-management/)
+* [Handle Outbound Calls Through SIP Trunk](../7-trunk-management/handle-outbound-calls-through-sip-trunk.md)
 
 <figure><img src="../../../.gitbook/assets/queue_cli.png" alt=""><figcaption></figcaption></figure>
 

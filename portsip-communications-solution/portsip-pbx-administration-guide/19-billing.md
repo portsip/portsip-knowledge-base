@@ -1,50 +1,107 @@
 # 19 Billing
 
-PortSIP PBX integrates a complete Call Accounting System through which you can generate a wide variety of reports manually and automatically.
+### Overview
 
-After signing in as a tenant administrator, select **Billing > Settings** from the menu. From there, you can enable or disable the billing feature.
+PortSIP PBX includes a comprehensive Call Accounting and Billing system that allows you to generate detailed call cost reports, both manually and automatically.
 
-## Billing Settings
+Billing can be applied at either the tenant or user (extension) level and supports both real-time balance enforcement and post-call cost calculation.
+
+***
+
+### Enabling Billing
+
+1. Sign in to the PortSIP PBX Web Portal as a **Tenant Administrator**.
+2. Navigate to **Billing > Settings**.
+3. Enable or disable the billing feature as required.
+
+***
+
+### Billing Settings
+
+#### Enable Call Billing
+
+Turn this option **on** to activate the billing system.
+
+#### Billing Profile
+
+Defines where call charges are applied:
+
+* **Tenant** – Charges are deducted from the tenant’s balance
+* **User** – Charges are deducted from the extension user’s balance
+
+#### Charge Mode
+
+Defines how charges are calculated and enforced:
+
+* **Online Charging**
+  * The PBX checks the available balance **before and during** the call
+  * If sufficient balance exists, the call proceeds
+  * Call cost is deducted and recorded in the CDR after call completion
+  * Balance verification applies to:
+    * Tenant balance (if Billing Profile = Tenant)
+    * User balance (if Billing Profile = User)
+* **Offline Charging**
+  * No balance check is performed
+  * Call cost is calculated after the call and recorded in the CDR
+  * No balance deduction or call blocking occurs
 
 <figure><img src="../../.gitbook/assets/billing_1.png" alt=""><figcaption></figcaption></figure>
 
-**Enable Call Billing:** Turn it on to enable the billing feature.
+***
 
-**Billing Profile:** This feature allows you to set billing to be either from the tenant or from a user.
+### Account Recharge
 
-**Charge Mode:** This feature allows you to choose between **Online** and **Offline** charging.
+#### Tenant Balance
 
-* **Online Charging:** The PBX will check the balance for each call that matches the billing rule. It verifies if the balance is sufficient, deducts the appropriate amount, and records the cost in the **CDR** field once the call is completed. If the billing profile is set to the **tenant**, it will check the tenant’s balance; if it is set to the **extension**, it will check the extension’s balance.
-* **Offline Charging:** The PBX does not check the balance but will calculate the call cost and record it in the **CDR** field.
+* **Current Balance**\
+  Displays the tenant’s current balance. This field is **read-only**.
+* **Recharge**\
+  Allows the tenant administrator to add funds to the tenant account.
 
-## Account Recharge
+***
 
-**Current Balance:** This displays the current balance of the tenant. It is read-only and cannot be modified.
+#### Recharge for a User
 
-&#x20;**Recharge:** This allows you to recharge the tenant’s balance.
+To recharge an individual user’s balance:
 
-## Recharge for the User
+1. Navigate to **Call Manager > Users**.
+2. Edit the desired user.
+3. Open the **Balance** tab.
+4. Enter the recharge amount and save.
 
-From the menu, select **Call Manager > Users**. Edit a user and click on the “**Balance**” tab. On that page, the tenant administrator can recharge a user’s balance.
+***
 
-## Managing Billing Rules
+### Managing Billing Rules
 
-Select **Billing > Billing Rules** from the menu. From there, you can create, modify, delete, import, or export billing rules.
+To manage billing rules:
 
-PortSIP PBX uses the called number to match the billing rule prefix; that call will be billed if the prefix is matched. For billing rules, the prefix cannot be duplicated.
+1. Navigate to **Billing > Billing Rules**.
+2. From this page, you can:
+   * Create new rules
+   * Modify existing rules
+   * Delete rules
+   * Import or export billing rules
 
-### Parameters of billing rules
+#### Rule Matching Logic
 
-There are a few parameters that need to be entered when creating the billing rule:
+* Billing rules are matched using the **called number prefix**
+* If the prefix matches, the call is billed
+* **Prefixes must be unique** and cannot be duplicated
 
-* FreeSeconds - in seconds
-* ConnectFee - in monetary units
-* PostCallSurcharge - in percent (0.01 means 1%)
-* GracePeriod - in seconds
-* Price' - in monetary units per minute
-* PriceN - in monetary units per minute
-* Interval' - in seconds
-* IntervalN - in seconds
+***
+
+### Billing Rule Parameters
+
+When creating a billing rule, the following parameters can be configured:
+
+* **FreeSeconds** – Free call duration (seconds)
+* **ConnectFee** – Fixed charge applied upon successful call connection
+* **PostCallSurcharge** – Percentage surcharge (e.g., `0.01` = 1%)
+* **GracePeriod** – Minimum call duration required for billing (seconds)
+* **Price1** – Rate per minute for the initial billing interval
+* **PriceN** – Rate per minute for subsequent billing intervals
+* **Interval1** – Initial billing interval (seconds)
+* **IntervalN** – Subsequent billing interval (seconds)
 
 The simplest parameters are _ConnectFee_, which is a fixed amount of money charged for each successful call regardless of its duration; and _PostCallSurcharge_ which is additional charge applied. It is calculated on the percentage of the amount charged, that is if the call costs 1 dollar and the _PostCallSurcharge_ is 0.01, the actual amount charged will be 1.01 dollar.
 
@@ -53,6 +110,26 @@ The following picture illustrates how the calls are charged. The process starts 
 A _ConnectFee_ is charged immediately upon connection, and all calls shorter than Interval’ will be rounded to _Interval1_ seconds. _FreeSeconds_ are granted after the _Interval1_, so this part of the call is not charged, and calls shorter than (_Interval1_ + _FreeSeconds_) will be rounded to _Interval1_ seconds. If call is longer than (_Interval1_ + _FreeSeconds_) remaining portion will be rounded up to multiple _IntervalIN_ seconds. After that, the _PostCallSurcharge_ is applied to the total amount charged.
 
 <figure><img src="../../.gitbook/assets/billing_2.png" alt=""><figcaption></figcaption></figure>
+
+
+
+
+
+***
+
+### Call Cost Formula
+
+The total call cost is calculated using:
+
+* **ConnectFee**
+* **Price1 × Interval1**
+* **PriceN × IntervalN**
+* **PostCallSurcharge**
+
+Where:
+
+* All time values are rounded according to billing intervals
+* Surcharge is applied after base cost calculation
 
 The call illustrated in the figure will be charged using the following formula:
 
@@ -64,3 +141,8 @@ The call illustrated in the figure will be charged using the following formula:
 * Interval 1 - seconds
 * Interval N - seconds
 * Post call surcharge - fractional based on the setting in the Tariff/Destination Set (E.g. for 10% fractional = 0.1)
+
+
+
+
+
