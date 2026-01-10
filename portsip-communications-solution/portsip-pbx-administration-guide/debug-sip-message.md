@@ -1,100 +1,109 @@
-# Trace Server - A Better Way to Monitoring SIP Messages and QoS for PortSIP PBX
+# Trace Server – A Better Way to Monitor SIP Messages and QoS for PortSIP PBX
 
-{% hint style="danger" %}
-Important: Please note that the PortSIP Trace Server and PortSIP PBX should not be installed on the same server. Doing so may lead to undefined issues.
-{% endhint %}
+PortSIP has built the **PortSIP Trace Server** on top of the open-source **HOMER** project to provide a powerful, centralized solution for troubleshooting SIP signaling, SIP trunks, endpoints, and media quality issues.
 
-PortSIP has been building its SIP Trace Server based on the open-source project [HOMER](https://github.com/sipcapture/homer),  which provides key information in troubleshooting SIP Trunks, SIP endpoints, and other SIP-related issues. It provides a place to:
+The Trace Server enables you to:
 
-* Access singularly to retrieve SIP and RTCP QoS captures via Web UI
-* Centrally store SIP capture data across many hosts
-* More intuitively filter SIP capture data and correlate the data to the dialog/transactions each request/response is part of (this is immensely useful!)
-* Gracefully age-dated capture data you don’t want to persist for very long (though persisting longer term can be configured very easily)
-* The calls and RTCP data are beautifully displayed as charts.
+* Access SIP and RTCP (QoS) captures through a web-based UI
+* Centrally store SIP capture data from multiple hosts
+* Filter SIP messages intuitively and correlate them to dialogs and transactions
+* Automatically age out capture data after a configurable retention period
+* Visualize calls and RTCP QoS metrics using clear, interactive charts
 
-## **Supported Linux OS**
+***
 
-* Ubuntu: 20.04, 22.04, 24.04
-* Debian: 11.x, 12.x
-* Only supports 64-bit OS
+### Supported Operating Systems
 
-## Preparing Linux Host Machine&#x20;
+* **Ubuntu**: 20.04, 22.04, 24.04
+* **Debian**: 11.x, 12.x
+* **Architecture**: 64-bit only
 
-Since the Trace server usually takes large CPU and memory resources, we recommend below hardware specifications for the SIP Trace Server:
+***
 
-### Maximum of 200 simultaneous calls
+### Preparing the Linux Host
 
-* CPU: 2-4 cores
-* Memory: 2G - 4G
+Because the Trace Server processes a high volume of SIP and RTCP data, it requires sufficient CPU and memory resources.
 
-### Maximum of 1,000 simultaneous calls
+#### Recommended Hardware Specifications
 
-* CPU: 4 cores
-* Memory: 4G
+| Concurrent Calls | CPU Cores | Memory |
+| ---------------- | --------- | ------ |
+| Up to 200        | 2–4       | 2–4 GB |
+| Up to 1,000      | 4         | 4 GB   |
+| Up to 5,000      | 8–10      | 8 GB   |
+| Up to 10,000     | 16–20     | 16 GB  |
 
-### Maximum of 5,000 simultaneous calls
+> **Important**\
+> The PortSIP Trace Server **must not** be installed on the same server as the PortSIP PBX. Running both services on one host may lead to performance degradation or undefined behavior.
 
-* CPU: 8 - 10 cores
-* Memory: 8G
+***
 
-### Maximum of 10,000 simultaneous calls
+### Firewall Requirements
 
-* CPU: 16 - 20 cores
-* Memory: 16G
+Ensure that the server firewall and any cloud security groups allow the following ports:
 
-{% hint style="danger" %}
-**Important**: Please note that the PortSIP Trace Server and PortSIP PBX should not be installed on the same server. Doing so may lead to undefined issues.
-{% endhint %}
+* **TCP 9061** – Receiving SIP messages from PortSIP PBX
+* **UDP 9060** – RTCP/QoS data
+* **TCP 9080** – Trace Server Web Portal
 
-## Firewall Rules
+***
 
-The firewall and cloud platform security group must allow the ports listed below.
+### Installing PortSIP Trace Server
 
-* Port 9061 on TCP
-* Port 9080 on TCP
-* Port 9060 on UDP
+#### Prerequisites
 
-## Installing PortSIP Trace Server
+* System date and time must be correctly synchronized
+* All commands must be executed as **root**
 
-* Ensure the server date and time are synced correctly
-* Must perform all Linux commands as the **root** user. Please **su root** first
+```bash
+su root
+```
 
-### **Download the Installation Scripts**
+***
 
-Perform the following commands to download the installation scripts.
+#### Download Installation Scripts
 
-```sh
+```bash
 mkdir -p /opt/portsip-trace && cd /opt/portsip-trace
 curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/install_docker.sh -o install_docker.sh
 curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/trace_ctl.sh -o trace_ctl.sh
 ```
 
-### Install the Docker Environment
+***
 
-```sh
+#### Install the Docker Environment
+
+```bash
 cd /opt/portsip-trace && /bin/sh install_docker.sh
 ```
 
-### Run the PortSIP Trace Server
+***
 
-The command for running the PortSIP Trace Server with **default settings** is below:
+#### Run the Trace Server (Default Settings)
 
-```sh
+```bash
 cd /opt/portsip-trace && /bin/sh trace_ctl.sh run
 ```
 
-We can specify the following parameters for specific usage.
+***
 
-* **-p**: Specify the folder path where the data will be stored, for example, `/opt/portsip/trace`. Please ensure that the path does not contain any spaces. The default path is /`var/lib/portsip`.
-* **-k**: This option allows you to specify the number of days that the SIP message data will be stored. Any stored SIP message data will be automatically deleted if it exceeds the specified number of days. The default storage duration is 5 days.
-* **-l**: Specify the listening port for the trace server on the web portal. The default port is set to 9080.
-* **-z**: Specify the port for receiving the SIP messages sent from the PortSIP PBX. The default port is set to 9061.
+#### Optional Runtime Parameters
 
-The following example demonstrates how to run the PortSIP Trace Server.
+You can customize the Trace Server using the following options:
 
-In this example, the data is stored in the `/opt/portsip/trace` directory, the data is retained for **30** days, the web portal listens on port **12345**, and the server listens on port **23456** for receiving SIP messages.
+* `-p` – Data storage path (default: `/var/lib/portsip`)
+* `-k` – Retention period in days (default: `5`)
+* `-l` – Web portal listening port (default: `9080`)
+* `-z` – SIP message receiving port (default: `9061`)
 
-```sh
+> **Note**\
+> Ensure the specified data path contains **no spaces**.
+
+***
+
+#### Example: Custom Configuration
+
+```bash
 cd /opt/portsip-trace && \
 /bin/sh trace_ctl.sh run \
 -p /opt/portsip/trace \
@@ -103,127 +112,175 @@ cd /opt/portsip-trace && \
 -z 23456
 ```
 
-After the PortSIP Trace Server is successfully installed, you can access the trace server Web Portal by the following URL:
+* Data path: `/opt/portsip/trace`
+* Retention: 30 days
+* Web portal port: 12345
+* SIP receiving port: 23456
 
-`http://trace-server-ip:12345`
+***
 
-If you didn't use the `-l` parameter to specify the web portal port, then the URL should be:
+### Accessing the Trace Server Web Portal
 
-`http://trace-server-ip:9080`
+*   Default:
 
-{% hint style="danger" %}
-If you set up the trace server in the cloud platform, please create the firewall rule for TCP in the cloud platform for port 9080 or your specified port with the parameter -`l.`
-{% endhint %}
+    ```
+    http://trace-server-ip:9080
+    ```
+*   Custom port:
 
-The default username is `admin`, the password is `admin.`
+    ```
+    http://trace-server-ip:12345
+    ```
 
-{% hint style="danger" %}
-Please change the default password for the admin after you sign in to the web portal.
-{% endhint %}
+> If deployed on a cloud platform, ensure the web portal port is allowed in the cloud firewall or security group.
 
-## Enabling SIP Trace in the PortSIP PBX
+#### Default Credentials
 
-Sign in to the PortSIP PBX Web Portal, click **Advanced** > **Settings**, on the **General** page, and fill out the trace server information as shown in the screenshot below:
+* **Username**: `admin`
+* **Password**: `admin`
+
+> **Security Recommendation**\
+> Change the default password immediately after first login.
+
+***
+
+### Enabling SIP Trace in PortSIP PBX
+
+1. Sign in to the **PortSIP PBX Web Portal**
+2. Go to: **Advanced > Settings**
+3. On the **General** page, enter the Trace Server details:
+   * Trace Server IP
+   * Trace Server Port (default: 9061 or the value specified with `-z`)
+4. Click **OK**
+
+After configuration, the PBX will forward **all SIP messages** to the Trace Server.
+
+> **Important**\
+> Always enter the **actual Trace Server IP and port** used during installation.
 
 <figure><img src="../../.gitbook/assets/portsip_trance_server.png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="danger" %}
-Important: Enter your actually trace server IP. If you used the **-z** parameter to specify a port other than the default 9061, you will also need to enter the actual port in the Trace Server Port field.
-{% endhint %}
+***
 
-After successfully setting up the SIP trace server information and clicking the **OK** button, the PBX will send all SIP messages to the trace server.
+### Disabling SIP Trace in PortSIP PBX
 
-## Disabling SIP Trace in the PortSIP PBX
+1. Go to: **Advanced > Settings**
+2. Clear the Trace Server IP and Port fields
+3. Click **OK**
 
-Sign in to the PortSIP PBX Web Portal, click **Advanced** > **Settings**, on the **General** page, remove the information from the trace server fields, and click the **OK** button. The PortSIP PBX will stop sending the SIP message to the trace server.
+> **Best Practice**\
+> SIP tracing should remain **disabled during normal operation** and enabled **only for troubleshooting**, as continuous tracing consumes CPU, memory, and disk resources and may affect PBX performance.
 
-{% hint style="danger" %}
-Important: SIP Trace should be off most of the time and only enabled when troubleshooting is required, since it will consume the hardware resources and reduce the PBX's performance.
-{% endhint %}
+***
 
-## Troubleshooting SIP Messages
+### Troubleshooting SIP Messages
 
-On the SIP Trace Server Web Portal, you have the option to display either the registration messages or the call SIP messages. As shown in the screenshot below, select **Home** to view call messages and **REGISTRATION** to view REGISTER messages.
+In the Trace Server Web Portal:
+
+* Select **Home** to view call-related SIP messages
+* Select **REGISTRATION** to view REGISTER traffic
 
 ![](<../../.gitbook/assets/image (2).png>)
 
-You can view the details of a message by clicking on the method name, as shown in the screenshot below.
+Click a SIP **method name** to view detailed message contents.
 
 ![](<../../.gitbook/assets/image (19).png>)
 
-There is a way to check the **call-id**, **X-Session-Id**, and **X-CID** of the SIP message as follows:
+#### Advanced Searching
+
+You can search SIP messages using:
+
+* `Call-ID`
+* `X-Session-Id`
+* `X-CID`
 
 ![](<../../.gitbook/assets/image (21).png>)
 
-The **call-id**, **X-Session-Id**, and **X-CID** can now be utilized to search for SIP messages. This feature enhances the ability to track and manage specific SIP messages effectively.
+These identifiers allow precise tracking of calls across multiple legs and systems.
+
+Clicking a **Session ID** displays the complete SIP call flow for that session.
 
 ![](<../../.gitbook/assets/image (10).png>)
 
 ![](<../../.gitbook/assets/image (7).png>)
 
-From the messages list, we can see the call flow by clicking the Session ID.
-
 ![](<../../.gitbook/assets/image (6).png>)
 
 ![](<../../.gitbook/assets/image (28).png>)
 
-## Troubleshooting RTP
+***
 
-The trace server also supports monitoring the call QoS by logging the RTCP packets.&#x20;
+### Troubleshooting RTP and QoS
 
-By clicking on the **QoS** tab, you’ll be able to select and analyze the voice parameters of the call, such as **packets**, **octets**, **jitter**, **packets\_lost**, and so on.
+The Trace Server supports monitoring call quality using **RTCP** data.
+
+1. Open the **QoS** tab
+2. Analyze metrics such as:
+   * Packets
+   * Octets
+   * Jitter
+   * Packet loss
+   * Other RTP quality indicators
+
+These charts help identify media issues such as network congestion, packet loss, or jitter spikes.
 
 <figure><img src="../../.gitbook/assets/portsip_trace_qos.png" alt=""><figcaption></figcaption></figure>
 
-## Managing Trace Server
+***
 
-You can use the following commands to manage the PortSIP Trace Server.
+### Managing the Trace Server
 
-### Start Service
+Use the following commands to manage the service:
 
-```sh
+#### Start
+
+```bash
 cd /opt/portsip-trace && /bin/sh trace_ctl.sh start
 ```
 
-### Check Service Status
+#### Check Status
 
-```sh
+```bash
 cd /opt/portsip-trace && /bin/sh trace_ctl.sh status
 ```
 
-### Restart Service
+#### Restart
 
-```sh
+```bash
 cd /opt/portsip-trace && /bin/sh trace_ctl.sh restart
 ```
 
-### Stop Service
+#### Stop
 
-```sh
+```bash
 cd /opt/portsip-trace && /bin/sh trace_ctl.sh stop
 ```
 
-### Remove Service
+#### Remove
 
-```sh
+```bash
 cd /opt/portsip-trace && /bin/sh trace_ctl.sh rm
 ```
 
-## Upgrade Version
+***
 
-Please follow the steps below to upgrade to the latest version.
+### Upgrading the Trace Server
 
-### Stop Service
+To upgrade to the latest version:
 
-```sh
-cd /opt/portsip-trace && /bin/sh trace_ctl.sh stop
-```
+1.  Stop the service:
 
-### Remove Service
+    ```bash
+    cd /opt/portsip-trace && /bin/sh trace_ctl.sh stop
+    ```
+2.  Remove the service:
 
-```sh
-cd /opt/portsip-trace && /bin/sh trace_ctl.sh rm
-```
+    ```bash
+    cd /opt/portsip-trace && /bin/sh trace_ctl.sh rm
+    ```
+3. Reinstall by following the [Installing PortSIP Trace Server](debug-sip-message.md#installing-portsip-trace-server) section above.
 
-Now follow the Installing [PortSIP Trace Server](debug-sip-message.md#installing-portsip-trace-server).
+
+
+
 

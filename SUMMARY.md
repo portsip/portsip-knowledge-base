@@ -241,7 +241,7 @@
   * [SIP Header Manipulation](portsip-communications-solution/portsip-pbx-administration-guide/sip-header-manipulation.md)
   * [PortSIP Security Features](portsip-communications-solution/portsip-pbx-administration-guide/portsip-security-feature.md)
   * [Rebranding PortSIP PBX, SBC](portsip-communications-solution/portsip-pbx-administration-guide/rebranding-portsip-pbx-sbc.md)
-  * [Trace Server - A Better Way to Monitoring SIP Messages and QoS for PortSIP PBX](portsip-communications-solution/portsip-pbx-administration-guide/debug-sip-message.md)
+  * [Trace Server – A Better Way to Monitor SIP Messages and QoS for PortSIP PBX](portsip-communications-solution/portsip-pbx-administration-guide/debug-sip-message.md)
   * [System Service Extension Numbers](portsip-communications-solution/portsip-pbx-administration-guide/system-service-extension-numbers.md)
 * [FAQ](portsip-communications-solution/faq/README.md)
   * [Troubleshooting Call Issues](portsip-communications-solution/faq/troubleshooting-call-issues.md)
