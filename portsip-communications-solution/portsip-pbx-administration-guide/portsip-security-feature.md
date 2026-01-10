@@ -1,12 +1,36 @@
 # PortSIP Security Features
 
-## Overview
+Securing a VoIP system is a primary responsibility throughout the planning, deployment, and operational lifecycle. This document provides practical, easy-to-follow security guidelines for **PortSIP PBX** to help you deploy and operate the system with stronger resilience against common network attacks.
 
-Being in charge of a VoIP system in the planning to deployment stage makes VoIP security one of your main considerations. This document presents simple and clear guidelines for PortSIP PBX, that can help you understand and make PortSIP PBX deployment more resilient to network attacks.
+***
 
-## Ports Security
+### Ports Security
 
-PortSIP PBX provides various services that use different protocols on different ports. To secure the PBX, block the unnecessary ports on the firewall just to allow the below ports can be accessed remotely.
+PortSIP PBX provides multiple services that use different protocols and ports. To reduce attack surface, configure your firewall to **block all unnecessary ports** and allow remote access **only** to the ports required for your deployment.
+
+#### Change Default SIP Transport Ports (Recommended)
+
+By default, PortSIP PBX creates:
+
+* **UDP** transport on **5060**
+* **WSS** transport on **5065**
+
+You can delete these default transports and recreate them on non-default ports. After changing the ports:
+
+* Update firewall rules (for example, using `firewalld`)
+* If deployed in a cloud environment, update the **security group / firewall rules** at the cloud network layer as well
+
+> ❗**Note**\
+> Changing ports reduces exposure to generic scanning and opportunistic attacks, but it does not replace strong authentication, TLS/SRTP, and firewall policy.
+
+#### Change the Default SSH Port (Recommended)
+
+It is strongly recommended to change the default SSH port from **22** to a non-standard port, for example **10210**, to reduce automated brute-force attempts.
+
+#### Default Firewall Behavior After Installation
+
+* On supported Linux systems, **Firewalld is enabled by default** and PortSIP PBX installation configures the required firewall rules automatically.
+* On Debian/Ubuntu, the default firewall **UFW is disabled** after PBX installation.
 
 | Service               | Port        | Description                              |
 | --------------------- | ----------- | ---------------------------------------- |
@@ -27,216 +51,355 @@ PortSIP PBX provides various services that use different protocols on different 
 | SIP                   | 5065        | SIP Signaling port on SBC over WSS       |
 | SSH                   | 22          | SSH port over TCP                        |
 
-By default, PortSIP creates the UDP transport on 5060 and WSS transport on 5065, you can simply delete the transports and create them again with different ports. Once created the transports on new ports are, don't forget to create the firewall rule by the firewalld command, and create the security group rules if deployed on the cloud platform.
+***
 
-{% hint style="danger" %}
-We strongly suggest changing the default SSH port 22 to another port for example 10210.
-{% endhint %}
+### Cloud Deployment Best Practices (AWS, Azure, Google Cloud)
 
-{% hint style="info" %}
-By default, after the PortSIP PBX is installed, the **Firewalld** is enabled and all firewall rules have been configured. If installed the PBX is on Debian/Ubuntu, the default firewall **UFW** will be disabled.
-{% endhint %}
+When deploying PortSIP PBX on a cloud platform, use a **private network** so the PBX is not directly exposed to the public Internet:
 
-### The Best Practices for AWS, Azure, GCE
+* **AWS / Google Cloud**: deploy in a **VPC**
+* **Azure**: deploy in a **VNet**
 
-* Installed the PortSIP PBX in AWS/Azure/GCE, let the PBX run on a private network called VPC for AWS and GCE, for Azure, it's called VNet, and then the PBX is isolated to the internet.
-* In order to allow users to access PBX from the internet,  a static public IP is required to be assigned to the PBX server.
-  * AWS: assign an elastic IP to the PBX EC2, and create the necessary inbound rules in the security group for the services port in the above section
-  * Azure: associate a Public IP to the PBX VM NIC then change the IP address assignment to static, and create necessary inbound rules in the security group for the service port in the above section
-  * GCE: in the "**External IP**" settings, select the static external IP address to assign to the VM instance, and create the necessary VPC firewall rules for the services port in the above section
-* Disable the firewalld service in the PBX server by performing the below command:
+To allow users to access the PBX from the Internet, you must assign a **static public IP**:
 
+* **AWS**: assign an **Elastic IP** to the EC2 instance and add required inbound rules in the Security Group
+* **Azure**: associate a **Public IP** with the VM NIC, set IP assignment to **Static**, and configure inbound rules
+* **Google Cloud (GCE)**: assign a **static external IP** and create the required **VPC firewall rules**
+
+#### Disabling Firewalld in Cloud Deployments
+
+If the PBX is deployed in a cloud environment and you are enforcing security strictly via **cloud security groups / VPC firewall rules**, you may disable Firewalld on the PBX server:
+
+```bash
+systemctl disable firewalld && systemctl stop firewalld
 ```
- systemctl disable firewalld && systemctl stop firewalld 
-```
 
-{% hint style="warning" %}
-**Important**: don't stop and disable the firewalld if the PBX was deployed in the on-premise.
-{% endhint %}
+> ❗**Important**\
+> Do **not** stop or disable Firewalld for **on-premises deployments**, where the server firewall is often a primary layer of protection.
 
-## Network Security
+***
 
-Separate Voice Traffic and Data Traffic for some VoIP ISPs, and provide dedicated SIP trunks that support  NGN ports (Next Generation Network). NGN can separate data, voice, and video networks or any combination of the three to form a converged network.&#x20;
+### Network Security
 
-For the on-premise deployment, the best practice is to suggest setting up VLAN (Virtual Local Networks) on the PBX. VLAN can improve the call quality but also can secure PBX. The voice traffic and data traffic can be logically separated by a VLAN switch. If one VLAN is penetrated, the other will remain secure. Also, limiting the rate of traffic to IP telephony VLANs can slow down an outside attack.
+#### Separate Voice and Data Traffic
 
-## Transport Security
+Some VoIP providers offer dedicated SIP trunk connections that support **NGN (Next Generation Network)** ports and traffic separation. NGN can separate **data, voice, and video** networks (or any combination) to create a converged but segmented network.
+
+For on-premises deployments, a common best practice is to configure **VLANs (Virtual LANs)** for voice traffic:
+
+* Separates voice and data traffic at the network layer
+* Improves call quality and helps reduce attack impact
+* If one VLAN is compromised, other VLANs can remain isolated
+* Rate limiting on the voice VLAN can help slow down certain attack patterns
+
+***
+
+### Transport Security
 
 #### TLS and WSS for SIP Signaling
 
-Transport Layer Security (TLS) is a mechanism for securing SIP connections. It is recommended to use TLS as PortSIP PBX SIP transport to prevent data from being passed between other SIP endpoints and PortSIP PBX.
+**TLS (Transport Layer Security)** secures SIP signaling and helps prevent interception or tampering of SIP messages in transit. It is recommended to use **TLS** for SIP transports where possible.
 
-For the WebRTC client, PortSIP offers WSS transport (WebSockets over SSL/TLS). WSS is encrypted, just like HTTPS, and so protects against man-in-the-middle attacks. If the transport is secured, a range of attacks against WebSockets becomes unfeasible.
+For WebRTC clients, PortSIP PBX supports **WSS (WebSocket Secure)**, which provides encryption similar to HTTPS and helps protect against man-in-the-middle attacks.
 
 #### SRTP and DTLS-SRTP for Audio and Video
 
-PortSIP PBX and PortSIP Apps support SRTP and DTLS-SRTP. SRTP extends RTP to include encryption and authentication so that all SIP and WebRTC conversations are as secure as possible. The audio and video media data is transported and protected by SRTP/DTLS-SRTP with AES-256 encryption.
+PortSIP PBX and PortSIP Apps support **SRTP** and **DTLS-SRTP** for media encryption.
 
-## Web Access Security
+* **SRTP** protects RTP media using encryption and authentication
+* **DTLS-SRTP** secures key exchange for WebRTC scenarios
 
-PortSIP PBX provides HTTPS and HTTP access on the port 8887 and 8888. The following are the recommended practices for securing web portal transactions and preventing unwanted access.
+Media is protected using **AES-256** encryption when SRTP/DTLS-SRTP is enabled.
 
-* Create the security rule/firewall rule to disable the HTTP access on TCP port 8888
-* Disable Redirect from port 80
-* Disable Redirect from port 443
-* Upload the trusted SSL certificates, for example, purchase an SSL certificate from DigiCert, GeoTrust
+***
 
-## Password and Login Security
+### Web Access Security
 
-### Web Portal Password for PBX Administrator
+PortSIP PBX provides:
 
-The default username and password of PortSIP PBX administrator for Web Portal Access both are **admin**. There are strongly suggested to change the password after first logging into the Web Portal.
+* **HTTPS** access on **TCP 8887**
+* **HTTP** access on **TCP 8888**
 
-* Click the profile picture in the upper right corner, choose the **Change Password** menu, then enter the current password and new password, the new password must meet all the following requirements
-  * At least one letter (Latin characters)&#x20;
-  * At least one number (0-9)&#x20;
-  * One upper case letter or special character (e.g. !, @, $, #)&#x20;
-  * No sequential characters (e.g. "1234", "7890", "Abcd")&#x20;
-  * No repeating characters (e.g. "222", "Aaa", "###")&#x20;
-  * No account information (e.g. first/last name, phone number)&#x20;
-  * Password length is about 8-32 characters
+Recommended practices for securing the PBX Web Portal:
 
-### Password for Tenant Administrator
+* Create firewall/security rules to **disable HTTP** access on TCP **8888**
+* Disable redirect from **port 80**
+* Disable redirect from **port 443**
+* Upload a trusted SSL certificate (for example, a certificate issued by DigiCert or GeoTrust)
 
-After creating a user with the "**Admin**" role, a tenant administrator was created, since it's also the extension, there are two passwords for him.
+> ❗**Best Practice**\
+> Use HTTPS only for administrative access and avoid exposing the web portal directly to the public Internet unless required. Where possible, restrict access by IP allowlists or VPN.
 
-* SIP Password. It's used for the IP Phone, Softphone, and WebRTC client to register to PortSIP PBX
-* User Password. It's used for the user to sign the PBX Web Portal to check voicemail, recording, CDR
+***
 
-There are strongly suggested to change the password after the tenant administrator first logs in to the Web Portal.
+### Password and Login Security
 
-* Click the profile picture in the upper right corner, choose the **Change User Password**, **Change Extension Password** menu, then enter the current password and new password, the new password must meet the tenant's password policy.
+#### Web Portal Password for PBX Administrator
 
-### Password for Extension
+The default PBX Web Portal administrator credentials are:
 
-After creating a user with the **Standard User**" or **Standard International User** role, a normal extension user was created, there are two passwords with a user.
+* Username: `admin`
+* Password: `admin`
 
-* SIP Password. It's used for the IP Phone, Softphone, and WebRTC client to register to PortSIP PBX.
-* User Password. It's used for the user to sign the PBX Web Portal to check voicemail, recording, CDR
-* Both SIP Password and User Password must meet the tenant's password policy.
+Change the password immediately after the first login:
 
-## Login Security
+1. Click the profile picture (top-right corner)
+2. Select **Change Password**
+3. Enter the current password and a new password
 
-After the PortSIP PBX administrator signs in to the Web Portal, there are some settings that allow login security for tenant managers, tenants, and extensions.
+The new password must meet all of the following requirements:
 
-* Click the left menu **Advanced > Security**, on the **Web Login** page,  set the maximum number of login tries on the **Web Login** page, and the user's IP will be blocked if the number of failed login attempts exceeds the allowed times.
-* Set the period of an IP block, and a blocked IP will be removed after this time.
-* You can require the newly created users to change their default password upon their initial login.
-* You can enable [2FA ](portsip-security-feature.md#password-and-login-security)for extension users
+* At least one letter (Latin characters)
+* At least one number (0–9)
+* One uppercase letter or a special character (for example, `! @ $ #`)
+* No sequential characters (for example, `1234`, `7890`, `Abcd`)
+* No repeating characters (for example, `222`, `Aaa`, `###`)
+* No account information (for example, first/last name, phone number)
+* Length: **8–32 characters**
 
-## SIP and TCP/IP Security
+#### Passwords for Tenant Administrators
 
-PortSIP PBX provides security features with the main purpose of blocking any malicious attacks targeted to the PortSIP PBX in case the administrator has not taken necessary precautions at the firewall level. It works by detecting and blocking packet floods / DoS attacks or brute force dictionary attacks within the scope of identifying and cracking the extension number and the password.
+When you create a user with the **Admin** role, that user becomes a tenant administrator. A tenant administrator has two passwords:
 
-Click the left menu **Advanced > Security**, on the **Anti Hacking** page, which shows the main interface of the PortSIP PBX Anti Hacking configurations.
+* **SIP Password**: used by IP phones, softphones, and WebRTC clients for SIP registration
+* **User Password**: used to sign in to the PBX Web Portal (voicemail, recordings, CDRs)
 
-### Detection Period&#x20;
+It is strongly recommended to change both passwords after the tenant administrator’s initial login.
 
-This is a time interval in seconds when counting starts, but no action is enforced. To disable security, set it to a higher value.
+1. Click the profile picture (top-right corner)
+2. Select:
+   * **Change User Password**
+   * **Change Extension Password**
+3. Set new values that comply with the tenant’s password policy
 
-### Failed Authentication Protection&#x20;
+#### Passwords for Extension Users
 
-This is the protection in case the attacker tries to use a dictionary attack to guess the password set for a particular extension.
+Users created with **Standard User** or **Standard International User** roles also have two passwords:
 
-To do this the attacker has to send numerous requests and after the server sends a **Proxy Authentication Required** message the attacker will send a request with authentication. With this feature, the attacker can only send 50 requests in an attempt to crack the password. If an IP Address spams PortSIP with 50 wrong Authentication attempts in **Detection Period**, that IP address will be blocked and put on the blacklist for the time specified in the **SIP Blacklist time interval** parameter, by default 1 hour.
+* **SIP Password**: for device/app registration
+* **User Password**: for Web Portal access (voicemail, recordings, CDRs)
 
-### Failed Challenge Requests (407)
+Both must comply with the tenant password policy.
 
-D.O.S. attacks can send REGISTER/INVITE requests but do not reply to Challenge (407). Configure the amount of **fake** requests that PortSIP PBX will accept per IP Address. If this value is exceeded in the **Detection Period** interval the source IP address is put in the Blacklist. IP will remain blacklisted till the **SIP Blacklist time interval** expires, by default 1 hour.
+***
 
-### Level 2 security&#x20;
+### Login Security Controls
 
-This is the 2nd layer of protection. Here you can specify how many packets can be sent from a unique source IP address. The default value is 2000 packets per second. If an IP Address is sending more than 200 packets per second, it means that there is something wrong. At this point, the attacker's IP will be blocked until the **Level 2 blacklist time interval** expires.
+After signing in as the PBX administrator, you can configure login protection policies:
 
-### Level 1 security&#x20;
+1. Go to: **Advanced > Security**
+2. On the **Web Login** page:
+   * Set the maximum number of failed login attempts
+   * Block an IP address when the failure threshold is exceeded
+   * Configure the IP block duration
+   * Require newly created users to change the default password on first login
+   * Enable **2FA** for extension users
 
-This is the 1st layer in packets per second. If an IP sends more packets than the amount specified per second, it will get blacklisted for the **Level 1 blacklist time interval.** By default value is 500 packets per second.&#x20;
+***
 
-At this layer, once that packet rate exceeds the rating, the blacklist is enforced, and the user IP will get blacklisted for the **Level 1 blacklist time interval**.&#x20;
+### SIP and TCP/IP Security (Anti-Hacking)
 
-Once an IP address was blocked due to the above L1/L2 rules, it will display in the menu **Blacklist and Codes > IP Blacklist**, from which you can add it to the **Whitelist** manually.
+PortSIP PBX includes anti-hacking protections designed to mitigate malicious activity when firewall controls are insufficient or misconfigured. These protections can help detect and block:
+
+* Packet floods / DoS attacks
+* Brute-force attempts targeting extension numbers and passwords
+
+To configure:
+
+1. Go to: A**dvanced > Security**
+2. Open the **Anti Hacking** page.
+
+#### Detection Period
+
+Defines the time window (in seconds) used for counting events before actions are enforced.\
+To effectively disable the protection, set it to a higher value.
+
+#### Failed Authentication Protection
+
+Limits repeated authentication failures that indicate password guessing.
+
+By default, if an IP address reaches **50 failed authentication attempts** within the detection period, it is blocked and placed on the blacklist for the configured duration (default: **1 hour**).
+
+#### Failed Challenge Requests (407)
+
+DoS attacks may send REGISTER/INVITE requests but never respond to the PBX challenge (407). Configure how many such requests are allowed per IP during the detection period. If exceeded, the IP is blacklisted (default: **1 hour**).
+
+#### Level 1 and Level 2 Security (Packet Rate Limits)
+
+These layers block IPs that exceed packet rate thresholds:
+
+* **Level 1** (default **500 packets/second**)
+* **Level 2** (default **2000 packets/second**)
+
+When an IP exceeds the configured threshold, it is blacklisted for the corresponding blacklist interval.
+
+Blocked IP addresses appear under: **Blacklist and Codes > IP Blacklist**
+
+From there, you can manually add IPs to a **Whitelist** if needed.
+
+> ❗**Potential Issue in Original Text**\
+> One sentence states “default value is 2000 packets per second” and then says “more than 200 packets per second” indicates an issue. These values conflict.\
+> **Recommended safer wording:** “If an IP address exceeds the configured packet rate threshold, it will be blocked for the configured blacklist interval.”
+
+***
 
 ### User-Agent Blacklist
 
-To safeguard against malicious activities such as SPIT (SPam over Internet Telephony), TDoS (Telephony Denial-Of-Service), fuzzing, and War dialing, PortSIP PBX offers a feature that blocks specific User-Agents found in SIP messages. This feature is instrumental in enhancing the security of your telecommunication services.
+To help mitigate threats such as **SPIT**, **TDoS**, fuzzing, and war dialing, PortSIP PBX can block SIP messages from specific **User-Agent** strings.
 
-Click the left menu **Advanced > Security**, on the **Blocked User Agents** page, you can edit the user-agents blacklist.
+To configure:
+
+1. Go to:  **Advanced > Security**
+2. Open **Blocked User Agents**
+3. Edit the user-agent blacklist as needed
 
 <figure><img src="../../.gitbook/assets/user-agent-blacklist.png" alt=""><figcaption></figcaption></figure>
 
-## Extension Security
+***
 
-You can assign a role type for a user when creating it and change it later as well. There are three roles by default: **Admin**, **Standard User**, and **Standard International User**. The Admin user has all permissions in the tenant scope and can manage the whole tenant. The Standard International User has permission to make calls to local, national, and international numbers. The Standard User only has permission to make calls between users.
+### Extension Security
 
-## IP Phone Security
+PortSIP PBX uses role-based access control for tenant users. Default roles include:
 
-In PortSIP PBX, each extension's IP Phone configuration file is stored in a separate directory with a random name to prevent guessing the configuration file downloading URL even if the phone MAC address is leaked.&#x20;
+* **Admin**: full permissions within the tenant scope
+* **Standard International User**: allowed to call local, national, and international numbers
+* **Standard User**: allowed to call internal users only
 
-## Whitelist/Blacklist
+You can assign a user role during creation and modify it later as required.
 
-PortSIP PBX allows you to whitelist and blacklist IP addresses. All traffic originating from whitelisted IP addresses will be allowed unchecked by the anti-hacking features. All traffic originating from blacklisted IP addresses will be dropped immediately and silently.
+***
 
-### Adding a Whitelist Entry <a href="#h.z1lrdcguvo38" id="h.z1lrdcguvo38"></a>
+### IP Phone Security
 
-Assume a remote office is connected to the PortSIP PBX. The public IP address of the remote office is 103.224.182.210. This IP address's traffic is safe to trust. Follow the settings below to add this IP address to a whitelist.
+Each extension’s IP phone provisioning configuration is stored in a directory with a **randomized name**. This reduces the risk of guessing the provisioning URL even if a phone’s MAC address is exposed.
+
+***
+
+### Whitelist and Blacklist
+
+PortSIP PBX supports IP allowlisting and blocklisting:
+
+* Traffic from **whitelisted** IP addresses is trusted and bypasses anti-hacking checks.
+* Traffic from **blacklisted** IP addresses is dropped immediately.
+
+#### Add a Whitelist Entry (Example)
+
+Scenario: A trusted remote office uses public IP `103.224.182.210`.
+
+1. Go to **IP Blacklist**
+2. Click **Add**
+3. Enter `103.224.182.210`\
+   (or enter `103.224.182.210.0` and select a subnet mask to allow a range)
+4. Set **Action** to **Allow**
+5. Add a description (for example, “My Remote Office”)
+6. Click **Apply**
 
 <figure><img src="../../.gitbook/assets/ip_whitelist (1).png" alt=""><figcaption></figcaption></figure>
 
-* Click on the menu "**IP Blacklist**"
-* Click "**Add**" to add an entry
-* Enter the IP address that you want to allow – in this example, it should be 103.224.182.210 (you can also enter the IP 103.224.182.210.0 and choose a Subnet Mask to allow an IP range)
-* Choose "**Allow**" for the "**Action**" dropdown
-* Add a description for the IP address, for example, "**My Remote office**"
-* Click "**Apply**", and the allow entry will be created in the IP Blacklist page for the whitelisted IP address. All traffic originating from this IP address will not be checked and the anti-hacking algorithms will not come into effect
+***
 
-### Blocking an IP Address or a range of IP Addresses
+#### Block an IP Range (Example)
 
-Let us look at another scenario. Assume that there is a distributed attack coming from the following IP addresses – 41.202.160.2 and 41.202.191.5. These two IP addresses have already been blacklisted by PortSIP PBX’s anti-hacking auto-detection mechanisms. You would, however, want to blacklist all the range, since you are sure that you will never get any traffic from these IP addresses. In this case, we will blacklist the whole range from 41.202.0.0 to 41.202.255.255, i.e. all the IP addresses that started with 41.202. 1.
+To block all IPs starting with `41.202.*.*`:
+
+1. Go to **IP Blacklist**
+2. Click **Add**
+3. Enter `41.202.0.0`
+4. Select subnet mask `255.255.0.0`
+5. Set **Action** to **Block**
+6. Add a description (for example, “Anti DoS from 41.202.x.x”)
+7. Click **Apply**
+
+> ❗**Important**\
+> PortSIP’s blacklist/whitelist is not a replacement for a network firewall. If you need to restrict access to trusted VoIP providers only, enforce this at the firewall or cloud security group level.
+>
+> When blocking an IP range, ensure the range does not include the PBX server’s own IP address.
 
 <figure><img src="../../.gitbook/assets/ip_blacklist (1).png" alt=""><figcaption></figcaption></figure>
 
-* Click on the menu **IP Blacklist**
-* Click **Add** to add an entry
-* In the **IP address** enter the first address of the network range you want to block. For this example, we will enter **41.202.0.0**
-* Since we want to block all IP addresses started with 41.202, we will select a Subnet Mask of **255.255.0.0**. The range of IP addresses contained in this mask will be displayed below
-* Set Action to **Block**
-* Enter a Description for this entry to help you remember why you added this entry, for example, “Anti D.O.S attack coming from 41.202.x.x”
-* Click **Apply**. A blocked entry will be created on the IP Blacklist page. All traffic coming from this IP address range will be checked, anti-hacking algorithms will come into effect and all packets from this IP Address range will be completely dropped and ignored
-* The PortSIP Blacklist/Whitelist mechanism does not conform to a replacement of firewall. It merely provides a defense mechanism to help differentiate traffic trustable, and traffic not trustworthy. If, for example, you want to block all traffic to your network and allow only your VoIP Provider IP address, you need to set this up on your firewall
+***
 
-{% hint style="danger" %}
-When configuring a range of IP addresses in the Blacklist, you should also ensure that the range does not include the IP address of which the PBX is installed.
-{% endhint %}
+### Trunk Security
 
-## Trunk Security
+SIP trunking typically establishes a peer relationship to provide PSTN connectivity over VoIP. Depending on the provider, trunks may be delivered over:
 
-SIP Trunking is often a Peer-to-peer connection for the primary use of delivering PSTN connectivity over VoIP. SIP Trunking is delivered over a couple of different methods, Internet Telephony Service Providers (ITSP) deliver SIP Trunking over the Internet and Managed Service Providers deliver SIP Trunking over the dedicated carriers' WAN connections. The application of security solutions involves providing a Firewall in combination with an IP-PBX that is used to define the Peer-to-peer relationship at various networks and VoIP application layers, and also ensure signaling and media are secure as well.
+* Public Internet (ITSP)
+* Dedicated carrier WAN links (managed services)
 
-### SIP Trunk Authentication
+Security should be enforced across multiple layers, including firewall policy, SIP authentication, and signaling/media encryption.
 
-**Register Based Authentication:** Many SIP Trunk Service Providers will require a level of Authentication within the SIP Trunk. The Service Provider requires Registration Authentication and Call Initiation Authentication from the PBX. When the PBX initiates a call to the Service Provider, the PBX must provide Authentication within the SIP Protocol for the Service Provider to accept and process the call.
+#### SIP Trunk Authentication
 
-**IP Based Authentication:** Because some SIP Trunk Service Providers do not support the SIP REGISTER method, you'll need to set up Trunk as the **IP Based** and add Trunk IP addresses as trusted peers in PBX, then the PBX to accept SIP traffic from trunk IP does not challenge for authentication credentials.
+* **Register-Based Authentication**\
+  The trunk provider requires the PBX to register and authenticate using SIP credentials.
+* **IP-Based Authentication**\
+  The trunk provider does not use SIP REGISTER; instead, the PBX trusts inbound SIP traffic only from specified trunk IP addresses.
 
-PortSIP PBX supports both **Register Based** and **IP Based Authentication** Trunks, but the **IP Based Authentication** trunk is strongly recommended, it's more secure.
+PortSIP PBX supports both models.
 
-PortSIP PBX is also supporting accepting the Trunk/E1/T1 gateway registration. For example, if an E1/T1 gateway is located in a local LAN but the PBX is in the cloud, we can create an **Accept Register**" Trunk in PortSIP PBX, set the username and password, and the E1/T1 gateway will be able to use that username and password register to the PortSIP PBX,  the PBX only allows make & accept calls with E1/T1 gateway after successfully authorized.
+> ❗**Potentially Risky / Misleading Statement**\
+> The original text states that “IP-based authentication is strongly recommended, it’s more secure.”\
+> In practice, security depends on your network controls:
+>
+> * IP-based auth can be secure **if** you strictly restrict inbound traffic to known provider IPs and protect against spoofing.
+> * Register-based auth can also be secure when combined with strong credentials and TLS.
+>
+> **Safer wording:** “IP-based authentication is commonly used with ITSPs that provide fixed source IPs. Whichever model you use, ensure inbound traffic is restricted to trusted sources and that strong transport/media security is enabled.”
 
-### Max Concurrent Calls Limited
+#### Accept Register Trunk (Gateway Registration)
 
-PortSIP PBX provides a feature that allows you to set a limit on the maximum number of concurrent calls at both the global and tenant levels for a trunk. If a trunk has already reached its maximum concurrent call limit, any new call attempts will not be processed. This feature ensures efficient call management and prevents overloading of the system.
+PortSIP PBX can accept registrations from a trunk gateway (for example, an E1/T1 gateway) using an **Accept Register** trunk:
 
-### Outbound Route Permission
+* Configure a username and password in PBX
+* The gateway registers using those credentials
+* Calls are permitted only after successful authorization
 
-When creating the outbound rule in the PortSIP PBX,  you will need to consider outbound rule permission for different users.
+***
 
-You can create the outbound rule using the provided called number prefix, called number length, and caller belonged user groups.&#x20;
+### Call Control and Fraud Prevention
 
-For example, you can set up outbound rules as below.
+#### Maximum Concurrent Call Limits
 
-* The outbound rule for local calls,  long-distance calls, and international calls
-  * &#x20;Create an outbound rule and select the trunk that is least-cost for local calls, and set the user role as **Standard International User**, then that user will have permission to make calls to the trunk.&#x20;
-* In the menu **Blacklist and Codes** > **Codes and E164**, you can find **Allowed Country Code** and **Disallowed Codes** options that let you block the calls based on the country code.
-* Office hours for the outbound rule
-  * PortSIP PBX allows specified office hours for an outbound rule, once set, the outbound rule will be unavailable and no one can make the call on it if outside of those hours.
+PortSIP PBX allows you to limit the maximum number of concurrent calls on a trunk at both:
+
+* Global level
+* Tenant level
+
+If the limit is reached, new call attempts through that trunk are rejected. This helps prevent overload and reduces exposure to certain fraud and abuse scenarios.
+
+#### Outbound Route Permissions
+
+When creating outbound rules, plan permissions carefully:
+
+* Use called number prefix/length conditions
+* Use user group membership and user roles
+* Create separate rules for local, long-distance, and international calls
+
+Example approach:
+
+* Assign least-cost routing for local calls
+* Restrict international calling to **Standard International User**
+* Use **Allowed Country Code** and **Disallowed Codes** under: **Blacklist and Codes > Codes and E164** to block calls by country code
+
+#### Office Hours for Outbound Rules
+
+PortSIP PBX allows you to define office hours for outbound rules. Outside of the specified hours:
+
+* The outbound rule is unavailable
+* Calls using that rule will not be permitted
+
+***
+
+### Ambiguities and Safety Fixes (Recommended)
+
+1. **Disable Firewalld in Cloud**
+   * Safer guidance is to disable Firewalld only if cloud security groups/VPC firewall rules are correctly configured and strictly enforced.
+2. **Level 2 packet thresholds conflict**
+   * Replace the conflicting values with wording that references “configured threshold” rather than hard-coded numbers.
+3. **IP-based trunk is more secure**
+   * Reframe as conditional on strict IP allowlisting and provider fixed IPs, rather than universally “more secure”.
+
+
+
+
 

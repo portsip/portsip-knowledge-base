@@ -1,255 +1,210 @@
 # Backup and Restore PortSIP SBC
 
-This article provides procedures for backing up and restoring a PortSIP SBC server. The procedures are designed to ensure no data loss in upgrading and migration.
+This article describes how to **back up and restore a PortSIP SBC server on Linux**.\
+These procedures are intended to ensure **no data loss** during system upgrades, migrations, or disaster recovery scenarios.
 
-Backup files and data should be stored on a different server than the one that is used for daily running.
+Backup files and data **must be stored on a separate server or external storage device**, not on the SBC used for daily operations.
 
-All procedures are performed at the command prompt and require root-level access.
+All procedures are performed **from the command line** and require **root-level access**.
 
-## **Creating a Backup Using Snapshots**
+> ❗**Important**
+>
+> * Linux SBC backup data can only be restored to another **Linux SBC**.
+> * Always validate backups by performing periodic test restores in a non-production environment.
 
-If your PortSIP SBC is running within a virtual environment or hosted on a cloud platform, it’s likely that these platforms offer the capability to create a snapshot of the server. This is a highly recommended method for backing up your current PortSIP SBC server.
+***
 
-## **Restoring from a Snapshot**
+### Backup Methods
 
-Restoring your SBC from a snapshot is a straightforward process. Simply follow the steps provided by your virtual environment or cloud platform to restore the SBC from the snapshot you’ve created.
+#### Using Virtual Machine or Cloud Snapshots (Recommended)
 
-Remember, it’s always a good idea to test the restore process periodically to ensure your backups are working as expected. This will help you avoid any surprises in the event of a system failure.
+If your PortSIP SBC is running in a **virtualized environment** (such as VMware, KVM) or on a **cloud platform**, you can create a **snapshot** using the platform’s native tools.
 
-## **Backing Up SBC  Data**
+Snapshots capture the complete system state and provide a fast and reliable backup mechanism.
 
-### **Linux**&#x20;
+> ❗**Best Practice**\
+> Regularly test snapshot restores to ensure the SBC can be successfully recovered in the event of a failure.
 
-When [installing PortSIP SBC](../9-configuring-portsip-sbc/installation-portsip-sbc-v11.x.md) on Linux, you typically use the following command to create the PortSIP SBC Docker instance:
+***
 
-**V11.x:**&#x20;
+#### Restoring from a Snapshot
 
-<pre class="language-sh"><code class="lang-sh"><strong>sudo /bin/sh sbc_ctl.sh run -p /var/lib/portsip -i portsip/sbc:11
-</strong></code></pre>
+To restore the SBC from a snapshot:
 
-In the above command used to create the PortSIP SBC Docker instance, the `-p` parameter is used to specify the **parent** folder for storing the SBC data. To back up the data, simply copy the folder `/var/lib/portsip/sbc` to another server or an external disk.
+1. Follow the restore procedure provided by your virtualization or cloud platform.
+2. Start the SBC services.
+3. Verify SIP signaling, media traversal, and network connectivity.
 
-Please note that it’s important to back up the `sbc`subfolder of the **parent** folder`/var/lib/portsip`.
+***
 
-<pre class="language-sh"><code class="lang-sh"><strong>sudo mkdir -p /back/sbc-data
-</strong>sudo cp -p -r /var/lib/portsip/sbc /back/sbc-data
-</code></pre>
+### Backing Up SBC Data on Linux
 
-For example, if you specified the **parent**  path as `/portsip/data` using the `-p` parameter when installing the PortSIP SBC, then you need to back up the folder `/portsip/data/sbc`.
+When installing PortSIP SBC on Linux, the `-p` parameter specifies the **parent directory** used to store SBC data.
 
-```sh
-sudo mkdir -p /back/sbc-data
-sudo cp -p -r /portsip/data/sbc /back/sbc-data
+#### Installation Examples
+
+**SBC v11.x**
+
+```bash
+sudo /bin/sh sbc_ctl.sh run -p /var/lib/portsip -i portsip/sbc:11
 ```
 
-**v10.x:**
+**SBC v10.x**
 
-```sh
+```bash
 /bin/sh sbc_ctl.sh run -p /var/lib/portsip -i portsip/sbc:10
 ```
 
-In the above command used to create the PortSIP SBC Docker instance, the `-p` parameter is used to specify the **parent** folder for storing the SBC data. To back up the data, simply copy the folder `/var/lib/portsip/sbc` to another server or an external disk.
+The SBC data is stored in the following subdirectory of the parent path:
 
-Please note that it’s important to back up the `sbc`subfolder of the **parent** folder`/var/lib/portsip`.
+```bash
+<parent_path>/sbc
+```
 
-```sh
+> ❗**Important**\
+> Only the `sbc` subfolder must be backed up.
+
+***
+
+#### Backing Up Using the Default Data Path
+
+If the default parent path `/var/lib/portsip` is used:
+
+**SBC v11.x**
+
+```bash
+sudo mkdir -p /back/sbc-data
+sudo cp -p -r /var/lib/portsip/sbc /back/sbc-data
+```
+
+**SBC v10.x**
+
+```bash
 mkdir -p /back/sbc-data
 cp -p -r /var/lib/portsip/sbc /back/sbc-data
 ```
 
-For example, if you specified the **parent**  path as `/portsip/data` using the `-p` parameter when installing the PortSIP SBC, then you need to back up the folder `/portsip/data/sbc`.
+***
 
-```sh
+#### Backing Up Using a Custom Data Path
+
+If the SBC was installed with a custom parent path, for example:
+
+```bash
+-p /portsip/data
+```
+
+Back up the following directory instead:
+
+```bash
+/portsip/data/sbc
+```
+
+```bash
 mkdir -p /back/sbc-data
 cp -p -r /portsip/data/sbc /back/sbc-data
 ```
 
-### **Windows**&#x20;
+After completing the backup, store the data securely on a separate system.
 
-When [installing PortSIP SBC](../9-configuring-portsip-sbc/installation-portsip-sbc-v11.x.md) on Windows, in step 1, there is an option that allows you to choose the **parent** folder for storing the SBC data.&#x20;
+***
 
-To back up the data, simply copy the data folder to another server or an external disk. By default, if you didn’t specify otherwise, the SBC data **parent** folder is `C:\ProgramData\PortSIP`. The following folder needs to be copied:
+### Restoring Backup Data on Linux (SBC v11.x)
 
-* C:\ProgramData\PortSIP\sbc
+#### Restore to the Same Server
 
-## **Restoring from Backup Data on Linux for SBC v11.x**
+**1. Stop the SBC and Remove Existing Data**
 
-Please follow the steps below to restore the PortSIP SBC from the backup data in a Linux environment.
-
-{% hint style="danger" %}
-You can't restore the backup data of a Windows SBC to a Linux SBC.
-{% endhint %}
-
-### Restoring from Backup Data to the Same Server
-
-1. Stop the current PBX and delete the PBX data.
-
-Execute the following commands to stop the SBC and delete the data:
-
-```sh
+```bash
 cd /opt/portsip && sudo /bin/sh sbc_ctl.sh stop
-```
-
-```sh
-sudo cd /var/lib/portsip/sbc
-```
-
-```sh
+cd /var/lib/portsip/sbc
 rm -rf *
 ```
 
-2\. Restoring a PortSIP SBC
+**2. Restore the Backup Data**
 
-First, copy the backup data to the PortSIP SBC server. You can use the default folder, such as `/var/lib/portsip` as the **parent** folde&#x72;**,** then the SBC data folder is  `/var/lib/portsip/sbc`  **,** or another folder of your choice.
+Copy the backup data to the SBC server:
 
-For example:
-
-<pre class="language-sh"><code class="lang-sh"><strong>sudo mkdir -p /var/lib/portsip/sbc
-</strong><strong>sudo cp -p -r /back/sbc-data/sbc /var/lib/portsip/
-</strong></code></pre>
-
-{% hint style="danger" %}
-After copying the data, make sure that the folder, all subfolders, and files have the correct permissions set to `888:888`.
-{% endhint %}
-
-The command below is used to create and run the SBC on a server. If you copied the backup data to a folder other than `/var/lib/portsip`, make sure to use the actual folder in the commands below.
-
-<pre class="language-sh"><code class="lang-sh"><strong>sudo /bin/sh sbc_ctl.sh run -p /var/lib/portsip -i portsip/sbc:11
-</strong></code></pre>
-
-Congratulations! Your SBC has now been successfully restored.
-
-### Restoring Backup Data to a New SBC Server
-
-If you want to restore the backup SBC v11.x data to another new server, please follow the below steps.
-
-**Note**, that once you successfully restore the SBC data to the new server, the SBC will be upgraded to the latest v11.x automatically.
-
-1. prepare the new Linux server, **don't** install the SBC.
-
-Copy the backup data to the new server. You can use the default folder, such as `/var/lib/portsip`, or another folder of your choice.
-
-```sh
+```bash
 sudo mkdir -p /var/lib/portsip/sbc
 sudo cp -p -r /back/sbc-data/sbc /var/lib/portsip/
 ```
 
-{% hint style="danger" %}
-After copying the data, make sure that the folder, all subfolders, and files have the correct permissions set to `888:888`.
-{% endhint %}
+Ensure that the restored directory, all subdirectories, and files have **UID:GID set to `888:888`**.
 
-2. Now follow the guide [Installation PortSIP SBC v11.x](../9-configuring-portsip-sbc/installation-portsip-sbc-v11.x.md) to install a new SBC with your restored SBC data by using the **-p** parameter to specify the restored data path.
+**3. Start the SBC with Restored Data**
 
-After successfully installing the PortSIP SBC, your restored SBC data now is attached to the newly installed SBC.
+```bash
+sudo /bin/sh sbc_ctl.sh run -p /var/lib/portsip -i portsip/sbc:11
+```
 
-After signing into the SBC web portal, go to the menu **Settings > Network** to update the SBC IP addresses with the new server's IP address then save changes.
+**Result:** The SBC is successfully restored on the same server.
 
-## **Restoring from Backup Data on Linux for SBC v10.x**
+***
 
-Please follow the steps below to restore the PortSIP SBC from the backup data in a Linux environment.
+#### Restore to a New Linux Server (SBC v11.x)
 
-{% hint style="danger" %}
-You can't restore the backup data of a Windows SBC to a Linux SBC.
-{% endhint %}
+> ❗**Note**\
+> When restoring to a new server, the SBC will be automatically upgraded to the **latest v11.x release**.
 
-### Restoring from Backup Data to the Same Server
+1. Prepare the new Linux server **without installing PortSIP SBC**.
+2.  Copy the backup data to the new server:
 
-1. Stop the current PBX and delete the PBX data.
+    ```bash
+    sudo mkdir -p /var/lib/portsip/sbc
+    sudo cp -p -r /back/sbc-data/sbc /var/lib/portsip/
+    ```
+3. Ensure permissions are set to `888:888`.
+4. Install PortSIP SBC v11.x and specify the restored data path using the `-p` parameter.
+5. Sign in to the SBC Web Portal.
+6. Navigate to **Settings > Network** and update the SBC IP addresses to match the new server.
+7. Save the changes.
 
-Execute the following commands to stop the SBC and delete the data:
+***
 
-```sh
+### Restoring Backup Data on Linux (SBC v10.x)
+
+The restore procedure for SBC v10.x is identical to v11.x, except that the Docker image tag is `portsip/sbc:10`.
+
+#### Restore to the Same Server
+
+```bash
 cd /opt/portsip && /bin/sh sbc_ctl.sh stop
-```
-
-```sh
 cd /var/lib/portsip/sbc
-```
-
-```sh
 rm -rf *
 ```
 
-2\. Restoring a PortSIP SBC
+Restore the data and start the SBC:
 
-First, copy the backup data to the PortSIP SBC server. You can use the default folder, such as `/var/lib/portsip` as the **parent** folde&#x72;**,** then the SBC data folder is  `/var/lib/portsip/sbc`  **,** or another folder of your choice.
-
-For example:
-
-<pre class="language-sh"><code class="lang-sh"><strong>mkdir -p /var/lib/portsip/sbc
-</strong><strong>cp -p -r /back/sbc-data/sbc /var/lib/portsip/
-</strong></code></pre>
-
-{% hint style="danger" %}
-After copying the data, make sure that the folder, all subfolders, and files have the correct permissions set to `888:888`.
-{% endhint %}
-
-The command below is used to create and run the SBC on a server. If you copied the backup data to a folder other than `/var/lib/portsip`, make sure to use the actual folder in the commands below.
-
-<pre class="language-sh"><code class="lang-sh"><strong>/bin/sh sbc_ctl.sh run -p /var/lib/portsip -i portsip/sbc:10
-</strong></code></pre>
-
-Congratulations! Your SBC has now been successfully restored.
-
-### Restoring Backup Data to a New SBC Server
-
-If you want to restore the backup SBC v10.x data to another new server, please follow the below steps.
-
-**Note**, that once you successfully restore the SBC data to the new server, the SBC will be upgraded to the latest v10.x automatically.
-
-1. prepare the new Linux server, **don't** install the SBC.
-
-Copy the backup data to the new server. You can use the default folder, such as `/var/lib/portsip`, or another folder of your choice.
-
-```sh
-mkdir -p /var/lib/portsip/sbc
-cp -p -r /back/sbc-data/sbc /var/lib/portsip/
+```bash
+/bin/sh sbc_ctl.sh run -p /var/lib/portsip -i portsip/sbc:10
 ```
 
-{% hint style="danger" %}
-After copying the data, make sure that the folder, all subfolders, and files have the correct permissions set to `888:888`.
-{% endhint %}
+***
 
-2. Now follow the guide [Installation PortSIP SBC v10.x](/broken/pages/KQDkYS2T4TvnRJgSmNmp) to install a new SBC with your restored SBC data by using the **-p** parameter to specify the restored data path.
+#### Restore to a New Linux Server (SBC v10.x)
 
-After successfully installing the PortSIP SBC, your restored SBC data now is attached to the newly installed SBC.
+> ❗**Note**\
+> When restoring to a new server, the SBC will be automatically upgraded to the **latest v10.x release**.
 
-After signing into the SBC web portal, go to the menu **Settings > Network** to update the SBC IP addresses with the new server's IP address then save changes.
+1. Prepare the new Linux server.
+2. Copy the backup data to the server.
+3. Install PortSIP SBC v10.x using the restored data path (`-p`).
+4. Sign in to the SBC Web Portal.
+5. Go to **Settings > Network**, update the SBC IP addresses, and save the changes.
 
-## **Restoring from Backup Data on Windows**
+***
 
-Please follow the steps below to restore the PortSIP SBC from the backup data in a Windows environment.
+### Notes and Best Practices
 
-{% hint style="danger" %}
-You can't restore the backup data of a Linux SBC to a Windows SBC.
-{% endhint %}
+* **Permissions (`888:888`)**\
+  Incorrect ownership or permissions may prevent the SBC from starting correctly.
+* **IP Address Changes**\
+  Always update SBC network settings after restoring to a different server to ensure proper SIP signaling and media routing.
+* **Backup Validation**\
+  Periodically test restores to confirm backup integrity and recovery readiness.
 
-### **1. Uninstall the Currently Running SBC Instance**
 
-* Uninstall the PortSIP SBC from Windows
-* Delete the below SBC folders:
-  * C:\ProgramData\PortSIP\sbc
-  * C:\Program Files\PortSIP\SBC
 
-### **2. Upgrading the PortSIP SBC Installer (Optional)**
 
-You have the option to upgrade the PortSIP SBC Installer before restoring the PortSIP SBC data. The latest PortSIP SBC installer for Windows can be downloaded from the [PortSIP website](https://www.portsip.com/download-portsip-sbc/).
-
-### **3. Restoring a PortSIP SBC**
-
-First, copy the backup data to the PortSIP SBC server folders:
-
-* C:\ProgramData\PortSIP\SBC
-
-You can use the default folder as the data **parent folder**, such as `C:\ProgramData\PortSIP`, or another folder of your choice.
-
-Next, double-click the PortSIP SBC installer to install the PortSIP SBC. In the installation UI, choose the PortSIP SBC data **parent folder** (`C:\ProgramData\PortSIP\`), then click the `Next` button. Wait for the installation to complete.&#x20;
-
-Congratulations! Your SBC has now been successfully restored.
-
-#### **Restoring Backup Data to a New SBC Server**
-
-The steps for restoring backup data to a new SBC server are essentially the same.&#x20;
-
-After signing into the SBC web portal, go to the menu **Settings > Network** to update the SBC IP addresses with the new server's IP address then save changes.
 
