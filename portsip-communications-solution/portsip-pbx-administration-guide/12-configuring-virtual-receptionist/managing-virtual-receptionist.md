@@ -20,7 +20,7 @@ rather than:
 
 This approach allows callers to listen for their desired option first and then register the digit to press, resulting in a better caller experience.
 
-{% hint style="info" %}
+{% hint style="warning" %}
 For the prompt file format, please refer to [What's the file format required for the PortSIP PBX prompt files?](../../faq/what-file-format-is-required-for-portsip-pbx-prompt.md)
 {% endhint %}
 
@@ -73,7 +73,7 @@ Specifies whether the virtual receptionist should verify the DISA PIN before all
 
 #### Night Mode
 
-When [**Night Mode** ](../32-night-mode.md)is enabled, all calls reaching this virtual receptionist are handled according to the **Destination for Night Mode** settings.
+When [**Night Mode** ](../32-night-mode.md)is enabled, all calls reaching this virtual receptionist are handled according to the **Destination for Night Mode** settings. For more details, please refer to [Night Mode](../32-night-mode.md).
 
 #### Block Direct Extension Dialing
 

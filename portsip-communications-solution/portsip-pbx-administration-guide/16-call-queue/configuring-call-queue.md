@@ -26,7 +26,7 @@ When this option is enabled, you can upload an announcement audio file and confi
 The queue will play the announcement periodically to callers while they are waiting, for example, to deliver informational messages or advertisements.
 
 **Night Mode**\
-Set the queue with Night Mode activated or deactivated.
+Set the queue with Night Mode activated or deactivated. For more details, please refer to [Night Mode](../32-night-mode.md).
 
 ***
 

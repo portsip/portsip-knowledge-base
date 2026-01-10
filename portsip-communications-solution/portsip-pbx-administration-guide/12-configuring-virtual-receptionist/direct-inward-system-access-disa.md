@@ -1,26 +1,97 @@
 # Direct Inward System Access (DISA)
 
-DISA is commonly known as Direct Inward System Access. It’s a feature offered by the PortSIP PBX that gives the user the ability to call from the outside using his cell phone, or landline… and dial out via the SIP trunk or PSTN trunk connected to the PortSIP PBX as it is an internal extension.&#x20;
+### Overview
 
-In many scenarios where the user needs to access PortSIP PBX resources to perform calls for instance to other extensions or external calls via Trunks but doesn’t have access to his extension. In such cases, if DISA is configured on the PortSIP PBX, the user can call to the PortSIP PBX from any PSTN number, Mobile, or payphone, and act as an internal extension in a secure way using the password.
+**DISA (Direct Inward System Access)** allows users to access PortSIP PBX resources from an external phone, such as a mobile phone, landline, or even a payphone—and place calls **as if they were an internal extension**.
 
-&#x20;After successful DISA configuration, when users call into PortSIP PBX and reach DISA, they will be required to enter a password.
+With DISA, a user can:
 
-## Create a New DISA
+* Call into the PortSIP PBX from an external number
+* Authenticate using a PIN (optional)
+* Make internal calls to extensions
+* Make external calls via SIP trunks or PSTN trunks
 
-To configure DISA on the PortSIP PBX, please follow these steps:
+DISA is especially useful when users need to place business calls but do not have access to their own extension or device.
 
-1. Sign in to the PBX web portal as the tenant admin.&#x20;
-2. Select the menu **Advanced Services > Virtual Receptionist**.&#x20;
-3. Create a new Virtual Receptionist or edit an existing Virtual Receptionist.&#x20;
-4. In the Virtual Receptionist options, enable the **Verify the PIN for DISA** option and input the PIN (digits only) that the user is required to enter before using DISA to dial out. This option can be disabled if there is no need for authentication.
-5. &#x20;In the Menu Options, add a **User Input** for the DTMF tone and select the action as **DISA**.
+> **Security Note**\
+> DISA should always be protected with a strong PIN and properly restricted outbound rules to prevent unauthorized usage or toll fraud.
+
+***
+
+### How DISA Works
+
+After DISA is configured:
+
+1. A user calls into the PortSIP PBX and reaches a **Virtual Receptionist**.
+2. The user presses a configured DTMF key to access DISA.
+3. If PIN verification is enabled, the PBX prompts the user to enter the DISA PIN.
+4. After successful authentication, the user enters the destination number followed by **#**.
+5. The PBX places the call on behalf of the user.
+
+***
+
+### Creating and Configuring DISA
+
+To configure DISA on the PortSIP PBX, follow these steps:
+
+1. Sign in to the **PortSIP PBX Web Portal** as a **Tenant Administrator**.
+2. Navigate to **Advanced Services > Virtual Receptionist**.
+3. Create a new Virtual Receptionist or edit an existing one.
+4. In the Virtual Receptionist settings:
+   * Enable **Verify the PIN for DISA**
+   * Enter the **DISA PIN** (digits only)\
+     This PIN will be required before the caller can dial out.
+   * (Optional) Disable this option if authentication is not required (not recommended).
+5. In **Menu Options**:
+   * Add a **User Input** for the desired DTMF key
+   * Set the action to **DISA**
+6. Save the configuration.
+
+***
+
+### Example DISA Call Flow
+
+In this example:
+
+* DISA PIN verification is enabled
+* DTMF key **0** is assigned to DISA
 
 <figure><img src="../../../.gitbook/assets/DISA.png" alt=""><figcaption></figcaption></figure>
 
+Call flow:
+
+1. A caller dials the company number.
+2. The Virtual Receptionist answers and plays the greeting.
+3. The caller presses **0**.
+4. The PBX prompts the caller to enter the **DISA PIN**.
+5. If the PIN is correct, the caller enters the destination number.
+6. The caller presses **#** to indicate the end of number entry.
+7. The PBX places the call to the entered destination.
+
 <figure><img src="../../../.gitbook/assets/vr_menu_options_disa.png" alt=""><figcaption></figcaption></figure>
 
-As shown in the above screenshot, we turned on the DISA pin and set the DTMF tone to **0** for the DISA. When someone calls the virtual receptionist and hears the prompts, they can press **0**. The PBX will then ask for the DISA PIN. If the PIN is correct, the caller can input the destination phone number by pressing DTMF with **#** to end the input. The PBX will make a call to this entered phone number.
+***
 
-If the entered number is an external phone number, an outbound rule must be configured for that phone number to send calls to the SIP trunk.
+### Outbound Call Considerations
+
+* If the entered destination is an **external phone number**, a corresponding **Outbound Rule** must exist.
+* The outbound rule must:
+  * Match the dialed number
+  * Allow the call
+  * Route the call to the appropriate SIP trunk or PSTN trunk
+
+Without a valid outbound rule, the external call will not be completed.
+
+***
+
+### Best Practices
+
+* Always enable **DISA PIN authentication**.
+* Use a **strong, non-trivial PIN**.
+* Restrict outbound rules to limit destinations and reduce fraud risk.
+* Monitor call logs and CDRs for unusual activity related to DISA usage.
+
+
+
+
 

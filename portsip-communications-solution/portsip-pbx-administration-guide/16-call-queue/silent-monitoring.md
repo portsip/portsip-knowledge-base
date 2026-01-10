@@ -1,44 +1,139 @@
 # Silent Monitoring
 
-Contact center monitoring is a practice of listening to sales or support agent calls in real-time or after-the-matter to check how well the call was handled. The practice of call center monitoring is essential to improve how agents communicate with customers.&#x20;
+### Overview
 
-Call Center Monitoring = listening to sales or support calls in real-time or recorded
+**Contact center monitoring** is the practice of listening to sales or support agent calls—either **in real time** or **after the call has completed**—to evaluate call handling quality and agent performance.
 
-Benefits of real-time monitoring
+In simple terms:
 
-* Supervisors can jump in & help struggling agents
-* Junior agents get hands-on learning
-* Customers get help immediately, no follow-up is needed
-* More focused on immediate solutions for the customer
+**Call Center Monitoring = listening to live or recorded agent calls**
 
-To learn how to monitor agents' calls using the Supervisor feature, follow the steps below:
+This practice is essential for improving agent communication skills, customer satisfaction, and overall service quality.
 
-## Enable Monitoring
+***
 
-Sign in to the PortSIP PBX Web portal, select the menu **Contact Center > Monitor Service**, and turn on the **Enable Monitor** option to enable the monitoring feature.
+### Benefits of Real-Time Monitoring
 
-The monitoring service number is 888 by default, we suggest don't change it.
+Real-time call monitoring provides several operational advantages:
 
-## Create the Monitor Group
+* Supervisors can step in to assist struggling agents immediately
+* Junior agents receive hands-on coaching during live calls
+* Customers get faster resolution without requiring follow-up calls
+* Supervisors can focus on immediate problem-solving for the customer
 
-Select the menu **Contact Center > Monitor Group**, and click the **Add** button to create the group.
+***
 
-* **Information** - Giving a friendly name to the monitor group
-* **Enable** - Enable / Disable the monitor group
-* **Group Members** - The agent who will be monitored in the group, click the **Add** button to add the members.
-* **Supervisors** - The Supervisors who have permission to monitor the group members
+### Enabling Call Monitoring
 
-## Silent Monitoring
+To enable call monitoring:
 
-For example, we would like to let supervisors 101 and 102 silence monitor other agents' 600 and 601 calls.
+1. Sign in to the **PortSIP PBX Web Portal**.
+2. Navigate to **Contact Center > Monitor Service**.
+3. Turn on the **Enable Monitor** option.
 
-1. Create a new monitor group named **Queue Management** and turn on the **Enable** option.
-2. Add users 600 and 601 as this group members.
-3. Add users 101 and 102 as Supervisors of this group.
-4. Click the **OK** button to save.
+> **Note**\
+> The default monitoring service number is **888**.\
+> It is strongly recommended **not to change this number**.
 
-Now if extension 600 or 601 is on the call, then 101 or 102 can silence monitor 600 or 601 by dialing the FAC code with the extension number for example `*63600` or `*63601;`
+***
 
-During silence monitoring, the 101 or 102 can press DTMF 2 to whisper to the agent, press 3 to barge in, and press 4 to barge-break the call.
+### Creating a Monitor Group
 
-The 101 or 102 can dial `*63601*1` or `*63103`" directly to silence monitoring; By dialing `*68601*2` to whisper 600, dial `*68601*3` directly to barge-in, and dial `*68601*4` directly to barge-break the 601's call.
+Monitor Groups define:
+
+* Which agents can be monitored
+* Which supervisors are allowed to monitor them
+
+To create a Monitor Group:
+
+1. Navigate to **Contact Center > Monitor Group**.
+2. Click **Add**.
+
+#### Configure the Monitor Group
+
+* **Information**\
+  Enter a friendly name for the monitor group.
+* **Enable**\
+  Enable or disable the monitor group.
+* **Group Members**\
+  Agents whose calls can be monitored.\
+  Click **Add** to include agents.
+* **Supervisors**\
+  Users who are authorized to monitor the group members.
+
+Click **OK** to save the configuration.
+
+***
+
+### Silent Monitoring (Listen-Only)
+
+#### Example Scenario
+
+You want supervisors **101** and **102** to silently monitor agents **600** and **601**.
+
+#### Configuration Steps
+
+1. Create a Monitor Group named **Queue Management**.
+2. Enable the group.
+3. Add extensions **600** and **601** as **Group Members**.
+4. Add extensions **101** and **102** as **Supervisors**.
+5. Click **OK** to save.
+
+***
+
+### Monitoring Agent Calls
+
+When an agent is on an active call:
+
+* A supervisor can start silent monitoring by dialing the **Feature Access Code (FAC)** followed by the agent’s extension.
+
+#### Examples
+
+* Silent monitor agent **600**:\
+  &#xNAN;**\*63600**
+* Silent monitor agent **601**:\
+  &#xNAN;**\*63601**
+
+***
+
+### Supervisor Call Control During Monitoring
+
+While silently monitoring, the supervisor can use DTMF keys to change the monitoring mode:
+
+* **Press 2** – Whisper to the agent (agent hears supervisor; caller does not)
+* **Press 3** – Barge in (supervisor joins the call with both agent and caller)
+* **Press 4** – Barge-break (supervisor takes over the call; agent is removed)
+
+***
+
+### Direct Monitoring with Mode Selection
+
+Supervisors can also start monitoring with a specific mode directly:
+
+* **Silent monitoring**:\
+  \*63601\*1
+* **Whisper**:\
+  \*63601\*2
+* **Barge-in**:\
+  \*63601\*3
+* **Barge-break**:\
+  \*63601\*4
+
+> **Tip**\
+> The exact Feature Access Codes (FACs) can be reviewed or customized under\
+> **Advanced > Feature Access Codes**.
+
+***
+
+### Best Practices
+
+* Limit monitoring permissions to authorized supervisors only
+* Use silent monitoring for quality assurance and coaching
+* Use whisper mode for real-time agent guidance without affecting customers
+* Reserve barge-in and barge-break for escalation or critical situations
+* Inform agents of monitoring policies to comply with local regulations
+
+
+
+
+
