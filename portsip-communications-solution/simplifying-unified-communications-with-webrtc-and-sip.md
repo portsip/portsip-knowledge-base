@@ -2,6 +2,8 @@
 
 [PortSIP SBC](https://www.portsip.com/portsip-sbc/) provides a bridge between Voice over Internet Protocol (VoIP) networks and the latest web services. It performs a number of federation services to transform SIP communications into WebRTC or vice versa, so organizations can retain their SIP-based call control (PBX, contact center, etc.) and offer tools that embed real-time communications into business applications, websites, processes, and workflows.
 
+***
+
 ### What is WebRTC
 
 WebRTC and SIP are two distinct yet interconnected technologies that enable real-time communication over the Internet. They are the backbone of modern web communication, empowering web pages and applications with capabilities such as video conferencing, voice calls, and data sharing.
@@ -14,6 +16,8 @@ Written in JavaScript and built upon an open standard, WebRTC APIs are compatibl
 
 What sets WebRTC apart from other real-time media processes, such as WebSockets, is its ability to establish a peer-to-peer connection between users. Once a connection is established via WebRTC, users can communicate directly, without the need for server intermediation, as is the case with WebSockets. This makes WebRTC’s communication capabilities faster and more efficient than its alternatives, and it does not require any plugins.
 
+***
+
 ### How Does WebRTC Work?
 
 WebRTC, or Web Real-Time Communication, employs a set of APIs that orchestrate a process for web clients to connect and exchange video, audio, and data in real-time.
@@ -25,6 +29,8 @@ WebRTC-enabled applications and webpages handle this multimedia communication pr
 1. **Accessing Audio and Video (MediaStream)**: This API collects data from each participant. When multiple users communicate via WebRTC, MediaStream requests their permission to use video and audio. It also gathers any other data that needs to be sent during the interaction, such as text, file transfers, interactive polls, online gaming, and more. MediaStream determines each user’s resolution, framerate, and other specifications.
 2. **Sharing Audio and Video (RTCPeerConnection)**: To share the audio and video in real-time, WebRTC uses a signaling protocol to determine shared parameters, codecs, and media details for the interaction. Common signaling protocols include Session Initiation Protocol (SIP) or Extensive Messaging and Presence Protocol (XMPP). It communicates with network servers to discover each user’s IP address and create a peer-to-peer (P2P) connection for quick data transfer. Finally, it encrypts all data for security.
 3. **Sending Other Data (RTCDataChannel)**: This API bundles arbitrary data like text, files, and game data alongside the audio and video data packets. Similarly, this data is encrypted and sent using UDP or TCP–the former being faster and the latter being more reliable.
+
+***
 
 ### What is Session Initiation Protocol (SIP)?
 
@@ -43,6 +49,8 @@ SIP software is a versatile tool that enables a multitude of communication syste
 
 As a signaling mechanism, SIP initiates the call between all involved parties and determines each side’s capabilities and parameters. Once the call is concluded, SIP communicates to all participants that the call has ended, thereby ensuring a smooth and efficient communication experience.
 
+***
+
 ### How Does SIP Work?
 
 The Session Initiation Protocol (SIP) defines the format and sequence of backend messages that computers use to coordinate and initiate real-time media communications. The protocol outlines rules that disparate software systems follow to synchronize various aspects of the media call, including the media streams involved, invitations to each party, each user’s IP address, the ports that will be used, the media codecs that will be used, and data message formatting.
@@ -59,6 +67,8 @@ SIP handles the following media functions:
 
 SIP works alongside other application-layer protocols that handle other aspects of real-time media communication. For example, some SIP messages contain Session Description Protocol (SDP) data that coordinates parameters for the meeting. Once SIP establishes a media session, RTP or SRTP transmits the audio and video data.
 
+***
+
 ### Key Differences between WebRTC and SIP
 
 <figure><img src="../.gitbook/assets/WebRTC-vs-SIP-1-2048x1092.png" alt=""><figcaption></figcaption></figure>
@@ -69,6 +79,8 @@ While both technologies provide a roadmap for real-time communication via video,
 
 Given that SIP is the standard protocol for VoIP technology, WebRTC often employs SIP to signal or establish a connection between devices, apps, or web pages. Once this connection is established, WebRTC can retrieve and share voice, video, chat, or data between the clients involved, relying on other protocols and tools to do so.
 
+***
+
 ### Here are a few key differences between WebRTC and SIP:
 
 1. **Format**: WebRTC is a collection of APIs that developers embed into the code for a webpage or app to support real-time communications. Conversely, SIP is a protocol–a singular API that guides applications and web pages to establish and negotiate a connection through a SIP server.
@@ -76,6 +88,8 @@ Given that SIP is the standard protocol for VoIP technology, WebRTC often employ
 3. **Purpose**: WebRTC enables web pages to establish a connection and communicate in real-time, while SIP merely establishes a connection between users.
 4. **Server Involvement**: WebRTC enables direct peer-to-peer communications, while SIP utilizes a server to facilitate the connection.
 5. **Available Tools**: WebRTC consists of limitless tools and protocols, which it can choose from to establish real-time video, audio, and data communication between web pages. SIP, on the other hand, is a singular tool, just one protocol that WebRTC can utilize.
+
+***
 
 ### When to Use WebRTC?
 
@@ -85,6 +99,8 @@ WebRTC is best utilized in the following scenarios:
 2. **Building Your Own App**: WebRTC is a developer’s tool because its APIs provide functionality for apps and webpages. It works best if you want to build a video-conferencing solution and application.
 3. **UCaaS and Video Conferencing**: Many Unified Communications as a Service (UCaaS) services and video-conferencing apps use WebRTC to power video meetings.
 4. **Live Streaming**: Many live-streaming services utilize WebRTC.
+
+***
 
 ### When to Use SIP?
 
@@ -97,6 +113,8 @@ SIP plays an important role in the following scenarios:
 3. **Call Centers**: Call center providers use SIP to enable voice calls.
 4. **Remote Workforce**: Remote businesses often use SIP instead of a landline phone system, because SIP-based solutions utilize non-fixed virtual phone numbers and applications accessible to users anywhere.
 
+***
+
 ### Interconnect SIP and WebRTC
 
 While WebRTC allows for browser-based communication, traditional SIP-based PBX phone systems rely on the SIP protocols. To enable these two technologies to work together seamlessly, a WebRTC gateway is essential. This gateway serves as an intelligent bridge between Voice over Internet Protocol (VoIP) networks and the open ecosystem of the Internet.
@@ -106,3 +124,8 @@ PortSIP, a renowned name in this domain, offers a product called [PortSIP SBC](h
 Positioned at the edge of the network, the [PortSIP SBC](https://www.portsip.com/portsip-sbc/) provides open, web-centric APIs. These APIs allow application developers to gain access to the enterprise’s Unified Communications (UC) services – including voice, video, presence, shared address book, call history, instant messaging, and collaboration.
 
 <figure><img src="../.gitbook/assets/enterprise_pbx_sbc_teams1.png" alt=""><figcaption></figcaption></figure>
+
+
+
+
+
