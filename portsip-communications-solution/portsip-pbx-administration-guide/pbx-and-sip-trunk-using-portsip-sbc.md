@@ -1,56 +1,132 @@
 # PBX and SIP Trunk using PortSIP SBC
 
-This topic describes how to set up PortSIP SBC for interworking between the generic SIP trunk and PortSIP PBX.
+This topic describes how to configure **PortSIP SBC** to enable interoperability between a **generic SIP trunk** and **PortSIP PBX**.\
+The SBC acts as a secure SIP signaling and media boundary, interconnecting the enterprise PBX deployed in a private network with a SIP trunk service hosted on a public network.
 
-## 1 Topology of the Interoperability Environment
+***
 
-The interoperability testing between SBC and a generic SIP Trunk with PortSIP PBX was done using the following topology setup:&#x20;
+### 1. Interoperability Topology
 
-* Enterprise deployed with PortSIP PBX in its private network for enhanced communication within the Enterprise.&#x20;
-* Enterprise wishes to offer its employees enterprise-voice capabilities and to connect the Enterprise to the PSTN network using a SIP Trunking service.&#x20;
-* PortSIP SBC is implemented to interconnect between the Enterprise LAN and the SIP Trunk.&#x20;
-  * Session: Real-time voice session using the IP-based Session Initiation Protocol (SIP).
-  * Border: IP-to-IP network border between PortSIP PBX network in the Enterprise LAN and SIP Trunk located in the public network. The figure below illustrates this interoperability topology:
+The interoperability testing between PortSIP SBC, a generic SIP trunk, and PortSIP PBX was performed using the following deployment model.
+
+#### Deployment Scenario
+
+* The enterprise deploys **PortSIP PBX** within its private LAN to provide internal voice communications.
+* The enterprise requires PSTN connectivity and enterprise calling services through a **SIP Trunk** provided over the public Internet.
+* **PortSIP SBC** is deployed at the network edge to interconnect the enterprise LAN with the SIP trunk provider and to protect the PBX from direct exposure to the public network.
+
+#### Key Concepts
+
+* **Session**\
+  A real-time voice communication session established using the Session Initiation Protocol (SIP).
+* **Border**\
+  The IP-to-IP network boundary between the enterprise LAN (where PortSIP PBX resides) and the public network hosting the SIP trunk.
 
 <figure><img src="../../.gitbook/assets/enterprise_pbx_sbc_trunk.png" alt=""><figcaption></figcaption></figure>
 
-## 2 Configuring PortSIP PBX
+#### Call Flow Overview
 
-Please follow the below topics to install and configure the PBX:
+The high-level call flow for this topology is:
 
-* [1 Installation of the PortSIP PBX](1-installation-of-the-portsip-pbx/)
-* [2 Configuring the PortSIP PBX](/broken/pages/6uo0BsKGLXFqs7Cz40HY)
+```
+Extension <-> PortSIP PBX <-> PortSIP SBC <-> SIP Trunk
+```
 
-## 3 Configuring PortSIP SBC
+This architecture ensures secure signaling, controlled media traversal, and protocol normalization between the PBX and the SIP trunk provider.
 
-Please follow the below topics to install and configure the SBC:
+***
 
-* [Configuring SBC for WebRTC](9-configuring-portsip-sbc/)
+### 2. Configuring PortSIP PBX
 
-## 4 Adding SIP trunk to the PortSIP PBX
+Before configuring the SBC and SIP trunk, ensure that the PortSIP PBX is installed and operational.
 
-Assuming the trunk information is below:
+#### Prerequisites
 
-* SIP Trunk in the internet
-* SIP Trunk IP is 52.214.181.141, port 5060
-* SIP Trunk transport is UDP
-* SIP Trunk is **IP authorization** mode or **register authorization** mode
+Complete the following PBX setup steps:
 
-To add the trunk to the PBX:
+1. [Install PortSIP PBX](installation-of-portsip-pbx-v22.3-beta-version/install-portsip-pbx.md)
+2. Perform basic [PBX configuration, including system and tenant setup](2-portsip-pbx-management/)
 
-1. Sign in to the PortSIP PBX Web Portal by "**System Admin**" credentials, and click the menu "**Call Manager > Trunks**".
-2. Click the arrow button to choose the **IP-based** or **Register-based** trunk type to add.
-3. Enter a friendly name for this trunk, and fill in the "**Host Domain or IP**" with SIP trunk IP `52.214.181.14` and "**Port**" with 5060. If the trunk port is not 5060, please enter the actually port.
-4. Fill the "**Outbound Proxy Server**" with the SBC private IP in case is `192.168.1.73`, and fill the "**Outbound Proxy Server port**" with the SBC port `5069` , by default, the SBC uses the port `5069` on TCP to receive the SIP message from PBX.
-5. Select the `TCP` transport and click the "**Next**" button.
-6. If the trunk is "**Register based**" type, enter the "**Authorization Name**" and "**Password**" here, it gave by your trunk service provider.&#x20;
-7. Turn on the "**Trunk is located in same LAN with PBX**" option.
-8. Turn off the "**Rewrite the host IP of Via header by public IP when sending the request to trunk**" option and click the "**Next**" button.
-9. Since the trunk is added by the "**System Admin**", the "**System Admin**" will need to choose one or more tenants to allow them access to this trunk. Please refer to the "**Add the Trunk by System Admin"** section of [Trunk Management](7-trunk-management/)**.**
+Refer to the corresponding PBX installation and configuration guides for detailed instructions.
 
-In summary, just add the SBC likes add a normal trunk, fill the trunk's IP or domain to the "**Host Domain or IP**", and fill the SBC's IP and port to the "**Outbound Proxy Server**", set the transport to TCP since the PBX use TCP to communicate with the SBC, and the call flow is:
+***
 
-**extension <---> PBX <---> SBC <---> SIP Trunk**
+### 3. Configuring PortSIP SBC
 
-Now you completed the SBC trunk settings, you can follow this guide to create the i[nbound and outbound rules](8-call-route-management/) as the normal trunk.
+Install and [configure the PortSIP SBC](9-configuring-portsip-sbc/) according to your deployment requirements.
+
+> ❗**Note**\
+> If WebRTC endpoints are used, ensure the SBC is configured for WebRTC support as described in the [_Configuring SBC for WebRTC_ guide](9-configuring-portsip-sbc/configuring-sbc-for-webrtc.md).
+
+***
+
+### 4. Adding the SIP Trunk to PortSIP PBX
+
+This section describes how to add the SIP trunk to PortSIP PBX when the SBC is used as an outbound proxy.
+
+#### Assumed SIP Trunk Parameters
+
+* SIP trunk is reachable over the public Internet
+* SIP trunk IP address: `52.214.181.141`
+* SIP signaling port: `5060`
+* Transport protocol: `UDP`
+* Authentication mode:
+  * IP-based authentication **or**
+  * Register-based authentication
+
+***
+
+#### Step-by-Step Configuration
+
+1. **Sign in to the PortSIP PBX Web Portal**
+   * Use **System Administrator** credentials.
+   * Navigate to **Call Manager > Trunks**.
+2. **Add a New Trunk**
+   * Click the arrow button and select:
+     * **IP-based Trunk** or
+     * **Register-based Trunk**, depending on the SIP trunk type.
+3. **Configure Basic Trunk Settings**
+   * Enter a **friendly name** for the trunk.
+   *   Set **Host Domain or IP** to the SIP trunk IP address:
+
+       ```
+       52.214.181.141
+       ```
+   * Set **Port** to `5060`, or to the actual port provided by the SIP trunk provider if different.
+4. **Configure the Outbound Proxy (SBC)**
+   *   Set **Outbound Proxy Server** to the **private IP address of the SBC**, for example:
+
+       ```
+       192.168.1.73
+       ```
+   *   Set **Outbound Proxy Server Port** to:
+
+       ```
+       5069
+       ```
+
+       > By default, PortSIP SBC listens on TCP port 5069 for SIP traffic from the PBX.
+5.  **Select Transport Protocol**
+
+    * Select **TCP** as the transport.
+    * Click **Next**.
+
+    > **Note**\
+    > PortSIP PBX communicates with the SBC using TCP by default. Ensure the selected transport matches the SBC configuration.
+6. **Configure Authentication (Register-Based Trunk Only)**
+   * Enter the **Authorization Name** and **Password** provided by the SIP trunk service provider.
+   * Click **Next**.
+7. **Advanced Options**
+   * Enable **Trunk is located in same LAN with PBX**.
+   * Disable **Rewrite the host IP of Via header by public IP when sending the request to trunk**.
+   * Click **Next**.
+8. **Assign Trunk to Tenants**
+   * Since the trunk is created by the **System Administrator**, select one or more tenants that are allowed to use this trunk.
+   * For details, refer to the _Add the Trunk by System Admin_ section in [Trunk Management](7-trunk-management/).<br>
+
+Now you are ready to [create the inbound & outbound rules for the call routing](8-call-route-management/).
+
+
+
+
 
