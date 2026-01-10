@@ -6,19 +6,25 @@ The FCC has been encouraging service providers to offer call blocking solutions 
 
 Although several providers and third parties offer call blocking and caller identification verification products, there is no ubiquitous solution that spans wireline and wireless communication networks. In order to address these concerns, the service providers are focusing their efforts across three key areas: source authentication as well as network and consumer blocking tools. The goal of these solutions is to protect consumers from unwanted calls and give them more control over the calls and texts they receive.
 
-## STIR/SHAKEN Definitions
+***
+
+### STIR/SHAKEN Definitions
 
 STIR (Secure Telephony Identity Revisited) is the proposed standard developed by IETF that defines a signature to verify the calling number, and specifies how it will be transported in SIP “on the wire.”
 
 SHAKEN (Signature-based Handling of Asserted information using toKENs) is the framework document developed by the ATIS/SIP Forum IP-NNI task force to provide an implementation profile for service providers implementing STIR. STIR/SHAKEN will be the basis for verifying calls, classifying calls, and facilitating the ability to trust caller ID information.
 
-## Caller Authentication
+***
+
+### Caller Authentication
 
 The idea behind of STIR/SHAKEN is to mitigate unwanted robocalls and bad actors who use caller ID spoofing to increase the chances of speaking to a subscriber.
 
 STIR is used to enhance the SIP protocol to provide a mechanism for service providers to verify that the originator of a SIP call is highly likely to be valid (i.e. not a spoofed/fraudulent calling party). The goal of these enhancements is to make it considerably more difficult for bad actors to spoof the identity of a call for malevolent or other purposes. Examples of such activities are spoofing voice messaging or credit card validation services to get access to the victim’s voice messages or credit, respectively; engaging in confidence schemes by masquerading as legitimate enterprises looking for information or cash (e.g., banks for personal identification or the IRS for swindling); or to get through blocked caller lists (e.g., robocalling).
 
-## PortSIP Solution
+***
+
+### PortSIP Solution
 
 **PortSIP PBX** provides the complete implementation of **STIR/SHAKEN** for two key reasons:
 

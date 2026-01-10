@@ -1,41 +1,58 @@
 # Configuring STIR/SHAKEN
 
-In PortSIP PBX, you can configure the system to drop inbound calls on a specified SIP trunk based on **Caller ID verification** - when the trunk provider passes a parameter value in the **P-Asserted-Identity** SIP header in the INVITE message, which by default is named **'verstat'**. Additionally, you can also upload the **STIR/SHAKEN** certificate to sign outbound calls on a specified SIP trunk.
+PortSIP PBX allows you to enforce **STIR/SHAKEN-based call handling** on a per-trunk basis. You can:
 
-## Drop Calls with Verification Status
+* **Drop inbound calls** based on Caller ID verification status provided by the SIP trunk
+* **Sign outbound calls** using your own STIR/SHAKEN certificate
 
-To configure call handling based on verification status:
+Inbound verification is performed using parameters passed in the **P-Asserted-Identity (PAI)** SIP header, while outbound signing adds an **Identity** header to SIP INVITE messages.
+
+***
+
+### Dropping Inbound Calls Based on Verification Status
+
+#### Configuration Steps
 
 1. Navigate to **Call Manager > Trunks**.
-2. Double-click the trunk you want to edit.
-3. Click the **Inbound Parameters** tab.
-4. In the **STIR/SHAKEN** section, you will find three configurable options, which can be set at the trunk level.
+2. Double-click the SIP trunk you want to configure.
+3. Select the **Inbound Parameters** tab.
+4. In the **STIR/SHAKEN** section, configure the options described below.
+
+These settings apply **only to inbound calls received on this trunk**.
 
 <figure><img src="../../../.gitbook/assets/stire-shaken-1.png" alt=""><figcaption></figcaption></figure>
 
-These options allow you to customize how the PBX handles calls based on STIR/SHAKEN verification status for each trunk.
+***
 
-### **PAI Header Parameter Name**
+#### PAI Header Parameter Name
 
-Set this field to your desired value, it's **'verstat'** by default.
+* Default value: **verstat**
+* Used to extract the verification status from the **P-Asserted-Identity** header
+* The parameter name may vary depending on your trunk provider
 
-{% hint style="info" %}
-This parameter is used for caller ID validation and is typically named **'verstat'**. However, the exact name may vary depending on your trunk provider.
-{% endhint %}
+Example:
 
-### Enable STIR/SHAKEN Validation
+```
+P-Asserted-Identity: <sip:+15617500080;verstat=TN-Validation-Passed>
+```
 
-This option allows you to enable or disable PortSIP PBX's validation of inbound calls based on **STIR/SHAKEN** Caller ID verification.
+***
 
-### Drop Calls with Verification Status
+#### Enable STIR/SHAKEN Validation
 
-This option allows you to select which verification status will trigger call drops when **Enable STIR/SHAKEN Validation** is enabled.
+* Enables or disables inbound STIR/SHAKEN verification on this trunk
+* Must be enabled to enforce call dropping based on verification status
 
-For example, selecting **'TN-Validation-Failed'** means that if the **PAI** header contains this verification status, the call will be dropped.
+***
 
-The **PAI** header value will be parsed, and if the specified parameter matches any of the selected values in the **Drop Calls with Verification Status** list, the call will be dropped.
+#### Drop Calls with Verification Status
 
-Refer to the list of verification statuses:
+* Select one or more verification statuses that should cause the PBX to **drop inbound calls**
+* When enabled, the PBX parses the PAI header and compares the verification result
+
+If a match is found, the call is immediately rejected.
+
+**Supported Verification Status Values**
 
 * **No-TN-Validation**
 * **TN-Validation-Failed**
@@ -45,39 +62,57 @@ Refer to the list of verification statuses:
 * **TN-Validation-Failed-B**
 * **TN-Validation-Failed-C**
 
-**Note**: Verification statuses are case-insensitive, meaning all variations (e.g., **'No-TN-Validation'**, **'NO-TN-VALIDATION'**, and **'No-tn-Validation'**) are acceptable.
+> **Note**\
+> Verification status values are **case-insensitive**.\
+> For example: `No-TN-Validation`, `NO-TN-VALIDATION`, and `No-tn-Validation` are treated the same.
 
-This feature applies only to the inbound calls received from this trunk.
+***
 
-### **Example**
+#### Verification Logic Example
 
-If a call is received from the SIP trunk with the following **PAI header**:
+Inbound SIP header:
 
 ```
 P-Asserted-Identity: <sip:+15617500080;verstat=TN-Validation-Passed>
 P-Attestation-Indicator: B
 ```
 
-Please note that the additional header check is included for **STIR/SHAKEN**. The **P-Asserted-Identity** can contain one of the following values: **'TN-Validation-Passed'**, **'TN-Validation-Failed'**, or **'No-TN-Validation'**. The attestation level is specified in a separate header, such as **P-Attestation-Indicator: B**.
+Explanation:
 
-### **Scenario**
+* `verstat` indicates the verification result
+* Attestation level (`A`, `B`, or `C`) is provided separately
 
-If a user selects **'TN-Validation-Failed-B'** and **'No-TN-Validation'** as values in the **Drop Calls with Verification Status** field, the call will be dropped, since it matches **'TN-Validation-Passed'** with **'B'** as the attestation level.
+**Scenario**
 
-However, if no attestation indicator is provided, the PBX expects an exact match between the **verstat** value in the **PAI header** and the value specified in the **Drop Calls with Verification Status** field. For example:
+If the following values are selected in **Drop Calls with Verification Status**:
+
+* **TN-Validation-Failed-B**
+* **No-TN-Validation**
+
+The call **will be dropped**, because:
+
+* The verification result is `TN-Validation-Passed`
+* The attestation indicator is `B`
+* Combined, this matches `TN-Validation-Passed-B`
+
+If **no attestation indicator** is present, the PBX requires an **exact match** in the PAI header, for example:
 
 ```
 P-Asserted-Identity: <sip:+15617500080;verstat=TN-Validation-Passed-B>
 ```
 
-## Signing Outbound Calls on a Trunk
+***
+
+### Signing Outbound Calls with STIR/SHAKEN
 
 To sign outbound calls on a trunk, you must follow the process of obtaining your own STIR/SHAKEN certificate. This involves the following steps:
 
 1. Acquire a [US FCC 499-A](https://apps.fcc.gov/cores/userLogin.do) Filer ID and an Operating Company Number (OCN).
 2. After securing these, you can then proceed to apply for your STIR/SHAKEN token and certificate, which are required for authenticating calls.
 
-### Obtain a STIR/SHAKEN Certificate
+***
+
+#### Obtaining a STIR/SHAKEN Certificate
 
 To implement STIR/SHAKEN, follow these steps:
 
@@ -90,43 +125,65 @@ To implement STIR/SHAKEN, follow these steps:
 4. **Partner with a Certificate Authority (CA)**\
    Collaborate with a trusted Certificate Authority (CA) to issue your STIR/SHAKEN certificate, enabling you to sign and authenticate your outbound calls.
 
+***
+
 ### Uploading the STIR/SHAKEN Certificate
 
-You can upload the STIR/SHAKEN certificate either at the System Administrator level or the Tenant level, depending on the scope of the calls.
+Certificates can be uploaded at either the **System Administrator** or **Tenant Administrator** level.
 
-* The PBX will use the System Administrator's certificate to sign calls on trunks that are added by the System Administrator.
-* Tenant-level certificates are used to sign calls on trunks that are added by the Tenant Administrator.
+#### Certificate Scope
 
-#### Uploading a Certificate at the System Administrator Level
+* **System Administrator certificate**\
+  Used to sign calls on trunks created by the System Administrator
+* **Tenant certificate**\
+  Used to sign calls on trunks created by the Tenant Administrator
 
-1. Navigate to **Advanced > Settings** in the menu.
+***
+
+#### Uploading at the System Administrator Level
+
+1. Navigate to **Advanced > Settings**.
 2. Select the **STIR/SHAKEN Certificates** tab.
-3. Open your STIR/SHAKEN certificate file using Windows Notepad, then copy and paste its contents into the **Public Certificate** field.
-4. Similarly, open your STIR/SHAKEN private key file using Windows Notepad, and copy and paste the contents into the **Private Key** field.
-5. Click **OK** to save your changes.
+3. Open the public certificate file and paste its contents into **Public Certificate**.
+4. Open the private key file and paste its contents into **Private Key**.
+5. Click **OK** to save.
 
-#### Uploading a Certificate at the Tenant Administrator Level
+***
 
-1. Navigate to **Advanced > STIR/SHAKEN** in the menu.
-2. Open your STIR/SHAKEN certificate file using Windows Notepad, then copy and paste its contents into the **Public Certificate** field.
-3. Similarly, open your STIR/SHAKEN private key file using Windows Notepad, and copy and paste the contents into the **Private Key** field.
-4. Click **OK** to save your changes.
+#### Uploading at the Tenant Administrator Level
+
+1. Navigate to **Advanced > STIR/SHAKEN**.
+2. Paste the public certificate into **Public Certificate**.
+3. Paste the private key into **Private Key**.
+4. Click **OK** to save.
 
 <figure><img src="../../../.gitbook/assets/stir-shaken-3.png" alt=""><figcaption></figcaption></figure>
 
-### Enabling STIR/SHAKEN Call Signing on a Trunk
+***
 
-To enable the STIR/SHAKEN signature on a specific trunk, follow these steps:
+### Enabling STIR/SHAKEN Signing on a Trunk
 
-1. Go to **Call Manager > Trunks**.
-2. Double-click the trunk you wish to edit.
+To enable call signing for a specific trunk:
+
+1. Navigate to **Call Manager > Trunks**.
+2. Double-click the trunk to edit.
 3. Select the **Options** tab.
-4. Toggle on the **STIR/SHAKEN Signature Required** option.
-5. Click **OK** to save your changes.
+4. Enable **STIR/SHAKEN Signature Required**.
+5. Click **OK** to save.
 
 <figure><img src="../../../.gitbook/assets/stire-shaken-2.png" alt=""><figcaption></figcaption></figure>
 
-Now that you’ve enabled the STIR/SHAKEN signature, when an extension makes an outbound call over a trunk where the **STIR/SHAKEN Signature Required** option is enabled, the PortSIP PBX will sign the call using the uploaded certificates. It will then add an **Identity** header to the INVITE message, which contains the call signature. The INVITE message will look similar to the following example:
+***
+
+### Outbound Call Signing Behavior
+
+When an outbound call is placed over a trunk with **STIR/SHAKEN Signature Required** enabled:
+
+* PortSIP PBX signs the call using the uploaded certificate
+* An **Identity** header is added to the SIP INVITE
+* The signature allows downstream carriers to verify the caller ID
+
+#### Example SIP INVITE
 
 {% code overflow="wrap" %}
 ```
@@ -140,6 +197,8 @@ Max-Forwards: 70
 Identity: eyJhbGciOiJFUzI1NiIsInBwdCI6InNoYWtlbiIsInR5cCI6InBhc3Nwb3J0IiwieDV1IjoiaHR0cHM6Ly9jZXJ0aWZpY2F0ZXMuZXhhbXBsZS5jb20vMTIzNDU2Nzg5LnBlbSJ9.eyJhdHRlc3QiOiJBIiwiZGVzdCI6eyJ0biI6WyIxODAwMTIzNDU2NyJdfSwiaWF0IjoxNTQ4ODU5OTgyLCJvcmlnIjp7InRuIjoiMTQwNDUyNjYwNjAifSwib3JpZ2lkIjoiM2E0N2NhMjMtZDdhYi00NDZiLTgyMWQtMzNkNWRlZWRiZWQ0In0.S_vqkgCk88ee9rtk89P6a6ru0ncDfSrdb1GyK_mJj-10hsLW-dMF7eCjDYARLR7EZSZwiu0fd4H_QD_9Z5U2bg;info=<https://pbx.example.com:8887/creds/3054739567934621/cert.pem>alg=ES256;ppt=shaken
 ```
 {% endcode %}
+
+
 
 
 

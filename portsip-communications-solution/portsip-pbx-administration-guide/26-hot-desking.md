@@ -1,61 +1,131 @@
 # 26 Hot Desking
 
-Hot desking is a form of workplace sharing where employees will take whatever desk is available instead of having an assigned workspace. It was first introduced in the 1990s. Today, technology has aided in the implementation of hot desking by making it more feasible and accessible. Some businesses use hot desking for the whole company, while others use hot desking for specific spaces or roles in the company. 
+### Overview
 
-With hot desking, workers can typically use any desk phone on the network by logging in to the phone with their voicemail pin. Cloud-based systems also make remote and flexible work environments possible with tools like VoIP communication, desktop virtualization, and more. 
+**Hot desking** is a workplace model where employees use any available desk or phone rather than having a permanently assigned workspace. Introduced in the 1990s, hot desking has become increasingly practical with modern communications technology.
 
-## Key Features & Benefits <a href="#content-section--0-0" id="content-section--0-0"></a>
+With hot desking:
 
-* Employees traveling from different offices can share the same common phone and desk while keeping their own extension profiles and voicemail access
-* Enables companies to save cost by allowing employees to login shared phones and still remain productive
-* Reduces investment in facilities and hardware
-* Supported by the wide range of devices
+* Users can log in to **any desk phone** on the network using their credentials
+* Personal extension settings, voicemail, and call handling follow the user
+* Cloud-based VoIP systems enable flexible and remote working environments
 
-## Setting Up a Device for Hot Desking <a href="#h.yl8c1aw6gwzv" id="h.yl8c1aw6gwzv"></a>
+Some organizations deploy hot desking company-wide, while others apply it to specific teams, locations, or roles.
 
-### Setting Up Hot Desking via PnP Provisioning
+***
 
-This method is typically used for on-premises PBX.
+### Key Features and Benefits
 
-* Sign in to the PBX Web Portal as the tenant administrator.
-* Plug the phone into the network.&#x20;
-* The phone will send a multicast message across the LAN, which will be received by the PortSIP PBX.&#x20;
-* The phone will appear in the **Call Manager > Phones** menu in the Web Portal as a new phone.
-* &#x20;Copy the IP phone's MAC address.&#x20;
-* Create a hot desking extension for that hot desking phone by selecting **Advanced Services > Hot Desking** from the menu, and clicking **Add**.&#x20;
-* Enter basic information about the IP phone, such as its MAC address and provisioning method. If using SBC, select SBC for the **Network** option.
-* Enter a friendly name for the **Display Name** and a unique extension number for this hot desking phone.&#x20;
-* Click **OK** to create the hot desking extension and generate the configuration file. The PBX will then send a NOTIFY message to the phone with the configuration file URL for provisioning.
+Hot desking in PortSIP PBX provides the following advantages:
+
+* Employees working across multiple offices can share desk phones while retaining their own extension profiles and voicemail
+* Reduces hardware and facility costs by allowing shared phone usage
+* Improves productivity without requiring dedicated devices
+* Supports a wide range of IP phone models and deployment scenarios
+
+***
+
+### Setting Up a Device for Hot Desking
+
+PortSIP PBX supports two provisioning methods for hot desking devices:
+
+* **PnP (Plug and Play) Provisioning** – typically used for on-premises PBX deployments
+* **RPS (Redirect/Remote Provisioning Service)** – typically used for cloud deployments
 
 <figure><img src="../../.gitbook/assets/hdk-2.png" alt=""><figcaption></figcaption></figure>
 
-The IP phone will automatically download the configuration file, provision itself, and register the hot desking extension.
+***
+
+### Setting Up Hot Desking via PnP Provisioning
+
+This method is commonly used when the PBX is deployed on-premises.
+
+#### Steps
+
+1. Sign in to the **PortSIP PBX Web Portal** as a **Tenant Administrator**.
+2. Plug the IP phone into the network.
+3. The phone sends a multicast discovery message on the LAN.
+4. The PBX detects the phone, which appears under **Call Manager > Phones** as a new device.
+5. Copy the IP phone’s **MAC address**.
+6. Navigate to **Advanced Services > Hot Desking** and click **Add**.
+7. Enter the phone details:
+   * **MAC Address**
+   * **Provisioning Method**
+   * **Network** (select **SBC** if an SBC is used)
+8. Enter:
+   * A friendly **Display Name**
+   * A unique **Extension Number** for the hot desking phone
+9. Click **OK** to create the hot desking extension.
+
+After saving:
+
+* The PBX generates the configuration file
+* A **NOTIFY** message is sent to the phone with the provisioning URL
+* The phone downloads the configuration, provisions itself, and registers the hot desking extension
+
+***
 
 ### Setting Up Hot Desking via RPS Provisioning
 
-This method is typically used if the PortSIP PBX is deployed in the cloud.
+This method is typically used when the PBX is deployed in the cloud.
 
-* Sign in to the PBX Web Portal as the tenant administrator.
-* Copy the IP phone's MAC address.&#x20;
-* Create a hot desking extension for that hot desking phone by selecting **Advanced Services > Hot Desking** from the menu, and clicking **Add**.&#x20;
-* Enter basic information about the IP phone, such as its MAC address and provisioning method. If using SBC, select SBC for the **Network** option.
-* Enter a friendly name for the **Display Name** and a unique extension number for this hot desking phone.&#x20;
-* Ensure the **Save to RPS** is turned on.
-* Click **OK** to create the hot desking extension and generate the configuration file. and the PortSIP PBX will write the provisioning link to the IP phone's RPS. When the IP phone is powered on, it will query the provisioning link from the RPS server using its MAC address to complete the auto-provisioning.
+#### Steps
 
-The IP phone will automatically download the configuration file, provision itself, and register the hot desking extension.
+1. Sign in to the **PortSIP PBX Web Portal** as a **Tenant Administrator**.
+2. Copy the IP phone’s **MAC address**.
+3. Navigate to **Advanced Services > Hot Desking** and click **Add**.
+4. Enter the phone details:
+   * **MAC Address**
+   * **Provisioning Method**
+   * **Network** (select **SBC** if applicable)
+5. Enter:
+   * A friendly **Display Name**
+   * A unique **Extension Number** for the hot desking phone
+6. Ensure **Save to RPS** is enabled.
+7. Click **OK** to create the hot desking extension.
 
-## Logging In
+After saving:
 
-Once the IP phone has successfully registered the hot desking extension with the PBX, it’s ready for hot desking login. In this example, we’ll assume that extension 101 will log in to this hot desking phone.
+* The PBX writes the provisioning URL to the phone vendor’s RPS
+* When powered on, the phone retrieves the provisioning link using its MAC address
+* The phone downloads the configuration, provisions itself, and registers the hot desking extension automatically
 
-1. Select **Call Manager > Users** from the menu and double-click extension 101.
-2. Click the **Extension** tab and turn on the **Enable Hot Desking** option.
-3. Save changes.
+***
 
-From the hot desking phone, dial `*70` followed by the extension number (in this case, `*70101`) to log in. The PBX will answer and prompt the user to enter their voicemail PIN. After entering the PIN, a confirmation prompt will be played, and the device will be re-provisioned for the user’s extension (in this case, 100).
+### Logging In to a Hot Desking Phone
 
-## Logging Out
+Once the hot desking phone is registered, users can log in to it with their own extension.
 
-To log out from an IP phone, the user needs to dial `*71` to log out, and the PBX answers and prompts the user has been logged out. Upon completion, a confirmation prompt is played, and the device is re-provisioned for hot desking.
+#### Enable Hot Desking for a User
+
+1. Navigate to **Call Manager > Users**.
+2. Double-click the user (for example, extension **101**).
+3. Open the **Extension** tab.
+4. Enable **Hot Desking**.
+5. Save the changes.
+
+#### User Login Procedure
+
+1. From the hot desking phone, dial **\*70** followed by the user’s extension number
+   * Example: **\*70101**
+2. The PBX answers and prompts for the user’s **voicemail PIN**.
+3. After successful authentication:
+   * A confirmation prompt is played
+   * The phone is re-provisioned with the user’s extension profile
+
+The device now behaves exactly as the user’s own phone.
+
+***
+
+### Logging Out of a Hot Desking Phone
+
+To log out from a hot desking phone:
+
+1. Dial **\*71** from the phone.
+2. The PBX confirms that the user has been logged out.
+3. The phone is automatically re-provisioned back to the hot desking extension.
+
+
+
+
 
