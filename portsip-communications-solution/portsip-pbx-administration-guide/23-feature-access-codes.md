@@ -4,7 +4,7 @@ Feature access codes (FACs), also known as star codes, give you access to advanc
 
 Your PortSIP ONE app and IP phone support FACs.
 
-## Feature Access Code Definitions
+### Feature Access Code Definitions
 
 Feature Access Codes (FAC) definitions are configured separately for each tenant. The tenant administrator can modify these definitions to meet their specific needs. To view all FACs, go to **Advanced > Feature Access Codes**.
 

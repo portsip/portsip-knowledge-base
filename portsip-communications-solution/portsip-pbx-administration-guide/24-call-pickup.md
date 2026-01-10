@@ -1,57 +1,117 @@
 # 24 Call Pickup
 
-Call pickup allows a user to dial a feature access code (\*97) followed by an extension, to pick up (answer) a call directed to a user with that extension. If the ringing party has already answered the call, or if it has no alerting call, or if the dialed extension is invalid, the pickup fails.
+### Overview
 
-This feature also allows users to pick up incoming calls made to a monitored BLF line using the monitoring phone. When the feature is enabled and the BLF user is in alerting state, users can pick up a call from a monitoring phone using the Pickup soft key or a corresponding line key.
+**Call Pickup** allows users to answer calls that are ringing on another extension. This ensures calls are not missed when the intended recipient is unavailable.
 
-## Directed Call Pickup
+PortSIP PBX supports:
 
-The **Call Pickup** feature is enabled by default for PortSIP PBX users. This feature allows a user on any phone to answer calls that are ringing on other phones in the company. To access the Call Pickup feature, the user dials a corresponding Call Pickup FAC with the extension number - it's `*97` by default.&#x20;
+* **Directed Call Pickup**
+* **BLF (Busy Lamp Field) Call Pickup**
+* **Group Call Pickup**
 
-For example, Alice's extension is **102**, she is out of the office and her phone rings, anyone can answer the call from another phone by dialing `*97102`.
+***
 
-Similarly, if Alice is away from her desk and across the room when her phone rings, she can quickly answer the call from another person's phone by dialing `*97102`.
+### Directed Call Pickup
 
-## BLF Call Pickup From a Monitoring Phone
+Directed Call Pickup allows a user to answer a call ringing on a specific extension by dialing a **Feature Access Code (FAC)** followed by the extension number.
 
-This feature allows users to pick up incoming calls made to a monitored BLF line using the monitoring phone. When the BLF user is in alerting state, users can pick up a call from a monitoring phone using the Pickup soft key or a corresponding line key.
+* Default FAC: **\*97**
+* Format: **\*97 + extension number**
 
-The screenshot below shows that the user is monitoring extension 102’s Busy Lamp Field (BLF). When someone calls 102 and the phone is ringing, the BLF key will flash. The user can press that key to pick up 102’s call. In this case, the user does not need to remember the call pickup FAC `*97`.
+#### How It Works
+
+If the target extension is ringing, the call is immediately answered on the dialing phone.
+
+The pickup will fail if:
+
+* The call has already been answered
+* The extension has no active ringing call
+* The extension number is invalid
+
+#### Example
+
+Alice’s extension number is **102**.\
+Her phone is ringing while she is away from her desk.
+
+Another user can answer the call by dialing:
+
+**\*97102**
+
+Alice herself can also pick up the call from a nearby phone using the same code.
+
+> **Note**\
+> Directed Call Pickup is **enabled by default** for PortSIP PBX users.
+
+***
+
+### BLF Call Pickup (Monitoring Phone)
+
+BLF Call Pickup allows users to answer calls on a **monitored extension** directly from their phone, without dialing a FAC.
+
+#### How It Works
+
+* The monitoring phone has a BLF key configured for another extension
+* When the monitored extension is ringing, the BLF key flashes
+* The user presses the flashing BLF key to pick up the call
+
+This method eliminates the need to remember or dial **\*97**.
 
 <figure><img src="../../.gitbook/assets/blf_pickup.png" alt=""><figcaption></figcaption></figure>
 
-## Group Call Pickup
+***
 
-You can enhance teamwork and collaboration by creating a call pickup group. Users that are added to a call pickup group can answer calls when another member of the call pickup group is busy.
+### Group Call Pickup
 
-A Group Pickup Group allows users to answer a call that is ringing at another extension within that group. If more than one phone within the group is ringing, the phone that has been ringing the longest is the one that gets picked up. When the call is picked up from another extension, the extension that was ringing is free to receive other calls.
+**Group Call Pickup** allows users within the same pickup group to answer calls ringing on other group members’ extensions.
 
-Group Call Pickup is a great way to ensure calls are always answered promptly and customer service is at its best.
+#### Key Behavior
 
-After you have configured Group Call Pickup, users can dial a [Feature Access Code](23-feature-access-codes.md) (default is `*98` ) to use this service.
+* Any group member can answer a ringing call within the group
+* If multiple phones are ringing, the call ringing **the longest** is picked up
+* Once the call is answered, the original extension becomes available for new calls
 
-### Configure call pickup group in Tenant Level
+Group Call Pickup helps ensure calls are answered promptly and improves team collaboration and customer service.
 
-Once you create a call pickup group, you can add, modify, remove, and assign specific users to that group. Also, you can notify incoming calls to the users in the group.
+* Default Group Pickup FAC: **\*98**
 
-### **Setting up a Group Call Pickup group**
+***
 
-Call pickups must meet the following conditions:
+### Group Call Pickup Rules
 
-* A user can only be assigned to one call pickup group.
-* A call pickup group can only have users from the same tenant.
-* A tenant may have multiple call pickup groups.
-* Call pickup group names must be unique.
+The following conditions apply:
 
-To add group members to the PortSIP PBX Web portal, follow these steps:
+* A user can belong to **only one** call pickup group
+* All group members must belong to the **same tenant**
+* A tenant can have **multiple** call pickup groups
+* Call pickup group names must be **unique**
 
-1. Sign in to the PortSIP PBX Web portal as the tenant admin or sign in as the system administrator and then select a tenant to manage.
-2. Select the menu **Advanced Services > Call Pickup**.
-3. Click the **Add** button.
-4. Enter a name for the group.
-5. Click the **Group Members** tab to add the extensions as group members, then click the **OK** button to save the settings.
+***
+
+### Configuring a Group Call Pickup Group (Tenant Level)
+
+To create and configure a call pickup group:
+
+1. Sign in to the PortSIP PBX Web Portal as a **Tenant Administrator**\
+   (or as a **System Administrator**, then select the tenant).
+2. Navigate to **Advanced Services > Call Pickup**.
+3. Click **Add**.
+4. Enter a **Group Name**.
+5. Open the **Group Members** tab.
+6. Add the extensions that should belong to the group.
+7. Click **OK** to save the configuration.
+
+***
+
+### Using Group Call Pickup
+
+When a call is ringing on any group member’s extension, other group members can answer the call by dialing: **\*98**
 
 <figure><img src="../../.gitbook/assets/group_call_pickup.png" alt=""><figcaption></figcaption></figure>
 
-When a group pickup group user receives a call, other group members can answer the call by dialing `*98` .
+
+
+
+
+
 

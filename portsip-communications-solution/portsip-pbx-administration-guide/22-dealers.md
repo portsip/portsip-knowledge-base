@@ -1,50 +1,97 @@
 # 22 Dealers
 
-Cloud PBX and UCaaS enable businesses to scale, remain agile, and focus on their core operations without the burden of managing IT infrastructure. Service providers prioritize hosting reliable, stable services, while distributors and resellers handle sales to end-users, creating a seamless connection between providers and customers.
+### Overview
 
-PortSIP PBX is a multi-tenant solution tailored for modern service providers. Its Dealers feature simplifies the management of distributors and resellers, driving operational efficiency and business growth.
+**Cloud PBX** and **UCaaS** solutions enable businesses to scale rapidly, stay agile, and focus on their core operations without the complexity of managing IT infrastructure.
 
-## Dealer Levels
+In this ecosystem:
 
-PortSIP PBX provides three levels for dealers:
+* **Service providers** focus on delivering reliable and stable hosted services
+* **Distributors and resellers** manage sales and customer relationships
+* End users benefit from a seamless, professionally managed communication service
 
-* Distributor
-* Sub-Distributor
-* Reseller
+PortSIP PBX is a **multi-tenant platform** designed specifically for modern service providers.\
+Its **Dealers** feature streamlines the management of distributors and resellers, improving operational efficiency and supporting scalable business growth.
+
+***
+
+### Dealer Levels
+
+PortSIP PBX supports **three dealer levels**:
+
+* **Distributor**
+* **Sub-Distributor**
+* **Reseller**
 
 <figure><img src="../../.gitbook/assets/dealer_1.png" alt=""><figcaption></figcaption></figure>
 
-Each level of the dealer can create, modify, or delete the lower-level dealer.&#x20;
+#### Dealer Hierarchy and Permissions
 
-* The service provider can create the Distributor, Sub-Distributor, and Reseller.&#x20;
-* The Distributor can only create the Sub-Distributor and Reseller.&#x20;
-* The Sub-Distributor can only create the Reseller.&#x20;
+Each dealer level can manage only the levels below it:
 
-All levels of dealers can create and manage their end-users - tenants.
+* **Service Provider**
+  * Can create **Distributors**, **Sub-Distributors**, and **Resellers**
+* **Distributor**
+  * Can create **Sub-Distributors** and **Resellers**
+* **Sub-Distributor**
+  * Can create **Resellers**
+* **All dealer levels**
+  * Can create and manage their own **end users (tenants)**
 
-## Add a Dealer
+This hierarchical model ensures clear ownership, responsibility, and operational boundaries.
 
-Please follow the below steps to add the dealer to the PortSIP PBX.
+***
 
-* Sign in to the PortSIP PBX web portal as the **system administrator**.
-* Click the menu **Dealers**, all dealers will be listed.
-* Click the **Add** button.
+### Adding a Dealer
+
+To add a dealer in PortSIP PBX:
+
+1. Sign in to the **PortSIP PBX Web Portal** as a **System Administrator**.
+2. Click the **Dealers** menu.
+3. Click **Add**.
 
 <figure><img src="../../.gitbook/assets/dealer_2.png" alt=""><figcaption></figcaption></figure>
 
-Enter the appropriate values for the necessary fields, then click the **OK** button to create the dealer. In the **Level** field, you can choose the level for this dealer: Distributor, Sub-Distributor, or Reseller.
+#### Configure Dealer Information
 
-You can limit that distributor capability by specifying the maximum of tenants, and the maximum of extensions.
+Enter the required information and configure the following options:
 
-After the dealer is successfully created, that dealer can sign in to the PortSIP PBX web portal to manage its tenants and dealers.
+* **Level**\
+  Select the dealer level:
+  * Distributor
+  * Sub-Distributor
+  * Reseller
+* **Tenant Limit**\
+  (Optional) Set the maximum number of tenants the dealer can create.
+* **Extension Limit**\
+  (Optional) Set the maximum number of extensions allowed across the dealer’s tenants.
 
-## Sign in the Dealer
+Click **OK** to create the dealer.
 
-A dealer can sign in to the PortSIP PBX web portal by entering the username and password. Please see the below screenshot for an example:
+After creation, the dealer can sign in to the PortSIP PBX Web Portal to manage their dealers and tenants according to their assigned level.
+
+***
+
+### Dealer Sign-In
+
+A dealer can sign in to the PortSIP PBX Web Portal using their **username and password**.
 
 <figure><img src="../../.gitbook/assets/dealer_3.png" alt=""><figcaption></figcaption></figure>
 
-Once the dealer signs in to the PortSIP PBX web portal, they can access the Dealers and Tenants menus which allow them to manage the sub-dealers and tenants they created.
+After signing in, the dealer will have access to:
+
+* **Dealers**\
+  Manage sub-dealers (based on permission level)
+* **Tenants**\
+  Create and manage end-customer tenants
+
+This allows each dealer to independently manage their business while operating within the limits defined by the service provider.
 
 <figure><img src="../../.gitbook/assets/dealer_4.png" alt=""><figcaption></figcaption></figure>
+
+
+
+
+
+
 
