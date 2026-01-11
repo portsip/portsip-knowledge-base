@@ -1,40 +1,81 @@
 # Speed Dial 100
 
-Speed Dial 100 allows you to assign the numbers you call most. Once programmed you just dial two digits(00-99). You can program this two ways: via the personal web portal or dialing the FAC from IP Phone/Softphone. The web portal is a bit easier to manage and confirm accuracy, but either way can work.
+**Speed Dial 100** allows users to assign frequently dialed numbers to **two-digit speed codes** ranging from **00 to 99**. Once configured, users can place calls by dialing the two-digit code instead of the full phone number.
 
-## Configuring Speed Dial 100 in the Web Portal <a href="#configuring-speed-dial-8-in-the-web-portal" id="configuring-speed-dial-8-in-the-web-portal"></a>
+Speed Dial 100 supports a larger set of speed codes than Speed Dial 8 and is ideal for users who need quick access to many contacts.
 
-You can configure Speed Dial 100 in the PortSIP PBX Web Portal through the following steps:
+***
 
-1. **For Tenant Admins**:
-   * Log in to the Web Portal as a tenant administrator.
-   * Navigate to **Call Manager > Users**, select the desired extension, and click the **Speed Dial 100** tab to set up speed dialing options.
-2. **For Extension Users**:
-   * Log in to the Web Portal as an extension user.
-   * Go to the **Profile** menu, then click the **Speed Dial 100** tab to configure your speed dialing settings.
+### Ways to Program Speed Dial 100
+
+You can configure Speed Dial 100 using either of the following methods:
+
+* **PBX Web Portal**
+* **Feature Access Codes (FAC)** from an IP phone or softphone
+
+The Web Portal is generally easier to use and allows you to review and confirm all configured speed codes, but both methods are supported.
+
+***
+
+### Configuring Speed Dial 100 in the Web Portal
+
+#### For Tenant Administrators
+
+1. Sign in to the **PBX Web Portal** as a **Tenant Administrator**.
+2. Navigate to **Call Manager > Users**.
+3. Select the target extension.
+4. Click the **Speed Dial 100** tab.
+5. Assign phone numbers to the desired two-digit speed codes (**00–99**).
+
+***
+
+#### For Extension Users
+
+1. Sign in to the **PBX Web Portal** as an **extension user**.
+2. Open the **Profile** menu.
+3. Click the **Speed Dial 100** tab.
+4. Configure your personal speed dialing entries.
 
 <figure><img src="../../../.gitbook/assets/speed-dial-100.png" alt=""><figcaption></figcaption></figure>
 
-## Configuring Speed Dial 100 Using Feature Access Codes (FAC) <a href="#configuring-speed-dial-8-using-feature-access-codes-fac" id="configuring-speed-dial-8-using-feature-access-codes-fac"></a>
+***
 
-You can also set up Speed Dial 100 by dialing the Feature Access Code (FAC) directly from your phone or app.
+### Configuring Speed Dial 100 Using Feature Access Codes (FAC)
 
-### Setting a Speed Dial Code
+You can configure **Speed Dial 100** by dialing **Feature Access Codes (FAC)** directly from an IP phone or client app. This method allows quick setup without using the Web Portal.
 
-To program speed dial code **06** for the phone number **0015620671**:
+***
 
-1. From your phone, dial `*75060015620671`.
-2. The PBX will play a voice prompt to confirm whether the setup was successful.
+#### Set a Speed Dial Code
 
-Once configured, you can use the speed dial by simply dialing the single digit 06 on your phone, and the PBX will automatically call **0015620671**.
+To program **speed dial code 06** for the phone number **0015620671**:
 
-### Modifying Speed Dial Code Settings
+1. From your phone or app, dial: **`*75060015620671`**
+2. Listen to the voice prompt from the PBX, which confirms whether the configuration was successful.
 
-* To update the number for an existing speed dial code, dial `*75060033125`. This will replace the current number for code **06** with **0033125**.
+After configuration, you can place the call by dialing **`06`**, and the PBX will automatically dial **0015620671**.
 
-### Deleting a Speed Dial Code
+***
 
-* To delete the settings for speed dial code **06**, dial `*7506*` from your phone. This will remove the speed dial configuration for code 06.
+#### Modify an Existing Speed Dial Code
+
+To change the number assigned to **speed dial code 06** to **0033125**:
+
+1. Dial: **`*75060033125`**
+2. The PBX replaces the existing number for code 06 with the new number.
+
+***
+
+#### Delete a Speed Dial Code
+
+To delete the number assigned to **speed dial code 06**:
+
+1. Dial: **`*7506*`**
+2. The PBX removes the speed dial configuration for code 06.
+
+
+
+
 
 
 

@@ -1,22 +1,50 @@
 # User Groups
 
-User groups allow you to add users to a group and then assign the outbound caller ID to this group.
+User Groups allow you to group multiple users together and assign a shared **Outbound Caller ID** to the group.
 
-If an outbound rule was created with the caller user group criteria, the PBX will replace the FROM header of the call INVITE message with the user group's outbound caller ID when a member of the user group dials the call that matched this outbound rule.
+When an **Outbound Rule** is configured with a **Caller User Group** condition, the PBX applies the group’s outbound caller ID to calls placed by members of that group. Specifically, the PBX replaces the **user part of the `From` header** in the SIP `INVITE` message with the **User Group’s Outbound Caller ID**.
 
-## Create a user group
+This feature is commonly used to present a **department-level caller ID** (for example, Sales or Support) instead of individual extension numbers.
 
-To create the user group, go to **Call Manager > User Groups** and click the **Add** button.&#x20;
+***
 
-The below screenshot shows creating a user group named **Sales Dept** and giving the outbound caller ID as 010000 on trunk **CallCentric**.
+### Create a User Group
+
+To create a user group:
+
+1. Navigate to **Call Manager > User Groups**.
+2. Click **Add**.
+3. Enter a **Group Name**.
+4. Assign an **Outbound Caller ID** and select the trunk to be used.
+
+In the example below, a user group named **Sales Dept** is created, with an outbound caller ID of **010000** assigned on the **CallCentric** trunk.
 
 <figure><img src="../../../.gitbook/assets/user_group_1.png" alt=""><figcaption></figcaption></figure>
 
-## Create an outbound rule with  caller user group criteria
+***
 
-Create an outbound rule with the caller user group criteria and select the previously created **Sales Dept** group.
+### Create an Outbound Rule Using Caller User Group Criteria
+
+Next, create an outbound rule that uses the **Caller User Group** as a matching condition:
+
+1. Go to **Call Manager > Outbound Rules**.
+2. Create or edit an outbound rule.
+3. Set the **Caller User Group** criterion.
+4. Select the previously created **Sales Dept** user group.
 
 <figure><img src="../../../.gitbook/assets/user_group_2.png" alt=""><figcaption></figcaption></figure>
 
-When an extension in the group **Sales Dept** dials a call that matches this outbound rule, the group's outbound caller ID is used as the user part of the FROM header in the INVITE SIP message.
+***
+
+### Call Behavior
+
+When an extension that belongs to the **Sales Dept** group places a call that matches this outbound rule:
+
+* The PBX uses the **group’s outbound caller ID**.
+* The outbound caller ID is inserted as the **user part of the `From` header** in the SIP `INVITE` message.
+* The call is routed according to the outbound rule and associated trunk.
+
+This ensures consistent, department-level caller identification for outbound calls.
+
+
 

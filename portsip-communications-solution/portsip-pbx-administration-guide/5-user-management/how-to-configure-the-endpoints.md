@@ -1,59 +1,165 @@
 # How to Configure the Endpoints?
 
-After successfully [configuring the PortSIP PBX](/broken/pages/6uo0BsKGLXFqs7Cz40HY) and [SBC](../9-configuring-portsip-sbc/), and [creating the tenants](../3-tenant-management/) and [extensions](./), you can now register the endpoints (WebRTC, mobile app, Windows Desktop app, IP Phone, and any SIP-based device) to the PBX. This will allow you to make and receive calls.
+After successfully [configuring the PortSIP PBX](../2-portsip-pbx-management/) and [SBC](../9-configuring-portsip-sbc/configuring-sbc-for-webrtc.md), and creating the required [tenants ](../3-tenant-management/)and [extensions](users.md), you can register endpoints with the PBX.\
+Once registered, endpoints can make and receive calls.
 
-## Configuring the PortSIP ONE App
+Supported endpoints include:
 
-If you are using the PortSIP PBX v22.0 or higher, please follow the guides below:
+* WebRTC clients
+* Mobile apps
+* Windows Desktop apps
+* IP phones
+* Any standard SIP-based device
+
+***
+
+### Configuring the PortSIP ONE App
+
+If you are using **PortSIP PBX v22.0 or later**, follow the appropriate guide below to configure the PortSIP ONE application:
 
 * [PortSIP ONE for Desktop and WebRTC](../../../apps-guides/portsip-one-app/portsip-one-desktop-app.md)
 * [PortSIP ONE for Mobile](../../../apps-guides/portsip-one-mobile-app/)
 
-## Configuring the PortSIP Softphone App
+***
 
-If you are using the PortSIP PBX v16.x, please follow the guide [PortSIP Softphone](../../../apps-guides/portsip-softphone.md) to configure it.
+### Configuring IP Phones
 
-## Configuring IP Phone
+The following sections describe how to configure IP phones based on a sample deployment scenario.
 
-In this article, we assume the following configurations:
+***
 
-* The PortSIP PBX and SBC are installed on a server with a public IP of **66.175.221.120** and a private IP of **192.168.1.72**.
-* The PBX web domain **uc.portsip.cc** has been resolved to the PBX server public IP **66.175.221.120**.
-* The PBX created UDP transport on port **5060**, TLS transport on port **5061** over TLS,  TCP transport on port **5063**, and WSS transport on port **5065** in the SBC.
-* A tenant has been created with the SIP domain set up as **test.io**.
+#### Assumed Environment and Configuration
 
-As per the above settings, after you sign in to the PBX as the system administrator, you will see a page like the screenshot below:
+In this article, the following environment and configuration are assumed:
+
+* **PBX and SBC deployment**
+  * Public IP address: `66.175.221.120`
+  * Private IP address: `192.168.1.72`
+* **PBX Web Domain**
+  * Domain name: `uc.portsip.cc`
+  * Resolved to public IP: `66.175.221.120`
+* **SBC Transport Configuration**
+  * UDP: Port `5060`
+  * TLS: Port `5061`
+  * TCP: Port `5063`
+  * WSS: Port `5065`
+* **Tenant Configuration**
+  * Tenant SIP domain: `test.io`
 
 <figure><img src="../../../.gitbook/assets/portsip-pbx-home-1.png" alt=""><figcaption></figcaption></figure>
 
+***
+
 ### Essential Information
 
-There are some rules for configuring the client endpoints for the above scenario:
+The following rules apply when configuring **client endpoints** for the deployment scenario described above.
 
-* **Transport.** It's the network transport for sending & receiving the SIP message in the PBX. For more details please read the article: [Transport Management](../6-transport-management.md).
-* **Outbound Proxy server.** The PBX server IP refers to the **Outbound Proxy Server** in the client endpoints. If the client endpoint registers to PBX over the internet, use the public IP as the **Outbound Proxy Server**. You can also use **uc.portsip.cc** as the **Outbound Proxy Server** if registering to PBX over the internet since this domain has been resolved to the public IP; If registering to PBX from the LAN, use the private IP as the **Outbound Proxy Server**.
-* **Outbound Proxy Server Port.** The port of transport is created in the PBX or SBC. For example, if you want the endpoint registered to the PBX over TCP transport, then you will need to set 5063 for **Outbound Proxy Server Port** in the endpoint settings.
-* **Domain.** Also known as **SIP domain** or **SIP server** in the endpoint settings. It’s the **SIP domain** of the tenant that was created in PortSIP PBX - so just set the tenant’s **SIP domain** for Domain/SIP Domain/SIP server in the endpoint settings.&#x20;
+***
 
-{% hint style="danger" %}
-&#x20;Just need to set the transport port for the Outbound Proxy Server Port only. Don’t set the transport port for the Domain in the endpoint settings. If the endpoint requires filling the port for the Domain, please fill in 0 for the domain port.
-{% endhint %}
+#### Transport
 
-### Auto provision the IP phone to PBX
+**Transport** defines the network protocol used to send and receive SIP messages between the endpoint and the PBX (for example, UDP, TCP, TLS, or WSS).
 
-For popular IP phones such as Fanvil, Yelaink, SNOM, GrandStream, DinStar, ALE, and Htek, they can be auto-provisioned to register to the PortSIP PBX without the need to configure the IP phone manually. For more details, please read this article: [Phone Device Management](../4-phone-device-management/).
+For more information, refer to [Transport Management](../6-transport-management.md).
 
-### Manually Register the IP Phone to PBX
+***
 
-You can also enter the SIP user extension details on the IP Phone web portal to register the IP Phone or other SIP-based device/app.
+#### Outbound Proxy Server
 
-#### Example of Fanvil IP Phone
+In the client endpoint settings, the **Outbound Proxy Server** must be set to the **PBX server address**.
+
+* When registering an endpoint **over the Internet**:
+  * Use the PBX **public IP address**, or
+  * Use the PBX domain name (for example, `uc.portsip.cc`), provided it resolves to the public IP address.
+* When registering an endpoint **from the local LAN**:
+  * Use the PBX **private IP address**.
+
+Selecting the correct outbound proxy is critical for proper SIP routing, especially in NAT or multi-interface environments.
+
+***
+
+#### Outbound Proxy Server Port
+
+The **Outbound Proxy Server Port** must match the port of the transport configured on the **PBX or SBC**.
+
+For example:
+
+* If the endpoint registers using **TCP**, set the Outbound Proxy Server Port to **5063**.
+* If the endpoint registers using **TLS**, set the port to **5061**.
+* If the endpoint registers using **WSS**, set the port to **5065**.
+
+***
+
+#### Domain (SIP Domain / SIP Server)
+
+The **Domain** (also referred to as **SIP Domain** or **SIP Server** in endpoint settings) must be set to the **tenant SIP domain** created in PortSIP PBX.
+
+For example:
+
+* Tenant SIP domain: `test.io`
+* Domain / SIP Server value in the endpoint: `test.io`
+
+> **Important**
+>
+> * Configure the **transport port only** in the **Outbound Proxy Server Port** field.
+> * Do **not** configure a port for the Domain / SIP Server.
+> * If the endpoint requires a port value for the Domain, enter **`0`**.
+
+***
+
+### Auto-Provisioning IP Phones
+
+Many popular IP phone models can be **auto-provisioned** to register with the PortSIP PBX, eliminating the need for manual phone configuration.
+
+Supported vendors include:
+
+* Fanvil
+* Yealink
+* SNOM
+* Grandstream
+* DinStar
+* ALE
+* Htek
+
+For detailed instructions, refer to [Phone Device Management](../4-phone-device-management/).
+
+***
+
+### Manually Registering an IP Phone to the PBX
+
+In addition to auto-provisioning, you can manually register an **IP phone** or other **SIP-based device or application** by entering the SIP extension credentials directly in the device’s web management interface.
+
+This method is commonly used when:
+
+* Auto-provisioning is not available or not preferred
+* You are using a third-party SIP device
+* You need to perform testing or troubleshooting
+
+***
+
+#### Example: Fanvil IP Phone
 
 <figure><img src="../../../.gitbook/assets/fanvil_phone_sip1.png" alt="" width="563"><figcaption></figcaption></figure>
 
-#### Example of Yealink IP Phone
+***
+
+#### Example: Yealink IP Phone
 
 <figure><img src="../../../.gitbook/assets/yealink_phone_sip1.png" alt="" width="563"><figcaption></figcaption></figure>
 
-For other SIP-based apps and IP Phones, you can configure them similarly to the above description.
+***
+
+#### Configuration Reminder
+
+When manually configuring an IP phone or SIP device, ensure that:
+
+* The **Outbound Proxy Server**, **Port**, **Transport**, and **Domain** values match the PBX configuration
+* The **extension number** and **password** are entered exactly as configured in PortSIP PBX
+* The selected transport (UDP/TCP/TLS) is supported by both the device and the PBX
+
+For detailed parameter definitions and best practices, refer to [Essential Information](how-to-configure-the-endpoints.md#essential-information) earlier in this guide.
+
+
+
+
 

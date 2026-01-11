@@ -1,32 +1,91 @@
 # DND and Automatic Callback
 
-## Do Not Disturb
+### Do Not Disturb (DND)
 
-Do Not Disturb (DND) is a feature that allows you to silence incoming call notifications when you need to focus and avoid interruptions. The calls will be sent directly to voicemail when DND is activated. You can activate or deactivate DND in the following ways:
+Do Not Disturb (DND) allows a user to silence incoming call notifications when they need to focus or avoid interruptions.\
+When DND is enabled, incoming calls are **sent directly to voicemail**.
 
-* Dial the feature access code (FAC) `*78` from an APP or IP Phone to activate DND and dial `*79` to disable it.
-* Click the menu **Call Manager > Users**, select a user, and edit it. In the **Extension** page, toggle the **Do Not Disturb option** on or off. When DND is activated, a DND icon will appear in the user list to indicate the status.&#x20;
+#### Enable or Disable DND
 
+You can activate or deactivate DND using either of the following methods:
 
+* **Feature Access Codes (FAC)**
+  * Dial **`*78`** from a client app or IP phone to **enable DND**
+  * Dial **`*79`** to **disable DND**
+* **PBX Web Portal**
+  1. Go to **Call Manager > Users**
+  2. Select the user and click **Edit**
+  3. On the **Extension** page, toggle **Do Not Disturb** on or off
 
-## Automatic Callback
+When DND is enabled, a **DND icon** appears next to the user in the user list to indicate the current status.
 
-The **Automatic Callback (ACB)** service allows users to monitor a busy party and automatically establish a call when the busy party becomes idle. Upon reaching a valid ACB busy condition, the user(s) hears an announcement asking if they would like to monitor the line and be called back when it is idle.
+***
 
-Users can activate the Automatic Callback in the following ways:
+### Automatic Callback (ACB)
 
-* Dial the feature access code (FAC) `*33` from an APP or IP Phone to activate ACB and dial `*43` to disable it.
-* Click the menu **Call Manager > Users**, select a user, and edit it. On the **Extension** page, toggle the **Automatic Callback** on or off. When ACB is activated, an ACB icon will appear in the user list to indicate the status.&#x20;
+Automatic Callback (ACB) allows users to monitor a busy extension and automatically place a call when that extension becomes idle.
 
-Automatic Callback is an outgoing call feature that allows a user to place a call to another user in the same tenant. If the user you called is busy, the caller can book Automatic Callback and be notified when the called user is idle. When notified, a new call will be made to the idle user automatically and the caller user is not required to redial the number. The new call attempt is treated as an originating call attempt; For the new call setup to be attempted, both parties must be available.
+When a user calls another extension that is busy and a valid ACB condition is met, the caller hears a prompt asking whether they want to monitor the line and receive a callback when it becomes available.
 
-### Operating Parameters
+#### Enable or Disable Automatic Callback
 
-ACB has several operating parameters that are configured at the tenant level, click the menu **Advanced Services > Automatic Callback**:
+Users can activate or deactivate ACB using either of the following methods:
 
-* **ACB Service Extension Number**: the default extension number for the ACB service, suggest don't change it.
-* **Monitor Minutes**: The amount of time to camp-out on the busy line, waiting for it to become idle. (30 minutes)
-* **Retry Originator Minutes**: The amount of time to wait before re-trying a busy Automatic Callback originator (the owner of the ACB session). (5 minutes)
-* **Prompt Language**: The prompts language.
+* **Feature Access Codes (FAC)**
+  * Dial **`*33`** from a client app or IP phone to **enable ACB**
+  * Dial **`*43`** to **disable ACB**
+* **PBX Web Portal**
+  1. Go to **Call Manager > Users**
+  2. Select the user and click **Edit**
+  3. On the **Extension** page, toggle **Automatic Callback** on or off
+
+When ACB is enabled, an **ACB icon** appears next to the user in the user list.
+
+***
+
+#### Automatic Callback Call Behavior
+
+Automatic Callback is an **outgoing call feature** that works between users within the **same tenant**.
+
+The call flow is as follows:
+
+1. User A places a call to User B.
+2. User B is busy.
+3. User A activates Automatic Callback.
+4. The PBX monitors User B’s line.
+5. When User B becomes idle, the PBX automatically places a **new call** to User B.
+
+> **Important**
+>
+> * The caller does **not** need to redial the number.
+> * The callback attempt is treated as a **new originating call**.
+> * For the callback to succeed, **both users must be available** at the time the callback is initiated.
+
+***
+
+#### Operating Parameters
+
+Automatic Callback behavior is controlled by tenant-level parameters.
+
+To configure these settings:
+
+1. Go to **Advanced Services > Automatic Callback**
+
+The following parameters are available:
+
+* **ACB Service Extension Number**\
+  The default extension number used by the ACB service.\
+  **Recommendation:** Do not change this value.
+* **Monitor Minutes**\
+  The maximum time (in minutes) the PBX will monitor a busy line while waiting for it to become idle.\
+  &#xNAN;_&#x44;efault: 30 minutes_
+* **Retry Originator Minutes**\
+  The time (in minutes) the PBX waits before retrying a busy ACB originator (the user who requested the callback).\
+  &#xNAN;_&#x44;efault: 5 minutes_
+* **Prompt Language**\
+  Specifies the language used for ACB audio prompts.
 
 <figure><img src="../../../.gitbook/assets/ACB.png" alt=""><figcaption></figcaption></figure>
+
+
+
