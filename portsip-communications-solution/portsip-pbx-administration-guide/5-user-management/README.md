@@ -1,8 +1,18 @@
 # 5 User Management
 
-Tenant administrators can add, edit, or deactivate users, assign different account types, and enable tenant-level account settings. This is helpful when users are out of the office unexpectedly,  when troubleshooting user features, and when needing to set up settings for an executive.
+Tenant administrators can **add, edit, and deactivate users**, assign different **account types**, and configure **tenant-level user settings**. These capabilities are commonly used to:
 
-This article includes the following topics:
+* Temporarily manage users who are unexpectedly out of the office
+* Troubleshoot and adjust user features and permissions
+* Configure special settings for executives or other key users
+
+User management helps ensure that user accounts remain accurate, secure, and properly configured as organizational needs change.
+
+***
+
+### Topics Covered in This Article
+
+This article includes the following sections:
 
 * [Users](users.md)
 * [How to Configure the Endpoints?](how-to-configure-the-endpoints.md)

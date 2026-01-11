@@ -1,140 +1,413 @@
 # Users
 
-This section explains how to create and configure extensions in PortSIP PBX. There are multiple methods to create an extension.
+This section explains how to create and configure extensions in **PortSIP PBX**. The system supports multiple methods for creating extensions to fit different deployment and provisioning scenarios.
 
-* When provisioning a new phone, you could choose to create a new extension for that phone.
-* Extensions can be manually created from the left menu: **Call Manager > Extensions**.
-* Extensions can be imported from the `.csv` file.
-* Create the extension by calling the REST API.
-* Create the extension by copying from an existing extension.
+When provisioning a new phone, you can choose to **create a new extension** specifically for that device.
 
-To configure an extension,
+#### Methods to Create an Extension
 
-1. Sign in to the PortSIP PBX Web Portal by **System Admin** credentials, click the menu **Tenants**, select a tenant then click the **Manage** button to manage this tenant, or sign a user who has the `Tenant Admin` permission into the Web Portal to manage that tenant.&#x20;
-2. Click on the left menu option **Call Manager > Extensions** in the PortSIP PBX Web Portal. Click on **Add** to create a new one, or select an existing extension and click the **Edit** button to configure or manage the existing extension users.
+Extensions can be created using any of the following methods:
 
-## User
+* **Manually**, from the Web Portal:\
+  **Call Manager > Extensions**
+* **Bulk import**, by uploading a `.csv` file
+* **Programmatically**, by calling the **REST API**
+* **By duplication**, copying from an existing extension
 
-Enter the **Username** and **Password** in the **User** section. Please keep in mind that this username and password are only for access to the PBX Personal Web Portal. In case assume we create a user whose user name is **jamesbond.**
+***
 
-The user can grant permissions by selecting a role from the **Role** list box; the **User** role indicates that the user has typical extension access; the **Admin** role indicates that the user is a tenant administrator who can manage the tenant through the web portal.
+#### Accessing Extension Configuration
 
-If a user has the **Admin** role, we refer to him as a **Tenant Admin**. A tenant admin has ability to manage the tenant to which it belongs.
+To configure extensions, do one of the following:
 
-The PortSIP PBX allows adding more than one administrator to a tenant.
+* Sign in to the PortSIP PBX Web Portal using **System Admin** credentials.\
+  Click **Tenants**, select the target tenant, and then click **Manage**.
 
-The **Email** field is mandatory since the PBX will need to send the notification email to the user's email address.
+**OR**
 
-The **Display Name** is the full name of the user, like **James Bond**.
+* Sign in to the Web Portal using an account with the **Tenant Admin** role to manage that tenant directly.
 
-After creating a user, that user can sign in to the Personal Web portal entering the **Username**, **Password**, and tenant's **SIP domain**.
+***
 
-Please refer to the below screenshot, which shows that the user of a tenant signs in to the web portal, just enter the tenant's SIP Domain and click the **Next** button.
+#### Adding or Editing an Extension
+
+1. In the Web Portal, navigate to **Call Manager > Extensions**.
+2. Click **Add** to create a new extension, **or**
+3. Select an existing extension and click **Edit** to configure or manage that extension.
+
+***
+
+#### Username and Password
+
+On the **User** tab, enter the **Username** and **Password** for the user.
+
+> **Important**\
+> These credentials are used **only** to access the **PBX Personal Web Portal**.\
+> They are **not** used for SIP device registration.
+
+For example, you may create a user with the username **`jamesbond`**.
+
+***
+
+#### Role Assignment
+
+Assign permissions by selecting a role from the **Role** list:
+
+* **User**\
+  Provides standard extension access.
+* **Admin**\
+  Grants tenant-level administrative privileges.
+
+A user assigned the **Admin** role is referred to as a **Tenant Admin**.
+
+> **Notes**
+>
+> * A Tenant Admin can manage all settings for the tenant to which they belong.
+> * PortSIP PBX allows **multiple Tenant Admins** within the same tenant.
+
+***
+
+#### Email Address
+
+The **Email** field is **mandatory**.
+
+The PBX uses this email address to send system notifications and user-related emails.
+
+***
+
+#### Display Name
+
+The **Display Name** represents the user’s full name, for example:\
+**James Bond**
+
+***
+
+### Signing In to the PBX Web Portal
+
+After the user is created, the user can sign in to the **PBX Web Portal** using:
+
+* **Username**
+* **Password**
+* **Tenant SIP Domain**
+
+On the initial login screen, the user must first enter the **tenant’s SIP domain** and click **Next**.
 
 <figure><img src="../../../.gitbook/assets/login-3.png" alt="" width="319"><figcaption></figcaption></figure>
 
-If the SIP domain you entered is correct, you will see the below screenshot to allows you to enter the username and password; Otherwise, you will get an error.
+* If the SIP domain is correct, the system displays the login screen where the user can enter their **username and password**.
 
 <figure><img src="../../../.gitbook/assets/login-4.png" alt="" width="321"><figcaption></figcaption></figure>
 
-## Extension
+***
 
-The extension number and password are mandatory fields that must be filled in under the **Extension** page.
+### Extension
 
-If the tenant's SMTP server is configured, once an extension is successfully created, a welcome email will be sent to the user's email address with details about the newly created extension and PBX parameters such as the PBX SIP domain, the PBX IP, and the QR code. The PortSIP UC App can be used to scan the QR code and register to the PBX without having to enter any information manually.
+On the **Extension** tab, the **Extension Number** and **Password** are **mandatory** and must be provided.
 
-There is a QR code for this extension; instead of entering the information manually, you can save the QR code and use the PortSIP App to scan the QR code to sign in to the PBX.
+***
 
-The **Preferred transport for QR code** list box allows you to specify the preferred transport for the QR code; when registering PBX by scanning the QR code, the PortSIP App will prioritize the preferred transport.
+#### Welcome Email and QR Code Provisioning
 
-The **Generate QR code with the below network interface** option allows you to specify the "**outbound proxy server"** address for the client app when it scans the QR code to register to the PBX.
+If the tenant’s **SMTP server** is configured, the PBX automatically sends a **welcome email** to the user’s email address after the extension is created successfully.\
+This email includes:
 
-You can select a DID from the trunk and trunk DID pool for the extension in the **Outbound Caller ID** section; when the extension makes an outbound call to a trunk, the **Outbound Caller I** will be presented in the **From** header of the INVITE SIP message.
+* Extension details
+* PBX SIP domain
+* PBX IP address
+* A **QR code** for client provisioning
 
-As shown in the screenshot below, if the call is made over trunk 1, the **Outbound Caller ID** will be **022000**, and if it is made over trunk 2, the **Outbound Caller ID** will be **88010**.
+The **PortSIP UC App** can scan this QR code to register with the PBX automatically, eliminating the need for manual configuration.
+
+***
+
+#### QR Code Login
+
+Each extension includes a dedicated **QR code**. Instead of entering account details manually, you can save the QR code and use the PortSIP App to scan it and sign in to the PBX.
+
+***
+
+#### Preferred Transport for QR Code
+
+The **Preferred Transport for QR Code** option allows you to specify the transport protocol (for example, UDP, TCP, or TLS) associated with the QR code.
+
+When the client registers by scanning the QR code, the PortSIP App will **prioritize the selected transport**.
+
+***
+
+#### Network Interface for QR Code Generation
+
+The **Generate QR code with the below network interface** option specifies the **outbound proxy server address** that the client app will use when registering via QR code.
+
+This setting is especially useful in multi-NIC or NAT environments to ensure clients connect using the correct public-facing interface.
+
+***
+
+#### Outbound Caller ID
+
+In the **Outbound Caller ID** section, you can assign a DID from the trunk DID pool to the extension.
+
+When the extension makes an outbound call through a trunk, the selected **Outbound Caller ID** is presented as the **user part of the `From` header** in the SIP `INVITE` message.
+
+For example:
+
+* Calls placed over **Trunk 1** present an Outbound Caller ID of **022000**
+* Calls placed over **Trunk 2** present an Outbound Caller ID of **88010**
 
 <figure><img src="../../../.gitbook/assets/extension_cli.png" alt=""><figcaption></figcaption></figure>
 
-* Record audio calls: If this option is selected, any audio calls with this extension audio calls will be recorded as audio files.
-* Record video calls: If this option is selected, any video calls with this extension will be recorded as video files, and any video calls will be recorded as video files (MP4).
-* Always make outbound anonymous calls: When this option is enabled, the user part of the "**From**" header in the **INVITE** message sent to the trunk will be set to "**anonymous**".
-* Always deliver outbound caller ID: If you enable this option, the **Outbound Caller ID** will always be set as the user part of the **From** header in the INVITE delivered to the trunk.
+***
 
-## Forwarding Rule
+#### Call Recording Options
 
-Each extension can have a set of call forwarding rules that define what the PortSIP PBX should do when the extension user is unable to answer an incoming call. This can be configured using the following criteria.
+* **Record audio calls**\
+  When enabled, all audio calls for this extension are recorded and saved as audio files.
+* **Record video calls**\
+  When enabled, all video calls for this extension are recorded and saved as video files (MP4 format).
 
-* The user’s status
-* The time
+***
 
-Each status requires a call-forwarding rule. For example, if the user is unable to take a call whilst their status is "**Available**", the call can be forwarded to voicemail or to the mobile phone number / Landline.
+#### Caller ID Privacy and Delivery
 
-{% hint style="info" %}
-Forwarding the call to a certain mobile number requires the trunk and outbound rule to be configured.
-{% endhint %}
+* **Always make outbound anonymous calls**\
+  When enabled, the user part of the `From` header in outbound SIP `INVITE` messages is set to **`anonymous`**.
+* **Always deliver outbound caller ID**\
+  When enabled, the configured **Outbound Caller ID** is always used as the user part of the `From` header in outbound SIP `INVITE` messages sent to the trunk.
 
-The forwarding rules have the following optional values:
+> **Note**\
+> Enabling both options at the same time may result in conflicting behavior. Ensure your trunk provider’s caller ID and privacy requirements are clearly understood before enabling these settings.
 
-* Forward to voicemail: The call will be routed to the voicemail service so that the caller can leave a voice message. There is an option to select an extension number for the voicemail box. For example, if you select extension 108, the voicemail will be saved in the 108's mailbox; if you leave it blank, the voicemail will be saved in the extension's own mailbox.
-* Forward to number: permits you to enter a number and then forward the call to that number; the number can be an extension number or system extension number (ring group, virtual receptionist, meeting number, queue number) or a PSTN phone number (forwarding the call to a certain mobile number requires the trunk and outbound rule configured).
-* Hangup: The call will be terminated by the PBX.
-* Ring anyway: send the call to this extension anyway.
-* Exceptions: You can create exception rules for an extension by entering the caller ID, selecting the time shifts in the **Received During** field, and choosing the desired action in the **Forward To** field. If a call matches one of the exceptions, it will be rerouted according to that exception rule, and the extension’s normal forwarding rules will be bypassed.
+***
 
-## Voicemail
+### Forwarding Rules
 
-The **Voicemail** page allows you to specify the extension's voicemail preferences (including the voicemail PIN number for authentication), enable or disable PIN Authentication, and enable PortSIP PBX to read out the message's date and time.
+Each extension can be configured with a set of **call forwarding rules** that define how **PortSIP PBX** handles incoming calls when the extension user is **unable to answer**.
 
-The **Choose default Voicemail greeting message** section allows you to configure your voicemail greetings.
+Forwarding rules can be evaluated based on the following criteria:
 
-Click the "**+**" button to upload the new greeting file, and click the **Switch** icon to specify it as a greeting file. You can also record the voicemail greeting by dialing the FAC **\*57**.
+* **User status**
+* **Time conditions**
+
+***
+
+#### Status-Based Forwarding
+
+A forwarding rule must be defined **for each user status**.
+
+For example, if a user cannot answer calls while their status is **Available**, incoming calls can be forwarded to:
+
+* Voicemail, or
+* Another extension number, or
+* A service number, such as a ring group, queue, IVR, or
+* A mobile phone number or landline
+
+> **Note**\
+> Forwarding calls to an external (PSTN) number requires a **configured SIP trunk** and an appropriate **outbound routing rule**.
+
+***
+
+#### Forwarding Actions
+
+Each forwarding rule supports the following optional actions:
+
+#### Forward to Voicemail
+
+Routes the call to the voicemail service, allowing the caller to leave a voice message.
+
+* You may optionally specify an **extension number** for the voicemail box.
+  * If **Extension 108** is selected, the voicemail is stored in extension 108’s mailbox.
+  * If left **blank**, the voicemail is stored in the **current extension’s mailbox**.
+
+***
+
+#### Forward to Number
+
+Forwards the call to a specified destination number. Supported destinations include:
+
+* An extension number
+* A system extension, such as:
+  * Ring Group
+  * Virtual Receptionist
+  * Meeting number
+  * Queue number
+* A PSTN phone number
+
+> **Important**\
+> Forwarding calls to a PSTN number requires a configured SIP trunk and outbound rule.
+
+***
+
+#### Hang Up
+
+Immediately terminates the call at the PBX.
+
+***
+
+#### Ring Anyway
+
+Delivers the call to the extension, even if other forwarding conditions are met.
+
+***
+
+### Exception Rules
+
+You can define **exception rules** to override the standard forwarding behavior for specific calls.
+
+An exception rule is configured by specifying:
+
+* **Caller ID**
+* **Time range**, using the **Received During** field
+* The desired action in the **Forward To** field
+
+If an incoming call matches an exception rule:
+
+* The call is processed according to the **exception rule**, and
+* The extension’s **normal forwarding rules are bypassed**.
+
+***
+
+### Voicemail
+
+The **Voicemail** page allows you to configure an extension’s voicemail preferences, including:
+
+* Setting the **voicemail PIN** for authentication
+* Enabling or disabling **PIN authentication**
+* Enabling message **date and time announcements** during voicemail playback
+
+These settings control how users access and interact with their voicemail messages.
+
+***
+
+### Voicemail Greeting Configuration
+
+In the **Choose Default Voicemail Greeting Message** section, you can manage the voicemail greetings used for this extension.
+
+#### Uploading a Greeting
+
+* Click the **“+”** button to upload a new greeting audio file.
+* Click the **Switch** icon next to a greeting to set it as the **active voicemail greeting**.
+
+#### Recording a Greeting
+
+Users can also record their voicemail greeting directly from their phone by dialing the **Feature Access Code (FAC) `*57`**.
 
 <figure><img src="../../../.gitbook/assets/user-vm-1.png" alt=""><figcaption></figcaption></figure>
 
-## Office Hours
+***
 
-The Office Hours Scheduling feature allows a user’s status to be changed on the basis of global office hours or specific office hours.
+### Office Hours
 
-Choose whether the extension will use **Global Office Hours** or **Specific Office Hours**. Select the **Use Specific Office Hours** option to set specific office hours, and that allows the creation of different office hours for each day.
+The Office Hours feature allows an extension’s user status to change automatically based on either global office hours or extension-specific office hours.
 
-The time shift **00:00-23:59** indicates that the entire day is open for business, whereas **00:00-00:00** indicates that the entire day is closed.
+* Choose whether the extension uses **Global Office Hours** or **Specific Office Hours**.
+* Select **Use Specific Office Hours** to define different office hours for each day of the week.
 
-For more details about the Office Hours and Holidays, please read the [Office Hours and Holiday Schedule](../office-hours-and-holiday-schedule/).
+#### Time Range Behavior
 
-## Phone Provisioning
+* **00:00 – 23:59**: The entire day is considered **open for business**.
+* **00:00 – 00:00**: The entire day is considered **closed**.
 
-The **Phone Provisioning** tab allows you to add or edit the settings of phones linked to this extension. The management of IP phone settings is discussed in the section [**4 Phone Device Management**](../4-phone-device-management/).
+For more information about configuring office hours and holidays, refer to the [Office Hours and Holiday Schedule](../office-hours-and-holiday-schedule/) section.
 
-## BLF
+***
 
-You can configure the BLF lights on an IP phone in this tab.
+### Phone Provisioning
 
-Match a BLF button with an extension, so that this button will show the status of that extension. The number of available BLF buttons varies per phone. The following options are available for BLFs.
+The Phone Provisioning tab allows you to add or edit the settings of IP phones associated with this extension.
 
-* BLF: shows the dialog status of another extension
-* Visual Park: The unique park feature that PortSIP PBX offered, get more details in the article [Call Parking](../14-call-parking/).
-* Speed Dial: Link to a phone number for easy calling
-* Custom Speed Dial
-* Change Status
-* Night Mode: Easy to control the night mode activation/deactivation,  get more details in the article [Night Mode](../32-night-mode.md).
+Detailed management of IP phone configuration is covered in [Phone Device Management](../4-phone-device-management/).
 
-## Balance
+***
 
-The balance for an extension can be recharged by the tenant administrator. When billing is enabled, the call will fail if the balance is insufficient.
+### BLF (Busy Lamp Field)
 
-## Extension Status
+The **BLF** tab allows you to configure BLF keys on supported IP phones.
 
-We can see the extension status in the list by selecting **Call Manager > Users** from the menu. The extension's current status is indicated in the **Status** column. The alarm icon indicates that an extension has enabled push notifications successfully; the blocked icon indicates that the extension has enabled DND.
+You can associate a BLF button with an extension so the button displays the **real-time status** of that extension.\
+The number of available BLF buttons depends on the phone model.
+
+#### Supported BLF Functions
+
+* **BLF**\
+  Displays the call/dialog status of another extension.
+* **Visual Park**\
+  PortSIP PBX’s visual call parking feature.\
+  For details, see [Call Parking](../14-call-parking/).
+* **Speed Dial**\
+  Assigns a phone number for one-touch dialing.
+* **Custom Speed Dial**\
+  Allows advanced or customized speed-dial behavior.
+* **Change Status**\
+  Enables the user to change their presence status directly from the phone.
+* **Night Mode**\
+  Allows quick activation or deactivation of Night Mode.\
+  For details, see [Night Mode](../32-night-mode.md).
+
+***
+
+### Balance
+
+The **Balance** for an extension can be recharged by a **Tenant Administrator**.
+
+When billing is enabled:
+
+* Calls will **fail automatically** if the extension’s balance is insufficient.
+
+***
+
+### Extension Status
+
+You can view the status of extensions by navigating to **Call Manager > Users**.\
+Each extension’s **current status** is displayed in the **Status** column.
+
+#### Status Indicators
+
+* **Alarm icon**\
+  Indicates that the extension has successfully enabled **push notifications**.
+* **Blocked icon**\
+  Indicates that **Do Not Disturb (DND)** is enabled for the extension.
 
 <figure><img src="../../../.gitbook/assets/extension_status_1.png" alt=""><figcaption></figcaption></figure>
 
-You can click on the search icon to check an online extension's device details.
+***
 
-As shown in the below screenshot, extension 102 is registered from a PortSIP UC client (IP is 192.168.0.22, the port is 5960 over the UDP transport), and the Yealink T53 IP Phone (IP is 192.168.0.36, the port is 5060 over the UDP transport).
+#### Viewing Device Registration Details
+
+You can click the **Search** icon next to an online extension to view its **device registration details**.
+
+The device details show:
+
+* Client or phone type
+* IP address
+* Port number
+* Transport protocol (UDP/TCP/TLS)
+
+As shown in the example:
+
+* **Extension 102** is registered from:
+  * A **PortSIP ONE app**
+    * IP address: `192.168.0.22`
+    * Port: `5960`
+    * Transport: `UDP`
+  * A **Yealink T53 IP phone**
+    * IP address: `192.168.0.36`
+    * Port: `5060`
+    * Transport: `UDP`
+
+This indicates that the extension is simultaneously registered on multiple devices.
 
 <figure><img src="../../../.gitbook/assets/extension_status_2.png" alt=""><figcaption></figcaption></figure>
 
-## Register the Client App and IP Phone to PBX
+***
 
-Please read this article to learn how to register the client app and IP Phone to the PortSIP PBX: [How to Configure the Endpoints?](how-to-configure-the-endpoints.md)
+### Registering Client Apps and IP Phones
+
+This section explains how to register client applications and IP phones with the PortSIP PBX.
+
+For detailed, step-by-step instructions, refer to the following article:
+
+[How to Configure the Endpoints](how-to-configure-the-endpoints.md)
+
+
+
+
 
