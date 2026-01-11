@@ -4,7 +4,7 @@ This section explains how to create and configure extensions in **PortSIP PBX**.
 
 When provisioning a new phone, you can choose to **create a new extension** specifically for that device.
 
-#### Methods to Create an Extension
+### Methods to Create an Extension
 
 Extensions can be created using any of the following methods:
 
@@ -16,7 +16,7 @@ Extensions can be created using any of the following methods:
 
 ***
 
-#### Accessing Extension Configuration
+### Accessing Extension Configuration
 
 To configure extensions, do one of the following:
 
@@ -29,7 +29,7 @@ To configure extensions, do one of the following:
 
 ***
 
-#### Adding or Editing an Extension
+### Adding or Editing an Extension
 
 1. In the Web Portal, navigate to **Call Manager > Extensions**.
 2. Click **Add** to create a new extension, **or**
@@ -82,7 +82,7 @@ The **Display Name** represents the user’s full name, for example:\
 
 ***
 
-### Signing In to the PBX Web Portal
+#### Signing In to the PBX Web Portal
 
 After the user is created, the user can sign in to the **PBX Web Portal** using:
 
@@ -277,16 +277,16 @@ These settings control how users access and interact with their voicemail messag
 
 ***
 
-### Voicemail Greeting Configuration
+#### Voicemail Greeting Configuration
 
 In the **Choose Default Voicemail Greeting Message** section, you can manage the voicemail greetings used for this extension.
 
-#### Uploading a Greeting
+**Uploading a Greeting**
 
 * Click the **“+”** button to upload a new greeting audio file.
 * Click the **Switch** icon next to a greeting to set it as the **active voicemail greeting**.
 
-#### Recording a Greeting
+**Recording a Greeting**
 
 Users can also record their voicemail greeting directly from their phone by dialing the **Feature Access Code (FAC) `*57`**.
 
