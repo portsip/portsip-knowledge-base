@@ -109,10 +109,10 @@ Configure the following options:
 **Sync Schedule**\
 Specify when the PBX should synchronize users from Microsoft 365. It is recommended to schedule synchronization at midnight (**00:00**) to minimize operational impact.
 
-**directory\_id**\
+**Directory (Tenant) ID**\
 Paste the **Directory (tenant) ID** that you saved earlier when registering the Microsoft 365 application.
 
-**national\_cloud**\
+**Microsoft 365 Region**\
 National clouds are physically isolated Azure environments designed to meet data residency, sovereignty, and regulatory compliance requirements.
 
 Microsoft Entra ID is available in the following cloud environments:
@@ -123,7 +123,7 @@ Microsoft Entra ID is available in the following cloud environments:
 
 Currently, PortSIP PBX supports the **Global Azure cloud** and **Microsoft Azure operated by 21Vianet**. Select **GLOBAL** unless you explicitly need to connect to Microsoft Azure operated by 21Vianet.
 
-<figure><img src="../../../.gitbook/assets/sync_options.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/ms365_id_region.png" alt=""><figcaption></figcaption></figure>
 
 > **Important**\
 > If both the **First Name** and **Last Name** fields of a Microsoft 365 user are empty (even if an email address exists), that user will not be synchronized to PortSIP PBX. This limitation is enforced by Microsoft 365.
