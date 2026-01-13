@@ -315,7 +315,7 @@
         spec:
           ref:
             kind: openapi
-            spec: Version-22-3
+            spec: v2230113
       ```
   * [Version 22.2](development-portsip/rest-apis/version-22.2/README.md)
     * ```yaml
