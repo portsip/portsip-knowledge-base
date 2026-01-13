@@ -323,7 +323,7 @@ Follow the steps below to add and deploy a new **IVR Server** in the HA cluster.
 <figure><img src="../../../.gitbook/assets/vr-server-1.png" alt=""><figcaption></figcaption></figure>
 
 > ❗**Important**\
-> Use the server name **`ivr-server-1`**. This name will be required in a later deployment step.
+> Use the server name **`vr-server-1`**. This name will be required in a later deployment step.
 
 ***
 
@@ -335,15 +335,15 @@ The deployment process may take some time. **Do not interrupt the process, close
 
 ```bash
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh run \
--s ivr-server-only \
--n ivr-server-1 \
+-s vr-server-only \
+-n vr-server-1 \
 -a 192.168.1.24
 ```
 
 **Parameter Description**
 
-* `-s ivr-server-only`: Installs **only** the IVR Server role on the target machine.
-* `-n ivr-server-1`: Specifies the IVR Server name.\
+* `-s vr-server-only`: Installs **only** the IVR Server role on the target machine.
+* `-n vr-server-1`: Specifies the IVR Server name.\
   **This value must exactly match the name entered in the PBX Web Portal.**
 * `-a 192.168.1.24`: specifies the **private IP address** of Server 4 (the IVR Server host).
 
@@ -354,8 +354,8 @@ cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh run \
 Once the deployment completes successfully:
 
 1. Return to the **PBX Web Portal**.
-2. Navigate to **Servers → IVR Servers**.
-3. Confirm that **`ivr-server-1`** is displayed with the status **Online**.
+2. Navigate to **Servers > IVR Servers**.
+3. Confirm that **`vr-server-1`** is displayed with the status **Online**.
 
 ***
 
