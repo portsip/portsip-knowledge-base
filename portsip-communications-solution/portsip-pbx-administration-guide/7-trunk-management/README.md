@@ -1,12 +1,14 @@
 # 7 Trunk Management
 
-Session Initiation Protocol (SIP) Trunking is the digital way of making and receiving phone calls and other communications over an internet connection, utilizing SIP, an application layer protocol. "Trunking" in this context refers to the method of consolidating multiple communication channels into a single connection, allowing for the efficient use of resources and connection to a telephone network.
+Session Initiation Protocol (SIP) trunking is a digital method for making and receiving calls—and other real-time communications—over an IP network using SIP, an application-layer signaling protocol. In this context, **“trunking”** means aggregating multiple concurrent call paths (channels) into a single logical connection between your PBX and a carrier or service provider.
 
-SIP Trunks provision Voice over Internet Protocol (VoIP) connectivity between an on-premise phone system and the public switched telephone network, also known as PSTN. For instance, an office might have an existing PBX for phone service. SIP trunks provide phone service for the entire office so they can reach the outside world.
+A SIP trunk typically provides **VoIP connectivity between an on-premises PBX and the Public Switched Telephone Network (PSTN)**. For example, an office may run an internal PBX for extension-to-extension calling. By connecting the PBX to a SIP trunk, users can place and receive external calls to/from the public telephone network.
 
-In short, SIP trunking is used for call setup, management, and teardown. It’s flexible, reliable, and quite lightweight. This means you can focus on your business instead of the technicalities. SIP is the basis for VoIP communications, and SIP Trunking is used to provide VoIP connectivity through a PBX.
+SIP trunking is commonly used to **establish, manage, and terminate call sessions** (call setup, mid-call signaling, and teardown). It is widely adopted because it’s flexible, scalable, and standards-based—helping organizations connect their phone system to external calling services without traditional physical trunks.
 
-PortSIP PBX supports a wide range of mainstream SIP trunk providers worldwide. This includes, but is not limited to, the following:
+PortSIP PBX supports a wide range of mainstream SIP trunk providers worldwide, including (but not limited to):Topics Covered
+
+This article includes the following topics:
 
 * [Vonage](https://www.vonage.com/)
 * [QuestBlue](https://questblue.com/)
@@ -25,11 +27,14 @@ PortSIP PBX supports a wide range of mainstream SIP trunk providers worldwide. T
 * [Gamma](https://gammagroup.co/)
 * [VoIP Innovation](https://carrierservices.sangoma.com/)
 * [VoiceMeUp](https://www.voicemeup.com/)
+* [SIPTRUNK](https://www.siptrunk.com)
 
-
+### Topics Covered
 
 This article includes the following topics:
 
 * [Configuring SIP Trunk](configuring-sip-trunk.md)
 * [Handle Outbound Calls Through SIP Trunk](handle-outbound-calls-through-sip-trunk.md)
+
+
 
