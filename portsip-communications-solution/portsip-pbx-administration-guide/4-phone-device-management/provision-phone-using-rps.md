@@ -19,6 +19,15 @@ In this deployment scenario, the PnP method is not available, and RPS must be us
 
 ***
 
+### ❗ **Warning**
+
+\
+By default, when you provision IP phones and other devices using **RPS**, PortSIP PBX uses **PortSIP’s RPS account** with each supported phone vendor’s RPS service. This means the device’s provisioning information (for example, the configuration URL/link) is stored under the vendor RPS account created for PortSIP.
+
+If you do not want your provisioning information stored under PortSIP’s vendor RPS account, configure and use **your own private RPS account** instead. For instructions, see [Configuring Private RPS Account.](configuring-private-rps-account.md)
+
+***
+
 ### Provisioning a Remote Phone Using RPS
 
 To provision a remote IP phone via RPS, follow the steps below.
@@ -83,4 +92,6 @@ After provisioning is complete:
 * You can view the registered phone under **Call Manager > Phones**, as shown in the screenshot below
 
 <figure><img src="../../../.gitbook/assets/phone_provision1.png" alt=""><figcaption></figcaption></figure>
+
+
 
