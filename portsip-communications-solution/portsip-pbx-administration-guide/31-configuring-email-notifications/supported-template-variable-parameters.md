@@ -382,8 +382,8 @@ The SIP TCP listening port.
 **%%TLS\_PORT%%**\
 The SIP TLS listening port.
 
-**%%QR\_CODE\_URL%%**\
-The QR code URL used for client app login.
+**%%QR\_CODE%%**\
+The QR code is used for client app login.
 
 ***
 
