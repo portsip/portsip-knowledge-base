@@ -136,6 +136,17 @@ Please follow the guide [**Install Data Flow Service**](install-data-flow-servic
 
 After completing the upgrade, perform the following actions to ensure full system functionality.
 
+> ❗ **Warning**\
+> By default, when you provision IP phones and other devices using **RPS**, PortSIP PBX uses **PortSIP’s RPS account** with each supported phone vendor’s RPS service. This means the device provisioning information (for example, the provisioning/configuration URL) is stored under the vendor RPS account created for PortSIP.
+
+If you do not want your provisioning information stored under PortSIP’s vendor RPS account, configure and use **your own private RPS account** instead. For instructions, see [Configuring Private RPS Account](../../4-phone-device-management/configuring-private-rps-account.md).
+
+> ❗ **Warning**
+>
+> **Upgrade note (v16.x → v22.x):** If you configured a private RPS account in **v16.x**, the private RPS account settings are **not retained after upgrading to v22.x**. After the upgrade, you must follow [Configuring Private RPS Account](../../4-phone-device-management/configuring-private-rps-account.md) to set it up again. Otherwise, any new device auto-provisioning entries will be stored under **PortSIP’s RPS account** by default.
+
+***
+
 #### Re-generate User QR Codes
 
 1. Navigate to **Call Manager > Users**.
