@@ -248,11 +248,7 @@ In addition to **office hours** and **holiday schedules**, PortSIP PBX supports 
 
 Using these conditions, you can precisely control how inbound calls are handled under different time scenarios, ensuring that calls are always routed to the most appropriate destination.
 
-For detailed configuration steps and examples, see [Advanced Routing for Inbound Rules](configuring-inbound-rule.md#advanced-routing-1).
-
-
-
-
+For detailed configuration steps and examples, see [Advanced Routing for Inbound Rules](../office-hours-and-holiday-schedule/routing-calls-based-on-office-hours-and-holidays.md#advanced-routing-for-inbound-rule).
 
 
 

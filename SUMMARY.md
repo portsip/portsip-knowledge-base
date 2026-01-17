@@ -52,7 +52,7 @@
   * [7 Trunk Management](portsip-communications-solution/portsip-pbx-administration-guide/7-trunk-management/README.md)
     * [Configuring SIP Trunk](portsip-communications-solution/portsip-pbx-administration-guide/7-trunk-management/configuring-sip-trunk.md)
     * [Handle Outbound Calls Through SIP Trunk](portsip-communications-solution/portsip-pbx-administration-guide/7-trunk-management/handle-outbound-calls-through-sip-trunk.md)
-    * [PBX and SIP Trunk using PortSIP SBC](portsip-communications-solution/portsip-pbx-administration-guide/7-trunk-management/pbx-and-sip-trunk-using-portsip-sbc.md)
+    * [PBX and SIP Trunk using PortSIP SBC](portsip-communications-solution/portsip-pbx-administration-guide/pbx-and-sip-trunk-using-portsip-sbc.md)
   * [8 Call Route Management](portsip-communications-solution/portsip-pbx-administration-guide/8-call-route-management/README.md)
     * [Configuring Inbound Rule](portsip-communications-solution/portsip-pbx-administration-guide/8-call-route-management/configuring-inbound-rule.md)
     * [Configuring Outbound Rule](portsip-communications-solution/portsip-pbx-administration-guide/8-call-route-management/configuring-outbound-rule.md)
