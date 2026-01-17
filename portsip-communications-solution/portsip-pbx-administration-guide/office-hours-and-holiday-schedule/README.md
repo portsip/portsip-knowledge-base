@@ -1,6 +1,12 @@
 # 30 Office Hours and Holiday Schedule
 
-Office Hours and Holiday Schedules are configured in the PortSIP Web Portal by the tenant Admin. Once configured, they can be assigned to inbound rules used to route callers to specific destinations such as Virtual Receptionists (Auto Attendants), Call Queues, and users based on the time of the day, day of the week, or on selected holidays.
+**Office Hours** and **Holiday Schedules** are configured by the **Tenant Admin** in the PortSIP PBX Web Portal. Once configured, these schedules can be applied to **inbound rules** to control how calls are routed based on:
+
+* Time of day
+* Day of the week
+* Selected holidays
+
+Using schedules, you can route inbound calls to different destinations, such as **Virtual Receptionists (Auto Attendants)**, **Call Queues**, or **individual users,** to ensure calls are handled appropriately during business hours, after hours, and on holidays.
 
 This article includes the following topics:
 
