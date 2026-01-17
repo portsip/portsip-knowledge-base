@@ -1,8 +1,8 @@
 # 8 Call Route Management
 
-Outbound and inbound rules determine how PortSIP PBX routes call on the base of certain criteria. You can configure rules to control through which trunk a call will be placed, for example, to route the calls through your trunk on the basis of least cost routing.
+Outbound and inbound rules define how PortSIP PBX routes calls based on specific criteria. With these rules, you can control which trunk is used for a call—for example, to implement **Least Cost Routing (LCR)**, where the PBX selects the lowest-cost route that meets your requirements.
 
-You can also set DID (Direct Inward Dialing) numbers to allow you to bypass the receptionist or IVR and place calls directly to a user’s extension.
+You can also assign **DIDs (Direct Inward Dialing numbers)** so external callers can reach a specific extension (or other destination) directly, without going through a receptionist or IVR.
 
 This article includes the following topics:
 

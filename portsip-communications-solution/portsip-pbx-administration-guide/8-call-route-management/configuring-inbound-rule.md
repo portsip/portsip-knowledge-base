@@ -1,149 +1,258 @@
 # Configuring Inbound Rule
 
-## Creating Inbound Rules
+### Creating Inbound Rules
 
-Many companies provide users or departments with Direct or DID numbers, allowing their contacts to bypass the receptionist and make direct calls. DID numbers, known as DDI numbers in the United Kingdom and MSN numbers in Germany, offer a more convenient way for callers to reach their intended party without going through a virtual receptionist.
+Many organizations assign **Direct Inward Dialing (DID)** numbers to users or departments so external callers can reach the right person or team directly, without going through a receptionist or IVR (auto attendant). In some regions, DID numbers are also called **DDI** (United Kingdom) or **MSN** (Germany).
 
-Even when using a virtual receptionist, direct dial numbers are often preferred for their convenience. DID numbers are provided by your trunk provider or phone company and are virtual numbers assigned to your physical lines. Typically, you're assigned a range of numbers. For more information about DID numbers, please contact your phone company or trunk provider.
+DID numbers are provided by your SIP trunk provider (or phone company). They are virtual numbers that route inbound calls to your PBX, and providers typically assign them in a number range. If you need details about your DID range or format, contact your trunk provider.
 
-You must configure at least one trunk before adding inbound rules.
+***
 
-To add an inbound rule:
+#### Prerequisites
 
-1. Sign in to the PortSIP PBX Web Portal using **System Admin** credentials. Navigate to **Tenants**, select a tenant, and click the **Manage** button to configure the inbound rule for that tenant. Alternatively, a user with **Tenant Admin** permissions can sign in to manage the tenant.
-2. From the Web Portal, go to **Call Manager > Inbound Rules**, and click the **Add** button.
-3. Enter a friendly name for the rule.
-4.  **Caller Number Mask**:\
-    You can enter the caller number mask, which the PBX will use to identify incoming callers. You can specify the full number to identify a single caller, or use `*` as a wildcard. For example:
+* Configure at least **one SIP trunk** before you create inbound rules.
 
-    * `0044**********` will identify a UK caller.
-    * `004420********` will identify a caller from London.
+#### Procedure: Add an inbound rule
 
-    If using wildcards, the number of `*` must match the number of digits in the actual caller number. For example, for a 3-digit number, use `***`.
+1. Sign in to the PortSIP PBX Web Portal:
+   * **System Admin**: Go to **Tenants**, select a tenant, then click **Manage** to configure rules for that tenant.
+   * **Tenant Admin**: Sign in and manage inbound rules for your own tenant.
+2. Go to **Call Manager > Inbound Rules**, then click **Add**.
+3. Enter a **Name** (a friendly label to help you identify the rule later).
+4.  Configure the rule matching fields:
 
-    You can also define a range of numbers in the caller number mask, such as:
+    **Caller Number Mask (optional)**\
+    Use this field to match inbound calls by **caller ID (CID)**. You can:
 
-    * `00442012345670-00442012345680`.
+    * Enter the **full number** to match a specific caller.
+    * Use `*` as a wildcard to match multiple callers. For example:
+      * `0044**********` matches caller numbers in that format (example: UK format).
+      * `004420********` matches caller numbers in that format (example: London area).
+    * Specify a **number range**, such as: `00442012345670-00442012345680`.
 
-    The caller number mask field can be left empty in most cases, as it is not always necessary to set.
-5. In the **Trunk** box, select the SIP trunk you wish to associate with this DID and inbound rule. Only one SIP trunk can be assigned to an inbound rule.
-6.  In the **DID/DDI Number Mask** field, enter the DID number as it appears in the SIP **To** header (the main or first DID number assigned by your trunk provider). PortSIP PBX will match this number with the **To** header in the SIP INVITE message sent to the PBX by the trunk.
+    **Wildcard rule:** If you use `*`, the number of `*` characters must match the number of digits you want to match. For example, use `***` to match a 3-digit pattern.
 
-    The DID number can be:
+    > ❗**Note:** In most deployments, you can leave **Caller Number Mask** empty unless you need to restrict matching to specific caller IDs.
+5. In **Trunk**, select the SIP trunk to associate with this inbound rule.
+   * Only **one** SIP trunk can be assigned to an inbound rule.
+6.  In **DID/DDI Number Mask**, enter the DID as it appears in the SIP **To** header for inbound calls. PortSIP PBX matches this value against the **To** header in the inbound SIP **INVITE** received from the trunk.
 
-    * A single number, such as `442012345678`.
-    * A serial number range, such as `3325261000-3325262000` or `442012345600-442012345800`.
+    The DID/DDI Number Mask can be:
 
-    The single DID number or serial number range must be within the trunk's DID pool range.
+    * A **single number**, for example: `442012345678`
+    * A **number range**, for example: `3325261000-3325262000` or `442012345600-442012345800`
 
-    **Note**: The DID number and DID pool cannot start with "+", "0", or "00". If your DID number or DID pool begins with these characters, please remove them before entering.
+    The DID (or DID range) must be within the trunk’s **DID pool** range.
 
-{% hint style="danger" %}
-Unless specified otherwise, the **Caller Number Mask** should typically be left empty and does not need to be configured.
-
-If both the **Caller Number Mask** and **DID Number Mask** are set, it means the following: when an incoming call is received, if the caller's number matches the **Caller Number Mask** (CID) and the called number matches the **DID Number Mask**, then this inbound rule is considered a match.
-
-Alternatively, if only the **DID Number Mask** is set, it means that when an incoming call is received, if the called number matches the **DID Number Mask**, the inbound rule is considered a match.
-{% endhint %}
-
-7. Play recording notifications: When this option is enabled, any inbound calls routed to the PBX through this rule will trigger the PBX to play a voice prompt, notifying the caller that the call may be recorded.
+    > ❗**Note:** The DID number and DID pool cannot start with **`+`, `0`, or `00`.** If your provider presents numbers with these prefixes, remove the prefix before entering the value.
+7. Review how matching works:
+   * If you set **both** **Caller Number Mask** and **DID/DDI Number Mask**, the rule matches only when:
+     * The **caller ID** matches the Caller Number Mask, **and**
+     * The **called number** matches the DID/DDI Number Mask.
+   * If you set **only** **DID/DDI Number Mask**, the rule matches when the **called number** matches the DID/DDI Number Mask.
+8. (Optional) Enable **Play recording notifications**.\
+   When enabled, inbound calls routed through this rule will play a voice prompt notifying the caller that the call may be recorded.
 
 <figure><img src="../../../.gitbook/assets/portsip-pbx-inbound-rule-recording.png" alt=""><figcaption></figcaption></figure>
 
-8. Specify how you wish to forward incoming calls according to this inbound rule:
+9\. Specify how inbound calls are forwarded
 
-*   **Forward to number**:\
-    Allows you to forward the call to a specific number. This number can be an extension, system extension (such as a ring group, virtual receptionist, meeting number, or queue number), or a PSTN phone number. You can also specify a range, such as **2000-3000**. If the **Forward to number** field is set as a range, both the **DID Number Mask** and the **Forward to number** must be serial ranges of equal size. For example:
+Choose how calls that match this inbound rule are routed:
 
-    * **DID Number Mask**: `442012345600-442012345800`
-    * **Forward to number**: `1100-1300`
+*   **Forward to number**\
+    Routes the call to a specific destination. The destination can be:
 
-    If a call from the trunk is directed to `442012345600`, the PBX will route it to extension `1100`. Similarly, if the call is to `442012345698`, the PBX will route it to extension `1198`, maintaining a 1:1 mapping between the DID number and the extension.
-* **Forward to voicemail**:\
-  Routes the call to voicemail, allowing the caller to leave a message. You can select the extension number for the voicemail box. For example, if you choose extension **108**, the voicemail will be saved in the mailbox for extension **108**.
-* **Hangup**:\
-  The PBX will terminate the call.
+    * An **extension**
+    * A **system extension**, such as a ring group, virtual receptionist (IVR), meeting number, or queue
+    * A **PSTN phone number**
+    * A **range of extensions**, for example `2000–3000`
 
-9. You can specify different call forwarding behavior for incoming calls received **outside of office hours** or on a **holiday**. This allows you to create more flexible routing rules based on your business schedule.
-10. Additionally, you can configure an inbound rule to route **bulk DID numbers** to **bulk extensions**. For example, you can map a range of DID numbers to a corresponding range of extensions for 1:1 routing. (See the example in the earlier section regarding DID range mapping.)
+    **1:1 DID-to-extension range mapping**\
+    If **Forward to number** is configured as a range, both **DID Number Mask** and **Forward to number** must be **serial ranges of the same size**. Example:
 
-## **Office Hours and Holidays**
+    * DID Number Mask: `442012345600–442012345800`
+    * Forward to number: `1100–1300`
 
-### **Office Hours**
+    With this configuration:
 
-On the **Office Hours** tab of the inbound rule, you can configure the office hours to determine how incoming calls are routed based on the time of day.
+    * A call to `442012345600` is routed to extension `1100`
+    * A call to `442012345698` is routed to extension `1198`
 
-* If **Use default Global Office Hours** is selected, the PBX will follow the office hours specified by the **Tenant Admin**.
-* If **Use specific Office Hours** is selected, you can customize the office hours specifically for this rule.
+    The PBX maintains a **1:1 offset mapping** between the DID numbers and the corresponding extensions.
+* **Forward to voicemail**\
+  Routes the call directly to voicemail, allowing the caller to leave a message.\
+  Select the extension whose mailbox should receive the voicemail. For example, selecting extension `108` stores the voicemail in extension `108`’s mailbox.
+* **Hang up**\
+  Terminates the inbound call when it matches this rule.
 
-### **Holidays**
+10\. Configure office hours and holiday routing
 
-In the **Holidays** section, you can select one or more holidays from the tenant's holiday list. During these holidays, any incoming call that matches this inbound rule will be routed to the holiday destination specified in the rule.
+You can define different call-handling behavior for inbound calls received **outside of office hours** or **during holidays**. This allows you to apply alternate routing rules that align with your business schedule.
 
-For more details, please refer to the section on [Office Hours and Holiday Schedule](../office-hours-and-holiday-schedule/configuring-office-hours-and-holiday-schedule.md).
+11\. Configure bulk DID-to-extension routing
+
+You can configure an inbound rule to route **ranges of DID numbers** to corresponding **ranges of extensions** for large-scale deployments. This enables efficient **1:1 mapping** between DID ranges and extension ranges.\
+Refer to the earlier **DID range mapping** example for details.
+
+***
+
+### Office Hours and Holidays
+
+Inbound rules can apply **different call routing behavior based on time and date**, allowing you to control how calls are handled during business hours, after hours, and on holidays.
+
+#### Office Hours
+
+Use the **Office Hours** tab in the inbound rule to define how incoming calls are routed based on the **time of day**.
+
+* **Use default Global Office Hours**\
+  When selected, the inbound rule follows the **global office hours** configured by the **Tenant Admin**.
+* **Use specific Office Hours**\
+  When selected, you can define **custom office hours** that apply only to this inbound rule, overriding the global tenant schedule.
+
+#### Holidays
+
+In the **Holidays** section, select one or more holidays from the tenant’s configured holiday list.
+
+* During the selected holidays, any inbound call that matches this rule will be routed to the **holiday destination** specified in the inbound rule.
+* Holiday routing takes precedence over regular office hours for the selected dates.
+
+> **Note:** Holidays must be defined in the tenant’s holiday schedule before they can be selected here.
+
+For more information about configuring schedules, see [Office Hours and Holiday Schedule](../office-hours-and-holiday-schedule/).
 
 <figure><img src="../../../.gitbook/assets/inbound_rule_2.png" alt=""><figcaption></figcaption></figure>
 
-## **Language Skill Routing**
+***
 
-You can create multiple inbound rules using the same DID number with a trunk, but each inbound rule must have a unique **Caller Number Mask (CID)**.
+### Language Skill Routing
 
-**Example:**
+You can create **multiple inbound rules that use the same DID and trunk** to route calls based on the **caller’s number (Caller ID / CID)**. Each inbound rule must use a **unique Caller Number Mask** to distinguish which rule applies.
 
-You have the DID **00326012345670** and want to create two inbound rules:
+This approach allows you to route callers to different destinations—such as queues staffed by agents with specific language skills—based on the caller’s country or number pattern.
 
-1. For the first rule, the **Caller Number Mask** is `0044**********` (UK callers), the **DID Number Mask** is `326012345670`, and the call is routed to **Queue 8000**.
-2. For the second rule, the **Caller Number Mask** is `0033*********` (French callers), the **DID Number Mask** is `326012345670`, and the call is routed to **Queue 9000**.
+#### Example: Language-based queue routing
 
-You can assign all English-speaking employees to **Queue 8000** and designate all French-speaking employees as agents for **Queue 9000**.
+You have the DID `00326012345670` and want to route calls to different queues based on the caller’s language.
 
-When a caller dials **00326012345670**:
+1. **Inbound Rule for English-speaking callers**
+   * **Caller Number Mask:** `0044**********` (UK callers)
+   * **DID Number Mask:** `326012345670`
+   * **Destination:** Queue `8000` (English-speaking agents)
+2. **Inbound Rule for French-speaking callers**
+   * **Caller Number Mask:** `0033*********` (French callers)
+   * **DID Number Mask:** `326012345670`
+   * **Destination:** Queue `9000` (French-speaking agents)
 
-* UK callers (with caller numbers starting with `0044`) will be routed to **Queue 8000** to speak with an English-speaking agent.
-* French callers (with caller numbers starting with `0033`) will be routed to **Queue 9000** to speak with a French-speaking agent.
+#### Call flow behavior
 
-## **Route Bulk Numbers to Bulk Extensions**
+When a caller dials `00326012345670`:
 
-For large corporations with hundreds or thousands of employees, manually creating inbound rules to route each DID number to a corresponding extension can be a daunting task. For example, assigning 1,000 DID numbers to 1,000 employees would traditionally require creating 1,000 inbound rules.
+* Calls from **UK numbers** (caller ID starting with `0044`) are routed to **Queue 8000**, where English-speaking agents are assigned.
+* Calls from **French numbers** (caller ID starting with `0033`) are routed to **Queue 9000**, where French-speaking agents are assigned.
 
-PortSIP PBX simplifies this process with a feature that allows you to accomplish this with just **one inbound rule**.
+This configuration enables **language skill–based routing** without requiring the caller to interact with an IVR or make a language selection.
 
-**Example:**
+***
 
-Assume the corporation has purchased 1,000 serial DID numbers from a trunk service provider, ranging from **0012012345001** to **0012012346000**. The employees' extension numbers range from **1001** to **2000**.
+### Route Bulk Numbers to Bulk Extensions
 
-To configure the inbound rule:
+For large organizations with hundreds or thousands of employees, manually creating individual inbound rules for each DID can be time-consuming and error-prone. For example, assigning 1,000 DID numbers to 1,000 extensions would traditionally require creating 1,000 separate inbound rules.
 
-1. Set the **DID Number Mask** field to **12012345001-12012346000**.
-2. Configure the **Call Route Destination** field to **1001-2000**.
+PortSIP PBX simplifies this process by allowing you to route **ranges of DID numbers** to **ranges of extensions** using a **single inbound rule**.
 
-With this setup, PortSIP PBX will route calls as follows:
+***
 
-* If someone dials **0012012345001**, the call will be routed to extension **1001**.
-* If someone dials **0012012345002**, the call will be routed to extension **1002**.
-* If someone dials **0012012345005**, the call will be routed to extension **1005**.
+#### Example: 1:1 DID-to-extension range mapping
+
+Assume your organization has:
+
+* A range of **1,000 serial DID numbers** provided by the trunk service provider:\
+  `0012012345001–0012012346000`
+* A corresponding range of **employee extensions**:\
+  `1001–2000`
+
+#### Configuration
+
+To create the inbound rule:
+
+1. Set **DID Number Mask** to:\
+   `12012345001–12012346000`
+2. Set **Call Route Destination** to:\
+   `1001–2000`
+
+> **Note:** The DID range and extension range must contain the **same number of entries** to maintain correct 1:1 mapping.
+
+#### Call routing behavior
+
+With this configuration, PortSIP PBX routes calls as follows:
+
+* Calls to `0012012345001` are routed to extension `1001`
+* Calls to `0012012345002` are routed to extension `1002`
+* Calls to `0012012345005` are routed to extension `1005`
+
+The PBX automatically maintains a **fixed offset mapping** between the DID range and the extension range.
 
 <figure><img src="../../../.gitbook/assets/bulk_inbound.png" alt=""><figcaption></figcaption></figure>
 
-In the scenario above, if you want to route all DID numbers from **0012012345001** to **0012012346000** to a single number, such as **1001**, you can configure an inbound rule as shown in the screenshot below.
+***
 
-With this configuration, if someone dials any number within the range **0012012345001-0012012346000**, the call will be routed to extension **1001**.
+#### Route a DID Range to a Single Extension
+
+In some scenarios, you may want to route **all DID numbers in a range** to a **single destination**, such as a main receptionist or shared extension.
+
+Using the same DID range (`0012012345001–0012012346000`), configure the inbound rule as follows:
+
+* **DID Number Mask:** `12012345001–12012346000`
+* **Call Route Destination:** `1001`
+
+With this configuration:
+
+* Any call to a DID within `0012012345001–0012012346000` is routed to extension `1001`.
 
 <figure><img src="../../../.gitbook/assets/bulk_inbound_1.png" alt=""><figcaption></figcaption></figure>
 
-## Route Calls to Any Number
+***
 
-In certain scenarios, if you want to route a single DID number or a range of DID numbers without changing the destination number, you can set up an inbound rule with the route destination number set to **0**, as shown in the screenshot below. The **0** indicates that the PBX should not alter the destination number when routing the call.
+#### Route Calls to Any Number
+
+In some scenarios, you may want inbound calls to be routed **without modifying the called number**. This is useful when you want the PBX to pass the dialed number through unchanged—for example, when integrating with downstream systems or external routing logic.
+
+To achieve this, configure an inbound rule with the **route destination number set to `0`**, as shown in the example screenshot. A destination value of `0` instructs the PBX **not to rewrite or replace the called number** during routing.
+
+**Call routing behavior**
+
+* If a caller dials a DID within the range `0012012345001–0012012346000`, the call is routed using **the same destination number that was dialed**.
+* The PBX does **not** alter the destination number when forwarding the call.
+
+**Configuration options**
+
+* You can apply this behavior to:
+  * A **single DID number**, or
+  * A **range of DID numbers**
+
+Both configurations ensure that inbound calls retain their original called number as they are routed by the PBX.
 
 <figure><img src="../../../.gitbook/assets/bulk_inbound_2.png" alt=""><figcaption></figcaption></figure>
 
-If someone dials a number within the range **0012012345001-0012012346000**, the call will be routed to the same number as the one dialed. The PBX does not change the destination number when routing the call.
+***
 
-You can also configure the DID number as a single number, rather than a range, for this routing purpose.
+### Advanced Routing
 
-## Advanced Routing
+In addition to **office hours** and **holiday schedules**, PortSIP PBX supports **advanced time-based routing** for inbound calls. This allows you to route calls based on more granular temporal criteria, including:
 
-In addition to office hours and holidays, PortSIP PBX allows you to route inbound calls based on specific criteria such as year, month, day, weekday, and time. This enables more granular control over call routing, ensuring that calls are directed to the appropriate destinations based on various temporal factors.
+* Year
+* Month
+* Day
+* Day of the week
+* Time of day
 
-For more detailed information, please refer to the topic [**Advanced Routing for Inbound Rules**](../office-hours-and-holiday-schedule/routing-calls-based-on-office-hours-and-holidays.md#advanced-routing-for-inbound-rule).
+Using these conditions, you can precisely control how inbound calls are handled under different time scenarios, ensuring that calls are always routed to the most appropriate destination.
+
+For detailed configuration steps and examples, see [Advanced Routing for Inbound Rules](configuring-inbound-rule.md#advanced-routing-1).
+
+
+
+
+
+
 

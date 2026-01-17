@@ -22,7 +22,7 @@ The interoperability testing between PortSIP SBC, a generic SIP trunk, and PortS
 * **Border**\
   The IP-to-IP network boundary between the enterprise LAN (where PortSIP PBX resides) and the public network hosting the SIP trunk.
 
-<figure><img src="../../.gitbook/assets/enterprise_pbx_sbc_trunk.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/enterprise_pbx_sbc_trunk.png" alt=""><figcaption></figcaption></figure>
 
 #### Call Flow Overview
 
@@ -44,8 +44,8 @@ Before configuring the SBC and SIP trunk, ensure that the PortSIP PBX is install
 
 Complete the following PBX setup steps:
 
-1. [Install PortSIP PBX](installation-of-portsip-pbx-v22.3-beta-version/install-portsip-pbx.md)
-2. Perform basic [PBX configuration, including system and tenant setup](2-portsip-pbx-management/)
+1. [Install PortSIP PBX](../installation-of-portsip-pbx-v22.3-beta-version/install-portsip-pbx.md)
+2. Perform basic [PBX configuration, including system and tenant setup](../2-portsip-pbx-management/)
 
 Refer to the corresponding PBX installation and configuration guides for detailed instructions.
 
@@ -53,10 +53,10 @@ Refer to the corresponding PBX installation and configuration guides for detaile
 
 ### 3. Configuring PortSIP SBC
 
-Install and [configure the PortSIP SBC](9-configuring-portsip-sbc/) according to your deployment requirements.
+Install and [configure the PortSIP SBC](../9-configuring-portsip-sbc/) according to your deployment requirements.
 
 > ❗**Note**\
-> If WebRTC endpoints are used, ensure the SBC is configured for WebRTC support as described in the [_Configuring SBC for WebRTC_ guide](9-configuring-portsip-sbc/configuring-sbc-for-webrtc.md).
+> If WebRTC endpoints are used, ensure the SBC is configured for WebRTC support as described in the [_Configuring SBC for WebRTC_ guide](../9-configuring-portsip-sbc/configuring-sbc-for-webrtc.md).
 
 ***
 
@@ -122,9 +122,9 @@ This section describes how to add the SIP trunk to PortSIP PBX when the SBC is u
    * Click **Next**.
 8. **Assign Trunk to Tenants**
    * Since the trunk is created by the **System Administrator**, select one or more tenants that are allowed to use this trunk.
-   * For details, refer to the _Add the Trunk by System Admin_ section in [Trunk Management](7-trunk-management/).<br>
+   * For details, refer to the _Add the Trunk by System Admin_ section in [Trunk Management](./).<br>
 
-Now you are ready to [create the inbound & outbound rules for the call routing](8-call-route-management/).
+Now you are ready to [create the inbound & outbound rules for the call routing](../8-call-route-management/).
 
 
 
