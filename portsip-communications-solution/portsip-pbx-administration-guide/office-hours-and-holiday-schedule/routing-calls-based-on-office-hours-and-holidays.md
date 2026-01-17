@@ -1,81 +1,239 @@
 # Routing Calls Based on Office Hours and Holidays
 
-PortSIP PBX allows you to route calls based on office hours, holidays, and other situations where you need to reroute calls to another destination.
+PortSIP PBX allows you to route calls dynamically based on **office hours**, **holidays**, and other time-based conditions. This flexibility ensures that inbound calls are always directed to the appropriate destination depending on when they are received.
 
-## Inbound Call Routing
+### Inbound Call Routing
 
-PortSIP PBX routes all inbound calls from the SIP trunk by creating inbound rules. In an inbound rule, you can specify which SIP trunk the call is coming from, specify the CID and DID numbers, and set the routing destination based on office hours and holidays.
+PortSIP PBX handles all inbound calls from SIP trunks using **inbound rules**. Within an inbound rule, you can:
+
+* Specify the **SIP trunk** on which the call is received
+* Define matching criteria using **Caller ID (CID)** and **DID numbers**
+* Configure different routing destinations based on **office hours** and **holidays**
 
 <figure><img src="../../../.gitbook/assets/inbound_rule_1 (1).png" alt=""><figcaption></figcaption></figure>
 
-In the inbound rule shown in the screenshot above, if a call arrives during a **holiday**, it will be routed to extension **103**. If it arrives during office hours, it will be routed to extension **101**. If it arrives outside of office hours, it will be routed to extension **102**.
+#### Example routing behavior
 
-In an inbound rule, clicking the **Office Hours** tab allows you to set up office hours and holidays for that rule. You can choose to use the **Global Office Hours** or define custom office hours for this rule. You can also select holidays from the **Global Holiday List** for the rule.
+In the inbound rule shown in the example:
+
+* Calls received **during a holiday** are routed to **extension 103**
+* Calls received **during office hours** are routed to **extension 101**
+* Calls received **outside of office hours** are routed to **extension 102**
+
+This allows you to provide different call handling behavior for business hours, after-hours, and holidays using a single inbound rule.
+
+#### Configuring office hours and holidays for an inbound rule
+
+Within an inbound rule, open the **Office Hours** tab to configure time-based routing:
+
+* Choose **Use Default Global Office Hours** to apply the tenant-wide office hours.
+* Choose **Use Specific Office Hours** to define custom office hours for this inbound rule.
+* Select one or more holidays from the **Global Holiday List** to apply holiday-specific routing.
+
+The PBX evaluates the current time and date against these settings and routes inbound calls to the appropriate destination accordingly.
 
 <figure><img src="../../../.gitbook/assets/inbound_rule_2.png" alt=""><figcaption></figcaption></figure>
 
-### Advanced Routing for Inbound Rule
+***
 
-In addition to office hours and holidays, you can also route inbound calls based on the customized date and time to a specified destination.
+### Advanced Routing for Inbound Rules
 
-In an inbound rule, clicking the **Advanced Routing** tab allows you to create advanced routing strategies.
+In addition to office hours and holiday routing, PortSIP PBX supports advanced, time-based routing for inbound calls. Advanced routing allows you to direct calls to different destinations based on custom date and time conditions, providing fine-grained control over call handling.
+
+Within an inbound rule, open the **Advanced Routing** tab to configure these routing strategies.
 
 <figure><img src="../../../.gitbook/assets/advanced-routing.png" alt=""><figcaption></figcaption></figure>
 
-An advanced Routing strategy allows you to route an inbound call based on the years, months, days, weekdays, and time shifts to a number, voicemail, or hang up.
+***
+
+#### How Advanced Routing Works
+
+An **advanced routing strategy** evaluates the current date and time against a set of conditions. If all conditions match, the call is routed to the specified destination or action.
+
+Advanced routing strategies can be based on:
+
+* Years
+* Months
+* Days of the month
+* Days of the week
+* Time shifts
+
+Each strategy defines both **when** it applies and **what action** to take when it matches.
 
 <figure><img src="../../../.gitbook/assets/advanced-routing-1.png" alt=""><figcaption></figcaption></figure>
 
-As shown in the above screenshot, you can set the following fields:
+***
 
-* `priority`: The PBX will check routing strategies in order of priority. If the current date and time do not match the strategy, we will try the next strategy with a lower priority. The priority range is 0-1000, with 0 being the highest priority.
-* `years`: Specifies the years for this routing strategy. This strategy will be ignored if the current time does not match the specified years. You can specify a range of years (e.g., 2023-2030), a single year (e.g., 2031), or a combination (e.g., 2023-2030;2035;2032). Enter the`all` to specify all years. If you leave this value empty, it is the same thing as entered `all`.
-* `months`: Specifies the months for this routing strategy. This strategy will be ignored if the current time does not match the specified months. You can specify a range of months (e.g., 1-9), a single month (e.g., 11), or a combination (e.g., 1-9;11;12). Select the `all` to specify all months.
-* `days`: Specifies the days of the month for this routing strategy. This strategy will be ignored if the current time does not match the specified days. You can specify a range of days (e.g., 1-21), a single day (e.g., 11), or a combination (e.g., 1-9;11;22). Select the `all` to specify all days of the month.
-* `weekdays`: Specifies the weekdays for this routing strategy. This strategy will be ignored if the current time does not match the specified weekdays. You can specify a range of weekdays (e.g., 1-5), a single day (e.g., 3), or a combination (e.g., 1-3;4). Select the `all` to specify all weekdays. Note that 1 is Monday and 7 is Sunday.
-* `time shifts`: Specifies time shifts for this routing strategy. For example: `9:00-11:30;14:00-18:00`. This strategy will be ignored if the current time does not match the specified time shifts.&#x20;
-* `destination`: Specifies the route destination and action:
-  * `action`: Allows you to set the action to `number`, `voicemail`, or `hangup`. The `number` action routes the call to a specified number. While `voicemail` routing it to an extension’s voicemail. The `hangup` action hangs up the inbound call.&#x20;
-  * `dest`: The destination number for the action. If the action is set as `hangup`, this value will be ignored.
+#### Advanced Routing Fields
 
-For example, if the `action` is set to `number` and `dest` is set to `123456`, the call will be routed to the number `123456` if this routing strategy is matched.
+**Priority**
 
-{% hint style="info" %}
-If you would like to route the call to a shared voicemail, just choose the **action** as the **number**, and set the **dest** to the shared voicemail number.
-{% endhint %}
+Determines the order in which routing strategies are evaluated.
 
-You can create as many advanced routing strategies as you need. The PBX will try to match them by the strategy's priority. The lower priority value has a higher priority.
+* The PBX evaluates strategies from **lowest priority value to highest**.
+* **Priority range:** `0–1000`
+  * `0` is the **highest priority**.
+* If the current date and time do not match a strategy, the PBX evaluates the next strategy.
 
-### Fallback for Advanced Routing
+***
 
-If a call fails to match any strategy in the advanced routing, the call routing will fall back to the office hours and holiday routing specified in the inbound rule.
+**Years**
 
-## Outbound Call Routing
+Specifies the **years** during which this routing strategy applies.
 
-PortSIP PBX allows tenant admin to specify office hours and holidays for outbound rules. If the current time falls outside of the specified office hours or on a holiday, the outbound rule will be blocked by the PBX.&#x20;
+* The strategy is ignored if the current year does not match.
+* Supported formats:
+  * Range: `2023–2030`
+  * Single year: `2031`
+  * Combination: `2023–2030;2032;2035`
+* Enter `all` or leave the field empty to apply to **all years**.
 
-To set up office hours and holidays for an outbound rule, click on the **Office Hours** tab of the inbound rule. From here, you can choose to use the **Global Office Hours** or define custom office hours for this rule. You can also select holidays from the **Global Holiday List** to apply to this rule. If you do not want to block the outbound rule at any time, do not select any holidays and specify that all days and times are within office hours.
+***
 
-## Extension Call Routing
+**Months**
 
-Each extension can have a set of call forwarding rules that define what PortSIP PBX should do when the extension user is unable to answer an incoming call. This can be configured using the following criteria.
+Specifies the **months** during which this routing strategy applies.
 
-* The user’s status
-* The time
+* The strategy is ignored if the current month does not match.
+* Supported formats:
+  * Range: `1–9`
+  * Single month: `11`
+  * Combination: `1–9;11;12`
+* Select or enter `all` to apply to **all months**.
 
-When an extension is offline, the PBX will check the extension’s office hours and holiday settings. If the current time falls outside of office hours or on a holiday, the call will be rerouted to the destination specified in the "**When out of office hours**" field. This destination can be an extension number, phone number, or mobile phone number. For example, in the screenshot below, calls are rerouted to **332061180**.&#x20;
+***
 
-If the current time falls within office hours and is not on a holiday, the call will be rerouted to the destination specified in the "**In Office Hours**" field. In the screenshot below, calls are rerouted to that extension’s voicemail.
+**Days (Day of Month)**
+
+Specifies the **days of the month** during which this routing strategy applies.
+
+* The strategy is ignored if the current day does not match.
+* Supported formats:
+  * Range: `1–21`
+  * Single day: `11`
+  * Combination: `1–9;11;22`
+* Select or enter `all` to apply to **all days of the month**.
+
+***
+
+**Weekdays**
+
+Specifies the **days of the week** during which this routing strategy applies.
+
+* The strategy is ignored if the current weekday does not match.
+* Supported formats:
+  * Range: `1–5`
+  * Single day: `3`
+  * Combination: `1–3;4`
+* Select or enter `all` to apply to **all weekdays**.
+* Weekday numbering:
+  * `1` = Monday
+  * `7` = Sunday
+
+***
+
+**Time Shifts**
+
+Specifies one or more **time ranges** during which this routing strategy applies.
+
+* The strategy is ignored if the current time does not fall within any defined range.
+* Format: `HH:MM–HH:MM`
+* Multiple ranges separated by semicolons.
+* Example:\
+  `09:00–11:30;14:00–18:00`
+
+***
+
+**Action**
+
+Defines what happens when the routing strategy matches.
+
+* **Number** – Routes the call to a specified number.
+* **Voicemail** – Routes the call to an extension’s voicemail.
+* **Hangup** – Terminates the inbound call.
+
+***
+
+**Destination (Dest)**
+
+Specifies the destination number for the selected action.
+
+* Used when **Action** is **Number** or **Voicemail**
+* Ignored when **Action** is **Hangup**
+
+**Example:**\
+If **Action** is `Number` and **Dest** is `123456`, the call is routed to `123456`.
+
+> **Note:** To route calls to a shared voicemail, set **Action** to **Number** and enter the shared voicemail number as the destination.
+
+***
+
+#### Strategy Evaluation and Fallback
+
+* Multiple advanced routing strategies can be defined per inbound rule.
+* Strategies are evaluated by **priority** (lowest value first).
+* The **first matching strategy** is applied.
+
+If no advanced routing strategy matches, the PBX falls back to the **Office Hours and Holiday routing** configured for the inbound rule.
+
+***
+
+### Extension Call Routing
+
+Each extension can have **call forwarding rules** that define how PortSIP PBX handles calls when the user is **unavailable or cannot answer**. These rules can be evaluated based on:
+
+* The **user’s status**
+* The **current time** (office hours and holidays)
+
+#### Routing behavior when an extension is offline
+
+When an extension is offline, the PBX evaluates the extension’s **office hours** and **holiday settings**:
+
+*   **Outside office hours or during a holiday**\
+    The call is routed to the destination configured in the **When Out of Office Hours** field.\
+    The destination can be:
+
+    * Another extension
+    * A PSTN phone number
+    * A mobile phone number
+
+    _Example:_ Calls are routed to `332061180`.
+* **During office hours and not on a holiday**\
+  The call is routed to the destination configured in the **In Office Hours** field.\
+  &#xNAN;_&#x45;xample:_ Calls are routed to the extension’s voicemail.
+
+#### Extension holidays
+
+An extension can:
+
+* Select holidays from the **tenant-level Global Holiday List**
+* Define **custom personal holidays**
+
+Both global and personal holidays are treated as **outside office hours** for that extension and will trigger out-of-office routing behavior.
 
 <figure><img src="../../../.gitbook/assets/user_offline_1.png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="info" %}
-An extension can select holidays from the tenant-level holiday list and also create its own custom holidays. Both types of holidays will be treated as falling outside of office hours.
-{% endhint %}
+***
 
-### Exceptions for Extension
+### Exceptions for Extensions
 
-You can create exception rules for an extension by entering the caller ID, selecting the time shifts in the "**Received During"** field, and choosing the desired action in the "**Forward To"** field.
+You can define **exception rules** for an extension to override the extension’s standard call forwarding behavior under specific conditions.
 
-If a call matches one of the exceptions, it will be rerouted according to that exception rule and the extension’s normal forwarding rules will be bypassed.
+#### How exception rules work
+
+An exception rule is evaluated based on:
+
+* **Caller ID** – identifies specific callers or caller patterns
+* **Received During** – specifies the **time shifts** when the exception applies
+* **Forward To** – defines the action or destination when the exception is matched
+
+#### Routing behavior
+
+* If an inbound call **matches an exception rule**, the PBX immediately applies the action defined in that exception.
+* When an exception rule is applied, the extension’s **normal forwarding rules are bypassed**.
+* If no exception rule matches, the PBX processes the call using the extension’s standard forwarding configuration.
+
+
+
+
 
