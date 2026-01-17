@@ -1,32 +1,132 @@
 # PortSIP Call Parking Feature
 
-## What's the Problem of the Normal Call Parking?
+### What Is the Problem with Traditional Call Parking?
 
-As described above, the call parking implementation works fine for traditional scenarios with single-tenant PBX.&#x20;
+As described earlier, **traditional call parking** works well in **single-tenant PBX** deployments. In these environments, call parking is typically implemented by creating dedicated **parking extensions (park spots)**, which users can monitor and retrieve calls from.
 
-However, today is the cloud age, and most scenarios are for the cloud PBX. For multi-tenant usage, a service provider hosts the cloud PBX and creates many tenants. Each tenant has a virtual PBX but shares the same server resources. A cloud PBX instance may handle 1k or 10k tenants.
+However, this model does **not scale** in modern **cloud PBX** deployments.
 
-If each tenant creates 10 park spots, that means for a cloud PBX with 1k tenants, there will need to be 10K spots created for the tenants. As mentioned above, these spots are actually PBX extensions that need to register to the PBX and maintain registration by sending REGISTER messages periodically. Users need to subscribe to the spots for the Dialog Event, these will consume massive CPU, memory, and bandwidth resources and reduce cloud PBX performance. This is unacceptable for service providers. It’s hard to imagine if tenants need to create more park spots!
+#### Challenges in a Cloud, Multi-Tenant Environment
 
-## PortSIP Solution
+Today’s PBX deployments are predominantly **cloud-based and multi-tenant**, where:
 
-PortSIP PBX is designed for cloud PBX and service provider needs. It provides a real multi-tenant PBX where a service provider just needs to set up one PBX instance, then it has the ability to create thousands of tenants, each tenant is isolated and transparent to each other.
+* A service provider hosts a **single PBX instance**
+* The PBX serves **hundreds or thousands of tenants**
+* Each tenant operates a **logically isolated virtual PBX**, while sharing the same infrastructure
 
-PortSIP implements the call parking feature in a unique way in order to avoid traditional parking problems. It does not require creating park spots and there is no need to subscribe to the Dialog Event package.
+A single cloud PBX instance may support **1,000 to 10,000 tenants**.
 
-Here are the details of the PortSIP Call Parking implementation:
+In a traditional call parking model:
 
-* There is no need to create a parking spot. Just use the extension number as the parking spot. For example, if the user wants to park a call to the extension who has extension number 103, just transfer the call to `*68103`. The `*68` is the FAC for call park.
-* Once a call has parked at an extension, this extension device (IP Phone or softphone app) will receive an out-of-dialog NOTIFY message with the `park-info` event. The NOTIFY message includes the parker, parked, and retrieve information.
-* The extension device can parse parked call details and retrieve information from the NOTIFY message and alert the extension that there is a call parked.
-* The user can retrieve the call by pressing the button/soft key.
+* Each tenant must create its own set of parking spots
+* Parking spots are implemented as **PBX extensions**
+* Each parking extension must:
+  * Register to the PBX
+  * Periodically send SIP `REGISTER` messages
+  * Be monitored via **Dialog Event subscriptions**
 
-## Advantages
+**Scalability impact**
 
-As listed above, the PortSIP solution has the following advantages:
+For example:
 
-* No need to create parking spots (extensions), and no need to register massive spots to the PBX and maintain the registration.
-* No need to subscribe to the Dialog Event Package for the parking spots, and no need to maintain the subscription.
-* The NOTIFY message for the parked call includes detailed information that the IP Phone and softphone app can use to alert the user with park call information and retrieve it with one click.
-* For large tenants in the PBX, the call parking feature will not consume massive hardware resources and will not reduce performance.
+* If each tenant creates **10 parking spots**
+* A PBX with **1,000 tenants** requires **10,000 parking extensions**
+
+This results in:
+
+* Tens of thousands of SIP registrations
+* Thousands of Dialog Event subscriptions
+* Significant consumption of **CPU**, **memory**, and **network bandwidth**
+
+As tenants grow and require more parking spots, the impact multiplies further.\
+This approach **severely degrades PBX performance** and is **unacceptable for service providers** operating at scale.
+
+***
+
+### PortSIP Solution
+
+PortSIP PBX is designed specifically for **cloud PBX and service provider environments**. It is a **true multi-tenant PBX**, where:
+
+* A single PBX instance can host **thousands of tenants**
+* Each tenant is fully isolated
+* System resources are used efficiently and predictably
+
+To address the scalability issues of traditional call parking, **PortSIP implements call parking in a fundamentally different way**.
+
+#### Key Design Principles
+
+PortSIP’s call parking implementation:
+
+* Does **not** require creating parking spot extensions
+* Does **not** require SIP registration for parking spots
+* Does **not** require Dialog Event subscriptions
+
+This design eliminates the core scalability bottlenecks found in traditional implementations.
+
+***
+
+### How PortSIP Call Parking Works
+
+#### Parking a Call
+
+* There is **no need to create parking spots**.
+* The **target extension number itself** acts as the parking reference.
+* To park a call to extension `103`, the user simply transfers the call to:
+
+```
+*68103
+```
+
+Where:
+
+* `*68` is the **Feature Access Code (FAC)** for call parking
+* `103` is the extension number associated with the parked call
+
+***
+
+#### Call Park Notification
+
+Once the call is parked:
+
+* The target extension device (IP phone or softphone) receives an **out-of-dialog SIP NOTIFY**
+* The NOTIFY uses the **`park-info` event**
+* The message includes:
+  * Who parked the call
+  * Where the call is parked
+  * How the call can be retrieved
+
+The device can parse this information and **alert the user** that a call is parked.
+
+***
+
+#### Retrieving the Call
+
+* The user retrieves the parked call by pressing the corresponding **button or soft key**
+* No polling, subscription, or manual dialing is required
+
+***
+
+### Advantages of the PortSIP Call Parking Design
+
+PortSIP’s approach provides the following benefits:
+
+* **No parking spot extensions required**\
+  Eliminates the need to create, register, and maintain thousands of virtual extensions.
+* **No Dialog Event subscriptions**\
+  Removes subscription overhead and long-lived SIP dialogs.
+* **Rich NOTIFY information**\
+  Devices receive detailed parking information and can present one-click retrieval to users.
+* **Cloud-scale performance**\
+  Call parking does not consume excessive CPU, memory, or bandwidth—even in very large deployments.
+* **Service-provider friendly**\
+  Suitable for large tenants and massive multi-tenant cloud PBX environments without performance degradation.
+
+***
+
+### Summary
+
+Traditional call parking models were designed for on-premise, single-tenant PBXs.\
+PortSIP’s call parking is **cloud-native by design**, enabling service providers to deliver call parking at scale—without compromising system performance.
+
+
 

@@ -1,8 +1,8 @@
-# Using Enhanced Call Park on SNOM IP Phones
+# Using Enhanced Call Park on Snom IP Phones
 
 This article explains how to use the PortSIP PBX’s uniquely enhanced call park feature with SNOM IP phones.
 
-## Supported SNOM IP Phone Models
+## Supported Snom IP Phone Models
 
 ### Models
 
@@ -85,4 +85,6 @@ Once an extension receives the notification indicates there is a call parked for
 The parked calls will be listed on the screen, you can simply press the Retrieve button to retrieve the parked call as the screenshot below.
 
 <figure><img src="../../../.gitbook/assets/snow-retrieve-call.jpg" alt=""><figcaption></figcaption></figure>
+
+
 
