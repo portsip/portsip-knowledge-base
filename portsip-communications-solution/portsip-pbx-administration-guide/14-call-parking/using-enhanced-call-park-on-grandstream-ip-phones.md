@@ -117,7 +117,7 @@ The IP phone parks the call on **extension 103**.
 
 Group Call Park allows a user to park a call to a **Call Park group**, making the call available for retrieval by any member of that group.
 
-#### Prerequisites: Configure a Call Park Group
+#### Configure a Call Park Group
 
 1. Sign in to the PortSIP PBX Web Portal as the **Tenant Admin**.
 2. Navigate to **Advanced Services > Call Park**.

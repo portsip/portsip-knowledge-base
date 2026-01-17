@@ -1,88 +1,196 @@
 # Using Enhanced Call Park on Snom IP Phones
 
-This article explains how to use the PortSIP PBX’s uniquely enhanced call park feature with SNOM IP phones.
+This article explains how to use **PortSIP PBX’s enhanced call park feature** with **SNOM IP phones**, delivering a modern call parking experience with visual notifications and simplified call handling.
 
-## Supported Snom IP Phone Models
+***
 
-### Models
+### Supported SNOM IP Phone Models
 
-* **D1xx**
-* **D7xx**
-* **D8xx**
+#### Models
 
-### Firmware
+* **D1xx series**
+* **D7xx series**
+* **D8xx series**
 
-From version 10.1.204.0.
+#### Firmware Requirements
 
-## Supported PortSIP PBX Version
+* **Firmware version 10.1.204.0 or later**
 
-From version 22.2.
+***
 
-## Application Scenarios
+### Supported PortSIP PBX Version
 
-### **Enhanced Call Park**
+* **PortSIP PBX v22.2 or later**
 
-Enhanced Call Park is a feature that improves the call park experience on the phone. It provides the park and retrieves soft keys instead of the call park FACs. And it provides the capability of call park notification and any other enhanced features with PortSIP PBX.
+***
 
-### Call Park
+### Application Scenarios
 
-The Call Park Service allows users to suspend a call for an extended period of time and then retrieve that call from any extension. For instance, you need to move to another place for some reason but you are answering a call. You can park this call in your number and retrieve the call you reach the place you want to go.
+#### Enhanced Call Park
 
-### Group Call Park
+**Enhanced Call Park** improves the traditional call park experience by replacing manual Feature Access Code (FAC) dialing with **dedicated Park and Retrieve soft keys** on SNOM IP phones.
 
-Provides a hunting mechanism so that when parking a call, the service hunts for an available user in a configured call park group as a place to park the call instead of only trying the parking user. For instance, your call will be parked in the line of your colleague if you are in the same call park group, your colleague can retrieve the call and then transfer it to you or just inform you after he/she retrieves the call.
+When used with PortSIP PBX, Enhanced Call Park provides:
 
-### **Call Park Notification**
+* One-touch call parking and retrieval
+* Visual notifications for parked calls
+* Integration with PortSIP’s advanced call park capabilities
 
-The Call Park Notification enables visual alerts when a user receives a parked call. There will be a visual alert when receiving a parked call, the user just needs to press the button to retrieve that parked call.
+***
 
-### **Retrieve Park**
+#### Call Park
 
-The user dials the Call Park Retrieve feature access code with the extension number where the call to be retrieved is parked. For instance, you can retrieve the parked call by yourself or your colleague if the call was parked on his/her line then transfer the call or just inform you.
+The **Call Park** service allows users to temporarily suspend an active call and retrieve it later from the same extension or a different extension.
 
-### **Recall**
+**Typical use case:**\
+You are on a call and need to move to another location. You park the call and retrieve it once you reach your destination.
 
-The User can configure the recall settings such as recall object and recall timer. The server will recall the number that parked the call or the specified number if no one retrieves the call in the limited time. For instance, if you set the recall timer to 30s, the server will recall your number if no one retrieves the call in 30s.
+***
 
-## Configure Park with BLF
+#### Group Call Park
 
-First, when provisioning the SNOM phone, click the BLF tab and choose Visual Park, as shown in the screenshot below.
+**Group Call Park** introduces a hunting mechanism that parks calls against an **available member of a configured Call Park group**, rather than only the user who initiated the park.
+
+**Typical use case:**\
+If you and your colleagues belong to the same Call Park group, a parked call may be placed on a colleague’s extension. That colleague can retrieve the call, continue the conversation, or transfer it back to you.
+
+***
+
+#### Call Park Notification
+
+**Call Park Notification** provides a **visual alert** on the SNOM IP phone when a call is parked for a user.
+
+* The phone displays an on-screen notification
+* Keys or indicators highlight the parked call
+* The user can retrieve the call by pressing the corresponding button
+
+This eliminates the need to manually dial retrieval codes.
+
+***
+
+#### Retrieve Park
+
+A parked call can be retrieved by dialing the **Call Park Retrieve Feature Access Code**, followed by the extension number where the call is parked.
+
+**Typical use cases:**
+
+* Retrieve a call parked on your own extension
+* Retrieve a call parked on a colleague’s extension, then transfer the call or notify them
+
+> **Note:** When Enhanced Call Park is enabled, retrieval is typically performed using a **dedicated soft key** rather than dialing a FAC.
+
+***
+
+#### Recall
+
+The **Recall** feature ensures that parked calls are not left unanswered.
+
+* You can configure:
+  * The **recall destination** (the parking user or a specified number)
+  * The **recall timer**
+* If a parked call is not retrieved within the configured time, the PBX automatically recalls the call to the defined destination.
+
+**Example:**\
+If the recall timer is set to **30 seconds**, and no one retrieves the call within that time, the PBX recalls the call to the original parking user (or the configured recall destination).
+
+***
+
+### Configure Visual Park Using BLF
+
+To enable **Visual Call Park** on a SNOM IP phone, you must configure a **BLF key** during phone provisioning.
+
+#### Configure the BLF key
+
+1. During the SNOM phone provisioning process, open the **BLF** tab.
+2. From the BLF function list, select **Visual Park**, as shown in the screenshot below.
+3. Save the configuration and provision (or reprovision) the phone.
 
 <figure><img src="../../../.gitbook/assets/snow-park-blf.png" alt=""><figcaption></figcaption></figure>
 
-Once the phone is successfully provisioned, it will display likes below:
+#### Result after provisioning
+
+* Once the phone is successfully provisioned:
+  * The BLF key is displayed on the phone with the **Visual Park** label.
+  * The user can park and retrieve calls using this key without dialing Feature Access Codes (FACs).
+
+> **Note:**\
+> BLF configuration changes take effect only after the phone is provisioned or reprovisioned.
 
 <figure><img src="../../../.gitbook/assets/park-blf.jpg" alt=""><figcaption></figcaption></figure>
 
-## Parking Call
+***
 
-If James wants to park a call to his colleague whose extension is 103, he just needs to press the **Park** key.&#x20;
+### Parking a Call
+
+If **James** wants to park a call for his colleague whose extension number is **103**, he can do so using the **Park** key, without dialing any Feature Access Codes (FACs).
 
 <figure><img src="../../../.gitbook/assets/snow-direct-park.png" alt=""><figcaption></figcaption></figure>
 
-Now, James can enter the number 103, then press the **OK** key. The IP Phone will then park the call at extension 103. In this way, James does not need to remember the FAC for park operations.
+#### Steps
+
+1. While on an active call, James presses the **Park** key.
+2. When prompted, he enters the destination extension number (`103`).
+3. James presses **OK** to confirm.
+
+The IP phone parks the call on **extension 103**.
 
 <figure><img src="../../../.gitbook/assets/snow-direct-park-number.png" alt=""><figcaption></figcaption></figure>
 
-## Group Call Park
+***
 
-1. To configure a park group, sign in to the PBX web portal as the tenant administrator.
-2. Select the menu **Advanced Services > Call Park**.&#x20;
-3. Follow the guide to [configure a park group](./#adding-and-deleting-a-call-park-group). Assume that extensions 101, 102, 103, 104, and 105 are in the same park group.
+### Group Call Park
 
-James established a call with extension 106. James (extension number 101) wants to park that call to the park group, he needs to hit the **Call Park** key as the screenshot below.
+Group Call Park allows a user to park a call to a **Call Park group**, making the call available for retrieval by any member of that group.
+
+#### Configure a Call Park Group
+
+1. Sign in to the PortSIP PBX Web Portal as the **Tenant Admin**.
+2. Navigate to **Advanced Services > Call Park**.
+3. Follow the [configuration guide](./) to create a Call Park group.
+
+**Example configuration:**\
+Extensions **101**, **102**, **103**, **104**, and **105** are members of the same Call Park group.
+
+***
+
+#### Park a Call to the Group
+
+In this example:
+
+* **James** has extension **101**
+* James is on an active call with **extension 106**
+
+To park the call to the Call Park group:
+
+1. While on the active call, James presses the **Call Park** key on his IP phone (as shown in the screenshot below).
+2. The IP phone parks the call to the Call Park group automatically.
+
+#### Call behavior
+
+* The call is parked using the group hunting logic.
+* **All members of the Call Park group** receive a parked-call alert notification.
+* Any group member can retrieve the parked call using their device’s parked-call button or retrieval method.
+
+> **Result:**\
+> James does not need to remember or dial any Feature Access Codes (FACs). Group call parking is completed with a single key press.
 
 <figure><img src="../../../.gitbook/assets/snow-group-park.png" alt=""><figcaption></figcaption></figure>
 
-The IP phone will then park this call to the group, and all members of the group will receive the park alert notification. In this way, James does not need to remember the FAC for the group park operation.
+***
 
-## Retrieve Call
+### Retrieve a Parked Call
 
-Once an extension receives the notification indicates there is a call parked for him, the BLF key will light green, and the user can press that BLF key. Please see the screenshot below:
+When an extension receives a notification indicating that a call has been parked for that user, the **BLF key lights up in green**, signaling that a parked call is available.
 
 <figure><img src="../../../.gitbook/assets/snom-park-notification.jpg" alt=""><figcaption></figcaption></figure>
 
-The parked calls will be listed on the screen, you can simply press the Retrieve button to retrieve the parked call as the screenshot below.
+#### Retrieve the call
+
+1. The user presses the **green-lit BLF key** on the IP phone (as shown in the screenshot below).
+2. The phone displays a list of **parked calls** on the screen.
+3. The user selects the desired parked call and presses the **Retrieve** button.
+
+The call is immediately connected to the user.
 
 <figure><img src="../../../.gitbook/assets/snow-retrieve-call.jpg" alt=""><figcaption></figcaption></figure>
 

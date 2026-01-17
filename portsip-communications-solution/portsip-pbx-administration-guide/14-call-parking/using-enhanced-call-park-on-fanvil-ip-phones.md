@@ -134,7 +134,7 @@ The IP phone parks the call on **extension 105**.
 
 Group Call Park allows a user to park a call to a **Call Park group**, making the call available to any member of that group.
 
-#### Prerequisites: Configure a Call Park group
+#### Configure a Call Park group
 
 1. Sign in to the PortSIP PBX Web Portal as the **Tenant Admin**.
 2. Go to **Advanced Services > Call Park**.

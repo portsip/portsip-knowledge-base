@@ -1,68 +1,191 @@
 # Using Enhanced Call Park on Dinstar IP Phones
 
-This article explains how to use the PortSIP PBX’s uniquely enhanced call park feature with Dinstar IP phones.
+This article explains how to use **PortSIP PBX’s enhanced call park feature** with **Dinstar IP phones**, providing a simplified call parking experience with visual notifications and one-touch operations.
 
-## Supported Dinstar IP Phone Models
+***
 
-* Models: C60/C61/C62/C63/C64/C66&#x20;
-* ROM: From the firmware version **2.x.6.9.7** or **2.x.11.9.7**.
+### Supported Dinstar IP Phone Models
 
-## Supported PortSIP PBX Version
+* **Models:** C60, C61, C62, C63, C64, C66
+* **Minimum firmware versions:**
+  * `2.x.6.9.7`, or
+  * `2.x.11.9.7`
 
-From version 16.0.2.
+***
 
-## Application Scenarios
+### Supported PortSIP PBX Version
 
-### **Enhanced Call Park**
+* **PortSIP PBX v16.0.2 or later**
 
-Enhanced Call Park is a feature that improved the call park experience on the phone. It provides the park and retrieve soft key instead of the call park FACs. And it provides the capability of call park notification and any other Enhanced features with PortSIP PBX.
+***
 
-### Call Park
+### Application Scenarios
 
-The Call Park Service allows users to suspend a call for an extended period of time and then retrieve that call from any extension. For instance, you need to move to another place for some reason but you are answering a call. You can park this call in your number and retrieve the call you reach the place you want to go.
+#### Enhanced Call Park
 
-### Group Call Park
+**Enhanced Call Park** improves the traditional call park experience by replacing manual Feature Access Code (FAC) dialing with **dedicated Park and Retrieve soft keys** on Dinstar IP phones.
 
-Provides a hunting mechanism so that when parking a call, the service hunts for an available user in a configured call park group as a place to park the call instead of only trying the parking user. For instance, your call will be parked in the line of your colleague if you are in the same call park group, your colleague can retrieve the call and then transfer it to you or just inform you after he/she retrieves the call.
+When integrated with PortSIP PBX, Enhanced Call Park provides:
 
-### **Call Park Notification**
+* One-touch call parking and retrieval
+* Visual notifications for parked calls
+* Access to additional enhanced call park features supported by PortSIP PBX
 
-The Call Park Notification enables visual alert when a user received a parked call. There will be a visual alert when receiving a parked call, the user just needs to press the button to retrieve that parked call.
+***
 
-### **Retrieve Park**
+#### Call Park
 
-The user dials the Call Park Retrieve feature access code with the extension number where the call to be retrieved is parked. For instance, you can retrieve the parked call by yourself or your colleague if the call was parked on his/her line then transfer the call or just inform you.
+The **Call Park** service allows users to temporarily suspend an active call and retrieve it later from the same extension or from another extension.
 
-### **Recall**
+**Typical use case:**\
+You are on an active call and need to move to a different location. You park the call and retrieve it once you reach your destination.
 
-The User can configure the recall settings such as recall object and recall timer. The server will recall the number which parked the call or the specified number if no one retrieves the call in the limited time. For instance, if you set the recall timer to 30s, the server will recall your number if no one retrieves the call in 30s.
+***
 
-## Configuring Soft Key for Visual Park
+#### Group Call Park
 
-When provisioning an IP phone, a soft key can be configured for Visual Call Parking.&#x20;
+**Group Call Park** introduces a hunting mechanism that parks a call against an **available member of a configured Call Park group**, rather than only the user who initiated the park.
+
+**Typical use case:**\
+If you and your colleagues belong to the same Call Park group, a parked call may be placed on a colleague’s line. That colleague can retrieve the call, continue the conversation, or transfer it back to you.
+
+***
+
+#### Call Park Notification
+
+**Call Park Notification** provides a **visual alert** on the Dinstar IP phone when a call is parked for a user.
+
+* The phone displays an on-screen notification
+* Keys or indicators light up
+* The user retrieves the call by pressing the corresponding button
+
+This eliminates the need to manually dial retrieval codes.
+
+***
+
+#### Retrieve Park
+
+A parked call can be retrieved by dialing the **Call Park Retrieve Feature Access Code**, followed by the extension number where the call is parked.
+
+**Typical use cases:**
+
+* Retrieve a call parked on your own extension
+* Retrieve a call parked on a colleague’s extension, then transfer the call or notify them
+
+> **Note:** When Enhanced Call Park is enabled, retrieval is typically performed using a **dedicated soft key** instead of dialing a FAC.
+
+***
+
+#### Recall
+
+The **Recall** feature ensures that parked calls are not left unanswered indefinitely.
+
+* You can configure:
+  * The **recall destination** (the parking user or a specified number)
+  * The **recall timer**
+* If a parked call is not retrieved within the configured time, the PBX automatically recalls the call to the defined destination.
+
+**Example:**\
+If the recall timer is set to **30 seconds**, and no one retrieves the call within that time, the PBX recalls the call to the original parking user (or the configured recall destination).
+
+***
+
+### Configuring a Soft Key for Visual Park
+
+When provisioning an IP phone, you can assign a **soft key** to **Visual Call Park** to enable one-touch call parking and retrieval.
 
 <figure><img src="../../../.gitbook/assets/visual-park-1.png" alt=""><figcaption></figcaption></figure>
 
-After the IP phone has been successfully provisioned, the soft key will display the label "**Visual Park"**. As shown in the screenshot below, user James has extension number 103 and has configured the key with Visual Park.
+#### How it works
+
+* During the IP phone provisioning process, configure a soft key with the **Visual Park** function.
+* After the phone is successfully provisioned:
+  * The soft key displays the label **“Visual Park”**
+  * The user can park and retrieve calls without dialing any Feature Access Codes (FACs)
+
+#### Example
+
+In the example shown:
+
+* User **James** has extension **103**
+* A soft key is configured with the **Visual Park** function
+* The IP phone displays the **Visual Park** label, allowing James to manage parked calls directly from the phone interface
 
 <figure><img src="../../../.gitbook/assets/dinstar_park1.jpg" alt="" width="375"><figcaption></figcaption></figure>
 
-## Parking Call
+***
 
-If James wants to park a call to his colleague whose extension is 105, he just needs to press the configured Visual Park key and enter the number 105, then **press the configured Visual Park soft key again**, the IP Phone will then park the call at extension 105. In this way, James does not need to remember the FAC for park operation.
+### Parking a Call
 
-## Group Call Park
+If **James** wants to park a call for his colleague whose extension number is **105**, he can do so using the **Visual Park** key—without dialing any Feature Access Codes (FACs).
 
-1. To configure a park group, sign in to the PBX web portal as the tenant administrator.
-2. Select the menu **Advanced Services > Call Park**.&#x20;
-3. Follow the guide to [configure a park group](./#adding-and-deleting-a-call-park-group). Assume that extensions 101, 102, 103, 104, and 105 are in the same park group.
+#### Park a call to a specific extension
 
-If James (extension number 103) wants to park a call to this park group, he just needs to press the configured **Visual Park key twice**. The IP phone will then park this call to the group, and all members of the group will receive the park alert notification. In this way, James does not need to remember the FAC for the group park operation.
+1. While on an active call, James presses the configured **Visual Park** key.
+2. When prompted, he enters the destination extension number (`105`).
+3. James presses the **Visual Park** soft key again to confirm.
 
-## Retrieve Call
+The IP phone parks the call on **extension 105**.
 
-Alice established the call with Bob, and Bob park the call to James' extension number 103 by pressing the Visual Park key and entering James' extension number 103, then pressing the Visual Park key again. On James' IP Phone, the Visual Park softkey will flash with a red color to alert James that a call has parked on him.
+> **Result:**\
+> James does not need to remember or dial the call park FAC. The entire operation is completed using the Visual Park key.
+
+***
+
+### Group Call Park
+
+Group Call Park allows a user to park a call to a **Call Park group**, making the call available for retrieval by any member of the group.
+
+#### Prerequisites: Configure a Call Park Group
+
+1. Sign in to the PortSIP PBX Web Portal as the **Tenant Admin**.
+2. Navigate to **Advanced Services > Call Park**.
+3. Follow the [configuration guide](./) to create a Call Park group.
+
+**Example configuration:**\
+Extensions **101**, **102**, **103**, **104**, and **105** are members of the same Call Park group.
+
+***
+
+#### Park a call to the Call Park group
+
+If **James** (extension **103**) wants to park a call to the Call Park group:
+
+1. While on an active call, James presses the configured **Visual Park** key **twice**.
+2. The IP phone automatically parks the call to the Call Park group.
+
+#### Call behavior
+
+* The call is parked using the group hunting logic.
+* **All members of the Call Park group** receive a parked-call alert notification.
+* Any group member can retrieve the call using their device’s parked-call button or retrieval method.
+
+> **Result:**\
+> James does not need to remember or dial the FAC for Group Call Park. The Visual Park key provides a simple, one-touch experience.
+
+***
+
+### Retrieve a Parked Call
+
+In this example, **Alice** is on a call with **Bob**. Bob parks the call on **James’s extension (103)** using the **Visual Park** key.
+
+#### Visual notification
+
+* On James’s IP phone, the **Visual Park** soft key **flashes red**, indicating that a call has been parked on his extension.
+
+#### Retrieve the call
+
+1. James presses the **flashing Visual Park** soft key.
+2. The call is immediately connected to James.
+
+> **Result:**\
+> James retrieves the parked call with a single key press and does **not** need to remember or dial any Feature Access Codes (FACs).
 
 <figure><img src="../../../.gitbook/assets/dinstar_park2.jpg" alt="" width="375"><figcaption></figcaption></figure>
 
-James simply presses the configured visual park key to retrieve the call.  In this way, James does not need to remember the FAC for the retrieve operation.
+
+
+
+
+
+
