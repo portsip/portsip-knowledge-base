@@ -18,12 +18,6 @@ This article explains how to use **PortSIP PBX’s enhanced call park feature** 
 
 ***
 
-### Supported PortSIP PBX Version
-
-* **PortSIP PBX v22.2 or later**
-
-***
-
 ### Application Scenarios
 
 #### Enhanced Call Park
