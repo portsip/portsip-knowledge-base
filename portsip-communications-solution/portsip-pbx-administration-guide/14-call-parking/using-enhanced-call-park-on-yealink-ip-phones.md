@@ -1,6 +1,6 @@
 # Using Enhanced Call Park on Yealink IP Phones
 
-This article explains how to use **PortSIP PBX’s enhanced call park feature** with **Yealink IP phones**, providing a streamlined call parking experience with visual notifications and one-touch actions.
+This article explains how to use PortSIP PBX’s enhanced call park feature with Yealink IP phones, providing a streamlined call parking experience with visual notifications and one-touch actions.
 
 ***
 
@@ -198,6 +198,8 @@ In this example, **Alice** is on a call with **Bob**. Bob parks the call on **Ja
 > James retrieves the parked call with a single key press and does **not** need to remember or dial any Feature Access Codes (FACs).
 
 <figure><img src="../../../.gitbook/assets/yealink-vpark-2.jpg" alt=""><figcaption></figcaption></figure>
+
+
 
 
 

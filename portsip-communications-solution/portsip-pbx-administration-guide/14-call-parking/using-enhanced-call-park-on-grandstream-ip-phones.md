@@ -1,77 +1,180 @@
 # Using Enhanced Call Park on Grandstream IP Phones
 
-This article explains how to use the PortSIP PBX’s uniquely enhanced call park feature with Grandstream IP phones.
+This article explains how to use **PortSIP PBX’s enhanced call park feature** with **Grandstream IP phones**, providing a streamlined call parking experience with visual notifications and one-touch actions.
 
-## Supported Grandstream IP Phone Models
+***
 
-* **GRP 260x**
-  * Models: 2604, 2603, 2602, 2601.&#x20;
-  * ROM: From 1.0.5.68
-* **GRP 26XX**
-  * Models: 2610, 2611, 2612, 2613, 2614, 2615, 2616, 2624, 2634, 2636, 2650, 2670.&#x20;
-  * ROM: From 1.0.13.13
+### Supported Grandstream IP Phone Models
 
-## Supported PortSIP PBX Version
+#### GRP 260x Series
 
-From version 22.0.
+* **Models:** 2601, 2602, 2603, 2604
+* **Minimum firmware version:** 1.0.5.68
 
-## Application Scenarios
+#### GRP 26xx Series
 
-### **Enhanced Call Park**
+* **Models:** 2610, 2611, 2612, 2613, 2614, 2615, 2616, 2624, 2634, 2636, 2650, 2670
+* **Minimum firmware version:** 1.0.13.13
 
-Enhanced Call Park is a feature that improves the call park experience on the phone. It provides the park and retrieves soft keys instead of the call park FACs. And it provides the capability of call park notification and any other enhanced features with PortSIP PBX.
+***
 
-### Call Park
+### Supported PortSIP PBX Version
 
-The Call Park Service allows users to suspend a call for an extended period of time and then retrieve that call from any extension. For instance, you need to move to another place for some reason but you are answering a call. You can park this call in your number and retrieve the call you reach the place you want to go.
+* **PortSIP PBX v22.0 or later**
 
-### Group Call Park
+***
 
-Provides a hunting mechanism so that when parking a call, the service hunts for an available user in a configured call park group as a place to park the call instead of only trying the parking user. For instance, your call will be parked in the line of your colleague if you are in the same call park group, your colleague can retrieve the call and then transfer it to you or just inform you after he/she retrieves the call.
+### Application Scenarios
 
-### **Call Park Notification**
+#### Enhanced Call Park
 
-The Call Park Notification enables visual alerts when a user received a parked call. There will be a visual alert when receiving a parked call, the user just needs to press the button to retrieve that parked call.
+**Enhanced Call Park** improves the traditional call park experience by replacing manual Feature Access Code (FAC) dialing with **dedicated Park and Retrieve soft keys** on Grandstream IP phones.
 
-### **Retrieve Park**
+When integrated with PortSIP PBX, Enhanced Call Park provides:
 
-The user dials the Call Park Retrieve feature access code with the extension number where the call to be retrieved is parked. For instance, you can retrieve the parked call by yourself or your colleague if the call was parked on his/her line then transfer the call or just inform you.
+* One-touch call parking and retrieval
+* Visual notifications for parked calls
+* Seamless interaction with PortSIP’s advanced call park features
 
-### **Recall**
+***
 
-The User can configure the recall settings such as recall object and recall timer. The server will recall the number that parked the call or the specified number if no one retrieves the call in the limited time. For instance, if you set the recall timer to 30s, the server will recall your number if no one retrieves the call in 30s.
+#### Call Park
 
-## Parking Call
+The **Call Park** service allows users to temporarily place a call on hold and retrieve it later from the same extension or a different extension.
 
-If James wants to park a call to his colleague whose extension is 103, he just needs to press the **CallPark** key.&#x20;
+**Typical use case:**\
+You are on an active call and need to move to another location. You park the call and retrieve it once you reach your destination.
+
+***
+
+#### Group Call Park
+
+**Group Call Park** introduces a hunting mechanism that parks a call against an **available member of a configured Call Park group**, rather than only the user who initiated the park.
+
+**Typical use case:**\
+If you and your colleagues belong to the same Call Park group, a parked call may be placed on a colleague’s line. That colleague can retrieve the call, handle it directly, or transfer it back to you.
+
+***
+
+#### Call Park Notification
+
+**Call Park Notification** provides a **visual alert** on the IP phone when a call is parked for a user.
+
+* The phone displays an on-screen notification
+* Indicators or keys light up
+* The user can retrieve the call by pressing the corresponding button
+
+This eliminates the need to manually dial retrieval codes.
+
+***
+
+#### Retrieve Park
+
+A parked call can be retrieved by dialing the **Call Park Retrieve Feature Access Code**, followed by the extension number where the call is parked.
+
+**Typical use cases:**
+
+* Retrieve a call parked on your own extension
+* Retrieve a call parked on a colleague’s extension, then transfer the call or notify them
+
+> **Note:** When Enhanced Call Park is enabled, retrieval is typically performed using a **dedicated soft key** rather than dialing a FAC.
+
+***
+
+#### Recall
+
+The **Recall** feature ensures that parked calls are not left unanswered indefinitely.
+
+* You can configure:
+  * The **recall destination** (the parking user or a specified number)
+  * The **recall timer**
+* If a parked call is not retrieved within the configured time, the PBX automatically recalls the call to the defined destination.
+
+**Example:**\
+If the recall timer is set to **30 seconds** and no one retrieves the parked call within that time, the PBX recalls the call to the original parking user (or the configured recall destination).
+
+***
+
+### Parking a Call
+
+If **James** wants to park a call for his colleague whose extension number is **103**, he can do so using the **Call Park** key—without dialing any Feature Access Codes (FACs).
 
 <figure><img src="../../../.gitbook/assets/grandstream-park-2.png" alt=""><figcaption></figcaption></figure>
 
-Now James can enter the number 103, then press the **Park** key. The IP Phone will then park the call at extension 103. In this way, James does not need to remember the FAC for park operations.
+#### Steps
+
+1. While on an active call, James presses the **Call Park** key.
+2. When prompted, he enters the destination extension number (`103`).
+3. James presses the **Park** key to confirm.
+
+The IP phone parks the call on **extension 103**.
 
 <figure><img src="../../../.gitbook/assets/grandstream-park-1.png" alt=""><figcaption></figcaption></figure>
 
-## Group Call Park
+***
 
-1. To configure a park group, sign in to the PBX web portal as the tenant administrator.
-2. Select the menu **Advanced Services > Call Park**.&#x20;
-3. Follow the guide to [configure a park group](./#adding-and-deleting-a-call-park-group). Assume that extensions 1001, 1002, 1003, 1004, and 1005 are in the same park group.
+### Group Call Park
 
-James established a call with extension 1004, James (extension number 1003) wants to park that call to the park group, he needs to hit the **Callpark** key first as the below screenshot.
+Group Call Park allows a user to park a call to a **Call Park group**, making the call available for retrieval by any member of that group.
+
+#### Prerequisites: Configure a Call Park Group
+
+1. Sign in to the PortSIP PBX Web Portal as the **Tenant Admin**.
+2. Navigate to **Advanced Services > Call Park**.
+3. Follow the [configuration guide](./) to create a Call Park group.
+
+**Example configuration:**\
+Extensions **1001**, **1002**, **1003**, **1004**, and **1005** are members of the same Call Park group.
+
+***
+
+#### Park a Call to the Group
+
+In this example:
+
+* **James** has extension **1003**
+* James is on an active call with **extension 1004**
+
+To park the call to the Call Park group:
+
+1. While on the active call, James presses the **Call Park** key on his IP phone.
+2. As shown on the IP phone screen in the screenshot below, James then presses the **GPark** key.
+3. The IP phone parks the call to the Call Park group automatically.
 
 <figure><img src="../../../.gitbook/assets/grandstream-park-2.png" alt=""><figcaption></figcaption></figure>
 
-As shown on the IP Phone screen in the below screenshot, press the **GPark** key, the IP phone will then park this call to the group, and all members of the group will receive the park alert notification. In this way, James does not need to remember the FAC for the group park operation.
+#### Call behavior
+
+* The call is parked using the group hunting logic.
+* **All members of the Call Park group** receive a parked-call alert notification.
+* Any group member can retrieve the parked call using their device’s parked-call button or retrieval method.
+
+> **Result:**\
+> James does not need to remember or dial any Feature Access Codes (FACs). Group call parking is completed using on-screen keys, providing a faster and more user-friendly experience.
 
 <figure><img src="../../../.gitbook/assets/grandstream-park-3.png" alt=""><figcaption></figcaption></figure>
 
-## Retrieve Call
+***
 
-Alice established the call with Bob, and Bob parked the call at James' extension number 1003. On James' IP Phone, the IP Phone will display the Retrieve Label as shown below screenshot to alert James that a call has parked on him.
+### Retrieve a Parked Call
 
-James simply presses the "**Retrievepark"** soft key to retrieve the call. In this way, James does not need to remember the FAC for the retrieve operation.
+In this example, **Alice** is on a call with **Bob**. Bob parks the call on **James’s extension (1003)**.
+
+#### Visual notification
+
+* On James’s IP phone, a **Retrieve** label is displayed on the screen (as shown in the screenshot below), indicating that a call has been parked on his extension.
+
+#### Retrieve the call
+
+1. James presses the **RetrievePark** soft key on his IP phone.
+2. The call is immediately connected to James.
+
+> **Result:**\
+> James retrieves the parked call with a single key press and does **not** need to remember or dial any Feature Access Codes (FACs).
 
 <figure><img src="../../../.gitbook/assets/grandstream-park-4.png" alt=""><figcaption></figcaption></figure>
+
+
 
 
 
