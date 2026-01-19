@@ -1,63 +1,119 @@
 # User Manual for iOS
 
-## **FAQ**
+### FAQ
 
-### **Where can I download the PortSIP VoIP SDK for testing?**
+#### Where can I download the PortSIP VoIP SDK for testing?
 
-You can download the PortSIP VoIP SDK and sample projects from the [PortSIP website](https://www.portsip.com/portsip-voip-sdk/).
+You can download the PortSIP VoIP SDK along with sample projects directly from the [PortSIP website](https://www.portsip.com).
 
-### **How can I compile the sample project?**
+***
 
-1. Download the sample project from the PortSIP website.
-2. Extract the downloaded .zip file.
-3. Open the project in Xcode.
-4. Compile the sample project directly.
+#### How can I compile the sample project?
 
-### **What device models and iOS versions are required?**
+To compile the iOS sample project, follow these steps:
 
-Applications built with the PortSIP VoIP SDK for iOS can run on iPhone 5s or later, iPod touch 6 or later, and iPad 5 or later devices. These devices must be running iOS 11 or higher.
+1. Download the sample project from the [PortSIP website](https://www.portsip.com).
+2. Extract the downloaded `.zip` file.
+3. Open the project in **Xcode**.
+4. Compile and run the sample project directly.
 
-**We strongly recommend testing your applications on actual devices** to ensure functionality and performance. Testing solely on the simulator may not provide an accurate picture of real-world behavior.
+***
 
-### **How can I create a new project with the PortSIP VoIP SDK?**
+#### What device models and iOS versions are required?
 
-1. Download the sample project and extract it to a desired directory.
-2. In Xcode, create a new iOS project.
-3. Drag and drop the `PortSIPVoIPSDK.framework` from Finder to your project's Frameworks folder.
-4. Add required frameworks:
-   * Go to Build Phases -> Link Binary With Libraries.
-   * Add `libresolv.tbd`, `VideoToolbox.framework`, `Network.framework`, and `MetalKit.framework`.
-5. In Build Settings -> Other Linker Flags, add `-ObjC`.
-6.  Import the SDK in a header file:
+Applications built with the **PortSIP VoIP SDK for iOS** support the following devices:
 
-    ```objectivec
-    #import <PortSIPVoIPSDK/PortSIPVoIPSDK.h>
+* **iPhone:** iPhone 5s or later
+* **iPod touch:** 6th generation or later
+* **iPad:** iPad 5th generation or later
+
+**Minimum iOS version:** iOS 11 or higher
+
+> **Important:**\
+> We strongly recommend testing your applications on **real devices**.\
+> Testing only on the iOS simulator may not accurately reflect real-world behavior, especially for audio, video, and network-related features.
+
+***
+
+#### How can I create a new project with the PortSIP VoIP SDK?
+
+Follow these steps to integrate the SDK into a new iOS project:
+
+1. Download the **sample project** and extract it to a local directory.
+2. Open **Xcode** and create a new **iOS project**.
+3. Drag and drop `PortSIPVoIPSDK.framework` from Finder into your project’s **Frameworks** folder.
+
+***
+
+**Add Required System Frameworks**
+
+1. Go to **Build Phases** → **Link Binary With Libraries**
+2. Add the following dependencies:
+   * `libresolv.tbd`
+   * `VideoToolbox.framework`
+   * `Network.framework`
+   * `MetalKit.framework`
+
+***
+
+**Configure Linker Flags**
+
+* Go to **Build Settings** → **Other Linker Flags**
+*   Add:
+
+    ```
+    -ObjC
     ```
 
-    Use code with caution.
-7. Implement the `PortSIPEventDelegate` protocol in your class to handle callback events.
-8.  Initialize the SDK:
+***
 
-    Objective-C
+**Import the SDK Header**
 
-    ```objectivec
-    mPortSIPSDK = [[PortSIPSDK alloc] init];
-    mPortSIPSDK.delegate = self;
-    ```
+In your header file, add:
 
-    Use code with caution.
+```objc
+#import <PortSIPVoIPSDK/PortSIPVoIPSDK.h>
+```
 
-For more details and examples, refer to the sample project source code provided by PortSIP.
+***
 
-### **Is the SDK thread-safe?**
+**Implement Callback Handling**
 
-Yes, the PortSIP SDK is thread-safe. You can call API functions from multiple threads without worrying about synchronization issues. However, there are exceptions: the `onAudioRawCallback`, `onVideoRawCallback`, and `onRTPPacketCallback` callbacks should not be called directly from other threads.
+* Implement the `PortSIPEventDelegate` protocol in your class to handle SDK callback events.
 
-### **Does the SDK support VoIP push notifications?**
+***
 
-Yes, the PortSIP SDK supports VoIP push notifications. Refer to the [PortSIP Knowledge Base](../mobile-push-notifications/) for more details.
+**Initialize the SDK**
 
-## SDK Callback events
+```objc
+mPortSIPSDK = [[PortSIPSDK alloc] init];
+mPortSIPSDK.delegate = self;
+```
+
+***
+
+For complete usage examples and advanced integration details, please refer to the **sample project source code** provided by PortSIP.
+
+***
+
+#### Is the SDK thread-safe?
+
+**Yes**, the PortSIP SDK is thread-safe. You can call API functions from multiple threads without worrying about synchronization issues.
+
+**Important Exceptions:**
+
+* The following callbacks **should not** be called directly from other threads:
+  * `onAudioRawCallback`
+  * `onVideoRawCallback`
+  * `onRTPPacketCallback`
+
+***
+
+#### Does the SDK support VoIP push notifications?
+
+**Yes**, the PortSIP SDK supports VoIP push notifications. For more details on how to configure and use VoIP push notifications, please refer to the [PortSIP Knowledge Base](../mobile-push-notifications/).
+
+***
 
 ### Register events
 
@@ -2207,7 +2263,7 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 `[myVoIPSdk refer:sessionId referTo:@"sip:testuser12@sip.portsip.com"];`
 
-You can watch the video on YouTube at[ https://www.youtube.com/watch?v=\_2w9EGgr3FY.](https://www.youtube.com/watch?v=\_2w9EGgr3FY) It will demonstrate the transfer.
+You can watch the video on YouTube at[ https://www.youtube.com/watch?v=\_2w9EGgr3FY.](https://www.youtube.com/watch?v=_2w9EGgr3FY) It will demonstrate the transfer.
 
 ```objc
 - (int)attendedRefer:(long)sessionId

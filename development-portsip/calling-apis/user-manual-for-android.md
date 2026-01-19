@@ -1,44 +1,74 @@
 # User Manual for Android
 
-## **FAQ**
+### FAQ
 
-### **Where can I download the PortSIP VoIP SDK for testing?**
+#### Where can I download the PortSIP VoIP SDK for testing?
 
-You can download the PortSIP VoIP SDK and sample projects from the [PortSIP Website](https://www.portsip.com/download-portsip-voip-sdk/).
+You can download the **PortSIP VoIP SDK** along with sample projects from the [PortSIP Website](https://www.portsip.com).
 
-### **What Android API version is required?**
+***
 
-The PortSIP VoIP SDK requires Android API version 16 or later.
+#### What Android API version is required?
 
-### **How can I create a new project with the PortSIP VoIP SDK?**
+The PortSIP VoIP SDK requires **Android API level 16 (Android 4.1)** or later.
 
-1. **Download the Sample Project and SDK:** Obtain the sample project and trial SDK from the [PortSIP Website](https://www.portsip.com/download-portsip-voip-sdk/) and extract them to a desired directory.
-2. **Create a New Project:** In Android Studio, create a new Android Application project.
-3. **Add the SDK Libraries:** Copy all files from the `libs` directory of the extracted SDK to the `libs` directory of your new application.
-4.  **Import Necessary Classes:** Import the required classes from the SDK:
+***
+
+#### How can I create a new project with the PortSIP VoIP SDK?
+
+1. **Download the Sample Project and SDK**\
+   Download the sample project and trial SDK from the PortSIP Website, then extract them to a local directory.
+2. **Create a New Android Project**\
+   Open **Android Studio** and create a new **Android Application** project.
+3. **Add the SDK Libraries**\
+   Copy all files from the SDK’s `libs` directory into the `libs` directory of your new Android project.
+4.  **Import Required SDK Classes**\
+    Import the necessary PortSIP SDK classes into your project:
 
     ```java
     import com.portsip.OnPortSIPEvent;
     import com.portsip.PortSipSdk;
     ```
 
-### **How can I process callback events?**
+***
 
-1. **Implement the OnPortSIPEvent Interface:** Your class should implement the `OnPortSIPEvent` interface to handle callback events.
-2. **Override Callback Methods:** Override the necessary callback methods (e.g., `onRegistrationState`, `onCallState`) to handle specific events.
+#### How can I process callback events?
 
-### **How do I initialize the SDK?**
+1. **Implement the Callback Interface**\
+   Your class must implement the `OnPortSIPEvent` interface to receive SDK callback events.
+2. **Override Callback Methods**\
+   Override the required callback methods to handle events, such as:
+   * `onRegistrationState`
+   * `onCallState`
+   * Other call, media, and signaling-related callbacks as needed
 
-1. **Create an Instance:** Create an instance of the `PortSipSdk` class.
-2. **Set the Event Listener:** Set the event listener using `setOnPortSIPEvent`.
-3. **Create a Call Manager:** Create a call manager using `CreateCallManager`.
-4. **Initialize the SDK:** Call the `initialize` method with appropriate parameters.
+***
 
-### **Is the SDK thread-safe?**
+#### How do I initialize the SDK?
 
-Yes, the PortSIP SDK is thread-safe. You can call API functions from multiple threads without worrying about synchronization issues. However, there are exceptions: the `onAudioRawCallback`, `onVideoRawCallback`, and `onRTPPacketCallback` callbacks should not be called directly from other threads.
+1. **Create an SDK Instance**\
+   Create an instance of the `PortSipSdk` class.
+2. **Set the Event Listener**\
+   Register the callback handler using `setOnPortSIPEvent`.
+3. **Create the Call Manager**\
+   Initialize the call manager using `CreateCallManager`.
+4. **Initialize the SDK**\
+   Call the `initialize` method with the appropriate configuration parameters.
 
-## SDK Callback events
+***
+
+#### Is the SDK thread-safe?
+
+Yes, the PortSIP SDK is **thread-safe**. You can safely call API functions from multiple threads without additional synchronization.
+
+**Exceptions:**\
+The following callbacks **must not** be called directly from other threads:
+
+* `onAudioRawCallback`
+* `onVideoRawCallback`
+* `onRTPPacketCallback`
+
+***
 
 ### Register events
 
@@ -2153,7 +2183,7 @@ refer(sessionId, "sip:testuser12@sip.portsip.com");
 
 You can refer to the video on Youtube at:
 
-[https://www.youtube.com/watch?v=\_2w9EGgr3FY,](https://www.youtube.com/watch?v=\_2w9EGgr3FY) which will demonstrate how to complete the transfer.
+[https://www.youtube.com/watch?v=\_2w9EGgr3FY,](https://www.youtube.com/watch?v=_2w9EGgr3FY) which will demonstrate how to complete the transfer.
 
 ```java
 int attendedRefer (long  sessionId, long  replaceSessionId, String  referTo)
@@ -2174,7 +2204,7 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 Please read the sample project source code to get more details, or you can refer to the video on YouTube at:
 
-[https://www.youtube.com/watch?v=\_2w9EGgr3FY](https://www.youtube.com/watch?v=\_2w9EGgr3FY)
+[https://www.youtube.com/watch?v=\_2w9EGgr3FY](https://www.youtube.com/watch?v=_2w9EGgr3FY)
 
 Note: Please use Windows Media Player to play the AVI file, which demonstrates how to complete the transfer.
 
