@@ -1,83 +1,177 @@
 # 25 Meetings
 
-## Creating Meeting
+After the PortSIP PBX is successfully installed, you can create and manage meetings directly from the Web Portal.
 
-To create a meeting in PortSIP PBX, follow these steps after successful installation:
+#### Prerequisites
 
-* Select the menu **Advanced Services > Meeting** and click the **Add** button.
-* Enter a **suitable topic** for the meeting to remind participants of the topic to be discussed.
-* Enter a **meeting extension number** which will be dialed by the meeting participants to join the meeting. It should not be an existing extension number.
-* Select your **meeting mode** from the Meeting Mode drop-down list.
-* Enter the **PIN** for this meeting if necessary. If the PIN was set, the participants must enter the PIN when joining the conference.
-* Enter the **Admin PIN** for the meeting host. When a user enters this PIN, he/she will be identified as the meeting admin to host the meeting.
-* Enter the maximum number of **Maximum Participants** field that limits the count of participants who join this conference.
-* Specify the count of videos in **Grids for Video Meeting**. Value auto, 1, 2, 3, 4, 6, 9 supported.
-* Set the bandwidth used during a video meeting in “Bitrate(kbps)”. The value ranges from 128 kbps – 8196 Kbps. The higher the value is, the better the video experience would be.
-* Choose “Frame Rate” with the range 5 – 30. A higher value will guarantee a fluent video experience.
-* Choose the height and width of the video resolution. For 720P, the height is 720 and the width is 1280; For 1080P, the height is 1080 and the width is 1920.
-* Choose the **Prompt Language** for vocal notices which will be used when users enter the meeting.
-* Choose a **time zone** for meeting time; it uses the tenant’s time zone by default.
-* Pick up the **start time** and **end time** of your meeting.
+* You are signed in as a **Tenant Admin**
+* PortSIP PBX installation is complete
 
-When the PortSIP PBX is successfully installed, you can create a meeting by selecting the menu **Advanced Services** **> Meeting** and clicking the **Add** button, then enter the following information:
+***
 
-* Enter the suitable topic for the meeting to remind participants of the topic to be discussed.
-* Enter a meeting extension number which will be dialed by the meeting participants to join the meeting. It should not be an existing extension number.
-* Select your meeting mode from the **Meeting Mode** drop-down list.
-* Enter the PIN for this meeting if necessary. If the PIN was set, the participants must enter the PIN when joining the conference.
-* Enter the Admin PIN for the meeting host. When a user enters this PIN, he/she will be identified as the meeting admin to host the meeting.
-* Enter the maximum number of **Maximum Participants** field that limits the count of participants who join this conference.
-* Specify the count of videos in “**Grids for Video Meeting**”. Value auto, 1, 2, 3, 4, 6, 9 supported.
-* Set the bandwidth used during a video meeting in “**Bitrate(kbps)**”. The value ranges from 128 kbps – 8196 Kbps. The higher the value is, the better the video experience would be.
-* Choose “**Frame Rate**” with the range 5 – 30. A higher value will guarantee a fluent video experience.
-* Choose the height and width of the video resolution. For 720P, the height is 720 and the width is 1280; For 1080P the height is 1080 and the width is 1920.
-* Choose the Prompt Language for the vocal notices which will be used when the user enters the meeting.
-* Choose the time zone for the meeting time, it uses the time zone of the tenant by default.
-* Pick up the start time and end time of the meeting.
-* Dial from Landline/Mobile Phone: You can specify DID numbers here to indicate the caller can dial to join your meeting. For example, you can use the following format: **+44 1494 523 500 (UK); +33 2022 123 123 (FR)**. If you have the inbound rules for routing these numbers to this meeting, then the caller can dial from PSTN to join the meeting
-* To invite participants via email, enter their email addresses in the **Invitees** field. The PBX will send a meeting invitation to them, and they can join the meeting by clicking on the link. For more details, please refer to [Joining a Meeting with the Invite Link](joining-a-meeting-with-the-invite-link.md).
-* To record the meeting automatically, turn on the **Record Meeting Automatically** option
-* To play a welcome message when participants join the meeting, turn on the **Play Welcome Message When Joining Meeting** option.
-* Outbound caller ID: if the outbound caller ID for the meeting is set up when inviting an external number to join the meeting, PBX will place the call to that external number on a configured SIP trunk, and this outbound caller ID could be a replacement for certain SIP field. For more details, please refer to the topic [Configurable SIP Fields](../7-trunk-management/handle-outbound-calls-through-sip-trunk.md#h.rhrzb9hdve5w).
+#### Steps to Create a Meeting
 
-## Managing Meeting
+1. **Open the Meeting Configuration Page**
+   * Navigate to **Advanced Services > Meeting**.
+   * Click **Add**.
+2. **Basic Meeting Information**
+   * **Topic**\
+     Enter a meaningful meeting topic to help participants identify the purpose of the meeting.
+   *   **Meeting Extension**\
+       Enter a unique meeting extension number that participants will dial to join the meeting.
 
-### **Joining meeting**
+       > This extension must not conflict with any existing extension.
+   * **Meeting Mode**\
+     Select the desired meeting mode from the **Meeting Mode** drop-down list.
+3. **Security Settings**
+   * **Meeting PIN (Optional)**\
+     If set, participants must enter this PIN to join the meeting.
+   * **Admin PIN**\
+     Enter the PIN for the meeting host.\
+     Users who join using this PIN are identified as **meeting administrators** and can manage the meeting.
+4. **Participant and Video Settings**
+   * **Maximum Participants**\
+     Specify the maximum number of participants allowed to join the meeting.
+   * **Grids for Video Meeting**\
+     Specify how many video streams are displayed simultaneously.\
+     Supported values: `auto`, `1`, `2`, `3`, `4`, `6`, `9`
+   * **Bitrate (kbps)**\
+     Set the video bandwidth usage.
+     * Range: **128 kbps – 8196 kbps**
+     * Higher values provide better video quality.
+   * **Frame Rate**\
+     Select a frame rate between **5 and 30 fps**.\
+     Higher values provide smoother video playback.
+   * **Video Resolution**\
+     Configure video height and width:
+     * **720p**: 720 × 1280
+     * **1080p**: 1080 × 1920
+5. **Language and Time Settings**
+   * **Prompt Language**\
+     Select the language used for voice prompts when participants enter the meeting.
+   *   **Time Zone**\
+       Choose the meeting time zone.
 
-Once a meeting is created, inform the participants of the meeting number (“**Meeting Extension**”). Assuming that the user sets Meetg Extension to 8008, the user can join the conference by dialing 8008 from any SIP client.
+       > The tenant’s time zone is used by default.
+   * **Start Time / End Time**\
+     Set the scheduled start and end times for the meeting.
+6. **PSTN Dial-In (Optional)**
+   *   **Dial from Landline / Mobile Phone**\
+       Specify one or more DID numbers that participants can dial from the PSTN to join the meeting.\
+       Example formats:
 
-### **Inviting participants**
+       * `+44 1494 523 500` (UK)
+       * `+33 2022 123 123` (FR)
 
-You can also invite an extension or the mobile phone/landline phone user to join the meeting. Please see the below section for more details.
+       > Ensure inbound rules are configured to route these DID numbers to the meeting.
+7. **Inviting Participants**
+   *   **Invitees (Email)**\
+       Enter participant email addresses in the **Invitees** field.\
+       The PBX sends meeting invitations containing a join link.
 
-### **Managing the meeting**
+       > For more information, see [Joining a Meeting with the Invite Link](joining-a-meeting-with-the-invite-link.md).
+8. **Optional Features**
+   * **Record Meeting Automatically**\
+     Enable this option to start recording as soon as the meeting begins.
+   * **Play Welcome Message When Joining Meeting**\
+     Plays an audio welcome message when participants join.
+   *   **Outbound Caller ID**\
+       When inviting external participants, the PBX places outbound calls through a configured SIP trunk using this caller ID.\
+       This caller ID can replace specific SIP fields.
 
-Once a meeting is created, select the menu **Advanced Services > Meeting** to list available meetings. You can now choose a meeting and manage it.
+       > For details, see [Configurable SIP Fields](../7-trunk-management/handle-outbound-calls-through-sip-trunk.md#configurable-sip-fields).
+9. **Save the Meeting**
+   * Click **OK** or **Save** to create the meeting.
 
-* **Edit:** click the Edit button that allows you to change the meeting setting&#x73;**.**
-* **Manage**: click the **Manage** button to manage the meeting and participants, see next section.
-* **Delete**: End and delete the meeting.
+***
 
-### Managing the participants
+### Managing Meetings
 
-Check a meeting in the meeting list, and click the **Manage** button to manage the meeting participants.
+Once a meeting has been created, tenant administrators and meeting hosts can join, invite participants, and manage the meeting and its participants from the PortSIP PBX Web Portal.
+
+***
+
+### Joining a Meeting
+
+After a meeting is created, share the **Meeting Extension** with participants.
+
+* Participants can join the meeting by dialing the meeting extension from any SIP client.
+* Example:\
+  If the meeting extension is set to **8008**, participants can join the meeting by dialing **8008**.
+
+***
+
+### Inviting Participants
+
+In addition to dialing the meeting extension, participants can also be invited directly by the meeting host or administrator.
+
+* Extensions within the PBX can be invited directly.
+* External participants using mobile phones or landline phones can also be invited, provided:
+  * A SIP trunk is configured
+  * Appropriate outbound routing rules are in place
+
+See **Managing Meeting Participants** below for details.
+
+***
+
+### Managing Meetings
+
+To manage existing meetings:
+
+1. Navigate to **Advanced Services > Meeting**.
+2. The meeting list displays all available meetings.
+3. Select a meeting to perform one of the following actions:
+
+#### Available Actions
+
+* **Edit**\
+  Modify the meeting configuration, such as topic, PINs, participant limits, or video settings.
+* **Manage**\
+  Manage the meeting in real time, including participants and meeting controls.
+* **Delete**\
+  End and permanently delete the meeting.
+
+***
+
+### Managing Meeting Participants
+
+To manage participants in a meeting:
+
+1. Select a meeting from the meeting list.
+2. Click **Manage** to open the meeting control panel.
 
 <figure><img src="../../../.gitbook/assets/meeting_participants.png" alt=""><figcaption></figcaption></figure>
 
-*   Invite participant: Click the **Invite** button to select an extension from the extension list, or enter the extension number directly. PBX will start a call to that specified extension.
+#### Meeting-Level Controls
 
-    Once the call has been answered, the invited extension will be joined into the meeting automatically.
+* **Invite Participant**
+  * Click **Invite** to select an extension from the list or enter an extension number manually.
+  * The PBX places a call to the specified extension.
+  * Once answered, the participant is automatically joined to the meeting.
+  * Mobile or PSTN numbers can also be entered, provided outbound calling is properly configured.
+* **Lock**\
+  Locks the meeting to prevent additional participants from joining.
+* **Record**\
+  Start or stop meeting recording.
+* **Mute**\
+  Mute or unmute all participants in the meeting.
+* **Recording Files**\
+  View and download the meeting’s recording files.
+* **Refresh**\
+  Refresh the meeting status and participant information.
 
-    Mobile number or PSTN number could also be entered here to be invited into the meeting but must configure the appropriate trunk and outbound rules in advance.
-* **Lock**: Once the meeting is locked, other users cannot dial into the meeting.
-* **Record**: Start or stop the meeting recording
-* **Mute**: When the meeting has been muted, all participants can't hear from each other.
-* **Recording Files**: List recording files of the meeting. They could be downloaded.
-* **Refresh**: Refresh the meeting status and information.
+***
 
-For each participant of the meeting, under the **Action** column, there are some icons that allow you to manage the specified participant.
+### Managing Individual Participants
 
-* **Host:** Set that participant video as the main screen of the video meeting.
-* **Mute**: Click the microphone icon to mute/unmute the selected participant.
-* **Hang up**: Remove a participant from the meeting.
+For each participant listed in the meeting, the **Action** column provides controls to manage that participant:
+
+* **Host**\
+  Set the participant’s video as the main video displayed in the meeting.
+* **Mute / Unmute**\
+  Click the microphone icon to mute or unmute the selected participant.
+* **Hang Up**\
+  Remove the participant from the meeting
+
+
 

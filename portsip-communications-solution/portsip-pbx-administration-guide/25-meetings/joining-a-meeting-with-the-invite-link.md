@@ -1,48 +1,146 @@
 # Joining a Meeting with the Invite Link
 
-This article explains how to create a meeting in PortSIP PBX and send the meeting invitation to the invitees.
+### Creating a Meeting and Sending Invitations
 
-To join a PortSIP meeting, you may receive an invite link through email, message, or directly from the meeting host. The invite link is a web address that includes the meeting ID and can often include an embedded passcode, allowing participants to join more quickly. When you click the invite link, your web browser will display a dialog box to allow you to join the meeting.
+This article explains how to create a meeting in **PortSIP PBX** and send meeting invitations to participants.
 
-## Prerequisites
+Participants can join a PortSIP meeting using an **invite link**, which may be delivered via email, instant message, or directly by the meeting host. The invite link is a web URL that contains the meeting ID and may also include an embedded passcode. This allows participants to join the meeting quickly without manually entering credentials.
 
-* Ensure that PortSIP SBC is installed and configured for WebRTC. Please refer to this article: [Configuring SBC for WebRTC](../9-configuring-portsip-sbc/).
-* If you want to send the meeting invitation via email, ensure that the SMTP server is configured as described in this article: [Configuring Email Notifications](../configuring-email-notifications.md).
+When a participant clicks the invite link, their web browser opens a dialog prompting them to join the meeting.
 
-## Create Meeting
+***
 
-To create a meeting in PortSIP PBX and send the invitation to the invitees, follow these steps:
+### How Participants Join a Meeting
 
-1. Sign in as the tenant admin.
-2. Select **Advanced Services** > **Meeting**.
+* The invite link opens the meeting join page in a web browser.
+* The link may automatically include:
+  * Meeting ID
+  * Passcode (if configured)
+* Participants can join the meeting with minimal interaction, depending on browser and device permissions.
+
+***
+
+### Prerequisites
+
+Before creating meetings or sending invitations, ensure the following requirements are met:
+
+#### WebRTC Support
+
+* **PortSIP SBC** must be installed and properly configured to support **WebRTC**.
+* For detailed instructions, refer to: [Configuring SBC for WebRTC](../9-configuring-portsip-sbc/configuring-sbc-for-webrtc.md)
+
+#### Email Invitations (Optional)
+
+* To send meeting invitations via email, an **SMTP server** must be configured.
+* For configuration details, refer to: [Configuring Email Notifications](../configuring-email-notifications.md)
+
+***
+
+### Create a Meeting
+
+To create a meeting in **PortSIP PBX** and send invitations to participants, follow these steps:
+
+#### Steps
+
+1. **Sign in** to the PortSIP PBX Web Portal as a **Tenant Admin**.
+2. Navigate to **Advanced Services > Meeting**.
 3. Click **Add**.
-4. Enter the necessary information for the meeting.
+4. Enter the required meeting information (such as topic, meeting extension, PINs, time settings, and participant options).
+5. Click **OK** to create the meeting.
 
 <figure><img src="../../../.gitbook/assets/create_meeting.png" alt="" width="375"><figcaption></figcaption></figure>
 
-After clicking the OK button, a dialog box containing meeting details will appear, as shown in the screenshot below:
+***
+
+#### After the Meeting Is Created
+
+After you click **OK**, a dialog box appears displaying the meeting details (as shown in the screenshot below).
+
+From this dialog, you can:
+
+* **Copy the invitation**\
+  Click **Copy Invitation** to copy the meeting information (including join details) and share it manually via email, chat, or other messaging tools.
+* **Send email invitations automatically**\
+  If an **SMTP server** is configured, the PBX automatically sends meeting invitation emails to all invitees you specified when creating the meeting.
 
 <figure><img src="../../../.gitbook/assets/meeting_invitation.png" alt=""><figcaption></figcaption></figure>
 
-You can copy the meeting information by clicking the **Copy Invitation** button and send it directly to invitees. If the SMP server is configured, the PBX will automatically send a meeting invitation to invitees via email after you click the **OK** button.
+***
 
-## Joining the Meeting by Click the Link
+### Joining a Meeting by Clicking the Link
 
-To join the meeting, the invitee clicks the link in the invitation. The browser will automatically open the link and prompt you to choose your devices, enter your display name, select the correct speaker, microphone, and camera, and then click the **Join** button.
+To join a meeting using the invitation link, follow these steps:
+
+1. **Click the invitation link** provided in the email, message, or chat.
+2. Your **web browser** opens the meeting join page automatically.
+3. On the join page:
+   * Enter your **display name**.
+   * Select the appropriate **speaker**, **microphone**, and **camera**.
+4. Review your device settings to ensure audio and video are configured correctly.
+5. Click **Join** to enter the meeting.
 
 <figure><img src="../../../.gitbook/assets/link_meeting.png" alt="" width="375"><figcaption></figcaption></figure>
 
-## Join the Meeting by Dialing the Meeting Number
+***
 
-As shown in the example above, to join the meeting, invitees can dial the number **110200800** from an IP phone or PortSIP app (mobile, Windows, WebRTC client).
+### Join the Meeting by Dialing the Meeting Number
 
-## Join the Meeting by Dialing Number from PSTN
+Participants can join a meeting by dialing the **meeting number** directly from a SIP endpoint.
 
-To join the meeting, invitees can dial the number **+44 1494 523 500** from a mobile phone or landline in the UK, or dial the number **+33 2022 123 123** from a mobile phone or landline in France.
+#### Join from an IP Phone or PortSIP App
 
-To enable this feature, the PBX must configure the SIP Trunk and create inbound rules to route the DID numbers **44 1494 523 500** and **33 2022 123** **123** to the meeting number **110200800**. Once someone dials either of these numbers, the PBX will route the call to the meeting.
+As shown in the example above, invitees can dial the meeting number **110200800** from any of the following clients:
 
-Alternatively, you can create an inbound rule to route these numbers to a virtual receptionist. When someone dials either **44 1494 523 500** or **33 2022 123** **123**, they will hear voice prompts instructing them to press DTMF to enter the meeting number. Once the caller presses the **110200800**, the PBX will route this call to the meeting **110200800**.
+* IP phones
+* PortSIP mobile app
+* PortSIP Windows desktop app
+* PortSIP WebRTC client
+
+Once the number is dialed, the caller is connected directly to the meeting.
+
+***
+
+### Join the Meeting by Dialing from the PSTN
+
+Participants can also join the meeting from a **mobile phone or landline** using PSTN dial-in numbers.
+
+#### Example PSTN Dial-In Numbers
+
+* United Kingdom: **+44 1494 523 500**
+* France: **+33 2022 123 123**
+
+***
+
+#### PSTN Dial-In Configuration Requirements
+
+To enable PSTN access to a meeting:
+
+1. Configure a **SIP trunk** capable of handling inbound PSTN calls.
+2. Create **inbound rules** to route the DID numbers to the meeting number.
+
+**Direct Routing to the Meeting**
+
+* Route:
+  * `44 1494 523 500` → `110200800`
+  * `33 2022 123 123` → `110200800`
+* When a caller dials either PSTN number, the PBX routes the call directly into the meeting.
+
+***
+
+#### Alternative: PSTN Access via Virtual Receptionist
+
+As an alternative approach, you can route the PSTN numbers to a **Virtual Receptionist** instead of directly to the meeting.
+
+**Call Flow**
+
+1. Caller dials:
+   * `44 1494 523 500` or
+   * `33 2022 123 123`
+2. The Virtual Receptionist answers and plays voice prompts.
+3. The caller is instructed to enter the **meeting number** using DTMF.
+4. When the caller enters **110200800**, the PBX routes the call into the meeting.
+
+This approach allows multiple meetings to share the same PSTN dial-in numbers.
 
 
 
