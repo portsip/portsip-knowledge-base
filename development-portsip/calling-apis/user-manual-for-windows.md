@@ -1,77 +1,210 @@
 # User Manual for Windows
 
-## **FAQ**
+### FAQ
 
-### Where can I download the PortSIP VoIP SDK for testing?
+#### Where can I download the PortSIP VoIP SDK for testing?
 
-You can download the PortSIP VoIP SDK along with the sample project from the [PortSIP Website](https://www.portsip.com/download-portsip-voip-sdk/).
-
-### How can I compile the sample project?
-
-1. Download the sample project from the PortSIP Website.
-2. Uncompress the .zip file.
-3. Open the project with Visual Studio.
-4. Compile the sample project directly and run it to test.
-
-If the SDK connects to the PortSIP PBX, there are no limitations. The trial SDK works with any third-party PBX and SIP server, but it only allows for a 2-3 minute conversation.
-
-### **What are operating systems supported?**
-
-PortSIP VoIP SDK supports development on:
-
-* **Windows 10**&#x20;
-* **Windows 11**
-* **Windows Server 2016, 2019, and 2022**&#x20;
-
-### **What are development tools supported?**
-
-*   **Microsoft Visual Studio versions 2017, 2019, and 2023 are supported**.
-
-    Ensure you have the appropriate build tools installed for your desired languages: C#, VB.NET, and VC++.
-
-### How can I create a new project with PortSIP VoIP SDK?
-
-#### **C#/VB.NET:**
-
-1. Download and uncompress the sample project.
-2. Create a new “Windows Application” project in Visual Studio.
-3. Copy `portsip_sdk.dll` and `portsip_media.dll` from the sample project directory to your project’s output directories: `bin\release` and `bin\debug`.
-4. Copy the `PortSIP` folder from the sample project directory to your project folder and add it to the Solution.
-5. Implement the `SIPCallbackEvents` interface to process callback events.
-6. Right-click the project, choose **Properties**, click the **Build** tab, and check the **Allow unsafe code** checkbox.
-
-For more details, please refer to the sample project source code.
-
-#### VC++:
-
-1. Download and uncompress the sample project.
-2. Create a new “MFC Application” project.
-3. Copy `portsip_sdk.dll` and `portsip_media.dll` from the sample project directory to your project’s output directories.
-4. Copy the `include/PortSIPLib` folder to your project folder and add the `.hxx` files from the `PortSIPLib` folder to your project.
-5. Copy the `lib` folder to your project folder and link `portsip_sdk.lib` into your project.
-
-For more details, please refer to the sample project source code.
-
-### How can I test a P2P call (without a SIP server PBX)?
-
-1. Uncompress the SDK sample project ZIP file and compile the `P2PSample` project.
-2. Run the `P2PSample` on device A and device B. For example, IP address for A is `192.168.1.10`, and IP address for B is `192.168.1.11`.
-3. Enter a username and password on A (e.g., username: `111`, password: `aaa`). You can enter anything for the password as the SDK will ignore it. Do the same for B (e.g., username: `222`, password: `aaa`).
-4. Click the **Initialize** button on both A and B. If the default port `5060` is already in use by another application, the `P2PSample` will prompt “Initialize failure”. In this case, click the **Uninitialize** button, change the local port, and click the **Initialize** button again.
-5. The log box will display “Initialized.” if the SDK is successfully initialized.
-6. To make a call from A to B, enter `sip:222@192.168.1.11` and click the **Dial** button. To make a call from B to A, enter `sip:111@192.168.1.10`. If A used `5066` as the local port, for example, dial to `sip:111@192.168.1.10:5066`, and vice versa for B.
-
-### Is the SDK thread-safe?
-
-Yes, the SDK is thread-safe. You can call any of the API functions without worrying about multiple threads. Note: The SDK allows calling API functions in callback events directly, except for the `onAudioRawCallback`, `onVideoRawCallback`, and `onRTPPacketCallback` callbacks.
-
-### Does the SDK support native 64-bit?
-
-Yes, the SDK supports both 32-bit and 64-bit architectures.
+You can download the PortSIP VoIP SDK, along with sample projects, from the[ PortSIP website](https://www.portsip.com).
 
 ***
 
-## SDK API Functions
+#### How can I compile the sample project?
+
+To compile and run the sample project, follow these steps:
+
+1. Download the sample project from the [PortSIP website](https://www.portsip.com).
+2. Extract the downloaded `.zip` file.
+3. Open the project in **Microsoft Visual Studio**.
+4. Build the project and run it to begin testing.
+
+If the SDK is connected to a PortSIP PBX, there are no functional limitations.\
+When used with third-party PBXs or SIP servers, the trial SDK allows calls with a duration limited to approximately **2–3 minutes**.
+
+***
+
+#### Which operating systems are supported?
+
+The PortSIP VoIP SDK supports development on the following operating systems:
+
+* Windows 10
+* Windows 11
+* Windows Server 2016
+* Windows Server 2019
+* Windows Server 2022
+
+***
+
+#### Which development tools are supported?
+
+The following versions of **Microsoft Visual Studio** are supported:
+
+* Visual Studio 2017
+* Visual Studio 2019
+* Visual Studio 2023
+
+Ensure that the appropriate build tools are installed for the programming languages you plan to use:
+
+* C#
+* VB.NET
+* VC++
+
+***
+
+### How to Create a New Project with PortSIP VoIP SDK
+
+#### For C# / VB.NET
+
+1. **Download and Uncompress the Sample Project**
+   * Download the sample project from the **PortSIP website** and extract the contents.
+2. **Create a New Project**
+   * In **Visual Studio**, create a new **Windows Application** project.
+3. **Add Required DLL Files**
+   * Copy the following files from the sample project directory to your project’s output directories:
+     * `portsip_sdk.dll`
+     * `portsip_media.dll`
+     * Place these files in both the `bin\release` and `bin\debug` folders of your project.
+4. **Add the PortSIP Folder**
+   * Copy the **PortSIP** folder from the sample project directory to your project directory.
+   * Add the **PortSIP** folder to your solution.
+5. **Implement SIP Callback Interface**
+   * Implement the **SIPCallbackEvents** interface in your project to process callback events.
+6. **Allow Unsafe Code**
+   * Right-click the project, select **Properties**.
+   * Click on the **Build** tab.
+   * Check the **Allow unsafe code** checkbox.
+7. **Refer to the Sample Project**
+   * For more details, please refer to the **source code** in the sample project.
+
+***
+
+#### For VC++
+
+1. **Download and Uncompress the Sample Project**
+   * Download and extract the sample project files.
+2. **Create a New MFC Application**
+   * In **Visual Studio**, create a new **MFC Application** project.
+3. **Add Required DLL Files**
+   * Copy the following files from the sample project directory to your project’s output directories:
+     * `portsip_sdk.dll`
+     * `portsip_media.dll`
+4. **Include PortSIP Header Files**
+   * Copy the `include/PortSIPLib` folder from the sample project directory to your project folder.
+   * Add the `.hxx` files from the **PortSIPLib** folder to your project.
+5. **Add and Link the Libraries**
+   * Copy the **lib** folder to your project folder.
+   * Link `portsip_sdk.lib` into your project.
+6. **Refer to the Sample Project**
+   * For more details, please refer to the source code in the sample project.
+
+***
+
+### Running the P2PSample Project
+
+#### 1. Build the Sample Project
+
+1. Uncompress the **SDK sample project ZIP** file.
+2. Open the solution in **Visual Studio**.
+3. Compile the **P2PSample** project.
+
+***
+
+#### 2. Prepare Two Devices
+
+Run the **P2PSample** application on **two devices** in the same network.
+
+Example:
+
+* **Device A IP:** `192.168.1.10`
+* **Device B IP:** `192.168.1.11`
+
+***
+
+#### 3. Initialize the SDK
+
+**On Device A**
+
+* **Username:** `111`
+*   **Password:** `aaa`
+
+    > Note: The password can be any value; the SDK ignores it in P2P mode.
+
+**On Device B**
+
+* **Username:** `222`
+* **Password:** `aaa`
+
+**Initialize**
+
+1. Click the **Initialize** button on both Device A and Device B.
+2. If the default SIP port **5060** is already in use:
+   * The application will display **“Initialize failure”**.
+   * Click **Uninitialize**.
+   * Change the **local SIP port** (for example, to `5066`).
+   * Click **Initialize** again.
+
+If initialization is successful, the **log window** will display:
+
+```
+Initialized.
+```
+
+***
+
+#### 4. Make a P2P Call
+
+**Call from Device A to Device B**
+
+Enter the following SIP URI and click **Dial**:
+
+```
+sip:222@192.168.1.11
+```
+
+**Call from Device B to Device A**
+
+Enter:
+
+```
+sip:111@192.168.1.10
+```
+
+**If a Custom Local Port Is Used**
+
+If Device A uses port **5066**, dial:
+
+```
+sip:111@192.168.1.10:5066
+```
+
+Apply the same logic when dialing Device B if it uses a non-default port.
+
+***
+
+#### Is the PortSIP VoIP SDK thread-safe?
+
+**Yes.**\
+The SDK is fully **thread-safe**, and API functions can be called safely from multiple threads.
+
+**Important Note:**\
+API functions **must not** be called directly from the following callback events:
+
+* `onAudioRawCallback`
+* `onVideoRawCallback`
+* `onRTPPacketCallback`
+
+All other callbacks are safe for invoking SDK APIs.
+
+***
+
+#### Does the SDK support native 64-bit?
+
+**Yes.**\
+The PortSIP VoIP SDK supports both:
+
+* **32-bit**
+* **64-bit** architectures
+
+***
 
 ### **Initialize and register functions**
 
@@ -1513,7 +1646,7 @@ If the function succeeds, it will return value 0. If the function fails, it will
 
 refer(sessionId, "sip:testuser12@sip.portsip.com");&#x20;
 
-You can watch the video on YouTube at[ https://www.youtube.com/watch?v=\_2w9EGgr3FY.](https://www.youtube.com/watch?v=\_2w9EGgr3FY) It will demonstrate the transfer.
+You can watch the video on YouTube at[ https://www.youtube.com/watch?v=\_2w9EGgr3FY.](https://www.youtube.com/watch?v=_2w9EGgr3FY) It will demonstrate the transfer.
 
 ***
 
