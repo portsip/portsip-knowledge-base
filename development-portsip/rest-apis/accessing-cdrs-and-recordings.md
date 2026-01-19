@@ -1,19 +1,28 @@
 # Accessing CDRs and Recordings
 
-This guide outlines how to leverage the PortSIP REST API to interact with Call Detail Records (CDRs) and call recordings.
+This guide explains how to use the **PortSIP REST API** to access and manage **Call Detail Records (CDRs)** and **call recordings**.
 
-## **Authentication Requirement**
+***
 
-Before making any API requests, you must successfully [authenticate and obtain an access token](authentication.md). This token serves as a security credential to authorize your interactions with the PortSIP REST API.
+### Authentication Requirement
 
-## **Permission Restrictions**
+Before making any REST API requests, you must successfully authenticate and obtain an access token.\
+This token acts as a security credential and is required to authorize all interactions with the PortSIP REST API.
 
-Access to CDRs and recordings is restricted based on user roles within a tenant:
+***
 
-* **Admin or Queue Manager:** Users with these roles can access CDRs and recordings at the tenant level, meaning they can view data for all users within the tenant.
-* **Regular Users:** Regular users can only access their own CDRs and recordings, limiting their visibility to personal call data.
+### Permission Restrictions
 
-## Retrieve CDR <a href="#id-2-retrieve-cdr-list" id="id-2-retrieve-cdr-list"></a>
+Access to CDRs and call recordings is controlled by **user roles** within a tenant:
+
+* **Admin or Queue Manager**\
+  Users with these roles can access CDRs and call recordings at the **tenant level**, allowing them to view data for all users within the tenant.
+* **Regular Users**\
+  Regular users can only access **their own** CDRs and call recordings, restricting visibility to personal call data only.
+
+***
+
+### Retrieve CDR <a href="#id-2-retrieve-cdr-list" id="id-2-retrieve-cdr-list"></a>
 
 <mark style="color:green;">`POST`</mark> `/api/cdrs`
 
@@ -99,7 +108,7 @@ You can specify the query options as the URL parameters to filter the CDR, for m
 {% endtab %}
 {% endtabs %}
 
-## Retrieve Call Recordings <a href="#id-2-retrieve-cdr-list" id="id-2-retrieve-cdr-list"></a>
+### Retrieve Call Recordings <a href="#id-2-retrieve-cdr-list" id="id-2-retrieve-cdr-list"></a>
 
 <mark style="color:green;">`POST`</mark> `/api/recordings`
 
@@ -159,7 +168,7 @@ You can specify the query options as the URL parameters to filter the CDR, , for
 {% endtab %}
 {% endtabs %}
 
-## Retrieve Recordings Information <a href="#id-2-retrieve-cdr-list" id="id-2-retrieve-cdr-list"></a>
+### Retrieve Recordings Information <a href="#id-2-retrieve-cdr-list" id="id-2-retrieve-cdr-list"></a>
 
 <mark style="color:green;">`POST`</mark> `/api/recordings/{id}`
 
@@ -207,7 +216,7 @@ Specify the recording ID which you parsed from the response of [Retrieve Call Re
 {% endtab %}
 {% endtabs %}
 
-## Download a Recording File
+### Download a Recording File
 
 <mark style="color:green;">`GET`</mark> `/api/blobs/rZTOS5yB5elnATSbfxd_pgAQQKn01i8M`
 

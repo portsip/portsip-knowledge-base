@@ -10,7 +10,9 @@ For iOS 13.0 and later, if you fail to report a call to CallKit, the system will
 PortSIP PBX uses VoIP PUSH for VoIP calls and APNs PUSH for IM messages.
 {% endhint %}
 
-## **1. VoIP Notifications**
+***
+
+### **1. VoIP Notifications**
 
 The official documentation can be found here. Some of the advantages are:
 
@@ -21,11 +23,15 @@ The official documentation can be found here. Some of the advantages are:
 * Your app is automatically relaunched if it’s not running when a VoIP push is received.
 * Your app is given runtime to process a push, even if it is operating in the background.
 
-## **2. Prerequisite Settings**
+***
+
+### **2. Prerequisite Settings**
 
 Apple provides a framework called PushKit to support the VoIP push feature. However, additional settings need to be configured to get this working.
 
-## **3. Creating an App ID**
+***
+
+### **3. Creating an App ID**
 
 If you don’t have an app (and consequently an App ID), you need to create one. First, log in to your  [Apple developer account](https://developer.apple.com/account/) and access **Certificates, Identifiers & Profiles**:
 
@@ -48,7 +54,9 @@ Select **Push Notifications:**
 
 Although not shown in the screenshots above, I used `com.portsip.portsipvoipdemo` as the Bundle ID. This will be important in the next step.
 
-## **4. Generating a VoIP Push Certificate for VoIP Calls**
+***
+
+### **4. Generating a VoIP Push Certificate for VoIP Calls**
 
 Click on the **All** button in the Certificates section on the left-hand side, then click the **+** button:
 
@@ -72,7 +80,9 @@ Once the file is created, you’ll select it for upload on the next screen. If e
 
 After downloading the certificate, open it. This should launch the Keychain Access application. You should now see the certificate under the **My Certificates** section.
 
-## **5. Generating an APNs Push Certificate for Instant Messaging**
+***
+
+### **5. Generating an APNs Push Certificate for Instant Messaging**
 
 Click on the **All** button in the Certificates section of the left navigation tree, then click the **+** button:
 
@@ -98,7 +108,9 @@ After you download the certificate, open it. This should launch the Keychain Acc
 
 ![](../../.gitbook/assets/26-1400x639.png)
 
-## **6. Adding PUSH Support to the Project**
+***
+
+### **6. Adding PUSH Support to the Project**
 
 The push notification feature has been implemented in our latest SIPSample, which you can download from our latest SIPSample.
 
@@ -106,13 +118,17 @@ Take special care when setting the **Product Name** as the **Bundle Identifier**
 
 ![](../../.gitbook/assets/27.png)
 
-## **7. Setting the Appropriate Capabilities**
+***
+
+### **7. Setting the Appropriate Capabilities**
 
 On the project’s **Signing & Capabilities** tab, add **Push Notifications** and **Background Modes**. Ensure that the **Audio, AirPlay, and Picture in Picture**, **Voice over IP**, and **Remote notifications** options are enabled.
 
 ![](../../.gitbook/assets/30.png)
 
-## **8. Adding the Code**
+***
+
+### **8. Adding the Code**
 
 Open `AppDelegate.m` and add the `import PushKit` and `import UserNotifications` statements at the top of the file.
 
@@ -328,7 +344,9 @@ When the app receives a PUSH notification or is running, it should automatically
 
 ```
 
-## **9. Preparing the Certificate Files**
+***
+
+### **9. Preparing the Certificate Files**
 
 The VoIP certificate file that we’ve downloaded and added to the KeyChain needs to be converted to a different file format so that we can use it with the tools and services listed above.
 
@@ -384,7 +402,9 @@ $> cat voip_push_key_nopws.pem apns_push_key_nopws.pem > portpbx_push_key.pem
 
 This process will generate `portpbx_push.pem` and `portpbx_push_key.pem` files, which we will use in the PortSIP PBX.
 
-## **10. Houston**
+***
+
+### **10. Houston**
 
 Houston allows us to send PUSH notifications for testing from the terminal window. The VoIP certificate file that we’ve downloaded and added to the KeyChain needs to be converted to a different file format so that we can use it with the tools and services mentioned above.
 
@@ -404,7 +424,7 @@ Houston also installs an additional tool that helps us send notifications. To us
 
 Open Terminal and navigate to the folder where you have your certificate:
 
-### **Testing VoIP push notifications**
+#### **Testing VoIP push notifications**
 
 ```
 $> openssl pkcs12 -in voip_push.p12 -out voippush_onlyone.pem -nodes -clcerts
@@ -422,7 +442,7 @@ You should see the following output in your terminal:
 
 And, you should see a push message for `APP didReceiveIncomingPushWithPayload` on your phone if it was in the foreground.
 
-### **Testing APNs push notifications:**
+#### **Testing APNs push notifications:**
 
 ```
 $> openssl pkcs12 -in apns_push.p12 -out apnspush_onlyone.pem -nodes -clcerts
@@ -442,7 +462,9 @@ And, you should see a push message for `APP didReceiveNotificationResponse` in t
 
 If you prefer a UI, you can download **Knuff**, the debug application for Apple Push Notification Service (APNs).
 
-## **11. PortSIP PBX**
+***
+
+### **11. PortSIP PBX**
 
 Now, sign in to the PortSIP PBX Web portal. Navigate to **Advanced > Mobile Push** and click the **Add** button. You will see the following screen:
 

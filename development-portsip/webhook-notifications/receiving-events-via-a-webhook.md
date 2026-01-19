@@ -39,7 +39,7 @@ It means that when the first request fails the next retry is processed after 15 
 
 ***
 
-#### Automatic Disablement
+### Automatic Disablement
 
 {% hint style="danger" %}
 If your endpoint's error rate is too high over a long period of time, we MAY have to disable the delivery of event notifications. You will need to fix the problem before re-enabling the event notifications in the admin interface.

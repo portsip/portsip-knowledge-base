@@ -2,7 +2,7 @@
 
 In this article, we will provide examples in Python to demonstrate how the client application interacts with the PortSIP PBX IM service. For these examples, we assume the PBX server is hosted at `https://pbx.portsip.com:8887`.
 
-## Connecting IM Server
+### Connecting IM Server
 
 The client application needs to use WebSocket to connect to the URL `wss://pbx.portsip.com:8887/im`.
 
@@ -13,15 +13,17 @@ ssl_context.verify_mode = ssl.CERT_NONE
 websocket = await websockets.connect(uri, ssl = ssl_context)
 ```
 
-## Authentication
+***
+
+### Authentication
 
 Once the connection to the IM server is successfully established, the client must authenticate with the server in order to send and receive messages.
 
-### Obtain Access Token
+#### Obtain Access Token
 
 The IM service authenticates the client application using the PortSIP PBX access token. Please follow the instructions in the article "[PortSIP PBX REST API Authentication](../rest-apis/authentication.md)" to obtain the token.
 
-### Authenticate with IM Service using the Access Token
+#### Authenticate with IM Service using the Access Token
 
 Once the access token is obtained, you can authenticate with the IM service by sending the `login` command to the server.
 
@@ -70,7 +72,9 @@ If authentication is successful, the server will respond as shown below.
 * `["ctrl"]["params"]["user"]`: Represents the user ID.
 * `["ctrl"]["params"]["token"]`: Represents the user's authentication token, which can be used for verifying permissions in future HTTP file uploads to the IM server.
 
-## Subscribe to P2P Topic
+***
+
+### Subscribe to P2P Topic
 
 P2P topics represent a communication channel between two users, and these topics do not have an owner.
 
@@ -89,7 +93,9 @@ response = await websocket.recv()
 logger.debug("p2p_sub_message to : usr804252613548703744 response : " + response)
 ```
 
-## Sending Message to P2P Topic
+***
+
+### Sending Message to P2P Topic
 
 You can send a message to a P2P topic for another user using the following code snippet. The `["pub"]["id"]` is a UUID that the client application must generate. The server will return this ID in its response, allowing the client to track the message by this ID.
 
@@ -148,7 +154,9 @@ The user with the ID `804252613548777777` will receive the message as shown belo
 }
 ```
 
-## Get the Topics I Have Subscribed To
+***
+
+### Get the Topics I Have Subscribed To
 
 You can use the following code to retrieve the topics you have subscribed to.
 
@@ -204,7 +212,9 @@ The response will look like the following:
 }
 ```
 
-## Query Topic Details
+***
+
+### Query Topic Details
 
 You can use the following message `{get what="desc"}` to query the details of a topic. For example, group-related information can be found within the details of a group topic.
 
@@ -250,7 +260,9 @@ The response will look like the following:
 }
 ```
 
-## Obtain Historical Messages
+***
+
+### Obtain Historical Messages
 
 By using the `["meta"]["desc"]["seq"]` field returned from the `{get what="desc"}` message, you can retrieve the number of messages in the subscribed topic. You can then use `{get what="data"}` to fetch historical messages.
 
@@ -295,7 +307,9 @@ while IS_RUNNING:
 
 ```
 
-## Creating a Group Chat
+###
+
+### Creating a Group Chat
 
 You can use the following message to create a group chat.
 
@@ -341,7 +355,9 @@ The response will look like the following, the `["ctrl"]["topic"]` represents th
 
 ```
 
-## Join a Group
+***
+
+### Join a Group
 
 The user can send the following message to subscribe to the group topic, allowing them to join the group and send or receive messages within the group.
 
@@ -376,7 +392,9 @@ The response will look like the following:
 
 ```
 
-## Sending a Message to a Group
+***
+
+### Sending a Message to a Group
 
 You can use the following code to send a message to a group.
 
@@ -435,7 +453,9 @@ The following message will be sent to all users who have subscribed to the group
 }
 ```
 
-## Leave From a Group
+***
+
+### Leave From a Group
 
 Users can unsubscribe from a group by sending a `{leave}` message. This is the opposite function of the `{sub}` message. The `{leave}` message supports two options:
 
@@ -475,7 +495,9 @@ The response will look like the following if succeeds:
 }
 ```
 
-## Remove a Member from the Group
+***
+
+### Remove a Member from the Group
 
 The group administrator can remove a member from the group by sending the following message:
 
@@ -509,7 +531,9 @@ The response will look like the following if succeeds:
 }
 ```
 
-## Delete a Group
+***
+
+### Delete a Group
 
 The group administrator can delete a group by sending the following message:
 
@@ -542,7 +566,9 @@ The response will look like the following if succeeds:
 }
 ```
 
-## Update Group Information
+***
+
+### Update Group Information
 
 The group administrator can update the group information by sending the following message. The information structure is defined in the [**Public** **attributes**](protocol.md#public) of the group topic.
 
@@ -588,7 +614,9 @@ The response will look like the following if succeeds:
 }
 ```
 
-## Transfer Group Ownership
+***
+
+### Transfer Group Ownership
 
 The group administrator can transfer ownership of the group to another user by sending the following message. In this example, `usr804252613548777777` indicates that the group ownership will be transferred to the user with the ID `804252613548777777`.
 
@@ -655,7 +683,9 @@ The responses will look like the following if succeed:
 
 ```
 
-## Uploading a File to the IM Server
+***
+
+### Uploading a File to the IM Server
 
 To send a file in a chat, you first need to upload the file to the IM server using an HTTP POST form request to `https://pbx.portsip.com:8887/im/file`. An example code is provided below:
 
@@ -718,11 +748,13 @@ The response will look like the following if succeeds:
 
 `["ctrl"]["params"]["url"]` is the file download URL. The sender can send this URL in a message to the recipient. After receiving the message, the recipient can download the file and display it in the chat according to the file type.
 
-## Download the Chat File
+***
+
+### Download the Chat File
 
 Once a user receives a message containing the file URL, they can assemble the URL as shown below and download the file using an HTTP GET request.
 
-[https://pbx.portsip.com:8887/im/file/NDW4\_NYseeH20iuC3rih\_wAAwItyRIMM](https://pbx.portsip.com:8887/im/file/NDW4\_NYseeH20iuC3rih\_wAAwItyRIMM)
+[https://pbx.portsip.com:8887/im/file/NDW4\_NYseeH20iuC3rih\_wAAwItyRIMM](https://pbx.portsip.com:8887/im/file/NDW4_NYseeH20iuC3rih_wAAwItyRIMM)
 
 
 

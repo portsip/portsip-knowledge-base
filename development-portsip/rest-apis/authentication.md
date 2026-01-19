@@ -1,12 +1,12 @@
 # Authentication
 
-## Authorization Code Flow
+### Authorization Code Flow
 
 The authorization code is obtained by using an authorization server as an intermediary between the client and resource owner. When calling this method the link to a login page location is returned. Web applications are higly advised to use the Proof Key for Code Exchange scheme (PKCE) for security concerns.
 
 When the client exchanges authorization code to access or refresh tokens, then `Authorization` header is not required. When the client refreshes a token belonging to a session opened using the `refresh_token` grant type, then `Authorization` header is not required. In both cases the client should provide the `client_id` as a form data parameter to identify itself.
 
-## Authenticate with the System Administrator
+### Authenticate with the System Administrator
 
 <mark style="color:green;">`POST`</mark> `/api/login/oauth/token`
 
@@ -56,7 +56,7 @@ Authenticate the PBX system administrator with PortSIP PBX.
 {% endtab %}
 {% endtabs %}
 
-## Authenticate with a Tenant User
+### Authenticate with a Tenant User
 
 <mark style="color:green;">`POST`</mark> `/api/login/oauth/token`
 
@@ -107,7 +107,7 @@ Authenticate the tenant user with the PortSIP PBX.
 {% endtab %}
 {% endtabs %}
 
-## Refresh Access Token
+### Refresh Access Token
 
 <mark style="color:green;">`POST`</mark> `/api/login/oauth/token`
 
@@ -155,7 +155,7 @@ Refresh the `access_token` using the `refresh_token`.
 {% endtab %}
 {% endtabs %}
 
-## Revoke Access Token
+### Revoke Access Token
 
 <mark style="color:green;">`POST`</mark> `/api/login/oauth/revoke`
 

@@ -2,11 +2,11 @@
 
 This section describes the Call Control API portion of the PortSIP PBX [REST API ](rest-apis/)and provides guidance for developers building 3rd applications. You can use this API to write agent applications that provide a variety of call-related features, from agent state management and call control to supervisor monitoring and call recording.
 
-## Authentication
+### Authentication
 
 Before calling the REST API to make the call, and control the call, we need to authenticate with the PortSIP PBX to obtain the `access_token`. Please refer to the  [REST API](rest-apis/).
 
-## Initiate a call directly
+### Initiate a call directly
 
 <mark style="color:green;">`GET`</mark> `/sessions/directly`
 
@@ -49,7 +49,7 @@ Use the GET method to initiate a call directly. This API does not require an `ac
 {% endtab %}
 {% endtabs %}
 
-## Initiate a call
+### Initiate a call
 
 <mark style="color:green;">`POST`</mark> `/sessions`
 
@@ -101,7 +101,7 @@ Use this REST API to initiate a call, the `access_token` is required for this AP
 {% endtab %}
 {% endtabs %}
 
-## Hang up a call
+### Hang up a call
 
 <mark style="color:green;">`POST`</mark> `/sessions/{id}/destroy`
 
@@ -126,7 +126,7 @@ Use this API to hang up a call by specifying the session ID. Pass the call sessi
 {% endtab %}
 {% endtabs %}
 
-## Hold a call
+### Hold a call
 
 <mark style="color:green;">`POST`</mark> `/sessions/{id}/hold`
 
@@ -158,7 +158,7 @@ Use this API to hold a call by specifying the session ID. Pass the call session 
 {% endtab %}
 {% endtabs %}
 
-## Unhold a call
+### Unhold a call
 
 <mark style="color:green;">`POST`</mark> `/sessions/{id}/unhold`
 
@@ -190,7 +190,7 @@ Use this API to unhold a call by specifying the session ID. Pass the call sessio
 {% endtab %}
 {% endtabs %}
 
-## Blind transfer a call
+### Blind transfer a call
 
 <mark style="color:green;">`POST`</mark> `/sessions/{id}/refer`
 
@@ -255,7 +255,7 @@ Extension **1001** has multiple active calls. To blind transfer the call with se
 {% endtab %}
 {% endtabs %}
 
-## Attended transfer a call
+### Attended transfer a call
 
 <mark style="color:green;">`POST`</mark> `/sessions/{id}/attended_refer`
 
