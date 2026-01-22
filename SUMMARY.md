@@ -293,6 +293,7 @@
   * [Customize Your Caller ID](apps-guides/portsip-one-mobile-app/customize-your-caller-id.md)
   * [SMS and WhatsApp Messaging](apps-guides/portsip-one-mobile-app/sms-and-whatsapp-messaging.md)
   * [Change Your Call Queue Status](apps-guides/portsip-one-mobile-app/change-your-call-queue-status.md)
+* [PortSIP ONE for Microsoft Teams](apps-guides/portsip-one-for-microsoft-teams.md)
 * [PortSIP Softphone](apps-guides/portsip-softphone.md)
 
 ## DEVELOPING WITH PORTSIP <a href="#development-portsip" id="development-portsip"></a>
