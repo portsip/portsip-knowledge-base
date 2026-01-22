@@ -13,7 +13,7 @@ This guide describes how to install and use PortSIP ONE for Microsoft Teams.
 
 ### Installing the PortSIP ONE for Microsoft Teams Desktop APP (Windows)
 
-1. Download the PortSIP ONE for Microsoft Teams installer from the [PortSIP websit](https://www.portsip.com/download-portsip-one/)e.
+1. Download the PortSIP ONE for Microsoft Teams installer from the [PortSIP website](https://www.portsip.com/download-portsip-one/).
 2. Double-click the installer package and follow the on-screen instructions to complete the installation.
 3. SIPS Protocol Association (Required)
 
