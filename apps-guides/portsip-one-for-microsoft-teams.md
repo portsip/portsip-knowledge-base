@@ -1,10 +1,8 @@
 # PortSIP ONE for Microsoft Teams
 
-### Introduction
+**PortSIP ONE for Microsoft Teams** is a SIP softphone solution designed to work seamlessly with Microsoft Teams. It allows users to make and receive SIP-based voice and video calls directly from the Teams environment.
 
-**PortSIP ONE for Microsoft Teams** is a SIP softphone solution designed to work seamlessly with **Microsoft Teams**. It allows users to make and receive SIP-based voice and video calls directly from the Teams environment.
-
-PortSIP ONE for Microsoft Teams consists of **two components**:
+PortSIP ONE for Microsoft Teams consists of two components:
 
 1. **Desktop Client Application:** Installed on the user’s Windows computer, responsible for handling SIP calls.
 2. **Microsoft Teams App (Plugin):** Installed inside Microsoft Teams, providing integration and call control within the Teams interface.
@@ -47,7 +45,7 @@ On Windows 10, the SIPS protocol must be associated manually using the following
    * Click **Upload an app** , then choose one of the following options:
      * **Upload a custom app** (for personal or team use)
      * **Submit an app to your org** (requires Teams administrator permissions)
-   * Click **Upload an app** → **Upload a custom app**
+   * Click **Upload an app** **>** **Upload a custom app**
    * If you are an admin of the team, you can also click **Upload an app >** **Submit an app to your org**
    * Select the downloaded `portsip-one-for-teams-plug.zip` file from your local disk&#x20;
 3. Click **Install** and follow the prompts to complete the installation.
