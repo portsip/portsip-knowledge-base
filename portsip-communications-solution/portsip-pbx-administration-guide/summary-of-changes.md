@@ -4,6 +4,26 @@
 Please follow the [guide ](1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.3/upgrade-to-the-latest-version-within-v22.x-on-linux.md)to upgrading your PBX to the latest version.
 {% endhint %}
 
+### Changes for Release v22.3.23
+
+**Date:** January 22, 2026
+
+#### Improvements
+
+* Removed parameters from the **P-Asserted-Identity** header during re-INVITE processing after an attended transfer.\
+  This improves interoperability with certain IP phones where these parameters could cause call failures.
+
+#### Bug Fixes
+
+* Fixed an issue where removing an associated tenant from a trunk could prevent **all remaining tenants** on that trunk from making or receiving calls.
+* Corrected incorrect device information being displayed for **Gigaset IP phones**.
+* Fixed an issue in specific **SBC deployment scenarios** where the PBX sent an incorrect IP address in the SDP.
+* Fixed an issue where **call recording links and call summaries** were not stored correctly in CRM integrations.
+* Resolved multiple issues related to **Microsoft 365 user synchronization**.
+* Fixed an issue where subscribing to _**global\_ WSI events**_ as a system administrator could prevent successful subscription to tenant-level events.
+
+***
+
 ### Changes for Release v22.3.22
 
 **Date:** January 8, 2026
