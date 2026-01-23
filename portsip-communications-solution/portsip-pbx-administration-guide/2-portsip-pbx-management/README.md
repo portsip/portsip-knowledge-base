@@ -9,7 +9,7 @@
 
 ### Accessing the PBX Web Portal
 
-Once the **PortSIP PBX** installation is complete, open a web browser and navigate to: https://66.175.221.120:8887
+Once the **PortSIP PBX** installation is complete, open a web browser and navigate to: [https://66.175.221.120:8887](https://66.175.221.120:8887/)
 
 If your browser displays an SSL certificate warning, you may safely ignore it and continue. This warning occurs when a self-signed certificate is used.
 
