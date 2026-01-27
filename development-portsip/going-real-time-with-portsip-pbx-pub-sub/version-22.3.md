@@ -526,7 +526,7 @@ Once connected to the WSI server, use the following JSON message to authenticate
 {
 "command":"auth",
 "username":"admin",
-"password":"A1s2d3f4",
+"password":"A1s2d3f4"
 }
 ```
 
