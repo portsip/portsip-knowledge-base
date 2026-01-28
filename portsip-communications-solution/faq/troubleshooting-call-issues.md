@@ -200,7 +200,7 @@ Following these steps should help you diagnose and resolve the most common login
 
 ### 6. Collect the Logs
 
-PortSIP provides a powerful tool that allows you to troubleshoot calls visually. For more details, please refer to the article [Trace Server - A Better Way to Monitoring SIP Messages and QoS for PortSIP PBX.](../../pbx_v12/tutorials/debug-sip-message.md)&#x20;
+PortSIP provides a powerful tool that allows you to troubleshoot calls visually. For more details, please refer to the article [Trace Server - A Better Way to Monitor SIP Messages and QoS for PortSIP PBX.](../../pbx_v12/tutorials/debug-sip-message.md)&#x20;
 
 ***
 
@@ -239,8 +239,6 @@ You can specify any file name you prefer (other than `1000.pcap`), but make sure
 
 By default, the PortSIP PBX log files are stored in the following locations:
 
-**Linux**
-
 ```sh
 /var/lib/portsip/pbx/log/
 ```
@@ -249,18 +247,6 @@ If you configured a different path rather than the default path during the insta
 
 ```sh
 path/portsip/pbx/log/
-```
-
-**Windows**
-
-```
-C:\ProgramData\PortSIP\pbx\log\
-```
-
-If you configured a different path rather than the default path during the installation, the log files will be located in:
-
-```
-path\PortSIP\pbx\log\
 ```
 
 Typically, you should copy the **callmanager.log** file, compress it, and send it to the PortSIP team for further investigation.
