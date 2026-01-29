@@ -245,6 +245,7 @@
   * [System Service Extension Numbers](portsip-communications-solution/portsip-pbx-administration-guide/system-service-extension-numbers.md)
 * [FAQ](portsip-communications-solution/faq/README.md)
   * [Troubleshooting Call Issues](portsip-communications-solution/faq/troubleshooting-call-issues.md)
+  * [Troubleshooting Phone Auto-Provisioning Issues](portsip-communications-solution/faq/troubleshooting-phone-auto-provisioning-issues.md)
   * [Configuring the Automatic Vacuum Schedule](portsip-communications-solution/faq/configure-files-vacuum-time.md)
   * [Adjusting Open File Limits for PortSIP PBX](portsip-communications-solution/faq/adjusting-open-file-limits-for-portsip-pbx.md)
   * [How to Activate License key?](portsip-communications-solution/faq/how-to-activate-license-key.md)
