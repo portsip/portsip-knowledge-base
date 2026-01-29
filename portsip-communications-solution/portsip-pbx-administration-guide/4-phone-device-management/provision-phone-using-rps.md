@@ -30,6 +30,11 @@ If you do not want your provisioning information stored under PortSIP’s vendor
 
 ### Provisioning a Remote Phone Using RPS
 
+> ❗ **Important**: Before using RPS auto provisioning with PortSIP PBX, ensure that the target IP phone has not been previously provisioned by another PBX using RPS.If a phone is already registered in an RPS (Redirect and Provisioning Service) under a different PBX, auto provisioning with PortSIP PBX will fail.&#x20;
+>
+> 1. Verify that the phone is not associated with another PBX in the vendor’s RPS system.&#x20;
+> 2. If the phone was previously provisioned by another PBX using RPS, Delete or unbind the phone from the existing RPS configuration in the other PBX.
+
 To provision a remote IP phone via RPS, follow the steps below.
 
 #### Add a New Phone
