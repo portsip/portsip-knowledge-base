@@ -17,6 +17,9 @@ Before configuring Google Workspace integration, ensure the following requiremen
 * The PBX **System Administrator** or **Tenant Administrator** must have a **Google account**, either:
   * A Google Workspace account, or
   * A standard Google account
+* You must **enable 2FA** with your Google account. Please see the screenshot below
+
+<figure><img src="../../../.gitbook/assets/google_2fa_enabled.png" alt=""><figcaption></figcaption></figure>
 
 Once these prerequisites are satisfied, you can proceed with configuring Google Workspace OAuth access for email notifications.
 
