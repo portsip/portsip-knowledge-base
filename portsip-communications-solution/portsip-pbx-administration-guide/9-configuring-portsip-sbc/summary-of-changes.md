@@ -9,6 +9,18 @@ Please follow the [official upgrade guide](upgrade-to-the-latest-sbc-release.md)
 
 ***
 
+### Version 11.2.3
+
+**Release Date:** Feb 10, 2026
+
+**Changes**
+
+* WebRTC application updates with the latest enhancements
+* Fixed an issue where Call Flip could incorrectly route calls back to the originating WebRTC client
+* Fixed an issue related to updating the nginx.conf configuration during SBC updates
+
+***
+
 ### Version 11.2.1
 
 **Release Date:** December 19, 2025

@@ -22,5 +22,5 @@ Using the most recent version ensures access to modern features, improved perfor
 
 For detailed information about changes and updates in each version, refer to the following release notes:
 
-* v22.x Release Notes
-* v16.x Release Notes
+* [v22.x Release Notes](summary-of-changes/v22.x-release-notes.md)
+* [v16.x Release Notes](summary-of-changes/v16.x-release-notes.md)
