@@ -1,7 +1,5 @@
 # Summary of Changes
 
-### PortSIP PBX Version Overview
-
 PortSIP PBX is available in the following versions:
 
 * **v22.x – Current and Recommended Version**\
