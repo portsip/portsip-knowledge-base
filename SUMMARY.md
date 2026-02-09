@@ -7,7 +7,7 @@
 * [The Advantages of PortSIP PBX vs. Other PBXs](portsip-communications-solution/the-advantages-of-portsip-pbx-vs.-other-pbxs.md)
 * [PortSIP PBX Administration Guide](portsip-communications-solution/portsip-pbx-administration-guide/README.md)
   * [Overview](portsip-communications-solution/portsip-pbx-administration-guide/overview.md)
-  * [Summary of Changes](portsip-communications-solution/portsip-pbx-administration-guide/summary-of-changes/README.md)
+  * [Summary of Changes](portsip-communications-solution/portsip-pbx-administration-guide/summary-of-changes.md)
     * [v22.x Release Notes](portsip-communications-solution/portsip-pbx-administration-guide/summary-of-changes/v22.x-release-notes.md)
     * [v16.x Release Notes](portsip-communications-solution/portsip-pbx-administration-guide/summary-of-changes/v16.x-release-notes.md)
   * [Prepare the AWS Environment for Deployment](portsip-communications-solution/portsip-pbx-administration-guide/prepare-the-aws-environment-for-deployment.md)
