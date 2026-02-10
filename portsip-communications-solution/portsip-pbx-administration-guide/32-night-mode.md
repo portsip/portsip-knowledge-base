@@ -135,7 +135,35 @@ PortSIP PBX also allows you to use a **Feature Access Code (FAC, default is \*16
 
 To enable or disable Night Mode for a **specific service**, dial **\*16xxx**, where **xxx** is the number of the ring group, virtual receptionist, or queue.
 
+#### Assign Permissions to Control Night Mode via FAC
 
+To prevent accidental or unauthorized activation of **Night Mode**, PortSIP PBX restricts which roles can control Night Mode using **Feature Access Codes (FAC)**.
+
+By default, the following role-based permissions apply:
+
+* **Admin:** Can control tenant-level Night Mode via FAC.
+* **Queue Manager:** Can control service-level (queue) Night Mode via FAC.
+
+These defaults help ensure that Night Mode is only managed by authorized users.
+
+***
+
+#### Custom Role Configuration
+
+If you need to grant Night Mode control to additional users, you can create a **custom role** and assign the appropriate permissions.
+
+**Available Night Mode Permissions**
+
+When configuring a custom role, the following permissions are available:
+
+* **Night Mode > Company**
+  * Allows the user to control tenant-level Night Mode via FAC.
+* **Night Mode > Service Night Mode**
+  * Allows the user to control service-level (queue) Night Mode via FAC.
+
+Assign one or both permissions based on the level of Night Mode control the user requires.
+
+<figure><img src="../../.gitbook/assets/role_night_mode.png" alt=""><figcaption></figcaption></figure>
 
 
 
