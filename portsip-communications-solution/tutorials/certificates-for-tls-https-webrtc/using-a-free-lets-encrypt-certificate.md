@@ -26,6 +26,7 @@ Before using a Let’s Encrypt SSL certificate, ensure the following requirement
 
 * PortSIP PBX or SBC has been successfully installed
 * The server is running a supported Linux operating system
+* From PortSIP PBX v2. 4 and PortSIP SBC v11.2.3
 
 #### Network and DNS Requirements
 
@@ -99,7 +100,7 @@ cd /opt/portsip && /bin/sh certmanager_ctl.sh run -i portsip/certmanager:22
 
 ***
 
-### Step 3: Update PBX Settings to Apply the Certificate
+#### Step 3: Update PBX Settings to Apply the Certificate
 
 After Cert Manager is running, update the PBX configuration to trigger certificate issuance.
 
@@ -125,7 +126,7 @@ After Cert Manager is running, update the PBX configuration to trigger certifica
 
 ***
 
-### Step 4: Update SBC Settings to Apply the Certificate
+#### Step 4: Update SBC Settings to Apply the Certificate
 
 After Cert Manager is running, update the SBC configuration to trigger certificate issuance.
 
