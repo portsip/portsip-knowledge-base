@@ -1,10 +1,16 @@
 # Google Workspace Integration
 
-PortSIP PBX integrates with **Google Workspace** to provide the following capability:
+PortSIP PBX integrates with **Google Workspace** to provide the following capabilities:
 
+* **User synchronization** from Microsoft 365 or Microsoft Entra ID (including on-premises Active Directory synchronized to the cloud using Azure AD Connect)
+* **Single Sign-On (SSO)**, allowing users to sign in to the PortSIP PBX Web Portal and PortSIP ONE app using their Microsoft account
 * Send email notifications through Google Workspace using **OAuth authentication**
 
-Since Google has discontinued support for [“Less secure apps”](https://support.google.com/accounts/answer/6010255?hl=en) for sending emails from third-party applications, you must configure Google Workspace integration with PortSIP PBX to allow the PBX to use Gmail for sending email notifications securely.
+> **Notice**
+>
+> Since Google has discontinued support for [“Less secure apps”](https://support.google.com/accounts/answer/6010255?hl=en) for sending emails from third-party applications, you must configure Google Workspace integration with PortSIP PBX to allow the PBX to use Gmail for sending email notifications securely.
+
+***
 
 ### Prerequisites
 
@@ -14,14 +20,13 @@ Before configuring Google Workspace integration, ensure the following requiremen
 * A configured **web domain (FQDN)** for the PBX with a **valid SSL certificate**
   * The certificate must be issued by a trusted Certificate Authority (CA), such as DigiCert, Thawte, or GoDaddy
   * Refer to the [SSL certificate configuration guide for detailed instructions](../certificates-for-tls-https-webrtc/)
-* The PBX **System Administrator** or **Tenant Administrator** must have a **Google account**, either:
-  * A Google Workspace account, or
-  * A standard Google account
+* The PBX **System Administrator** or **Tenant Administrator** must have a **Google account**:
+  * A Google Workspace account
 * You must **enable 2FA** with your Google account. Please see the screenshot below
 
 <figure><img src="../../../.gitbook/assets/google_2fa_enabled.png" alt=""><figcaption></figcaption></figure>
 
-Once these prerequisites are satisfied, you can proceed with configuring Google Workspace OAuth access for email notifications.
+Once these prerequisites are satisfied, you can proceed with configuring Google Workspace integration.
 
 ***
 
@@ -40,7 +45,7 @@ Follow the steps below to configure Google integration for PortSIP PBX.
 4. Select an **Organization** and **Location** from the drop-down lists. If you are using a standard Gmail account, you can select **No organization**.
 5. Click **Create** to proceed.
 
-<figure><img src="../../../.gitbook/assets/google-integration-2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/google-workspace-1.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -54,6 +59,22 @@ To allow PortSIP PBX to send emails via Google Workspace, you must enable the Gm
 4. On the Gmail API page, click **ENABLE**.
 
 <figure><img src="../../../.gitbook/assets/google-integration-3.png" alt=""><figcaption></figcaption></figure>
+
+***
+
+#### Enabling Admin SDK API and Google People API
+
+To enable Google Workspace SSO and user sync, you need to enable the Admin SDK API and People API.
+
+1. In the Google Cloud Console, open **APIs & Services > Library**.
+2. In the search bar, enter **Admin SDK API**
+3. Click the **Admin SDK API** result.
+4. On the **Admin SDK API** page, click **ENABLE**.
+5. Repeat the steps for enabling the **People API**
+
+<figure><img src="../../../.gitbook/assets/google-workspace-2.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/google-workspace-3.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
