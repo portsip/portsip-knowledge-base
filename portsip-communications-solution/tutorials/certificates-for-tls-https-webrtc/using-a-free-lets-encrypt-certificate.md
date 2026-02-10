@@ -26,7 +26,7 @@ Before using a Let’s Encrypt SSL certificate, ensure the following requirement
 
 * PortSIP PBX or SBC has been successfully installed
 * The server is running a supported Linux operating system
-* From PortSIP PBX v2. 4 and PortSIP SBC v11.2.3
+* From PortSIP PBX v22. 4 and PortSIP SBC v11.2.3
 
 #### Network and DNS Requirements
 
