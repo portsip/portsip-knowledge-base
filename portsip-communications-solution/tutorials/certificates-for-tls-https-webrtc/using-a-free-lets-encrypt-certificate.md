@@ -1,12 +1,12 @@
 # Using a Free Let’s Encrypt Certificate
 
-Let’s Encrypt is a free, automated, and open Certificate Authority (CA) that enables HTTPS servers to obtain **browser-trusted TLS certificates automatically**, without manual intervention.
+Let’s Encrypt is a free, automated, and open Certificate Authority (CA) that enables HTTPS servers to obtain browser-trusted TLS certificates automatically, without manual intervention.
 
-With Let’s Encrypt, the certificate needs to be installed **only once**. After installation, it is **automatically renewed before expiration**, ensuring continuous trust and avoiding service interruptions.
+With Let’s Encrypt, the certificate needs to be installed only once. After installation, it is automatically renewed before expiration, ensuring continuous trust and avoiding service interruptions.
 
-PortSIP provides a **Cert Manager** service that integrates with Let’s Encrypt to **automatically obtain and renew certificates** for PortSIP PBX and PortSIP SBC. When a certificate is nearing expiration, the renewal process is handled automatically by Cert Manager. **No user action is required**, and services continue to operate securely during renewal.
+PortSIP provides a Cert Manager service that integrates with Let’s Encrypt to automatically obtain and renew certificates for PortSIP PBX and PortSIP SBC. When a certificate is nearing expiration, the renewal process is handled automatically by Cert Manager. No user action is required, and services continue to operate securely during renewal.
 
-* To use a **free Let’s Encrypt certificate**, follow this guide.
+* To use a free Let’s Encrypt certificate, follow this guide.
 * To use a certificate purchased from a trusted certificate provider, refer to [Preparing TLS Certificates](../../portsip-pbx-administration-guide/certificates-for-tls-https-webrtc/preparing-tls-certificates.md).
 
 ***
@@ -60,7 +60,7 @@ Failure to meet these requirements will prevent certificate issuance or renewal.
 
 ❗ **Important**
 
-Follow the steps in this section **in order**. Do not skip any steps unless explicitly instructed.
+Follow the steps in this section in order. Do not skip any steps unless explicitly instructed.
 
 ***
 
@@ -151,7 +151,7 @@ After Cert Manager is running, update the SBC configuration to trigger certifica
 
 ***
 
-After the **Let’s Encrypt** certificate is successfully configured, **Cert Manager automatically renews the certificate before it expires**.\
+After the Let’s Encrypt certificate is successfully configured, Cert Manager automatically renews the certificate before it expires.\
 The renewal process is fully automated and requires no manual intervention.
 
 Once configured, you do not need to manage or monitor the certificate lifecycle—Cert Manager ensures the certificate remains valid and trusted at all times.
