@@ -13,7 +13,7 @@ Follow the steps in this guide to install trusted certificates and eliminate bro
 
 This article includes the following topics.
 
-* [Using a Free Let's Encrypt SSL Certificates](../../tutorials/certificates-for-tls-https-webrtc/using-a-free-lets-encrypt-ssl-certificate.md)
+* [Using a Free Let's Encrypt SSL Certificates](../../tutorials/certificates-for-tls-https-webrtc/using-a-free-lets-encrypt-certificate.md)
 * [Preparing TLS Certificates](preparing-tls-certificates.md)
 * [Update Certificates](update-certificates.md)
 
