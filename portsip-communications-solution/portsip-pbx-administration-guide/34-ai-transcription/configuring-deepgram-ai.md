@@ -12,125 +12,54 @@ This guide follows VoIP, UCaaS, and CCaaS best practices and assumes basic famil
 
 ### Deepgram Services Used
 
-When configuring PortSIP PBX to leverage the Deepgram AI service, you need to obtain an API key from Deepgram.&#x20;
+When configuring PortSIP PBX to use the [Deepgram ](https://deepgram.com/)AI service, you must obtain a Deepgram API key. This key allows PortSIP PBX to securely access Deepgram’s transcription and language analytics services.
 
-Please follow the steps below to create the API key.
-
-1. Go to [Deepgram website](https://deepgram.com/), sign up an account and sign in
-2. Click the Console in the right-hand upper corner
-3.
-
-
+Follow the steps below to create an API key.
 
 ***
 
-### Prerequisites
+#### Creating a Deepgram API Key
 
-Before you begin, ensure the following requirements are met:
+1. Go to the [Deepgram ](https://deepgram.com/)website and sign up for an account, or sign in if you already have one.
+2. Click **Console** in the upper-right corner of the page. You will be redirected to the **Dashboard**.
+3. Click **Create API Key** and follow the on-screen instructions.
+4. Copy the generated **API key** and store it securely.
 
-* **System Administrator** privileges in PortSIP PBX
-* An active **AWS account**
-* An AWS **IAM user or role** with permissions for:
-  * `AmazonTranscribe`
-  * `AmazonComprehend` (required only if sentiment analysis is enabled)
-* AWS **Access Key ID** and **Secret Access Key**
-* A selected **AWS region** where AI services are available
-* _(Optional)_ An **Amazon S3 bucket** for storing transcription output, if required by your deployment model
+<figure><img src="../../../.gitbook/assets/deepgram-3.png" alt=""><figcaption></figcaption></figure>
+
+❗ **Important**
+
+* The API key is **displayed only once**.
+* After leaving the page, the key **cannot be viewed again**.
+* Store the key in a secure location. If it is lost or exposed, you must generate a new one.
 
 ***
 
 ### Configuring the PortSIP PBX AI Engine
 
-#### Step 1: Log in to PortSIP PBX
+After obtaining the Deepgram API key, configure PortSIP PBX to use Deepgram as the AI backend.
 
-1. Sign in to the **PortSIP PBX Web Portal** using a **System Administrator** account.
+#### Step 1: Log In to PortSIP PBX
 
-***
-
-#### Step 2: Select AWS as the AI Engine
-
-1. Navigate to menu: **Integrations > AI Engine**
-2. From the **AI Engine** drop-down list, select **AWS**.
-
-<figure><img src="../../../.gitbook/assets/AWS_AI_Engine.png" alt=""><figcaption></figcaption></figure>
-
-This configures PortSIP PBX to use **Amazon AI services** as the backend for transcription and language analytics.
+Sign in to the PortSIP PBX Web Portal using a **System Administrator** account.
 
 ***
 
-#### Step 3: Configure AWS Credentials and Settings
+#### Step 2: Select Deepgram as the AI Engine
 
-This section describes how to configure **AWS credentials**, **service parameters**, and **platform API request limits** used by PortSIP PBX for AI-powered speech processing features such as **Speech-to-Text (STT)** and **language analysis**.
+1. Navigate to: **Integrations > AI Engine**
+2. From the **AI Engine** drop-down list, select **Deepgram**.
+3. Paste the **Deepgram API key** you created earlier.
+4. (Optional) Select the desired **language**, **model**, and other available parameters.
+5. Click **OK** to save the configuration.
 
-***
-
-**AWS Service Configuration:**
-
-**Access Key**
-
-The **AWS Access Key ID** associated with an IAM user or role.
-
-This key identifies the AWS account and is required to authenticate requests sent from PortSIP PBX to AWS services.
-
-**Secret Key**
-
-The **AWS Secret Access Key** paired with the Access Key ID.
-
-This key is used to cryptographically sign API requests to AWS services and **must be kept strictly confidential**.
-
-> **Security Best Practice**\
-> Use a dedicated IAM user or role with **least-privilege permissions**, and never use root account credentials.
-
-**Region**
-
-The AWS region where your AI services are deployed.
-
-Examples include:\
-`us-east-1`, `us-west-2`, `eu-central-1`, `ap-northeast-1`
-
-> **Recommendation**\
-> Choose the region closest to your PBX deployment or primary user base to minimize latency and improve transcription performance.
-
-**Bucket Name**
-
-The name of the **Amazon S3 bucket** used to store audio files, intermediate processing data, or transcription results, depending on your deployment configuration.
-
-**Locale**
-
-Specifies the language and regional format used for **speech recognition** and **text processing**.
-
-Examples include: `en-US`, `en-GB`, `ja-JP`, `zh-CN`, `vi-VN`
-
-**Language Code**
-
-The **AWS-specific language code** used by speech and language services such as **Amazon Transcribe** and **Amazon Comprehend**.
-
-Examples include: `de`, `en`, `es`, `pt`.
-
-> **Note**\
-> This value must match one of the language codes supported by the corresponding AWS service.
+<figure><img src="../../../.gitbook/assets/deepgram-4.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
-**AWS Platform API Request Limits:**
+#### Step 3: Enable AI Transcription for a Tenant
 
-These settings control how many AI-related requests can be queued and processed concurrently. Proper configuration helps comply with **AWS service quotas** and protects overall system stability.
-
-**Max Speech-to-Text Queue Size**
-
-Defines the maximum number of **Speech-to-Text** requests that can be queued and waiting for processing when the AI service is busy or rate-limited.
-
-**Sentiment Analysis Requests**
-
-Specifies the maximum number of **Sentiment Analysis API requests** that PortSIP PBX is allowed to send to AWS.
-
-This limit applies when analyzing transcription text to determine **caller sentiment**, **call quality metrics**, or other AI-derived insights.
-
-***
-
-#### Step 4: Enable AI Transcription for a Tenant
-
-1. Log in to **PortSIP PBX** web portal as a **System Administrator**.
+1. Log in to the **PortSIP PBX** web portal as a **System Administrator**.
 2. Navigate to **Tenants**, select the target tenant, and click **Edit**.
 3. Select the **Features** tab and enable **AI Transcription**.
 4. Navigate to **General** and enable **Enable AI Transcription**.
