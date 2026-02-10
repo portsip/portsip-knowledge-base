@@ -133,7 +133,7 @@ Alternatively, you may sign in directly as the **Tenant Administrator** for the 
 
 #### Contact Lookup Order
 
-Define the priority for Zoho CRM searches:
+Define the priority for Odoo CRM searches:
 
 * Individuals
 * Leads
@@ -141,7 +141,7 @@ Define the priority for Zoho CRM searches:
 
 #### Query CRM
 
-Specify when PortSIP PBX should query Zoho CRM:
+Specify when PortSIP PBX should query Odoo CRM:
 
 * Always query
 * Only when not found in PBX CRM contacts
