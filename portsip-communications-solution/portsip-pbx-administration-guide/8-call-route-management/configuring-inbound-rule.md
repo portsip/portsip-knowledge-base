@@ -22,13 +22,14 @@ DID numbers are provided by your SIP trunk provider (or phone company). They are
 4.  Configure the rule matching fields:
 
     **Caller Number Mask (optional)**\
-    Use this field to match inbound calls by **caller ID (CID)**. You can:
+    Use this field to match inbound calls by **caller ID (CID)**. You can configure caller number masking in inbound rules with support for:
 
-    * Enter the **full number** to match a specific caller.
+    * Number ranges (e.g., `1000-2000`)
+    * Single numbers (e.g., `60000`)
     * Use `*` as a wildcard to match multiple callers. For example:
       * `0044**********` matches caller numbers in that format (example: UK format).
       * `004420********` matches caller numbers in that format (example: London area).
-    * Specify a **number range**, such as: `00442012345670-00442012345680`.
+    * Multiple conditions combined with semicolons (e.g., `0036***;1000-2000;6000`)
 
     **Wildcard rule:** If you use `*`, the number of `*` characters must match the number of digits you want to match. For example, use `***` to match a 3-digit pattern.
 
