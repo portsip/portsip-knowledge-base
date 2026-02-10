@@ -157,5 +157,49 @@ The renewal process is fully automated and requires no manual intervention.
 
 Once configured, you do not need to manage or monitor the certificate lifecycle—Cert Manager ensures the certificate remains valid and trusted at all times.
 
+***
+
+### Managing PortSIP Cert Manager Docker Instance
+
+After successfully installing the **PortSIP Cert Manager**, you can use the following commands to manage the PBX Docker instance.
+
+All commands must be executed from the following directory:
+
+```bash
+cd /opt/portsip
+```
+
+#### Show Cert Manager Status
+
+```bash
+sudo /bin/sh certmanager_ctl.sh status
+```
+
+#### Start the Cert Manager
+
+```bash
+sudo /bin/sh certmanager_ctl.sh start
+```
+
+#### Stop the Cert Manager
+
+```bash
+sudo /bin/sh certmanager_ctl.sh stop
+```
+
+#### Restart the Cert Manager
+
+```bash
+sudo /bin/sh certmanager_ctl.sh restart
+```
+
+#### Remove the Cert ManagerContainer
+
+> This command **does not delete data**.
+
+```bash
+sudo /bin/sh certmanager_ctl.sh rm
+```
+
 
 
