@@ -129,6 +129,7 @@
   * [32 Night Mode](portsip-communications-solution/portsip-pbx-administration-guide/32-night-mode.md)
   * [33 CRM Integrations](portsip-communications-solution/portsip-pbx-administration-guide/33-crm-integrations/README.md)
     * [ZOHO CRM](portsip-communications-solution/portsip-pbx-administration-guide/33-crm-integrations/zoho-crm.md)
+    * [Odoo CRM](portsip-communications-solution/portsip-pbx-administration-guide/33-crm-integrations/odoo-crm.md)
     * [HubSpot CRM](portsip-communications-solution/portsip-pbx-administration-guide/33-crm-integrations/hubspot-crm.md)
   * [34 AI Transcription](portsip-communications-solution/portsip-pbx-administration-guide/34-ai-transcription/README.md)
     * [Configuring AWS AI](portsip-communications-solution/portsip-pbx-administration-guide/34-ai-transcription/configuring-aws-ai.md)
