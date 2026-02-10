@@ -238,6 +238,7 @@
     * [Backup and Restore PortSIP PBX](portsip-communications-solution/portsip-pbx-administration-guide/backup-and-restore/backup-and-restore-portsip-pbx.md)
     * [Backup and Restore PortSIP SBC](portsip-communications-solution/portsip-pbx-administration-guide/backup-and-restore/backup-and-restore-portsip-sbc.md)
   * [Certificates for TLS/HTTPS/WebRTC](portsip-communications-solution/portsip-pbx-administration-guide/certificates-for-tls-https-webrtc/README.md)
+    * [Using a Free Let’s Encrypt SSL Certificate](portsip-communications-solution/tutorials/certificates-for-tls-https-webrtc/using-a-free-lets-encrypt-ssl-certificate.md)
     * [Preparing TLS Certificates](portsip-communications-solution/portsip-pbx-administration-guide/certificates-for-tls-https-webrtc/preparing-tls-certificates.md)
     * [Update Certificates](portsip-communications-solution/portsip-pbx-administration-guide/certificates-for-tls-https-webrtc/update-certificates.md)
   * [SIP Header Manipulation](portsip-communications-solution/portsip-pbx-administration-guide/sip-header-manipulation.md)

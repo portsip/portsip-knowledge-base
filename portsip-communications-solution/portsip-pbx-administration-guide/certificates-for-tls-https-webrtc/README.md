@@ -1,12 +1,19 @@
 # Certificates for TLS/HTTPS/WebRTC
 
-This guide is for solving the following SSL certificate issues with PortSIP PBX and PortSIP SBC.
+This guide explains how to resolve common SSL/TLS certificate issues when using PortSIP PBX and PortSIP SBC.
 
-* After you complete the PBX and SBC setting up, if you get the self-signed certificates warning in the browser when you access PBX Web Portal by HTTPS or access the WebRTC client, please follow up on the below steps to solve it.
-* If your current SSL certificates are expired, please follow up on the below steps to update them.
+After completing the PBX and SBC setup, you may encounter a self-signed certificate warning in the following scenarios:
+
+* When accessing the PBX Web Portal over HTTPS
+* When using the WebRTC client in a web browser
+
+In addition, this guide applies if your existing SSL/TLS certificates have expired and need to be renewed or replaced.
+
+Follow the steps in this guide to install trusted certificates and eliminate browser security warnings.
 
 This article includes the following topics.
 
+* [Using a Free Let's Encrypt SSL Certificates](../../tutorials/certificates-for-tls-https-webrtc/using-a-free-lets-encrypt-ssl-certificate.md)
 * [Preparing TLS Certificates](preparing-tls-certificates.md)
 * [Update Certificates](update-certificates.md)
 
