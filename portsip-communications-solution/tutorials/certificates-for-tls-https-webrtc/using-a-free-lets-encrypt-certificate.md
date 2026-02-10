@@ -83,13 +83,18 @@ The Cert Manager also provides the command parameters below to satisfy your spec
 
 **Command Parameters**
 
-* `-p` — Specifies the PBX/SBC data directory
+* `-p` — Specifies the Cert Manager data directory
 * `-i` — Specifies the Cert Manager Docker image version
 
-If your PBX/SBC data directory is **not** the default `/var/lib/portsip`, specify it explicitly:
+If you want to store the Cert Manager data not in the default path `/var/lib/portsip` but `/portsip/data` , specify it explicitly:
+
+```shellscript
+sudo mkdir -p /portsip/data
+```
 
 ```bash
-cd /opt/portsip && sudo /bin/sh certmanager_ctl.sh run -p /portsip/data -i portsip/certmanager:22
+cd /opt/portsip && sudo /bin/sh certmanager_ctl.sh run \
+-p /portsip/data -i portsip/certmanager:22
 ```
 
 To install a specific Cert Manager image version:

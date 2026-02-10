@@ -1,4 +1,4 @@
-# Configuring Deepgran AI
+# Configuring Deepgram AI
 
 ### Overview
 
@@ -10,21 +10,17 @@ This guide follows VoIP, UCaaS, and CCaaS best practices and assumes basic famil
 
 ***
 
-### AWS Services Used
+### Deepgram Services Used
 
-PortSIP PBX leverages the following **AWS AI services and IAM permissions** to enable transcription, analytics, and optional AI capabilities:
+When configuring PortSIP PBX to leverage the Deepgram AI service, you need to obtain an API key from Deepgram.&#x20;
 
-* **AmazonTranscribeFullAccess**\
-  Provides real-time or post-call **Speech-to-Text (STT)** transcription for calls and voicemails.
-* **ComprehendFullAccess**\
-  Provides **sentiment analysis** and **natural language processing (NLP)** for transcribed text.
-* **AmazonBedrockFullAccess**\
-  Enables access to **Amazon Bedrock foundation models** for advanced AI processing and future AI-powered features.
-* **AmazonS3FullAccess**\
-  Allows storage and retrieval of transcription artifacts and related data in **Amazon S3**, if required by the deployment.
+Please follow the steps below to create the API key.
 
-> **Best Practice**\
-> For production environments, it is recommended to replace full-access policies with **custom IAM policies** that grant only the minimum permissions required.
+1. Go to [Deepgram website](https://deepgram.com/), sign up an account and sign in
+2. Click the Console in the right-hand upper corner
+3.
+
+
 
 ***
 
