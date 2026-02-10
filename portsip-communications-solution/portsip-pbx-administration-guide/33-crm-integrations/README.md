@@ -6,7 +6,7 @@ CRM integration connects your Customer Relationship Management (CRM) system with
 
 This integration eliminates manual data entry, reduces errors, and empowers agents with immediate access to relevant customer context. As a result, agents can personalize conversations, resolve issues more efficiently, and deliver a consistently higher level of customer experience.
 
-For example, PortSIP PBX CRM integrations—such as [**HubSpot** ](https://www.hubspot.com)and [**Zoho CRM**](https://www.zoho.com)—allow agents to view key customer information, including previous interactions, purchase history, and support tickets, _before_ answering a call. This ensures faster call handling, better-informed conversations, and improved first-call resolution.
+For example, PortSIP PBX CRM integrationsm such as [HubSpot ](https://www.hubspot.com), [Zoho CRM](https://www.zoho.com), and [Odoo](https://www.zoho.com/), allow agents to view key customer information, including previous interactions, purchase history, and support tickets, _before_ answering a call. This ensures faster call handling, better-informed conversations, and improved first-call resolution.
 
 ***
 
@@ -38,9 +38,23 @@ This integration ensures that all voice communications are properly tracked with
 
 ***
 
+### Odoo Integration
+
+[**Odoo CRM**](https://www.odoo.com/) is a flexible, open-source customer relationship management platform that helps businesses manage leads, opportunities, and customer interactions within a fully integrated business suite.
+
+With the **PortSIP PBX – Odoo CRM integration**, contact center and call center agents can:
+
+* Place and receive calls directly from the Odoo CRM interface
+* Automatically log inbound and outbound calls to CRM records
+* Capture call activities and notes for a complete interaction history
+
+This integration ensures that all voice communications are seamlessly recorded in Odoo CRM, giving sales and support teams a unified, accurate, and up-to-date view of every customer interaction—improving productivity, visibility, and customer engagement.
+
+***
+
 ### Supported CRMs and Future Integrations
 
-Currently, PortSIP PBX supports integrations with Zoho CRM and HubSpot. Additional CRM integrations are planned for future releases as part of our ongoing commitment to expanding the PortSIP ecosystem.
+Currently, PortSIP PBX supports integrations with Zoho, HubSpot, and Odoo CRM. Additional CRM integrations are planned for future releases as part of our ongoing commitment to expanding the PortSIP ecosystem.
 
 If you require integration with a specific CRM platform, please contact the [PortSIP Support Team](mailto:support@portsip.com) with your request. We actively prioritize CRM integrations based on customer demand and real-world deployment needs.
 
