@@ -132,6 +132,7 @@
     * [HubSpot CRM](portsip-communications-solution/portsip-pbx-administration-guide/33-crm-integrations/hubspot-crm.md)
   * [34 AI Transcription](portsip-communications-solution/portsip-pbx-administration-guide/34-ai-transcription/README.md)
     * [Configuring AWS AI](portsip-communications-solution/portsip-pbx-administration-guide/34-ai-transcription/configuring-aws-ai.md)
+    * [Configuring Deepgran AI](portsip-communications-solution/portsip-pbx-administration-guide/34-ai-transcription/configuring-deepgran-ai.md)
     * [Configuring Azure AI](portsip-communications-solution/portsip-pbx-administration-guide/34-ai-transcription/configuring-azure-ai.md)
 * [Configuring SIP Trunks](portsip-communications-solution/configuring-sip-trunks/README.md)
   * [Twilio SIP Trunk](portsip-communications-solution/configuring-sip-trunks/twilio-sip-trunk/README.md)

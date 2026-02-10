@@ -76,10 +76,10 @@ Ensure that **PortSIP PBX or PortSIP SBC** is already installed and running on t
 For most deployment scenarios, run the following command to create and start the PortSIP Cert Manager Docker container:
 
 ```bash
-cd /opt/portsip && /bin/sh certmanager_ctl.sh run
+cd /opt/portsip && /bin/sh certmanager_ctl.sh run -i portsip/certmanager:22
 ```
 
-The Cert Manager also provide the command parameters below to satisfy your special requirements.
+The Cert Manager also provides the command parameters below to satisfy your specific requirements.
 
 **Command Parameters**
 
@@ -89,7 +89,7 @@ The Cert Manager also provide the command parameters below to satisfy your speci
 If your PBX/SBC data directory is **not** the default `/var/lib/portsip`, specify it explicitly:
 
 ```bash
-cd /opt/portsip && /bin/sh certmanager_ctl.sh run -p /portsip/data
+cd /opt/portsip && /bin/sh certmanager_ctl.sh run -p /portsip/data -i portsip/certmanager:22
 ```
 
 To install a specific Cert Manager image version:
