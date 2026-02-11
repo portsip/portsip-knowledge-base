@@ -189,17 +189,16 @@ After creating the OAuth client in Google Cloud, configure the integration in Po
 1. Sign in to the PortSIP PBX Web Portal.
 2. Navigate to **Integrations > Google Workspace**.
 3. Paste the **Client ID** and **Client Secret** you copied earlier into the corresponding fields.
-4. Click **OK** to save the settings.
 
 <figure><img src="../../../.gitbook/assets/google-workspace-16.png" alt=""><figcaption></figcaption></figure>
 
-2. After saving, click the **Complete the authorization** hyperlink. You will be redirected to Google to complete the OAuth authorization process.
+4. Click the **Complete the authorization** hyperlink. You will be redirected to Google to complete the OAuth authorization process.
 
 <figure><img src="../../../.gitbook/assets/google-workspace-17.png" alt=""><figcaption></figcaption></figure>
 
-3.  Once the authorization process is completed successfully, the **Google Workspace integration** is fully configured.
+5. Once the authorization process is completed successfully, the **Google Workspace integration** is fully configured.
 
-    You can now use OAuth authentication to send email notifications from **PortSIP PBX** through the **Gmail service**.
+You can now use OAuth authentication to send email notifications from **PortSIP PBX** through the **Gmail service**.
 
 <figure><img src="../../../.gitbook/assets/google-workspace-18.png" alt=""><figcaption></figcaption></figure>
 
