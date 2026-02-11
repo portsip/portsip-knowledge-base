@@ -156,35 +156,73 @@ If you plan to use the Microsoft 365 mail server to send email notifications, yo
 
 ***
 
-### Configuring User Synchronization
+### Configuring SSO
 
-Configure user synchronization from Microsoft 365 to PortSIP PBX as follows:
-
-* **Extension Number Assignment**\
-  Specify the extension number range for Microsoft 365 users when synced. You can define a starting extension number; otherwise, the system will automatically assign the first available extension.
-* **Synchronization Direction and Schedule**\
-  User synchronization is one-way, from **Microsoft 365 to PortSIP PBX**.\
-  Synchronization runs automatically at midnight (**00:00**) or at the custom time you configured.\
-  If a user is not deleted from Microsoft 365, they will be re-synchronized and reappear in PortSIP PBX during the next scheduled sync.
-* **User Photo Synchronization**\
-  You can synchronize Microsoft 365 user profile photos to PortSIP PBX. These photos will be displayed as profile pictures in the PortSIP apps and the WebRTC client.
-
-<figure><img src="../../../.gitbook/assets/portsip_ms365_5.png" alt=""><figcaption></figcaption></figure>
+To enable **Single Sign-On (SSO)**, you must configure the **Microsoft 365 integration at the tenant level**.
 
 ***
 
-### Configuring SSO
+#### Configure User Synchronization
 
-After you configured the User Synchronization, you are ready to configure the SSO now.
+To synchronize users from Microsoft 365 to PortSIP PBX:
 
-1. Navigate to the menu Integrations > Microsoft 365, click the SIGN IN tab
-2. Turn on the Enable option, choose how do you want the users to use the SSO
+1. Sign in to the **PortSIP PBX Web Portal**.
+2. Navigate to **Integrations > Microsoft 365**.
+3. Click the **User Sync** tab.
 
-After Microsoft 365 integration is completed successfully, a **Microsoft** icon will appear on the login pages of both the **PortSIP PBX Web Portal** and **PortSIP ONE app**. This indicates that Single Sign-On (SSO) has been enabled.
+**Sync Mode**
 
-Users can click the Microsoft icon to sign in to the PortSIP PBX Web Portal and the WebRTC client using their Microsoft 365 credentials.
+Select a **Sync Mode**:
 
-<figure><img src="../../../.gitbook/assets/portsip_ms365_sso.png" alt=""><figcaption></figcaption></figure>
+* **Manual** – Administrators manually trigger synchronization.
+* **Automatic** – The system synchronizes users automatically.
+
+**Important:** After selecting the sync mode, it cannot be changed later. Choose carefully.
+
+***
+
+#### Extension Number Assignment
+
+Specify how extension numbers will be assigned to synchronized users:
+
+* You may define a **starting extension number range**.
+* If no range is specified, the system automatically assigns the first available extension numbers.
+
+***
+
+#### User Photo Synchronization
+
+You can enable synchronization of Microsoft 365 **profile photos**.
+
+When enabled, user photos will be displayed as profile pictures in:
+
+* PortSIP desktop and mobile apps
+* The WebRTC client
+
+<figure><img src="../../../.gitbook/assets/ms365-integrations-1.png" alt=""><figcaption></figcaption></figure>
+
+***
+
+#### Enable SSO
+
+After configuring User Synchronization, you can enable Single Sign-On (SSO).
+
+1. Sign in to the PortSIP PBX Web Portal.
+2. Navigate to **Integrations > Microsoft 365**.
+3. Click the **Sign In** tab.
+4. Turn on **Enable**.
+5. Select how users will use SSO according to your requirements.
+
+After Microsoft 365 integration is successfully completed, a **Microsoft icon** will appear on the login pages of:
+
+* The **PortSIP PBX Web Portal**
+* The **PortSIP ONE app**
+
+This indicates that SSO is enabled.
+
+Users can click the **Microsoft icon** to sign in using their Microsoft 365 credentials.
+
+<figure><img src="../../../.gitbook/assets/ms365-integrations-2.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -200,8 +238,6 @@ You can synchronize Microsoft 365 contacts with PortSIP PBX as follows:
 All contacts stored in Microsoft 365 [Well-Known (Default) folders](https://learn.microsoft.com/en-us/dotnet/api/microsoft.exchange.webservices.data.wellknownfoldername?view=exchange-ews-api) will be synchronized.
 
 <figure><img src="../../../.gitbook/assets/portsip_ms365_6.png" alt=""><figcaption></figcaption></figure>
-
-
 
 
 
