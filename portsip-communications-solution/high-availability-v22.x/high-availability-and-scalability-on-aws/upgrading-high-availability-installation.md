@@ -68,6 +68,15 @@ cd /opt/portsip-pbx-ha-guide/ && \
 /bin/bash update.sh portsip/pbx:22
 ```
 
+Starting from **PortSIP PBX v22.4**, you can use the **Certificate Manager** to obtain and install a **Let’s Encrypt** certificate instead of purchasing a commercial SSL certificate.
+
+If you are upgrading from previous versions, and want to install the Certificate Manager, you can add the `-c` parameter in the command to install the Certificate Manager during upgrading.
+
+```shellscript
+cd /opt/portsip-pbx-ha-guide/ && \
+/bin/bash update.sh portsip/pbx:22 -c
+```
+
 > ❗ **Important**\
 > Do not interrupt the update process.\
 > Do **not** reboot, stop services, or shut down any EC2 instances while the update is in progress.

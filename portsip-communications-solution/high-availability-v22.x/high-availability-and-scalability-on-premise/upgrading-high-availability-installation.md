@@ -91,6 +91,14 @@ Once you have the new image name, run the following command **on `pbx01`**:
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash update.sh portsip/pbx:22
 ```
 
+Starting from **PortSIP PBX v22.4**, you can use the **Certificate Manager** to obtain and install a **Let’s Encrypt** certificate instead of purchasing a commercial SSL certificate.
+
+If you are upgrading from previous versions, and want to install the Certificate Manager, you can add the `-c` parameter in the command to install the Certificate Manager during upgrading.
+
+```shellscript
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash update.sh portsip/pbx:22 -c
+```
+
 The upgrade process will:
 
 * Pull the specified PBX image

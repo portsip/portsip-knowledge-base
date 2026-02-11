@@ -157,6 +157,17 @@ cd /opt/portsip-pbx-ha-guide/ && /bin/bash sbc.sh run \
 -i portsip/sbc:11
 ```
 
+Starting from **PortSIP PBX v22.4**, you can use the **Certificate Manager** to obtain and install a **Let’s Encrypt** certificate instead of purchasing a commercial SSL certificate.
+
+If you are deploying **High Availability (HA)** and want to install the Certificate Manager together with HA, include the `-c` parameter during installation.
+
+```shellscript
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash sbc.sh run \
+-a 192.168.1.11,192.168.1.12,192.168.1.13 \
+-i portsip/sbc:11 \
+-c
+```
+
 #### Parameters
 
 *   **`-a`**: Specifies the private IP addresses of the SBC servers.\
@@ -294,6 +305,17 @@ Run the following command to upgrade all SBC servers:
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash sbc.sh upgrade \
 -a 192.168.1.11,192.168.1.12,192.168.1.13 \
 -i portsip/sbc:11
+```
+
+Starting from **PortSIP PBX v22.4**, you can use the **Certificate Manager** to obtain and install a **Let’s Encrypt** certificate instead of purchasing a commercial SSL certificate.
+
+If you are upgrading from previous versions, and want to install the Certificate Manager, you can add the `-c` parameter in the command to install the Certificate Manager during upgrading.
+
+```bash
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash sbc.sh upgrade \
+-a 192.168.1.11,192.168.1.12,192.168.1.13 \
+-i portsip/sbc:11 \
+-c
 ```
 
 This command automatically applies the latest updates to all configured SBC server instances in the cluster.

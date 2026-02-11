@@ -442,6 +442,14 @@ On **`pbx01`**, run the following command to initialize the PortSIP PBX HA resou
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash deploy_pbx.sh
 ```
 
+Starting from **PortSIP PBX v22.4**, you can use the **Certificate Manager** to obtain and install a **Let’s Encrypt** certificate instead of purchasing a commercial SSL certificate.
+
+If you are deploying **High Availability (HA)** and want to install the Certificate Manager together with HA, include the `-c` parameter during installation.
+
+```shellscript
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash deploy_pbx.sh -c
+```
+
 > ⚠️ **IMPORTANT**\
 > This process may take several minutes to complete. **Do not interrupt, restart, or shut down any server** while the script is running, as doing so may cause the HA deployment to fail.
 

@@ -628,6 +628,14 @@ Run the command below to start deploying the PortSIP PBX HA cluster:
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash deploy_pbx.sh
 ```
 
+Starting from **PortSIP PBX v22.4**, you can use the **Certificate Manager** to obtain and install a **Let’s Encrypt** certificate instead of purchasing a commercial SSL certificate.
+
+If you are deploying **High Availability (HA)** and want to install the Certificate Manager together with HA, include the `-c` parameter during installation.
+
+```shellscript
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash deploy_pbx.sh -c
+```
+
 > ❗ **Important**\
 > The deployment process may take a **significant amount of time** to complete.\
 > **Do not interrupt the process**, and **do not restart or shut down** the EC2 instance while the deployment is in progress.\
