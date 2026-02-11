@@ -161,7 +161,7 @@ If you plan to use the Microsoft 365 mail server to send email notifications, yo
 Configure user synchronization from Microsoft 365 to PortSIP PBX as follows:
 
 * **Extension Number Assignment**\
-  Specify the extension number range for Microsoft 365 users. You can define a starting extension number; otherwise, the system will automatically assign the first available extension.
+  Specify the extension number range for Microsoft 365 users when synced. You can define a starting extension number; otherwise, the system will automatically assign the first available extension.
 * **Synchronization Direction and Schedule**\
   User synchronization is one-way, from **Microsoft 365 to PortSIP PBX**.\
   Synchronization runs automatically at midnight (**00:00**) or at the custom time you configured.\
@@ -175,7 +175,12 @@ Configure user synchronization from Microsoft 365 to PortSIP PBX as follows:
 
 ### Configuring SSO
 
-After Microsoft 365 integration is completed successfully, a **Microsoft** icon will appear on the login pages of both the **PortSIP PBX Web Portal** and the **WebRTC client**. This indicates that Single Sign-On (SSO) has been enabled.
+After you configured the User Synchronization, you are ready to configure the SSO now.
+
+1. Navigate to the menu Integrations > Microsoft 365, click the SIGN IN tab
+2. Turn on the Enable option, choose how do you want the users to use the SSO
+
+After Microsoft 365 integration is completed successfully, a **Microsoft** icon will appear on the login pages of both the **PortSIP PBX Web Portal** and **PortSIP ONE app**. This indicates that Single Sign-On (SSO) has been enabled.
 
 Users can click the Microsoft icon to sign in to the PortSIP PBX Web Portal and the WebRTC client using their Microsoft 365 credentials.
 
