@@ -150,7 +150,7 @@ After enabling the API permissions, navigate to the OAuth consent screen page.
 
 <figure><img src="../../../.gitbook/assets/google-workspace-9.png" alt=""><figcaption></figcaption></figure>
 
-7. CClick **Confirm** to publish the app.
+7. Click **Confirm** to publish the app.
 
 <figure><img src="../../../.gitbook/assets/google-workspace-10.png" alt=""><figcaption></figcaption></figure>
 
