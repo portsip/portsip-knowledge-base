@@ -30,6 +30,18 @@ Once these prerequisites are satisfied, you can proceed with configuring Google 
 
 ***
 
+### Collect Authorized Redirect URI
+
+1. Sign in to the PortSIP PBX Web Portal.
+2. Navigate to **Integrations > Google Workspace**.
+3. Copy the **Authorized Redirect URI** displayed on the page, and noted it.
+
+If you have set up the **PortSIP SBC** with the PortSIP PBX, there will be **two Authorized Redirect URIs**. Make sure to copy **both** URIs, as they will be required in the Google OAuth configuration.
+
+<figure><img src="../../../.gitbook/assets/google-workspace-11.png" alt=""><figcaption></figcaption></figure>
+
+***
+
 ### Configuring Settings on the Google Side
 
 Follow the steps below to configure Google integration for PortSIP PBX.
@@ -78,79 +90,83 @@ To enable Google Workspace SSO and user sync, you need to enable the Admin SDK A
 
 ***
 
-### Creating Your Application’s Credentials
+#### Configuring OAuth&#x20;
 
-After enabling the Gmail API, you will be redirected to the **Gmail API Overview** page.
+After enabling the API permissions, navigate to the OAuth consent screen page.
 
-1. Click **CREATE CREDENTIALS**.
+1. Click **GET START**
 
-<figure><img src="../../../.gitbook/assets/google-integration-4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/google-workspace-4.png" alt=""><figcaption></figcaption></figure>
 
-2. On the next page, Google will ask a few questions to determine the required credential type.
-3. From the **Select an API** drop-down list, choose **Gmail API**.
+2. On the next page, Google will ask to fill up the App name and user support email, see the screenshot below.
 
-**Note:** If the Gmail API does not appear in the list, ensure that the Gmail API has been enabled for your project.
+<figure><img src="../../../.gitbook/assets/google-workspace-5.png" alt=""><figcaption></figcaption></figure>
 
-4. Under **What data will you be accessing?**, select the **User data** option.&#x20;
-5. Click **NEXT** to continue.
+4. Click Next to choose the appropriate "Audience", for example, choose "External".
 
-<figure><img src="../../../.gitbook/assets/google-integration-5.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/google-workspace-6.png" alt=""><figcaption></figcaption></figure>
+
+4. Click **NEXT** to continue enter the email for the Contact Information.
+
+<figure><img src="../../../.gitbook/assets/google-workspace-7.png" alt=""><figcaption></figcaption></figure>
+
+5. Click Next, then choose agree the User Data Pol6. icy, and click CREATE.
+
+<figure><img src="../../../.gitbook/assets/google-workspace-8.png" alt=""><figcaption></figcaption></figure>
+
+6. If you choose "External" for the evidence in previous step, you need to click the PUBLISH APP after the app is created. See the screenshot below.
+
+<figure><img src="../../../.gitbook/assets/google-workspace-9.png" alt=""><figcaption></figcaption></figure>
+
+7. Click the CONFIRM button to publish the app
+
+<figure><img src="../../../.gitbook/assets/google-workspace-10.png" alt=""><figcaption></figcaption></figure>
+
+8. Navigate to menu APIS & Services > Credentials
+
+<figure><img src="../../../.gitbook/assets/google-workspace-12.png" alt=""><figcaption></figcaption></figure>
+
+9. Click + CREATE CREDENTIALS, chose OAuth client ID
+
+<figure><img src="../../../.gitbook/assets/google-workspace-13.png" alt=""><figcaption></figcaption></figure>
+
+10. Enter the necessary information, for example:
+
+* Application type: Choose Web application
+* Name: PBX
+* Authorized redirect URIs: Click +ADD URI, paste the Authorized Redirect URI which you collect at the previous step. If the PortSIP PBX provides two redirect URIs, make sure to add **both** URIs.
+
+Click the CREATE to create it.&#x20;
+
+<figure><img src="../../../.gitbook/assets/google-workspace-14.png" alt=""><figcaption></figcaption></figure>
+
+11. Once the application is created, the screenshot below will be displayed, please copy the Client ID and Client secret and noted them.
+
+<figure><img src="../../../.gitbook/assets/google-workspace-15.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
-### Configuring Your OAuth Consent Screen
+### Configuring Settings on the PortSIP PBX Side
 
-Google will prompt you to provide basic information about your application. Although this setup is typically for personal or internal use, several fields are required:
-
-* **App name**\
-  Enter a name for your application, for example, _PortSIP PBX App_.
-* **User support email**\
-  Select your email address from the available options.
-* **App logo** _(optional)_\
-  Upload a logo for your application if desired.
-* **Developer contact information**\
-  Enter your email address in the **Email addresses** field.
-
-After completing the required fields, click **SAVE AND CONTINUE** to proceed to the next step.
-
-<figure><img src="../../../.gitbook/assets/google-integration-6.png" alt=""><figcaption></figcaption></figure>
-
-***
-
-### Setting Up Your OAuth Client ID
+Now sign in to the PortSIP PBX web portal to configure settings.
 
 1. Sign in to the PortSIP PBX Web Portal.
 2. Navigate to **Integrations > Google Workspace**.
-3. Copy the **Authorized Redirect URI** displayed on the page.
+3. Paste the copied Client ID and Client secret to the PBX settings page, and click OK to save settings.
 
-If you have set up the **PortSIP SBC** with the PortSIP PBX, there will be **two Authorized Redirect URIs**. Make sure to copy **both** URIs, as they will be required in the Google OAuth configuration.
+<figure><img src="../../../.gitbook/assets/google-workspace-16.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/google-integration-8.png" alt=""><figcaption></figcaption></figure>
+2. After saving, click the **Complete the authorization** hyperlink. You will be redirected to Google to complete the OAuth authorization process.
 
-Next, provide the required details for your OAuth Client ID in the Google Cloud Console:
+<figure><img src="../../../.gitbook/assets/google-workspace-17.png" alt=""><figcaption></figcaption></figure>
 
-4. From the **Application type** dropdown, select **Web application**. Additional fields will be displayed automatically.
-5. In the **Name** field, enter a descriptive name, for example **PortSIP PBX Web Portal**.
-
-<figure><img src="../../../.gitbook/assets/google-integration-7.png" alt=""><figcaption></figcaption></figure>
-
-Next, skip the **Authorized JavaScript origins** section and scroll down to **Authorized redirect URIs**.
-
-6. Click **+ ADD URI**.
-7. Paste the **Authorized Redirect URI** copied from the PortSIP PBX Web Portal.
-8. If the PortSIP PBX provides two redirect URIs, make sure to add **both** URIs.
-
-<figure><img src="../../../.gitbook/assets/google-integration-9.png" alt=""><figcaption></figcaption></figure>
-
-Click **CREATE** to complete this step.
-
-Once the application is created, the **Your Credentials** section will expand and display the **Client ID**. You don’t need to copy it at this stage, as it will be accessed from another section in a later step.
-
-Finally, click **DONE** at the bottom of the page to finish the process.
-
-<figure><img src="../../../.gitbook/assets/google-integration-11.png" alt=""><figcaption></figcaption></figure>
+3. Once authorization is complete, the Google Workspace integration is successfully configured. You can now use OAuth to send email notifications from PortSIP PBX through the Google Mail service.<br>
 
 ***
+
+
+
+
 
 ### Updating the Publishing Status from Testing to Production
 
