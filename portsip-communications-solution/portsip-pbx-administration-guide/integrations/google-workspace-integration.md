@@ -2,8 +2,8 @@
 
 PortSIP PBX integrates with **Google Workspace** to provide the following capabilities:
 
-* **User synchronization** from Microsoft 365 or Microsoft Entra ID (including on-premises Active Directory synchronized to the cloud using Azure AD Connect)
-* **Single Sign-On (SSO)**, allowing users to sign in to the PortSIP PBX Web Portal and PortSIP ONE app using their Microsoft account
+* **User synchronization** from Google Workspace users
+* **Single Sign-On (SSO)**, allowing users to sign in to the PortSIP PBX Web Portal and PortSIP ONE app using their Google Workspace account
 * Send email notifications through Google Workspace using **OAuth authentication**
 
 > **Notice**
