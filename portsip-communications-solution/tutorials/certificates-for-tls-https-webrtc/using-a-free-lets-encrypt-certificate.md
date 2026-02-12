@@ -166,7 +166,7 @@ Once configured, you do not need to manage or monitor the certificate lifecycleâ
 
 ### Managing PortSIP Cert Manager Docker Instance
 
-After successfully installing the **PortSIP Cert Manager**, you can use the following commands to manage the PBX Docker instance.
+After successfully installing the **PortSIP Cert Manager**, you can use the following commands to manage the Cert Manager Docker instance.
 
 All commands must be executed from the following directory:
 
