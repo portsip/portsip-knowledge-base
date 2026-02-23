@@ -129,6 +129,18 @@ Alternatively, you may sign in directly as the **Tenant Administrator** for the 
 
 #### Configure CRM Behavior
 
+> ❗ **Important**
+
+In **Your Odoo Address**, enter the **base Odoo URL** only, in one of these formats:
+
+* `https://yourname.odoo.com`
+* `https://yourname.odoo.com/`
+
+**Do not** use the following formats, as they will cause an error:
+
+* `yourname.odoo.com` (missing `https://`)
+* `https://yourname.odoo.com/xxyy` (includes a path)
+
 <figure><img src="../../../.gitbook/assets/odoo-7.png" alt=""><figcaption></figcaption></figure>
 
 #### Contact Lookup Order
