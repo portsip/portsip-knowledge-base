@@ -23,10 +23,13 @@ PortSIP PBX currently supports SMS integration with the following trunk provider
 * [VoiceMeUp Trunk](https://support.portsip.com/portsip-communications-solution/configuring-sip-trunks/voicemeup-sip-trunk)
 * [Configuring Bandwidth SIP Trunk](../../portsip-communications-solution/configuring-sip-trunks/bandwidth-sip-trunk/)
 
-> **Important**\
+> ❗ **Important**\
 > SMS/MMS messaging is available only after the **tenant administrator** completes the required SMS configuration for the selected trunk provider.
 
 ***
+
+> ❗ **Important**\
+> The SMS feature is still under development. It's not available at the moment, but it will be ready in next few months.
 
 #### Configuring SMS/MMS
 
