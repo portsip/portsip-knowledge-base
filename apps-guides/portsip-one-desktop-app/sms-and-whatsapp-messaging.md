@@ -29,7 +29,7 @@ PortSIP PBX currently supports SMS integration with the following trunk provider
 ***
 
 > ❗ **Important**\
-> The SMS feature is still under development. It's not available at the moment, but it will be ready in next few months.
+> The MMS feature is still under development. It's not available at the moment, but it will be ready in next few months.
 
 #### Configuring SMS/MMS
 
