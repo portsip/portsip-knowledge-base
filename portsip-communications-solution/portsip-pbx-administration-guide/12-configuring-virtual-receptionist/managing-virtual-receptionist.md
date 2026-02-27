@@ -314,6 +314,8 @@ You can specify:
   Example: `860000–880000`
 * A **wildcard pattern** using asterisks (`*`)\
   Example: `*****` (matches any 5-digit DTMF input)
+* **Any** DTMF\
+  Enter the **ALL** that means matched any DTMF input
 
 Each entry must be **unique** and must not be duplicated.
 
