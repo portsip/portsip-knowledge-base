@@ -28,7 +28,7 @@ With the template, you can configure the following parameters for the apps. You 
 * **Settings**: For example, hide the profile settings in the app.
 * **Appearance**: Theme and language settings.
 * **Office Hours**: Define business hours for the app.
-* **Sound Effect Options**: Such as **FAC** (Far-End Call) and **AEC** (Acoustic Echo Cancellation).
+* **Sound Effect Options**: Such as **FEC** (Forward Error Correction) and **AEC** (Acoustic Echo Cancellation).
 * **Codecs**: Select and enforce preferred codecs.
 * **Screen Pop**: Configure screen pop settings for incoming calls
 
