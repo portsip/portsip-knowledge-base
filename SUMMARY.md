@@ -46,6 +46,7 @@
   * [5 User Management](portsip-communications-solution/portsip-pbx-administration-guide/5-user-management/README.md)
     * [Users](portsip-communications-solution/portsip-pbx-administration-guide/5-user-management/users.md)
     * [How to Configure the Endpoints?](portsip-communications-solution/portsip-pbx-administration-guide/5-user-management/how-to-configure-the-endpoints.md)
+    * [App Template](portsip-communications-solution/portsip-pbx-administration-guide/5-user-management/app-template.md)
     * [User Groups](portsip-communications-solution/portsip-pbx-administration-guide/5-user-management/user-groups.md)
     * [DND and Automatic Callback](portsip-communications-solution/portsip-pbx-administration-guide/5-user-management/dnd-and-automatic-callback.md)
     * [Speed Dial 8](portsip-communications-solution/portsip-pbx-administration-guide/5-user-management/speed-dial-8.md)
