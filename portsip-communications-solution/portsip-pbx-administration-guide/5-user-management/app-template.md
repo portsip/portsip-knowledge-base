@@ -12,10 +12,10 @@ This App Template feature allows centralized and standardized provisioning of th
 * Only System Administrators can manage templates
 * QR codes must be regenerated after template changes
 
-**Supported Versions:**
+#### Supported Versions
 
 * **PortSIP PBX**: version 22.4 or later
-* **PortSIP ONE** client: version 10.8.6 or later
+* **PortSIP ONE** app: version 10.8.6 or later
 
 > ❗**Important**\
 > Ensure both the PBX server and PortSIP ONE client are upgraded to the required versions. If either component is outdated, the App Template feature will not function.
