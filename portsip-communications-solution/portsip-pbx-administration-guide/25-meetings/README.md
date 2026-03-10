@@ -28,7 +28,7 @@ After the PortSIP PBX is successfully installed, you can create and manage meeti
      If set, participants must enter this PIN to join the meeting.
    * **Admin PIN**\
      The Admin PIN allows a participant to obtain administrator privileges during the meeting.     \
-     To become the meeting administrator, press DTMF 8 during the meeting and then enter the Admin PIN.
+     To become the meeting administrator, press DTMF **`*8`** during the meeting and then enter the Admin PIN.
 4. **Participant and Video Settings**
    * **Maximum Participants**\
      Specify the maximum number of participants allowed to join the meeting.
