@@ -156,7 +156,7 @@ Once AI transcription is enabled, **Tenant Administrators** can manage and use A
 
 4. Calls that have already been transcribed display a **sentiment indicator**.
 
-<figure><img src="../../../.gitbook/assets/ai_transcription_result.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/call_ai_transcription_1.png" alt=""><figcaption></figcaption></figure>
 
 
 
