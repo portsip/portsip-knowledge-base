@@ -78,21 +78,25 @@ The following directories must be backed up:
 **PBX v22.x**
 
 ```bash
+cd /opt/portsip && sudo /bin/sh pbx_ctl.sh stop
 sudo mkdir -p /back/pbx-data
 sudo cp -p -r /var/lib/portsip/pbx /back/pbx-data
 
 sudo mkdir -p /back/pbx-db
 sudo cp -p -r /var/lib/portsip/postgresql /back/pbx-db
+cd /opt/portsip && sudo /bin/sh pbx_ctl.sh start
 ```
 
 **PBX v16.x**
 
 ```bash
+cd /opt/portsip && sudo /bin/sh pbx_ctl.sh stop
 mkdir -p /back/pbx-data
 cp -p -r /var/lib/portsip/pbx /back/pbx-data
 
 mkdir -p /back/pbx-db
 cp -p -r /var/lib/portsip/postgresql /back/pbx-db
+cd /opt/portsip && sudo /bin/sh pbx_ctl.sh start
 ```
 
 ***
