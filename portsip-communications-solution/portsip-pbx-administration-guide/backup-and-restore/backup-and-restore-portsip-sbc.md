@@ -117,8 +117,8 @@ After completing the backup, store the data securely on a separate system.
 
 ```bash
 cd /opt/portsip && sudo /bin/sh sbc_ctl.sh stop
-cd /var/lib/portsip/sbc
-rm -rf *
+sudo /bin/sh sbc_ctl.sh rm
+sudo rm -rf /var/lib/portsip/sbc/*
 ```
 
 **2. Restore the Backup Data**
@@ -131,6 +131,11 @@ sudo cp -p -r /back/sbc-data/sbc /var/lib/portsip/
 ```
 
 Ensure that the restored directory, all subdirectories, and files have **UID:GID set to `888:888`**.
+
+```shellscript
+sudo chmod 755 /var/lib/portsip/sbc
+sudo chown -R 888:888 /var/lib/portsip/sbc
+```
 
 **3. Start the SBC with Restored Data**
 
@@ -155,10 +160,16 @@ sudo /bin/sh sbc_ctl.sh run -p /var/lib/portsip -i portsip/sbc:11
     sudo cp -p -r /back/sbc-data/sbc /var/lib/portsip/
     ```
 3. Ensure permissions are set to `888:888`.
-4. Install PortSIP SBC v11.x and specify the restored data path using the `-p` parameter.
-5. Sign in to the SBC Web Portal.
-6. Navigate to **Settings > Network** and update the SBC IP addresses to match the new server.
-7. Save the changes.
+
+```shellscript
+sudo chmod 755 /var/lib/portsip/sbc
+sudo chown -R 888:888 /var/lib/portsip/sbc
+```
+
+1. Install PortSIP SBC v11.x and specify the restored data path using the `-p` parameter.
+2. Sign in to the SBC Web Portal.
+3. Navigate to **Settings > Network** and update the SBC IP addresses to match the new server.
+4. Save the changes.
 
 ***
 
@@ -170,8 +181,8 @@ The restore procedure for SBC v10.x is identical to v11.x, except that the Docke
 
 ```bash
 cd /opt/portsip && /bin/sh sbc_ctl.sh stop
-cd /var/lib/portsip/sbc
-rm -rf *
+/bin/sh sbc_ctl.sh rm
+rm -rf /var/lib/portsip/sbc/*
 ```
 
 Restore the data and start the SBC:

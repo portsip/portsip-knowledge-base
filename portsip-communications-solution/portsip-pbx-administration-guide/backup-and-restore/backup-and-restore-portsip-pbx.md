@@ -214,6 +214,21 @@ rm -rf /var/lib/portsip/pbx/*
 rm -rf /var/lib/portsip/postgresql/*
 ```
 
+Copy the backup data to the PBX server:
+
+```shellscript
+cp -p -r /back/pbx-data/pbx /var/lib/portsip/
+cp -p -r /back/pbx-db/postgresql /var/lib/portsip/
+```
+
+Ensure the restored directories and files have **UID:GID set to `888:888`**, including all subdirectories.
+
+```shellscript
+chmod 755 /var/lib/portsip/{pbx,postgresql}
+chown -R 888:888 /var/lib/portsip/pbx
+chown -R 999:999 /var/lib/portsip/postgresql 
+```
+
 Restore the data and start the PBX:
 
 ```bash
