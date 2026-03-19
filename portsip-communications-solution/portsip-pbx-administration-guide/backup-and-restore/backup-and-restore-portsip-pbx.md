@@ -148,6 +148,12 @@ sudo cp -p -r /back/pbx-db/postgresql /var/lib/portsip/
 
 Ensure the restored directories and files have **UID:GID set to `888:888`**, including all subdirectories.
 
+```shellscript
+sudo chmod 755 /var/lib/portsip/{pbx,postgresql}
+sudo chown -R 888:888 /var/lib/portsip/pbx
+sudo chown -R 999:999 /var/lib/portsip/postgresql 
+```
+
 **3. Start the PBX with Restored Data**
 
 ```bash
@@ -181,7 +187,14 @@ run -p /var/lib/portsip \
     sudo cp -p -r /back/pbx-db/postgresql /var/lib/portsip/
     ```
 3. Ensure permissions are set to `888:888`.
-4. Install PortSIP PBX and specify the restored data path using the `-p` parameter.
+
+```shellscript
+sudo chmod 755 /var/lib/portsip/{pbx,postgresql}
+sudo chown -R 888:888 /var/lib/portsip/pbx
+sudo chown -R 999:999 /var/lib/portsip/postgresql 
+```
+
+4. [Install PortSIP PBX](../1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.3/) and specify the restored data path using the `-p` parameter.
 5. Sign in to the PBX Web Portal and launch the **Setup Wizard**.
 6. In **Step 1**, update the PBX IP address to match the new server’s IP address.
 
@@ -219,7 +232,7 @@ run -p /var/lib/portsip \
 
 1. Prepare the new Linux server.
 2. Copy the backup data to the server.
-3. Install PortSIP PBX v16.x using the restored data path (`-p`).
+3. [Install PortSIP PBX](../1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v16/) v16.x using the restored data path (`-p`).
 4. Sign in to the PBX Web Portal.
 5. Launch the **Setup Wizard** and update the PBX IP address in **Step 1**.
 
