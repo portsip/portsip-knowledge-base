@@ -10,6 +10,7 @@ With DISA, a user can:
 * Authenticate using a PIN (optional)
 * Make internal calls to extensions
 * Make external calls via SIP trunks or PSTN trunks
+* Check his voicemail
 
 DISA is especially useful when users need to place business calls but do not have access to their own extension or device.
 
@@ -49,7 +50,7 @@ To configure DISA on the PortSIP PBX, follow these steps:
 
 ***
 
-### Example DISA Call Flow
+### Example: DISA Call Flow
 
 In this example:
 
@@ -67,6 +68,29 @@ Call flow:
 5. If the PIN is correct, the caller enters the destination number.
 6. The caller presses **#** to indicate the end of number entry.
 7. The PBX places the call to the entered destination.
+
+<figure><img src="../../../.gitbook/assets/vr_menu_options_disa.png" alt=""><figcaption></figcaption></figure>
+
+***
+
+### Example: Using DISA to Check an Extension's Voicemail
+
+In this example:
+
+* DISA PIN verification is enabled
+* DTMF key **0** is assigned to DISA
+
+<figure><img src="../../../.gitbook/assets/DISA.png" alt=""><figcaption></figcaption></figure>
+
+Call flow:
+
+1. A caller dials the company number.
+2. The Virtual Receptionist answers and plays the greeting.
+3. The caller presses **0.**
+4. The PBX prompts the caller to enter the **DISA PIN**.
+5. After the PIN is verified, the caller enters the voicemail FAC followed by the extension number.
+6. The caller presses `#` to indicate the end of the number entry. For example, if the extension number is `101` and the default voicemail FAC is `*57`, enter: `*57101#`&#x20;
+7. The PBX then routes the call to the voicemail service. Follow the voice prompts to access the voicemail box.
 
 <figure><img src="../../../.gitbook/assets/vr_menu_options_disa.png" alt=""><figcaption></figcaption></figure>
 
