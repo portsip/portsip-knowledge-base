@@ -57,6 +57,8 @@ In this example:
 * DISA PIN verification is enabled
 * DTMF key **0** is assigned to DISA
 
+<figure><img src="../../../.gitbook/assets/vr_menu_options_disa.png" alt=""><figcaption></figcaption></figure>
+
 <figure><img src="../../../.gitbook/assets/DISA.png" alt=""><figcaption></figcaption></figure>
 
 Call flow:
@@ -69,8 +71,6 @@ Call flow:
 6. The caller presses **#** to indicate the end of number entry.
 7. The PBX places the call to the entered destination.
 
-<figure><img src="../../../.gitbook/assets/vr_menu_options_disa.png" alt=""><figcaption></figcaption></figure>
-
 ***
 
 ### Example: Using DISA to Check an Extension's Voicemail
@@ -79,6 +79,8 @@ In this example:
 
 * DISA PIN verification is enabled
 * DTMF key **0** is assigned to DISA
+
+<figure><img src="../../../.gitbook/assets/vr_menu_options_disa.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/DISA.png" alt=""><figcaption></figcaption></figure>
 
@@ -91,8 +93,6 @@ Call flow:
 5. After the PIN is verified, the caller enters the voicemail FAC followed by the extension number.
 6. The caller presses `#` to indicate the end of the number entry. For example, if the extension number is `101` and the default voicemail FAC is `*57`, enter: `*57101#`&#x20;
 7. The PBX then routes the call to the voicemail service. Follow the voice prompts to access the voicemail box.
-
-<figure><img src="../../../.gitbook/assets/vr_menu_options_disa.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
