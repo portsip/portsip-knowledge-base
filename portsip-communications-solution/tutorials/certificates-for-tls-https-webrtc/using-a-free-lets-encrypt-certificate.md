@@ -174,6 +174,14 @@ All commands must be executed from the following directory:
 cd /opt/portsip
 ```
 
+#### Upgrade Cert Manager
+
+Once your PBX and SBC are upgraded to the latest version, you will also need to upgrade the Cert Manager.
+
+```shellscript
+sudo /bin/sh certmanager_ctl.sh upgrade
+```
+
 #### Show Cert Manager Status
 
 ```bash
