@@ -143,20 +143,34 @@ Configure Microsoft Graph API permissions for the application as follows:
 <figure><img src="../../../.gitbook/assets/ms365-permissions-1.png" alt=""><figcaption></figcaption></figure>
 
 4. On the Microsoft Graph page, choose **Application permissions**. Then, type each of the permissions listed below into the **Select permissions** field. After selecting them, click on the **Add permissions** button.&#x20;
-   * User.Read.All
-   * Contacts.Read
+   * User.ReadBasic.All: This permission is mandatory.
 
-<figure><img src="../../../.gitbook/assets/ms365-permissions-2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/ms365_integration_permissions_basic.png" alt=""><figcaption></figcaption></figure>
 
-Once all required permissions have been granted successfully, they will appear in the API permissions list, as shown in the screenshot below.
-
+Once all required permissions have been successfully granted, they will appear in the API permissions list, as shown in the screenshot below.\
 If you plan to use the Microsoft 365 mail server to send email notifications, you must also grant the **Mail.Send** permission.
 
-<figure><img src="../../../.gitbook/assets/ms365-permissions-3.png" alt=""><figcaption></figcaption></figure>
+Additionally, the following optional permissions are supported:
+
+* **Contacts.Read** – Required if the application needs to synchronize users’ personal contacts.
+* **User-Phone.ReadWrite.All** – Required if the application needs to read or write users' phone numbers.
+* **Mail.Send** – Required if the application needs to send emails.
+* **GroupMember.Read.All** – Required if group-based user filtering is used.
+* **MailboxSettings.Read** – Required if the application needs to access contacts from shared mailboxes.
+
+<figure><img src="../../../.gitbook/assets/ms365_integration_permissions_list.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
-### Configuring SSO
+#### Control Sync for Specified Departments
+
+PortSIP PBX now allows you to choose specific departments for syncing users and contacts. This feature gives you greater control over permissions and enhances enterprise security. Please refer to the screenshot below.
+
+<figure><img src="../../../.gitbook/assets/ms365_integration_sync_department.png" alt=""><figcaption></figcaption></figure>
+
+***
+
+#### Configuring SSO
 
 To enable **Single Sign-On (SSO)**, you must configure the **Microsoft 365 integration at the tenant level**.
 
@@ -199,7 +213,7 @@ When enabled, user photos will be displayed as profile pictures in:
 * PortSIP desktop and mobile apps
 * The WebRTC client
 
-<figure><img src="../../../.gitbook/assets/ms365-integrations-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/ms365_integration_sync_users.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -222,7 +236,9 @@ This indicates that SSO is enabled.
 
 Users can click the **Microsoft icon** to sign in using their Microsoft 365 credentials.
 
-<figure><img src="../../../.gitbook/assets/ms365-integrations-2.png" alt=""><figcaption></figcaption></figure>
+
+
+<figure><img src="../../../.gitbook/assets/ms365_integration_sync_enable_sso.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -237,7 +253,7 @@ You can synchronize Microsoft 365 contacts with PortSIP PBX as follows:
 
 All contacts stored in Microsoft 365 [Well-Known (Default) folders](https://learn.microsoft.com/en-us/dotnet/api/microsoft.exchange.webservices.data.wellknownfoldername?view=exchange-ews-api) will be synchronized.
 
-<figure><img src="../../../.gitbook/assets/portsip_ms365_6.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/ms365_integration_sync_contacts.png" alt=""><figcaption></figcaption></figure>
 
 
 
