@@ -2,7 +2,7 @@
 
 ### PortSIP PBX REST API Changes Summary
 
-Version: v22.5.0
+#### Version: v22.5.0
 
 Date: March 27, 2026
 
@@ -13,7 +13,58 @@ Date: March 27, 2026
 
 ***
 
-Version: v22.3.0
+#### Version: v22.4.0
+
+Date: February 10, 2026
+
+#### **New Endpoints:**
+
+1. `/api/templates/soft_phone GET`
+2. `/api/templates/soft_phone POST`
+3. `/api/templates/soft_phone/{filename} POST`
+4. `/api/templates/soft_phone/{filename}/destroy POST`
+5. `/api/templates/soft_phone/{file_name} GET`
+
+#### **Updated Endpoints/Fields:**
+
+1. **`/api/admin/ai_engine GET`**
+   * Added Deepgram type.
+2. **`/api/tenant GET`**
+   * Added `soft_phone_template` field.
+3. **`/api/tenant POST`**
+   * Added `soft_phone_template` field.
+4. **`/api/tenants/{id} GET`**
+   * Added `soft_phone_template` field.
+5. **`/api/tenants POST`**
+   * Added `soft_phone_template` field.
+6. **`/api/tenants/{id} POST`**
+   * Added `soft_phone_template` field.
+7. **`/api/users/{id} POST`**
+   * Added `soft_phone_template` field.
+8. **`/api/users POST`**
+   * Added `soft_phone_template` field.
+9. **`/api/users/{id} GET`**
+   * Added `soft_phone_template` field.
+10. **`/api/crm`** (related interfaces)
+    * Added support for Odoo provider.
+11. **`/api/mobile_push GET`**
+    * Added `ios_cert_expire_at`, `cert_remaining_days` fields.
+12. **`/api/mobile_push/{id} GET`**
+    * Added `ios_cert_expire_at` field.
+13. **`/api/providers POST`**
+    * Added `force_outbound_proxy` field.
+14. **`/api/providers/{id} POST`**
+    * Added `force_outbound_proxy` field.
+15. **`/api/providers/{id} GET`**
+    * Added `force_outbound_proxy` field.
+16. **`/api/dataflow/analytics/calls/user/history GET`**
+    * Changed the `direction` field to `party` and added `direction` field.
+17. **`/api/dataflow/analytics/calls/history GET`**
+    * Added `direction` field.
+
+***
+
+#### Version: v22.3.0
 
 Date: December 19, 2025
 
@@ -71,7 +122,7 @@ Date: December 19, 2025
   * Added `GET /api/dataflow/report_list` to retrieve the **completed report list**.
   * Added `POST /api/dataflow/report_list/:id/destroy` to delete a **report item**.
 
-#### Updated endpoints / fields
+#### Updated endpoints/fields
 
 * Updated `GET /api/auth/user`: added `domain`, `role_id`, `role_name`, and `capabilities`.
 * Updated `/api/call_queues` and `/api/call_queues/:id`:
