@@ -2,6 +2,17 @@
 
 ### PortSIP PBX REST API Changes Summary
 
+Version: v22.5.0
+
+Date: March 27, 2026
+
+#### Updated endpoints/fields
+
+* Modify `api/call_queues/:id/agents/:agent_number` to add the `reason` field in the response.
+* Modify `api/user/call_queues/{queue_id}/agent` to add the `reason` field in the response.
+
+***
+
 Version: v22.3.0
 
 Date: December 19, 2025
