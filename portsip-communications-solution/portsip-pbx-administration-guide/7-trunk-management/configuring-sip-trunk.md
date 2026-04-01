@@ -360,7 +360,7 @@ Before you begin, ensure you have:
 
 ***
 
-### Step 1: Create an “Accept Register” Trunk in PortSIP PBX
+#### Step 1: Create an “Accept Register” Trunk in PortSIP PBX
 
 1. **Open the Trunks page**\
    Go to **Call Manager > Trunks**.
@@ -390,13 +390,13 @@ Before you begin, ensure you have:
 8. **Save the trunk**\
    Complete the wizard to create the trunk.
 
-#### Expected Outcome
+**Expected Outcome**
 
 * The Accept Register trunk is created and ready for the gateway to register.
 
 ***
 
-### Step 2: Configure the E1/T1 Gateway to Register to the Cloud PBX
+#### Step 2: Configure the E1/T1 Gateway to Register to the Cloud PBX
 
 On the E1/T1 gateway:
 
@@ -414,9 +414,9 @@ On the E1/T1 gateway:
 
 After saving the gateway configuration, the E1/T1 gateway should register successfully to the cloud-hosted PortSIP PBX.
 
-#### Expected Outcome
+**Expected Outcome**
 
-* The E1/T1 gateway registers to PortSIP PBX and becomes available as a trunk for inbound and outbound calling.
+* The E1/T1 gateway registers with the PortSIP PBX and becomes available as a trunk for inbound and outbound calling.
 
 ***
 
@@ -457,9 +457,7 @@ To delete a trunk:
    * Delete the rules.
 3. Delete the trunk.
 
-#### Expected Outcome
+**Expected Outcome**
 
-* Once no rules reference the trunk, it can be deleted successfully.
-
-
+* Once no rules are referencing the trunk, it can be deleted successfully.
 
