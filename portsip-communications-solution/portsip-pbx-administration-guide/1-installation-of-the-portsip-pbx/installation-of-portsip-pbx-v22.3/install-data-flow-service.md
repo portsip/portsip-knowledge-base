@@ -7,7 +7,7 @@ Starting with **PortSIP PBX v22.3**, PortSIP introduces a new component: the **P
 The Data Flow service powers the following advanced capabilities:
 
 * [Call Detail Record (CDR) storage and analytics](../../20-cdr-and-call-recordings/cdr.md)
-* [Comprehensive call reports](../../21-call-reports/call-reports.md)
+* [Comprehensive call reports](../../21-call-reports/call-reports/)
 * [Real-time data dashboards](../../16-call-queue/live-wallboards.md)
 * [Queue wallboards for contact center operations](../../16-call-queue/live-wallboards.md)
 
