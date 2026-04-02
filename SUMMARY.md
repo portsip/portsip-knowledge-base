@@ -104,6 +104,7 @@
   * [21 Call Reports](portsip-communications-solution/portsip-pbx-administration-guide/21-call-reports/README.md)
     * [Call Reports](portsip-communications-solution/portsip-pbx-administration-guide/21-call-reports/call-reports/README.md)
       * [Speed Of Accept Report](portsip-communications-solution/portsip-pbx-administration-guide/21-call-reports/call-reports/speed-of-accept-report.md)
+      * [Abandon Delay Report](portsip-communications-solution/portsip-pbx-administration-guide/21-call-reports/call-reports/abandon-delay-report.md)
     * [Call Reports(Legacy)](portsip-communications-solution/portsip-pbx-administration-guide/21-call-reports/call-reports-legacy.md)
   * [22 Dealers](portsip-communications-solution/portsip-pbx-administration-guide/22-dealers.md)
   * [23 Feature Access Codes](portsip-communications-solution/portsip-pbx-administration-guide/23-feature-access-codes.md)

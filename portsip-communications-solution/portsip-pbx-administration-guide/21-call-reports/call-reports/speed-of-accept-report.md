@@ -1,6 +1,6 @@
 # Speed Of Accept Report
 
-### Speed of Accept Report Overview
+### Overview
 
 The **Speed of Accept Report** helps you analyze how long interactions waited in the queue before being accepted.
 
@@ -11,6 +11,8 @@ The report categorizes interactions into one of ten time buckets based on the ti
 It also provides a breakdown of the percentages of interactions accepted within each bucket, relative to the total number of interactions accepted or pulled from the queue during the reporting interval. The first bucket is defined by the report variable "Accepted Agent ST1 - ST10," which combines the first through tenth service time intervals.
 
 Note that this report only reflects interactions from the selected queues. It does not account for time spent in unselected queue resources, through which the interactions may have passed before being distributed from the selected queue(s).
+
+***
 
 ### Filters
 
@@ -31,3 +33,11 @@ The **Speed of Accept Report** supports the following filters:
 | **% Accepted Agent ST1**          | The percentage of interactions that were accepted, answered, or pulled before the first service time interval threshold, relative to the total number of interactions accepted by agents in the queue.                                                                                    |
 | **% Accepted Agent ST2 ... ST10** | The percentage of interactions accepted by agents within each service time interval, relative to the total number of interactions accepted. For example, **% Accepted Agent ST10** represents the percentage of interactions accepted within the ninth and tenth service time thresholds. |
 
+***
+
+### Notes
+
+* The **Speed of Accept Report** reflects accepted interactions for the selected queues only.
+* The **ST1 to ST10** buckets help you identify how long interactions typically wait before being accepted.
+* This report can help you evaluate queue performance and identify whether excessive wait times may be affecting answer speed.
+* To ensure accurate reporting, define the **Accepted Agent ST1 - ST10** thresholds in a logical ascending order.
