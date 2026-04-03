@@ -335,6 +335,26 @@ After completing these steps:
 
 ***
 
+#### 3-Way Authentication
+
+Some register authenticated trunks require **3-way Authentication** for security purposes. This means that the **Account Username** and **Account Authentication** are different, and both must be used for authentication. PortSIP PBX supports this type of trunk configuration.
+
+**Example Trunk Details:**
+
+Assume the trunk provider has provided you with the following details:
+
+* **Account Username:** 120390780001
+* **Account Authentication:** 3jpAj1E1D8QkFO0
+* **Account Password:** 5lbKCpbpHwDTbvQe
+
+In this case, the **Account Authentication** field also refers to the **3-way authentication password**.
+
+For reference, see the screenshot below for an example of how the settings should be configured in the PortSIP PBX web portal.
+
+<figure><img src="../../../.gitbook/assets/3way-turnk.png" alt=""><figcaption></figcaption></figure>
+
+***
+
 ### Configure E1/T1 Gateway Registration to PortSIP PBX
 
 #### Overview
