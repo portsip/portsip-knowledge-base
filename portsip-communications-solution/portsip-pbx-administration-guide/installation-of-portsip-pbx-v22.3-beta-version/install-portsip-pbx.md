@@ -544,5 +544,12 @@ This command will not delete the data of the PBX.
 <pre class="language-bash"><code class="lang-bash"><strong>sudo /bin/sh dataflow_ctl.sh rm
 </strong></code></pre>
 
+If you wish to delete the data associated with **Data Flow**, use the following commands:
 
+```bash
+sudo rm -rf /var/lib/portsip/dataflow
+sudo rm -rf /var/lib/portsip/clickhouse
+```
 
+**Note:**\
+If you specified a custom path for storing the data instead of using the default path, replace `/var/lib/portsip/dataflow` and `/var/lib/portsip/clickhouse` in the above commands with your specified path that was used during the installation of the Data Flow service.
