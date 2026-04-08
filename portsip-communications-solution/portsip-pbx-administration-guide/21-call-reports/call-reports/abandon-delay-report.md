@@ -37,8 +37,6 @@ The **Abandon Delay Report** supports the following filters:
 | **% Abandoned Waiting ST1**                              | The percentage of interactions that entered this queue and were subsequently abandoned while waiting in the queue before the first service time interval threshold, relative to the total number of abandoned interactions in the queue.                                                                                                                                                                                                                                                                                 |
 | **% Abandoned Waiting ST2 ... % Abandoned Waiting ST10** | The percentage of interactions that entered this queue and were subsequently abandoned while waiting in the queue within the service time interval bounded by the indicated service time thresholds, relative to the total number of abandoned interactions in the queue. For example, **% Abandoned Waiting ST10** represents the percentage of interactions abandoned within the interval bounded by the ninth and tenth service time thresholds, relative to the total number of abandoned interactions in the queue. |
 
-***
-
 ### Notes
 
 * The **Abandon Delay Report** reflects abandoned interactions for the selected queues only.
@@ -46,3 +44,4 @@ The **Abandon Delay Report** supports the following filters:
 * This report can help you evaluate queue performance and identify whether excessive wait times may be contributing to caller abandonment.
 * To ensure accurate reporting, define the **Abandoned Waiting ST1 - ST10** thresholds in a logical ascending order.
 
+<figure><img src="../../../../.gitbook/assets/abandon_delay_report.png" alt=""><figcaption></figcaption></figure>

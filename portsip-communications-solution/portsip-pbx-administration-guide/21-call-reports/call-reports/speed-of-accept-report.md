@@ -33,11 +33,11 @@ The **Speed of Accept Report** supports the following filters:
 | **% Accepted Agent ST1**          | The percentage of interactions that were accepted, answered, or pulled before the first service time interval threshold, relative to the total number of interactions accepted by agents in the queue.                                                                                    |
 | **% Accepted Agent ST2 ... ST10** | The percentage of interactions accepted by agents within each service time interval, relative to the total number of interactions accepted. For example, **% Accepted Agent ST10** represents the percentage of interactions accepted within the ninth and tenth service time thresholds. |
 
-***
-
 ### Notes
 
 * The **Speed of Accept Report** reflects accepted interactions for the selected queues only.
 * The **ST1 to ST10** buckets help you identify how long interactions typically wait before being accepted.
 * This report can help you evaluate queue performance and identify whether excessive wait times may be affecting answer speed.
 * To ensure accurate reporting, define the **Accepted Agent ST1 - ST10** thresholds in a logical ascending order.
+
+<figure><img src="../../../../.gitbook/assets/speed_of_accept_report.png" alt=""><figcaption></figcaption></figure>
