@@ -424,7 +424,7 @@ You can optionally manage a specific type of extended server using the `-s` para
 * `media-server-only` – Media Servers
 * `queue-server-only` – Queue Servers
 * `meeting-server-only` – Meeting Servers
-* `ivr-server-only` – IVR Servers
+* `vr-server-only` – IVR Servers
 
 ***
 
@@ -573,7 +573,7 @@ cd /opt/portsip-pbx-ha-guide/ && /bin/bash extend.sh upgrade -s media-server-onl
 * `media-server-only` – Upgrade all Media Servers
 * `queue-server-only` – Upgrade all Queue Servers
 * `meeting-server-only` – Upgrade all Meeting Servers
-* `ivr-server-only` – Upgrade all IVR Servers
+* `vr-server-only` – Upgrade all IVR Servers
 
 ***
 
