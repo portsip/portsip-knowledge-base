@@ -41,9 +41,10 @@ To apply the new certificates, restart the PBX service.
 
 **For Linux:**
 
+Note: This will not affect calls.
+
 ```bash
-cd /opt/portsip
-sudo /bin/sh pbx_ctl.sh restart
+sudo docker restart portsip.webserver
 ```
 
 **For Windows:**
@@ -81,8 +82,7 @@ To apply the new certificates:
 **For Linux:**
 
 ```bash
-cd /opt/portsip
-sudo /bin/sh sbc_ctl.sh restart
+sudo docker restart portsip.sbc
 ```
 
 **For Windows:**
