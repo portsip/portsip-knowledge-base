@@ -606,6 +606,41 @@ This can help reduce after-hours misuse, unauthorized calling, and toll fraud ri
 
 ***
 
+### STIR/SHAKEN Definitions
+
+#### STIR (Secure Telephony Identity Revisited)
+
+STIR is the proposed standard developed by the IETF that defines a signature to verify the calling number and specifies how it will be transported in SIP “on the wire.”
+
+#### SHAKEN (Signature-based Handling of Asserted information using tokens)
+
+SHAKEN is the framework document developed by the ATIS/SIP Forum IP-NNI task force to provide an implementation profile for service providers implementing STIR. STIR/SHAKEN will be the basis for verifying calls, classifying calls, and facilitating the ability to trust caller ID information.
+
+***
+
+### Caller Authentication
+
+The idea behind STIR/SHAKEN is to mitigate unwanted robocalls and bad actors who use caller ID spoofing to increase the chances of speaking to a subscriber.
+
+STIR is used to enhance the SIP protocol to provide a mechanism for service providers to verify that the originator of a SIP call is highly likely to be valid (i.e., not a spoofed/fraudulent calling party). The goal of these enhancements is to make it considerably more difficult for bad actors to spoof the identity of a call for malevolent or other purposes. Examples of such activities include:
+
+* Spoofing voice messaging or credit card validation services to gain access to the victim’s voice messages or credit.
+* Engaging in confidence schemes by masquerading as legitimate enterprises (e.g., banks for personal identification or the IRS for swindling).
+* Getting through blocked caller lists, such as robocalling.
+
+***
+
+### PortSIP Solution
+
+PortSIP PBX provides the complete implementation of STIR/SHAKEN for two key reasons:
+
+1. Our clients no longer need to pay for expensive STIR/SHAKEN subscription services for their business.
+2. Our clients' data stays secure, without being routed through third-party service provider networks.
+
+However, it is important to note that each of our partners must still obtain a STIR/SHAKEN certificate.
+
+***
+
 ### Recording Files Security
 
 Recording privacy and access control are important for regulated industries and sensitive environments, such as healthcare, insurance, finance, and government-related deployments.
