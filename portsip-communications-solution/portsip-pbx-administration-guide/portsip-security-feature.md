@@ -616,9 +616,7 @@ STIR is the proposed standard developed by the IETF that defines a signature to 
 
 SHAKEN is the framework document developed by the ATIS/SIP Forum IP-NNI task force to provide an implementation profile for service providers implementing STIR. STIR/SHAKEN will be the basis for verifying calls, classifying calls, and facilitating the ability to trust caller ID information.
 
-***
-
-### Caller Authentication
+#### Caller Authentication
 
 The idea behind STIR/SHAKEN is to mitigate unwanted robocalls and bad actors who use caller ID spoofing to increase the chances of speaking to a subscriber.
 
@@ -627,10 +625,6 @@ STIR is used to enhance the SIP protocol to provide a mechanism for service prov
 * Spoofing voice messaging or credit card validation services to gain access to the victim’s voice messages or credit.
 * Engaging in confidence schemes by masquerading as legitimate enterprises (e.g., banks for personal identification or the IRS for swindling).
 * Getting through blocked caller lists, such as robocalling.
-
-***
-
-### PortSIP Solution
 
 PortSIP PBX provides the complete implementation of STIR/SHAKEN for two key reasons:
 
