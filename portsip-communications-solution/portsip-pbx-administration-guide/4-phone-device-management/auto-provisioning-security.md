@@ -75,7 +75,7 @@ Currently, when a phone is auto-provisioned via the **Remote Provisioning Server
 
 1. Contact each phone vendor to create **your own RPS account** for every phone brand you use.
 2. Follow the guide: [Configuring Private RPS Account](https://support.portsip.com/portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/configuring-private-rps-account)
-3. Once your RPS accounts are ready, PortSIP PBX provides a tool to **migrate all currently auto-provisioned phones** from the PortSIP-managed account to your own account.
+3. Once your RPS accounts are set up, when you use the RPS to auto-provision your IP Phone, the configuration link is stored in your own RPS account.
 
 > ❗ **Strong Recommendation:**\
 > Always configure your own RPS accounts to ensure secure auto-provisioning.

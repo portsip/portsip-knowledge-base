@@ -1,10 +1,17 @@
 # Configuring Private RPS Account
 
-> ❗ **Warning**
->
-> By default, when you provision IP phones and other devices using **RPS**, PortSIP PBX uses **PortSIP’s RPS account** with each supported phone vendor’s RPS service. This means the device’s provisioning information (for example, the configuration URL/link) is stored under the vendor RPS account created for PortSIP.
->
-> If you do not want your provisioning information stored under PortSIP’s vendor RPS account, configure and use **your own private RPS account** instead. For instructions, please follow this guide.
+❗ **Warning**
+
+Currently, with PortSIP PBX, if an IP phone is auto-provisioned via the RPS (Remote Provisioning Server), its configuration link is stored in the IP phone vendor’s RPS under the PortSIP-managed account.
+
+**Best Practice for Security and Compliance:**
+
+1. Contact each phone vendor to create **your own RPS account** for every phone brand you use.
+2. Follow the guide: [Configuring Private RPS Account](https://support.portsip.com/portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/configuring-private-rps-account)
+3. Once your RPS accounts are set up, when you use the RPS to auto-provision your IP Phone, the configuration link is stored in your own RPS account.
+
+> ❗ **Strong Recommendation:**\
+> Always configure your own RPS accounts to ensure secure auto-provisioning.
 
 ***
 
