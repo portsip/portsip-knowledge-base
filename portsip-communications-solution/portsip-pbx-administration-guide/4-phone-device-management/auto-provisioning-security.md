@@ -2,151 +2,152 @@
 
 ### Introduction
 
-**Auto-provisioning** simplifies the activation and management of IP phones by allowing devices to be configured automatically through a web-based mechanism, eliminating the need for manual phone configuration.
+Auto-provisioning simplifies IP phone deployment by allowing devices to be configured automatically via a web-based mechanism. This eliminates the need for manual configuration on each phone.
 
-When a user activates a phone, the service provider or PBX automatically delivers the required configuration settings for device registration, significantly reducing deployment time and operational overhead.
+When a user activates a phone, the PBX or service provider automatically delivers the necessary configuration settings, enabling the phone to register with the system. This process significantly reduces deployment time and operational overhead.
 
 ***
 
 ### How Auto-Provisioning Works
 
-#### Auto-Provisioning Overview
+#### Overview
 
-Auto-provisioning streamlines the phone setup process by allowing users to activate their phones via a **web interface**, avoiding the need to manually enter SIP credentials or configuration parameters on the device itself.
-
-***
+Auto-provisioning streamlines phone setup by letting users activate their devices through a web interface. Users do not need to manually enter SIP credentials or device configuration parameters.
 
 #### PBX Configuration Files
 
-In a typical PBX implementation:
+In a standard PBX implementation:
 
-* Extension phone configuration files are stored in a designated provisioning directory.
-* For example, the PBX may create a folder such as: **`ac2fbb80c5da60e`**
-* Within this folder, the PBX generates **one configuration file per phone**, using the phone’s **MAC address** as the filename.
-
-***
+1. Extension phone configuration files are stored in a dedicated provisioning directory.\
+   Example: `ac2fbb80c5da60e`
+2. Within this folder, the PBX generates **one configuration file per phone**, named using the phone’s **MAC address**.
 
 #### Provisioning URL Mechanism
 
-To initiate provisioning:
+The provisioning workflow follows these steps:
 
 1. The PBX sends a **SIP NOTIFY** message to the IP phone.
-2. This message contains a **base provisioning URL**, for example:
-
-```
-https://www.pbxhost.com/provision/ac2fbb80c5da60e
-```
-
-3. The IP phone appends its own **MAC address** to the URL, producing a complete configuration file path such as:
-
-```
-https://www.pbxhost.com/provision/ac2fbb80c5da60e/cc5ef641b794.xml
-```
-
-4. The phone then downloads the configuration file and uses it to register with the PBX.
+2. The message contains a **base provisioning URL**, e.g.:\
+   `https://www.pbxhost.com/provision/ac2fbb80c5da60e`
+3. The IP phone appends its MAC address to form the full configuration file path, e.g.:\
+   `https://www.pbxhost.com/provision/ac2fbb80c5da60e/cc5ef641b794.xml`
+4. The phone downloads the configuration file and uses it to **register with the PBX**.
 
 ***
 
-### Security Issue: Exposure of User Credentials
+### Security Consideration: Credential Exposure
 
-This traditional provisioning model introduces a **serious security risk**.
+⚠️ **Traditional provisioning models can be insecure.**
 
-If a user knows—or can guess—another IP phone’s **MAC address**, they may be able to download that phone’s configuration file. These configuration files often contain **sensitive information**, including:
+* If an attacker knows or can guess another phone’s MAC address, they may download that phone’s configuration file.
+* These files often contain sensitive information in **plain text**, including:
+  * SIP extension number
+  * SIP authentication password
 
-* SIP extension number
-* SIP authentication password
-
-Because IP phones can only read **plain-text configuration files**, these credentials are typically stored **in clear text**.
-
-> ❗ **Important**\
-> This design flaw can lead to **credential leakage**, unauthorized registrations, and **toll fraud**, making it one of the most common security weaknesses in traditional auto-provisioning systems.
+> ❗ **Important:**\
+> This design flaw can lead to **credential leakage, unauthorized registrations, and toll fraud**, making it one of the most common vulnerabilities in legacy auto-provisioning systems.
 
 ***
 
-### PortSIP PBX Solution: Enhanced Auto-Provisioning Security
+### PortSIP PBX Secure Auto-Provisioning
 
-To eliminate this risk, **PortSIP PBX** implements a more secure auto-provisioning architecture.
+#### Enhanced Security Architecture
 
-Instead of storing all configuration files in a shared directory, PortSIP PBX:
+PortSIP PBX addresses these risks by:
 
-* Creates a **separate provisioning folder for each user**
-* Uses **long, randomly generated folder names**
-* Prevents predictable or guessable provisioning URLs
+1. Creating a **separate provisioning folder for each user**.
+2. Using **long, randomly generated folder names**.
+3. Preventing predictable or guessable provisioning URLs.
 
-As a result, even if a phone’s MAC address is publicly known, it becomes **practically impossible** to guess another user’s configuration file URL.
+✅ **Result:**\
+Even if a phone’s MAC address is publicly known, it is practically impossible to access another user’s configuration file.
 
-> ❗ **Important**\
-> This design significantly improves security and protects SIP credentials from unauthorized access.\
-> Strong provisioning security is essential in any modern communication system.
-
-***
-
-### DHCP Option 66 and Auto-Provisioning in PortSIP PBX
-
-As described above, PortSIP PBX’s secure provisioning model differs from traditional approaches. However, this introduces a compatibility challenge with **legacy IP phones** that rely **only on DHCP Option 66** for provisioning.
+> ❗ **Important:**\
+> Secure auto-provisioning is essential to protect SIP credentials and maintain overall system security.
 
 ***
 
-#### DHCP Option 66 Limitation
+#### Using Your Own RPS Account
 
-* Some legacy IP phones support provisioning **only via DHCP Option 66**
-* DHCP Option 66 requires a single, unified provisioning URL
-* This implies that all configuration files must be stored in the same directory
+Currently, when a phone is auto-provisioned via the **Remote Provisioning Server (RPS)**, its configuration link resides under PortSIP-managed accounts at the phone vendor.
 
-This behavior conflicts with PortSIP’s default per-user isolated provisioning folders.
+**Best Practice for Security and Compliance:**
+
+1. Contact each phone vendor to create **your own RPS account** for every phone brand you use.
+2. Follow the guide: [Configuring Private RPS Account](https://support.portsip.com/portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/configuring-private-rps-account)
+3. Once your RPS accounts are ready, PortSIP PBX provides a tool to **migrate all currently auto-provisioned phones** from the PortSIP-managed account to your own account.
+
+> ❗ **Strong Recommendation:**\
+> Always configure your own RPS accounts to ensure secure auto-provisioning.
 
 ***
 
-### Optional Compatibility Setting for Legacy Phones
+### DHCP Option 66 and Legacy Device Compatibility
 
-To support legacy phones while maintaining deployment flexibility, PortSIP PBX provides an **optional configuration switch**.
+#### Background
 
-#### How to Disable Secure Folder Isolation (Not Recommended)
+PortSIP PBX’s secure provisioning uses **per-user isolated folders**, which may conflict with legacy IP phones that only support **DHCP Option 66**.
 
-1. Sign in to the PortSIP PBX Web Portal
-2. Navigate to **Advanced > Settings**
+**DHCP Option 66 Limitation:**
+
+* Requires a **single, shared provisioning URL**
+* All configuration files must reside in **the same directory**
+* Conflicts with PortSIP PBX’s default per-user isolated folder structure
+
+***
+
+#### Optional Compatibility Setting
+
+To support legacy devices while maintaining flexibility, PortSIP PBX offers an **optional configuration switch**.
+
+**How to Temporarily Disable Secure Folder Isolation (Not Recommended):**
+
+1. Log in to the **PortSIP PBX Web Portal**
+2. Navigate to: `Advanced > Settings`
 3. Open the **General** page
-4. In the **Custom Options** field, add the following JSON string:
+4.  In the **Custom Options** field, add:
 
-```json
-{"disable_auto_provision_security" : true}
-```
+    ```json
+    {"disable_auto_provision_security": true}
+    ```
+5. Click **OK** to save changes
 
-5. Click **OK** to save the changes
+**Effect of This Option:**
 
-***
+| Option Setting     | Behavior                                                                                    |
+| ------------------ | ------------------------------------------------------------------------------------------- |
+| `true`             | All configuration files stored in a shared directory; DHCP Option 66 provisioning supported |
+| `false` or removed | Secure, per-user provisioning folders are used                                              |
 
-#### Effect of This Option
+❗ **Critical Security Warning:**\
+Enabling `disable_auto_provision_security` **reintroduces serious security risks**, including:
 
-* If the option is set to `true`:
-  * All configuration files are stored in a **shared directory**
-  * DHCP Option 66 provisioning is supported
-* If the option is set to `false` or removed:
-  * PortSIP PBX resumes using **secure, per-user provisioning folders**
+* SIP credential leakage
+* Unauthorized phone registrations
+* Toll fraud and other security breaches
 
-***
-
-> ❗ **Critical Security Warning**\
-> **We strongly do NOT recommend enabling**\
-> `disable_auto_provision_security`
->
-> Disabling this protection reintroduces the risk of:
->
-> * SIP credential leakage
-> * Unauthorized phone registrations
-> * Toll fraud and security breaches
-
-Only enable this option **temporarily** and **only when required** for legacy device compatibility.
+**Recommendation:**\
+Only enable this option temporarily and solely for legacy device compatibility. Return to **secure folder isolation** as soon as possible.
 
 ***
 
 ### Summary
 
-PortSIP PBX offers a **secure-by-design auto-provisioning mechanism** that protects user credentials while maintaining operational flexibility. Although DHCP Option 66 support is available for legacy devices, it should be used **with caution** and only when absolutely necessary.
+PortSIP PBX provides a **secure-by-design auto-provisioning system** that:
 
-Balancing **security** and **compatibility** is critical—and PortSIP PBX gives administrators full control to make that decision safely.
+* Protects user credentials
+* Minimizes operational overhead
+* Supports optional legacy device compatibility via DHCP Option 66
 
+**Key Takeaways:**
 
+* Use **per-user provisioning folders** for maximum security.
+* Configure **your own RPS accounts** for each phone brand.
+* Enable DHCP Option 66 only when necessary, and revert to secure defaults immediately afterward.
 
+Balancing **security and compatibility** ensures safe and efficient IP phone deployments with PortSIP PBX.
 
+***
 
+✅ **Recommendation for Administrators:**\
+Maintain a consistent, secure provisioning workflow while documenting any exceptions made for legacy devices. This approach aligns with **modern VoIP and UC industry standards**.
