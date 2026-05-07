@@ -69,7 +69,7 @@ Even if a phone’s MAC address is publicly known, it is practically impossible 
 
 #### Using Your Own RPS Account
 
-Currently, when a phone is auto-provisioned via the **Remote Provisioning Server (RPS)**, its configuration link resides under PortSIP-managed accounts at the phone vendor.
+By default, when a phone is auto-provisioned via the **Remote Provisioning Server (RPS)**, its configuration link resides under PortSIP-managed accounts at the phone vendor.
 
 **Best Practice for Security and Compliance:**
 

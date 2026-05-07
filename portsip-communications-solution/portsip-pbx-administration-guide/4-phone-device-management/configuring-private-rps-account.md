@@ -2,7 +2,7 @@
 
 ❗ **Warning**
 
-Currently, with PortSIP PBX, if an IP phone is auto-provisioned via the RPS (Remote Provisioning Server), its configuration link is stored in the IP phone vendor’s RPS under the PortSIP-managed account.
+By default, with PortSIP PBX, if an IP phone is auto-provisioned via the RPS (Remote Provisioning Server), its configuration link is stored in the IP phone vendor’s RPS under the PortSIP-managed account.
 
 **Best Practice for Security and Compliance:**
 
