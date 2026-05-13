@@ -49,6 +49,7 @@ Save the file after making your changes.
 [yealink]
 accesskey_id = xxxx
 accesskey_secret = xxxx
+rps_host = https://wwww.xxx.com
 ```
 
 #### ALE (Alcatel-Lucent Enterprise)
