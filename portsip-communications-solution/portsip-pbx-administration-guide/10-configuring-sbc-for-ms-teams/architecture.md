@@ -68,7 +68,23 @@ PSTN Users → SIP Trunk → PortSIP PBX → PortSIP SBC → Microsoft Teams Use
 **Description:**\
 Inbound PSTN calls arrive at PortSIP PBX through the SIP trunk. PortSIP PBX applies the configured inbound routing rules and forwards the calls to Microsoft Teams users through the PortSIP SBC.
 
-<figure><img src="../../../.gitbook/assets/portsip-teams-sbc-pbx.jpg" alt=""><figcaption></figcaption></figure>
+#### 3. Teams Users to PBX Extension Users
+
+**Flow:**\
+Microsoft Teams Users → PortSIP SBC → PortSIP PBX → PBX Extension Users
+
+**Description:**\
+Microsoft Teams users call PBX extension users through PortSIP SBC. The calls are sent from Microsoft Teams to PortSIP SBC, then routed to PortSIP PBX. PortSIP PBX applies the configured inbound routing rules and delivers the calls to the target PBX extensions.
+
+#### 4. PBX Extension Users to Teams Users
+
+**Flow:**\
+PBX Extension Users → PortSIP PBX → PortSIP SBC → Microsoft Teams Users
+
+**Description:**\
+PBX extension users call Microsoft Teams users through PortSIP PBX and PortSIP SBC. PortSIP PBX routes the calls to PortSIP SBC, and PortSIP SBC forwards the calls to Microsoft Teams.
+
+<figure><img src="../../../.gitbook/assets/portsip-teams-call-flows.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
