@@ -1,10 +1,8 @@
 # Configuring Microsoft Teams
 
-## TEAMS Office 365 setup
-
 ### 1 Install the Teams module
 
-* Run the following command to confirm whether you have installed the Teams PowerShell module successfully: `Get-Module -ListAvailable -Name MicrosoftTeams`. If it is installed successfully, you will see the results below:&#x20;
+* Launch **PowerShell as Administrator**, then run the following command to verify that the Microsoft Teams PowerShell module has been installed successfully: `Get-Module -ListAvailable -Name MicrosoftTeams`. If it is installed successfully, you will see the results below:&#x20;
 
 <figure><img src="../../../.gitbook/assets/teams1.png" alt=""><figcaption></figcaption></figure>
 

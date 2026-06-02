@@ -2,7 +2,7 @@
 
 PortSIP SBC supports configuring one Session Border Controller (SBC) to serve multiple tenants for Teams Direct Routing.
 
-## 1. Configuring the Tenant Domains in Microsoft Teams
+### 1. Configuring the Tenant Domains in Microsoft Teams
 
 Microsoft provided a detailed guide for configuring Microsoft Teams Direct Routing for multiple tenants; please follow [Configure a Session Border Controller for multiple tenants](https://learn.microsoft.com/en-us/MicrosoftTeams/direct-routing-sbc-multiple-tenants) to set up the tenant domains in the Microsoft 365 admin center.
 
@@ -13,7 +13,7 @@ According to that guide, the following items summarize the configuration of the 
 * a wildcard SSL certificate for the domain **\*.customers.adatum.biz.**
 * Resolve the domain **customers.adatum.biz** to the SBC IP address.
 
-## **2. Configuring the PortSIP PBX**
+### **2. Configuring the PortSIP PBX**
 
 Please follow the guides below to install and configure the PortSIP PBX:
 
@@ -28,7 +28,7 @@ Now, create three tenants and set their respective SIP domains to **sbc1.custome
 
 <figure><img src="../../../.gitbook/assets/tenant_sbc3.png" alt=""><figcaption></figcaption></figure>
 
-## 3. Configuring the PortSIP SBC
+### 3. Configuring the PortSIP SBC
 
 Please install the PortSIP SBC by following the guide[ Configuring PortSIP SBC](../9-configuring-portsip-sbc/).&#x20;
 
@@ -38,7 +38,7 @@ To configure the PortSIP SBC for multiple tenants, please follow the [guide ](co
 * When [adding the Teams Base Domain](configuring-sbc-and-pbx.md#1-add-teams-base-domain), enter **customers.adatum.biz** as the Teams Base Domain.
 * From the menu, select **Settings > Network** and enter **customers.adatum.biz** in the **Web Domain** field.
 
-## **4. Configure Call Routing in the PortSIP PBX**
+### **4. Configure Call Routing in the PortSIP PBX**
 
 Please follow the guide [Configuring SBC and PBX](configuring-sbc-and-pbx.md#2-add-sbc-as-teams-trunk-in-pbx) to create the Teams trunk and inbound and outbound rules for routing calls. Please skip the section **1 Add Teams Base Domain** since we have already completed that step in the previous steps.
 

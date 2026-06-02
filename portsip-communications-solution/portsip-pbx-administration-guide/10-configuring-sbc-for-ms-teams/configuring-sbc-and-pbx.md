@@ -1,14 +1,12 @@
 # Configuring SBC and PBX
 
-## SBC and PBX Setup
-
 Please confirm the following items have been completed before configuring the SBC and PBX for Microsoft Teams Direct Routing.
 
 * The PBX has been [installed ](../1-installation-of-the-portsip-pbx/)and [configured](../2-portsip-pbx-management/).
 * The SBC has been [installed and configured](../9-configuring-portsip-sbc/).
 * The Microsoft Teams Direct Routing has been [configured](configuring-microsoft-teams.md).
 
-## 1. Add Teams Base Domain
+### 1. Add Teams Base Domain
 
 1. Sign in to the SBC web portal [https://sbc.portsip.cc:8883/](https://sbc.portsip.cc:8883/)
 2. Select the menu **Settings > Teams Base Domains**, and click the **Add** button to add the SBC  domain that SBC will send the OPTIONS message to MS Teams to keep alive, in case it's "**sbc.portsip.cc**".
@@ -19,7 +17,7 @@ After adding the Team's base domain, the SBC will periodically send OPTIONS to T
 
 If it is displayed as **Inactive**, something is wrong, please double-check every step.
 
-## 2. Add SBC as a Teams trunk in PBX
+### 2. Add SBC as a Teams trunk in PBX
 
 1. Ensure the TCP transport on port 5063 has been added to the PBX.
 2. Sign in to the PBX web portal as **System Administrator**, navigate to the **Tenants** menu, select a tenant to be managed, and click the **Manage** button; or sign in the user who is the "**admin**" role of the tenant into the PBX web portal.
@@ -36,7 +34,7 @@ If it is displayed as **Inactive**, something is wrong, please double-check ever
 4. Click the **Next** button
 5. Turn off the **Rewrite the host IP of Via header by the public IP when sending the request to the trunk**, and click **OK** to complete the Teams Trunk configuration.
 
-## 3. Creating Inbound Rules
+### 3. Creating Inbound Rules
 
 The inbound rule must be created in order to route the Microsoft Teams call to the extension or system service, such as IVR, Call Queue, and Ring Group.
 
@@ -46,7 +44,7 @@ The inbound rule must be created in order to route the Microsoft Teams call to t
 
 <figure><img src="../../../.gitbook/assets/teams_inbound_rule.png" alt=""><figcaption></figcaption></figure>
 
-## 4. Creating Outbound Rules
+### 4. Creating Outbound Rules
 
 We can create an outbound rule that routes the calls from PBX to Microsoft Teams.
 
@@ -60,7 +58,7 @@ When extension 102 dials a number that does not exist in the PBX internal direct
 
 For example, when extension 102 dials 1001, the PBX routes the call to Microsoft Teams, and since the callee number is 1001, the Teams user who has the phone number 1001 will be ringing.
 
-## 5. Forward Teams calls to Trunk for any number
+### 5. Forward Teams calls to Trunk for any number
 
 Consider this scenario: A Teams caller calls phone numbers and routes to SBC/PBX. These calls should be sent to the trunk in order to ring the mobile phone/landline. Since it is impossible to create multiple inbound rules for all phone numbers, we can implement it easily as follows:
 
