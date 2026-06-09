@@ -314,6 +314,24 @@ Extension 1001 establishes calls with both 1002 and 1003. Now, use this API to p
 }
 ```
 
+**Example 3:**
+
+Extension 1001 establishes calls with 1002， and with a trunk number 166000. Now, use this API to perform an attended transfer, which will connect the call between 1002 and 66000, and extension 1001 will be disconnected from the call.
+
+* Pass  `1`  for the URL parameter `{id}`
+* Use the following POST body:
+
+```json
+{
+"extension_number" : "1001",
+"refer_to_1" : "1002",
+"refer_to_2" : "166000",
+"session_2" : "182343594055508"
+}
+```
+
+In the example above, you must specify `session_2` so that PortSIP PBX can identify the call leg associated with the trunk call. You can obtain the session ID from the INVITE message when the call is initiated.
+
 **Response**
 
 {% tabs %}
