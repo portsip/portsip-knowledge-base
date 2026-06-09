@@ -6,6 +6,7 @@ This guide applies to the following SNOM DECT base stations:
 
 * **M300**
 * **M400**
+* **M500**
 * **M700**
 * **M900**
 
@@ -19,7 +20,7 @@ Before provisioning, it is recommended to reset both the **base station** and **
 
 #### Reset the Snom DECT Base Station
 
-_(M300, M400, M700, M900)_
+_(M300, M400, M500, M700, M900)_
 
 1. Press and hold the **Reset** button on the base station for **at least 10 seconds**.
 2. Release the button and allow the base station to restart.
@@ -94,7 +95,7 @@ If you encounter any issues during the firmware upgrade:
 * Refer to the **SNOM user guide troubleshooting section**, or
 * Contact **SNOM technical support** or your **PortSIP support representative** for assistance.
 
-Here also have the SNOM official guides:
+Here are also the SNOM official guides:
 
 * [How to update M300,M700,M900 DECT Base Station manually](https://service.snom.com/display/wiki/How+to+update+M300%2CM400%2CM700%2CM900+DECT+Base+Station+manually)
 * [How to update M-Series - DECT handsets](https://service.snom.com/display/wiki/How+to+update+M-Series+-+DECT+handsets)
