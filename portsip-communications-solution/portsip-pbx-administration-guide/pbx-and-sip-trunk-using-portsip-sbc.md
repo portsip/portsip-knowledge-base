@@ -117,7 +117,7 @@ This section describes how to add the SIP trunk to PortSIP PBX when the SBC is u
    * Enter the **Authorization Name** and **Password** provided by the SIP trunk service provider.
    * Click **Next**.
 7. **Advanced Options**
-   * Enable **Trunk is located in same LAN with PBX**.
+   * Enable **Use the private IP address to communicate with this trunk**.
    * Disable **Rewrite the host IP of Via header by public IP when sending the request to trunk**.
    * Click **Next**.
 8. **Assign Trunk to Tenants**
@@ -125,8 +125,6 @@ This section describes how to add the SIP trunk to PortSIP PBX when the SBC is u
    * For details, refer to the _Add the Trunk by System Admin_ section in [Trunk Management](7-trunk-management/).<br>
 
 Now you are ready to [create the inbound & outbound rules for the call routing](8-call-route-management/).
-
-
 
 
 
