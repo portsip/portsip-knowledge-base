@@ -1,5 +1,13 @@
 # Provision Phone Using RPS
 
+> ### ❗ **Warning**
+
+By default, when you provision IP phones and other devices using **RPS**, PortSIP PBX uses **PortSIP’s RPS account** with each supported phone vendor’s RPS service. This means the device’s provisioning information (for example, the configuration URL/link) is stored under the vendor RPS account created for PortSIP.
+
+If you do not want your provisioning information stored under PortSIP’s vendor RPS account, configure and use **your own private RPS account** instead. For instructions, see [Configuring Private RPS Account.](configuring-private-rps-account.md)
+
+***
+
 When the PortSIP PBX is deployed in the cloud, IP phones can be auto-provisioned using **RPS** (Redirection and Provisioning Service).
 
 PortSIP PBX supports RPS for the following IP phone vendors:
@@ -16,15 +24,6 @@ If you are using an IP phone from one of the vendors listed above, you can provi
 In this deployment scenario, the PnP method is not available, and RPS must be used instead.
 
 <figure><img src="../../../.gitbook/assets/rps.png" alt=""><figcaption></figcaption></figure>
-
-***
-
-### ❗ **Warning**
-
-\
-By default, when you provision IP phones and other devices using **RPS**, PortSIP PBX uses **PortSIP’s RPS account** with each supported phone vendor’s RPS service. This means the device’s provisioning information (for example, the configuration URL/link) is stored under the vendor RPS account created for PortSIP.
-
-If you do not want your provisioning information stored under PortSIP’s vendor RPS account, configure and use **your own private RPS account** instead. For instructions, see [Configuring Private RPS Account.](configuring-private-rps-account.md)
 
 ***
 
