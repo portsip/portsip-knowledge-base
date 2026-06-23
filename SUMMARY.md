@@ -51,6 +51,7 @@
     * [DND and Automatic Callback](portsip-communications-solution/portsip-pbx-administration-guide/5-user-management/dnd-and-automatic-callback.md)
     * [Speed Dial 8](portsip-communications-solution/portsip-pbx-administration-guide/5-user-management/speed-dial-8.md)
     * [Speed Dial 100](portsip-communications-solution/portsip-pbx-administration-guide/5-user-management/speed-dial-100.md)
+    * [Selective Call Rejection and Call Acceptance](portsip-communications-solution/portsip-pbx-administration-guide/5-user-management/selective-call-rejection-and-call-acceptance.md)
   * [6 Transport Management](portsip-communications-solution/portsip-pbx-administration-guide/6-transport-management.md)
   * [7 Trunk Management](portsip-communications-solution/portsip-pbx-administration-guide/7-trunk-management/README.md)
     * [Configuring SIP Trunk](portsip-communications-solution/portsip-pbx-administration-guide/7-trunk-management/configuring-sip-trunk.md)
