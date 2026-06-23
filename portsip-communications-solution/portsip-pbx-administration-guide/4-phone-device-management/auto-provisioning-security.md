@@ -82,6 +82,22 @@ By default, when a phone is auto-provisioned via the **Remote Provisioning Serve
 
 ***
 
+#### Activate PIN Verification for IP Phone Auto-Provisioning
+
+By default, when an IP phone is auto-provisioned, its configuration file may be downloaded through the provisioning URL without additional verification. This means that if someone obtains the phone provisioning URL, they may be able to download the phone configuration file and access sensitive information, such as the extension’s SIP credentials.
+
+**Best Practice for Security and Compliance:**
+
+To improve provisioning security, we strongly recommend that PBX System Administrators or Tenant Administrators enable **PIN Verification for IP Phone Auto-Provisioning**.
+
+Please follow the guide: [PIN Verification for IP Phone Auto-Provisioning.](pin-verification-for-ip-phone-auto-provisioning.md)
+
+After PIN verification is enabled, users must enter their voicemail PIN when auto-provisioning an IP phone. The phone can download its configuration from PortSIP PBX only after the PIN is verified successfully.
+
+> ❗ **Strong Recommendation:** Always enable **PIN Verification for IP Phone Auto-Provisioning** to help protect phone configuration files and ensure secure auto-provisioning.
+
+***
+
 ### DHCP Option 66 and Legacy Device Compatibility
 
 #### Background
