@@ -238,6 +238,7 @@
     * [Scaling Data Flow Server on AWS for High Availability](portsip-communications-solution/high-availability-v22.x/high-availability-and-scalability-on-aws/scaling-data-flow-server-on-aws-for-high-availability.md)
 * [Tutorials](portsip-communications-solution/tutorials/README.md)
   * [Storing Into Azure Blob Storage](portsip-communications-solution/portsip-pbx-administration-guide/storing-into-azure-blob-storage.md)
+  * [Exporting, Editing, and Importing  Inbound Rules](portsip-communications-solution/tutorials/exporting-editing-and-importing-inbound-rules.md)
   * [Storing Into AWS S3](portsip-communications-solution/portsip-pbx-administration-guide/storing-into-aws-s3.md)
   * [Backup and Restore: An Essential Guide](portsip-communications-solution/portsip-pbx-administration-guide/backup-and-restore/README.md)
     * [Backup and Restore PortSIP PBX](portsip-communications-solution/portsip-pbx-administration-guide/backup-and-restore/backup-and-restore-portsip-pbx.md)
