@@ -6,9 +6,9 @@ PortSIP PBX integrates with [Sinch](https://sinch.com/voice/sip-trunking/) SIP t
 
 This article covers the following topics:
 
-* Purchase a DID on the Sinch Platform
-* Configuring Sinch IP Authentication Trunk
-* Configuring Sinch Register Authentication Trunk
-* Configuring Outbound & Inbound Calls
-* Sinch SMS Integration
+* [Purchase a DID on the Sinch Platform](purchase-a-did-on-telnyx-platform.md)
+* [Configuring Sinch IP Authentication Trunk](configuring-sinch-ip-authentication-trunk.md)
+* [Configuring Sinch Register Authentication Trunk](configuring-sinch-register-authentication-trunk.md)
+* [Configuring Outbound & Inbound Calls](configuring-outbound-and-inbound-calls.md)
+* [Sinch SMS Integration](sinch-sms-integration.md)
 
