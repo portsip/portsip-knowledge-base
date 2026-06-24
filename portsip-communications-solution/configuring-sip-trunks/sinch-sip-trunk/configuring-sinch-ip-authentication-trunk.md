@@ -183,7 +183,7 @@ Enter the following information:
   Enter a friendly name for the trunk (for example, `Sinch Trunk`).
 * **Brand**\
   Select a **Sinch**.
-* Enter the domain name that you created in the [Step 2: Configure the SIP Trunk](configuring-sinch-ip-authentication-trunk.md#step-2-configure-the-sip-trunk). In case is `mycompany.pstn.sinch.com`.
+* Enter the domain name that you created in the [Step 2: Configure the SIP Trunk](configuring-sinch-ip-authentication-trunk.md#step-2-configure-the-sip-trunk) for Hostname. In case is `mycompany.pstn.sinch.com`.
 
 Click **Next** to continue.
 
@@ -250,4 +250,3 @@ In the trunk list, you will see the status displayed as **Online** (for IP Based
 ### Next Steps
 
 You can now proceed to [Configuring Outbound & Inbound Calls](configuring-sinch-ip-authentication-trunk.md) to complete your call routing setup.
-
