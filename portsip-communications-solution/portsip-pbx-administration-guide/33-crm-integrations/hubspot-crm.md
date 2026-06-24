@@ -50,6 +50,7 @@ Call recording links and AI transcription links are automatically attached to th
      * `crm.objects.contacts.write`
      * `crm.objects.companies.read`
      * `crm.objects.owners.read`
+     * `crm.objects.companies.write`
    * **Other**
      * `timeline`&#x20;
 
@@ -124,6 +125,12 @@ Allow agents to create CRM records when calls come from unknown numbers.
 2. Sign in using the **HubSpot user account** that should grant access _(do not use a developer account)_.
 
 <figure><img src="../../../.gitbook/assets/pbx_hubspot_choose_account.png" alt=""><figcaption></figcaption></figure>
+
+During that, HubSpot will ask you to confirm the integration. Please complete the verification as per the prompt below.
+
+<figure><img src="../../../.gitbook/assets/hubspot-verification.png" alt=""><figcaption></figcaption></figure>
+
+
 
 3. Click **Connect app** to authorize PortSIP PBX to access HubSpot CRM data.
 
