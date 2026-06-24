@@ -1,11 +1,5 @@
 # Purchase a DID on Sinch Platform
 
-{% hint style="warning" %}
-According to US legislation (A2P 10DLC SMS), 10DLC (10-digit Long Code) phone numbers that are used for A2P (Application-to-Person) messaging MUST be registered, otherwise SMS messages sent to US numbers from the unregistered 10DLC numbers will be blocked.
-
-If your business communicates with US-based customers, you should contact the SMS service provider to complete 10DLC registration for your DID number to avoid disruption in message delivery.
-{% endhint %}
-
 Before placing or receiving calls, you must have at least one active DID (phone number) on your Sinch account.\
 If you already have one or more active DIDs, you may skip this section.
 
