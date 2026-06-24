@@ -31,7 +31,7 @@ To place outbound calls, you must create at least one **Outbound Rule**.
 
 1. From the left-hand navigation menu, go to **Call Manager > Outbound Rules**.
 2. Click **Add**.
-3. Enter a **Name** for the outbound rule (for example, `Telnyx-Outbound`).
+3. Enter a **Name** for the outbound rule (for example, `Sinch-Outbound`).
 
 ***
 
@@ -48,10 +48,10 @@ To place outbound calls, you must create at least one **Outbound Rule**.
 
 5. Scroll to **Place outbound calls using the following trunk routes**.
 6. Click the **Add (+)** icon.
-7. Select the **Telnyx trunk**.
+7. Select the **Sinch trunk**.
 8. Save the outbound rule.
 
-<figure><img src="../../../.gitbook/assets/telnyx-fig15.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/sinch-trunk-5.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -64,7 +64,7 @@ For example, if users typically dial **US domestic numbers** without a country c
 > ❗**Best Practice**\
 > Normalizing outbound numbers to **E.164 format** (for example, `+13322496213`) improves SIP trunk compatibility, routing accuracy, and caller ID consistency.
 
-<figure><img src="../../../.gitbook/assets/telnyx-fig16.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/sinch-trunk-6.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -82,15 +82,15 @@ To receive inbound calls, you must configure at least one **Inbound Rule**.
 
 #### Step 2: Configure Basic Inbound Rule Settings
 
-4. Enter a **Name** for the inbound rule (for example, `Telnyx-Inbound`).
-5. Click **Choose a Trunk**, then select the appropriate **Telnyx trunk**.
+4. Enter a **Name** for the inbound rule (for example, `Sinch-Inbound`).
+5. Click **Choose a Trunk**, then select the appropriate **Sinch trunk**.
 6. In the **DID/DDI Number or Number Range** field, enter the destination number(s).
    * The number must be **within the DID pool range** assigned to the selected trunk.
 7. Select the **Extension** to route inbound calls to
    * For example: **Extension `1001`**.
 8. Click **OK** to save the inbound rule.
 
-<figure><img src="../../../.gitbook/assets/telnyx-fig17.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/sinch-trunk-7.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -104,8 +104,4 @@ Depending on your business requirements, you can further enhance the inbound rul
 * Automatically rejecting or dropping calls when appropriate
 
 For more details, refer to [Office Hours and Holiday Schedule](../../portsip-pbx-administration-guide/office-hours-and-holiday-schedule/) and  [Call Route Management](../../portsip-pbx-administration-guide/8-call-route-management/).
-
-
-
-
 
