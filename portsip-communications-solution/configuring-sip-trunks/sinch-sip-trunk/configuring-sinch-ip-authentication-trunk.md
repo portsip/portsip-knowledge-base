@@ -157,7 +157,7 @@ Your SIP trunk is now ready. You can now configure PortSIP PBX to use the SIP do
 
 ### Configure an IP Authentication Trunk in PortSIP PBX
 
-The **Telnyx IP Authentication Trunk** corresponds to an **IP-Based Trunk** in PortSIP PBX.
+The **Sinch IP Authentication Trunk** corresponds to an **IP-Based Trunk** in PortSIP PBX.
 
 > ❗**Important**\
 > IP-Based Trunks **must be configured at the System Administrator level**.\
@@ -180,14 +180,14 @@ The **Telnyx IP Authentication Trunk** corresponds to an **IP-Based Trunk** in P
 Enter the following information:
 
 * **Name**\
-  Enter a friendly name for the trunk (for example, `Telnyx-IP-Trunk`).
+  Enter a friendly name for the trunk (for example, `Sinch Trunk`).
 * **Brand**\
-  Select a **Telnyx** location closest to your PBX deployment, for example:
-  * `Telnyx - US`
+  Select a **Sinch**.
+* Enter the domain name that you created in the [Step 2: Configure the SIP Trunk](configuring-sinch-ip-authentication-trunk.md#step-2-configure-the-sip-trunk). In case is `mycompany.pstn.sinch.com`.
 
 Click **Next** to continue.
 
-<figure><img src="../../../.gitbook/assets/telnyx-fig8.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/sinch-trunk-1.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -195,7 +195,7 @@ Click **Next** to continue.
 
 * **Max Concurrent Calls**\
   Defines the maximum number of simultaneous calls that PortSIP PBX can establish through this trunk.
-  * Adjust this value according to your Telnyx service plan and expected call volume.
+  * Adjust this value according to your Sinch service plan and expected call volume.
   * For most deployments, the default value is sufficient.
 
 Leave all other options at their default values unless you have specific requirements.
@@ -209,7 +209,7 @@ Click **Next** to continue.
 #### Step 4: Assign Tenants and DID Pool
 
 1. Assign the trunk to one or more tenants.
-2. Provide Telnyx DID numbers to each tenant using the **DID Pool**.
+2. Provide Sinch DID numbers to each tenant using the **DID Pool**.
 
 > ❗**Important**
 >
@@ -243,13 +243,11 @@ Click **OK** to save the configuration.
 
 In the trunk list, you will see the status displayed as **Online** (for IP Based Trunk it always displays Registered).
 
-<figure><img src="../../../.gitbook/assets/telnyx-fig9.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/sinch-trunk-2.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
 ### Next Steps
 
-You can now proceed to [Configuring Outbound & Inbound Calls](../telnyx-sip-trunk/configuring-outbound-and-inbound-calls.md) to complete your call routing setup.
-
-
+You can now proceed to [Configuring Outbound & Inbound Calls](configuring-sinch-ip-authentication-trunk.md) to complete your call routing setup.
 
