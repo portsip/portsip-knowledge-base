@@ -296,6 +296,7 @@
 
 ## Apps Guides
 
+* [Summary of Changes](apps-guides/summary-of-changes.md)
 * [PortSIP ONE Desktop App](apps-guides/portsip-one-app/portsip-one-desktop-app.md)
   * [Sign in to PBX](apps-guides/portsip-one-desktop-app/sign-in-to-pbx.md)
   * [Calls, Messages, and Voicemails](apps-guides/portsip-one-desktop-app/calls-messages-and-voicemails.md)
