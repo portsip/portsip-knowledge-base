@@ -1,7 +1,5 @@
 # 35 Call Recording
 
-## Call Recording
-
 PortSIP PBX supports call recording for audio and video calls. Administrators can enable recording at different levels, including the tenant, extension, service, inbound rule, and outbound rule.
 
 PortSIP PBX can also generate call recording file links in either public or private mode. This gives administrators flexibility when sharing recordings while helping control access to sensitive call data.
