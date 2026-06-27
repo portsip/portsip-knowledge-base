@@ -31,7 +31,7 @@
     * [Auto Provisioning Security](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/auto-provisioning-security.md)
     * [Configuring Private RPS Account](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/configuring-private-rps-account.md)
     * [PIN Verification for IP Phone Auto-Provisioning](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/pin-verification-for-ip-phone-auto-provisioning.md)
-    * [PIN Verification for DECT Phone Auto-Provisioning](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/pin-verification-for-dect-phone-auto-provisioning.md)
+    * [Verifying the Provisioning PIN for DECT Phones](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/verifying-the-provisioning-pin-for-dect-phones.md)
     * [Customing IP Phone Template](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/custom-ip-phone-template.md)
     * [Bulk Importing Users and Auto Provisioning IP Phones](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/bulk-importing-users-and-auto-provisioning-ip-phones.md)
     * [Zero Touch Provisioning Phones](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/zero-touch-provisioning-phones.md)
