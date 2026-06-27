@@ -140,6 +140,7 @@
     * [Configuring AWS AI](portsip-communications-solution/portsip-pbx-administration-guide/34-ai-transcription/configuring-aws-ai.md)
     * [Configuring Deepgram AI](portsip-communications-solution/portsip-pbx-administration-guide/34-ai-transcription/configuring-deepgram-ai.md)
     * [Configuring Azure AI](portsip-communications-solution/portsip-pbx-administration-guide/34-ai-transcription/configuring-azure-ai.md)
+  * [35 Call Recording](portsip-communications-solution/portsip-pbx-administration-guide/35-call-recording.md)
 * [Configuring SIP Trunks](portsip-communications-solution/configuring-sip-trunks/README.md)
   * [Twilio SIP Trunk](portsip-communications-solution/configuring-sip-trunks/twilio-sip-trunk/README.md)
     * [Purchase a DID on the Twilio](portsip-communications-solution/configuring-sip-trunks/twilio-sip-trunk/purchase-a-did-on-the-twilio.md)
