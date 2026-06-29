@@ -102,10 +102,8 @@ Use this method if you enabled **Save to RPS** when configuring the Yealink DECT
 
 1. Restart the Yealink DECT base station.
 2. Wait for the base station to restart.
-
-**Expected outcome**
-
-After the base station restarts, it receives the provisioning information from the Yealink RPS service and is provisioned automatically.
+3. After the base station restarts, it starts the provisioning process. If prompted, enter the username and provisioning PIN to verify the provisioning request.
+4. After the PIN is verified successfully, the Yealink DECT phone downloads and applies its provisioning configuration.
 
 ***
 
@@ -130,11 +128,7 @@ Use this method if you did not enable **Save to RPS** when configuring the Yeali
 
 <figure><img src="../../../.gitbook/assets/yealink-dect-phone-pin-provsioning-2.png" alt=""><figcaption></figcaption></figure>
 
-**Expected outcome**
-
-After the base station restarts, it starts the provisioning process. If prompted, enter the username and provisioning PIN to verify the provisioning request.
-
-After the PIN is verified successfully, the Yealink DECT phone downloads and applies its provisioning configuration.
+After the base station restarts, it receives the provisioning information from the Yealink RPS service and is provisioned automatically.
 
 ***
 
