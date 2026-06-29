@@ -14,7 +14,7 @@ For details, see [PIN Verification for IP Phone Auto-Provisioning](pin-verificat
 
 ***
 
-### Configuring the Provisioning PIN for a DECT Phone
+### Configuring the Provisioning PIN for a DECT Phone in PBX Web Portal
 
 Use the following steps to configure the provisioning PIN for a DECT phone in PortSIP PBX.
 
@@ -43,8 +43,6 @@ The DECT phone has a provisioning PIN assigned. This PIN must be provided by the
 ### Verifying the PIN for Fanvil LINKVIL DECT Phones
 
 After you configure a Fanvil LINKVIL DECT phone in PortSIP PBX, use the following steps to configure PIN verification on the phone.
-
-#### To verify the provisioning PIN on a Fanvil LINKVIL DECT phone
 
 In the PortSIP PBX web portal, copy the phone provisioning URL.\
 See the screenshot below for reference.
@@ -139,8 +137,6 @@ After the base station restarts, it receives the provisioning information from t
 
 After you configure a Snom DECT phone in PortSIP PBX, use the following steps to configure PIN verification on the phone.
 
-#### To verify the provisioning PIN on a Fanvil LINKVIL DECT phone
-
 In the PortSIP PBX web portal, copy the phone provisioning URL.\
 See the screenshot below for reference.
 
@@ -197,8 +193,6 @@ See the screenshot below for reference.
 ### Verifying the PIN for Gigaset DECT Phones
 
 After you configure a Gigaset DECT phone in PortSIP PBX, use the following steps to configure PIN verification on the phone.
-
-#### To verify the provisioning PIN on a Gigaset LINKVIL DECT phone
 
 In the PortSIP PBX web portal, copy the phone provisioning URL.\
 See the screenshot below for reference.
