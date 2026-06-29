@@ -201,7 +201,7 @@ See the screenshot below for reference.
 
 After you configure a Gigaset DECT phone in PortSIP PBX, use the following steps to configure PIN verification on the phone.
 
-#### To verify the provisioning PIN on a Fanvil LINKVIL DECT phone
+#### To verify the provisioning PIN on a Gigaset LINKVIL DECT phone
 
 In the PortSIP PBX web portal, copy the phone provisioning URL.\
 See the screenshot below for reference.
