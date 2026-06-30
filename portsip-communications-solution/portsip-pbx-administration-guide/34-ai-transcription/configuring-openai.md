@@ -86,6 +86,8 @@ After AI transcription is enabled for a tenant, Tenant Administrators can config
    * **Automatically Transcribe Recorded Calls**
    * **Automatically Transcribe Voicemails**
 
+<figure><img src="../../../.gitbook/assets/ai_transcription_options.png" alt=""><figcaption></figcaption></figure>
+
 **Expected result:** PortSIP PBX automatically submits eligible recorded calls and/or voicemails for transcription based on the selected options.
 
 #### Step 3: View transcription results
@@ -93,7 +95,12 @@ After AI transcription is enabled for a tenant, Tenant Administrators can config
 1. Go to **Data Analytics > Call Recordings**.
 2. Review the transcription status for recorded calls.
 3. For calls that have already been transcribed, review the displayed sentiment indicator.
+
+<figure><img src="../../../.gitbook/assets/call_ai_transcription_1.png" alt=""><figcaption></figcaption></figure>
+
 4. For calls that have not yet been transcribed, click the **transcription icon** to manually start transcription.
+
+<figure><img src="../../../.gitbook/assets/ai_transcription_call_recordings.png" alt=""><figcaption></figcaption></figure>
 
 **Expected result:** Completed transcriptions and sentiment indicators are displayed for eligible call recordings.
 
