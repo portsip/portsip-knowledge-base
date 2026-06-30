@@ -299,23 +299,34 @@ Specifies how the Action URL is triggered. PortSIP PBX supports the following tr
 
 ***
 
-#### DTMF Match List / Caller Number Match List
+#### Configuring DTMF and Caller Number Match Rules
 
-Depending on the selected **Type**, configure one of the following:
+Depending on the selected **Type**, configure one of the following match lists:
 
-* **DTMF Match List**
-* **Caller Number Match List**
+**DTMF Match List**\
+**Caller Number Match List**
 
-You can specify:
+You can specify match values in any of the following formats:
 
-* A **semicolon-separated list** of values\
-  Example: `101;102;103`
-* A **number range**\
-  Example: `860000–880000`
-* A **wildcard pattern** using asterisks (`*`)\
-  Example: `*****` (matches any 5-digit DTMF input)
+**Semicolon-separated values**\
+Example: `101;102;103`
 
-Each entry must be **unique** and must not be duplicated.
+**Number range**\
+Example: `860000–880000`
+
+**Wildcard pattern using asterisks (`*`)**\
+Example: `*****` matches any 5-digit DTMF input.
+
+Each entry must be unique. Duplicate entries are not allowed.
+
+**Matching All DTMF Input**
+
+For the **DTMF Match List**, you can use `ALL` to match any DTMF input.
+
+When `ALL` is specified, the IVR DTMF menu is bypassed. Any DTMF input entered by the caller triggers this webhook directly.
+
+> **Important**\
+> Use `ALL` carefully. When enabled, all caller DTMF input is sent to the webhook instead of being handled by the IVR menu.
 
 **Common Use Cases**
 
