@@ -277,7 +277,7 @@ Before upgrading the Data Flow server:
 On **`pbx01`**, run the following command to upgrade the Data Flow service:
 
 ```bash
-cd /opt/portsip-pbx-ha-guide/ && /bin/bash dataflow.sh upgrade
+cd /opt/portsip-pbx-ha-guide/ && /bin/bash dataflow.sh upgrade -d portsip/clickhouse:26.3
 ```
 
 > ⚠️ **IMPORTANT**\
@@ -285,6 +285,4 @@ cd /opt/portsip-pbx-ha-guide/ && /bin/bash dataflow.sh upgrade
 > **Do not interrupt the process, reboot any server, or close the terminal** until the command completes.
 
 Once the upgrade finishes successfully, the Data Flow service will be restarted automatically with the updated version.
-
-
 
