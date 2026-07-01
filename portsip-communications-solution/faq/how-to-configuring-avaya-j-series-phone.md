@@ -55,6 +55,8 @@ After the phone finishes booting, it may prompt you to enter a server address.
 2. Locate the IP address assigned to the phone.
 3. Write down the IP address. You will use it to access the phone web interface.
 
+<figure><img src="../../.gitbook/assets/figure-04-phone-ip-address.png" alt="" width="488"><figcaption></figcaption></figure>
+
 ### 5. Sign in to the Phone Web Interface
 
 1. Open a web browser from a computer on the same network as the phone.
@@ -72,6 +74,8 @@ After the phone finishes booting, it may prompt you to enter a server address.
 > **Password requirement**\
 > The new administrator password must be 8 to 31 characters long.
 
+<figure><img src="../../.gitbook/assets/figure-05-web-login.png" alt=""><figcaption></figcaption></figure>
+
 ### 6. Verify 3PCC Mode
 
 After signing in to the web interface, verify that the phone is running in **3PCC** mode.
@@ -79,6 +83,8 @@ After signing in to the web interface, verify that the phone is running in **3PC
 1. On the main status page, check the **Server Mode** field.
 2. Confirm that the value is **3PCC**.
 3. If the phone is not in 3PCC mode, go to **Environment Settings** and enable 3PCC mode first.
+
+<figure><img src="../../.gitbook/assets/figure-06-verify-3pcc-mode.png" alt=""><figcaption></figcaption></figure>
 
 ### 7. Configure SIP Global Settings
 
@@ -108,6 +114,8 @@ After signing in to the web interface, verify that the phone is running in **3PC
 > **Note**\
 > Use the SIP transport configured on PortSIP PBX. For example, use `transport=udp` for UDP or `transport=tcp` for TCP.
 
+<figure><img src="../../.gitbook/assets/figure-07-sip-global-settings.png" alt=""><figcaption></figcaption></figure>
+
 ### 8. Configure the SIP Account
 
 1. In the **SIP** tab, go to **SIP Account**.
@@ -120,6 +128,8 @@ After signing in to the web interface, verify that the phone is running in **3PC
     | Authentication Password | Enter the extension SIP password.                                                                      |
 3. Click **Login**.
 4. Confirm that the SIP account status shows as registered.
+
+<figure><img src="../../.gitbook/assets/figure-08-sip-account-registration.png" alt=""><figcaption></figcaption></figure>
 
 ### 9. Verify Registration and Test Calls
 
