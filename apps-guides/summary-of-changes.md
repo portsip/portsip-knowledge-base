@@ -1,5 +1,16 @@
 # Summary of Changes
 
+### Changes for Release v10.9.2
+
+**Release Date:** July 1, 2026
+
+#### Fixes
+
+* Fixed an issue where shared file URLs in MMS and WhatsApp messages could be generated incorrectly when PortSIP PBX was deployed without PortSIP SBC.
+* Fixed missing language text for the Selective Call Rejection and Selective Call Acceptance Feature Access Codes.
+
+***
+
 ### Changes for Release v10.9.1
 
 **Release Date:** June 26, 2026
