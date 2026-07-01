@@ -9,6 +9,19 @@ Please follow the [official upgrade guide](upgrade-to-the-latest-sbc-release.md)
 
 ***
 
+### Version 11.2.6
+
+**Release Date:** July 1, 2026
+
+**Changes**
+
+* Updated **PortSIP ONE for WebRTC** to **v10.9.2**, including the latest enhancements.
+* Fixed an issue where PortSIP SBC could crash in certain scenarios when processing invalid SDP.
+
+***
+
+###
+
 ### Version 11.2.3
 
 **Release Date:** Feb 10, 2026
