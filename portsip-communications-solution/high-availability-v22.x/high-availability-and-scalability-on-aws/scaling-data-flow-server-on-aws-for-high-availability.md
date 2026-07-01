@@ -215,7 +215,7 @@ The data flow service deployment **must be initiated from the `ip-172-31-16-133`
 **Command parameters**
 
 * `-p` : Path for storing Data Flow and ClickHouse data (required)
-* `-d` : ClickHouse Docker image (`portsip/clickhouse:25.8`)
+* `-d` : ClickHouse Docker image
 * `-a` : Private IP address of the Data Flow server
 * `-A` : Elastic IP address
 * `-i` : PortSIP PBX Docker image version (required)

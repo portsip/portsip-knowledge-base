@@ -198,7 +198,7 @@ Enter **Y** and press **Enter**.
 Command parameters:
 
 * `-p` : Path for storing Data Flow and ClickHouse data (required)
-* `-d` : ClickHouse Docker image (`portsip/clickhouse:25.8`)
+* `-d` : ClickHouse Docker image
 * `-a` : **Private IP address** of the Data Flow server
 * `-A` : Public IP address (**only use if the server has no private IP**)
 * `-i` : PortSIP PBX Docker image version (required)
@@ -213,7 +213,7 @@ sudo /bin/sh dataflow_ctl.sh run \
 -a 192.168.1.35 \
 -i portsip/pbx:22 \
 -x 192.168.1.20 \
--d portsip/clickhouse:25.8
+-d portsip/clickhouse:26.3
 ```
 
 ***
@@ -233,6 +233,4 @@ The above operations **do not affect or erase existing analytics data** stored i
 The **Data Flow Service** has now been successfully installed.
 
 You can now proceed to [Step 7: Reboot to Apply the Certificate](../../installation-of-portsip-pbx-v22.3-beta-version/install-portsip-pbx.md#step-7-reboot-to-apply-the-certificate) in the Install PortSIP PBX guide.
-
-
 
