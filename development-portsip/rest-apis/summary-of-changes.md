@@ -2,6 +2,264 @@
 
 ### PortSIP PBX REST API Changes Summary
 
+#### v22.6.0
+
+Date: June 30, 2026
+
+#### New Endpoints
+
+#### System Administration
+
+* Added `<GET | POST> /api/admin/google/destroy` to stop the system-level Google application integration.
+* Added `<POST> /api/admin/ms365/destroy` to stop the system-level Microsoft 365 application integration.
+* Added `<GET | POST> /api/admin/password_policy` to manage password policies for system users.
+* Added `<GET> /api/admin/email_templates` and `<GET | POST> /api/admin/email_templates/:name` to manage system-level email notification templates.
+
+#### Dealer
+
+* Added `<GET> /api/dealer/password_policy` to retrieve the password policy for the currently signed-in Dealer.
+
+#### WhatsApp
+
+* Added `<GET> /api/whatsapp/:id/templates`, `<GET> /api/whatsapp/:id/templates/:template_id`, and `<POST> /api/whatsapp/:id/templates/refresh` to manage WhatsApp Templates.
+
+#### Tenant Integrations
+
+* Added `<POST> /api/ms365/destroy` to stop the tenant-level Microsoft 365 application integration.
+* Added `<POST> /api/google/destroy` to stop the tenant-level Google application integration.
+
+#### Tenant Management
+
+* Added `<POST> /api/tenants/summaries/query` to retrieve tenant statistics in bulk.
+
+#### CRM
+
+* Added `<GET> /api/crm/providers/:provider` to retrieve property mappings for CRM application integrations.
+
+#### Data Flow Analytics
+
+* Added `<POST> /api/dataflow/analytics/activity/users` and `<POST> /api/dataflow/analytics/activity/user` to retrieve user activity records from Data Flow for a specified time range. These APIs support querying activity for specified users or for the currently signed-in user.
+
+#### Updated Endpoints
+
+#### System Administration and Security
+
+* Updated `<GET | POST> /api/admin/notification`:
+  * Renamed `notify_service_disconnected` to `notify_service_status_changed`.
+  * Added `notify_trunk_status_changed`.
+* Updated `<GET | POST> /api/admin/settings` with the following new properties:
+  * `enable_two_factor_authentication`
+  * `enable_verify_phone_auto_provisioning`
+  * `verify_phone_auto_provisioning_exclude`
+  * `enable_sip603_reason_header`
+  * `hide_pbx_private_ip`
+  * `sdp_codecs_scope`
+  * `sdp_codecs`
+* Updated `<POST> /api/auth/forget_password`:
+  * The `domain` property is now optional when the API is called by a system user.
+* Updated `<POST> /api/admin/users`:
+  * `email` is now required.
+  * `display_name` is now required.
+  * The maximum length of `display_name` is 128 characters.
+* Updated `<POST> /api/dealers`:
+  * `email` is now required.
+  * `display_name` is now required.
+
+#### Call Parking
+
+* Updated `<GET | POST> /api/call_park`:
+  * Added `send_notification_to_parker`.
+
+#### Call Queues
+
+* Updated `<GET | POST> /api/call_queues`:
+  * Added `enable_audio_recording`.
+* Updated `<POST> /api/call_queues`:
+  * Added `outbound_caller_ids[].display_name`.
+* Updated `<GET | POST> /api/call_queues/:id`:
+  * Added `enable_audio_recording`.
+  * Added `outbound_caller_ids[].display_name`.
+
+#### Conference Rooms and Meetings
+
+* Updated `<POST> /api/conference_rooms` and `<POST> /api/conference_rooms/:id`:
+  * Added `prompt_file_id`.
+  * Added `outbound_caller_ids[].display_name`.
+* Updated `<GET> /api/conference_rooms/:id`:
+  * Added `prompt_file_name`.
+  * Added `prompt_file_size`.
+  * Added `prompt_file_url`.
+  * Added `outbound_caller_ids[].display_name`.
+* Updated `<POST> /api/user/meetings` and `<GET | POST> /api/user/meetings/:id`:
+  * Added `outbound_caller_ids[].display_name`.
+
+#### CRM
+
+* Updated `<GET> /crm/contacts` and `<GET> /crm/contacts/:id`:
+  * Added `type`.
+  * Added `url`.
+* Updated `<POST> /api/user/crm_contacts/sync_tokens/:token/diff`:
+  * Added `did_number`.
+
+#### DECT Phones and Hot Desking
+
+* Updated `<POST> /api/dect_phones` and `<POST> /api/dect_phones/:id`:
+  * Added `provisioning_pin`.
+* Updated `<GET> /api/dect_phones` and `<GET> /api/dect_phones/:id`:
+  * Added `provisioning_pin`.
+  * Added `firmware`.
+  * Added `status`.
+* Updated `<GET | POST> /api/hotdesking` and `<GET | POST> /api/hotdesking/:id`:
+  * Added `provisioning_pin`.
+  * `display_name` is now required.
+  * The maximum length of `display_name` is 128 characters.
+
+#### Feature Access Codes
+
+* Updated `<GET | POST> /api/feature_access_codes`:
+  * Removed the following `feature` values:
+    * `ANONYMOUS_CALL_REJECTION_ACTIVATION`
+    * `ANONYMOUS_CALL_REJECTION_DEACTIVATION`
+  * Added the following `feature` values:
+    * `SELECTIVE_CALL_ACCEPTANCE_ACTIVATION`
+    * `SELECTIVE_CALL_ACCEPTANCE_DEACTIVATION`
+    * `SELECTIVE_CALL_REJECTION_ACTIVATION`
+    * `SELECTIVE_CALL_REJECTION_DEACTIVATION`
+
+#### Inbound Rules, Outbound Rules, Virtual Receptionists, Ring Groups, and Groups
+
+* Updated `<GET | POST> /api/inbound_rules` and `<GET | POST> /api/inbound_rules/:id`:
+  * Added `enable_audio_recording`.
+* Updated `<GET | POST> /api/ivrs` and `<GET | POST> /api/ivrs/:id`:
+  * Added `enable_audio_recording`.
+* Updated `<POST> /api/ivrs` and `<GET | POST> /api/ivrs/:id`:
+  * Added `outbound_caller_ids[].display_name`.
+* Updated `<GET | POST> /api/outbound_rules` and `<GET | POST> /api/outbound_rules/:id`:
+  * Added `enable_audio_recording`.
+* Updated `<GET | POST> /api/ring_groups` and `<GET | POST> /api/ring_groups/:id`:
+  * Added `enable_audio_recording`.
+* Updated `<POST> /api/ring_groups` and `<GET | POST> /api/ring_groups/:id`:
+  * Added `outbound_caller_ids[].display_name`.
+* Updated `<POST> /api/groups` and `<GET | POST> /api/groups/:id`:
+  * Added `outbound_caller_ids[].display_name`.
+
+#### Microsoft 365 and Google Integrations
+
+* Updated `<GET | POST> /api/ms365`:
+  * Removed `sign_in_as_administrator`.
+
+#### Network
+
+* Updated `<GET> /api/network`:
+  * Added `sbc_domain`.
+
+#### Phones and Provisioning
+
+* Updated `<GET> /api/phones` and `<GET> /api/phones/:mac`:
+  * Added `status`.
+* Updated `<GET | POST> /api/users/:id/phones` and `<GET | POST> /api/users/:id/phones/:phone_id`:
+  * Added `dhcp`.
+
+#### Providers and SDP Codec Configuration
+
+* Updated `<GET | POST> /api/providers` and `<GET | POST> /api/providers/:id`:
+  * Added `enable_sdp_codecs`.
+  * Added `sdp_codecs`.
+
+#### SMS and WhatsApp
+
+* Updated `<GET | POST> /api/sms` and `<GET | POST> /api/sms/:id`:
+  * Added `channel_type`.
+* Updated `<GET | POST> /api/whatsapp` and `<GET | POST> /api/whatsapp/:id`:
+  * Added `business_account_id`.
+
+#### Tenant APIs
+
+* Updated `<GET | POST> /api/tenant` with the following new properties:
+  * `enable_call_queue_audio_recording`
+  * `enable_ring_group_audio_recording`
+  * `enable_trunk_audio_recording`
+  * `enable_virtual_receptionist_audio_recording`
+  * `enable_verify_phone_auto_provisioning`
+  * `crm_contact_type`
+  * `recording_access_mode`
+  * `outbound_caller_ids[].display_name`
+* Updated `<GET | POST> /api/tenant/notification` with the following new properties:
+  * `notify_emergency_call`
+  * `notify_license_limited`
+  * `notify_trunk_call_limited`
+* Updated `<POST> /api/tenants` with the following new properties:
+  * `enable_call_queue_audio_recording`
+  * `enable_ring_group_audio_recording`
+  * `enable_trunk_audio_recording`
+  * `enable_virtual_receptionist_audio_recording`
+  * `enable_verify_phone_auto_provisioning`
+  * `recording_access_mode`
+* Updated `<POST> /api/tenants`:
+  * The `website` property must now be between 1 and 128 characters.
+* Updated `<GET | POST> /api/tenants/:id` with the following new properties:
+  * `enable_call_queue_audio_recording`
+  * `enable_ring_group_audio_recording`
+  * `enable_trunk_audio_recording`
+  * `enable_virtual_receptionist_audio_recording`
+  * `enable_verify_phone_auto_provisioning`
+  * `recording_access_mode`
+  * `outbound_caller_ids[].display_name`
+
+#### User and Extension APIs
+
+* Updated `<GET | POST> /api/user` with the following new properties:
+  * `selective_call_acceptations`
+  * `selective_call_rejections`
+  * `timezone`
+  * `enable_selective_call_acceptation`
+  * `enable_selective_call_rejection`
+* Updated `<POST> /api/users` and `<POST> /api/users/create_many` with the following new properties:
+  * `selective_call_acceptations`
+  * `selective_call_rejections`
+  * `timezone`
+  * `enable_selective_call_acceptation`
+  * `enable_selective_call_rejection`
+  * `outbound_caller_ids[].display_name`
+* Updated `<POST> /api/users` and `<POST> /api/users/create_many`:
+  * `display_name` is now required.
+  * The maximum length of `display_name` is 128 characters.
+* Updated `<GET> /api/users`:
+  * Added `timezone`.
+* Updated `<GET | POST> /api/users/:id` with the following new properties:
+  * `selective_call_acceptations`
+  * `selective_call_rejections`
+  * `timezone`
+  * `enable_selective_call_acceptation`
+  * `enable_selective_call_rejection`
+  * `outbound_caller_ids[].display_name`
+* Updated `<GET | POST> /api/users/:id`:
+  * `display_name` is now required.
+  * The maximum length of `display_name` is 128 characters.
+* Updated `<GET> /api/user/outbound_caller_ids`:
+  * Added `items[].display_name`.
+
+#### Voicemail and Shared Voicemail
+
+* Updated `<GET> /api/voicemails` and `<GET> /api/voicemails/:id`:
+  * Added `sender_name`.
+  * Added `sender_number`.
+  * Marked `sender` as deprecated.
+* Updated `<GET> /api/shared_voicemails/:id/voicemails` and `<GET> /api/shared_voicemails/:id/voicemails/:mail_id`:
+  * Added `sender_name`.
+  * Added `sender_number`.
+  * Marked `sender` as deprecated.
+
+#### Compatibility Notes
+
+* The `sender` property in voicemail and shared voicemail APIs is deprecated. Use `sender_name` and `sender_number` instead.
+* The `sign_in_as_administrator` property has been removed from `<GET | POST> /api/ms365`.
+* The Feature Access Code values `ANONYMOUS_CALL_REJECTION_ACTIVATION` and `ANONYMOUS_CALL_REJECTION_DEACTIVATION` have been removed.
+* Several APIs now require `display_name`, with a maximum length of 128 characters.
+* The tenant `website` property is now required and must be between 1 and 128 characters.
+
+***
+
 #### Version: v22.5.0
 
 Date: March 27, 2026
