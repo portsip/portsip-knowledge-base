@@ -1,12 +1,10 @@
-# How to Configuring Avaya J Series Phone
+# How to Configure an Avaya J Series Phone
 
-The Avaya J series IP phone is using widely in the customers.
+Avaya J Series IP phones are widely used in business communications environments.
 
-This guide explains how to manually register an Avaya J139 IP Phone to PortSIP PBX in 3PCC mode.
+This guide explains how to manually register an Avaya J139 IP Phone with PortSIP PBX in **3PCC mode**. In this mode, the phone is configured manually instead of being provisioned by an Avaya PBX.
 
-### Audience
-
-This guide is intended for administrators who need to configure an Avaya J139 IP Phone manually without using auto-provisioning.
+This guide is intended for administrators who need to configure an Avaya J139 IP Phone manually without using Avaya PBX auto-provisioning.
 
 ### Prerequisites
 

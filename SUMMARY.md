@@ -286,7 +286,7 @@
   * [What is SIP ALG and Why You Need to Disable It?](portsip-communications-solution/faq/what-is-sip-alg-and-why-you-need-to-disable-it.md)
   * [Essential Factors for Choosing a Could PBX Solution](portsip-communications-solution/faq/essential-factors-for-choosing-a-could-pbx-solution.md)
   * [Migrate from legacy FCM APIs to HTTP v1 for Android Push Notifications](portsip-communications-solution/faq/migrate-from-legacy-fcm-apis-to-http-v1-for-android-push-notifications.md)
-  * [How to Configuring Avaya J Series Phone](portsip-communications-solution/faq/how-to-configuring-avaya-j-series-phone.md)
+  * [How to Configure an Avaya J Series Phone](portsip-communications-solution/faq/how-to-configure-an-avaya-j-series-phone.md)
   * [PortSIP SDK License Agreement](portsip-communications-solution/faq/portsip-sdk-license-agreement.md)
   * [PortSIP Software End-User License Agreement](portsip-communications-solution/faq/portsip-software-end-user-license-agreement.md)
 * [Virtual Agent of AI Contact Center](portsip-communications-solution/virtual-agent-of-ai-contact-center.md)
