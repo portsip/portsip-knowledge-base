@@ -112,7 +112,7 @@ Modify the **Security Group that is attached to all three PBX HA EC2 instances**
 
 Please follow the screenshot below to add the inbound rule to the Security Group used by the PBX HA servers.
 
-<figure><img src="../../../.gitbook/assets/aws_ha_cluster_server_rules-3 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/portsip-pbx-aws-ha-security-group-1.jpg" alt=""><figcaption></figcaption></figure>
 
 ***
 
