@@ -331,6 +331,19 @@
   * [User Manual for macOS](development-portsip/calling-apis/user-manual-for-macos.md)
 * [REST APIs](development-portsip/rest-apis/README.md)
   * [Summary of Changes](development-portsip/rest-apis/summary-of-changes.md)
+  * [Version 22.6](development-portsip/rest-apis/version-22.6/README.md)
+    * ```yaml
+      type: builtin:openapi
+      props:
+        models: true
+        downloadLink: true
+        grouping: by-tag
+      dependencies:
+        spec:
+          ref:
+            kind: openapi
+            spec: Version226
+      ```
   * [Version 22.5](development-portsip/rest-apis/version-22.5/README.md)
     * ```yaml
       type: builtin:openapi
