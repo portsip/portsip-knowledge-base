@@ -1,409 +1,152 @@
 # Supported Template Variable Parameters
 
-### Available Email Template Variables
-
-Below is a complete list of template variables that can be used when customizing email templates in PortSIP PBX.
+PortSIP PBX notification templates support dynamic variables. These variables are replaced with actual values when the notification email is generated.
 
 You can configure email templates in the PortSIP PBX Web Portal under:\
 **Advanced > Email Templates**
 
-***
+Variables use the following format:
 
-### Global Variables
+`%%VARIABLE_NAME%%`
 
-These variables are available in all email notification templates.
+For example, `%%PRODUCT_NAME%%` is replaced with the product name, and `%%TENANT_NAME%%` is replaced with the tenant name.
 
-**%%TENANT\_NAME%%**\
-The name of the tenant that is sending the email.
+This section lists the variables used in the **System Notification Templates** and **Tenant Notification Templates**, including both TXT and HTML versions.
 
-**%%PBX\_WEB\_DOMAIN%%**\
-The PBX web portal domain (FQDN).
+> **Note**\
+> This section classifies variables based on the uploaded template contents.\
+> A **Global Variable** means the variable is used across all templates in that category.\
+> A **Common Variable** means the variable is used by multiple notification types, but not by all templates.
 
-***
-
-### Reset Password
-
-Variables used in password reset email notifications.
-
-**%%DISPLAY\_NAME%%**\
-The display name of the extension user who receives the password reset email.
-
-**%%PBX\_WEB\_DOMAIN%%**\
-The Fully Qualified Domain Name (FQDN) of the PBX web portal.
-
-**%%RESET\_PASSWORD\_LINK%%**\
-A secure link that the user clicks to reset their password.
+> **Note**\
+> TXT and HTML versions generally use the same variables. The only detected difference is that the **New User Account Created** HTML template includes `%%QR_CODE%%`, while the TXT version does not.
 
 ***
 
-### 2FA Verification
+### System Notification Template Variables
 
-Variables used in Two-Factor Authentication (2FA) verification emails.
+System notification templates are used for system-level events, such as license limits, service status changes, resource usage alerts, blocked IP addresses, and administrator authentication emails.
 
-**%%DISPLAY\_NAME%%**\
-The display name of the extension user.
+#### System Global Variables
 
-**%%EXTENSION\_NUMBER%%**\
-The extension number of the user.
+The following variable is used across all system notification templates.
 
-**%%PBX\_WEB\_DOMAIN%%**\
-The PBX web portal domain (FQDN).
+| Variable           | Description                                                   |
+| ------------------ | ------------------------------------------------------------- |
+| `%%PRODUCT_NAME%%` | The product name or brand name displayed in the notification. |
 
-**%%AUTH\_CODE%%**\
-A one-time authentication code used for 2FA verification.
+#### System Common Variables
 
-**%%PBX\_WEB\_DOMAIN%%**\
-The PBX web portal domain (FQDN).
+The following variables are used by multiple system notification types. However, they are not used by all system templates and are only available for the related notification scenarios.
 
-***
+| Variable             | Description                                     | Typical Usage                                                                                                                                                                                                         |
+| -------------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `%%PBX_WEB_DOMAIN%%` | The PBX web domain.                             | Authentication, password reset, resource usage alerts, service status notifications, tenant disk quota notifications, SIP trunk status notifications, push certificate notifications, and webhook queue notifications |
+| `%%DATE_TIME%%`      | The date and time when the event occurred.      | Event-based notifications                                                                                                                                                                                             |
+| `%%DISPLAY_NAME%%`   | The display name of the notification recipient. | Authentication and password reset notifications                                                                                                                                                                       |
+| `%%FREE_SIZE%%`      | The remaining free resource size.               | Disk and memory usage notifications                                                                                                                                                                                   |
+| `%%USED_SIZE%%`      | The used resource size or usage value.          | CPU, disk, and memory usage notifications                                                                                                                                                                             |
+| `%%TRUNK_NAME%%`     | The SIP trunk name.                             | SIP trunk-related notifications                                                                                                                                                                                       |
 
-### Call Reports
+#### Variables by System Notification Type
 
-Variables used in call report generation emails.
-
-**%%CALLREPORT\_TYPE%%**\
-The type of call report generated.
-
-**%%CALLREPORT\_NAME%%**\
-The name of the generated call report.
-
-**%%CALLREPORT\_LINK%%**\
-A download link for the generated call report.
-
-**%%PBX\_WEB\_DOMAIN%%**\
-The Fully Qualified Domain Name (FQDN) of the PBX web portal.
-
-***
-
-### Meeting Invitation
-
-Variables used in meeting invitation emails.
-
-**%%TOPIC%%**\
-The meeting subject or topic.
-
-**%%TIME%%**\
-The scheduled meeting time.
-
-**%%PASSWORD%%**\
-The meeting access password.
-
-**%%JOIN\_LINK%%**\
-The URL used to join the meeting.
-
-**%%DIAL\_NUMBER%%**\
-The dial-in phone number for the meeting.
-
-**%%PBX\_WEB\_DOMAIN%%**\
-The Fully Qualified Domain Name (FQDN) of the PBX web portal.
+| Notification Type                                        | Variables                                                                                         |
+| -------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Two-factor authentication verification code notification | `%%AUTH_CODE%%`, `%%DISPLAY_NAME%%`, `%%PBX_WEB_DOMAIN%%`, `%%PRODUCT_NAME%%`                     |
+| CPU usage threshold exceeded notification                | `%%DATE_TIME%%`, `%%PBX_WEB_DOMAIN%%`, `%%PRODUCT_NAME%%`, `%%USED_SIZE%%`                        |
+| Low disk space warning notification                      | `%%DATE_TIME%%`, `%%FREE_SIZE%%`, `%%PBX_WEB_DOMAIN%%`, `%%PRODUCT_NAME%%`, `%%USED_SIZE%%`       |
+| Blocked IP address notification                          | `%%DATE_TIME%%`, `%%IP_ADDRESS%%`, `%%PBX_WEB_DOMAIN%%`, `%%PRODUCT_NAME%%`                       |
+| License limit reached notification                       | `%%LICENSE_TYPE%%`, `%%PBX_WEB_DOMAIN%%`, `%%PRODUCT_NAME%%`                                      |
+| Memory usage threshold exceeded notification             | `%%DATE_TIME%%`, `%%FREE_SIZE%%`, `%%PBX_WEB_DOMAIN%%`, `%%PRODUCT_NAME%%`, `%%USED_SIZE%%`       |
+| Password reset notification                              | `%%DISPLAY_NAME%%`, `%%PBX_WEB_DOMAIN%%`, `%%PRODUCT_NAME%%`, `%%RESET_PASSWORD_LINK%%`           |
+| Service connected notification                           | `%%DATE_TIME%%`, `%%PBX_WEB_DOMAIN%%`, `%%PRODUCT_NAME%%`, `%%SERVICE_NAME%%`, `%%SERVICE_TYPE%%` |
+| Service disconnected notification                        | `%%DATE_TIME%%`, `%%PBX_WEB_DOMAIN%%`, `%%PRODUCT_NAME%%`, `%%SERVICE_NAME%%`, `%%SERVICE_TYPE%%` |
+| Tenant disk quota limit reached notification             | `%%DATE_TIME%%`, `%%PBX_WEB_DOMAIN%%`, `%%PRODUCT_NAME%%`, `%%TENANT_NAME%%`                      |
+| Trunk concurrent call limit reached notification         | `%%PRODUCT_NAME%%`, `%%TRUNK_MAX_CONCURRENT_CALLS%%`, `%%TRUNK_NAME%%`                            |
+| SIP trunk connected notification                         | `%%DATE_TIME%%`, `%%PBX_WEB_DOMAIN%%`, `%%PRODUCT_NAME%%`, `%%TRUNK_NAME%%`                       |
+| SIP trunk disconnected notification                      | `%%DATE_TIME%%`, `%%PBX_WEB_DOMAIN%%`, `%%PRODUCT_NAME%%`, `%%STATUS_CODE%%`, `%%TRUNK_NAME%%`    |
+| Push certificate update failed notification              | `%%DATE_TIME%%`, `%%PBX_WEB_DOMAIN%%`, `%%PRODUCT_NAME%%`                                         |
+| Webhook queue size exceeded notification                 | `%%DATE_TIME%%`, `%%PBX_WEB_DOMAIN%%`, `%%PRODUCT_NAME%%`, `%%QUEUE_SIZE%%`                       |
 
 ***
 
-### Low Disk Space Alert
+### Tenant Notification Template Variables
 
-Variables used in disk usage warning emails.
+Tenant notification templates are used for tenant-level events, such as extension account creation, voicemail notifications, queue events, emergency calls, SIP trunk status changes, password reset emails, and meeting invitations.
 
-**%%DATE\_TIME%%**\
-The date and time when the alert was triggered.
+#### Tenant Global Variables
 
-**%%USED\_SIZE%%**\
-The amount of disk space currently in use.
+The following variable is used across all tenant notification templates.
 
-**%%FREE\_SIZE%%**\
-The remaining available disk space.
+| Variable          | Description                                    |
+| ----------------- | ---------------------------------------------- |
+| `%%TENANT_NAME%%` | The tenant name displayed in the notification. |
 
-**%%PBX\_WEB\_DOMAIN%%**\
-The Fully Qualified Domain Name (FQDN) of the PBX web portal.
+#### Tenant Common Variables
 
-***
+The following variables are used by multiple tenant notification types. However, they are not used by all tenant templates and are only available for the related notification scenarios.
 
-### Emergency Call Made
+| Variable                     | Description                                             | Typical Usage                                                                        |
+| ---------------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| `%%PBX_WEB_DOMAIN%%`         | The PBX web domain.                                     | Login, password reset, license, emergency call, and SIP trunk notifications          |
+| `%%DATE_TIME%%`              | The date and time when the event occurred.              | Event-based notifications                                                            |
+| `%%DISPLAY_NAME%%`           | The display name of the notification recipient.         | Authentication, password reset, recharge, user creation, and voicemail notifications |
+| `%%CALLER_NAME%%`            | The caller name.                                        | Queue, voicemail, and emergency call notifications                                   |
+| `%%CALLER_NUMBER%%`          | The caller number.                                      | Queue, voicemail, and emergency call notifications                                   |
+| `%%QUEUE_NAME%%`             | The queue name.                                         | Queue-related notifications                                                          |
+| `%%QUEUE_NUMBER%%`           | The queue number.                                       | Queue-related notifications                                                          |
+| `%%TRUNK_NAME%%`             | The SIP trunk name.                                     | SIP trunk-related notifications                                                      |
+| `%%CALL_BACK_NUMBER%%`       | The callback number entered or requested by the caller. | Queue callback notifications                                                         |
+| `%%VOICEMAIL_DOWNLOAD_URL%%` | The URL used to download the voicemail message.         | Voicemail notifications                                                              |
+| `%%VOICEMAIL_NAME%%`         | The voicemail message name.                             | Voicemail notifications                                                              |
 
-Variables used in emergency call notification emails.
+#### Variables by Tenant Notification Type
 
-**%%DATE\_TIME%%**\
-The date and time when the emergency call was placed.
-
-**%%CALLER\_NUMBER%%**\
-The number that initiated the emergency call.
-
-**%%CALLEE\_NUMBER%%**\
-The emergency destination number that was called.
-
-**%%PBX\_WEB\_DOMAIN%%**\
-The Fully Qualified Domain Name (FQDN) of the PBX web portal.
-
-***
-
-### License Limit Reached
-
-Variables used when a license limit is reached.
-
-**%%DATE\_TIME%%**\
-The date and time when the license limit was reached.
-
-**%%LICENSE\_TYPE%%**\
-The type of license that has reached its limit.
-
-**%%PBX\_WEB\_DOMAIN%%**\
-The Fully Qualified Domain Name (FQDN) of the PBX web portal.
-
-***
-
-### Queue Callback Scheduled
-
-Variables used in queue callback success notifications.
-
-**%%DATE\_TIME%%**\
-The date and time when the callback was scheduled.
-
-**%%CALL\_BACK\_NUMBER%%**\
-The phone number used for the callback.
-
-**%%QUEUE\_NAME%%**\
-The name of the queue.
-
-**%%QUEUE\_NUMBER%%**\
-The queue extension number.
-
-**%%CALLER\_NUMBER%%**\
-The original caller’s phone number.
-
-**%%PBX\_WEB\_DOMAIN%%**\
-The Fully Qualified Domain Name (FQDN) of the PBX web portal.
+| Notification Type                                        | Variables                                                                                                                                                                                                                                                                                    |
+| -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Password reset notification                              | `%%DISPLAY_NAME%%`, `%%PBX_WEB_DOMAIN%%`, `%%RESET_PASSWORD_LINK%%`, `%%TENANT_NAME%%`                                                                                                                                                                                                       |
+| Two-factor authentication verification code notification | `%%AUTH_CODE%%`, `%%DISPLAY_NAME%%`, `%%EXTENSION_NUMBER%%`, `%%PBX_WEB_DOMAIN%%`, `%%TENANT_NAME%%`                                                                                                                                                                                         |
+| Call report ready notification                           | `%%CALLREPORT_LINK%%`, `%%CALLREPORT_NAME%%`, `%%CALLREPORT_TYPE%%`, `%%TENANT_NAME%%`                                                                                                                                                                                                       |
+| Meeting invitation notification                          | `%%DIAL_NUMBER%%`, `%%JOIN_LINK%%`, `%%PASSWORD%%`, `%%TENANT_NAME%%`, `%%TIME%%`, `%%TOPIC%%`                                                                                                                                                                                               |
+| Low disk space warning notification                      | `%%DATE_TIME%%`, `%%FREE_SIZE%%`, `%%TENANT_NAME%%`, `%%USED_SIZE%%`                                                                                                                                                                                                                         |
+| Emergency call placed notification                       | `%%CALLEE_NUMBER%%`, `%%CALLER_NAME%%`, `%%CALLER_NUMBER%%`, `%%DATE_TIME%%`, `%%PBX_WEB_DOMAIN%%`, `%%TENANT_NAME%%`                                                                                                                                                                        |
+| License limit reached notification                       | `%%LICENSE_TYPE%%`, `%%PBX_WEB_DOMAIN%%`, `%%TENANT_NAME%%`                                                                                                                                                                                                                                  |
+| Queue callback request notification                      | `%%CALLER_NAME%%`, `%%CALLER_NUMBER%%`, `%%CALL_BACK_NUMBER%%`, `%%DATE_TIME%%`, `%%QUEUE_NAME%%`, `%%QUEUE_NUMBER%%`, `%%TENANT_NAME%%`                                                                                                                                                     |
+| Queue callback failed notification                       | `%%CALLER_NAME%%`, `%%CALLER_NUMBER%%`, `%%CALL_BACK_NUMBER%%`, `%%DATE_TIME%%`, `%%QUEUE_NAME%%`, `%%QUEUE_NUMBER%%`, `%%TENANT_NAME%%`                                                                                                                                                     |
+| Queue abandoned call notification                        | `%%CALLER_NAME%%`, `%%CALLER_NUMBER%%`, `%%DATE_TIME%%`, `%%QUEUE_NAME%%`, `%%QUEUE_NUMBER%%`, `%%TENANT_NAME%%`                                                                                                                                                                             |
+| Queue SLA breach notification                            | `%%BREACHSLANO%%`, `%%CALLER_NAME%%`, `%%CALLER_NUMBER%%`, `%%DATE_TIME%%`, `%%QUEUE_NAME%%`, `%%QUEUE_NUMBER%%`, `%%SLA_TIME%%`, `%%TENANT_NAME%%`, `%%WAITSESSIONNO%%`                                                                                                                     |
+| Account recharge notification                            | `%%DATE_TIME%%`, `%%DISPLAY_NAME%%`, `%%PAYMENT_AMOUNT%%`, `%%TENANT_NAME%%`                                                                                                                                                                                                                 |
+| Shared voicemail received notification                   | `%%CALLER_NAME%%`, `%%CALLER_NUMBER%%`, `%%DATE_TIME%%`, `%%TENANT_NAME%%`, `%%VOICEMAIL_DOWNLOAD_URL%%`, `%%VOICEMAIL_NAME%%`                                                                                                                                                               |
+| Trunk concurrent call limit reached notification         | `%%DATE_TIME%%`, `%%TENANT_NAME%%`, `%%TRUNK_MAX_CONCURRENT_CALLS%%`, `%%TRUNK_NAME%%`                                                                                                                                                                                                       |
+| SIP trunk connected notification                         | `%%DATE_TIME%%`, `%%PBX_WEB_DOMAIN%%`, `%%TENANT_NAME%%`, `%%TRUNK_NAME%%`                                                                                                                                                                                                                   |
+| SIP trunk disconnected notification                      | `%%DATE_TIME%%`, `%%PBX_WEB_DOMAIN%%`, `%%STATUS_CODE%%`, `%%TENANT_NAME%%`, `%%TRUNK_NAME%%`                                                                                                                                                                                                |
+| New user account created notification                    | `%%DISPLAY_NAME%%`, `%%DOMAIN%%`, `%%EXTENSION_NUMBER%%`, `%%EXTENSION_PASSWORD%%`, `%%QR_CODE%%`, `%%SIP_PRIVATE_IP%%`, `%%SIP_PUBLIC_IP%%`, `%%TCP_PORT%%`, `%%TENANT_NAME%%`, `%%TLS_PORT%%`, `%%UDP_PORT%%`, `%%USER_EMAIL%%`, `%%USER_NAME%%`, `%%USER_PASSWORD%%`, `%%VOICEMAIL_PIN%%` |
+| New voicemail received notification                      | `%%CALLER_NAME%%`, `%%CALLER_NUMBER%%`, `%%DATE_TIME%%`, `%%DISPLAY_NAME%%`, `%%TENANT_NAME%%`, `%%VOICEMAIL_DOWNLOAD_URL%%`, `%%VOICEMAIL_NAME%%`                                                                                                                                           |
 
 ***
 
-### Failed Queue Callback
+### Template Format Notes
 
-Variables used in queue callback failure notifications.
+When editing notification templates, observe the following rules:
 
-**%%DATE\_TIME%%**\
-The date and time when the callback failed.
+1.  Keep the variable name unchanged, including the leading and trailing double percent signs.
 
-**%%CALL\_BACK\_NUMBER%%**\
-The callback phone number.
+    Correct example:\
+    `%%TENANT_NAME%%`
 
-**%%QUEUE\_NAME%%**\
-The name of the queue.
+    Incorrect examples:\
+    `%TENANT_NAME%`\
+    `TENANT_NAME`\
+    `%%TENANT NAME%%`
+2.  Do not translate variable names.
 
-**%%QUEUE\_NUMBER%%**\
-The queue extension number.
+    For example, `%%CALLER_NUMBER%%` must remain unchanged in all language versions.
+3.  Variables are case-sensitive.
 
-**%%CALLER\_NUMBER%%**\
-The original caller’s phone number.
+    For example, `%%USER_NAME%%` and `%%user_name%%` are not the same variable.
+4.  HTML templates may include variables used for visual content.
 
-**%%PBX\_WEB\_DOMAIN%%**\
-The Fully Qualified Domain Name (FQDN) of the PBX web portal.
+    For example, the **New User Account Created** HTML template includes `%%QR_CODE%%` to display the QR code. This variable is not used in the TXT version.
+5. Before saving a customized template, make sure all required variables for that notification type are still present.
 
-***
-
-### Lost Queue Call
-
-Variables used when a queue call is abandoned.
-
-**%%DATE\_TIME%%**\
-The date and time when the call was lost.
-
-**%%QUEUE\_NAME%%**\
-The name of the queue.
-
-**%%QUEUE\_NUMBER%%**\
-The queue extension number.
-
-**%%CALLER\_NUMBER%%**\
-The caller’s phone number for the abandoned call.
-
-**%%PBX\_WEB\_DOMAIN%%**\
-The Fully Qualified Domain Name (FQDN) of the PBX web portal.
-
-***
-
-### Queue SLA Breach
-
-Variables used in queue SLA breach notification emails.
-
-**%%DATE\_TIME%%**\
-The date and time when the SLA breach occurred.
-
-**%%CALLER\_NUMBER%%**\
-The caller’s phone number associated with the breach.
-
-**%%QUEUE\_NAME%%**\
-The name of the queue.
-
-**%%QUEUE\_NUMBER%%**\
-The queue extension number.
-
-**%%BREACHSLANO%%**\
-The total number of calls when the SLA breach occurred.
-
-**%%WAITSESSIONNO%%**\
-The number of callers waiting in the queue at the time of the breach.
-
-**%%SLA\_TIME%%**\
-The configured SLA time threshold for the queue.
-
-***
-
-### User Recharge
-
-Variables used in extension user recharge or payment notification emails.
-
-**%%DATE\_TIME%%**\
-The date and time of the recharge or payment.
-
-**%%PAYMENT\_AMOUNT%%**\
-The recharge or payment amount.
-
-**%%DISPLAY\_NAME%%**\
-The display name of the extension user.
-
-***
-
-### New Shared Voicemail Received
-
-Variables used when a new shared voicemail is received.
-
-**%%DATE\_TIME%%**\
-The date and time when the voicemail was received.
-
-**%%CALLER\_EXTENSION\_NUMBER%%**\
-The caller’s phone number.
-
-**%%VOICEMAIL\_NAME%%**\
-The name of the shared voicemail box.
-
-**%%VOICEMAIL\_DOWNLOAD\_URL%%**\
-A direct download link for the voicemail file.
-
-***
-
-### Trunk Max Concurrent Calls Reached
-
-Variables used when a trunk reaches its maximum concurrent call limit.
-
-**%%DATE\_TIME%%**\
-The date and time when the limit was reached.
-
-**%%TENANT\_NAME%%**\
-The tenant name.
-
-**%%TRUNK\_NAME%%**\
-The trunk name.
-
-**%%TRUNK\_MAX\_CONCURRENT\_CALLS%%**\
-The configured maximum number of concurrent calls for the trunk.
-
-***
-
-### SIP Trunk Connected
-
-Variables used when a SIP trunk successfully connects.
-
-**%%DATE\_TIME%%**\
-The date and time of the connection.
-
-**%%TRUNK\_NAME%%**\
-The trunk name.
-
-**%%PBX\_WEB\_DOMAIN%%**\
-The PBX web portal domain (FQDN).
-
-***
-
-### SIP Trunk Disconnected
-
-Variables used when a SIP trunk disconnects.
-
-**%%DATE\_TIME%%**\
-The date and time of the disconnection.
-
-**%%TRUNK\_NAME%%**\
-The trunk name.
-
-**%%PBX\_WEB\_DOMAIN%%**\
-The PBX web portal domain (FQDN).
-
-**%%STATUS\_CODE%%**\
-The SIP response or error code indicating the disconnection reason.
-
-***
-
-### Extension Information for New User Created
-
-Variables used in the Welcome Email sent when a new extension is created.
-
-**%%DISPLAY\_NAME%%**\
-The user’s display name.
-
-**%%USER\_NAME%%**\
-The login username.
-
-**%%USER\_PASSWORD%%**\
-The user’s login password.
-
-**%%EXTENSION\_NUMBER%%**\
-The extension number.
-
-**%%EXTENSION\_PASSWORD%%**\
-The SIP password for the extension.
-
-**%%VOICEMAIL\_PIN%%**\
-The voicemail PIN.
-
-**%%EMAIL\_ADDRESS%%**\
-The user’s email address.
-
-**%%DOMAIN%%**\
-The tenant SIP domain.
-
-**%%PBX\_WEB\_DOMAIN%%**\
-The PBX web portal domain (FQDN).
-
-**%%SIP\_PUBLIC\_IP%%**\
-The public IPv4 address of the SIP server.
-
-**%%SIP\_PRIVATE\_IP%%**\
-The private IPv4 address of the SIP server.
-
-**%%SIP\_PUBLIC\_IPV6%%**\
-The public IPv6 address of the SIP server.
-
-**%%SIP\_PRIVATE\_IPV6%%**\
-The private IPv6 address of the SIP server.
-
-**%%UDP\_PORT%%**\
-The SIP UDP listening port.
-
-**%%TCP\_PORT%%**\
-The SIP TCP listening port.
-
-**%%TLS\_PORT%%**\
-The SIP TLS listening port.
-
-**%%QR\_CODE%%**\
-The QR code is used for client app login.
-
-***
-
-### New Voicemail Received
-
-Variables used when a new voicemail is received.
-
-**%%DATE\_TIME%%**\
-The date and time when the voicemail was received.
-
-**%%CALLER\_EXTENSION\_NUMBER%%**\
-The caller’s phone number.
-
-**%%VOICEMAIL\_NAME%%**\
-The voicemail box name.
-
-**%%VOICEMAIL\_DOWNLOAD\_URL%%**\
-A direct download link for the voicemail file.
-
-
-
-
-
+Removing required variables may cause important information to be missing from the notification email.

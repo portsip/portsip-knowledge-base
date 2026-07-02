@@ -84,6 +84,21 @@ You are free to modify the **layout, styling, and content** to suit your brandin
 
 <figure><img src="../../../.gitbook/assets/custom_email_template_1.png" alt=""><figcaption></figcaption></figure>
 
+#### Default HTML Templates
+
+PortSIP provides a set of [default HTML email templates](https://github.com/portsip/templates/tree/master/email) that you can use as a starting point.
+
+**Version Compatibility:**
+
+* The templates in the `email` folder are intended for PortSIP PBX v22.5.2 and earlier versions only.
+* For PortSIP PBX v22.6 and later versions, please use the following templates:
+  * For system-level email notification templates, see the `system_email_templates` folder.
+  * For tenant-level email notification templates, see the `tenant_email_templates` folder.
+
+You are welcome to download these templates and customize them to meet your branding and notification requirements. These templates are designed to demonstrate best practices and help you get started quickly.
+
+***
+
 #### Tip: Preview Your HTML Email
 
 Before using an HTML template in production, it is recommended to preview it using an online HTML editor, such as:
@@ -91,16 +106,4 @@ Before using an HTML template in production, it is recommended to preview it usi
 [HTML Code Editor – Instant Preview](https://htmlcodeeditor.com/)
 
 This allows you to verify formatting, layout, and variable placement before applying the template in PortSIP PBX.
-
-***
-
-### Default HTML Templates
-
-PortSIP provides a set of [default HTML email templates](https://github.com/portsip/templates/tree/master/email) that you can use as a starting point.
-
-You are welcome to download these templates and customize them to meet your branding and notification requirements. These templates are designed to demonstrate best practices and help you get started quickly.
-
-
-
-
 
