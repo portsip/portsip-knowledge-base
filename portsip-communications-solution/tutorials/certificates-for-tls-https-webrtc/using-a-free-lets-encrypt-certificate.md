@@ -164,6 +164,53 @@ Once configured, you do not need to manage or monitor the certificate lifecycle�
 
 ***
 
+### Configuring a Third-Party ACME Provider
+
+ACME stands for **Automatic Certificate Management Environment**. It is the protocol used by certificate authorities to automate certificate issuance and renewal.
+
+By default, PortSIP PBX uses Let’s Encrypt to issue and renew TLS certificates. If you want to use a third-party or private ACME provider instead, configure the custom ACME directory URL in the certificate manager configuration file.
+
+#### Prerequisites
+
+Before you begin, make sure that:
+
+* You have installed the PortSIP Cert Manager as described above.
+* The third-party or private ACME provider is reachable from the PBX server.
+* The ACME provider’s certificate chain is trusted by the systems and clients that will connect to PortSIP PBX.
+
+#### Steps
+
+1. On the server where you installed the Cert Manager.
+2.  Open the following configuration file:
+
+    ```bash
+    /var/lib/portsip/certmanager-server-only/certdb/cert.ini
+    ```
+3.  In the `[global]` section, add the following key-value pair:
+
+    ```ini
+    [global]
+    private_acme_provider = https://75.sipiw.com:8443/directory
+    ```
+
+    If the `[global]` section does not already exist, create it and then add the `private_acme_provider` setting.
+4. Save the file.
+5.  Restart the certificate manager service for the change to take effect:
+
+    ```bash
+    sudo /bin/sh certmanager_ctl.sh restart
+    ```
+
+#### Expected Result
+
+After the certificate manager restarts, PortSIP PBX uses the configured ACME directory URL instead of Let’s Encrypt when requesting or renewing certificates.
+
+#### Note
+
+Use a third-party or private ACME provider only if you understand its certificate trust requirements. Certificates issued by a private ACME provider may not be trusted automatically by browsers, IP phones, mobile apps, or SIP endpoints unless the corresponding root or intermediate CA certificates are installed and trusted on those devices.
+
+***
+
 ### Managing PortSIP Cert Manager Docker Instance
 
 After successfully installing the **PortSIP Cert Manager**, you can use the following commands to manage the Cert Manager Docker instance.
@@ -206,13 +253,11 @@ sudo /bin/sh certmanager_ctl.sh stop
 sudo /bin/sh certmanager_ctl.sh restart
 ```
 
-#### Remove the Cert ManagerContainer
+#### Remove the Cert Manager Container
 
 > This command **does not delete data**.
 
 ```bash
 sudo /bin/sh certmanager_ctl.sh rm
 ```
-
-
 
