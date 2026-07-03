@@ -190,7 +190,7 @@ Before you begin, make sure that:
 
     ```ini
     [global]
-    private_acme_provider = https://75.sipiw.com:8443/directory
+    private_acme_provider = https://www.yourprovier.com:8443/directory
     ```
 
     If the `[global]` section does not already exist, create it and then add the `private_acme_provider` setting.
