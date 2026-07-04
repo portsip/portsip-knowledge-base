@@ -10,59 +10,21 @@ PortSIP PBX includes **ready-to-use standard roles** for common positions, such 
 
 ***
 
-### Benefits of Roles and Permissions
+### System Administrators
 
-#### Faster, Error-Free User Onboarding
-
-Roles simplify user onboarding by allowing administrators to assign a predefined permission set when creating users.
-
-Instead of configuring permissions individually for each new user, you can assign a role that already includes the required access. This approach reduces manual effort and minimizes configuration errors.
-
-Standard roles make it easy to grant the correct level of system access to multiple users at once, significantly reducing the risk of inconsistent or incorrect permissions.
-
-You can also use bulk upload options and templates to efficiently assign roles to users across the organization.
-
-***
-
-#### Stronger Security and Access Control
-
-Role-based access control (RBAC) adds an extra layer of security by ensuring users only have access to the features required for their responsibilities.
-
-All users assigned to the same role receive an identical permission set, reducing the risk of unauthorized or inconsistent access.
-
-Custom roles allow granular control over system access. You can define precise permission combinations and update them at any time to match evolving security or operational requirements.
-
-Roles also make it easier to adapt to organizational changes by allowing you to add, remove, or modify roles as business needs change.
-
-***
-
-#### Delegated Administration with Admin Roles
-
-Admin roles allow you to distribute administrative responsibilities across your organization without granting full system access.
-
-You can assign admin roles for specific functions, such as billing or tenant management, while restricting access to other administrative areas.
-
-Custom admin roles provide fine-grained control, enabling you to delegate specialized administrative authority while maintaining overall system security.
-
-***
-
-### Standard Roles in PortSIP PBX
-
-PortSIP PBX includes a set of **standard roles**, consisting of **three system administrator roles** and **three tenant user roles**. Each role includes a predefined set of permissions.
-
-***
-
-#### System Administrators
-
-System Administrator roles provide access to system-level configuration and management.
+System Administrator roles provide access to system-level configuration and management.&#x20;
 
 For details about System Administrator roles and permissions, see [Administrator Management](2-portsip-pbx-management/administrator-management.md).
 
 ***
 
-**Tenant User Roles**
+{% hint style="info" %}
+The following guides are only available for Tenant-level management and settings.
+{% endhint %}
 
-Tenant user roles control access within a specific tenant. Permissions are limited to tenant-level settings and assigned user functions.
+### Tenant User Roles
+
+**Tenant user roles control access within a specific tenant.** Permissions are **limited to tenant-level** settings and assigned user functions.
 
 **Admin**
 
@@ -100,8 +62,17 @@ Permissions for predefined roles **cannot be modified**.
 
 #### View Predefined Roles
 
-1. Sign in to the PBX Web Portal.
-2. Go to **Advanced > Roles**.
+**Option 1: Sign in as System Administrator**
+
+1. Sign in to the PortSIP PBX Web Portal as a **System Administrator**.
+2. Navigate to **Tenants**.
+3. Select the desired tenant and click **Manage** to switch to that tenant’s administration context.
+
+**Option 2: Sign in as Tenant Administrator**
+
+* Sign in directly as a **Tenant Administrator** to manage the tenant.
+
+After signing in to the web portal, please now go to the menu **Advanced > Roles**; you will see the roles list.
 
 ***
 
@@ -120,9 +91,20 @@ You may need to adjust permissions when, for example:
 
 ### Access and Manage Permissions
 
-1. Sign in to the PBX Web Portal.
-2. Go to **Advanced > Roles**.
-3. Double-click a role to view its permissions.
+**Option 1: Sign in as System Administrator**
+
+1. Sign in to the PortSIP PBX Web Portal as a **System Administrator**.
+2. Navigate to **Tenants**.
+3. Select the desired tenant and click **Manage** to switch to that tenant’s administration context.
+
+**Option 2: Sign in as Tenant Administrator**
+
+1. Sign in directly as a **Tenant Administrator** to manage the tenant.
+
+After signing in to the web portal, please:&#x20;
+
+1. Go to the menu **Advanced > Roles**.
+2. Double-click a role to view its permissions.
 
 Some permissions depend on others and cannot be disabled until the related permissions are disabled first.
 
@@ -316,10 +298,4 @@ Allows viewing extension users.
 
 **Full Access**\
 Allows creating, editing, and deleting extension users.
-
-
-
-
-
-
 
