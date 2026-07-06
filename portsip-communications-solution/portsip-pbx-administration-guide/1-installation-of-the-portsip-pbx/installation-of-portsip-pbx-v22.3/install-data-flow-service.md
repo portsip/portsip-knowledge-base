@@ -212,8 +212,7 @@ sudo /bin/sh dataflow_ctl.sh run \
 -p /var/lib/portsip/ \
 -a 192.168.1.35 \
 -i portsip/pbx:22 \
--x 192.168.1.20 \
--d portsip/clickhouse:26.3
+-x 192.168.1.20
 ```
 
 ***

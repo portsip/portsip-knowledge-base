@@ -130,8 +130,7 @@ sudo /bin/sh init.sh
 Then run the upgrade command:
 
 ```shellscript
-cd /opt/portsip && sudo /bin/sh dataflow_ctl.sh upgrade -i portsip/pbx:22
+cd /opt/portsip && sudo /bin/sh dataflow_ctl.sh \
+upgrade -i portsip/pbx:22 -d portsip/clickhouse:26.3
 ```
-
-
 
