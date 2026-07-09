@@ -9,6 +9,8 @@ The procedure includes the following steps:
 3. Create a DHCP reservation for the phone and configure its provisioning parameters.
 4. Reset the Avaya phone to factory defaults so that it retrieves the new DHCP and provisioning configuration.
 
+**Avaya J series minimum firmware**: 4.1.11.0.9.
+
 > **Prerequisite**
 >
 > Ensure that the Avaya phone can reach both the DHCP server and the PortSIP PBX provisioning service over the network.
