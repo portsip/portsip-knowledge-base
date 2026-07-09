@@ -85,13 +85,13 @@ Example configuration:
 
 With this rule, when PBX A receives a call from PBX B with the called number `22001`, the Tenant 2 inbound rule routes the call to extension `1001`.
 
-The following screenshot shows the inbound rule configuration:
+The following screenshot shows the inbound rule configuration to route the DID `22001` to extension `1001` :
 
 <figure><img src="../../../.gitbook/assets/03_PBXA_tenant2_inbound_rule.png" alt=""><figcaption></figcaption></figure>
 
 Set the route destination to extension `1001`, as shown below:
 
-<figure><img src="../../../.gitbook/assets/08_PBXA_inboundrule_detination.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/09_PBXB_outbound_rule_1001.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -144,9 +144,13 @@ Example configuration:
 
 This rule allows PBX B to accept calls from PBX A for DID numbers within the configured range and pass them to the outbound-routing process.
 
-Refer to the following screenshot for the detailed configuration:
+Configure the DID/DDI number as `11000–22100` . Refer to the following screenshot for the detailed configuration:
 
 <figure><img src="../../../.gitbook/assets/06_PBXB_inboundrule.png" alt=""><figcaption></figcaption></figure>
+
+Set the destination number as `0`, then the PBX will not modify the dialed number and just relay it. Refer to the following screenshot for the detailed configuration:
+
+<figure><img src="../../../.gitbook/assets/08_PBXA_inboundrule_detination.png" alt=""><figcaption></figcaption></figure>
 
 ### 2.5 Create an Outbound Rule on PBX B
 
