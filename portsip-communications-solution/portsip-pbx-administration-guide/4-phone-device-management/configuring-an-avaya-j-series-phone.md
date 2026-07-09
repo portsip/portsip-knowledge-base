@@ -6,12 +6,20 @@ This guide explains how to **manually** register an **Avaya J139 IP Phone** with
 
 This guide is intended for administrators who need to manually configure an Avaya J139 IP Phone for use with PortSIP PBX.
 
-> **Version Requirements**
+### Version Requirements
+
+Before you begin, ensure that your environment meets the following minimum version requirements:
+
+| Component                     | Minimum Version |
+| ----------------------------- | --------------- |
+| PortSIP PBX                   | v22.6.1         |
+| Avaya J-Series phone firmware | 4.1.11.0.9      |
+
+> **Important**
 >
-> Before following this guide, ensure that your environment meets the following minimum version requirements:
->
-> * **PortSIP PBX:** v22.6.1 or later
-> * **Avaya J-Series phone firmware:** 4.1.11.0.9 or later
+> Upgrade PortSIP PBX and the Avaya J-Series phone firmware to the minimum versions listed above or later before following this guide.
+
+***
 
 ### Prerequisites
 

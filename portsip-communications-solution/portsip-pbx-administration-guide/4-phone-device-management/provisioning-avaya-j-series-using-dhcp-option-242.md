@@ -22,6 +22,8 @@ Before you begin, ensure that your environment meets the following minimum versi
 >
 > Upgrade PortSIP PBX and the Avaya J-Series phone firmware to the minimum versions listed above or later before following this guide.
 
+***
+
 ### Prerequisites
 
 Ensure that the Avaya phone can reach both the DHCP server and the PortSIP PBX provisioning service over the network.
@@ -90,7 +92,7 @@ Create a DHCP reservation for the Avaya phone so that its provisioning parameter
 | Field                | Example Value             |
 | -------------------- | ------------------------- |
 | **Reservation Name** | `Avaya J179`              |
-| **IP Address**       | `192.168.2.10`            |
+| **IP Address**       | `192.168.2.210`           |
 | **MAC Address**      | `c81fea94e095`            |
 | **Description**      | `Avaya J179 provisioning` |
 
