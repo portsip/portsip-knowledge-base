@@ -1,27 +1,35 @@
 # Configuring an Avaya J Series Phone
 
-Avaya J Series IP phones are widely used in business communications environments.
+Avaya J-Series IP phones are widely used in business communications environments.
 
-This guide explains how to manually register an Avaya J139 IP Phone with PortSIP PBX in **3PCC mode**. In this mode, the phone is configured manually instead of being provisioned by an Avaya PBX.
+This guide explains how to manually register an **Avaya J139 IP Phone** with PortSIP PBX in **3PCC mode**. In this mode, the phone is configured for use with a third-party SIP platform rather than being provisioned by an Avaya PBX.
 
-This guide is intended for administrators who need to configure an Avaya J139 IP Phone manually without using Avaya PBX auto-provisioning.
+This guide is intended for administrators who need to manually configure an Avaya J139 IP Phone for use with PortSIP PBX.
+
+> **Version Requirements**
+>
+> Before following this guide, ensure that your environment meets the following minimum version requirements:
+>
+> * **PortSIP PBX:** v22.6.1 or later
+> * **Avaya J-Series phone firmware:** 4.1.11.0.9 or later
 
 ### Prerequisites
 
-**Avaya J series minimum firmware**: 4.1.11.0.9.
-
 Before you begin, make sure you have the following information from PortSIP PBX:
 
-| Required item          | Description                                                                         |
-| ---------------------- | ----------------------------------------------------------------------------------- |
-| Extension number       | The PortSIP PBX extension assigned to the phone.                                    |
-| Extension password     | The SIP authentication password for the extension.                                  |
-| Tenant SIP domain      | The tenant domain configured in PortSIP PBX.                                        |
-| SIP server address     | The PortSIP PBX SIP server IP address or FQDN.                                      |
-| SIP port and transport | For example, UDP or TCP, depending on your PortSIP PBX SIP transport configuration. |
+| Required Item              | Description                                                                         |
+| -------------------------- | ----------------------------------------------------------------------------------- |
+| **Extension number**       | The PortSIP PBX extension assigned to the phone.                                    |
+| **Extension password**     | The SIP authentication password for the extension.                                  |
+| **Tenant SIP domain**      | The tenant SIP domain configured in PortSIP PBX.                                    |
+| **SIP server address**     | The IP address or fully qualified domain name (FQDN) of the PortSIP PBX SIP server. |
+| **SIP port and transport** | The SIP port and transport protocol configured in PortSIP PBX, such as UDP or TCP.  |
 
-> **Note**\
-> The default Avaya administrator password shown in this guide is `27238`. If the password was changed previously, use the current administrator password.
+> **Note**
+>
+> The default Avaya administrator password shown in this guide is `27238`. If the password has previously been changed, use the current administrator password.
+
+***
 
 ### 1. Start the Phone and Skip Auto-Provisioning
 
@@ -30,6 +38,8 @@ Before you begin, make sure you have the following information from PortSIP PBX:
 3. Wait for the phone to finish booting.
 
 <figure><img src="../../../.gitbook/assets/figure-01-disable-auto-provisioning.png" alt="" width="324"><figcaption></figcaption></figure>
+
+***
 
 ### 2. Cancel the Server Address Prompt
 
@@ -40,6 +50,8 @@ After the phone finishes booting, it may prompt you to enter a server address.
 
 <figure><img src="../../../.gitbook/assets/figure-02-server-address-and-admin-login.png" alt="" width="532"><figcaption></figcaption></figure>
 
+***
+
 ### 3. Open the Administration Menu
 
 1. Press **More**.
@@ -49,6 +61,8 @@ After the phone finishes booting, it may prompt you to enter a server address.
 
 <figure><img src="../../../.gitbook/assets/figure-03-admin-password-entry-and-ip-configuration.png" alt="" width="498"><figcaption></figcaption></figure>
 
+***
+
 ### 4. Find the Phone IP Address
 
 1. In the Administration menu, select **IP Configuration**.
@@ -56,6 +70,8 @@ After the phone finishes booting, it may prompt you to enter a server address.
 3. Write down the IP address. You will use it to access the phone web interface.
 
 <figure><img src="../../../.gitbook/assets/figure-04-phone-ip-address.png" alt="" width="488"><figcaption></figcaption></figure>
+
+***
 
 ### 5. Sign in to the Phone Web Interface
 
@@ -76,6 +92,8 @@ After the phone finishes booting, it may prompt you to enter a server address.
 
 <figure><img src="../../../.gitbook/assets/figure-05-web-login.png" alt=""><figcaption></figcaption></figure>
 
+***
+
 ### 6. Verify 3PCC Mode
 
 After signing in to the web interface, verify that the phone is running in **3PCC** mode.
@@ -85,6 +103,8 @@ After signing in to the web interface, verify that the phone is running in **3PC
 3. If the phone is not in 3PCC mode, go to **Environment Settings** and enable 3PCC mode first.
 
 <figure><img src="../../../.gitbook/assets/figure-06-verify-3pcc-mode.png" alt=""><figcaption></figcaption></figure>
+
+***
 
 ### 7. Configure SIP Global Settings
 
@@ -116,6 +136,8 @@ After signing in to the web interface, verify that the phone is running in **3PC
 
 <figure><img src="../../../.gitbook/assets/figure-07-sip-global-settings.png" alt=""><figcaption></figcaption></figure>
 
+***
+
 ### 8. Configure the SIP Account
 
 1. In the **SIP** tab, go to **SIP Account**.
@@ -131,6 +153,8 @@ After signing in to the web interface, verify that the phone is running in **3PC
 
 <figure><img src="../../../.gitbook/assets/figure-08-sip-account-registration.png" alt=""><figcaption></figcaption></figure>
 
+***
+
 ### 9. Verify Registration and Test Calls
 
 After the account registers successfully:
@@ -139,6 +163,8 @@ After the account registers successfully:
 2. Place an outbound test call from the Avaya J139 IP Phone.
 3. Place an inbound test call to the extension.
 4. Verify two-way audio.
+
+***
 
 ### Troubleshooting
 
@@ -161,6 +187,8 @@ After the account registers successfully:
 * Verify that RTP traffic is allowed between the phone and PortSIP PBX.
 * Check NAT and firewall rules.
 * Confirm that the phone and PortSIP PBX have compatible audio codec settings.
+
+***
 
 ### Configuration Summary
 

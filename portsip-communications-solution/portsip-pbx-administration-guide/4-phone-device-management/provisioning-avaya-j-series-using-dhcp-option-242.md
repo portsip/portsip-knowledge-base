@@ -1,6 +1,6 @@
 # Provisioning Avaya J Series Using DHCP Option 242
 
-This guide explains how to provision an Avaya J series IP phone with PortSIP PBX by using **DHCP Option 242** to provide the phone with the required provisioning server information.
+This guide explains how to provision an Avaya J-Series IP phone with PortSIP PBX by using **DHCP Option 242** to provide the phone with the required provisioning server information.
 
 The procedure includes the following steps:
 
@@ -9,11 +9,22 @@ The procedure includes the following steps:
 3. Create a DHCP reservation for the phone and configure its provisioning parameters.
 4. Reset the Avaya phone to factory defaults so that it retrieves the new DHCP and provisioning configuration.
 
-**Avaya J series minimum firmware**: 4.1.11.0.9.
+### Version Requirements
 
-> **Prerequisite**
+Before you begin, ensure that your environment meets the following minimum version requirements:
+
+| Component                     | Minimum Version |
+| ----------------------------- | --------------- |
+| PortSIP PBX                   | v22.6.1         |
+| Avaya J-Series phone firmware | 4.1.11.0.9      |
+
+> **Important**
 >
-> Ensure that the Avaya phone can reach both the DHCP server and the PortSIP PBX provisioning service over the network.
+> Upgrade PortSIP PBX and the Avaya J-Series phone firmware to the minimum versions listed above or later before following this guide.
+
+### Prerequisites
+
+Ensure that the Avaya phone can reach both the DHCP server and the PortSIP PBX provisioning service over the network.
 
 ***
 
