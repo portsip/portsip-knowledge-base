@@ -9,6 +9,16 @@ Please follow the [official upgrade guide](upgrade-to-the-latest-sbc-release.md)
 
 ***
 
+### Version 11.2.7
+
+**Release Date:** July 9, 2026
+
+**Changes**
+
+* Updated the trusted root certificates required for Microsoft Teams Direct Routing to maintain compatibility and prevent potential call failures caused by Microsoft's certificate chain changes.
+
+***
+
 ### Version 11.2.6
 
 **Release Date:** July 1, 2026
