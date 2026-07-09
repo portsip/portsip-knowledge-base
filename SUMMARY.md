@@ -62,6 +62,7 @@
   * [8 Call Route Management](portsip-communications-solution/portsip-pbx-administration-guide/8-call-route-management/README.md)
     * [Configuring Inbound Rule](portsip-communications-solution/portsip-pbx-administration-guide/8-call-route-management/configuring-inbound-rule.md)
     * [Configuring Outbound Rule](portsip-communications-solution/portsip-pbx-administration-guide/8-call-route-management/configuring-outbound-rule.md)
+    * [Configuring Inter-Tenant Call Routing](portsip-communications-solution/portsip-pbx-administration-guide/8-call-route-management/configuring-inter-tenant-call-routing.md)
   * [9 Configuring PortSIP SBC](portsip-communications-solution/portsip-pbx-administration-guide/9-configuring-portsip-sbc/README.md)
     * [Summary of Changes](portsip-communications-solution/portsip-pbx-administration-guide/9-configuring-portsip-sbc/summary-of-changes.md)
     * [Topology](portsip-communications-solution/portsip-pbx-administration-guide/9-configuring-portsip-sbc/portsip-sbc-topology.md)
