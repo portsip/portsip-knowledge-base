@@ -25,7 +25,7 @@ In this example, a user in Tenant 1 can call a user in Tenant 2 by dialing the d
 
 The following diagram illustrates the overall deployment architecture and call-routing flow:
 
-<figure><img src="../../../.gitbook/assets/portsip_inter_routing_arch.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/portsip_inter_routing_arch.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
