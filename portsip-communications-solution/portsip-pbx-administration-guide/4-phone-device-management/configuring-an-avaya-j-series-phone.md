@@ -2,7 +2,7 @@
 
 Avaya J-Series IP phones are widely used in business communications environments.
 
-This guide explains how to manually register an **Avaya J139 IP Phone** with PortSIP PBX in **3PCC mode**. In this mode, the phone is configured for use with a third-party SIP platform rather than being provisioned by an Avaya PBX.
+This guide explains how to **manually** register an **Avaya J139 IP Phone** with PortSIP PBX in **3PCC mode**. In this mode, the phone is configured for use with a third-party SIP platform rather than being provisioned by an Avaya PBX.
 
 This guide is intended for administrators who need to manually configure an Avaya J139 IP Phone for use with PortSIP PBX.
 
