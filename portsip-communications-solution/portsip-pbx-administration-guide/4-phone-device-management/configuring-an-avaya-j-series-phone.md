@@ -1,4 +1,4 @@
-# How to Configure an Avaya J Series Phone
+# Configuring an Avaya J Series Phone
 
 Avaya J Series IP phones are widely used in business communications environments.
 
@@ -7,6 +7,8 @@ This guide explains how to manually register an Avaya J139 IP Phone with PortSIP
 This guide is intended for administrators who need to configure an Avaya J139 IP Phone manually without using Avaya PBX auto-provisioning.
 
 ### Prerequisites
+
+**Avaya J series minimum firmware**: 4.1.11.0.9.
 
 Before you begin, make sure you have the following information from PortSIP PBX:
 
@@ -27,7 +29,7 @@ Before you begin, make sure you have the following information from PortSIP PBX:
 2. When the phone asks whether to activate auto-provisioning, select **No**.
 3. Wait for the phone to finish booting.
 
-<figure><img src="../../.gitbook/assets/figure-01-disable-auto-provisioning.png" alt="" width="324"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/figure-01-disable-auto-provisioning.png" alt="" width="324"><figcaption></figcaption></figure>
 
 ### 2. Cancel the Server Address Prompt
 
@@ -36,7 +38,7 @@ After the phone finishes booting, it may prompt you to enter a server address.
 1. Select **Cancel**.
 2. Press **OK** to continue.
 
-<figure><img src="../../.gitbook/assets/figure-02-server-address-and-admin-login.png" alt="" width="532"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/figure-02-server-address-and-admin-login.png" alt="" width="532"><figcaption></figcaption></figure>
 
 ### 3. Open the Administration Menu
 
@@ -45,7 +47,7 @@ After the phone finishes booting, it may prompt you to enter a server address.
 3. Enter the administrator password. The default password is `27238`.
 4. Press **Enter**.
 
-<figure><img src="../../.gitbook/assets/figure-03-admin-password-entry-and-ip-configuration.png" alt="" width="498"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/figure-03-admin-password-entry-and-ip-configuration.png" alt="" width="498"><figcaption></figcaption></figure>
 
 ### 4. Find the Phone IP Address
 
@@ -53,7 +55,7 @@ After the phone finishes booting, it may prompt you to enter a server address.
 2. Locate the IP address assigned to the phone.
 3. Write down the IP address. You will use it to access the phone web interface.
 
-<figure><img src="../../.gitbook/assets/figure-04-phone-ip-address.png" alt="" width="488"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/figure-04-phone-ip-address.png" alt="" width="488"><figcaption></figcaption></figure>
 
 ### 5. Sign in to the Phone Web Interface
 
@@ -72,7 +74,7 @@ After the phone finishes booting, it may prompt you to enter a server address.
 > **Password requirement**\
 > The new administrator password must be 8 to 31 characters long.
 
-<figure><img src="../../.gitbook/assets/figure-05-web-login.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/figure-05-web-login.png" alt=""><figcaption></figcaption></figure>
 
 ### 6. Verify 3PCC Mode
 
@@ -82,7 +84,7 @@ After signing in to the web interface, verify that the phone is running in **3PC
 2. Confirm that the value is **3PCC**.
 3. If the phone is not in 3PCC mode, go to **Environment Settings** and enable 3PCC mode first.
 
-<figure><img src="../../.gitbook/assets/figure-06-verify-3pcc-mode.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/figure-06-verify-3pcc-mode.png" alt=""><figcaption></figcaption></figure>
 
 ### 7. Configure SIP Global Settings
 
@@ -112,7 +114,7 @@ After signing in to the web interface, verify that the phone is running in **3PC
 > **Note**\
 > Use the SIP transport configured on PortSIP PBX. For example, use `transport=udp` for UDP or `transport=tcp` for TCP.
 
-<figure><img src="../../.gitbook/assets/figure-07-sip-global-settings.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/figure-07-sip-global-settings.png" alt=""><figcaption></figcaption></figure>
 
 ### 8. Configure the SIP Account
 
@@ -127,7 +129,7 @@ After signing in to the web interface, verify that the phone is running in **3PC
 3. Click **Login**.
 4. Confirm that the SIP account status shows as registered.
 
-<figure><img src="../../.gitbook/assets/figure-08-sip-account-registration.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/figure-08-sip-account-registration.png" alt=""><figcaption></figcaption></figure>
 
 ### 9. Verify Registration and Test Calls
 
