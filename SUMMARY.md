@@ -282,7 +282,7 @@
   * [What is the PBX? Features, Benefits](portsip-communications-solution/faq/what-is-the-pbx-features-benefits.md)
   * [What is Direct Inward Dialing (DID)?](portsip-communications-solution/faq/what-is-direct-inward-dialing-did.md)
   * [What is the DID Pool?](portsip-communications-solution/faq/what-is-the-did-pool.md)
-  * [How to Configure the Push Notification Validity Period](portsip-communications-solution/faq/how-to-configure-the-push-notification-validity-period.md)
+  * [w to Configure the Push Registration Validity Period for Inactive Apps](portsip-communications-solution/faq/w-to-configure-the-push-registration-validity-period-for-inactive-apps.md)
   * [What are IP Phones Work with PortSIP PBX?](portsip-communications-solution/faq/what-are-ip-phones-work-with-portsip-pbx.md)
   * [Hardware Specifications](portsip-communications-solution/faq/hardware-specifications-for-portsip.md)
   * [How to Adjust the REST API Rate Limit?](portsip-communications-solution/faq/how-to-adjust-the-rest-api-rate-limit.md)
