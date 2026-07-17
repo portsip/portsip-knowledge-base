@@ -46,6 +46,7 @@
     * [Provision Snom DECT IP Phones](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/provision-snom-dect-ip-phones.md)
     * [Provision Gigaset DECT IP Phones](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/provision-gigasedect-ip-phones.md)
     * [Provisioning Avaya J Series Using DHCP Option 242](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/provisioning-avaya-j-series-using-dhcp-option-242.md)
+    * [Configuring Grandstream HTxxx](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/configuring-grandstream-htxxx.md)
     * [Configuring an Avaya J Series Phone](portsip-communications-solution/portsip-pbx-administration-guide/4-phone-device-management/configuring-an-avaya-j-series-phone.md)
   * [5 User Management](portsip-communications-solution/portsip-pbx-administration-guide/5-user-management/README.md)
     * [Users](portsip-communications-solution/portsip-pbx-administration-guide/5-user-management/users.md)
