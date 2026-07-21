@@ -32,35 +32,104 @@ Call recording links and AI transcription links are automatically attached to th
 
 ***
 
-### Step 1: Configure the HubSpot Application
+### 1. Install Node.js and Configure the HubSpot CLI
 
-1. Sign in to the [**HubSpot Developer Console**](https://developers.hubspot.com/)**.**
-2. In the left navigation panel, select **Legacy Apps**, then click **Create legacy app**.
+1. Go to the [Node.js website](https://nodejs.org/en), download the **LTS** version, and install it.
+2. After the installation is complete, open a terminal or Command Prompt.
+3.  Run the following command to install the HubSpot CLI:
 
-<figure><img src="../../../.gitbook/assets/hubspot_create_legacy_app.png" alt=""><figcaption></figcaption></figure>
+    ```bash
+    npm install -g @hubspot/cli
+    ```
+4.  After the installation is complete, run:
 
-3. Select **Public** as the type of legacy app.
-4. In the **App Info** tab, enter a **Public app name**, for example: `PortSIP PBX Integration`
-5.  In the **Redirect URL** field, enter the callback URL of your PortSIP PBX Admin Console. For example: `https://pbx.portsip.com:8887/api/auth/callback/hubspot`
+    ```bash
+    hs account auth
+    ```
 
-    > **Note:** Replace `pbx.portsip.com` with your actual PBX host name.
-6. In the **Scopes** section, add the following permissions:
-   * **CRM**
-     * `crm.objects.contacts.read`
-     * `crm.objects.contacts.write`
-     * `crm.objects.companies.read`
-     * `crm.objects.owners.read`
-     * `crm.objects.companies.write`
-   * **Other**
-     * `timeline`&#x20;
+<figure><img src="../../../.gitbook/assets/hubspot-legacy-1.jpeg" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/hubspot_app_configure-1.png" alt=""><figcaption></figcaption></figure>
+5. Press **Enter** when prompted. HubSpot opens automatically in your default browser.
+6. Sign in to your HubSpot account, and then click **Continue with this account**.
 
-7. Click **Create App**. HubSpot will generate a **Client ID** and **Client Secret**.
-8. Securely store the **Client ID** and **Client Secret**.\
-   These credentials are required when configuring PortSIP PBX. Treat them as confidential and rotate them immediately if you suspect they have been compromised.
+<figure><img src="../../../.gitbook/assets/hubspot-legacy-2.jpeg" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/hubspot_app_credentials.png" alt=""><figcaption></figcaption></figure>
+7. On the **Personal Access Key** page, scroll to the bottom and click **Generate and send to CLI**.
+
+<figure><img src="../../../.gitbook/assets/hubspot-legacy-3.jpeg" alt=""><figcaption></figcaption></figure>
+
+7. Wait until the terminal displays a message confirming that the **CLI is connected**.
+8. Return to the terminal and follow the prompts to complete the account configuration, as shown in the following screenshot.
+
+<figure><img src="../../../.gitbook/assets/hubspot-legacy-4.jpeg" alt=""><figcaption></figcaption></figure>
+
+For more information, refer to the HubSpot documentation: [Install the HubSpot CLI](https://developers.hubspot.com/docs/developer-tooling/local-development/hubspot-cli/install-the-cli).
+
+***
+
+### 2. Create a New Project and App
+
+1.  In the terminal, go to the directory where you want to create the project.
+
+    For example:
+
+    ```powershell
+    cd D:\HubSpot
+    ```
+2.  Run the following command:
+
+    ```bash
+    hs project create
+    ```
+3. Follow the prompts and configure the project as follows:
+   * Enter a project name.
+   * Select the directory in which to create the project. The current directory is selected by default.
+   * For the project type, select **App**.
+   * For the distribution method, select **Privately**.
+   * For the authentication method, select **OAuth**.
+   * Select any required features by pressing the Spacebar. You can also press **Enter** without selecting any features.
+
+<figure><img src="../../../.gitbook/assets/hubspot-legacy-5.jpeg" alt=""><figcaption></figcaption></figure>
+
+4. After the project is created, locate the project folder on your computer and open the entire folder in a text editor such as Visual Studio Code.
+5. In the `src` directory, locate and open the `app-hsmeta.json` file.
+6. In the `redirectUrls` section, replace the existing value with the HubSpot CRM redirect URL provided by PortSIP PBX.
+7.  Add the following permissions to the `requiredScopes` section:
+
+    ```json
+    "crm.objects.companies.read",
+    "crm.objects.companies.write",
+    "crm.objects.owners.read",
+    "timeline"
+    ```
+8. Save the `app-hsmeta.json` file.
+
+<figure><img src="../../../.gitbook/assets/hubspot-legacy-6.jpeg" alt=""><figcaption></figcaption></figure>
+
+9. Return to the terminal and go to the project directory.
+
+For example:
+
+```powershell
+cd D:\HubSpot\PortSIPTest
+```
+
+10. Run the following command to upload the project and follow the prompts to complete the upload:
+
+```bash
+hs project upload
+```
+
+11. Sign in to HubSpot and go to **Development > Projects**. Select the project uploaded in the previous step.
+
+<figure><img src="../../../.gitbook/assets/hubspot-legacy-7.jpeg" alt=""><figcaption></figcaption></figure>
+
+11. Select the app, and then open the **Auth** tab.
+12. Copy the **Client ID** and **Client secret**. You will need these values when configuring the HubSpot CRM integration in PortSIP PBX.
+
+<figure><img src="../../../.gitbook/assets/hubspot-legacy-8.jpeg" alt=""><figcaption></figcaption></figure>
+
+For more information, refer to the HubSpot documentation: [Create a new app using the CLI](https://developers.hubspot.com/docs/apps/developer-platform/build-apps/create-an-app).
 
 ***
 
