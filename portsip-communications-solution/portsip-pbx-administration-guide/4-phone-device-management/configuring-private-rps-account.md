@@ -43,6 +43,10 @@ Open the **system.ini** file on your PBX server:
 Append the relevant sections below to **system.ini**, based on the IP phone brands you want to configure.\
 Save the file after making your changes.
 
+{% hint style="info" %}
+Please contact Yealink to assign the permission for the addDevicesByMac API.
+{% endhint %}
+
 #### Yealink
 
 ```ini
