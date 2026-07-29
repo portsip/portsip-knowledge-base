@@ -44,7 +44,7 @@ Append the relevant sections below to **system.ini**, based on the IP phone bran
 Save the file after making your changes.
 
 {% hint style="info" %}
-Please contact Yealink to assign the permission for the addDevicesByMac API.
+Please contact Yealink to enable access to the `addDevicesByMac` API for your RPS account.
 {% endhint %}
 
 #### Yealink
