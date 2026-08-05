@@ -136,20 +136,52 @@ Voice VLANs can help:
 
 ### Transport Security
 
+PortSIP PBX supports encrypted signaling and media to help protect SIP communications from interception, tampering, and unauthorized access.
+
 #### TLS and WSS for SIP Signaling
 
-TLS, or Transport Layer Security, secures SIP signaling and helps prevent SIP messages from being intercepted or modified in transit. Use TLS for SIP transports wherever possible, especially for remote users and Internet-facing deployments.
+**TLS**, or **Transport Layer Security**, encrypts SIP signaling and helps prevent SIP messages from being intercepted or modified while they are transmitted across the network.
 
-For WebRTC clients, PortSIP PBX supports WSS, or WebSocket Secure. WSS provides encrypted signaling similar to HTTPS and helps protect WebRTC traffic against interception and man-in-the-middle attacks.
+Use TLS for SIP transport whenever possible, especially for remote users, SIP trunks, and Internet-facing deployments.
+
+For WebRTC clients, PortSIP PBX supports **WSS**, or **WebSocket Secure**. WSS protects SIP signaling over WebSocket connections in a way similar to how HTTPS protects web traffic. It helps reduce the risk of interception and man-in-the-middle attacks.
 
 #### SRTP and DTLS-SRTP for Audio and Video
 
-PortSIP PBX and PortSIP Apps support SRTP and DTLS-SRTP for media encryption.
+PortSIP PBX and PortSIP Apps support **SRTP** and **DTLS-SRTP** for media encryption.
 
-* **SRTP**, or Secure Real-time Transport Protocol, protects RTP audio and video media using encryption and authentication.
-* **DTLS-SRTP** secures media key exchange for WebRTC scenarios.
+**SRTP**, or **Secure Real-time Transport Protocol**, encrypts and authenticates RTP audio and video media.
 
-When SRTP or DTLS-SRTP is enabled, media is protected using AES-256 encryption.
+**DTLS-SRTP** is commonly used in WebRTC scenarios. It uses DTLS to negotiate media encryption keys and then protects the audio and video streams with SRTP.
+
+When SRTP or DTLS-SRTP is enabled and successfully negotiated between the call parties, media is protected using AES-256 encryption.
+
+#### Supported TLS Versions
+
+PortSIP PBX supports the following TLS versions:
+
+```
+TLS 1.2
+TLS 1.3
+```
+
+#### Supported TLS Cipher Suites
+
+For **TLS 1.2**, PortSIP PBX supports the following cipher suites:
+
+```
+TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+```
+
+For **TLS 1.3**, PortSIP PBX supports the following cipher suites:
+
+```
+TLS_AES_256_GCM_SHA384
+TLS_CHACHA20_POLY1305_SHA256
+TLS_AES_128_GCM_SHA256
+```
 
 ***
 
