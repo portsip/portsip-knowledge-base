@@ -9,6 +9,16 @@ Please follow the [official upgrade guide](upgrade-to-the-latest-sbc-release.md)
 
 ***
 
+### Version 11.2.8
+
+**Release Date:** August 12, 2026
+
+**Changes**
+
+* Fixed a security issue.
+
+***
+
 ### Version 11.2.7
 
 **Release Date:** July 9, 2026
