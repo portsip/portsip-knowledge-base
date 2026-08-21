@@ -115,7 +115,7 @@ The CSV file header columns are described below:
 
 If the **mode** is "**CUSTOM"**, it means to use the specified office hours for that user. For each weekday, if the key **enabled** is true, it means that the day is open, and the ranges is a JSON array used to define the time shifts for office hours. If the ranges is empty, it means the whole day is opened; if the key **enabled** is false, it means that the whole day is closed, and the ranges will be ignored.
 
-```
+```json
 {
 	"mode": "CUSTOM",
 	"monday": {
@@ -160,7 +160,7 @@ If the **mode** is "**CUSTOM"**, it means to use the specified office hours for 
 
 If the **mode** is set to "**GLOBAL"**, it means that the user's office hours will follow the tenant's office hours.
 
-```
+```json
 {
 	"mode": "GLOBAL",
 	"monday": {
@@ -194,22 +194,22 @@ If the **mode** is set to "**GLOBAL"**, it means that the user's office hours wi
 }
 ```
 
-* **anonymous\_outbound\_calls**: This indicates whether to enable the anonymous call or not for the user. **TRUE** for enabled and **FALSE** for disabled.
-* **delivery\_outbound\_cid**: This indicates whether to rewrite the user part of the **From** header by the outbound caller ID in the SIP INVITE message or not when the user makes a call to the trunk. **TRUE** for enabled and **FALSE** for disabled.
-* **sms:** This indicates the permission for sending SMS and WhatsApp messages, it can be **DISABLE**, **ALLOW\_WITH\_SENDER\_ID**,  **ALLOW**. It's only applicable to the PBX v22.0 and higher.
-* **voicemail\_prompt**: This specifies the voicemail prompt language. It’s BCP 47 Language Tags (The Internet Best Current Practices (BCP) for language tags), for example, **en-US**.
-* **enable\_voicemail\_pin**: This indicates whether to verify the voicemail PIN or not when the user accesses his voicemail by dialing FAC. **TRUE** for enabled and **FALSE** for disabled.
-* **voicemail\_pin**: This sets the voicemail PIN. This is a mandatory field and must be numeric and meet the voicemail password policy.
-* **voicemail\_play\_datetime**: This indicates whether to play the date and time or not when the user accesses his voicemail. **TRUE** for enabled and **FALSE** for disabled.
-* **enable\_voicemail\_notify**: This indicates whether to send an email notification to the user’s email or not if a new voicemail is generated. **TRUE** for enabled and **FALSE** for disabled.
-* **online\_no\_answer\_forward\_rule**: This specifies the forward rule if the user is online but does not answer the call at a certain time. It’s a JSON object that includes the following keys:
-  * **action**: Allows to set the `FORWARD_TO_NUMBER`, `FORWARD_TO_VOICEMAIL`, `HANGUP`.
-  * **timeout**: Specifies the max ringing time before taking the action, in seconds.
-  * **number**: Specifies the destination number for the action is set to `FORWARD_TO_NUMBER`. It will be ignored if the action is not set as `FORWARD_TO_NUMBER`.
+* **anonymous\_outbound\_calls**: Indicates whether anonymous outbound calling is enabled for the user. **TRUE** means enabled; **FALSE** means disabled.
+* **delivery\_outbound\_cid**: Indicates whether the user part of the **From** header in the SIP INVITE is rewritten with the outbound caller ID when the user places a call through a trunk. **TRUE** means enabled; **FALSE** means disabled.
+* **sms**: Specifies the user’s permission to send SMS and WhatsApp messages. The available values are **DISABLE**, **ALLOW\_WITH\_SENDER\_ID**, and **ALLOW**. This field is applicable only to PortSIP PBX v22.0 and later.
+* **voicemail\_prompt**: Specifies the language used for voicemail prompts. The value must be a BCP 47 language tag, for example, **en-US**.
+* **enable\_voicemail\_pin**: Indicates whether the voicemail PIN must be verified when the user accesses voicemail by dialing a Feature Access Code (FAC). **TRUE** means enabled; **FALSE** means disabled.
+* **voicemail\_pin**: Specifies the voicemail PIN. This field is mandatory. The PIN must contain only numeric digits and comply with the configured voicemail PIN policy.
+* **voicemail\_play\_datetime**: Indicates whether the date and time are played when the user accesses voicemail. **TRUE** means enabled; **FALSE** means disabled.
+* **enable\_voicemail\_notify**: Indicates whether an email notification is sent to the user’s email address when a new voicemail message is received. **TRUE** means enabled; **FALSE** means disabled.
+* **online\_no\_answer\_forward\_rule**: Specifies the forwarding rule to apply when the user is online but does not answer an incoming call within the configured timeout. It is a JSON object that includes the following keys:
+  * **action**: Specifies the action to take. Supported values are `FORWARD_TO_NUMBER`, `FORWARD_TO_VOICEMAIL`, and `HANGUP`.
+  * **timeout**: Specifies the maximum ringing time, in seconds, before the configured action is taken.
+  * **number**: Specifies the destination number when **action** is set to `FORWARD_TO_NUMBER`. This field is ignored when **action** is set to any other value.
 
-For example, if the call is not answered in 60 seconds, that call will be forwarded to the voicemail. This can be set as follows:
+For example, to forward the call to voicemail if it is not answered within 60 seconds, configure the rule as follows:
 
-```
+```json
 {
 	"action": "FORWARD_TO_VOICEMAIL",
 	"timeout": 60,
@@ -217,14 +217,14 @@ For example, if the call is not answered in 60 seconds, that call will be forwar
 }
 ```
 
-* **online\_busy\_forward\_rule**: This specifies the forward rule if the user is online but currently on a call. It’s a JSON object that includes the following keys:
-  * **action**: Allows to set the `FORWARD_TO_NUMBER`, `FORWARD_TO_VOICEMAIL`, `RING_ANYWAY`, `HANGUP`.
-  * **timeout**: It will be ignored for the online busy forward rule.
-  * **number**: Specifies the destination number for the action is set to `FORWARD_TO_NUMBER`. It will be ignored if the action is not set as `FORWARD_TO_NUMBER`.
+* **online\_busy\_forward\_rule**: Specifies the forwarding rule to apply when the user is online but is currently on another call. It is a JSON object that includes the following keys:
+  * **action**: Specifies the action to take. Supported values are `FORWARD_TO_NUMBER`, `FORWARD_TO_VOICEMAIL`, `RING_ANYWAY`, and `HANGUP`.
+  * **timeout**: This field is ignored for the online busy forwarding rule.
+  * **number**: Specifies the destination number when **action** is set to `FORWARD_TO_NUMBER`. This field is ignored when **action** is set to any other value.
 
-For example, if the user is on a call, the new call that called him will be sent to him anyway. The `timeout` and `number` keys will be ignored. This can be set as follows:
+For example, to have a new incoming call ring the user even when the user is already on another call, set **action** to `RING_ANYWAY`. The `timeout` and `number` fields are ignored. Configure the rule as follows:
 
-```
+```json
 {
 	"action": "RING_ANYWAY",
 	"timeout": 60,
@@ -232,14 +232,14 @@ For example, if the user is on a call, the new call that called him will be sent
 }
 ```
 
-* **offline\_office\_hours\_forward\_rule**: This specifies the forward rule if the user is offline and currently in office hours. It’s a JSON object that includes the following keys:
-  * **action**: Allows to set the `FORWARD_TO_NUMBER`, `FORWARD_TO_VOICEMAIL`, `HANGUP`.
-  * **timeout**: It will be ignored for the offline forward rule.
-  * **number**: Specifies the destination number for the action is set to `FORWARD_TO_NUMBER`. It will be ignored if the action is not set as `FORWARD_TO_NUMBER`.
+* **offline\_office\_hours\_forward\_rule**: Specifies the forwarding rule to apply when the user is offline during office hours. It is a JSON object that includes the following keys:
+  * **action**: Specifies the action to take. Supported values are `FORWARD_TO_NUMBER`, `FORWARD_TO_VOICEMAIL`, and `HANGUP`.
+  * **timeout**: This field is ignored for the offline forwarding rule.
+  * **number**: Specifies the destination number when **action** is set to `FORWARD_TO_NUMBER`. This field is ignored when **action** is set to any other value.
 
-For example, if the user is offline during office hours, the new call that called him will be hung up. The `timeout` and `number` keys will be ignored. This can be set as follows:
+For example, to hang up a new incoming call when the user is offline during office hours, set **action** to `HANGUP`. The `timeout` and `number` fields are ignored. Configure the rule as follows:
 
-```
+```json
 {
 	"action": "HANGUP",
 	"timeout": 60,
@@ -247,14 +247,14 @@ For example, if the user is offline during office hours, the new call that calle
 }
 ```
 
-* **offline\_non\_office\_hours\_forward\_rule**: This specifies the forward rule if the user is offline and currently outside of office hours. It’s a JSON object that includes the following keys:
-  * **action**: Allows to set the `FORWARD_TO_NUMBER`, `FORWARD_TO_VOICEMAIL`, `HANGUP`.
-  * **timeout**: It will be ignored for the offline forward rule.
-  * **number**: Specifies the destination number for the action is set to `FORWARD_TO_NUMBER`. It will be ignored if the action is not set as `FORWARD_TO_NUMBER`.
+* **offline\_non\_office\_hours\_forward\_rule**: Specifies the forwarding rule to apply when the user is offline outside of office hours. It is a JSON object that includes the following keys:
+  * **action**: Specifies the action to take. Supported values are `FORWARD_TO_NUMBER`, `FORWARD_TO_VOICEMAIL`, and `HANGUP`.
+  * **timeout**: This field is ignored for the offline forwarding rule.
+  * **number**: Specifies the destination number when **action** is set to `FORWARD_TO_NUMBER`. This field is ignored when **action** is set to any other value.
 
-For example, if the user is offline outside of office hours, the new call that called him will be forwarded to the number **123456**. The `timeout` key will be ignored. This can be set as follows:
+For example, to forward a new incoming call to **123456** when the user is offline outside of office hours, set **action** to `FORWARD_TO_NUMBER` and **number** to `123456`. The `timeout` field is ignored. Configure the rule as follows:
 
-```
+```json
 {
 	"action": "FORWARD_TO_NUMBER",
 	"timeout": 60,
@@ -262,38 +262,38 @@ For example, if the user is offline outside of office hours, the new call that c
 }
 ```
 
-* **custom\_forward\_rules**: These rules serve as exceptions that override the standard forwarding rules. They are defined as a JSON object. If you wish to leave this field empty, set it to `[]`. This allows the user to establish their own exception rules via the PortSIP PBX web portal.
-* **blfs**: This field is used to specify the BLF (Busy Lamp Field) keys. It is also a JSON object. To leave it empty, set it to `[]`.
-* **interface**: This field is used to specify the network interface IP Address, which is used to generate the QR code. The client application will connect to the PortSIP PBX using this IP address. It accepts the following values:
-  * WEB\_DOMAIN: The client app will use the PortSIP PBX Web Domain as the outbound proxy server address.
-  * PUBLIC\_IPV4: The client app will use the PortSIP public IP IPv4 address as the outbound proxy server address.
-  * PUBLIC\_IPV6: The client app will use the PortSIP PBX public IPv6 address as the outbound proxy server address.
-  * PRIVATE\_IPV4: The client app will use the PortSIP PBX private IPv4 address as the outbound proxy server address.
-  * PRIVATE\_IPV6: The client app will use the PortSIP PBX private IPv6 address as the outbound proxy server address.
-  * SBC\_DOMAIN: The client app will use the PortSIP SBC web domain as the outbound proxy server address, and then the client app registers to PortSIP PBX via the PortSIP SBC.
-* **preferred\_transport**: This field is used to specify the transport protocol for the PortSIP PBX in the QR code. After scanning the QR code, the client app will prioritize using this specified transport to register with PortSIP PBX. This key accepts `UDP`, `TCP`, and `TLS`.
-* **custom\_options**: This field is reserved for setting custom options. It is typically left empty.
-* **role**: This field is used to specify the user’s role. It accepts the following values: `StandardUser`, `StandardInternationalUser`, `QueueManager`, `Admin`.
-* **phones**: This field is used to specify auto-provisioning the IP Phone for this user. It’s a JSON object that includes the following keys:
-  * **mac**: This is the MAC address of the phone. It should be in lowercase with a separator “:” or “-”. Please ensure this Phone MAC address is not used by other users, otherwise, the provisioning will fail.
-  * **filename**: This is the template file of the IP phone.
-  * **vendor**: This is the vendor of the IP phone.
-  * **interface**: This specifies the PBX IP Address of the network interface for the IP phone, which will be treated as the outbound proxy server in the IP Phone settings. The values are the same as  `interface` explained above.
-  * **preferred\_transport**: This specifies the PortSIP PBX transport protocol for this IP phone. The IP Phone will prioritize using this specified transport to register with PortSIP PBX. It allows **UDP**, **TCP**, or **TLS**.
-  * **model**: This is the phone model.
-  * **password**: This specifies the phone web UI password.
-  * **language**: This specifies the display language for the IP phone. It supports the following values: `ENGLISH`, `CHINESE`, `DUTCH`, `FRENCH`, `GERMAN`, `GREEK`, `ITALIAN`, `JAPANESE`, `POLISH`, `RUSSIAN`, `SPANISH`, `SWEDISH`, `UKRAINIAN`, `BULGARIAN`.
-  * **timezone**: This specifies the timezone for this IP Phone.
-  * **transfer**: This specifies the transfer mode for the transfer key of the IP phone. It can be `ATTENDED`, `BLIND`, and `NEW_CALL`.
-  * **ringtone**: This is the ring tone for receiving a new call.
-  * **queue\_ringtone**: This specifies the ring tone for the queue call.
-  * **date\_format**: This is the date format for the phone.
-  * **time\_format**: This is the time format for the phone.
-  * **powerled**: This is the power LED lights.
-  * **backlight**: This is the backlight of the IP Phone screen.
-  * **screensaver**: This is the screensaver of the IP Phone.
-  * **rps**: This indicates whether to store the auto-provisioning URL into the IP Phone vendor’s RPS server or not. Set to `true` will be stored in the RPS and `false` will not.
-  * **https**: This indicates whether to generate the auto-provisioning URL with the HTTPS scheme or not. Set to `true` the URL will be HTTPS and `false` will be HTTP.
+* **custom\_forward\_rules**: Specifies custom forwarding rules that act as exceptions and override the standard forwarding rules. The rules are defined in JSON format. To leave this field empty, set it to `[]`. Users can also configure their own exception rules through the PortSIP PBX web portal.
+* **blfs**: Specifies the BLF (Busy Lamp Field) keys in JSON format. To leave this field empty, set it to `[]`.
+* **interface**: Specifies the network interface address used when generating the QR code. The client application uses this address to connect to the PortSIP PBX. The following values are supported:
+  * **WEB\_DOMAIN**: The client app uses the PortSIP PBX web domain as the outbound proxy server address.
+  * **PUBLIC\_IPV4**: The client app uses the PortSIP PBX public IPv4 address as the outbound proxy server address.
+  * **PUBLIC\_IPV6**: The client app uses the PortSIP PBX public IPv6 address as the outbound proxy server address.
+  * **PRIVATE\_IPV4**: The client app uses the PortSIP PBX private IPv4 address as the outbound proxy server address.
+  * **PRIVATE\_IPV6**: The client app uses the PortSIP PBX private IPv6 address as the outbound proxy server address.
+  * **SBC\_DOMAIN**: The client app uses the PortSIP SBC web domain as the outbound proxy server address and registers with the PortSIP PBX through the PortSIP SBC.
+* **preferred\_transport**: Specifies the transport protocol for the PortSIP PBX in the QR code. After scanning the QR code, the client app prioritizes the specified transport protocol when registering with the PortSIP PBX. Supported values are `UDP`, `TCP`, and `TLS`.
+* **custom\_options**: Reserved for custom options. This field is typically left empty.
+* **role**: Specifies the user’s role. Supported values are `StandardUser`, `StandardInternationalUser`, `QueueManager`, and `Admin`.
+* **phones**: Specifies the IP phone auto-provisioning settings for the user. It is a JSON object that includes the following keys:
+  * **mac**: Specifies the MAC address of the IP phone. The MAC address must use lowercase letters and may use either `:` or `-` as the separator. Ensure that the MAC address is not already assigned to another user; otherwise, provisioning will fail.
+  * **filename**: Specifies the template file used for the IP phone.
+  * **vendor**: Specifies the IP phone vendor.
+  * **interface**: Specifies the PortSIP PBX network interface address used as the outbound proxy server in the IP phone configuration. The supported values are the same as those described for **interface** above.
+  * **preferred\_transport**: Specifies the transport protocol that the IP phone should prioritize when registering with the PortSIP PBX. Supported values are `UDP`, `TCP`, and `TLS`.
+  * **model**: Specifies the IP phone model.
+  * **password**: Specifies the password for the IP phone’s web UI.
+  * **language**: Specifies the display language for the IP phone. Supported values are `ENGLISH`, `CHINESE`, `DUTCH`, `FRENCH`, `GERMAN`, `GREEK`, `ITALIAN`, `JAPANESE`, `POLISH`, `RUSSIAN`, `SPANISH`, `SWEDISH`, `UKRAINIAN`, and `BULGARIAN`.
+  * **timezone**: Specifies the time zone for the IP phone.
+  * **transfer**: Specifies the transfer mode used by the IP phone’s transfer key. Supported values are `ATTENDED`, `BLIND`, and `NEW_CALL`.
+  * **ringtone**: Specifies the ringtone for incoming calls.
+  * **queue\_ringtone**: Specifies the ringtone for incoming queue calls.
+  * **date\_format**: Specifies the date format displayed on the IP phone.
+  * **time\_format**: Specifies the time format displayed on the IP phone.
+  * **powerled**: Specifies the behavior of the IP phone’s power LED.
+  * **backlight**: Specifies the backlight setting for the IP phone display.
+  * **screensaver**: Specifies the screensaver setting for the IP phone.
+  * **rps**: Indicates whether the auto-provisioning URL is stored on the IP phone vendor’s RPS server. Set this field to `true` to store the URL on the RPS server or `false` not to store it.
+  * **https**: Indicates whether the auto-provisioning URL uses HTTPS. Set this field to `true` to generate an HTTPS URL or `false` to generate an HTTP URL.
 
 **For v22.x:**
 
