@@ -1,24 +1,101 @@
 # Bulk Importing Users and Auto Provisioning IP Phones
 
-This guide is designed to assist company administrators in configuring a large number of company employees using the bulk importing feature of PortSIP PBX. This feature allows for the quick and easy addition of users in a spreadsheet format, eliminating the need for time-consuming individual device setting configurations. Furthermore, when importing users in bulk, you can also auto-provision IP Phones to the users simultaneously.
+This guide is designed to assist company administrators in configuring a large number of company employees using the bulk import feature of PortSIP PBX. This feature allows administrators to quickly create users from a CSV file and, when required, provision IP phones for those users at the same time.
 
-## **Best Practices**
+### Best Practices
 
-1. Create a user with all necessary settings, such as forwarding rules, office hours, IP Phone, and BLF keys.
-2. Export this user to a CSV file to serve as a template.
-3. Delete that user in the PortSIP PBX web portal.
-4. Edit the template CSV file to add new user information. This can be done by copying from the example user and making necessary changes. For instance, you may need to change the username, password, extension number, office hours, and phone information, among other things.
-5. Save your changes and then import the CSV file into the PortSIP PBX web portal.
+1. Create a user with all the necessary settings, such as forwarding rules, office hours, IP phones, and BLF keys.
+2. Export the user from PortSIP PBX as a CSV file to use as a template.
+3. Delete the example user from the PortSIP PBX web portal.
+4.  **Do not open the exported CSV file directly in Microsoft Excel.**
 
-By following these steps, you can efficiently manage and configure multiple users on the PortSIP PBX platform. This process not only saves time but also ensures consistency in user settings across the board. Remember, the key to successful bulk importing and auto-provisioning lies in careful preparation and attention to detail when creating and editing your CSV file.
+    Double-clicking a CSV file or opening it directly in Excel may cause Excel to automatically convert long numeric values. For example, internal PBX IDs may be converted to scientific notation or rounded because Excel supports only 15 significant digits for numeric values.
 
-{% hint style="danger" %}
-The CSV file configuration in a spreadsheet or text editor must be performed in UTF-8 format.
-{% endhint %}
+    Once this conversion occurs, changing the cell format to **Text** does not restore the original value.
+5. To edit the CSV file in Microsoft Excel, open Excel first and create a new blank workbook.
+6.  Import the CSV file by selecting:
 
-## **Template Columns** Explanation
+    **Data > From Text/CSV**
+7. Select the exported CSV file, and then choose **Transform Data** instead of loading the file directly.
+8.  In the Power Query Editor, review the columns before loading the data.
 
-The CSV file header columns like the below:
+    Set the data type to **Text** for:
+
+    * Any column that contains an internal PortSIP PBX ID or other long numeric identifier.
+    * Any ID column whose value must remain exactly the same as exported.
+    * The **extension\_number** column, especially if extension numbers may contain leading zeros or long numeric values.
+
+    This is required to prevent Excel from converting these values to scientific notation, removing leading zeros, or changing their numeric precision.
+
+    **Important:** Do not modify internal PBX ID values unless the documentation for that field specifically instructs you to do so.
+9. After confirming that these columns are set to **Text**, load the data into Excel.
+10. Edit the template to add or modify users as required. You can copy the example user and update fields such as:
+
+    * Username
+    * Password
+    * Extension number
+    * Office hours
+    * Forwarding settings
+    * IP phone settings
+    * BLF keys
+
+    When editing the CSV file, preserve the format of fields that contain JSON data.
+11. After completing the changes, save the file as a **CSV UTF-8** file.
+
+    In Excel, choose:
+
+    **File > Save As > CSV UTF-8 (Comma delimited) (\*.csv)**
+12. Import the saved CSV file into PortSIP PBX.
+13. After saving the CSV file, **do not open it again directly in Excel before importing it into PortSIP PBX**.
+
+    If you need to verify the CSV content, use a plain text editor such as Notepad++, Visual Studio Code, or another UTF-8-compatible text editor.
+
+    Reopening the CSV file directly in Excel may cause long numeric IDs or other numeric identifiers to be automatically converted again, which can corrupt the data and cause the import to fail.
+
+#### Recommended Workflow
+
+```
+Export CSV from PortSIP PBX
+→ Open Microsoft Excel first
+→ Create a blank workbook
+→ Data > From Text/CSV
+→ Transform Data
+→ Set internal ID and long numeric identifier columns to Text
+→ Set extension_number to Text
+→ Load the data into Excel
+→ Edit or duplicate users
+→ Save as CSV UTF-8
+→ Import the CSV into PortSIP PBX
+```
+
+Do not use the following workflow:
+
+```
+Export CSV
+→ Double-click the CSV file to open it in Excel
+→ Edit
+→ Save
+→ Reopen it in Excel
+→ Import
+```
+
+This workflow may cause Excel to modify internal PBX IDs, long numeric identifiers, extension numbers, or other values that must remain unchanged.
+
+If a CSV file has already been opened directly in Excel and contains long numeric IDs, **do not continue editing that file**. Export a new copy from PortSIP PBX and import it into Excel using **Data > From Text/CSV** as described above.
+
+### CSV File Format
+
+The CSV file must be saved in **UTF-8** format.
+
+When using Microsoft Excel, always save the edited file as:
+
+**CSV UTF-8 (Comma delimited) (\*.csv)**
+
+Do not change the CSV column names or remove required columns unless specifically instructed by the PortSIP documentation.
+
+### **Template Columns** Explanation
+
+The CSV file header columns are described below:
 
 <figure><img src="../../../.gitbook/assets/bulk_provisioning_1.png" alt=""><figcaption></figcaption></figure>
 
@@ -201,7 +278,7 @@ For example, if the user is offline outside of office hours, the new call that c
   * **mac**: This is the MAC address of the phone. It should be in lowercase with a separator “:” or “-”. Please ensure this Phone MAC address is not used by other users, otherwise, the provisioning will fail.
   * **filename**: This is the template file of the IP phone.
   * **vendor**: This is the vendor of the IP phone.
-  * **interface**: This specifies the PBX IP Address of the network interface for the IP phone, which will be treated as the outbound proxy server in the IP Phone settings. The values are the same as the `interface` explained above.
+  * **interface**: This specifies the PBX IP Address of the network interface for the IP phone, which will be treated as the outbound proxy server in the IP Phone settings. The values are the same as  `interface` explained above.
   * **preferred\_transport**: This specifies the PortSIP PBX transport protocol for this IP phone. The IP Phone will prioritize using this specified transport to register with PortSIP PBX. It allows **UDP**, **TCP**, or **TLS**.
   * **model**: This is the phone model.
   * **password**: This specifies the phone web UI password.
@@ -218,7 +295,7 @@ For example, if the user is offline outside of office hours, the new call that c
   * **rps**: This indicates whether to store the auto-provisioning URL into the IP Phone vendor’s RPS server or not. Set to `true` will be stored in the RPS and `false` will not.
   * **https**: This indicates whether to generate the auto-provisioning URL with the HTTPS scheme or not. Set to `true` the URL will be HTTPS and `false` will be HTTP.
 
-**For the v22.x:**
+**For v22.x:**
 
 ```json
 [
@@ -262,7 +339,7 @@ For example, if the user is offline outside of office hours, the new call that c
 ]
 ```
 
-**For the v16.x:**
+**For v16.x:**
 
 ```json
 [{
@@ -296,14 +373,14 @@ For example, if the user is offline outside of office hours, the new call that c
 }]
 ```
 
-## Sample CSV File
+### Sample CSV File
 
 We provide a sample CSV file for bulk importing and auto-provisioning four users.
 
 * For v22.x: [Sample CSV file](https://www.portsip.com/provision/portsip_bulk_users_v22.csv)
 * For v16.x: [Sample CSV file](https://www.portsip.com/provision/portsip_bulk_users.csv)
 
-After you download that sample CSV file, you can sign in to the PortSIP PBX web port, in the menu **Call Manager > Users**, click the **Import** button, and select the sample CSV file to import the users, the users will be successfully created with provisioning information.
+After downloading the sample CSV file, sign in to the PortSIP PBX Web Portal and navigate to **Call Manager > Users**. Click **Import**, select the sample CSV file, and import it. The users will then be created automatically with the provisioning settings defined in the CSV file.
 
 Please also reference the article [Zero Touch Provisioning Phones](zero-touch-provisioning-phones.md).
 
