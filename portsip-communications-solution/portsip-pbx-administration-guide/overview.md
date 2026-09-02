@@ -102,6 +102,9 @@ PortSIP PBX includes the following capabilities.
 * Office hours, holidays, and destination settings for each IVR DTMF input
 * Selective Call Rejection
 * Selective Call Acceptance
+* Executive/Executive Assistant
+* Last Call Routing
+* Separate routing for internal and external calls
 
 #### Contact Center
 
