@@ -84,7 +84,7 @@ compile 'com.google.firebase:firebase-messaging:20.0.0'
 If you add Firebase into an existing project that uses any function of gms:play-services, such as GPS location, you have to update their versions as well. Upon writing this tutorial, 20.0.0 works well. If you get compilation problems, you need to check to find out the correct version number.
 
 > _compile 'com.google.android.gms:play-services-auth:20.0.0'_\
-> &#xNAN;_&#x63;ompile 'com.google.android.gms:play-services-identity:20.0.0'_
+> _&#x63;ompile 'com.google.android.gms:play-services-identity:20.0.0'_
 
 #### **d. Add applicationId to defaultConfig section:**
 

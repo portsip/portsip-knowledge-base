@@ -18,7 +18,7 @@ Follow these steps to enable click-to-call on your desktop:
 4.  When prompted, choose an application to place the call.
 
     You may select the option:\
-    &#xNAN;**“Always allow this site to open links of this type in the associated app.”**
+    **“Always allow this site to open links of this type in the associated app.”**
 
     This ensures that phone numbers clicked on that website (for example, [_www.portsip.com_](http://www.portsip.com)) automatically open in your selected calling app.
 

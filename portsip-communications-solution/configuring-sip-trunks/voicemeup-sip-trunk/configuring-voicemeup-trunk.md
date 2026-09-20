@@ -154,26 +154,26 @@ For outbound calls, VoiceMeUp requires specific SIP header mappings to ensure co
     **Contact: User part**
 
     * Choose `OutboundCallerID`\
-      &#xNAN;_(Outbound caller ID taken from the Web Portal)_
+      _(Outbound caller ID taken from the Web Portal)_
 
 <figure><img src="../../../.gitbook/assets/gamma-1.png" alt="" width="563"><figcaption></figcaption></figure>
 
 **From: User part**
 
 * Choose `OutboundCallerID`\
-  &#xNAN;_(Outbound caller ID taken from the Web Portal)_
+  _(Outbound caller ID taken from the Web Portal)_
 
 <figure><img src="../../../.gitbook/assets/gamma-2.png" alt="" width="563"><figcaption></figcaption></figure>
 
 **P-Asserted-Identity: User part**
 
 * Choose `OutboundCallerID`\
-  &#xNAN;_(Outbound caller ID taken from the Web Portal)_
+  _(Outbound caller ID taken from the Web Portal)_
 
 **P-Asserted-Identity: Host part**
 
 * Choose `TrunkHostPort`\
-  &#xNAN;_(Trunk host and port information)_
+  _(Trunk host and port information)_
 
 <figure><img src="../../../.gitbook/assets/gamma-3.png" alt="" width="563"><figcaption></figcaption></figure>
 

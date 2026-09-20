@@ -90,9 +90,9 @@ When an agent is on an active call:
 #### Examples
 
 * Silent monitor agent **600**:\
-  &#xNAN;**\*63600**
+  **\*63600**
 * Silent monitor agent **601**:\
-  &#xNAN;**\*63601**
+  **\*63601**
 
 ***
 

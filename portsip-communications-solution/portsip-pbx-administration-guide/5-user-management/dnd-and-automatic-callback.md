@@ -78,10 +78,10 @@ The following parameters are available:
   **Recommendation:** Do not change this value.
 * **Monitor Minutes**\
   The maximum time (in minutes) the PBX will monitor a busy line while waiting for it to become idle.\
-  &#xNAN;_&#x44;efault: 30 minutes_
+  _&#x44;efault: 30 minutes_
 * **Retry Originator Minutes**\
   The time (in minutes) the PBX waits before retrying a busy ACB originator (the user who requested the callback).\
-  &#xNAN;_&#x44;efault: 5 minutes_
+  _&#x44;efault: 5 minutes_
 * **Prompt Language**\
   Specifies the language used for ACB audio prompts.
 

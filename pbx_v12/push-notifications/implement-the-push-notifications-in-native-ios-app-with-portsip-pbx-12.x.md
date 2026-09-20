@@ -141,9 +141,9 @@ On the project’s **Signing & Capabilities** tab, add “**Push Notifications**
 Open AppDelegate.m and add the _import PushKit and UserNotifications_ statement at the top of it.
 
 > _#import \<PushKit/PushKit.h>_\
-> &#xNAN;_#import \<UserNotifications/UserNotifications.h>_\
-> &#xNAN;_@interfaceAppDelegate()PKPushRegistryDelegate,UNUserNotificationCenterDelegate>_\
-> &#xNAN;_@end_
+> _#import \<UserNotifications/UserNotifications.h>_\
+> _@interfaceAppDelegate()PKPushRegistryDelegate,UNUserNotificationCenterDelegate>_\
+> _@end_
 
 Next, in the _didFinishLaunchingWithOptions_ part of the application function make sure you register for notifications like this:
 

@@ -188,7 +188,7 @@ Register the handsets **in the same numerical order** used during the configurat
 #### To register a handset and assign a user:
 
 1. On the handset, press the **Menu** button.\
-   &#xNAN;_(For the M25 handset, press the **center button** of the navigation circle.)_
+   _(For the M25 handset, press the **center button** of the navigation circle.)_
 2. Navigate to **Connectivity**, then press the **center button** to select it.
 3. Select **Register**.
 4. When prompted for the **Access Code**, enter **0000**, then press **OK**.

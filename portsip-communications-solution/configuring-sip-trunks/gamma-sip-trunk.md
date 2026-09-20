@@ -60,23 +60,23 @@ Gamma requires specific SIP header formatting for outbound calls. You must adjus
 
 **Contact: User part**\
 Select **OutboundCallerID**\
-&#xNAN;_(Outbound caller ID taken from the PortSIP Web Portal)_
+_(Outbound caller ID taken from the PortSIP Web Portal)_
 
 <figure><img src="../../.gitbook/assets/gamma-1.png" alt="" width="563"><figcaption></figcaption></figure>
 
 **From: User part**\
 Select **OutboundCallerID**\
-&#xNAN;_(Outbound caller ID taken from the PortSIP Web Portal)_
+_(Outbound caller ID taken from the PortSIP Web Portal)_
 
 <figure><img src="../../.gitbook/assets/gamma-2.png" alt="" width="563"><figcaption></figcaption></figure>
 
 **P-Asserted-Identity: User part**\
 Select **OutboundCallerID**\
-&#xNAN;_(Outbound caller ID taken from the PortSIP Web Portal)_
+_(Outbound caller ID taken from the PortSIP Web Portal)_
 
 **P-Asserted-Identity: Host part**\
 Select **TrunkHostPort**\
-&#xNAN;_(Trunk host and port)_
+_(Trunk host and port)_
 
 <figure><img src="../../.gitbook/assets/gamma-3.png" alt="" width="563"><figcaption></figcaption></figure>
 

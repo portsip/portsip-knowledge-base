@@ -78,7 +78,7 @@ You can also navigate to **Advanced > Notifications**, then click the **Mail Ser
 <figure><img src="../../.gitbook/assets/tenant-mail-server-1.png" alt=""><figcaption></figcaption></figure>
 
 If the PBX system administrator has enabled the [**Apply Mail Settings to All Tenants**](configuring-email-notifications.md#apply-mail-settings-to-all-tenants) option, you will see the following text in green:\
-&#xNAN;**"You can now use the system administrator's mail server settings to send email notifications."**
+**"You can now use the system administrator's mail server settings to send email notifications."**
 
 This means you do not need to configure the email server information yourself; instead, you can utilize the system administrator's email server to send email notifications. However, you must enter at least one email address in the **Emails of Recipients** field to specify where the notifications will be sent.
 

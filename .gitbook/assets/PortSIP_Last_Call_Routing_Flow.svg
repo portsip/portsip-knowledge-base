@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1320" viewBox="0 0 1400 1320" role="img" aria-labelledby="title desc">
+  <title id="title">Last Call Routing call flow</title>
+  <desc id="desc">Flowchart showing how an inbound SIP trunk call uses Last Call Routing and falls back to an Inbound Rule when necessary.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#3C4043" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5F6368"/>
+    </marker>
+    <style>
+      .title { font: 500 34px Arial, sans-serif; fill: #202124; }
+      .subtitle { font: 400 18px Arial, sans-serif; fill: #5F6368; }
+      .node { fill: #FFFFFF; stroke: #DADCE0; stroke-width: 2; filter: url(#shadow); }
+      .primary { fill: #E8F0FE; stroke: #1A73E8; stroke-width: 2; filter: url(#shadow); }
+      .decision { fill: #FEF7E0; stroke: #F9AB00; stroke-width: 2; filter: url(#shadow); }
+      .success { fill: #E6F4EA; stroke: #34A853; stroke-width: 2; filter: url(#shadow); }
+      .fallback { fill: #FCE8E6; stroke: #EA4335; stroke-width: 2; filter: url(#shadow); }
+      .label { font: 500 20px Arial, sans-serif; fill: #202124; text-anchor: middle; }
+      .detail { font: 400 16px Arial, sans-serif; fill: #5F6368; text-anchor: middle; }
+      .branch { font: 500 16px Arial, sans-serif; fill: #3C4043; }
+      .line { fill: none; stroke: #5F6368; stroke-width: 3; marker-end: url(#arrow); }
+      .rail { fill: none; stroke: #5F6368; stroke-width: 3; }
+    </style>
+  </defs>
+
+  <rect width="1400" height="1320" rx="24" fill="#F8FAFD"/>
+  <text x="700" y="62" class="title" text-anchor="middle">Last Call Routing</text>
+  <text x="700" y="94" class="subtitle" text-anchor="middle">Inbound calls from a SIP trunk</text>
+
+  <rect x="390" y="130" width="520" height="86" rx="16" class="primary"/>
+  <text x="650" y="166" class="label">Inbound Call from SIP Trunk</text>
+  <text x="650" y="194" class="detail">Identify the caller's number</text>
+
+  <path d="M650 216 V260" class="line"/>
+
+  <path d="M650 260 L820 340 L650 420 L480 340 Z" class="decision"/>
+  <text x="650" y="333" class="label">Last Call Routing</text>
+  <text x="650" y="362" class="label">enabled?</text>
+
+  <text x="670" y="452" class="branch">Yes</text>
+  <path d="M650 420 V480" class="line"/>
+
+  <rect x="350" y="480" width="600" height="118" rx="16" class="node"/>
+  <text x="650" y="518" class="label">Find the Most Recent Eligible Call</text>
+  <text x="650" y="550" class="detail">Answered inbound call to a regular extension, or</text>
+  <text x="650" y="577" class="detail">extension-originated outbound call, answered or not</text>
+
+  <path d="M650 598 V642" class="line"/>
+
+  <path d="M650 642 L820 722 L650 802 L480 722 Z" class="decision"/>
+  <text x="650" y="715" class="label">Target extension</text>
+  <text x="650" y="744" class="label">found?</text>
+
+  <text x="670" y="834" class="branch">Yes</text>
+  <path d="M650 802 V860" class="line"/>
+
+  <rect x="370" y="860" width="560" height="94" rx="16" class="primary"/>
+  <text x="650" y="898" class="label">Call the Target Extension</text>
+  <text x="650" y="928" class="detail">The extension's Forwarding Rules are ignored</text>
+
+  <path d="M650 954 V996" class="line"/>
+
+  <path d="M650 996 L810 1070 L650 1144 L490 1070 Z" class="decision"/>
+  <text x="650" y="1077" class="label">Answered?</text>
+
+  <text x="590" y="1185" class="branch">Yes</text>
+  <path d="M650 1144 V1200 H410 V1220" class="line"/>
+  <rect x="190" y="1220" width="440" height="72" rx="16" class="success"/>
+  <text x="410" y="1264" class="label">Connect the Call</text>
+
+  <path d="M820 340 H1110 V1030" class="rail"/>
+  <text x="842" y="326" class="branch">No</text>
+
+  <path d="M820 722 H1110" class="rail"/>
+  <text x="842" y="708" class="branch">No</text>
+
+  <path d="M810 1070 H1110 V1110" class="rail"/>
+  <text x="834" y="1056" class="branch">No</text>
+
+  <path d="M1110 1030 V1110" class="line"/>
+  <rect x="930" y="1110" width="360" height="82" rx="16" class="fallback"/>
+  <text x="1110" y="1143" class="label">Match Inbound Rule</text>
+  <text x="1110" y="1171" class="detail">Use the normal inbound flow</text>
+
+  <path d="M1110 1192 V1220" class="line"/>
+  <rect x="890" y="1220" width="440" height="72" rx="16" class="node"/>
+  <text x="1110" y="1250" class="label">Continue to the Inbound Rule Target</text>
+  <text x="1110" y="1277" class="detail">Process the call using the existing configuration</text>
+
+</svg>

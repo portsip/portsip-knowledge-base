@@ -108,7 +108,7 @@ For example:
 
 * The [SIPTURNK ](https://www.siptrunk.com)P-based trunk is successfully created.
 * The trunk status displays **Registered**\
-  &#xNAN;_(IP-Based Trunks always show “Registered” in PortSIP PBX)_.
+  _(IP-Based Trunks always show “Registered” in PortSIP PBX)_.
 * Assigned tenants can immediately use the configured DIDs for inbound and outbound calls.
 
 ***

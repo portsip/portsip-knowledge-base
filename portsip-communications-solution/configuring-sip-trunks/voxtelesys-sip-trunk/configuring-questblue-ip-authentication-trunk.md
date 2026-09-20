@@ -184,7 +184,7 @@ Click **OK** to save the configuration.
 
 * The Voxtelesys IP-Based trunk is successfully created.
 * The trunk status displays **Online** in the trunk list\
-  &#xNAN;_(this is expected behavior for IP-Based Trunks)_.
+  _(this is expected behavior for IP-Based Trunks)_.
 
 <figure><img src="../../../.gitbook/assets/voxtelesys-fig12.png" alt=""><figcaption></figcaption></figure>
 

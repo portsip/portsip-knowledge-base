@@ -72,8 +72,8 @@ When you install **Xamarin.Firebase.Messaging**, all of the necessary dependenci
 Next, edit **MainActivity.cs** and add the following using statements:
 
 > _using Firebase.Messaging;_\
-> &#xNAN;_&#x75;sing Firebase.Iid;_\
-> &#xNAN;_&#x75;sing Android.Util;_
+> _&#x75;sing Firebase.Iid;_\
+> _&#x75;sing Android.Util;_
 
 The first two statements make types in the **Xamarin.Firebase.Messaging** NuGet package available to **PortSip.Android.Test** code. **Android.Util** adds logging functionality that will be used to observe transactions with FMS.
 

@@ -200,7 +200,7 @@ When an extension is offline, the PBX evaluates the extension’s **office hours
     _Example:_ Calls are routed to `332061180`.
 * **During office hours and not on a holiday**\
   The call is routed to the destination configured in the **In Office Hours** field.\
-  &#xNAN;_&#x45;xample:_ Calls are routed to the extension’s voicemail.
+  _&#x45;xample:_ Calls are routed to the extension’s voicemail.
 
 #### Extension holidays
 
