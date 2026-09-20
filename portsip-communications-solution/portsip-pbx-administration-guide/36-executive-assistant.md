@@ -83,6 +83,10 @@ An administrator can open/edit the target extension user and select the **Execut
 
 Each Executive User can have up to 10 Executive Assistant Users. Users in the Assistant Pool are ordered as shown on the page. Drag and drop users to change their order.
 
+_Only extension users assigned the **Executive Assistant** role can be selected as assistants by an Executive User. See the screenshot below._
+
+<figure><img src="../../.gitbook/assets/configure_executive_assistant.png" alt=""><figcaption></figcaption></figure>
+
 This order is used for **Sequential Alerting**. The PBX alerts available Executive Assistant Users who are currently opted in, one at a time, in the order shown in the Assistant Pool.
 
 #### Allow Assistant Opt-In or Opt-Out
