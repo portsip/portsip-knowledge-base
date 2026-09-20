@@ -14,7 +14,7 @@ User management helps ensure that user accounts remain accurate, secure, and pro
 
 This article includes the following sections:
 
-* [Users](users.md)
+* [Users](configure-extension-users.md)
 * [How to Configure the Endpoints?](how-to-configure-the-endpoints.md)
 * [User Groups](user-groups.md)
 * [DND and Automatic Callback](dnd-and-automatic-callback.md)

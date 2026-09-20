@@ -1,6 +1,6 @@
 # How to Configure the Endpoints?
 
-After successfully [configuring the PortSIP PBX](../2-portsip-pbx-management/) and [SBC](../9-configuring-portsip-sbc/configuring-sbc-for-webrtc.md), and creating the required [tenants ](../3-tenant-management/)and [extensions](users.md), you can register endpoints with the PBX.\
+After successfully [configuring the PortSIP PBX](../2-portsip-pbx-management/) and [SBC](../9-configuring-portsip-sbc/configuring-sbc-for-webrtc.md), and creating the required [tenants ](../3-tenant-management/)and [extensions](configure-extension-users.md), you can register endpoints with the PBX.\
 Once registered, endpoints can make and receive calls.
 
 Supported endpoints include:
