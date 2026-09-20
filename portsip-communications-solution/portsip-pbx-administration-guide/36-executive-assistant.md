@@ -62,7 +62,11 @@ Without **User Full Access** permission:
 
 ### Configure an Executive User
 
-An administrator can open the target extension user and select the **Executive / Executive Assistant** tab. An Executive User can also sign in to the Web Portal and select **Profile** from the left menu to manage their own settings.
+An administrator can open/edit the target extension user and select the **Executive Assistant** tab. An Executive User can also sign in to the Web Portal and select **Profile** from the left menu to manage their own settings.
+
+<figure><img src="../../.gitbook/assets/executive_assistant_user.png" alt=""><figcaption></figcaption></figure>
+
+
 
 1. Set the user's role to **Executive**.
 2. Add the required Executive Assistant Users.
