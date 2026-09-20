@@ -4,6 +4,8 @@ Last Call Routing uses recent call history to route an inbound call from a SIP t
 
 If the target extension does not answer, declines the call, or cannot be reached, the PBX falls back to normal Inbound Rule matching.
 
+> ❗This feature is supported in PortSIP PBX v22.8.0 and later.
+
 ***
 
 ### Configure Last Call Routing
