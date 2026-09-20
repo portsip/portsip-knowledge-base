@@ -4,9 +4,11 @@ Last Call Routing uses recent call history to route an inbound call from a SIP t
 
 If the target extension does not answer, declines the call, or cannot be reached, the PBX falls back to normal Inbound Rule matching.
 
+***
+
 ### Configure Last Call Routing
 
-1. Sign in to the PortSIP PBX Web Portal.
+1. Sign in to the PortSIP PBX Web Portal as a system administrator and select a tenant to manage, or sign in as a tenant administrator.
 2. Select **Company > General > Options**.
 3. Turn on **Last Call Routing**.
 4. In **Last Call Routing Lookback Period (Hours)**, enter how far back the PBX should search the call history.
@@ -27,6 +29,8 @@ Specifies the number of hours of call history that the PBX searches when determi
 * Valid range: `1–8760`
 
 For example, if the value is set to `48`, the PBX searches eligible calls made or received during the previous 48 hours.
+
+***
 
 ### How the Target Extension Is Selected
 
@@ -51,6 +55,8 @@ A previous outbound call is eligible when a PBX extension called the current cal
 
 If multiple eligible inbound and outbound records exist, the PBX selects the most recent record. The extension associated with that record becomes the Last Call Routing target.
 
+***
+
 ### How the Inbound Call Is Handled
 
 When a target extension is found, the PBX skips Inbound Rule matching and calls the target extension directly.
@@ -58,6 +64,8 @@ When a target extension is found, the PBX skips Inbound Rule matching and calls 
 * If the extension answers, the call is connected and no Inbound Rule is applied.
 * The extension's **Forwarding Rules** are ignored, as they are when a queue calls an agent.
 * If the extension does not answer, declines the call, or cannot be reached, the Last Call Routing attempt ends and the PBX resumes normal Inbound Rule matching.
+
+<figure><img src="../../../.gitbook/assets/PortSIP_Last_Call_Routing_Flow.svg" alt=""><figcaption></figcaption></figure>
 
 The PBX falls back to Inbound Rule matching in any of the following situations:
 
@@ -75,6 +83,8 @@ The PBX also proceeds directly to Inbound Rule matching when:
 * A previous inbound call was not answered by a regular extension.
 * The target extension cannot be determined.
 
+***
+
 ### Example
 
 Assume the following call history:
@@ -90,6 +100,8 @@ For the call received at 12:00, the PBX calls **Extension 1002** first because t
 * If Extension 1002 answers, the call is connected.
 * If Extension 1002 does not answer, declines the call, or cannot be reached, the PBX resumes normal Inbound Rule matching.
 
+***
+
 ### Routing Priority
 
 When Last Call Routing is enabled and a target extension is found, the routing priority is:
@@ -97,8 +109,4 @@ When Last Call Routing is enabled and a target extension is found, the routing p
 ```
 Last Call Routing > Inbound Rule
 ```
-
-<figure><img src="../../../.gitbook/assets/PortSIP_Last_Call_Routing_Flow.svg" alt=""><figcaption></figcaption></figure>
-
-
 

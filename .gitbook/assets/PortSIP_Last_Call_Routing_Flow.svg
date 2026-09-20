@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1320" viewBox="0 0 1400 1320" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1480" viewBox="0 0 1400 1480" role="img" aria-labelledby="title desc">
   <title id="title">Last Call Routing call flow</title>
   <desc id="desc">Flowchart showing how an inbound SIP trunk call uses Last Call Routing and falls back to an Inbound Rule when necessary.</desc>
   <defs>
@@ -24,7 +24,7 @@
     </style>
   </defs>
 
-  <rect width="1400" height="1320" rx="24" fill="#F8FAFD"/>
+  <rect width="1400" height="1480" rx="24" fill="#F8FAFD"/>
   <text x="700" y="62" class="title" text-anchor="middle">Last Call Routing</text>
   <text x="700" y="94" class="subtitle" text-anchor="middle">Inbound calls from a SIP trunk</text>
 
@@ -65,27 +65,27 @@
   <text x="650" y="1077" class="label">Answered?</text>
 
   <text x="590" y="1185" class="branch">Yes</text>
-  <path d="M650 1144 V1200 H410 V1220" class="line"/>
-  <rect x="190" y="1220" width="440" height="72" rx="16" class="success"/>
-  <text x="410" y="1264" class="label">Connect the Call</text>
+  <path d="M650 1144 V1200 H410 V1300" class="line"/>
+  <rect x="190" y="1300" width="440" height="72" rx="16" class="success"/>
+  <text x="410" y="1344" class="label">Connect the Call</text>
 
-  <path d="M820 340 H1110 V1030" class="rail"/>
+  <path d="M820 340 H1110 V1120" class="rail"/>
   <text x="842" y="326" class="branch">No</text>
 
   <path d="M820 722 H1110" class="rail"/>
   <text x="842" y="708" class="branch">No</text>
 
-  <path d="M810 1070 H1110 V1110" class="rail"/>
+  <path d="M810 1070 H1110" class="rail"/>
   <text x="834" y="1056" class="branch">No</text>
 
-  <path d="M1110 1030 V1110" class="line"/>
-  <rect x="930" y="1110" width="360" height="82" rx="16" class="fallback"/>
-  <text x="1110" y="1143" class="label">Match Inbound Rule</text>
-  <text x="1110" y="1171" class="detail">Use the normal inbound flow</text>
+  <path d="M1110 1120 V1200" class="line"/>
+  <rect x="930" y="1200" width="360" height="82" rx="16" class="fallback"/>
+  <text x="1110" y="1233" class="label">Match Inbound Rule</text>
+  <text x="1110" y="1261" class="detail">Use the normal inbound flow</text>
 
-  <path d="M1110 1192 V1220" class="line"/>
-  <rect x="890" y="1220" width="440" height="72" rx="16" class="node"/>
-  <text x="1110" y="1250" class="label">Continue to the Inbound Rule Target</text>
-  <text x="1110" y="1277" class="detail">Process the call using the existing configuration</text>
+  <path d="M1110 1282 V1360" class="line"/>
+  <rect x="890" y="1360" width="440" height="72" rx="16" class="node"/>
+  <text x="1110" y="1390" class="label">Continue to the Inbound Rule Target</text>
+  <text x="1110" y="1417" class="detail">Process the call using the existing configuration</text>
 
 </svg>
