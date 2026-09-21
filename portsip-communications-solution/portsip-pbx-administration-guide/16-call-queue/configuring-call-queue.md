@@ -62,6 +62,9 @@ This option is ignored if **Set Agent to Ready Automatically** is enabled.
 Enables routing repeat callers to the agent who last handled their call.\
 For more details, see **Skill-Based Routing**.
 
+**Allow queue calls to busy agents**\
+Turn on this option to allow queue calls to be offered to agents who are already on another call.
+
 **Wrap-Up Time (Seconds)**\
 When this option is enabled, you can configure a **wrap-up duration** for agents.\
 Once the specified time expires, the agent automatically transitions from **Wrap-Up** to **Ready**.
