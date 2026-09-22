@@ -65,6 +65,10 @@ For more details, see **Skill-Based Routing**.
 **Allow queue calls to busy agents**\
 Turn on this option to allow queue calls to be offered to agents who are already on another call.
 
+{% hint style="danger" %}
+Enabling this option may cause a ready agent to receive multiple calls simultaneously, even if the agent is already on a call or has an incoming ringing call.
+{% endhint %}
+
 **Wrap-Up Time (Seconds)**\
 When this option is enabled, you can configure a **wrap-up duration** for agents.\
 Once the specified time expires, the agent automatically transitions from **Wrap-Up** to **Ready**.
