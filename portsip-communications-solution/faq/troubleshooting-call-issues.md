@@ -2,7 +2,7 @@
 
 This article provides solutions for common PortSIP PBX issues with calls.
 
-### 1. Troubleshooting Outbound Calls Issues
+### 1. Troubleshooting Outbound Call Issues
 
 When you make a call from the app or an IP Phone, if the call fails, you will receive a status code indicating the reason. Below, we explain the status codes and their meanings:
 
@@ -12,12 +12,12 @@ When you make a call from the app or an IP Phone, if the call fails, you will re
 
 When an outbound call fails, you can determine whether the error occurs in the PBX or is returned by the trunk by following these steps:
 
-First, navigate to **Call Statistics > CDR**.
+First, navigate to **Call Statistics > CDR** or **Data Analytics > Call History**
 
-* If no record of your call appears, it means the PBX did not receive the call. In this case, check if your app or IP phone can reach the PortSIP PBX.
-* If a record for the call exists, double-click it:
+* **If no record of your call appear**s, it means the PBX did not receive the call. In this case, check if your app or IP phone can reach the PortSIP PBX.
+* **If a record for the call exists**, double-click it:
   * If no pop-up window appears, it indicates the call failed within the PBX (e.g., no outbound rule matched).
-  * If a window appears displaying the call details and the **Destination** field is not empty, it indicates the call was sent to the trunk, but the trunk returned an error. See the example screenshot below for reference.
+  * If a window appears displaying the call details and the **Destination** field is not empty, it indicates the call was sent to the trunk, but the trunk returned an error. See the example screenshot below for reference. In this case, you will need to check with your trunk provider why the trunk returns the error.
 
 <figure><img src="../../.gitbook/assets/cdr-trouble-shoot.png" alt=""><figcaption></figcaption></figure>
 
@@ -252,8 +252,3 @@ path/portsip/pbx/log/
 Typically, you should copy the **callmanager.log** file, compress it, and send it to the PortSIP team for further investigation.
 
 Feel free to contact the PortSIP support team at [support@portsip.com](mailto:support@portsip.com) or [submit a ticket](https://portsip.atlassian.net/servicedesk/customer/portals). Our team will help you resolve any issues.
-
-
-
-
-
