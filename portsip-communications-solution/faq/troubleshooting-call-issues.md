@@ -14,7 +14,7 @@ When an outbound call fails, you can determine whether the error occurs in the P
 
 First, navigate to **Call Statistics > CDR** or **Data Analytics > Call History**
 
-* **If no record of your call appear**s, it means the PBX did not receive the call. In this case, check if your app or IP phone can reach the PortSIP PBX.
+* **If no record of your call appears**, it means the PBX did not receive the call. In this case, check if your app or IP phone can reach the PortSIP PBX.
 * **If a record for the call exists**, double-click it:
   * If no pop-up window appears, it indicates the call failed within the PBX (e.g., no outbound rule matched).
   * If a window appears displaying the call details and the **Destination** field is not empty, it indicates the call was sent to the trunk, but the trunk returned an error. See the example screenshot below for reference. In this case, you will need to check with your trunk provider why the trunk returns the error.
