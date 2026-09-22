@@ -89,14 +89,14 @@ Professional Edition can also be used if API access has been enabled for the Sal
 
 <figure><img src="../../../.gitbook/assets/salesforce-crm-6.png" alt=""><figcaption></figcaption></figure>
 
-11. Scroll to **Security** and select the following options:
+13. Scroll to **Security** and select the following options:
 
 * **Require Secret for Web Server Flow**
 * **Require Secret for Refresh Token Flow**
 
 <figure><img src="../../../.gitbook/assets/salesforce-crm-7.png" alt=""><figcaption></figcaption></figure>
 
-12. Click **Create**.
+14. Click **Create**.
 
 ***
 
