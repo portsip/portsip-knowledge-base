@@ -143,6 +143,7 @@
   * [33 CRM Integrations](portsip-communications-solution/portsip-pbx-administration-guide/33-crm-integrations/README.md)
     * [ZOHO CRM](portsip-communications-solution/portsip-pbx-administration-guide/33-crm-integrations/zoho-crm.md)
     * [HubSpot CRM](portsip-communications-solution/portsip-pbx-administration-guide/33-crm-integrations/hubspot-crm.md)
+    * [Salesforce CRM](portsip-communications-solution/portsip-pbx-administration-guide/33-crm-integrations/salesforce-crm.md)
     * [Odoo CRM](portsip-communications-solution/portsip-pbx-administration-guide/33-crm-integrations/odoo-crm.md)
   * [34 AI Transcription](portsip-communications-solution/portsip-pbx-administration-guide/34-ai-transcription/README.md)
     * [Configuring Deepgram AI](portsip-communications-solution/portsip-pbx-administration-guide/34-ai-transcription/configuring-deepgram-ai.md)
