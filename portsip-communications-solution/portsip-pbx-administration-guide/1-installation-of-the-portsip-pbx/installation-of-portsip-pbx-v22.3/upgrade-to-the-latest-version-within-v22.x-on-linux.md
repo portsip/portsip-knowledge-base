@@ -126,7 +126,6 @@ Then upgrade the Data Flow Service:
 
 ```bash
 sudo /bin/sh dataflow_ctl.sh upgrade \
-  -i portsip/pbx:22 \
-  -d portsip/clickhouse:26.3
+  -i portsip/pbx:22
 ```
 

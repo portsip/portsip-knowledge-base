@@ -395,75 +395,11 @@ If your Instant Messaging (IM) server is hosted in the cloud (e.g., AWS), you mu
 
 ***
 
-### Installing the DataFlow Server
+### Installing the Data Flow Server
 
-Currently, the DataFlow server **does not support clustered deployment** and must be deployed as a standalone server.
+The Data Flow server currently supports standalone deployment only; clustered deployment is not supported.
 
-DataFlow is built on [ClickHouse](https://www.clickhouse.com). For best performance and stability, follow ClickHouse sizing best practices.
-
-#### Minimum Requirements
-
-* **vCPU:** 4 cores
-* **Memory:** 8 GB
-* **Disk:** 128 GB SSD
-
-#### Recommended Requirements
-
-* **vCPU:** 8 cores
-* **Memory:** 16 -32 GB
-* **Disk:** 256 GB+ (NVMe SSD preferred)
-
-#### Sizing Guideline (Large Deployments)
-
-* **vCPU:** ≥ 8
-* **Memory:** `vCPU × 4 GB`
-* **Disk:** Based on expected CDR volume and retention policy
-
-***
-
-#### Generate a DataFlow Token
-
-1. Sign in to the PBX Web Portal as **System Administrator**
-2. Go to **Servers** > **Data Flow**
-3. Select the default server and click **Generate Token**
-4. Copy and securely store the token
-
-<figure><img src="../../.gitbook/assets/data-flow-1.png" alt=""><figcaption></figcaption></figure>
-
-***
-
-#### Create the DataFlow Docker Instance (Server 6)
-
-**Command parameters**
-
-* `-p` : Path for storing Data Flow and ClickHouse data (required)
-* `-d` : ClickHouse Docker image (`portsip/clickhouse:25.8`)
-* `-a` : Private IP address of the Data Flow server
-* `-A` : Public IP address (use if private IP is not available)
-* `-i` : PortSIP PBX Docker image version (required)
-* `-x` : PBX server static private IP address
-
-Example:
-
-```bash
-cd /opt/portsip
-sudo /bin/sh dataflow_ctl.sh run \
--p /var/lib/portsip/ \
--a 192.168.1.26 \
--i portsip/pbx:22 \
--x 192.168.1.20 \
--d portsip/clickhouse:25.8
-```
-
-***
-
-#### Operational Notes (DataFlow)
-
-* If the **PBX IP address changes**, you must delete and recreate the existing Data Flow Docker instance.
-* If a **new authentication token** is generated, the Data Flow Docker instance must be deleted and recreated.
-* After upgrading the **PBX to a new version**, you must remove and recreate the Data Flow Docker instance to ensure compatibility.
-
-The above operations **do not affect or erase existing analytics data** stored in ClickHouse.
+For installation and management instructions, see [Install Data Flow Service](../portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.3/install-data-flow-service.md) and [Managing PortSIP Docker Instances](../portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.x/managing-portsip-docker-instances.md).&#x20;
 
 ***
 
@@ -530,20 +466,9 @@ cd /opt/portsip
 sudo /bin/sh im_ctl.sh restart
 ```
 
-#### Restart the Data Flow Server
-
-On the Data Flow server (ensure PBX is already running):
-
-```bash
-cd /opt/portsip
-sudo /bin/sh dataflow_ctl.sh restart
-```
-
 ***
 
 ### SBC Cluster
 
 To deploy the SBC cluster, follow the instructions in [Deploy the SBC Cluster](../portsip-pbx-administration-guide/11-deploy-the-sbc-cluster.md).
-
-
 
