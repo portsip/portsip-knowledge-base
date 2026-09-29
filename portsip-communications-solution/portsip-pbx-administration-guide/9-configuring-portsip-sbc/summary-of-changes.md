@@ -9,6 +9,22 @@ Please follow the [official upgrade guide](upgrade-to-the-latest-sbc-release.md)
 
 ***
 
+### Version 11.2.9
+
+**Release Date:** September 29, 2026
+
+**Changes**
+
+* Updated the built-in PortSIP ONE WebRTC app to v10.9.4.
+* Improved WebRTC SDP compatibility. When a WebRTC client offers sendonly, the SBC changes a sendrecv answer to recvonly.
+* Masked passwords and secret keys in the API.
+* Fixed an issue where tenant changes during synchronization through /api/tenants could leave synchronization running indefinitely.
+* Fixed several memory leaks.
+* The media engine now retains logs for five days.
+* Removed timestamps from media engine log file names.
+
+***
+
 ### Version 11.2.8
 
 **Release Date:** August 12, 2026
