@@ -16,6 +16,7 @@
       * [Install PortSIP PBX](portsip-communications-solution/portsip-pbx-administration-guide/installation-of-portsip-pbx-v22.3-beta-version/install-portsip-pbx.md)
       * [Install IM Service](portsip-communications-solution/portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.3/install-im-service.md)
       * [Install Data Flow Service](portsip-communications-solution/portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.3/install-data-flow-service.md)
+      * [Managing PortSIP Docker Instances](portsip-communications-solution/portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.x/managing-portsip-docker-instances.md)
       * [Upgrade to the Latest Version Within v22.x](portsip-communications-solution/portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.3/upgrade-to-the-latest-version-within-v22.x-on-linux.md)
       * [Upgrade v16.x to the Latest v22.x](portsip-communications-solution/portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.3/upgrade-v16.x-to-the-latest-v22.x-on-linux.md)
     * [Installation of PortSIP PBX v16.x](portsip-communications-solution/portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v16/README.md)

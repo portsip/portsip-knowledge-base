@@ -55,6 +55,8 @@ If your deployment is not in a cloud environment, continue with the PBX host fir
 
 > **Important:** Complete the steps in order. Skip a step only when it is explicitly marked optional or does not apply to your deployment.
 
+***
+
 ### Install the First Data Flow Instance
 
 #### Step 1: Generate the Data Flow Token on PBX 1
