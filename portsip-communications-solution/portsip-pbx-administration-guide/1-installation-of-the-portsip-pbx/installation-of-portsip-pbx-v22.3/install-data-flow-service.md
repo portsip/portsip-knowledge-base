@@ -1,173 +1,106 @@
 # Install Data Flow Service
 
-### Instructions
+### Overview
 
-Starting with **PortSIP PBX v22.3**, PortSIP introduces a new component: the **PortSIP Data Flow Service,** a high-performance analytics engine built on **ClickHouse**.
+PortSIP PBX v22.3 introduced the **PortSIP Data Flow service**, which uses ClickHouse to store and analyze call and contact center data. The service supports:
 
-The Data Flow service powers the following advanced capabilities:
+* [Call Detail Record (CDR) storage and analytics](../../20-cdr-and-call-recordings/)
+* [Call reports](../../21-call-reports/call-reports/)
+* [Real-time dashboards and queue wallboards](../../16-call-queue/live-wallboards.md)
 
-* [Call Detail Record (CDR) storage and analytics](../../20-cdr-and-call-recordings/cdr.md)
-* [Comprehensive call reports](../../21-call-reports/call-reports/)
-* [Real-time data dashboards](../../16-call-queue/live-wallboards.md)
-* [Queue wallboards for contact center operations](../../16-call-queue/live-wallboards.md)
-
-ClickHouse is optimized for large-scale analytical workloads, capable of handling billions of CDRs and real-time queue or agent activity data with extremely fast query performance. This makes it ideal for service providers and enterprise-grade deployments.
+ClickHouse is designed for large analytical datasets and fast queries. Deploy Data Flow when your PBX requires these reporting and analytics capabilities.
 
 ***
 
 ### Deployment Guidelines
 
-Because ClickHouse is **resource-intensive** and optimized for analytics workloads, the **PortSIP Data Flow service must be installed on a separate server**.
+Install Data Flow on a **separate physical server or virtual machine**. ClickHouse ingestion and analytics can use substantial CPU, memory, and disk I/O. Running Data Flow on the PBX server can affect call processing and system stability.
 
-Deploying the Data Flow service on the same server as the PBX core may degrade overall system performance due to high CPU, memory, and disk I/O usage during data ingestion and analytics processing.
+> **Important:** Do not install Data Flow on the same server as PortSIP PBX.
 
-> ❗ **Important**\
-> **Do not install the Data Flow service on the same server as the PortSIP PBX.**\
-> Running both services on a single server may negatively impact call processing performance and overall system stability.
+Starting with **PortSIP PBX v22.8.0**, you can install multiple Data Flow instances on the same Data Flow server.
 
-***
+This allows one Data Flow server to serve multiple PBX systems. Each PBX has its own Data Flow instance, while all Data Flow instances on the server share one ClickHouse instance. See Install Multiple Data Flow Instances on One Server.
 
 ### Hardware Requirements
 
-The PortSIP Data Flow service can be deployed on either a **physical server** or a **virtual machine**.
+| Resource | Minimum    | Recommended                        |
+| -------- | ---------- | ---------------------------------- |
+| vCPU     | 4 cores    | 8 cores or more                    |
+| Memory   | 8 GB       | 16 GB or more                      |
+| Storage  | 128 GB SSD | 256 GB or more; NVMe SSD preferred |
 
-For best performance, ensure your hardware meets or exceeds the specifications below.\
-For additional reference, see the [**ClickHouse official best practices documentation**](https://clickhouse.com/docs/guides/sizing-and-hardware-recommendations).
+For large deployments, start with at least **8 vCPUs** and plan for approximately **4 GB of memory per vCPU**. Size storage according to the expected CDR volume and retention period. When several PBXs share one Data Flow server, size the server for their combined workload.
 
-#### Minimum Requirements
-
-* **vCPU**: 4 cores
-* **Memory**: 8 GB
-* **Disk**: 128 GB SSD
-
-***
-
-#### Recommended Requirements
-
-* **vCPU**: 8 cores
-* **Memory**: 16 GB
-* **Disk**: 256GB or larger (NVMe SSD preferred)
-
-***
-
-#### Hardware Sizing Formula (Large-Scale Deployments)
-
-For large or high-volume environments, use the following guideline:
-
-* **vCPU**: ≥ 8
-* **Memory**: vCPU × 4 GB
-* **Disk**: Based on expected CDR volume and data retention policy
-
-***
+For further guidance, see the [ClickHouse sizing and hardware recommendations](https://clickhouse.com/docs/guides/sizing-and-hardware-recommendations).
 
 ### Supported Operating Systems
 
-The PortSIP Data Flow service supports **64-bit Linux only**.
+Data Flow supports **64-bit Linux** on the following distributions:
 
-The following operating systems are officially supported:
-
-* **Ubuntu**: 22.04, 24.04
-* **Debian**: 12
-
-***
-
-> ❗ **Important**\
-> Follow every step in this guide in order. Do not skip any steps unless the guide explicitly says you can.
+* Ubuntu 22.04 or 24.04
+* Debian 12
 
 ### Network Requirements
 
-#### Static IP Address
+Assign the Data Flow server a **static private IP address**. The examples in this guide use `192.168.1.35` for Data Flow, `192.168.0.20` for PBX 1, and `192.168.0.21` for PBX 2. The private subnets must be able to route traffic between the Data Flow server and each PBX.
 
-You must configure a **static private IP address** for the Data Flow server.
+If the Data Flow server has no private IP address, assign it a static public IP address and ensure it can communicate reliably with the PBX. Use `-A` instead of `-a` when installing the service in this case.
 
-* Example private IP: `192.168.1.35`
+#### Cloud Firewall or Network Security Rules
 
-If a static private IP is not available, the server must have a **static public IP address** and be able to communicate reliably with the PBX server.
+If you deploy on AWS, Azure, Google Cloud, or another cloud platform, configure the relevant network route and security group or firewall rules so the Data Flow server can reach each PBX. The current installation procedure requires allowing TCP traffic from the **Data Flow server IP** to the **PBX IP**. Restrict the source to the specific Data Flow server address rather than opening the PBX to an entire network where possible.
 
-#### Configure Cloud Firewall or Network Security Rules
+If your deployment is not in a cloud environment, continue with the PBX host firewall steps below.
 
-Skip this step if you are **not** deploying in a **cloud environment.**
+> **Important:** Complete the steps in order. Skip a step only when it is explicitly marked optional or does not apply to your deployment.
 
-> ❗**Important**\
-> Restrict this rule to the **internal IP range** of your deployment to maintain security.
+### Install the First Data Flow Instance
 
-If the PBX and Data Flow server are hosted on **AWS, Azure, Google Cloud, or other cloud platforms**:
+#### Step 1: Generate the Data Flow Token on PBX 1
 
-* Ensure the Data Flow server is within the same **VPC/VNet/VLAN**
-* Create a **firewall or security group rule** allowing **all TCP traffic** from the **Data Flow server private IP** to the PBX server IP.
-
-> ⚠️ **Note**\
-> Restrict this rule to the **internal IP range** of your deployment to maintain security.
-
-***
-
-### Step 1: Generate the Data Flow Token
-
-1. Log in to the **PortSIP PBX Web Portal** as a **System Administrator**.
-2. Navigate to **Servers > Data Flow**.
+1. Sign in to the **PortSIP PBX Web Portal** as a **system administrator**.
+2. Go to **Servers > Data Flow**.
 3. Select the **default Data Flow server**.
-
-<figure><img src="../../../../.gitbook/assets/data-flow-1.png" alt=""><figcaption></figcaption></figure>
-
 4. Click **Generate Token**.
-5. Copy and securely store the generated token.
 
-***
+<figure><img src="../../../../.gitbook/assets/data-flow-228-1.png" alt=""><figcaption></figcaption></figure>
 
-### Step 2: Configure the Firewall on the PBX Server
+#### Step 2: Configure the Firewall on PBX 1
 
-To allow the Data Flow server (**`192.168.1.35`**) to communicate with the PBX server (**`192.168.1.20`**), configure firewall rules **on the PBX server**.
-
-Execute the following commands on the PBX server:
+On **PBX 1 (`192.168.0.20`)**, allow the Data Flow server (`192.168.1.35`) through the host firewall:
 
 ```bash
 sudo firewall-cmd --permanent --zone=trusted --add-source=192.168.1.35
 sudo firewall-cmd --reload
 ```
 
-Verify the firewall rule by executing the command below:
+Verify that `192.168.1.35` appears in the `sources` field:
 
 ```bash
 sudo firewall-cmd --zone=trusted --list-all
 ```
 
-Expected output:
+For example, the output should include:
 
-```shellscript
-[ubuntu@localhost ~]$ sudo firewall-cmd --zone=trusted --list-all
+```
 trusted (active)
   target: ACCEPT
-  icmp-block-inversion: no
-  interfaces: 
   sources: 192.168.1.35
-  services: 
-  ports: 
-  protocols: 
-  forward: yes
-  masquerade: no
-  forward-ports: 
-  source-ports: 
-  icmp-blocks: 
-  rich rules:
 ```
 
-#### (Optional) Allow the Entire LAN
+> **Optional:** If your deployment requires trusting the entire Data Flow subnet, replace the individual source with `192.168.1.0/24`. This grants broader access to the PBX, so use the single-server rule above whenever possible.
+>
+> ```bash
+> sudo firewall-cmd --permanent --zone=trusted --add-source=192.168.1.0/24
+> sudo firewall-cmd --reload
+> ```
 
-If required, you may allow the entire LAN subnet by performing the following commands:
+#### Step 3: Create and Start the Data Flow Instance
 
-```bash
-sudo firewall-cmd --permanent --zone=trusted \
---add-source=192.168.1.0/24 && \
-sudo firewall-cmd --reload
-```
+Run the following commands **on the Data Flow server**. The commands in this step use `/opt/portsip` as the working directory.
 
-***
-
-### Step 3: Create and Run the Data Flow Docker Instance
-
-All commands must be executed in the **`/opt/portsip`** directory on the Data Flow server.
-
-#### Initialize the Environment
+**Initialize the Environment**
 
 ```bash
 sudo mkdir -p /opt/portsip
@@ -176,145 +109,111 @@ sudo curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/
 sudo /bin/sh init.sh
 ```
 
-***
-
-#### Install Docker and Docker Compose
+**Install Docker and Docker Compose**
 
 ```bash
 sudo /bin/sh install_docker.sh
 ```
 
-If prompted with:
+If you see the following prompt, enter **Y** and press **Enter**:
 
-```shellscript
+```
 cloud.cfg (Y/I/N/O/D/Z) [default=N] ?
 ```
 
-Enter **Y** and press **Enter**.
+**Start the Instance**
 
-***
+The `dataflow_ctl.sh run` command accepts these parameters:
 
-#### Create the Data Flow Service Docker Instance
+| Parameter      | Description                                                                                                                                                                                                                                                                                                                                                                                                                |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `-p <path>`    | Directory for persistent Data Flow and ClickHouse data. Required. Reuse this path when recreating an instance.                                                                                                                                                                                                                                                                                                             |
+| `-d <image>`   | ClickHouse Docker image. Optional; keep the default unless your deployment requires a different image.                                                                                                                                                                                                                                                                                                                     |
+| `-a <IP>`      | Private IP address of the Data Flow server. **Use this when the server has a private IP**.                                                                                                                                                                                                                                                                                                                                 |
+| `-A <IP>`      | Public IP address of the Data Flow server. **Use this only when the server has no private IP**.                                                                                                                                                                                                                                                                                                                            |
+| `-i <image>`   | PortSIP PBX Docker image version. Required.                                                                                                                                                                                                                                                                                                                                                                                |
+| `-x <IP>`      | Private IP address of the PBX served by this Data Flow instance. Required. **For a PBX HA deployment, use its virtual IP (VIP)**.                                                                                                                                                                                                                                                                                          |
+| `-g <seconds>` | Startup grace period for Data Flow health checks. The default is **90 seconds**. Failed checks during this period do not count toward the consecutive failures required to mark the container `unhealthy`. **Leave this parameter unset unless you need a different grace period.** For example, `-g 120` sets it to 120 seconds. It is not a fixed startup deadline and does not stop the container when the period ends. |
 
-Command parameters:
-
-* `-p` : Path for storing Data Flow and ClickHouse data (required)
-* `-d` : ClickHouse Docker image. Optionial, suggest keep it by default
-* `-a` : **Private IP address** of the Data Flow server
-* `-A` : Public IP address (**only use if the server has no private IP**)
-* `-i` : PortSIP PBX Docker image version (required)
-* `-x` : PBX server **private IP address(required)**
-  * If PBX is deployed in **HA mode**, use the **Virtual IP (VIP)**
-*   -g: Sets the startup grace period for DataFlow health checks. Failed health checks during this period do not count toward the consecutive failure threshold for marking the container as `unhealthy`. The default is **90 seconds** if `-g` is omitted. We recommend leaving this parameter unset unless you need a different grace period.
-
-    For example, `-g 120` sets the grace period to 120 seconds. This setting does not impose a fixed startup deadline or stop the container when the period expires.&#x20;
-
-Example command:
+Example for **PBX 1 (`192.168.0.20`)** and **Data Flow (`192.168.1.35`)**:
 
 ```bash
 sudo /bin/sh dataflow_ctl.sh run \
--p /var/lib/portsip/ \
--a 192.168.1.35 \
--i portsip/pbx:22 \
--x 192.168.1.20
+  -p /var/lib/portsip/ \
+  -a 192.168.1.35 \
+  -i portsip/pbx:22 \
+  -x 192.168.0.20
 ```
 
-#### Notes and Operational Considerations
+If the Data Flow server has no private IP, replace `-a 192.168.1.35` with `-A <static-public-IP>`.
 
-* If the **PBX IP address changes**, you must delete and recreate the existing Data Flow Docker instance.
-* If a **new authentication token** is generated, the Data Flow Docker instance must be deleted and recreated.
-* After upgrading the **PBX to a new version**, you must remove and recreate the Data Flow Docker instance to ensure compatibility.
+#### Recreating an Instance
 
-The above operations **do not affect or erase existing analytics data** stored in ClickHouse.
+Delete and recreate the affected Data Flow instance when:
+
+* Its PBX IP address or VIP changes.
+* You generate a new Data Flow authentication token on that PBX.
+* You upgrade the PBX to a new version and need a matching Data Flow instance.
+
+Recreating the instance does not erase existing ClickHouse analytics data **provided that you preserve and reuse the same persistent data directory specified by `-p`**. Do not delete that directory when removing the container.
 
 ***
 
 ### Install Multiple Data Flow Instances on One Server
 
-A Data Flow server may have enough resources to serve multiple PBX systems. You can run a separate Data Flow instance for each PBX on the same server, reducing the need for additional hardware.
+**Supported starting with PortSIP PBX v22.8.0.** You can install multiple Data Flow instances on one server, with one instance for each PBX. The instances **share one ClickHouse instance** and use the **same Data Flow server IP**. Each instance connects to its corresponding PBX.
 
-Before installing another instance, complete steps 1–3 of the initial Data Flow installation described above and verify that the first instance is working properly.
+<figure><img src="../../../../.gitbook/assets/dataflow-diagram.png" alt=""><figcaption></figcaption></figure>
 
-The deployment uses:
+A single Data Flow server supports up to **100 Data Flow instances**. For typical deployments, we recommend **around 10 instances** and generally advise **no more than 20 instances** per server. The practical limit depends on the server's CPU, memory, storage performance, and the combined workload of the connected PBXs.
 
-1. **One ClickHouse instance** shared by all Data Flow instances on the server.
-2. A separate Data Flow instance for each PBX.
-3. A connection from each Data Flow instance to its corresponding PBX.
+Before adding another instance, complete **Steps 1–3** for the first PBX above and confirm that its Data Flow instance is working.
 
-#### Example: Install a Data Flow Instance for Another PBX
+The following example adds **PBX 2 (`192.168.0.21`)** to the existing Data Flow server (`192.168.1.35`). PBX 1 remains at `192.168.0.20`.
 
-Assume the first Data Flow instance is already serving the first PBX(192.168.1.20). To add an instance for a second PBX with the IP address `192.168.1.21`, run the Data Flow installation command with these parameters:
+#### Step 1: Generate the Data Flow Token on PBX 2
 
-| Parameter | Value                                                                                                                                                 |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `-a`      | The Data Flow server’s private IP address.                                                                                                            |
-| `-A`      | The Data Flow server’s public IP address. Use this only if the server has no private IP address.                                                      |
-| `-x`      | The second PBX’s private IP address: `192.168.1.21`. If the PBX is deployed in HA mode, use its virtual IP (VIP) instead. This parameter is required. |
+Sign in to **PBX 2** as a system administrator. Go to **Servers > Data Flow**, select its default Data Flow server, click **Generate Token**.
 
-Use **the same `-a` or `-A` value** that you used for the first Data Flow instance. Set `-x` to the **second PBX**, not the PBX configured in steps 1–3.
+#### Step 2: Configure the Firewall on PBX 2
 
-#### Step 1: Configure the Firewall on the PBX Server
-
-To allow the Data Flow server (**`192.168.1.35`**) to communicate with the PBX server 2 (**`192.168.1.21`**), configure firewall rules **on the PBX server**.
-
-Execute the following commands on the PBX server(192.168.1.21):
+Run these commands **on PBX 2 (`192.168.0.21`)** to allow the Data Flow server (`192.168.1.35`):
 
 ```bash
 sudo firewall-cmd --permanent --zone=trusted --add-source=192.168.1.35
 sudo firewall-cmd --reload
 ```
 
-Verify the firewall rule by executing the command below:
+Verify the source rule:
 
 ```bash
 sudo firewall-cmd --zone=trusted --list-all
 ```
 
-Expected output:
+The output should list `192.168.1.35` under `sources`. If you must trust the whole Data Flow subnet, use the optional `192.168.1.0/24` rule shown in the first installation instead.
 
-```shellscript
-[ubuntu@localhost ~]$ sudo firewall-cmd --zone=trusted --list-all
-trusted (active)
-  target: ACCEPT
-  icmp-block-inversion: no
-  interfaces: 
-  sources: 192.168.1.35
-  services: 
-  ports: 
-  protocols: 
-  forward: yes
-  masquerade: no
-  forward-ports: 
-  source-ports: 
-  icmp-blocks: 
-  rich rules:
-```
+#### Step 3: Start the Second Instance on the Data Flow Server
 
-#### (Optional) Allow the Entire LAN
-
-If required, you may allow the entire LAN subnet by performing the following commands:
+Run the following command **on the existing Data Flow server**, from `/opt/portsip`:
 
 ```bash
-sudo firewall-cmd --permanent --zone=trusted \
---add-source=192.168.1.0/24 && \
-sudo firewall-cmd --reload
-```
-
-#### Step 2: Run the following example commands on the Data Flow Server
-
-```
+cd /opt/portsip
 sudo /bin/sh dataflow_ctl.sh run \
--p /var/lib/portsip/ \
--a 192.168.1.35 \
--i portsip/pbx:22 \
--x 192.168.1.21
+  -p /var/lib/portsip/ \
+  -a 192.168.1.35 \
+  -i portsip/pbx:22 \
+  -x 192.168.0.21
 ```
+
+Use **the same `-p` directory and the same `-a` or `-A` Data Flow server address** as the first instance. Change `-x` to **PBX 2's IP address or VIP**. Do not use PBX 1's address for the new instance. Do not install a second ClickHouse instance.
+
+#### Install Additional Instances
+
+For each additional PBX, repeat **Steps 1–3** in this section: generate its Data Flow token, allow the Data Flow server through that PBX's firewall, and start a new Data Flow instance. Keep the same `-p` directory and Data Flow server address (`-a` or `-A`), and set `-x` to the additional PBX's IP address or VIP.
 
 ***
 
 ### Installation Complete
 
-The **Data Flow Service** has now been successfully installed.
-
-You can now proceed to [Step 7: Reboot to Apply the Certificate](../../installation-of-portsip-pbx-v22.3-beta-version/install-portsip-pbx.md#step-7-reboot-to-apply-the-certificate) in the Install PortSIP PBX guide.
+After installing the required Data Flow instances, return to[ ](../../installation-of-portsip-pbx-v22.3-beta-version/install-portsip-pbx.md#restart-the-pbx-to-apply-the-ssl-certificate)[Restart the PBX to Apply the SSL Certificate](../../installation-of-portsip-pbx-v22.3-beta-version/install-portsip-pbx.md#restart-the-pbx-to-apply-the-ssl-certificate) in the PortSIP PBX installation guide.
 
