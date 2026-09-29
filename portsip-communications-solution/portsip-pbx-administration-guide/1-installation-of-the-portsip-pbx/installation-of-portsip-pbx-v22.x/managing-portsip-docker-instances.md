@@ -6,8 +6,6 @@ Run the commands in this guide from `/opt/portsip` on the server hosting the rel
 cd /opt/portsip
 ```
 
-***
-
 ### Managing the PortSIP PBX Instance
 
 After installing PortSIP PBX, use `pbx_ctl.sh` to manage its Docker container.
