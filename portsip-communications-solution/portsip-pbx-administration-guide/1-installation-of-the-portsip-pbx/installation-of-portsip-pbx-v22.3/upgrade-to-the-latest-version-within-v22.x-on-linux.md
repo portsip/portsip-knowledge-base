@@ -1,13 +1,12 @@
 # Upgrade to the Latest Version Within v22.x
 
+This guide applies to standalone PortSIP PBX deployments upgrading from one v22.x release to a newer v22.x release. Follow the steps in order, and upgrade each service installed in your deployment.
+
 ### Back Up Before Upgrading
 
-Before performing any upgrade, ensure that you have a complete backup of your PBX and SBC.
+Back up both the PBX and SBC before starting. Follow [Backup and Restore: An Essential Guide](https://support.portsip.com/portsip-communications-solution/tutorials/backup-and-restore).
 
-Please follow the guide [**Backup and Restore: An Essential Guide**](../../backup-and-restore/) to back up both the PortSIP PBX and PortSIP SBC.
-
-> **Note**\
-> If all upgrade steps are followed correctly, your PBX data will remain intact throughout the upgrade process.
+The upgrade procedure is designed to preserve PBX data, but verify that your backups are complete before proceeding.
 
 #### Attention
 
@@ -21,12 +20,11 @@ Please follow the guide [**Backup and Restore: An Essential Guide**](../../backu
 
 ***
 
-### High Availability Upgrade
+### High Availability Deployments
 
-If your PortSIP PBX is deployed in High Availability (HA) mode, follow the guide [**Upgrading High Availability Installation**](../../../high-availability-v22.x/high-availability-and-scalability-on-premise/upgrading-high-availability-installation.md).
+> ❗ **Important**
 
-> ❗ **Important**\
-> Do **not** use this standard upgrade procedure for HA deployments.
+If your PBX uses High Availability (HA), follow [Upgrading High Availability Installation](https://support.portsip.com/portsip-communications-solution/high-availability-v22.x/high-availability-and-scalability-on-premise/upgrading-high-availability-installation). The procedure below is for standalone deployments.
 
 ***
 
@@ -41,96 +39,91 @@ All commands in this section must be executed in the following directory:
 /opt/portsip
 ```
 
-#### Update the Installation Scripts
+#### Step 1: Update the Installation Scripts
 
-> ❗ **Important**\
-> This step is **mandatory**, don't skip this step!
-
-Run the following commands to download and apply the latest upgrade scripts on every server!
+**This step is required on every server that hosts a service you are upgrading.** On each server, run:
 
 ```bash
+cd /opt/portsip
 sudo curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/init.sh -o init.sh
 sudo /bin/sh init.sh
 ```
 
-***
+Complete this step before running an upgrade command on that server.
 
-#### Upgrading the PBX
+#### Step 2: Upgrade the PBX
 
-If you are currently running **PortSIP PBX v22.x** and want to upgrade to the latest v22.x release, run:
+On the PBX server, run:
 
 ```bash
-cd /opt/portsip && sudo /bin/sh pbx_ctl.sh upgrade -i portsip/pbx:22
+cd /opt/portsip
+sudo /bin/sh pbx_ctl.sh upgrade -i portsip/pbx:22
 ```
 
-***
+#### Step 3: Upgrade the SBC
 
-#### Upgrading the SBC
-
-If you are running **PortSIP SBC** and want to upgrade to the latest version, run:
+If PortSIP SBC is installed, run the following on the SBC server:
 
 ```bash
-cd /opt/portsip && sudo /bin/sh sbc_ctl.sh upgrade -i portsip/sbc:11
+cd /opt/portsip
+sudo /bin/sh sbc_ctl.sh upgrade -i portsip/sbc:11
 ```
 
 > ❗ **Important**\
 > After upgrading to **v22.2.x or later** from an earlier version, the **SBC token is regenerated automatically**.\
 > You must update the **SBC Web Portal** with the new token to restore SBC functionality.
 
-***
+#### Step 4: Upgrade the IM Service
 
-#### Upgrading the IM Service
-
-**IM Server Installed on the Same Server as PBX:**
-
-Run the following command:
+If the IM Service is installed **on the PBX server**, the installation scripts were updated in Step 1. Run:
 
 ```bash
-cd /opt/portsip && sudo /bin/sh im_ctl.sh upgrade -i portsip/pbx:22
+cd /opt/portsip
+sudo /bin/sh im_ctl.sh upgrade -i portsip/pbx:22
 ```
 
-***
-
-**IM Service Installed on a Separate Server:**
-
-On the IM server, first update the scripts:
+If the IM Service is installed **on a separate server**, first update the installation scripts on the IM server:
 
 ```bash
+cd /opt/portsip
 sudo curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/init.sh -o init.sh
 sudo /bin/sh init.sh
 ```
 
-Then run the upgrade command:
+Then upgrade the IM Service:
 
 ```bash
-cd /opt/portsip && sudo /bin/sh im_ctl.sh upgrade -i portsip/pbx:22
+sudo /bin/sh im_ctl.sh upgrade -i portsip/pbx:22
 ```
 
-***
+#### Step 5: Install or Upgrade the Data Flow Service
 
-#### Install the Data Flow Service
+**If Data Flow Is Not Yet Installed**
 
-If you upgrade from a version **earlier than v22.3.0** to **v22.3.x**, you must install the **PortSIP Data Flow service** after completing the PBX upgrade.
+If the Data Flow Service is not installed, install it **after completing the PBX upgrade**. This applies if:
 
-Please follow the guide [**Install Data Flow Service**](install-data-flow-service.md) to complete the installation.
+* You are upgrading from a version earlier than **v22.3.0 to v22.3.x** or later and **have not installed Data Flow**; or
+* Your PBX is already running v22.3.x or later **without Data Flow**.
 
-***
+Follow [Install Data Flow Service](https://support.portsip.com/portsip-communications-solution/portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.x/install-data-flow-service) to complete the installation.
 
-#### Upgrade the Data Flow Service
+**If Data Flow Is Already Installed**
 
-If you are upgrading from an existing **v22.3.x** release to a **newer v22.x** version, follow the steps below to upgrade the Data Flow service.
+The Data Flow version **must match** the PBX version. Before upgrading Data Flow, upgrade **every associated PBX**, including all PBXs served by a shared Data Flow server.
 
-On the **Data Flow server**, run the following commands:
+On the Data Flow server, update the installation scripts:
 
 ```bash
+cd /opt/portsip
 sudo curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/init.sh -o init.sh
 sudo /bin/sh init.sh
 ```
 
-Then run the upgrade command:
+Then upgrade the Data Flow Service:
 
-```shellscript
-cd /opt/portsip && sudo /bin/sh dataflow_ctl.sh \
-upgrade -i portsip/pbx:22 -d portsip/clickhouse:26.3
+```bash
+sudo /bin/sh dataflow_ctl.sh upgrade \
+  -i portsip/pbx:22 \
+  -d portsip/clickhouse:26.3
 ```
 
