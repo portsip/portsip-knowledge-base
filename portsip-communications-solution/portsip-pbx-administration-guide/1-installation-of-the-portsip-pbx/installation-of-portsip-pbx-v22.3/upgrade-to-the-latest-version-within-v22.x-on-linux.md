@@ -49,6 +49,9 @@ sudo curl https://raw.githubusercontent.com/portsip/portsip-pbx-sh/master/v22.x/
 sudo /bin/sh init.sh
 ```
 
+> ❗ **Important**\
+> This step is **mandatory**, don't skip this step!
+
 Complete this step before running an upgrade command on that server.
 
 #### Step 2: Upgrade the PBX

@@ -36,6 +36,21 @@ Starting with v22.x, PortSIP PBX introduces new default Feature Access Codes (FA
 * PIN-Based Calling: `*20`
 * Set Default Outbound Caller ID: `*64`
 
+**v22.6**
+
+* Selective Call Rejection Activation: `*25`
+* Selective Call Rejection Deactivation: `*26`
+* Selective Call Acceptance Activation: `*60`
+* Selective Call Acceptance Deactivation: `*61`
+
+**v22.8**
+
+* Executive Call Filtering Activation: `*22`
+* Executive Call Filtering Deactivation: `*23`
+* Executive-Assistant Initiate Call: `*24`
+* Executive Assistant Opt-In:`*27`
+* Executive Assistant Opt-Out:`*28`
+
 #### Important Notes
 
 * Prior to upgrading from **v16.x to the latest v22.x**, confirm with **all tenants** whether custom FACs have been configured.
@@ -126,7 +141,7 @@ After completing the PBX upgrade, please follow the [**Install IM Service**](ins
 
 Starting with **PortSIP PBX v22.3**, PortSIP introduces a new component: the **PortSIP Data Flow Service,** a high-performance analytics engine built on **ClickHouse**.
 
-If you upgraded from **v16.x** to **v22.3.x**, you need to install the **PortSIP Data Flow service** after completing the PBX upgrade.
+If you upgraded from **v16.x to v22.3.x or later**, install the Data Flow Service after completing the PBX upgrade.&#x20;
 
 Please follow the guide [**Install Data Flow Service**](install-data-flow-service.md) to complete the installation.
 
