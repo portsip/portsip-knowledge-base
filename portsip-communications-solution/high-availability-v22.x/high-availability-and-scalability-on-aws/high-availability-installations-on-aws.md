@@ -99,79 +99,43 @@ Any calls that were established on the failed primary node are **automatically r
 
 ***
 
-### Creating the User Group and User
+### Create an IAM Role <a href="#create-iam-role" id="create-iam-role"></a>
 
-To deploy PortSIP PBX High Availability (HA) on AWS, you must create an **IAM user group** and **IAM user** with the appropriate permissions.
+In the AWS Management Console, go to **IAM > Roles** and click the **Create role** button.
 
-***
+<figure><img src="../../../.gitbook/assets/portsip-aws-ha-role-1.png" alt=""><figcaption></figcaption></figure>
 
-#### Create an IAM User Group
+**Step 1: Select trusted entity**
 
-1. Open the AWS IAM Console.
-2. Choose one of the following:
-   * Select an existing user group, or
-   * Click Create group to create a new user group.
-3. Assign the required permission policies to the group.
+* **Trusted entity type:** AWS service
+* **Service or use case:** EC2
+* **Use case:** EC2
 
-**Required Permission Policies**
+<figure><img src="../../../.gitbook/assets/portsip-aws-ha-role-2.png" alt=""><figcaption></figcaption></figure>
 
-The IAM user group **must include** the following permission policies:
+**Step 2: Add permissions**
 
-* AmazonEC2FullAccess
-* AmazonEBSCSIDriverPolicy
+Under **Permission policies**, select these existing policies:
 
-These policies allow the HA cluster to manage EC2 instances, Elastic IPs, and EBS volumes during failover operations.
+* `AmazonEC2FullAccess`
+* `AmazonEBSCSIDriverPolicy`
+* `AmazonEBSCSIDriverPolicyV2`
 
-**Example Configuration**
+<figure><img src="../../../.gitbook/assets/portsip-aws-ha-role-3.png" alt=""><figcaption></figcaption></figure>
 
-As shown in the screenshot below, you may name the group **`hagroup`** and ensure the following policies are attached:
+Choose **Next**.
 
-* AmazonEC2FullAccess
-* AmazonEBSCSIDriverPolicy
+**Step 3: Name, review, and create**
 
-<figure><img src="../../../.gitbook/assets/aws-ha-1.png" alt=""><figcaption></figcaption></figure>
+Enter `ha-pbx` as the **Role name**, review the settings, and choose **Create role**.
 
-Verify that both policies are attached before proceeding to create the IAM user.
+<figure><img src="../../../.gitbook/assets/portsip-aws-ha-role-4.png" alt=""><figcaption></figcaption></figure>
 
-***
+The new role should appear as shown in the screenshot below.
 
-### Create User
-
-To create a new IAM user, follow these steps:
-
-1. Open the **AWS IAM Console**.
-2. Click **Users** to view the list of existing users.
-3. Click **Create user** to start the user creation process.
-4. Enter a user name (for example, **`hauser`**).
-5. Assign this user to the previously created user group **`hagroup`**.
-
-As shown in the screenshot below, the user **`hauser`** should be associated with the **`hagroup`**, ensuring it inherits the required permissions for deploying and managing the PortSIP PBX HA cluster.
-
-<figure><img src="../../../.gitbook/assets/aws-ha-2.png" alt=""><figcaption></figcaption></figure>
-
-***
-
-### Create User Access Key
-
-After successfully creating the IAM user, follow the steps below to create an access key for the user (for example, **`hauser`**).
-
-1. In the AWS IAM Console, select Users and choose the user `hauser`.
-2. Click **Create access key**.
-3. In Step 1, under **Access key best practices & alternatives**, select **Command Line Interface (CLI)** as the **use case**.
-
-<figure><img src="../../../.gitbook/assets/aws-ha-3.png" alt=""><figcaption></figcaption></figure>
-
-4. Continue to Step 3, **Retrieve access keys**. Here, it's crucial to note and save the **Access key** and **Secret access key** for future use.
-
-<figure><img src="../../../.gitbook/assets/aws-ha-4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/portsip-aws-ha-role-5.png" alt=""><figcaption></figcaption></figure>
 
 
-
-> ❗**Important**\
-> Make sure to securely save both the **Access key ID** and the **Secret access key**.\
-> These credentials are required for configuring AWS CLI access on the PBX servers and **cannot be retrieved again** after this step.
-
-Once the access key is created and saved, you can proceed with configuring AWS CLI credentials on the PortSIP PBX HA nodes.
 
 ***
 
@@ -398,13 +362,13 @@ For most deployments:
 
 Choose the disk size based on your operational requirements and future growth plans.
 
-In the **Advanced details** section, configure **Metadata version** to **V1 and V2 (token optional)**, as shown in the screenshot below.
-
-<figure><img src="../../../.gitbook/assets/aws_metadata_version.png" alt=""><figcaption></figcaption></figure>
-
 > ❗ **Important**\
 > This storage volume is used **only for the operating system and system-level components**.\
 > PBX data such as recordings, logs, databases, and media files are stored on a **separate shared EBS volume**, which is configured later in this guide.
+
+Under **Advanced details**, select `ha-pbx` for **IAM instance profile**.
+
+<figure><img src="../../../.gitbook/assets/portsip-aws-ha-role-6.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -414,7 +378,7 @@ By default, AWS automatically assigns a host name to each EC2 instance after it 
 
 
 
-In this deployment scenario, the host names appear as shown in the screenshot below.
+In this deployment scenario, the hostnames appear as shown in the screenshot below.
 
 | NODE | HOST NAME        | PUBLIC IP   | PRIVATE IP    | DISK            | DEFAULT USER |
 | ---- | ---------------- | ----------- | ------------- | --------------- | ------------ |
@@ -509,39 +473,6 @@ aws --version
 
 ***
 
-#### Configuring AWS IAM
-
-Before running the configuration, determine the **AWS Region** where your EC2 instances are deployed.\
-In this example, the region is **`us-west-1`** (as shown in the AWS console screenshot).
-
-<figure><img src="../../../.gitbook/assets/aws-ha-13.png" alt=""><figcaption></figcaption></figure>
-
-Run the following command on **all EC2 instances**:
-
-```bash
-aws configure
-```
-
-When prompted, enter the following information:
-
-```
-AWS Access Key ID [None]: type your Access Key ID here (see Create User Access Key)
-AWS Secret Access Key [None]: type your Secret Access Key Here (see Create User Access Key)
-Default region name [None]: type region name here
-Default output format [None]: json
-```
-
-* **AWS Access Key ID \[None]:**\
-  Enter your Access Key ID (see _Create User Access Key_).
-* **AWS Secret Access Key \[None]:**\
-  Enter your Secret Access Key.
-* **Default region name \[None]:**\
-  Enter the AWS region (for example, `us-west-1`).
-* **Default output format \[None]:**\
-  Enter `json`.
-
-***
-
 #### Configuring the Certificate (Key Pair) File
 
 You must upload the EC2 **key pair file** to the primary node for SSH access between HA nodes.
@@ -588,7 +519,7 @@ https://www.portsip.com/downloads/ha/v22/portsip-pbx-ha-on-aws-guide-22.tar.gz \
 
 Before proceeding with the HA deployment, prepare values for the required configuration variables.
 
-<table><thead><tr><th>VARIABLES</th><th width="117.33333333333331">TYPE</th><th>DESCRIPTION</th></tr></thead><tbody><tr><td>pbx01_instance_id</td><td>string</td><td>The instance id of the node 1</td></tr><tr><td>pbx02_instance_id</td><td>string</td><td>The instance id of the node 2</td></tr><tr><td>pbx03_instance_id</td><td>string</td><td>The instance id of the node 3</td></tr><tr><td>eip_allocation_id</td><td>string</td><td>Elastic Allocation ID. In this example is eipalloc-02c7cf64a5cd449cf</td></tr><tr><td>ebs_volume_id</td><td>string</td><td>EBS Volume ID</td></tr><tr><td>pbx_image</td><td>string</td><td>PortSIP PBX docker image</td></tr><tr><td>ssh_private_key_file</td><td>string</td><td>The path of certificate file for the key pair "aws-portsip-pbx-ha"</td></tr></tbody></table>
+<table><thead><tr><th>VARIABLES</th><th width="117.33333333333331">TYPE</th><th>DESCRIPTION</th></tr></thead><tbody><tr><td>pbx01_instance_id</td><td>string</td><td>The instance id of the node 1</td></tr><tr><td>pbx02_instance_id</td><td>string</td><td>The instance id of the node 2</td></tr><tr><td>pbx03_instance_id</td><td>string</td><td>The instance id of the node 3</td></tr><tr><td>eip_allocation_id</td><td>string</td><td>Elastic Allocation ID. In this example is eipalloc-02c7cf64a5cd449cf</td></tr><tr><td>ebs_volume_id</td><td>string</td><td>EBS Volume ID</td></tr><tr><td>pbx_image</td><td>string</td><td>PortSIP PBX docker image</td></tr><tr><td>ssh_private_key_file</td><td>string</td><td>The path of certificate file for the key pair "aws-portsip-pbx-ha"</td></tr><tr><td>aws_region</td><td>string</td><td>AWS Region where the EC2 instance is deployed</td></tr></tbody></table>
 
 The following commands **must be executed only on the EC2 instance** with the private IP address **`172.31.16.133`**.
 
@@ -601,6 +532,7 @@ eip_allocation_id: eipalloc-02c7cf64a5cd449cf
 ebs_volume_id: vol-0e06e1e9da3c49b67
 pbx_image: portsip/pbx:22
 ssh_private_key_file: /home/ubuntu/.ssh/aws-portsip-pbx-ha.pem
+aws_region: us-west-1
 EOF
 ```
 
