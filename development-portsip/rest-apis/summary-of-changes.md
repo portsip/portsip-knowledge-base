@@ -1,8 +1,319 @@
 # Summary of Changes
 
-### PortSIP PBX REST API Changes Summary
+### v22.8.0
 
-#### v22.6.0
+Date: September 29, 2026
+
+#### New Endpoints
+
+**Data Flow Analytics**
+
+* Added `<GET> /api/dataflow/status`: Retrieve the Dataflow server status.
+* Added `<POST> /api/dataflow/analytics/calls/direction/summary`: Retrieve cumulative call direction metrics (inbound / outbound / internal) for a given absolute time range.
+* Added `<POST> /api/dataflow/analytics/calls/duration/summary`: Retrieve the average duration of completed calls in a given absolute time range.
+
+**IM Service**
+
+* Added `<GET> /api/im/status`: Retrieve the IM server status.
+
+**User Groups**
+
+* Added `<GET> /api/groups/{id}/administrators`: List the administrators of a user group.
+* Added `<POST> /api/groups/{id}/administrators/{extension_number}`: Add an administrator to a user group.
+* Added `<POST> /api/groups/{id}/administrators/{extension_number}/destroy`: Remove an administrator from a user group.
+
+**Tenant Integrations**
+
+* Added `<GET> /api/ms365/users/details/{id}`: Retrieve Microsoft 365 user details.
+
+**Users and Devices**
+
+* Added `<GET> /api/user/groups/administered`: List the user groups administered by the current user.
+
+**Executive Assistant**
+
+* Added `<GET | POST> /api/user/assistants`: List / update the assistants of the current extension.
+* Added `<GET | POST> /api/user/executives`: List / update the executives the current extension assists.
+* Added `<GET | POST> /api/user/assistant_filters`: List / create assistant call filtering rules for the current extension.
+* Added `<GET | POST> /api/user/assistant_filters/{id}`: Retrieve / update an assistant call filtering rule of the current extension.
+* Added `<POST> /api/user/assistant_filters/{id}/destroy`: Delete an assistant call filtering rule of the current extension.
+* Added `<GET | POST> /api/users/{id}/assistants`: List / update the assistants of the specified extension.
+* Added `<GET | POST> /api/users/{id}/executives`: List / update the executives the specified extension assists.
+* Added `<GET | POST> /api/users/{id}/assistant_filters`: List / create assistant call filtering rules for the specified extension.
+* Added `<GET | POST> /api/users/{id}/assistant_filters/{filter_id}`: Retrieve / update an assistant call filtering rule of the specified extension.
+* Added `<POST> /api/users/{id}/assistant_filters/{filter_id}/destroy`: Delete an assistant call filtering rule of the specified extension.
+
+#### Updated Endpoints
+
+**System Administration**
+
+* Updated `<GET> /api/admin/ai_engine`: Removed properties `engine_type`, `config`, `id`; added properties `provider`, `opts`.
+* Updated `<POST> /api/admin/ai_engine`: Removed properties `engine_type`, `config`; added properties `provider`, `opts`. The added `provider` property gains the new values `openai` and `openai-compatible` (previously `aws`, `azure`, `deepgram`).
+* Updated `<POST> /api/admin/google/authorization`: New permission requirement `Integration.FullAccess`.
+* Updated `<GET> /api/admin/password_policy`: Permission requirement removed (no permission required).
+* Updated `<POST> /api/admin/password_policy`: New permission requirement `SystemSettings.FullAccess`.
+* Updated `<GET | POST> /api/admin/settings`: Added property `hide_not_deployed_server_warnings`.
+* Updated `<GET> /api/admin/status`: Added property `license_usage`.
+* Updated `<GET> /api/admin/users`: Added property `timezone`.
+* Updated `<POST> /api/admin/users`: Added property `timezone`.
+* Updated `<GET> /api/admin/users/{id}`: Added property `timezone`.
+* Updated `<POST> /api/admin/users/{id}`: Added property `timezone`.
+
+**Call Queues**
+
+* Updated `<GET> /api/call_queues`: Added properties `allow_busy_agent_calls`, `prompt_playback_delay`.
+* Updated `<POST> /api/call_queues`: Added properties `allow_busy_agent_calls`, `prompt_playback_delay`, `outbound_caller_ids[].provider_name`, `outbound_caller_ids[].provider_brand`, `outbound_caller_ids[].provider_did_numbers`.
+* Updated `<GET | POST> /api/call_queues/{id}`: Added properties `allow_busy_agent_calls`, `prompt_playback_delay`, `outbound_caller_ids[].provider_name`, `outbound_caller_ids[].provider_brand`, `outbound_caller_ids[].provider_did_numbers`.
+* Updated `<POST> /api/call_queues/{id}/agents`: New License module requirement `cc` (scope: `target-extension`). New response codes `403` (`LICENSE_MODULE_UNAVAILABLE`, `LICENSE_TENANT_MODULE_REQUIRED`, `LICENSE_TARGET_MODULE_REQUIRED`) and `503` (`LICENSE_SNAPSHOT_UNAVAILABLE`).
+
+**Conference Rooms**
+
+* Updated `<POST> /api/conference_rooms`: Added properties `outbound_caller_ids[].provider_name`, `outbound_caller_ids[].provider_brand`, `outbound_caller_ids[].provider_did_numbers`.
+* Updated `<GET | POST> /api/conference_rooms/{id}`: Added properties `outbound_caller_ids[].provider_name`, `outbound_caller_ids[].provider_brand`, `outbound_caller_ids[].provider_did_numbers`.
+
+**CRM**
+
+* Updated `<GET | POST> /api/crm`: New License module requirement `cc` (scope: `tenant`).
+* Updated `<GET | POST> /api/crm/contacts`: New License module requirement `cc` (scope: `tenant`).
+* Updated `<POST> /api/crm/contacts/search`: New License module requirement `cc` (scope: `tenant`).
+* Updated `<GET | POST> /api/crm/contacts/{id}`: New License module requirement `cc` (scope: `tenant`).
+* Updated `<GET> /api/crm/contacts/{id}/calls`: New License module requirement `cc` (scope: `tenant`).
+* Updated `<GET | POST> /api/crm/contacts/{id}/calls/{call_id}`: New License module requirement `cc` (scope: `tenant`).
+* Updated `<GET | POST> /api/crm/contacts/{id}/notes`: New License module requirement `cc` (scope: `tenant`).
+* Updated `<GET | POST> /api/crm/contacts/{id}/notes/{note_id}`: New License module requirement `cc` (scope: `tenant`).
+* Updated `<POST> /api/crm/test`: New License module requirement `cc` (scope: `tenant`).
+
+**Data Flow Analytics**
+
+* Updated `<POST> /api/dataflow/queues/summary`: New License module requirement `cc` (scope: `actor-extension`).
+* Updated `<POST> /api/dataflow/queues/timeseries`: New License module requirement `cc` (scope: `actor-extension`).
+* Updated `<POST> /api/dataflow/queues/agent/summary`: New License module requirement `cc` (scope: `actor-extension`).
+* Updated `<POST> /api/dataflow/queues/agent/timeseries`: New License module requirement `cc` (scope: `actor-extension`).
+
+**Dealer**
+
+* Updated `<GET> /api/dealer`: Added properties `max_cc_users`, `max_advanced_users`, `timezone`.
+* Updated `<POST> /api/dealer`: Added property `timezone`.
+* Updated `<GET> /api/dealer/status`: Added properties `license_type`, `license_usage`.
+* Updated `<GET | POST> /api/dealers`: Added properties `max_cc_users`, `max_advanced_users`, `timezone`.
+* Updated `<GET | POST> /api/dealers/{id}`: Added properties `max_cc_users`, `max_advanced_users`, `timezone`.
+* Updated `<POST> /api/dealers/{id}/destroy`: New response code `409` (the Dealer still has child Dealers, `RESOURCE_IN_USE`).
+
+**Tenant Integrations**
+
+* Updated `<POST> /api/google/authorization`: New permission requirement `Integration.FullAccess`.
+* Updated `<GET> /api/ms365/groups`: New permission requirement `Integration.ViewOnly`.
+* Updated `<POST> /api/ms365/groups/get_many`: New permission requirement `Integration.ViewOnly`.
+
+**User Groups**
+
+* Updated `<GET> /api/groups`: Added properties `allow_admin_recordings`.
+* Updated `<POST> /api/groups`: Added properties `allow_admin_recordings`, `outbound_caller_ids[].provider_name`, `outbound_caller_ids[].provider_brand`, `outbound_caller_ids[].provider_did_numbers`.
+* Updated `<GET | POST> /api/groups/{id}`: Added properties `allow_admin_recordings`, `outbound_caller_ids[].provider_name`, `outbound_caller_ids[].provider_brand`, `outbound_caller_ids[].provider_did_numbers`.
+
+**Phone Provisioning and Hot Desking**
+
+* Updated `<GET | POST> /api/hotdesking`: Added property `country_tone`.
+* Updated `<GET | POST> /api/hotdesking/{id}`: Added property `country_tone`.
+* Updated `<GET> /api/phone_models/{filename}`: Added property `country_tones`.
+
+**Inbound Rules**
+
+* Updated `<GET | POST> /api/inbound_rules`: Removed property `play_recording_disclaimer`.
+* Updated `<GET | POST> /api/inbound_rules/{id}`: Removed property `play_recording_disclaimer`.
+
+**System Information and Security**
+
+* Updated `<GET> /api/info`: Added property `enable_im`.
+* Updated `<GET> /api/sbc`: Permission requirement changed from `SystemSettings.FullAccess` to no permission required.
+* Updated `<GET> /api/transports`: Permission requirement changed from `SystemSettings.ViewOnly` to no permission required.
+* Updated `<GET> /api/transports/{id}`: Permission requirement changed from `SystemSettings.ViewOnly` to no permission required.
+* Updated `<GET> /api/transports/{id}/status`: Permission requirement changed from `SystemSettings.ViewOnly` to no permission required.
+* Updated `<GET> /api/audit_logs`: Enum value `MICROSOFT_INTEGRATIONS` of property `object_type` renamed to `MICROSOFT_INTEGRATION`.
+
+**IVR**
+
+* Updated `<POST> /api/ivrs`: Added properties `prompt_playback_delay`, `outbound_caller_ids[].provider_name`, `outbound_caller_ids[].provider_brand`, `outbound_caller_ids[].provider_did_numbers`.
+* Updated `<GET | POST> /api/ivrs/{id}`: Added properties `prompt_playback_delay`, `outbound_caller_ids[].provider_name`, `outbound_caller_ids[].provider_brand`, `outbound_caller_ids[].provider_did_numbers`.
+
+**Licensing**
+
+* Updated `<GET> /api/license`: Added response properties `max_online_users`, `license_type`, `license_status`, `base_max_users`, `cc_max_users`, `advanced_max_users`.
+* Updated `<POST> /api/license`: New response code `5XX` (the Key was saved but the NATS notification failed).
+
+**Mobile Push**
+
+* Updated `<GET> /api/mobile_push`: Added response properties `ios_certificate`, `ios_private_key`.
+* Updated `<POST> /api/mobile_push/{id}`: Removed request property `app_name`.
+
+**Outbound Rules**
+
+* Updated `<GET> /api/outbound_rules`: Added response property `extension_groups`; property `priority` gained a maximum value of `1000000`.
+* Updated `<POST> /api/outbound_rules`: Property `priority` gained a maximum value of `1000000`.
+* Updated `<GET> /api/outbound_rules/{id}`: Added response property `extension_groups`; property `priority` gained a maximum value of `1000000`.
+* Updated `<POST> /api/outbound_rules/{id}`: Property `priority` gained a maximum value of `1000000`.
+
+**SIP Trunk Providers**
+
+* Updated `<GET | POST> /api/providers`: Added property `custom_headers`.
+* Updated `<GET | POST> /api/providers/{id}`: Added property `custom_headers`.
+* Updated `<GET> /api/providers/{id}/assignees`: Added property `tenant_name`.
+* Updated `<GET> /api/providers/{id}/assignees/{tenant_id}`: Added properties `tenant_id`, `tenant_name`.
+* Updated `<POST> /api/providers/{id}/assignees/{tenant_id}/destroy`: New response code `409` (`RESOURCE_IN_USE`).
+* Updated `<POST> /api/providers/{id}/destroy`: New response code `409` (`RESOURCE_IN_USE`).
+
+**Recordings**
+
+* Updated `<GET> /api/recordings`: Added properties `caller_display_name`, `callee_display_name`; new query parameter `group_ids`; new response codes `400` (invalid `group_ids` value) and `403` (one or more requested groups are not authorized).
+* Updated `<GET> /api/recordings/{id}`: Added properties `caller_display_name`, `callee_display_name`.
+
+**Ring Groups**
+
+* Updated `<POST> /api/ring_groups`: Added properties `outbound_caller_ids[].provider_name`, `outbound_caller_ids[].provider_brand`, `outbound_caller_ids[].provider_did_numbers`.
+* Updated `<GET | POST> /api/ring_groups/{id}`: Added properties `outbound_caller_ids[].provider_name`, `outbound_caller_ids[].provider_brand`, `outbound_caller_ids[].provider_did_numbers`.
+
+**SMS**
+
+* Updated `<POST> /api/sms`: New License module requirement `advanced` (scope: `tenant`).
+* Updated `<POST> /api/sms/{id}`: New License module requirement `advanced` (scope: `tenant`).
+
+**Tenant Management**
+
+* Updated `<GET> /api/tenant` with the following new properties:
+  * `dealer_id`, `dealer_name`, `dealer_display_name`, `dealer_level`, `max_cc_users`.
+  * `max_advanced_users`, `enable_pre_call_announcement`, `enable_last_call_routing`, `last_call_routing_duration`, `ai_transcript`.
+  * Added nested property `ai_engine.transcription_used_quota`; property `limit_app_logins.enable` renamed to `limit_app_logins.enabled`; added properties `outbound_caller_ids[].provider_name`, `outbound_caller_ids[].provider_brand`, `outbound_caller_ids[].provider_did_numbers`.
+* Updated `<POST> /api/tenant`: Added properties `enable_last_call_routing`, `enable_pre_call_announcement`, `last_call_routing_duration`, `outbound_caller_ids[].provider_name`, `outbound_caller_ids[].provider_brand`, `outbound_caller_ids[].provider_did_numbers`.
+* Updated `<GET> /api/tenant/status`: Added properties `license_type`, `license_usage`.
+* Updated `<GET> /api/tenants`: Added properties `dealer_id`, `dealer_name`, `dealer_display_name`, `dealer_level`, `max_cc_users`, `max_advanced_users`, `enable_last_call_routing`, `last_call_routing_duration`.
+* Updated `<POST> /api/tenants`: Added properties `enable_pre_call_announcement`, `max_cc_users`, `max_advanced_users`, `enable_last_call_routing`, `last_call_routing_duration`; added nested property `ai_engine.transcription_used_quota`; property `limit_app_logins.enable` renamed to `limit_app_logins.enabled`.
+* Updated `<GET> /api/tenants/{id}` with the following new properties:
+  * `enable_pre_call_announcement`, `max_cc_users`, `max_advanced_users`, `enable_last_call_routing`, `last_call_routing_duration`.
+  * `dealer_id`, `dealer_name`, `dealer_display_name`, `dealer_level`, `outbound_caller_ids[].provider_name`.
+  * `outbound_caller_ids[].provider_brand`, `outbound_caller_ids[].provider_did_numbers`.
+  * Added nested property `ai_engine.transcription_used_quota`; property `limit_app_logins.enable` renamed to `limit_app_logins.enabled`.
+* Updated `<POST> /api/tenants/{id}` with the following new properties:
+  * `enable_pre_call_announcement`, `max_cc_users`, `max_advanced_users`, `enable_last_call_routing`, `last_call_routing_duration`.
+  * `outbound_caller_ids[].provider_name`, `outbound_caller_ids[].provider_brand`, `outbound_caller_ids[].provider_did_numbers`.
+  * Added nested property `ai_engine.transcription_used_quota`; property `limit_app_logins.enable` renamed to `limit_app_logins.enabled`.
+* Updated `<GET> /api/tenants/{id}/dealers`: Removed property `enabled`.
+* Updated `<POST> /api/tenants/switch`: New permission requirement `SystemTenant.FullAccess`.
+
+**Transcription**
+
+* Updated `<POST> /api/transcription`: New License module requirement `advanced` (scope: `actor-extension`).
+
+**Users and Devices**
+
+* Updated `<GET> /api/user` with the following new properties:
+  * `enable_cc`, `enable_advanced`, `executive_assistant`, `enable_assistant_opt_in_out`, `enable_assistant_call_filtering`.
+  * `assistant_alerting_mode`, `assistant_timeout`, `assistant_timeout_action`, `assistant_timeout_number`, `enable_assistant_forwarding_filtered_calls`.
+  * `assistant_forwarding_filtered_calls_to`, `assistant_caller_id_name_mode`, `assistant_caller_id_name_value`, `assistant_caller_id_number_mode`, `assistant_caller_id_number_value`.
+  * `available_use_separate_fwd_rules_for_external`, `busy_use_separate_fwd_rules_for_external`, `dnd_use_separate_fwd_rules_for_external`, `away_use_separate_fwd_rules_for_external`, `lunch_use_separate_fwd_rules_for_external`.
+  * `trip_use_separate_fwd_rules_for_external`, `offline_use_separate_fwd_rules_for_external`, `ext_available_office_hours_forward_rule`, `ext_available_non_office_hours_forward_rule`, `ext_available_no_answer_forward_rule`.
+  * `ext_busy_office_hours_forward_rule`, `ext_busy_non_office_hours_forward_rule`, `ext_busy_no_answer_forward_rule`, `ext_dnd_office_hours_forward_rule`, `ext_dnd_non_office_hours_forward_rule`.
+  * `ext_away_office_hours_forward_rule`, `ext_away_non_office_hours_forward_rule`, `ext_lunch_office_hours_forward_rule`, `ext_lunch_non_office_hours_forward_rule`, `ext_trip_office_hours_forward_rule`.
+  * `ext_trip_non_office_hours_forward_rule`, `ext_offline_office_hours_forward_rule`, `ext_offline_non_office_hours_forward_rule`, `outbound_caller_ids[].provider_name`, `outbound_caller_ids[].provider_brand`.
+  * `outbound_caller_ids[].provider_did_numbers`.
+* Updated `<POST> /api/user` with the following new properties:
+  * `enable_cc`, `enable_advanced`, `executive_assistant`, `enable_assistant_opt_in_out`, `enable_assistant_call_filtering`.
+  * `assistant_alerting_mode`, `assistant_timeout`, `assistant_timeout_action`, `assistant_timeout_number`, `enable_assistant_forwarding_filtered_calls`.
+  * `assistant_forwarding_filtered_calls_to`, `assistant_caller_id_name_mode`, `assistant_caller_id_name_value`, `assistant_caller_id_number_mode`, `assistant_caller_id_number_value`.
+  * `available_use_separate_fwd_rules_for_external`, `busy_use_separate_fwd_rules_for_external`, `dnd_use_separate_fwd_rules_for_external`, `away_use_separate_fwd_rules_for_external`, `lunch_use_separate_fwd_rules_for_external`.
+  * `trip_use_separate_fwd_rules_for_external`, `offline_use_separate_fwd_rules_for_external`, `ext_available_office_hours_forward_rule`, `ext_available_non_office_hours_forward_rule`, `ext_available_no_answer_forward_rule`.
+  * `ext_busy_office_hours_forward_rule`, `ext_busy_non_office_hours_forward_rule`, `ext_busy_no_answer_forward_rule`, `ext_dnd_office_hours_forward_rule`, `ext_dnd_non_office_hours_forward_rule`.
+  * `ext_away_office_hours_forward_rule`, `ext_away_non_office_hours_forward_rule`, `ext_lunch_office_hours_forward_rule`, `ext_lunch_non_office_hours_forward_rule`, `ext_trip_office_hours_forward_rule`.
+  * `ext_trip_non_office_hours_forward_rule`, `ext_offline_office_hours_forward_rule`, `ext_offline_non_office_hours_forward_rule`, `outbound_caller_ids[].provider_name`, `outbound_caller_ids[].provider_brand`.
+  * `outbound_caller_ids[].provider_did_numbers`.
+  * New response code `403` (the current user lacks `User.FullAccess`, or the module quota is insufficient).
+* Updated `<GET> /api/user/outbound_caller_ids`: Added properties `outbound_caller_ids[].provider_name`, `outbound_caller_ids[].provider_brand`, `outbound_caller_ids[].provider_did_numbers`.
+* Updated `<GET> /api/user/phones`: Added property `country_tone`.
+* Updated `<POST> /api/user/phones`: Added property `country_tone`; new response code `409` (the phone MAC address is already bound to a Hot Desking device, `RESOURCE_IN_USE`).
+* Updated `<GET | POST> /api/user/phones/{id}`: Added property `country_tone`.
+* Updated `<GET> /api/user/recordings`: Added properties `caller_display_name`, `callee_display_name`.
+* Updated `<GET> /api/user/recordings/{id}`: Added properties `caller_display_name`, `callee_display_name`.
+* Updated `<POST> /api/user/transcription`: New License module requirement `advanced` (scope: `actor-extension`).
+* Updated `<GET> /api/user/meetings`: Added properties `outbound_caller_ids[].provider_name`, `outbound_caller_ids[].provider_brand`, `outbound_caller_ids[].provider_did_numbers`.
+* Updated `<POST> /api/user/meetings`: New License module requirement `advanced` (scope: `actor-extension`); added properties `outbound_caller_ids[].provider_name`, `outbound_caller_ids[].provider_brand`, `outbound_caller_ids[].provider_did_numbers`.
+* Updated `<GET> /api/user/meetings/{id}`: Added properties `outbound_caller_ids[].provider_name`, `outbound_caller_ids[].provider_brand`, `outbound_caller_ids[].provider_did_numbers`.
+* Updated `<POST> /api/user/meetings/{id}`: New License module requirement `advanced` (scope: `actor-extension`); added properties `outbound_caller_ids[].provider_name`, `outbound_caller_ids[].provider_brand`, `outbound_caller_ids[].provider_did_numbers`.
+* Updated `<POST> /api/user/meetings/{id}/lock`: New License module requirement `advanced` (scope: `actor-extension`).
+* Updated `<POST> /api/user/meetings/{id}/unlock`: New License module requirement `advanced` (scope: `actor-extension`).
+* Updated `<POST> /api/user/meetings/{id}/mute`: New License module requirement `advanced` (scope: `actor-extension`).
+* Updated `<POST> /api/user/meetings/{id}/unmute`: New License module requirement `advanced` (scope: `actor-extension`).
+* Updated `<POST> /api/user/meetings/{id}/start`: New License module requirement `advanced` (scope: `actor-extension`).
+* Updated `<POST> /api/user/meetings/{id}/start_recording`: New License module requirement `advanced` (scope: `actor-extension`).
+* Updated `<POST> /api/user/meetings/{id}/participants/invite`: New License module requirement `advanced` (scope: `actor-extension`).
+* Updated `<POST> /api/user/meetings/{id}/participants/layout`: New License module requirement `advanced` (scope: `actor-extension`).
+* Updated `<POST> /api/user/meetings/{id}/participants/{participant_id}/chairman`: New License module requirement `advanced` (scope: `actor-extension`).
+* Updated `<POST> /api/user/meetings/{id}/participants/{participant_id}/mute`: New License module requirement `advanced` (scope: `actor-extension`).
+* Updated `<POST> /api/user/meetings/{id}/participants/{participant_id}/unmute`: New License module requirement `advanced` (scope: `actor-extension`).
+* Updated `<POST> /api/user/meetings/{id}/participants/{participant_id}/position`: New License module requirement `advanced` (scope: `actor-extension`).
+* Updated `<GET> /api/users`: Added properties `enable_cc`, `enable_advanced`.
+* Updated `<POST> /api/users` with the following new properties:
+  * `enable_cc`, `enable_advanced`, `executive_assistant`, `enable_assistant_opt_in_out`, `enable_assistant_call_filtering`.
+  * `assistant_alerting_mode`, `assistant_timeout`, `assistant_timeout_action`, `assistant_timeout_number`, `enable_assistant_forwarding_filtered_calls`.
+  * `assistant_forwarding_filtered_calls_to`, `assistant_caller_id_name_mode`, `assistant_caller_id_name_value`, `assistant_caller_id_number_mode`, `assistant_caller_id_number_value`.
+  * `available_use_separate_fwd_rules_for_external`, `busy_use_separate_fwd_rules_for_external`, `dnd_use_separate_fwd_rules_for_external`, `away_use_separate_fwd_rules_for_external`, `lunch_use_separate_fwd_rules_for_external`.
+  * `trip_use_separate_fwd_rules_for_external`, `offline_use_separate_fwd_rules_for_external`, `ext_available_office_hours_forward_rule`, `ext_available_non_office_hours_forward_rule`, `ext_available_no_answer_forward_rule`.
+  * `ext_busy_office_hours_forward_rule`, `ext_busy_non_office_hours_forward_rule`, `ext_busy_no_answer_forward_rule`, `ext_dnd_office_hours_forward_rule`, `ext_dnd_non_office_hours_forward_rule`.
+  * `ext_away_office_hours_forward_rule`, `ext_away_non_office_hours_forward_rule`, `ext_lunch_office_hours_forward_rule`, `ext_lunch_non_office_hours_forward_rule`, `ext_trip_office_hours_forward_rule`.
+  * `ext_trip_non_office_hours_forward_rule`, `ext_offline_office_hours_forward_rule`, `ext_offline_non_office_hours_forward_rule`, `phones[].country_tone`, `outbound_caller_ids[].provider_name`.
+  * `outbound_caller_ids[].provider_brand`, `outbound_caller_ids[].provider_did_numbers`.
+* Updated `<POST> /api/users/create_many` with the following new properties:
+  * `enable_cc`, `enable_advanced`, `executive_assistant`, `enable_assistant_opt_in_out`, `enable_assistant_call_filtering`.
+  * `assistant_alerting_mode`, `assistant_timeout`, `assistant_timeout_action`, `assistant_timeout_number`, `enable_assistant_forwarding_filtered_calls`.
+  * `assistant_forwarding_filtered_calls_to`, `assistant_caller_id_name_mode`, `assistant_caller_id_name_value`, `assistant_caller_id_number_mode`, `assistant_caller_id_number_value`.
+  * `available_use_separate_fwd_rules_for_external`, `busy_use_separate_fwd_rules_for_external`, `dnd_use_separate_fwd_rules_for_external`, `away_use_separate_fwd_rules_for_external`, `lunch_use_separate_fwd_rules_for_external`.
+  * `trip_use_separate_fwd_rules_for_external`, `offline_use_separate_fwd_rules_for_external`, `ext_available_office_hours_forward_rule`, `ext_available_non_office_hours_forward_rule`, `ext_available_no_answer_forward_rule`.
+  * `ext_busy_office_hours_forward_rule`, `ext_busy_non_office_hours_forward_rule`, `ext_busy_no_answer_forward_rule`, `ext_dnd_office_hours_forward_rule`, `ext_dnd_non_office_hours_forward_rule`.
+  * `ext_away_office_hours_forward_rule`, `ext_away_non_office_hours_forward_rule`, `ext_lunch_office_hours_forward_rule`, `ext_lunch_non_office_hours_forward_rule`, `ext_trip_office_hours_forward_rule`.
+  * `ext_trip_non_office_hours_forward_rule`, `ext_offline_office_hours_forward_rule`, `ext_offline_non_office_hours_forward_rule`, `items[].phones[].country_tone`, `items[].outbound_caller_ids[].provider_name`.
+  * `items[].outbound_caller_ids[].provider_brand`, `items[].outbound_caller_ids[].provider_did_numbers`.
+* Updated `<GET> /api/users/{id}` with the following new properties:
+  * `enable_cc`, `enable_advanced`, `executive_assistant`, `enable_assistant_opt_in_out`, `enable_assistant_call_filtering`.
+  * `assistant_alerting_mode`, `assistant_timeout`, `assistant_timeout_action`, `assistant_timeout_number`, `enable_assistant_forwarding_filtered_calls`.
+  * `assistant_forwarding_filtered_calls_to`, `assistant_caller_id_name_mode`, `assistant_caller_id_name_value`, `assistant_caller_id_number_mode`, `assistant_caller_id_number_value`.
+  * `available_use_separate_fwd_rules_for_external`, `busy_use_separate_fwd_rules_for_external`, `dnd_use_separate_fwd_rules_for_external`, `away_use_separate_fwd_rules_for_external`, `lunch_use_separate_fwd_rules_for_external`.
+  * `trip_use_separate_fwd_rules_for_external`, `offline_use_separate_fwd_rules_for_external`, `ext_available_office_hours_forward_rule`, `ext_available_non_office_hours_forward_rule`, `ext_available_no_answer_forward_rule`.
+  * `ext_busy_office_hours_forward_rule`, `ext_busy_non_office_hours_forward_rule`, `ext_busy_no_answer_forward_rule`, `ext_dnd_office_hours_forward_rule`, `ext_dnd_non_office_hours_forward_rule`.
+  * `ext_away_office_hours_forward_rule`, `ext_away_non_office_hours_forward_rule`, `ext_lunch_office_hours_forward_rule`, `ext_lunch_non_office_hours_forward_rule`, `ext_trip_office_hours_forward_rule`.
+  * `ext_trip_non_office_hours_forward_rule`, `ext_offline_office_hours_forward_rule`, `ext_offline_non_office_hours_forward_rule`, `outbound_caller_ids[].provider_name`, `outbound_caller_ids[].provider_brand`.
+  * `outbound_caller_ids[].provider_did_numbers`.
+* Updated `<POST> /api/users/{id}` with the following new properties:
+  * `enable_cc`, `enable_advanced`, `executive_assistant`, `enable_assistant_opt_in_out`, `enable_assistant_call_filtering`.
+  * `assistant_alerting_mode`, `assistant_timeout`, `assistant_timeout_action`, `assistant_timeout_number`, `enable_assistant_forwarding_filtered_calls`.
+  * `assistant_forwarding_filtered_calls_to`, `assistant_caller_id_name_mode`, `assistant_caller_id_name_value`, `assistant_caller_id_number_mode`, `assistant_caller_id_number_value`.
+  * `available_use_separate_fwd_rules_for_external`, `busy_use_separate_fwd_rules_for_external`, `dnd_use_separate_fwd_rules_for_external`, `away_use_separate_fwd_rules_for_external`, `lunch_use_separate_fwd_rules_for_external`.
+  * `trip_use_separate_fwd_rules_for_external`, `offline_use_separate_fwd_rules_for_external`, `ext_available_office_hours_forward_rule`, `ext_available_non_office_hours_forward_rule`, `ext_available_no_answer_forward_rule`.
+  * `ext_busy_office_hours_forward_rule`, `ext_busy_non_office_hours_forward_rule`, `ext_busy_no_answer_forward_rule`, `ext_dnd_office_hours_forward_rule`, `ext_dnd_non_office_hours_forward_rule`.
+  * `ext_away_office_hours_forward_rule`, `ext_away_non_office_hours_forward_rule`, `ext_lunch_office_hours_forward_rule`, `ext_lunch_non_office_hours_forward_rule`, `ext_trip_office_hours_forward_rule`.
+  * `ext_trip_non_office_hours_forward_rule`, `ext_offline_office_hours_forward_rule`, `ext_offline_non_office_hours_forward_rule`, `outbound_caller_ids[].provider_name`, `outbound_caller_ids[].provider_brand`.
+  * `outbound_caller_ids[].provider_did_numbers`.
+  * New response code `409` (`LICENSE_EXTENSION_IN_USE`, License allocation conflict when Contact Center cannot be disabled).
+* Updated `<GET> /api/users/{id}/phones`: Added property `country_tone`.
+* Updated `<POST> /api/users/{id}/phones`: Added property `country_tone`; new response code `409` (the phone MAC address is already bound to a Hot Desking device, `RESOURCE_IN_USE`).
+* Updated `<GET | POST> /api/users/{id}/phones/{phone_id}`: Added property `country_tone`.
+
+**WhatsApp**
+
+* Updated `<POST> /api/whatsapp`: New License module requirement `advanced` (scope: `tenant`).
+* Updated `<POST> /api/whatsapp/{id}`: New License module requirement `advanced` (scope: `tenant`).
+* Updated `<POST> /api/whatsapp/{id}/templates/refresh`: New License module requirement `advanced` (scope: `tenant`); permission requirement changed from `Trunk.ViewOnly` to `Trunk.FullAccess`.
+
+#### Global Error Codes
+
+* Added `RESOURCE_IN_USE` for operations that conflict with an existing resource reference or binding.
+
+#### Removed Endpoints
+
+* Removed `<GET> /api/google/directory`.
+* Removed `<GET> /api/google/directory/{id}`.
+* Removed `<POST> /api/google/directory/get_many`.
+
+***
+
+### v22.6.0
 
 Date: June 30, 2026
 
@@ -260,7 +571,7 @@ Date: June 30, 2026
 
 ***
 
-#### Version: v22.5.0
+### Version: v22.5.0
 
 Date: March 27, 2026
 
@@ -322,7 +633,7 @@ Date: February 10, 2026
 
 ***
 
-#### Version: v22.3.0
+### Version: v22.3.0
 
 Date: December 19, 2025
 
