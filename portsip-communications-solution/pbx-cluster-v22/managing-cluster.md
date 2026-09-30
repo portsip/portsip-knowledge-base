@@ -109,42 +109,7 @@ sudo /bin/sh im_ctl.sh rm
 
 ### Managing the Data Flow Server
 
-The Data Flow server is managed independently using a dedicated control script.
-
-#### Start the Data Flow Server
-
-```bash
-cd /opt/portsip
-sudo /bin/sh dataflow_ctl.sh start
-```
-
-#### Restart the Data Flow Server
-
-```bash
-cd /opt/portsip
-sudo /bin/sh dataflow_ctl.sh restart
-```
-
-#### Stop the Data Flow Server
-
-```bash
-cd /opt/portsip
-sudo /bin/sh dataflow_ctl.sh stop
-```
-
-#### Check Data Flow Server Status
-
-```bash
-cd /opt/portsip
-sudo /bin/sh dataflow_ctl.sh status
-```
-
-#### Remove the Data Flow Server
-
-```bash
-cd /opt/portsip
-sudo /bin/sh dataflow_ctl.sh rm
-```
+Please refer to the [**Managing PortSIP Docker Instances**](../portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.x/managing-portsip-docker-instances.md#managing-a-portsip-data-flow-service-instance) guide for instructions on managing the Data Flow Server.
 
 ***
 
