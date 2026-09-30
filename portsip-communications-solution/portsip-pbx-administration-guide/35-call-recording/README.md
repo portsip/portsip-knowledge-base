@@ -36,7 +36,7 @@ When the selected option is enabled, calls for extensions in the tenant are reco
 
 You can also control recording for specific call types and services. For example, you can record only calls that involve a call queue, ring group, virtual receptionist, or trunk.
 
-<figure><img src="../../.gitbook/assets/tenant-recording-options-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/tenant-recording-options-1.png" alt=""><figcaption></figcaption></figure>
 
 #### To configure tenant-level recording options
 
