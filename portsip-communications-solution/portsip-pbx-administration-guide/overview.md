@@ -130,6 +130,7 @@ PortSIP PBX includes the following capabilities.
 * Recording file storage in Azure Blob Storage
 * Call recording notification prompt playback
 * Granular call recording controls
+* User group call recording controls
 
 #### Messaging and Integrations
 
