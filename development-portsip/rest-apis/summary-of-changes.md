@@ -582,7 +582,7 @@ Date: March 27, 2026
 
 ***
 
-#### Version: v22.4.0
+#### v22.4.0
 
 Date: February 10, 2026
 
@@ -633,7 +633,7 @@ Date: February 10, 2026
 
 ***
 
-### Version: v22.3.0
+### v22.3.0
 
 Date: December 19, 2025
 
