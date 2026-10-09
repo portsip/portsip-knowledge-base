@@ -209,7 +209,7 @@ Use **the same `-a` or `-A` Data Flow server address** as the first instance. Ch
 
 #### Install Additional Instances
 
-For each additional PBX, repeat **Steps 1–3** in this section: generate its Data Flow token, allow the Data Flow server through that PBX's firewall, and start a new Data Flow instance. Keep the same `-p` directory and Data Flow server address (`-a` or `-A`), and set `-x` to the additional PBX's IP address or VIP.
+For each additional PBX, repeat **Steps 1–3** in this section: generate its Data Flow token, allow the Data Flow server through that PBX's firewall, and start a new Data Flow instance. Keep the same Data Flow server address (`-a` or `-A`), and set `-x` to the additional PBX's IP address or VIP.
 
 ***
 
