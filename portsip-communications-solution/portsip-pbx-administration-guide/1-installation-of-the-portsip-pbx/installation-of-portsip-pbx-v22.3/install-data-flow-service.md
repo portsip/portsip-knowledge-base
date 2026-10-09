@@ -201,13 +201,11 @@ Run the following command **on the existing Data Flow server**, from `/opt/ports
 ```bash
 cd /opt/portsip
 sudo /bin/sh dataflow_ctl.sh run \
-  -p /var/lib/portsip/ \
   -a 192.168.1.35 \
-  -i portsip/pbx:22 \
   -x 192.168.0.21
 ```
 
-Use **the same `-p` directory and the same `-a` or `-A` Data Flow server address** as the first instance. Change `-x` to **PBX 2's IP address or VIP**. Do not use PBX 1's address for the new instance. Do not install a second ClickHouse instance.
+Use **the same `-a` or `-A` Data Flow server address** as the first instance. Change `-x` to **PBX 2's IP address or VIP**. Do not use PBX 1's address for the new instance. Do not install a second ClickHouse instance.
 
 #### Install Additional Instances
 
