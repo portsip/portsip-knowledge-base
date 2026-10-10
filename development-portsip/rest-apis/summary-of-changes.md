@@ -554,7 +554,7 @@ Date: June 30, 2026
 
 ***
 
-### Version: v22.5.0
+### v22.5.0
 
 Date: March 27, 2026
 
