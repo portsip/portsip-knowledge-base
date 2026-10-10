@@ -43,7 +43,7 @@ After migration, Data Flow Server 1 hosts three Data Flow instances, one for eac
 
 ### Step 1: Upgrade the PBX and Data Flow Services
 
-Follow the applicable upgrade instructions in **Installation of PortSIP PBX v22.x** to upgrade the following components to **v22.8.0 or later**:
+Follow the applicable upgrade instructions in [**Installation of PortSIP PBX v22.x**](../portsip-pbx-administration-guide/1-installation-of-the-portsip-pbx/installation-of-portsip-pbx-v22.3/upgrade-to-the-latest-version-within-v22.x-on-linux.md) to upgrade the following components to **v22.8.0 or later**:
 
 * PBX 1, PBX 2, and PBX 3.
 * The Data Flow services on Data Flow Server 1, Data Flow Server 2, and Data Flow Server 3.
