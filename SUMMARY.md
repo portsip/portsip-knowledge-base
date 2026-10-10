@@ -262,6 +262,7 @@
 * [Tutorials](portsip-communications-solution/tutorials/README.md)
   * [Storing Into AWS S3](portsip-communications-solution/portsip-pbx-administration-guide/storing-into-aws-s3.md)
   * [Storing Into Azure Blob Storage](portsip-communications-solution/portsip-pbx-administration-guide/storing-into-azure-blob-storage.md)
+  * [Migrate Multiple Data Flow Instances to One Server](portsip-communications-solution/tutorials/migrate-multiple-data-flow-instances-to-one-server.md)
   * [Exporting, Editing, and Importing  Inbound Rules](portsip-communications-solution/tutorials/exporting-editing-and-importing-inbound-rules.md)
   * [Backup and Restore: An Essential Guide](portsip-communications-solution/portsip-pbx-administration-guide/backup-and-restore/README.md)
     * [Backup and Restore PortSIP PBX](portsip-communications-solution/portsip-pbx-administration-guide/backup-and-restore/backup-and-restore-portsip-pbx.md)
