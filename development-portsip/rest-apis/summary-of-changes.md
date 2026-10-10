@@ -163,6 +163,7 @@
   * `max_advanced_users`, `enable_pre_call_announcement`, `enable_last_call_routing`, `last_call_routing_duration`, `ai_transcript`.
   * `ai_engine.transcription_used_quota`, `outbound_caller_ids[].provider_name`, `outbound_caller_ids[].provider_brand`, `outbound_caller_ids[].provider_did_numbers`.
   * Renamed property `limit_app_logins.enable` to `limit_app_logins.enabled`.
+  * Renamed property `ai_engine.enable` to `ai_engine.enabled`.
 * Updated `<POST> /api/tenant`: Added properties `enable_last_call_routing`, `enable_pre_call_announcement`, `last_call_routing_duration`, `outbound_caller_ids[].provider_name`, `outbound_caller_ids[].provider_brand`, `outbound_caller_ids[].provider_did_numbers`.
 * Updated `<GET> /api/tenant/status`: Added properties `license_type`, `license_usage`.
 * Updated `<GET> /api/tenants`: Added properties `dealer_id`, `dealer_name`, `dealer_display_name`, `dealer_level`, `max_cc_users`, `max_advanced_users`, `enable_last_call_routing`, `last_call_routing_duration` to each response item.
@@ -170,15 +171,18 @@
   * `max_cc_users`, `max_advanced_users`, `enable_pre_call_announcement`, `enable_last_call_routing`, `last_call_routing_duration`.
   * `ai_engine.transcription_used_quota`.
   * Renamed property `limit_app_logins.enable` to `limit_app_logins.enabled`.
+  * Renamed property `ai_engine.enable` to `ai_engine.enabled`.
 * Updated `<GET> /api/tenants/{id}` with the following new properties:
   * `dealer_id`, `dealer_name`, `dealer_display_name`, `dealer_level`, `max_cc_users`.
   * `max_advanced_users`, `enable_pre_call_announcement`, `enable_last_call_routing`, `last_call_routing_duration`, `ai_engine.transcription_used_quota`.
   * `outbound_caller_ids[].provider_name`, `outbound_caller_ids[].provider_brand`, `outbound_caller_ids[].provider_did_numbers`.
   * Renamed property `limit_app_logins.enable` to `limit_app_logins.enabled`.
+  * Renamed property `ai_engine.enable` to `ai_engine.enabled`.
 * Updated `<POST> /api/tenants/{id}` with the following new properties:
   * `max_cc_users`, `max_advanced_users`, `enable_pre_call_announcement`, `enable_last_call_routing`, `last_call_routing_duration`.
   * `ai_engine.transcription_used_quota`, `outbound_caller_ids[].provider_name`, `outbound_caller_ids[].provider_brand`, `outbound_caller_ids[].provider_did_numbers`.
   * Renamed property `limit_app_logins.enable` to `limit_app_logins.enabled`.
+  * Renamed property `ai_engine.enable` to `ai_engine.enabled`.
 * Updated `<GET> /api/tenants/{id}/dealers`: Removed property `enabled` from each response item.
 * Updated `<POST> /api/tenants/switch`: New permission requirement `SystemTenant.FullAccess`.
 
