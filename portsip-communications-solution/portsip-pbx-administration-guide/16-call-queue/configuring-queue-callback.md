@@ -17,23 +17,20 @@ When enabled, the queue can automatically offer callers the option to schedule a
 
 ***
 
-#### Callback Outbound Prefix
+**Callback Outbound Prefix**
 
-You can configure a **Callback Outbound Prefix** to ensure that callback calls match an appropriate **outbound rule** when dialing the caller.
+When an agent answers a queue callback call, the PBX places an outbound call to the caller. If a **Callback Outbound Prefix** is configured, the PBX adds it to the beginning of the caller’s number before matching an **outbound rule**.
 
-**Callback Outbound Prefix Example:**
+Use this setting to route queue callback calls through the appropriate SIP trunk.
 
-Assume a caller with the number **12345** requests a callback:
+**Example**
 
-* **Without an outbound prefix**\
-  The PBX dials the number exactly as received:\
-  `12345`
-* **With an outbound prefix configured**\
-  The PBX prepends the configured prefix before dialing.\
-  For example, if the prefix is set to **003**, the PBX dials:\
-  `00312345`
+A caller with the number **12345** requests a callback. After an agent answers the callback call:
 
-This is commonly used for PSTN access codes, country codes, or carrier routing rules.
+* **Without a prefix:** The PBX uses `12345` to match an outbound rule.
+* **With the prefix `003`:** The PBX uses `00312345` to match an outbound rule.
+
+The matched outbound rule determines which SIP trunk to use and applies any configured number manipulation before sending the call to the trunk. For example, the rule can remove `003` if the trunk requires the original number, `12345`.
 
 <figure><img src="../../../.gitbook/assets/queue_callback.png" alt=""><figcaption></figcaption></figure>
 
