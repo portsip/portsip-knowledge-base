@@ -6,7 +6,7 @@ Before proceeding with this guide, ensure that you have successfully completed t
 
 ***
 
-### Install Data Flow Service on a Separate Server
+### Step 1: Install Data Flow Service on a Separate Server
 
 The **PortSIP Data Flow Service**—a high-performance analytics engine built on **ClickHouse**.
 
@@ -201,6 +201,35 @@ The above operations **do not affect or erase existing analytics data** stored i
 
 ***
 
+### Step 2: Install Multiple Data Flow Instances on One Server
+
+**This step is optional.**&#x20;
+
+Complete this step only if you need to deploy multiple Data Flow instances on a single server to serve multiple PortSIP PBX HA clusters.
+
+Supported starting with PortSIP PBX v22.8.0. You can install multiple Data Flow instances on one server, with one instance for each PBX. The instances **share one ClickHouse instance** and use the **same Data Flow server IP**. Each instance connects to its corresponding PBX.
+
+<figure><img src="../../../.gitbook/assets/dataflow-diagram.png" alt=""><figcaption></figcaption></figure>
+
+A single Data Flow server supports up to **100 Data Flow instances**. For typical deployments, we recommend **around 10 instances** and generally advise **no more than 20 instances** per server. The practical limit depends on the server's CPU, memory, storage performance, and the combined workload of the connected PBXs.
+
+#### Install Additional Data Flow Instances
+
+After completing **Step 1** to install the first Data Flow instance for **HA PBX 1**, follow these steps to install an additional instance for **HA PBX 2**:
+
+1. Log in to the **pbx01** node of **HA PBX 2**.
+2. Repeat the installation procedure described in **Step 1**.
+3. Replace the PBX-specific configuration values with the corresponding information for **HA PBX 2**.
+4. Specify the **same Data Flow server IP address** used for HA PBX 1.
+
+The installer will deploy an additional Data Flow instance on the existing Data Flow server. This instance will connect to HA PBX 2 while sharing the existing ClickHouse instance.
+
+To connect more PBX HA clusters, repeat this procedure on the **pbx01** node of each additional cluster.
+
+**Important:** Do not install a separate ClickHouse instance for each Data Flow instance. All Data Flow instances on the same server must share the existing ClickHouse instance.
+
+***
+
 ### Managing the Data Flow Server
 
 All Data Flow server management operations are performed using the `dataflow.sh` script provided with the PortSIP PBX HA deployment.
@@ -272,9 +301,11 @@ Before upgrading the Data Flow server:
 
 ***
 
-#### Upgrade the Data Flow Server
+### **Upgrade the Data Flow Server**
 
-On **`pbx01`**, run the following command to upgrade the Data Flow service:
+On the **`pbx01`** node, run the following command to upgrade the Data Flow service.
+
+**Important:** If you have installed multiple Data Flow instances on the same server as the above **Step 2**, you only need to perform the upgrade **once**, from the **`pbx01` node of HA PBX 1**. The upgrade will apply to all Data Flow instances running on that server. There is no need to repeat the upgrade procedure for each PBX HA cluster.
 
 ```bash
 cd /opt/portsip-pbx-ha-guide/ && /bin/bash dataflow.sh upgrade -d portsip/clickhouse:26.3
