@@ -299,9 +299,7 @@ Before upgrading the Data Flow server:
 * Ensure that the PBX HA cluster has already been upgraded by following the guide: [Upgrading High Availability Installation](upgrading-high-availability-installation.md)&#x20;
 * Ensure the PBX HA cluster is operating normally
 
-***
-
-### **Upgrade the Data Flow Server**
+#### **Upgrade the Data Flow Server**
 
 On the **`pbx01`** node, run the following command to upgrade the Data Flow service.
 
