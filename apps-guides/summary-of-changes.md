@@ -1,5 +1,20 @@
 # Summary of Changes
 
+### Changes in v10.9.42 for Android & iOS&#x20;
+
+**Improvements**
+
+* Refined translations and localization for a better user experience.
+* Improved IM reconnection efficiency on iOS.
+* Updated the Android in-call interface to automatically adapt to the selected theme.
+
+**Bug Fixes**
+
+* Fixed an issue on certain Android devices where ending a call could unexpectedly terminate an active local conference.
+* Fixed an issue on Android where a second incoming call could be automatically rejected while another call was in progress.
+
+***
+
 ### Changes for Release v10.9.4
 
 **Release Date:** Sep 28, 2026
