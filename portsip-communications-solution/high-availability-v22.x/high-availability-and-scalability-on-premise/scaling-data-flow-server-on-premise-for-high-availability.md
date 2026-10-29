@@ -207,7 +207,7 @@ The above operations **do not affect or erase existing analytics data** stored i
 
 Complete this step only if you need to deploy multiple Data Flow instances on a single server to serve multiple PortSIP PBX HA clusters.
 
-Supported starting with PortSIP PBX v22.8.0. You can install multiple Data Flow instances on one server, with one instance for each PBX. The instances **share one ClickHouse instance** and use the **same Data Flow server IP**. Each instance connects to its corresponding PBX.
+Supported starting with PortSIP PBX v22.9.0. You can install multiple Data Flow instances on one server, with one instance for each PBX. The instances **share one ClickHouse instance** and use the **same Data Flow server IP**. Each instance connects to its corresponding PBX.
 
 <figure><img src="../../../.gitbook/assets/dataflow-diagram.png" alt=""><figcaption></figcaption></figure>
 
