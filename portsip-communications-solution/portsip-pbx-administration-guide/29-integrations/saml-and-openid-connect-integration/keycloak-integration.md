@@ -2,7 +2,15 @@
 
 PortSIP PBX supports integration with Keycloak as an identity provider (IdP) for single sign-on (SSO) and SCIM user directory synchronization. This guide covers prerequisites, Keycloak configuration, PBX configuration, and verification of user synchronization and sign-in, in that order.
 
-**Choose one SSO protocol: OIDC or SAML 2.0.** Sections 2.2 and 2.3 describe mutually exclusive alternatives. Choose the one that fits your deployment. After completing either section, proceed directly to Section 2.4. You do not need to create both SSO clients. The SCIM client is independent of the SSO protocol; both options use the directory synchronization configuration in Sections 2.4 through 2.6.
+**Choose one SSO protocol: OIDC or SAML 2.0.**
+
+{% hint style="danger" %}
+Sections 2.2 and 2.3 describe mutually exclusive alternatives. Choose the one that fits your deployment.&#x20;
+
+After completing either section, proceed directly to Section 2.4. You do not need to create both SSO clients.
+
+The SCIM client is independent of the SSO protocol; both options use the directory synchronization configuration in Sections 2.4 through 2.6.
+{% endhint %}
 
 For other software that supports OIDC and SAML 2.0, you can use this guide as a reference and adapt the configuration to the endpoints, fields, and permissions available in that software. User directory synchronization also requires a compatible SCIM interface. If you need assistance, contact [PortSIP Support](https://www.portsip.com/support/).
 
@@ -16,7 +24,7 @@ Before you begin, make sure the following requirements are met:
 
 * **You must have successfully deployed and configured Keycloak in your own environment. The Keycloak configuration in this guide is provided for demonstration and reference purposes only.** This guide does not cover installing or starting Keycloak, or deploying it in a production environment.
 * You have a Keycloak administrator account and an administrator account for the target PortSIP PBX tenant.
-* Your PortSIP PBX provides the Generic IdP integration feature. Sign in to the PortSIP PBX Web Portal as a tenant administrator. If you sign in as a system administrator, switch to the target tenant.
+* Your PortSIP PBX provides the Generic IdP integration feature. **Sign in to the PortSIP PBX Web Portal as a tenant administrator. If you sign in as a system administrator, switch to the target tenant.**
 * The PBX, SBC (if installed and configured), and users' browsers can access the Keycloak HTTPS URL and trust its certificate. Users' browsers can also access the PBX/SBC sign-in and callback URLs.
 * Your Keycloak environment provides the SCIM API and allows it to be enabled for the target realm. Feature availability and the user interface may vary by version. Check the documentation for your deployed version. If the SCIM API option is unavailable, ask your Keycloak administrator to verify that the environment meets the requirements before proceeding.
 
@@ -24,7 +32,7 @@ The Keycloak screenshots in this guide were taken in the original configuration 
 
 #### 1.2 Example Values
 
-**`https://example.com` is a placeholder for the Keycloak URL. Replace it with the HTTPS URL of your own Keycloak service.** If your URL includes a port or path prefix, retain the full URL. When configuring endpoints, use the values published by your actual environment.
+`https://example.com` is a placeholder for the Keycloak URL. Replace it with the HTTPS URL of your own Keycloak service. If your URL includes a port or path prefix, retain the full URL. When configuring endpoints, use the values published by your actual environment.
 
 | Item                                                 | Example Value or Source                                                            |
 | ---------------------------------------------------- | ---------------------------------------------------------------------------------- |
@@ -40,10 +48,10 @@ Other domain names, extensions, usernames, and secrets shown in the screenshots 
 
 #### 1.3 Copy the Callback URLs and Record Configuration Values
 
-1. Sign in to the PortSIP PBX Web Portal and open the **Generic IdP** integration page for the target tenant.
+1. Sign in to the PortSIP PBX Web Portal and open the menu **Integrations >** **Generic IdP** integration page for the target tenant.
 2. Select the SSO protocol you intend to use (OIDC or SAML 2.0), then copy the **PBX Redirect URL** displayed on the page.
 3. If PortSIP SBC is configured, also copy the **SBC Redirect URL**. You will add each URL to the list of allowed redirect URIs for the Keycloak client later.
-4. Create a blank text file named `configuration-notes.txt` to record the actual values listed below. This file will contain client secrets. Store it securely and restrict access to administrators.
+4. Create a blank text file named **`configuration-notes.txt`** to record the actual values listed below. This file will contain client secrets. Store it securely and restrict access to administrators.
 
 | Value to Record                         | Where to Find It                                          | Applies To                                 |
 | --------------------------------------- | --------------------------------------------------------- | ------------------------------------------ |
@@ -74,11 +82,15 @@ Complete the Keycloak configuration and record the values first, then enter them
 
 <figure><img src="../../../../.gitbook/assets/keycloak_2.png" alt=""><figcaption></figcaption></figure>
 
+{% hint style="warning" %}
 **Next: If you chose OIDC, follow Section 2.2. If you chose SAML 2.0, follow Section 2.3. Complete only one of these sections.**
+{% endhint %}
 
 #### 2.2 Option A: Configure an OIDC Client (Choose This or Section 2.3)
 
-This section applies only if you are using OIDC. If you chose SAML 2.0, skip this section and follow Section 2.3. After completing this section, skip Section 2.3 and proceed directly to Section 2.4.
+**This section applies only if you are using OIDC.** If you chose SAML 2.0, skip this section and follow Section 2.3.&#x20;
+
+After completing this section, skip Section 2.3 and proceed directly to Section 2.4.
 
 1. In the current realm, open **Clients > Create client**.
 2. Under **General settings**, set **Client type** to `OpenID Connect`, enter `portsip-pbx-oidc` as the **Client ID**, and click **Next**.
@@ -103,7 +115,9 @@ This section applies only if you are using OIDC. If you chose SAML 2.0, skip thi
 
 #### 2.3 Option B: Configure a SAML Client (Choose This or Section 2.2)
 
-This section applies only if you are using SAML 2.0. If you have completed Section 2.2, skip this section. After completing this section, continue to Section 2.4.
+**This section applies only if you are using SAML 2.0**. If you have completed Section 2.2, skip this section.&#x20;
+
+After completing this section, continue to Section 2.4.
 
 1. In the current realm, open **Clients > Create client**.
 2. Under **General settings**, set **Client type** to `SAML`, enter `portsip-pbx-saml` as the **Client ID**, and click **Next**. Later, enter the same value in the PBX **SP Entity ID** field.
@@ -132,7 +146,9 @@ https://example.com/realms/portsip-lab/protocol/saml/descriptor
 
 #### 2.4 Create a SCIM Client for User Synchronization
 
-Complete this section whether you chose OIDC or SAML 2.0. The PBX uses this client to obtain tokens for directory synchronization. Configure it separately from the SSO client created above.
+**Complete this section whether you chose OIDC or SAML 2.0.**&#x20;
+
+The PBX uses this client to obtain tokens for directory synchronization. Configure it separately from the SSO client created above.
 
 1. Open **Clients > Create client**.
 2. Set **Client type** to `OpenID Connect`, enter `portsip-pbx-scim` as the **Client ID**, and click **Next**.
@@ -213,7 +229,7 @@ Complete this section whether you chose OIDC or SAML 2.0. The PBX uses this clie
 
 ### 3 Configure PortSIP PBX
 
-In the PortSIP PBX Web Portal, open **Advanced > Integrations > Generic IdP** for the target tenant. Use your recorded values to complete the following configuration. If the page session has expired, sign in again and switch to the same tenant.
+In the PortSIP PBX Web Portal, open **Integrations > Generic IdP** for the target tenant. Use your recorded values to complete the following configuration. If the page session has expired, sign in again and switch to the same tenant.
 
 #### 3.1 Configure Single Sign-On
 
@@ -321,7 +337,7 @@ Complete this section whether you synchronized users automatically or linked the
 
 <figure><img src="../../../../.gitbook/assets/keycloak_32.png" alt=""><figcaption></figcaption></figure>
 
-4. Confirm that the browser returns to the PBX and signs you in successfully. The signed-in account must match the PBX user synchronized or linked in Section 4.1.
+5. Confirm that the browser returns to the PBX and signs you in successfully. The signed-in account must match the PBX user synchronized or linked in Section 4.1.
 
 **Successful verification means:** SCIM can retrieve the test user and synchronize or link that user; the Generic IdP option appears on the PBX sign-in page; and, after authenticating with Keycloak, the user returns to the PBX and accesses the correct user account.
 
