@@ -1,5 +1,70 @@
 # Summary of Changes
 
+### v22.9.0
+
+#### v22.9.0
+
+Date: To be confirmed
+
+**New Endpoints**
+
+**Authentication**
+
+* Added `<POST> /api/auth/sign_in/idp`: Start the tenant’s Generic Identity Provider (IdP) SSO flow. Returns an OpenID Connect (OIDC) authorization URL or a SAML AuthnRequest URL, depending on the configured authentication protocol.
+
+**Tenant Integrations**
+
+* Added `<GET | POST> /api/idp`: Retrieve / update the tenant’s Generic IdP integration, including OIDC/SAML authentication configuration and SCIM user synchronization settings.
+* Added `<POST> /api/idp/destroy`: Delete the tenant’s Generic IdP integration.
+* Added `<GET> /api/idp/users`: List users in the configured Generic IdP’s remote directory.
+* Added `<GET> /api/idp/users/details/{id}`: Retrieve remote directory details for a specific Generic IdP user.
+* Added `<POST> /api/idp/users/get_many`: Retrieve remote directory details for multiple Generic IdP users.
+
+**Users and Devices**
+
+* Added `<POST> /api/users/{id}/idp_binding`: Bind a PBX user to a Generic IdP external user identifier.
+* Added `<POST> /api/users/{id}/idp_binding/destroy`: Remove a PBX user’s Generic IdP binding.
+
+**Updated Endpoints**
+
+**System Administration**
+
+* Updated `<GET | POST> /api/admin/notification`: Increased the `maxLength` of property `username` from `128` to `256`.
+
+**System Information and Security**
+
+* Updated `<GET> /api/info`: Added property `enable_idp_integration`.
+* Updated `<GET> /api/audit_logs`: Added `IDENTITY_PROVIDER_INTEGRATION` to the `object_type` enum.
+
+**Tenant Management**
+
+* Updated `<GET | POST> /api/tenant/notification`: Increased the `maxLength` of property `username` from `128` to `256`.
+
+**Holidays**
+
+* Updated `<POST> /api/holidays`: Added response code `400` (`EXCEED_LIMIT`) when the tenant has already created the maximum of 50 holidays.
+
+**Inbound Rules**
+
+* Updated `<POST> /api/inbound_rules`: Added response code `400` (`EXCEED_LIMIT`) when the rule references more than 50 holidays.
+* Updated `<POST> /api/inbound_rules/{id}`: Added response code `400` (`EXCEED_LIMIT`) when the rule references more than 50 holidays.
+
+**Outbound Rules**
+
+* Updated `<POST> /api/outbound_rules`: Added response code `400` (`EXCEED_LIMIT`) when the rule references more than 50 holidays.
+* Updated `<POST> /api/outbound_rules/{id}`: Added response code `400` (`EXCEED_LIMIT`) when the rule references more than 50 holidays.
+
+**Users and Devices**
+
+* Updated `<POST> /api/user`: Added response code `400` (`EXCEED_LIMIT`) when a rule references more than 50 holidays.
+* Updated `<POST> /api/user/global_holidays`: Added response code `400` (`EXCEED_LIMIT`) when the current user has already created the maximum of 50 holidays.
+* Updated `<POST> /api/user/holidays`: Added response code `400` (`EXCEED_LIMIT`) when the current user has already created the maximum of 50 holidays.
+* Updated `<POST> /api/users/{id}`: Added response code `400` (`EXCEED_LIMIT`) when a rule references more than 50 holidays.
+* Updated `<POST> /api/users/{id}/global_holidays`: Added response code `400` (`EXCEED_LIMIT`) when the specified user has already created the maximum of 50 holidays.
+* Updated `<POST> /api/users/{id}/holidays`: Added response code `400` (`EXCEED_LIMIT`) when the specified user has already created the maximum of 50 holidays.
+
+***
+
 ### v22.8.0
 
 #### New Endpoints
