@@ -143,6 +143,7 @@ PortSIP PBX includes the following capabilities.
 * Microsoft 365 integrations
 * Google Workspace integrations
 * Single Sign-On
+* OpenID Connect and SAML 2.0 User Synchronization and SSO
 * Billing
 * Email notifications at the system and tenant levels
 * HTML email notifications
