@@ -133,6 +133,7 @@
     * [Microsoft 365 Integration](portsip-communications-solution/portsip-pbx-administration-guide/integrations/microsoft-365-integration.md)
     * [Google Workspace Integration](portsip-communications-solution/portsip-pbx-administration-guide/integrations/google-workspace-integration.md)
     * [SAML and OpenID Connect Integration](portsip-communications-solution/portsip-pbx-administration-guide/29-integrations/saml-and-openid-connect-integration/README.md)
+      * [Shibboleth Integration](portsip-communications-solution/portsip-pbx-administration-guide/29-integrations/saml-and-openid-connect-integration/shibboleth-integration.md)
       * [Keycloak Integration](portsip-communications-solution/portsip-pbx-administration-guide/29-integrations/saml-and-openid-connect-integration/keycloak-integration.md)
   * [30 Office Hours and Holiday Schedule](portsip-communications-solution/portsip-pbx-administration-guide/office-hours-and-holiday-schedule/README.md)
     * [Configuring Office Hours and Holiday Schedule](portsip-communications-solution/portsip-pbx-administration-guide/office-hours-and-holiday-schedule/configuring-office-hours-and-holiday-schedule.md)
