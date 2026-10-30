@@ -2,9 +2,7 @@
 
 ### v22.9.0
 
-#### v22.9.0
-
-Date: To be confirmed
+Date: October 29, 2026
 
 **New Endpoints**
 
