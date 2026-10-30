@@ -17,4 +17,11 @@ PortSIP PBX provides the following capabilities:
 
 Administrators should also consider access requirements for users outside their organization. SMBs and enterprises may need to authenticate a small number of external users, while larger organizations may already use identity providers that support federation across organizational boundaries. PortSIP PBX administrators should work closely with their identity and security teams to determine how these users will authenticate, which PBX accounts and permissions they require, and whether the proposed configuration meets organizational security and compliance requirements.
 
-This guide uses [Keycloak ](https://www.keycloak.org/)and [Shibboleth ](http://shibboleth.net/)as examples, providing detailed, step-by-step instructions for configuring their integration with PortSIP PBX. You can also use this guide as a reference when integrating other identity providers that support **OpenID Connect (OIDC)** or **SAML 2.0**, adapting the configuration to the provider’s specific settings and requirements.
+This guide uses **Keycloak** and **Shibboleth** as examples to demonstrate how to integrate identity providers with PortSIP PBX. It provides step-by-step instructions for configuring each integration.
+
+You can also use these examples as a reference when integrating other identity providers that support **OpenID Connect (OIDC)** or **SAML 2.0**, adapting the configuration to meet each provider's specific requirements.
+
+For detailed setup instructions, see the following guides:
+
+* [Integrating Shibboleth with PortSIP PBX](shibboleth-integration.md)
+* [Integrating Keycloak with PortSIP PBX](keycloak-integration.md)
