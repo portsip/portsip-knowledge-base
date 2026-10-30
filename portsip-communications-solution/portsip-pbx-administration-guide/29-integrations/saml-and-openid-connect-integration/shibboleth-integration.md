@@ -636,6 +636,8 @@ Complete the integration configuration, user synchronization and linking, and SS
 
 `NameID Format` is separate from the `SAML User Identifier` setting used to match users below. When metadata is pasted manually, update the XML in PBX whenever the IdP signing certificate or SSO endpoints change.
 
+<figure><img src="../../../../.gitbook/assets/shibboleth_1.png" alt=""><figcaption></figcaption></figure>
+
 #### 3.2 Configure the SCIM directory
 
 Shibboleth does not normally provide a SCIM user directory out of the box. You must provide a SCIM 2.0-compliant server that PBX can reach. Deployment, directory connections, permissions, and credential creation depend on the SCIM product. PBX must be able to query `GET /Users` with pagination and read a nonempty, unique, stable user identifier.
@@ -667,9 +669,13 @@ The field names can differ, but the resolved values for the same user must match
 
 Click `OK` to save the integration before configuring `User Sync` and `Sign In`.
 
+<figure><img src="../../../../.gitbook/assets/shibboleth_2.png" alt=""><figcaption></figcaption></figure>
+
 #### 3.4 Enable SSO
 
 Complete this section **after Section 4.2, Verify user synchronization and linking**. For the initial setup, complete Sections 4.1 and 4.2 first. Then return to the `Sign In` tab on the `Generic IdP Integration` page, turn on `Enable`, select the users allowed to sign in through SSO, and click `OK`. Make sure the allowed users include the test account.
+
+<figure><img src="../../../../.gitbook/assets/shibboleth_4.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -703,7 +709,14 @@ After completing the independent SCIM checks in Section 4.1, choose either **4.2
 1. On the `User Sync` tab of the `Generic IdP Integration` page, set `Synchronization Mode` to `Automatic`.
 2. Set `Starting Extension Number` and the users to synchronize. This example starts at extension `2002` and selects `All users`. Confirm that the extension range is available and limit the synchronization scope as needed.
 3. Click `OK` to save.
+
+<figure><img src="../../../../.gitbook/assets/shibboleth_4.png" alt=""><figcaption></figcaption></figure>
+
 4. Allow synchronization to complete according to the schedule configured in Section 3.2, then go to `Call Manager` > `Users` and check the corresponding user. The screenshots show extension `2002`. Open the user details, confirm that `Username` is `alice`, and check the other mapped fields.
+
+<figure><img src="../../../../.gitbook/assets/shibboleth_5.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../../../.gitbook/assets/shibboleth_6.png" alt=""><figcaption></figcaption></figure>
 
 **4.2.2 Manual linking**
 
@@ -711,13 +724,21 @@ After completing the independent SCIM checks in Section 4.1, choose either **4.2
 2. Find `alice` in the list of SCIM directory users. If the user is missing, check the SCIM Base URL, credentials for the selected authentication method, query permissions, pagination responses, and user data.
 3. Click `Link PBX User` and follow the prompts to associate the directory user with the target PBX user. Verify the link, then click `OK` to save.
 
+<figure><img src="../../../../.gitbook/assets/shibboleth_7.png" alt=""><figcaption></figcaption></figure>
+
 After completing either automatic synchronization in Section 4.2.1 or manual linking in Section 4.2.2, return to **Section 3.4, Enable SSO**, enable and save the SSO policy, then proceed to the sign-in test in Section 4.3.
 
 #### 4.3 Test SSO sign-in
 
 1. Open a private or incognito browser window and visit `https://office.sipiw.com:8887`.
 2. Confirm that `SIP DOMAIN` is `test.portsip.io`, then click the Generic IdP (SSO) button outlined in red below.
+
+<figure><img src="../../../../.gitbook/assets/shibboleth_8.png" alt=""><figcaption></figcaption></figure>
+
 3. Confirm that the browser redirects to your Shibboleth sign-in page.
+
+<figure><img src="../../../../.gitbook/assets/shibboleth_9.png" alt=""><figcaption></figcaption></figure>
+
 4. Sign in as the test user `alice`; the example password is `alice123`. Complete any MFA or attribute release consent steps required by your existing policies.
 5. After successful authentication, the browser should return to PBX and open the user's home page. Verify that the signed-in account and extension match the synchronization or linking result.
 
