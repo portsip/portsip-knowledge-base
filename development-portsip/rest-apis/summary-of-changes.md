@@ -2,9 +2,7 @@
 
 ### v22.9.0
 
-Date: October 29, 2026
-
-**New Endpoints**
+#### New Endpoints
 
 **Authentication**
 
@@ -23,7 +21,7 @@ Date: October 29, 2026
 * Added `<POST> /api/users/{id}/idp_binding`: Bind a PBX user to a Generic IdP external user identifier.
 * Added `<POST> /api/users/{id}/idp_binding/destroy`: Remove a PBX user’s Generic IdP binding.
 
-**Updated Endpoints**
+#### Updated Endpoints
 
 **System Administration**
 
