@@ -346,6 +346,19 @@
   * [User Manual for macOS](development-portsip/calling-apis/user-manual-for-macos.md)
 * [REST APIs](development-portsip/rest-apis/README.md)
   * [Summary of Changes](development-portsip/rest-apis/summary-of-changes.md)
+  * [Version 22.9](development-portsip/rest-apis/version-22.9/README.md)
+    * ```yaml
+      type: builtin:openapi
+      props:
+        models: true
+        downloadLink: true
+        grouping: by-tag
+      dependencies:
+        spec:
+          ref:
+            kind: openapi
+            spec: version22-9
+      ```
   * [Version 22.8](development-portsip/rest-apis/version-22.8/README.md)
     * ```yaml
       type: builtin:openapi
@@ -1072,6 +1085,7 @@
   * [Protocol](development-portsip/messaging-apis/protocol.md)
   * [API Examples](development-portsip/messaging-apis/api-examples.md)
 * [WSI: Pub/Sub](development-portsip/going-real-time-with-portsip-pbx-pub-sub.md)
+  * [Version 22.9](development-portsip/going-real-time-with-portsip-pbx-pub-sub/version-22.9.md)
   * [Version 22.3](development-portsip/going-real-time-with-portsip-pbx-pub-sub/version-22.3.md)
   * [Version 22.2](development-portsip/going-real-time-with-portsip-pbx-pub-sub/version-22.2.md)
 * [Webhook Events](development-portsip/webhook-notifications/README.md)
