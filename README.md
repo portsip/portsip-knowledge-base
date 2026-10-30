@@ -26,6 +26,7 @@ PortSIP is more than a PBX—it is a **complete communications ecosystem**, incl
 * **AI-powered capabilities**, including call and voicemail transcription
 * **Built-in Contact Center** and **CCaaS features**
 * **Native CRM integrations** to unify communications and customer data
+* **OpenID Connect and SAML 2.0** User Synchronization and SSO
 
 This open and extensible architecture gives service providers full control to differentiate, customize, and innovate without vendor lock-in.
 

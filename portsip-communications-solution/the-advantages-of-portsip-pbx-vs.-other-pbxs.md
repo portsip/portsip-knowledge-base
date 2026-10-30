@@ -450,11 +450,13 @@ This integrated SBC eliminates the need for third-party SBC licensing, reducing 
 
 ***
 
-### Microsoft 365 Integration
+### Enterprise Identity Integration & SSO
 
-PortSIP PBX seamlessly integrates business communications into the **Microsoft 365** ecosystem, transforming it into an enterprise-grade communications hub. This integration provides a powerful yet intuitive user experience that is easy for end users to adopt and simple for IT teams to manage.
+PortSIP PBX seamlessly integrates with **Microsoft 365**, **Google Workspace**, and enterprise identity providers through **OpenID Connect (OIDC)** and **SAML 2.0**, simplifying user management and authentication.
 
-For more information, please refer to the article [Microsoft 365 Integration](portsip-pbx-administration-guide/integrations/).
+With automated user synchronization and Single Sign-On (SSO), organizations can streamline user provisioning, reduce administrative overhead, and provide employees with secure, convenient access using their existing corporate credentials. These integrations deliver a unified, enterprise-grade communications experience while making deployment and ongoing management easier for IT teams.
+
+For more information, see [Integration](https://support.portsip.com/portsip-communications-solution/portsip-pbx-administration-guide/29-integrations).
 
 ***
 
@@ -480,7 +482,7 @@ PortSIP offers a powerful **VoIP SDK** that works seamlessly with PortSIP PBX, a
 
 This SDK enables service providers to operate and scale **CPaaS offerings** efficiently without developing a communications stack from scratch.
 
-The PortSIP VoIP SDK is trusted by many well-known enterprises, including T-Mobile, Nextiva, Qualcomm, Telstra, HPE, Siemens, Netflix, Agilent, and Dialogic.
+Many well-known enterprises, including T-Mobile, Nextiva, Qualcomm, Telstra, HPE, Siemens, Netflix, Agilent, and Dialogic trust the PortSIP VoIP SDK.
 
 For more details, please refer to [PortSIP VoIP SDK](https://www.portsip.com/portsip-voip-sdk/).
 
