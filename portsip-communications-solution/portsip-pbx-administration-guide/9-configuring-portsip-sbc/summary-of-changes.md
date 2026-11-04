@@ -9,6 +9,27 @@ Please follow the [official upgrade guide](upgrade-to-the-latest-sbc-release.md)
 
 ***
 
+### Version 11.2.10
+
+**Release Date:** November 4, 2026
+
+**Changes**
+
+* Updated the built-in PortSIP ONE WebRTC app with new features and improvements.
+* Improved system notifications to prevent users signing in for the first time from receiving pop-up notifications for previous messages.
+* Added Identity Provider (IdP) integration and OpenID Connect (OIDC) login support.
+* Added template-based controls to show, hide, or make client features and settings read-only.
+* Enhanced Screen Pop with an answered-number parameter and support for launching external applications.
+* Added template-based restrictions on queue login/logout and agent status changes.
+* Added support for Poly headsets.
+* Added support for managing agent status directly from the Wallboard.
+* Improved group chat functionality and added a **Clear Data** option.
+* Added a **Make anonymous call** option to the dial pad's Outbound Caller ID dropdown and client settings.
+* Fixed a WebRTC sign-in failure after deleting the default WSS port and configuring a new one.
+* Added timestamps to media engine log files and maintained the five-day log retention policy.
+
+***
+
 ### Version 11.2.9
 
 **Release Date:** September 29, 2026
