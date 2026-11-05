@@ -1,7 +1,5 @@
 # Shibboleth Integration
 
-## Shibboleth Integration
-
 This guide explains how to connect PortSIP PBX to an existing, operational Shibboleth IdP for user synchronization and single sign-on (SSO). It does not cover installing or deploying Shibboleth.
 
 If you use another SAML 2.0 identity provider, you can refer to the PBX configuration sections. Follow that provider's documentation for its configuration. Contact PortSIP Support if you need assistance.
