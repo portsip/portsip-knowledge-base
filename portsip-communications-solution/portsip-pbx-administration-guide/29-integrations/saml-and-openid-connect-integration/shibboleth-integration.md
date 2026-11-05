@@ -1,5 +1,7 @@
 # Shibboleth Integration
 
+## Shibboleth Integration
+
 This guide explains how to connect PortSIP PBX to an existing, operational Shibboleth IdP for user synchronization and single sign-on (SSO). It does not cover installing or deploying Shibboleth.
 
 If you use another SAML 2.0 identity provider, you can refer to the PBX configuration sections. Follow that provider's documentation for its configuration. Contact PortSIP Support if you need assistance.
@@ -93,6 +95,22 @@ PBX_IDP_DIR='/opt/shibboleth-idp'
 ```
 
 `PBX_IDP_CONTAINER` is the actual container name. `PBX_IDP_DIR` is the IdP installation directory (`idp.home`) **inside the container**; confirm it with the IdP administrator. These assignments normally produce no output and are used by later commands.
+
+Display the ports Docker publishes for this container:
+
+```bash
+docker ps --filter "name=$PBX_IDP_CONTAINER"
+```
+
+In the `PORTS` column, `8443->443/tcp` means that Docker forwards traffic from port `8443` on the host to TCP port `443` in the container. The commands in Section 2.1.4 connect to `127.0.0.1` **inside the container**, so use the port on which the IdP listens there.
+
+List the TCP ports that are listening inside the container:
+
+```bash
+docker exec "$PBX_IDP_CONTAINER" sh -c 'ss -lnt 2>/dev/null || netstat -lnt'
+```
+
+Check the local address and port against the protocol configured for the IdP. For HTTPS on port `443`, use `https://127.0.0.1/idp`. For any other HTTPS port, include it in the URL, for example `https://127.0.0.1:8443/idp`. If the image includes neither `ss` nor `netstat`, check the web server's connector configuration or the image's deployment documentation. A published port alone does not confirm that the IdP is listening.
 
 **3. Inspect the mounts.** Run the complete command below in the same shell on the host to display the mount configuration:
 
@@ -266,87 +284,99 @@ If unencrypted assertions are permitted, check the existing relying-party config
 
 **2.1.4 Reload and verify the configuration**
 
-Run all commands in this section in **the same Bash session on the Linux host**. The Docker commands invoke the IdP management tools inside the container.
+Continue in the **same Bash session on the Linux host**. The commands use `docker exec` to run `curl` inside the Shibboleth container. The container must have `curl` installed.
 
-**1. Set the administrative base URL.** Ask the IdP administrator to confirm the administrative base URL accessible inside the container. Replace the value in quotes, then run the assignment below. The port is an example; use the actual deployment value. Access to the management tools must comply with the existing access controls.
-
-```bash
-PBX_IDP_ADMIN_BASE='http://127.0.0.1:8080/idp'
-```
-
-The assignment normally produces no output. Run the following reload commands in order, confirming that each response indicates success before continuing. [Shibboleth service reload documentation](https://shibboleth.atlassian.net/wiki/spaces/IDP5/pages/3199507931/ReloadableServices)
-
-**2. Reload the SP metadata configuration.** Run the complete command below:
+**1. Set the IdP admin URL.** Use the protocol and internal port you verified in Section 2.1.1. This example uses HTTPS on port `443`:
 
 ```bash
-docker exec -e "IDP_BASE_URL=$PBX_IDP_ADMIN_BASE" \
-  "$PBX_IDP_CONTAINER" "$PBX_IDP_DIR/bin/reload-service.sh" \
-  -id shibboleth.MetadataResolverService
+PBX_IDP_ADMIN_BASE='https://127.0.0.1/idp'
 ```
 
-**3. Reload the attribute release rules.** Run the complete command below:
+The assignment normally produces no output. Use the container's loopback address and internal port here. The PBX address and the port Docker publishes on the host are separate from this endpoint.
+
+> **Important:** The `-k` option skips TLS certificate verification. Use it only for the loopback requests to `127.0.0.1` shown here, run via `docker exec` inside the Shibboleth container. Keep certificate verification enabled for all remote requests. The IdP still enforces its access policy. If it returns HTTP `401` or `403`, ask the IdP administrator to review access to the admin endpoint.
+
+**2. Check the IdP status.** Continue only when the status endpoint returns the expected IdP status information.
 
 ```bash
-docker exec -e "IDP_BASE_URL=$PBX_IDP_ADMIN_BASE" \
-  "$PBX_IDP_CONTAINER" "$PBX_IDP_DIR/bin/reload-service.sh" \
-  -id shibboleth.AttributeFilterService
+docker exec "$PBX_IDP_CONTAINER" \
+  curl -k --fail --silent --show-error \
+  "$PBX_IDP_ADMIN_BASE/status"
 ```
 
-**4. Reload the relying-party configuration if changed.** Run this command only if you modified the relying-party configuration; otherwise, skip this step:
+**3. Reload the SP metadata.** Run the following command and check that the response confirms a successful reload before proceeding.
 
 ```bash
-docker exec -e "IDP_BASE_URL=$PBX_IDP_ADMIN_BASE" \
-  "$PBX_IDP_CONTAINER" "$PBX_IDP_DIR/bin/reload-service.sh" \
-  -id shibboleth.RelyingPartyResolverService
+docker exec "$PBX_IDP_CONTAINER" \
+  curl -k --fail --silent --show-error \
+  "$PBX_IDP_ADMIN_BASE/profile/admin/reload-service?id=shibboleth.MetadataResolverService"
 ```
 
-**5. Check the IdP status.** Run the following command and confirm that the status check succeeds:
+**4. Reload the attribute release rules.** Verify that the response confirms a successful reload.
 
 ```bash
-docker exec -e "IDP_BASE_URL=$PBX_IDP_ADMIN_BASE" \
-  "$PBX_IDP_CONTAINER" "$PBX_IDP_DIR/bin/status.sh"
+docker exec "$PBX_IDP_CONTAINER" \
+  curl -k --fail --silent --show-error \
+  "$PBX_IDP_ADMIN_BASE/profile/admin/reload-service?id=shibboleth.AttributeFilterService"
 ```
 
-**6. Query the SP metadata.** Replace the SP Entity ID with the actual value, then run the command. Confirm that it returns the correct entity ID and ACS URLs:
+**5. Reload the relying-party configuration if you changed `relying-party.xml`.** Otherwise, continue to step 6.
 
 ```bash
-docker exec -e "IDP_BASE_URL=$PBX_IDP_ADMIN_BASE" \
-  "$PBX_IDP_CONTAINER" "$PBX_IDP_DIR/bin/mdquery.sh" \
-  -e portsip-pbx-saml
+docker exec "$PBX_IDP_CONTAINER" \
+  curl -k --fail --silent --show-error \
+  "$PBX_IDP_ADMIN_BASE/profile/admin/reload-service?id=shibboleth.RelyingPartyResolverService"
 ```
 
-**7. Check attribute resolution and SAML output.** Replace `alice` and the SP Entity ID with the actual values. Use the same shell specified for this section, and run each block according to the version requirements below.
+Each reload command should return a confirmation naming the service, such as `Configuration reloaded for 'shibboleth.MetadataResolverService'`. Resolve any reload errors before continuing. [Shibboleth service reload documentation](https://shibboleth.atlassian.net/wiki/spaces/IDP5/pages/3199507931/ReloadableServices)
 
-**Run the unfiltered attribute check only on Shibboleth IdP 5.1 or later. Skip this block on IdP 5.0.** Run the complete command and confirm that the Attribute Resolver returns the expected internal attribute IDs and values:
+**6. Verify the PBX SP metadata.** Replace `portsip-pbx-saml` with your SP Entity ID. In the response, verify the entity ID and each Assertion Consumer Service (ACS) URL against the values for your deployment.
 
 ```bash
-docker exec -e "IDP_BASE_URL=$PBX_IDP_ADMIN_BASE" \
-  "$PBX_IDP_CONTAINER" "$PBX_IDP_DIR/bin/aacli.sh" \
-  -n alice -r portsip-pbx-saml --unfiltered
+docker exec "$PBX_IDP_CONTAINER" \
+  curl -k --fail --silent --show-error --get \
+  --data-urlencode 'entityID=portsip-pbx-saml' \
+  "$PBX_IDP_ADMIN_BASE/profile/admin/mdquery"
 ```
 
-**Run the SAML output check on all IdP 5.x versions covered by this guide.** Run the complete command below. Confirm that the SAML `Name`, `FriendlyName`, and values released by the Attribute Filter meet the PBX mapping requirements:
+**7. Check the unfiltered attributes (IdP 5.1 and later).** On IdP 5.0, skip to step 8. Replace `alice` with your test username and `portsip-pbx-saml` with your SP Entity ID. Verify that the Attribute Resolver returns the expected internal attribute IDs and values before the release rules are applied.
 
 ```bash
-docker exec -e "IDP_BASE_URL=$PBX_IDP_ADMIN_BASE" \
-  "$PBX_IDP_CONTAINER" "$PBX_IDP_DIR/bin/aacli.sh" \
-  -n alice -r portsip-pbx-saml --saml2
+docker exec "$PBX_IDP_CONTAINER" \
+  curl -k --fail --silent --show-error --get \
+  --data-urlencode 'principal=alice' \
+  --data-urlencode 'requester=portsip-pbx-saml' \
+  --data-urlencode 'unfiltered=true' \
+  "$PBX_IDP_ADMIN_BASE/profile/admin/resolvertest"
 ```
 
-If attributes are missing, have the IdP administrator review the Attribute Resolver configuration and `idp-process.log` to determine whether resolution failed or the Attribute Filter blocked their release. [Shibboleth AACLI documentation](https://shibboleth.atlassian.net/wiki/spaces/IDP5/pages/3199511404/AACLI)
+**8. Check the SAML 2.0 attributes released to the PBX (all IdP 5.x versions).** Use the same test username and SP Entity ID. In the returned assertion, check that the identifier attribute has the `Name` or `FriendlyName` configured in the PBX mapping and that its value matches the test user's SCIM identifier.
 
-**8. Review the logs for this change.** Run the following command to display the last 100 log lines. If your deployment uses centralized logging or a custom log path, check that location instead:
+```bash
+docker exec "$PBX_IDP_CONTAINER" \
+  curl -k --fail --silent --show-error --get \
+  --data-urlencode 'principal=alice' \
+  --data-urlencode 'requester=portsip-pbx-saml' \
+  --data-urlencode 'saml2=true' \
+  "$PBX_IDP_ADMIN_BASE/profile/admin/resolvertest"
+```
+
+If a required attribute is missing, ask the IdP administrator to review the Attribute Resolver configuration, the release rules for the PBX, and `idp-process.log`. Check whether the resolver produced a value and whether the Attribute Filter permitted its release. On IdP 5.0, use the configuration and logs to trace the missing value. [Shibboleth attribute testing and AACLI](https://shibboleth.atlassian.net/wiki/spaces/IDP5/pages/3199511404/AACLI)
+
+**Review the IdP log.** Display the last 100 lines and check the entries for this reload. If your deployment uses centralized logging or a custom log path, check that location instead.
 
 ```bash
 docker exec "$PBX_IDP_CONTAINER" \
   tail -n 100 "$PBX_IDP_DIR/logs/idp-process.log"
 ```
 
-Confirm that the reload introduced no XML, metadata, or attribute configuration errors, the status check succeeds, and the metadata query returns the correct SP Entity ID and ACS URLs. The final SAML output must contain the attributes required by PBX, and the user identifier must match the identifier selected for SCIM synchronization. On versions that support the unfiltered attribute check, also confirm that the unfiltered AACLI output contains the expected internal attributes. The [metadata query](https://shibboleth.atlassian.net/wiki/spaces/IDP5/pages/3199511464/MetadataQuery) and [AACLI](https://shibboleth.atlassian.net/wiki/spaces/IDP5/pages/3199511404/AACLI) checks do not replace an actual SSO sign-in test.
+Before continuing, confirm that the IdP status check passed and that the reload introduced no XML, metadata, or attribute configuration errors. The metadata query should return the expected SP Entity ID and ACS URLs. The SAML output must include all attributes required by the PBX, and the test user's SAML identifier value must exactly match the SCIM identifier value selected for synchronization. On IdP 5.1 and later, also confirm that the unfiltered output contains the expected internal attributes. Complete the end-to-end SSO sign-in test in Section 4.3 after configuring the PBX. [Shibboleth metadata query](https://shibboleth.atlassian.net/wiki/spaces/IDP5/pages/3199511464/MetadataQuery) and [attribute testing](https://shibboleth.atlassian.net/wiki/spaces/IDP5/pages/3199511404/AACLI)
 
 If the reload tools are unavailable, have an administrator restart the existing IdP container under your maintenance procedure, then repeat the checks. A fixed wait time or a container status of `running` does not establish that the IdP is ready. To roll back, restore the original files from backup, remove files or configuration entries added by this change, and reload the affected services.
 
-**9. Verify persistence after a restart during a maintenance window (recommended for the initial configuration).** Confirm that no sign-in requests are in progress, then restart the container under your existing maintenance procedure. After the container is healthy, repeat the mount inspection in **Section 2.1.1, Step 3**, and the status, metadata, and attribute checks in Steps 5 through 7 of this section. Confirm that the mount `Source`/`Destination` values are unchanged and that `PBXProvider`, the SP metadata, the attribute release rules, and the relying-party configuration remain effective. If Docker Compose or an orchestration platform manages the container, use that platform to restart or recreate it, and confirm that the deployment definition continues to mount the same host directories.
+**Verify that the configuration survives a restart.** For an initial deployment, schedule this check during a maintenance window. Confirm that no sign-in requests are in progress, then restart the container using your normal maintenance procedure. If Docker Compose or an orchestration platform manages the container, use that platform to restart or recreate it and confirm that the deployment still mounts the same host directories.
+
+Once the IdP is ready, repeat the mount inspection in Section 2.1.1, step 3. Verify that each mount has the same `Source` and `Destination`. Repeat steps 2, 6, and 8 above, plus step 7 on IdP 5.1 and later. Confirm that the IdP still loads `PBXProvider` and the PBX SP metadata and applies the expected attribute release rules and relying-party configuration.
 
 **2.1.5 Get the IdP metadata**
 
@@ -355,13 +385,16 @@ Ask the IdP administrator for the current, valid IdP metadata. Verify its entity
 After the administrator confirms the download URL, replace the example URL and run the complete block below in **a Bash shell on the Linux host**:
 
 ```bash
+# Replace the example URL with the metadata URL supplied by your IdP administrator.
 curl --fail --show-error \
   --output ./idp-metadata.xml \
   https://shibboleth.example.com/idp/shibboleth &&
   cat ./idp-metadata.xml
 ```
 
-After a successful download, `idp-metadata.xml` is saved in the current working directory and its contents are displayed in the terminal. Confirm that it contains complete IdP metadata XML, rather than an HTML sign-in or error page. Copy the XML into the PBX `Metadata XML` field in Section 3. If the download fails, check the URL, network connectivity, and certificate configuration before retrying.
+The command saves `idp-metadata.xml` in the current working directory and displays its contents. Verify that the file contains the complete IdP metadata XML. An HTML sign-in or error page indicates that the download did not return metadata.
+
+In Section 3.1, enter the verified URL if you select `Metadata URL (recommended)`, or paste the complete file contents if you select `Metadata XML`. Keep TLS certificate verification enabled when downloading metadata from the IdP URL. If the download fails, check the URL, connectivity, and certificate configuration before retrying.
 
 #### 2.2 Linux deployments without containers
 
@@ -525,76 +558,91 @@ If unencrypted assertions are permitted, check the existing relying-party config
 
 **2.2.4 Reload and verify the configuration**
 
-Run all commands in this section in **the same Bash session on the Linux server hosting the IdP**.
+Run all commands in this section in the **same Bash session on the Linux server hosting the IdP**. These commands run `curl` directly on that server.
 
-**1. Set the administrative base URL.** Ask the IdP administrator to confirm the local administrative base URL and access permissions. Replace the value in quotes, then run the assignment below. The port is an example; use the actual deployment value.
-
-```bash
-PBX_IDP_ADMIN_BASE='http://127.0.0.1:8080/idp'
-```
-
-The assignment normally produces no output. Run the following reload commands in order, confirming that each response indicates success before continuing. [Shibboleth service reload documentation](https://shibboleth.atlassian.net/wiki/spaces/IDP5/pages/3199507931/ReloadableServices)
-
-**2. Reload the SP metadata configuration.** Run the complete command below:
+**1. Set the IdP admin URL.** First, list the TCP ports on which the server is listening:
 
 ```bash
-sudo env IDP_BASE_URL="$PBX_IDP_ADMIN_BASE" \
-  "$PBX_IDP_DIR/bin/reload-service.sh" -id shibboleth.MetadataResolverService
+sudo ss -lnt
 ```
 
-**3. Reload the attribute release rules.** Run the complete command below:
+Check the web server's connector configuration to confirm the protocol, listening port, and IdP context path (typically `/idp`). Set the URL accordingly. This example uses HTTPS on port `443`:
 
 ```bash
-sudo env IDP_BASE_URL="$PBX_IDP_ADMIN_BASE" \
-  "$PBX_IDP_DIR/bin/reload-service.sh" -id shibboleth.AttributeFilterService
+PBX_IDP_ADMIN_BASE='https://127.0.0.1/idp'
 ```
 
-**4. Reload the relying-party configuration if changed.** Run this command only if you modified the relying-party configuration; otherwise, skip this step:
+The assignment normally produces no output. Here, `127.0.0.1` refers to the IdP server itself. Use this local address even if the PBX runs on a different server.
+
+> **Important:** The `-k` option skips TLS certificate verification. Use it only for the loopback requests to `127.0.0.1` shown here, run on the IdP server itself. Keep certificate verification enabled for all remote requests. The IdP still enforces its access policy. If it returns HTTP `401` or `403`, ask the IdP administrator to review access to the admin endpoint.
+
+**2. Check the IdP status.** Continue only when the status endpoint returns the expected IdP status information.
 
 ```bash
-sudo env IDP_BASE_URL="$PBX_IDP_ADMIN_BASE" \
-  "$PBX_IDP_DIR/bin/reload-service.sh" -id shibboleth.RelyingPartyResolverService
+curl -k --fail --silent --show-error \
+  "$PBX_IDP_ADMIN_BASE/status"
 ```
 
-**5. Check the IdP status.** Run the following command and confirm that the status check succeeds:
+**3. Reload the SP metadata.** Run the following command and check that the response confirms a successful reload before proceeding.
 
 ```bash
-sudo env IDP_BASE_URL="$PBX_IDP_ADMIN_BASE" \
-  "$PBX_IDP_DIR/bin/status.sh"
+curl -k --fail --silent --show-error \
+  "$PBX_IDP_ADMIN_BASE/profile/admin/reload-service?id=shibboleth.MetadataResolverService"
 ```
 
-**6. Query the SP metadata.** Replace the SP Entity ID with the actual value, then run the command. Confirm that it returns the correct entity ID and ACS URLs:
+**4. Reload the attribute release rules.** Verify that the response confirms a successful reload.
 
 ```bash
-sudo env IDP_BASE_URL="$PBX_IDP_ADMIN_BASE" \
-  "$PBX_IDP_DIR/bin/mdquery.sh" -e portsip-pbx-saml
+curl -k --fail --silent --show-error \
+  "$PBX_IDP_ADMIN_BASE/profile/admin/reload-service?id=shibboleth.AttributeFilterService"
 ```
 
-**7. Check attribute resolution and SAML output.** Replace `alice` and the SP Entity ID with the actual values. Use the same shell specified for this section, and run each block according to the version requirements below.
-
-**Run the unfiltered attribute check only on Shibboleth IdP 5.1 or later. Skip this block on IdP 5.0.** Run the complete command and confirm that the Attribute Resolver returns the expected internal attribute IDs and values:
+**5. Reload the relying-party configuration if you changed `relying-party.xml`.** Otherwise, continue to step 6.
 
 ```bash
-sudo env IDP_BASE_URL="$PBX_IDP_ADMIN_BASE" \
-  "$PBX_IDP_DIR/bin/aacli.sh" -n alice -r portsip-pbx-saml --unfiltered
+curl -k --fail --silent --show-error \
+  "$PBX_IDP_ADMIN_BASE/profile/admin/reload-service?id=shibboleth.RelyingPartyResolverService"
 ```
 
-**Run the SAML output check on all IdP 5.x versions covered by this guide.** Run the complete command below. Confirm that the SAML `Name`, `FriendlyName`, and values released by the Attribute Filter meet the PBX mapping requirements:
+Each reload command should return a confirmation naming the service, such as `Configuration reloaded for 'shibboleth.MetadataResolverService'`. Resolve any reload errors before continuing. [Shibboleth service reload documentation](https://shibboleth.atlassian.net/wiki/spaces/IDP5/pages/3199507931/ReloadableServices)
+
+**6. Verify the PBX SP metadata.** Replace `portsip-pbx-saml` with your SP Entity ID. In the response, verify the entity ID and each Assertion Consumer Service (ACS) URL against the values for your deployment.
 
 ```bash
-sudo env IDP_BASE_URL="$PBX_IDP_ADMIN_BASE" \
-  "$PBX_IDP_DIR/bin/aacli.sh" -n alice -r portsip-pbx-saml --saml2
+curl -k --fail --silent --show-error --get \
+  --data-urlencode 'entityID=portsip-pbx-saml' \
+  "$PBX_IDP_ADMIN_BASE/profile/admin/mdquery"
 ```
 
-If attributes are missing, have the IdP administrator review the Attribute Resolver configuration and `idp-process.log` to determine whether resolution failed or the Attribute Filter blocked their release. [Shibboleth AACLI documentation](https://shibboleth.atlassian.net/wiki/spaces/IDP5/pages/3199511404/AACLI)
+**7. Check the unfiltered attributes (IdP 5.1 and later).** On IdP 5.0, skip to step 8. Replace `alice` with your test username and `portsip-pbx-saml` with your SP Entity ID. Verify that the Attribute Resolver returns the expected internal attribute IDs and values before the release rules are applied.
 
-**8. Review the logs for this change.** Run the following command to display the last 100 log lines. If your deployment uses centralized logging or a custom log path, check that location instead:
+```bash
+curl -k --fail --silent --show-error --get \
+  --data-urlencode 'principal=alice' \
+  --data-urlencode 'requester=portsip-pbx-saml' \
+  --data-urlencode 'unfiltered=true' \
+  "$PBX_IDP_ADMIN_BASE/profile/admin/resolvertest"
+```
+
+**8. Check the SAML 2.0 attributes released to the PBX (all IdP 5.x versions).** Use the same test username and SP Entity ID. In the returned assertion, check that the identifier attribute has the `Name` or `FriendlyName` configured in the PBX mapping and that its value matches the test user's SCIM identifier.
+
+```bash
+curl -k --fail --silent --show-error --get \
+  --data-urlencode 'principal=alice' \
+  --data-urlencode 'requester=portsip-pbx-saml' \
+  --data-urlencode 'saml2=true' \
+  "$PBX_IDP_ADMIN_BASE/profile/admin/resolvertest"
+```
+
+If a required attribute is missing, ask the IdP administrator to review the Attribute Resolver configuration, the release rules for the PBX, and `idp-process.log`. Check whether the resolver produced a value and whether the Attribute Filter permitted its release. On IdP 5.0, use the configuration and logs to trace the missing value. [Shibboleth attribute testing and AACLI](https://shibboleth.atlassian.net/wiki/spaces/IDP5/pages/3199511404/AACLI)
+
+**Review the IdP log.** Display the last 100 lines and check the entries for this reload. If your deployment uses centralized logging or a custom log path, check that location instead.
 
 ```bash
 sudo tail -n 100 "$PBX_IDP_DIR/logs/idp-process.log"
 ```
 
-Confirm that the reload introduced no XML, metadata, or attribute configuration errors, the status check succeeds, and the metadata query returns the correct SP Entity ID and ACS URLs. The final SAML output must contain the attributes required by PBX, and the user identifier must match the identifier selected for SCIM synchronization. On versions that support the unfiltered attribute check, also confirm that the unfiltered AACLI output contains the expected internal attributes. The [metadata query](https://shibboleth.atlassian.net/wiki/spaces/IDP5/pages/3199511464/MetadataQuery) and [AACLI](https://shibboleth.atlassian.net/wiki/spaces/IDP5/pages/3199511404/AACLI) checks do not replace an actual SSO sign-in test.
+Before continuing, confirm that the IdP status check passed and that the reload introduced no XML, metadata, or attribute configuration errors. The metadata query should return the expected SP Entity ID and ACS URLs. The SAML output must include all attributes required by the PBX, and the test user's SAML identifier value must exactly match the SCIM identifier value selected for synchronization. On IdP 5.1 and later, also confirm that the unfiltered output contains the expected internal attributes. Complete the end-to-end SSO sign-in test in Section 4.3 after configuring the PBX. [Shibboleth metadata query](https://shibboleth.atlassian.net/wiki/spaces/IDP5/pages/3199511464/MetadataQuery) and [attribute testing](https://shibboleth.atlassian.net/wiki/spaces/IDP5/pages/3199511404/AACLI)
 
 If the reload tools are unavailable, have an administrator restart the application service hosting the IdP under your maintenance procedure, then repeat the checks. Confirm that the IdP is healthy rather than relying on a fixed delay. To roll back, restore the original files from backup, remove files or configuration entries added by this change, and reload the affected services.
 
@@ -605,13 +653,16 @@ Ask the IdP administrator for the current, valid IdP metadata. Verify its entity
 After the administrator confirms the download URL, replace the example URL and run the complete block below in **a Bash shell on the Linux server hosting the IdP**:
 
 ```bash
+# Replace the example URL with the metadata URL supplied by your IdP administrator.
 curl --fail --show-error \
   --output ./idp-metadata.xml \
   https://shibboleth.example.com/idp/shibboleth &&
   cat ./idp-metadata.xml
 ```
 
-After a successful download, `idp-metadata.xml` is saved in the current working directory and its contents are displayed in the terminal. Confirm that it contains complete IdP metadata XML, rather than an HTML sign-in or error page. Copy the XML into the PBX `Metadata XML` field in Section 3. If the download fails, check the URL, network connectivity, and certificate configuration before retrying.
+The command saves `idp-metadata.xml` in the current working directory and displays its contents. Verify that the file contains the complete IdP metadata XML. An HTML sign-in or error page indicates that the download did not return metadata.
+
+In Section 3.1, enter the verified URL if you select `Metadata URL (recommended)`, or paste the complete file contents if you select `Metadata XML`. Keep TLS certificate verification enabled when downloading metadata from the IdP URL. If the download fails, check the URL, connectivity, and certificate configuration before retrying.
 
 ***
 
@@ -630,11 +681,15 @@ Complete the integration configuration, user synchronization and linking, and SS
 
 * **SSO Protocol:** Select `SAML 2.0`.
 * **SP Entity ID:** Enter `portsip-pbx-saml`. It must exactly match `entityID` in the SP metadata configured in Section 2.
-* **SAML Configuration Source:** Select `Metadata XML`.
-* **Metadata XML:** Paste the complete IdP metadata XML obtained in Section 2 for your deployment method.
+* **SAML Configuration Source:** Select `Metadata URL (recommended)` to have the PBX retrieve the IdP metadata.
+* **Metadata URL:** Enter the URL verified in Section 2.1.5 or 2.2.5, for example `https://shibboleth.example.com/idp/shibboleth`. The URL must be reachable from the PBX. The PBX reads the IdP entity ID, SSO endpoint, and signing certificate from the metadata.
 * **NameID Format:** This example uses `Unspecified (recommended)`. If your IdP requires a specific format, select one supported by both systems.
 
+If the PBX cannot retrieve the metadata by URL, select `Metadata XML` under **SAML Configuration Source** and paste the complete XML obtained in Section 2.1.5 or 2.2.5 into the **Metadata XML** field. For authentication, the PBX uses only the currently selected source.
+
 `NameID Format` is separate from the `SAML User Identifier` setting used to match users below. When metadata is pasted manually, update the XML in PBX whenever the IdP signing certificate or SSO endpoints change.
+
+The screenshot shows the `Metadata XML` option. When you select `Metadata URL (recommended)`, the portal displays the **Metadata URL** field.
 
 <figure><img src="../../../../.gitbook/assets/shibboleth_1.png" alt=""><figcaption></figcaption></figure>
 
@@ -675,7 +730,7 @@ Click `OK` to save the integration before configuring `User Sync` and `Sign In`.
 
 Complete this section **after Section 4.2, Verify user synchronization and linking**. For the initial setup, complete Sections 4.1 and 4.2 first. Then return to the `Sign In` tab on the `Generic IdP Integration` page, turn on `Enable`, select the users allowed to sign in through SSO, and click `OK`. Make sure the allowed users include the test account.
 
-<figure><img src="../../../../.gitbook/assets/shibboleth_4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/shibboleth_3.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -689,7 +744,7 @@ Before enabling user synchronization in PBX, have the SCIM administrator confirm
 2. The selected credentials can query `GET /Users` with pagination.
 3. The user list is returned as a valid SCIM 2.0 `ListResponse` containing `schemas`, `totalResults`, and `Resources`. Pagination must follow the SCIM server's documented behavior.
 4. `Resources` includes the users to synchronize. The configured `SCIM User Identifier` must be one of the supported names in Section 3.3, with a nonempty, unique value that remains stable.
-5. For the same test user, the SCIM identifier exactly matches the SAML identifier checked using AACLI with `--saml2` in Section 2.
+5. For the same test user, the configured SCIM identifier value exactly matches the SAML identifier value returned by `resolvertest` with `saml2=true` in step 8 of Section 2.1.4 or 2.2.4.
 
 For example, the following values identify the same user:
 
@@ -743,3 +798,6 @@ After completing either automatic synchronization in Section 4.2.1 or manual lin
 5. After successful authentication, the browser should return to PBX and open the user's home page. Verify that the signed-in account and extension match the synchronization or linking result.
 
 Success criteria: The user is synchronized or linked correctly, SSO opens the corresponding PBX account, and existing Shibboleth integrations continue to work normally.
+
+
+
