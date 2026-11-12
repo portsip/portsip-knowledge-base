@@ -52,7 +52,11 @@ In the **Apply this rule to the following calls** section, define when this outb
 
 #### Route outbound calls
 
-In the **Make outbound calls on** section, select **up to six trunks** that the PBX can use for this rule.
+In the **Make outbound calls on** section, select **up to six trunks** that the PBX can use for this rule. Depending on the rule’s configuration, the PBX attempts these routes in a fixed order or at random, skipping any offline trunks.
+
+If a call attempt fails on one route, the PBX tries another route according to the configured routing strategy. However, if a trunk returns SIP response code **486 (Busy Here)** or **600 (Busy Everywhere)**, the PBX stops trying additional routes.
+
+To prevent the PBX from trying another trunk when a call attempt fails, configure only one route (trunk) for the outbound rule.
 
 * **Prioritized strategy**\
   Calls are sent to trunks in the configured order. If a call fails, the PBX tries the next trunk in the list.
