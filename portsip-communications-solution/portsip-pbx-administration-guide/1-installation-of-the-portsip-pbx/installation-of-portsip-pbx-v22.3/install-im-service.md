@@ -95,6 +95,7 @@ The following specifications are suitable for supporting **up to 50,000 concurre
 * **Network Bandwidth**: 1 Gbps or higher, especially for high message and file transfer volumes
 * **Static Private IP**: Required, for example: `192.168.1.25`
 * **Static Public IP**: Required for internet-facing deployments, for example: `104.18.36.110`
+* **Port:** TCP 8887
 
 ***
 
