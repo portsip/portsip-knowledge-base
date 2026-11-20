@@ -102,7 +102,7 @@ While silently monitoring, the supervisor can use DTMF keys to change the monito
 
 * **Press 2** – Whisper to the agent (agent hears supervisor; caller does not)
 * **Press 3** – Barge in (supervisor joins the call with both agent and caller)
-* **Press 4** – End the call for all three parties (the supervisor, the agent, and the customer).**Press 4** – End the call for all three parties (the supervisor, the agent, and the customer).
+* **Press 4** – End the call for all three parties (the supervisor, the agent, and the customer).
 
 ***
 
