@@ -1,5 +1,48 @@
 # Summary of Changes
 
+### Changes for Release v10.9.51
+
+**New Features and Improvements**
+
+* Restricted the anonymous calling feature to custom builds only. This feature is no longer available in standard releases.
+* Improved the functionality for administrators to manage call queue agent statuses.
+* Improved the desktop app's reconnection mechanism to prevent users from being signed out when token refresh fails due to network connectivity issues.
+* Improved audio playback in IM conversations on the desktop app.
+* Improved IM message search and search result presentation on the desktop app.
+* Improved responsiveness on iOS when dialing from the dial pad and transitioning to the in-call screen.
+
+**Bug Fixes**
+
+* Fixed an issue where the desktop app could not launch on Windows when Smart App Control was enabled.
+
+***
+
+### Changes for Release v10.9.50
+
+**New Features and Improvements**
+
+* Improved system notification handling to prevent notifications for previous messages from appearing when an extension signs in for the first time.
+* Added support for signing in through an Identity Provider (IdP) using OpenID Connect (OIDC).
+* Added support for configuring the visibility and read-only access of client features and settings through configuration templates.
+* Enhanced Screen Pop by adding an answering number parameter and support for launching external applications.
+* Added support for restricting users from logging in to call queues and changing their agent status through configuration templates.
+* Added the ability to manage agent statuses directly from the Wallboard.
+* Improved group chat functionality and added a Clear Data option.
+* Added a Make Anonymous Call option to the outbound caller ID drop-down list on the dial pad and in the settings.
+* Updated holiday settings to default to the tenant's configured country when adding a new holiday.
+* Added SRTP configuration options to the mobile apps.
+
+**Bug Fixes**
+
+* Fixed an issue on iOS where incoming calls received via push notifications could not be answered from the lock screen.
+* Fixed an issue on Android where the selected theme colors were not applied to the in-call screen.
+* Fixed an issue on the desktop app where the user list in the call transfer interface could fail to load completely in environments with a large number of users.
+* Fixed a noise issue when decoding G.729 Annex B silence frames.
+* Fixed an issue where active SRTP calls could be dropped when switching networks.
+* Fixed an issue where voicemail notifications could no longer be received after switching networks and refreshing SIP registration.
+
+***
+
 ### Changes in v10.9.42 for Android & iOS&#x20;
 
 **Improvements**
